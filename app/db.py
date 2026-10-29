@@ -1,178 +1,101 @@
-import json
-import sqlite3
-from datetime import datetime
-from typing import Any, Dict, Optional
+async function loadStatus() {
+  const response = await fetch('/api/status');
+  const result = await response.json();
+  const cards = document.getElementById('status-cards');
+  const chart = document.getElementById('chart');
+  cards.innerHTML = '';
+  chart.innerHTML = '';
 
-from app.config import DB_PATH
+  if (!result.data || result.data.length === 0) {
+    cards.innerHTML = '<div class="card"><div class="label">No data yet</div><div class="value">Waiting for first fetch</div></div>';
+    return;
+  }
 
+  const maxCount = Math.max(...result.data.map(item => Number(item.change_count || 0))) || 1;
 
-def get_connection() -> sqlite3.Connection:
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-    return conn
+  result.data.forEach((item) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="label">${item.endpoint}</div>
+      <div class="value">${item.fetched_at}</div>
+      <div class="meta">status: ${item.status_code} / changes: ${item.change_count}</div>
+    `;
+    cards.appendChild(card);
 
+    const row = document.createElement('div');
+    row.className = 'chart-row';
+    row.innerHTML = `
+      <div class="chart-name">${item.endpoint}</div>
+      <div class="chart-bar-bg"><div class="chart-bar" style="width:${((Number(item.change_count) || 0) / maxCount) * 100}%"></div></div>
+      <div class="chart-count">${item.change_count}</div>
+    `;
+    chart.appendChild(row);
+  });
+}
 
-def init_db() -> None:
-    conn = get_connection()
-    try:
-        conn.execute(
-            """
-            CREATE TABLE IF NOT EXISTS snapshots (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                endpoint TEXT NOT NULL,
-                fetched_at TEXT NOT NULL,
-                status_code INTEGER,
-                payload TEXT NOT NULL,
-                checksum TEXT NOT NULL
-            )
-            """
-        )
-        conn.execute(
-            """
-            CREATE TABLE IF NOT EXISTS change_events (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                endpoint TEXT NOT NULL,
-                snapshot_id INTEGER NOT NULL,
-                previous_snapshot_id INTEGER,
-                change_type TEXT NOT NULL,
-                path TEXT NOT NULL,
-                old_value TEXT,
-                new_value TEXT,
-                created_at TEXT NOT NULL
-            )
-            """
-        )
-        conn.commit()
-    finally:
-        conn.close()
+async function loadHistory() {
+  const response = await fetch('/api/history?limit=8');
+  const result = await response.json();
+  const tbody = document.getElementById('history-body');
+  tbody.innerHTML = '';
 
+  if (!result.data || result.data.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="4">No snapshots yet</td></tr>';
+    return;
+  }
 
-def insert_snapshot(endpoint: str, status_code: int, payload: Dict[str, Any], checksum: str) -> int:
-    conn = get_connection()
-    try:
-        cursor = conn.execute(
-            """
-            INSERT INTO snapshots (endpoint, fetched_at, status_code, payload, checksum)
-            VALUES (?, ?, ?, ?, ?)
-            """,
-            (
-                endpoint,
-                datetime.utcnow().isoformat(timespec="seconds"),
-                status_code,
-                json.dumps(payload, separators=(",", ":"), ensure_ascii=False),
-                checksum,
-            ),
-        )
-        conn.commit()
-        return cursor.lastrowid
-    finally:
-        conn.close()
+  result.data.forEach((item) => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td><a href="/api/snapshot/${item.id}" target="_blank">${item.id}</a></td>
+      <td>${item.endpoint}</td>
+      <td>${item.fetched_at}</td>
+      <td>${item.status_code}</td>
+    `;
+    tbody.appendChild(row);
+  });
+}
 
+async function loadChanges() {
+  const response = await fetch('/api/changes?limit=20');
+  const result = await response.json();
+  const tbody = document.getElementById('changes-body');
+  tbody.innerHTML = '';
 
-def get_latest_snapshot(endpoint: str) -> Optional[Dict[str, Any]]:
-    conn = get_connection()
-    try:
-        row = conn.execute(
-            """
-            SELECT * FROM snapshots
-            WHERE endpoint = ?
-            ORDER BY id DESC
-            LIMIT 1
-            """,
-            (endpoint,),
-        ).fetchone()
-        if row is None:
-            return None
-        return {
-            "id": row["id"],
-            "endpoint": row["endpoint"],
-            "fetched_at": row["fetched_at"],
-            "status_code": row["status_code"],
-            "payload": json.loads(row["payload"]),
-            "checksum": row["checksum"],
-        }
-    finally:
-        conn.close()
+  if (!result.data || result.data.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="6">No changes yet</td></tr>';
+    return;
+  }
 
+  result.data.forEach((item) => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${item.endpoint}</td>
+      <td>${item.change_type}</td>
+      <td>${item.path}</td>
+      <td>${safeValue(item.old_value)}</td>
+      <td>${safeValue(item.new_value)}</td>
+      <td>${item.created_at}</td>
+    `;
+    tbody.appendChild(row);
+  });
+}
 
-def insert_change_event(
-    endpoint: str,
-    snapshot_id: int,
-    previous_snapshot_id: Optional[int],
-    change_type: str,
-    path: str,
-    old_value: Any,
-    new_value: Any,
-) -> None:
-    conn = get_connection()
-    try:
-        conn.execute(
-            """
-            INSERT INTO change_events (
-                endpoint, snapshot_id, previous_snapshot_id, change_type, path, old_value, new_value, created_at
-            )
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-            """,
-            (
-                endpoint,
-                snapshot_id,
-                previous_snapshot_id,
-                change_type,
-                path,
-                json.dumps(old_value, ensure_ascii=False) if old_value is not None else None,
-                json.dumps(new_value, ensure_ascii=False) if new_value is not None else None,
-                datetime.utcnow().isoformat(timespec="seconds"),
-            ),
-        )
-        conn.commit()
-    finally:
-        conn.close()
+function safeValue(value) {
+  if (value == null) return '-';
+  try {
+    return JSON.stringify(JSON.parse(value), null, 2).slice(0, 80);
+  } catch {
+    return String(value).slice(0, 80);
+  }
+}
 
-
-def list_recent_changes(limit: int = 20):
-    conn = get_connection()
-    try:
-        rows = conn.execute(
-            """
-            SELECT * FROM change_events
-            ORDER BY id DESC
-            LIMIT ?
-            """,
-            (limit,),
-        ).fetchall()
-        return [dict(row) for row in rows]
-    finally:
-        conn.close()
-
-
-def get_status_summary():
-    conn = get_connection()
-    try:
-        rows = conn.execute(
-            """
-            SELECT endpoint, MAX(id) AS latest_snapshot_id
-            FROM snapshots
-            GROUP BY endpoint
-            """
-        ).fetchall()
-
-        summary = []
-        for row in rows:
-            latest = conn.execute(
-                """
-                SELECT endpoint, fetched_at, status_code
-                FROM snapshots
-                WHERE id = ?
-                """,
-                (row["latest_snapshot_id"],),
-            ).fetchone()
-            summary.append(
-                {
-                    "endpoint": latest["endpoint"],
-                    "fetched_at": latest["fetched_at"],
-                    "status_code": latest["status_code"],
-                }
-            )
-        return summary
-    finally:
-        conn.close()
+loadStatus();
+loadHistory();
+loadChanges();
+setInterval(() => {
+  loadStatus();
+  loadHistory();
+  loadChanges();
+}, 30000);
