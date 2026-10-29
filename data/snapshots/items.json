@@ -1,7 +1,7 @@
 {
-  "checksum": "6427626f7edd694e0b81b2245a41e32a9f44cf72d1bce4869149981b9d7ae2cf",
+  "checksum": "d09e3945dbfe51e7789d8af74456b448493d4e41d2d157712c04554382b3175b",
   "endpoint": "items",
-  "fetched_at": "2026-10-29T19:41:38Z",
+  "fetched_at": "2026-10-29T23:38:45Z",
   "payload": {
     "items": [
       {
@@ -26083,6 +26083,7 @@
         "id": "TALISMAN_ENRICHMENT_SWAPPER",
         "material": "REDSTONE_COMPARATOR",
         "name": "Accessory Enrichment Swapper",
+        "soulbound": "COOP",
         "tier": "SPECIAL"
       },
       {
@@ -147086,7 +147087,7 @@
         "tier": "SPECIAL"
       }
     ],
-    "lastUpdated": 1793129756033,
+    "lastUpdated": 1793311327754,
     "success": true
   },
   "status_code": 200,

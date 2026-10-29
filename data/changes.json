@@ -5,6 +5,22 @@
     "path": "skills.FISHING.levels",
     "old": "[50 items]",
     "new": "[50 items]",
+    "time": "2026-10-29T23:38:45Z"
+  },
+  {
+    "endpoint": "items",
+    "type": "added",
+    "path": "items.TALISMAN_ENRICHMENT_SWAPPER.soulbound",
+    "old": null,
+    "new": "\"COOP\"",
+    "time": "2026-10-29T23:38:45Z"
+  },
+  {
+    "endpoint": "skills",
+    "type": "modified",
+    "path": "skills.FISHING.levels",
+    "old": "[50 items]",
+    "new": "[50 items]",
     "time": "2026-10-29T19:41:36Z"
   }
 ]
