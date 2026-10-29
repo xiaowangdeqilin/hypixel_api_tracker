@@ -2,9 +2,9 @@ name: Hypixel API Tracker
 
 on:
   schedule:
-    # Run every 10 minutes. Bazaar prices update constantly but we only
-    # track structural (product add/remove) changes, so 10 min is plenty.
-    - cron: "*/10 * * * *"
+    # Run every 10 minutes (UTC). Using explicit minute list instead of */10
+    # to ensure GitHub's cron parser handles it correctly.
+    - cron: "0,10,20,30,40,50 * * * *"
   push:
     branches:
       - main
@@ -15,13 +15,12 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
   build:
     runs-on: ubuntu-latest
+    concurrency:
+      group: "hypixel-tracker-build-${{ github.ref }}"
+      cancel-in-progress: false
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
