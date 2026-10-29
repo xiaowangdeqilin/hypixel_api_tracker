@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "endpoint": "skills",
+    "type": "modified",
+    "path": "skills.FISHING.levels",
+    "old": "[50 items]",
+    "new": "[50 items]",
+    "time": "2026-10-29T19:41:36Z"
+  }
+]
