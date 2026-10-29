@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hypixel API Tracker</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hypixel SkyBlock API Tracker</h1>
+
+      <div id="status-cards" class="cards"></div>
+
+      <div class="panel">
+        <h2>Recent Changes</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Endpoint</th>
+              <th>Type</th>
+              <th>Path</th>
+              <th>Old</th>
+              <th>New</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="changes-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
