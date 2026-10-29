@@ -1,56 +1,55 @@
-from fastapi import FastAPI
-from fastapi.responses import HTMLResponse
-from fastapi.staticfiles import StaticFiles
-from fastapi.templating import Jinja2Templates
-from starlette.requests import Request
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hypixel API Tracker</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hypixel SkyBlock API Tracker</h1>
 
-from app.config import BASE_DIR
-from app.db import (
-    get_snapshot_by_id,
-    get_status_summary,
-    init_db,
-    list_recent_changes,
-    list_recent_snapshots,
-)
-from app.scheduler import start_scheduler
+      <div id="status-cards" class="cards"></div>
 
-app = FastAPI(title="Hypixel API Tracker")
+      <div class="panel">
+        <h2>Endpoint Overview</h2>
+        <div id="chart" class="chart"></div>
+      </div>
 
-templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
-app.mount("/static", StaticFiles(directory=str(BASE_DIR / "static")), name="static")
+      <div class="panel">
+        <h2>Recent Snapshots</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Endpoint</th>
+              <th>Fetched At</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="history-body"></tbody>
+        </table>
+      </div>
 
-init_db()
-start_scheduler()
+      <div class="panel">
+        <h2>Recent Changes</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Endpoint</th>
+              <th>Type</th>
+              <th>Path</th>
+              <th>Old</th>
+              <th>New</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="changes-body"></tbody>
+        </table>
+      </div>
+    </div>
 
-
-@app.get("/", response_class=HTMLResponse)
-async def index(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
-
-
-@app.get("/api/status")
-async def api_status():
-    return {"data": get_status_summary()}
-
-
-@app.get("/api/history")
-async def api_history(endpoint: str | None = None, limit: int = 10):
-    return {"data": list_recent_snapshots(endpoint=endpoint, limit=limit)}
-
-
-@app.get("/api/snapshot/{snapshot_id}")
-async def api_snapshot(snapshot_id: int):
-    snapshot = get_snapshot_by_id(snapshot_id)
-    if snapshot is None:
-        return {"error": "snapshot not found"}
-    return snapshot
-
-
-@app.get("/api/changes")
-async def api_changes(limit: int = 20):
-    return {"data": list_recent_changes(limit=limit)}
-
-
-@app.get("/health")
-async def health():
-    return {"status": "ok"}
+    <script src="/static/app.js"></script>
+  </body>
+</html>
