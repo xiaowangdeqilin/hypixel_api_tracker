@@ -2,9 +2,8 @@ name: Hypixel API Tracker
 
 on:
   schedule:
-    # Run every minute (UTC) for diagnostic purposes.
-    # After confirming schedule triggers work, will revert to every 10 min.
-    - cron: "* * * * *"
+    # Run every 10 minutes (UTC).
+    - cron: "*/10 * * * *"
   push:
     branches:
       - main
