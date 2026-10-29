@@ -2,9 +2,9 @@ name: Hypixel API Tracker
 
 on:
   schedule:
-    # Run every 10 minutes (UTC). Using explicit minute list instead of */10
-    # to ensure GitHub's cron parser handles it correctly.
-    - cron: "0,10,20,30,40,50 * * * *"
+    # Run every minute (UTC) for diagnostic purposes.
+    # After confirming schedule triggers work, will revert to every 10 min.
+    - cron: "* * * * *"
   push:
     branches:
       - main
