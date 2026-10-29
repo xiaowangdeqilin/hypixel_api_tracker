@@ -1,79 +1,88 @@
-# Hypixel API Tracker
+# Hypixel SkyBlock API Tracker
 
-A small monitoring app for tracking changes in the Hypixel SkyBlock public APIs:
+一个定时监控 Hypixel SkyBlock 公共 API 变更的工具，自动生成 GitHub Pages 仪表盘。
 
-- https://api.hypixel.net/v2/resources/skyblock/collections
-- https://api.hypixel.net/v2/resources/skyblock/skills
-- https://api.hypixel.net/v2/resources/skyblock/items
-- https://api.hypixel.net/v2/skyblock/bazaar
+监控的 4 个端点：
 
-This project stores API snapshots, detects changes against the previous snapshot, and exposes a lightweight web dashboard.
+- `https://api.hypixel.net/v2/resources/skyblock/collections`
+- `https://api.hypixel.net/v2/resources/skyblock/skills`
+- `https://api.hypixel.net/v2/resources/skyblock/items`
+- `https://api.hypixel.net/v2/skyblock/bazaar`
 
-## Features
+## 工作原理
 
-- Scheduled polling for all 4 endpoints
-- Snapshot storage in SQLite
-- Change detection for added/removed/modified values
-- Simple FastAPI dashboard
-- Recent change logs and endpoint status summary
+GitHub Actions 定时（每 10 分钟）运行 `scripts/build_dashboard.py`：
 
-## Quick start
+1. 抓取 4 个端点的 JSON 数据
+2. 与上一次提交的快照（`data/snapshots/*.json`）做 diff，检测 **新增 / 删除 / 修改** 的字段
+3. 将变更记录追加到 `data/changes.json`
+4. 生成静态仪表盘 `site/index.html`
+5. 把更新后的快照和变更日志提交回仓库
+6. 部署 `site/` 到 GitHub Pages
 
-1. Install dependencies:
+### 变更检测策略
 
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate
-   pip install -r requirements.txt
-   ```
+| 端点 | 检测内容 |
+|------|----------|
+| collections | 分类增删、分类内物品增删、字段修改 |
+| skills | 技能增删、字段修改 |
+| items | 物品增删（按 `id` 匹配）、字段修改 |
+| bazaar | **仅结构性变更**（产品增删），忽略每秒波动的价格 |
 
-2. Initialize the database:
+## 本地运行
 
-   ```bash
-   python -c "from app.db import init_db; init_db()"
-   ```
+```bash
+pip install requests
+python scripts/build_dashboard.py
+```
 
-3. Start the server:
+运行后会生成：
 
-   ```bash
-   uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
-   ```
+- `data/snapshots/*.json` — 各端点快照
+- `data/changes.json` — 变更日志
+- `site/index.html` — 仪表盘页面
 
-4. Open:
+## 部署到 GitHub Pages
 
-   ```text
-   http://localhost:8000/
-   ```
+1. 推送代码到 GitHub
+2. 在仓库 **Settings → Pages** 中，将 Source 设为 **GitHub Actions**
+3. （可选）在 **Settings → Secrets and variables → Actions** 添加 `HYPIXEL_API_KEY`
+4. workflow 会自动定时运行并部署
 
-## Configuration
+也可以在 **Actions** 页面手动触发 `Hypixel API Tracker` workflow。
 
-Copy `.env.example` and set your Hypixel API key if needed.
+## 项目结构
 
-## Notes
-
-- Bazaar is polled frequently because it changes more often.
-- Collections, skills, and items are polled less frequently because they are more static.
-- Snapshots are saved locally in SQLite for lightweight historical tracking.
-
-## Project structure
-
-```text
-app/
-  __init__.py
+```
+.github/workflows/pages.yml   # 定时抓取 + 部署 Pages
+scripts/build_dashboard.py    # 核心：抓取、diff、生成页面
+data/
+  snapshots/                  # 持久化快照（提交到仓库）
+    collections.json
+    skills.json
+    items.json
+    bazaar.json
+  changes.json                # 变更日志
+app/                          # 可选：本地 FastAPI 实时仪表盘
   config.py
   db.py
   diff.py
   fetcher.py
   scheduler.py
   main.py
-data/
-  .gitkeep
-templates/
-  index.html
-static/
-  app.js
-  styles.css
-requirements.txt
-.env.example
-README.md
+templates/                    # FastAPI 模板
+static/                       # FastAPI 静态资源
+requirements.txt              # FastAPI 依赖（可选）
 ```
+
+## 可选：本地 FastAPI 仪表盘
+
+如果想在本地实时查看（非 Pages 方式），可以运行 FastAPI 服务：
+
+```bash
+pip install -r requirements.txt
+python -c "from app.db import init_db; init_db()"
+uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+```
+
+访问 http://localhost:8000/
