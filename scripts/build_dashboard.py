@@ -45,6 +45,8 @@ ENDPOINTS: Dict[str, str] = {
 
 REQUEST_TIMEOUT = 30
 MAX_CHANGE_LOG = 500
+# Maximum characters kept for a single old/new value in the change log.
+MAX_LOG_VALUE_CHARS = 1500
 
 # Bazaar price data changes every few seconds; we only care about structural
 # changes (products added / removed) for the change log.  We still snapshot a
@@ -101,11 +103,29 @@ def diff_dict(old: Dict[str, Any], new: Dict[str, Any], prefix: str = "") -> Lis
 
     for key in sorted(new_keys - old_keys):
         path = f"{prefix}.{key}" if prefix else key
-        changes.append({"type": "added", "path": path, "old": None, "new": _summarize(new[key])})
+        changes.append(
+            {
+                "type": "added",
+                "path": path,
+                "old": None,
+                "old_full": None,
+                "new": _summarize(new[key]),
+                "new_full": _log_value(new[key]),
+            }
+        )
 
     for key in sorted(old_keys - new_keys):
         path = f"{prefix}.{key}" if prefix else key
-        changes.append({"type": "removed", "path": path, "old": _summarize(old[key]), "new": None})
+        changes.append(
+            {
+                "type": "removed",
+                "path": path,
+                "old": _summarize(old[key]),
+                "old_full": _log_value(old[key]),
+                "new": None,
+                "new_full": None,
+            }
+        )
 
     for key in sorted(old_keys & new_keys):
         path = f"{prefix}.{key}" if prefix else key
@@ -118,7 +138,9 @@ def diff_dict(old: Dict[str, Any], new: Dict[str, Any], prefix: str = "") -> Lis
                     "type": "modified",
                     "path": path,
                     "old": _summarize(ov),
+                    "old_full": _log_value(ov),
                     "new": _summarize(nv),
+                    "new_full": _log_value(nv),
                 }
             )
     return changes
@@ -147,6 +169,17 @@ def _summarize(value: Any) -> str:
     text = json.dumps(value, ensure_ascii=False)
     if len(text) > 120:
         text = text[:117] + "..."
+    return text
+
+
+def _log_value(value: Any, max_chars: int = MAX_LOG_VALUE_CHARS) -> Optional[str]:
+    """Full (but length-capped) JSON representation of a value, so the dashboard
+    can show the actual value after a change instead of only a summary."""
+    if value is None:
+        return None
+    text = json.dumps(value, ensure_ascii=False, sort_keys=True)
+    if len(text) > max_chars:
+        return text[:max_chars] + f"… (已截断，共 {len(text)} 字符)"
     return text
 
 
@@ -186,9 +219,27 @@ def diff_bazaar(old: Dict[str, Any], new: Dict[str, Any]) -> List[Dict[str, Any]
 
     changes: List[Dict[str, Any]] = []
     for pid in sorted(new_ids - old_ids):
-        changes.append({"type": "added", "path": f"products.{pid}", "old": None, "new": "new bazaar product"})
+        changes.append(
+            {
+                "type": "added",
+                "path": f"products.{pid}",
+                "old": None,
+                "old_full": None,
+                "new": "new bazaar product",
+                "new_full": pid,
+            }
+        )
     for pid in sorted(old_ids - new_ids):
-        changes.append({"type": "removed", "path": f"products.{pid}", "old": "bazaar product", "new": None})
+        changes.append(
+            {
+                "type": "removed",
+                "path": f"products.{pid}",
+                "old": "bazaar product",
+                "old_full": pid,
+                "new": None,
+                "new_full": None,
+            }
+        )
     return changes
 
 
@@ -293,6 +344,24 @@ def append_changes(new_changes: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
 # --------------------------------------------------------------------------- #
 
 
+def _value_cell(preview: Optional[str], full: Optional[str]) -> str:
+    """Render a change value: compact preview, plus the full value after the
+    change inside an expandable <details> block."""
+    preview_text = html.escape(preview) if preview else "-"
+    if not full:
+        return f'<span class="val">{preview_text}</span>'
+
+    full_text = html.escape(full)
+    if len(full) <= 80 and full == preview:
+        return f'<span class="val">{full_text}</span>'
+
+    return (
+        f'<span class="val">{preview_text}</span>'
+        f'<details class="value-details"><summary>查看完整值</summary>'
+        f'<pre>{full_text}</pre></details>'
+    )
+
+
 def render_html(
     *,
     generated_at: str,
@@ -330,8 +399,8 @@ def render_html(
                   <td><span class="type type-{html.escape(c.get('type',''))}">{html.escape(c.get('type',''))}</span></td>
                   <td class="endpoint">{html.escape(c.get('endpoint',''))}</td>
                   <td class="path"><code>{html.escape(c.get('path',''))}</code></td>
-                  <td class="old">{html.escape(c.get('old') or '-')}</td>
-                  <td class="new">{html.escape(c.get('new') or '-')}</td>
+                  <td class="old">{_value_cell(c.get('old'), c.get('old_full'))}</td>
+                  <td class="new">{_value_cell(c.get('new'), c.get('new_full'))}</td>
                   <td class="time">{html.escape(c.get('time',''))}</td>
                 </tr>
                 """
@@ -397,6 +466,29 @@ def render_html(
     .type-modified {{ background: #78350f; color: #fcd34d; }}
     .path code {{ color: #7dd3fc; word-break: break-all; }}
     .old, .new {{ max-width: 240px; word-break: break-word; color: #cbd5e1; }}
+    .val {{ display: block; }}
+    .value-details {{ margin-top: 6px; }}
+    .value-details summary {{
+      cursor: pointer;
+      font-size: 11px;
+      color: #38bdf8;
+      user-select: none;
+    }}
+    .value-details summary:hover {{ text-decoration: underline; }}
+    .value-details pre {{
+      margin: 6px 0 0 0;
+      padding: 8px;
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      font-size: 11px;
+      line-height: 1.5;
+      color: #e2e8f0;
+      white-space: pre-wrap;
+      word-break: break-all;
+      max-height: 260px;
+      overflow: auto;
+    }}
     .time {{ color: #94a3b8; white-space: nowrap; }}
     .endpoint {{ color: #c4b5fd; text-transform: capitalize; }}
     .empty {{ text-align: center; color: #64748b; padding: 24px; }}
@@ -496,6 +588,8 @@ def main() -> int:
                         "path": c["path"],
                         "old": c["old"],
                         "new": c["new"],
+                        "old_full": c.get("old_full"),
+                        "new_full": c.get("new_full"),
                         "time": generated_at,
                     }
                 )
