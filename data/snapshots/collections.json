@@ -1,7 +1,7 @@
 {
-  "checksum": "a7a7748d5190c705546eb7751236f26cdf007b1853c615d41bee2b8cf18ff5d7",
+  "checksum": "b7dab7cc33c9bdcffc691ca8f78d9991ca5db585c515b1f6fa56e7c3a1249996",
   "endpoint": "collections",
-  "fetched_at": "2026-11-02T12:44:02Z",
+  "fetched_at": "2026-11-02T21:57:06Z",
   "payload": {
     "collections": {
       "COMBAT": {
@@ -7153,9 +7153,9 @@
         "name": "Rift"
       }
     },
-    "lastUpdated": 1793311857865,
+    "lastUpdated": 1793654167242,
     "success": true,
-    "version": "0.27.2.21"
+    "version": "0.27.2.22"
   },
   "status_code": 200,
   "summary": {
