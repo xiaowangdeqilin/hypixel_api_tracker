@@ -4,6 +4,7 @@ const ENDPOINT_LABELS = {
   skills: '技能',
   items: '物品',
   bazaar: '集市',
+  packs: '资源包',
 };
 
 const TYPE_LABELS = {
