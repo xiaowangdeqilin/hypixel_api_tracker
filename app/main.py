@@ -4,7 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from starlette.requests import Request
 
-from app.config import BASE_DIR
+from app.config import BASE_DIR, get_version
 from app.db import (
     get_snapshot_by_id,
     get_status_summary,
@@ -14,7 +14,7 @@ from app.db import (
 )
 from app.scheduler import start_scheduler
 
-app = FastAPI(title="Hypixel API Tracker")
+app = FastAPI(title="Hypixel SkyBlock API 变更监控台")
 
 templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
 app.mount("/static", StaticFiles(directory=str(BASE_DIR / "static")), name="static")
@@ -25,7 +25,9 @@ start_scheduler()
 
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse(
+        "index.html", {"request": request, "version": get_version()}
+    )
 
 
 @app.get("/api/status")
@@ -42,7 +44,7 @@ async def api_history(endpoint: str | None = None, limit: int = 10):
 async def api_snapshot(snapshot_id: int):
     snapshot = get_snapshot_by_id(snapshot_id)
     if snapshot is None:
-        return {"error": "snapshot not found"}
+        return {"error": "未找到该快照"}
     return snapshot
 
 

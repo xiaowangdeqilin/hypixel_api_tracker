@@ -3,29 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hypixel API Tracker</title>
+    <title>Hypixel SkyBlock API 变更监控台</title>
     <link rel="stylesheet" href="/static/styles.css" />
   </head>
   <body>
     <div class="container">
-      <h1>Hypixel SkyBlock API Tracker</h1>
+      <div class="version-bar">
+        <span class="version-tag">当前版本 v{{ version }}</span>
+        <span class="version-meta">本地实时仪表盘 · 每 30 秒自动刷新</span>
+      </div>
+
+      <h1>Hypixel SkyBlock API 变更监控台</h1>
 
       <div id="status-cards" class="cards"></div>
 
       <div class="panel">
-        <h2>Endpoint Overview</h2>
+        <h2>端点变更概览</h2>
         <div id="chart" class="chart"></div>
       </div>
 
       <div class="panel">
-        <h2>Recent Snapshots</h2>
+        <h2>最近快照</h2>
         <table>
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Endpoint</th>
-              <th>Fetched At</th>
-              <th>Status</th>
+              <th>编号</th>
+              <th>端点</th>
+              <th>抓取时间</th>
+              <th>状态</th>
             </tr>
           </thead>
           <tbody id="history-body"></tbody>
@@ -33,16 +38,16 @@
       </div>
 
       <div class="panel">
-        <h2>Recent Changes</h2>
+        <h2>最近变更</h2>
         <table>
           <thead>
             <tr>
-              <th>Endpoint</th>
-              <th>Type</th>
-              <th>Path</th>
-              <th>Old</th>
-              <th>New</th>
-              <th>Time</th>
+              <th>端点</th>
+              <th>类型</th>
+              <th>字段路径</th>
+              <th>原值</th>
+              <th>新值</th>
+              <th>时间</th>
             </tr>
           </thead>
           <tbody id="changes-body"></tbody>

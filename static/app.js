@@ -1,3 +1,25 @@
+// 数据里保留原始英文标识，仅在展示层翻译成中文。
+const ENDPOINT_LABELS = {
+  collections: '收藏',
+  skills: '技能',
+  items: '物品',
+  bazaar: '集市',
+};
+
+const TYPE_LABELS = {
+  added: '新增',
+  removed: '删除',
+  modified: '修改',
+};
+
+function endpointLabel(value) {
+  return ENDPOINT_LABELS[value] || value;
+}
+
+function typeLabel(value) {
+  return TYPE_LABELS[value] || value;
+}
+
 async function loadStatus() {
   const response = await fetch('/api/status');
   const result = await response.json();
@@ -7,7 +29,7 @@ async function loadStatus() {
   chart.innerHTML = '';
 
   if (!result.data || result.data.length === 0) {
-    cards.innerHTML = '<div class="card"><div class="label">No data yet</div><div class="value">Waiting for first fetch</div></div>';
+    cards.innerHTML = '<div class="card"><div class="label">暂无数据</div><div class="value">等待首次抓取</div></div>';
     return;
   }
 
@@ -17,16 +39,16 @@ async function loadStatus() {
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = `
-      <div class="label">${item.endpoint}</div>
+      <div class="label">${endpointLabel(item.endpoint)}</div>
       <div class="value">${item.fetched_at}</div>
-      <div class="meta">status: ${item.status_code} / changes: ${item.change_count}</div>
+      <div class="meta">状态：${item.status_code} ／ 变更：${item.change_count}</div>
     `;
     cards.appendChild(card);
 
     const row = document.createElement('div');
     row.className = 'chart-row';
     row.innerHTML = `
-      <div class="chart-name">${item.endpoint}</div>
+      <div class="chart-name">${endpointLabel(item.endpoint)}</div>
       <div class="chart-bar-bg"><div class="chart-bar" style="width:${((Number(item.change_count) || 0) / maxCount) * 100}%"></div></div>
       <div class="chart-count">${item.change_count}</div>
     `;
@@ -41,7 +63,7 @@ async function loadHistory() {
   tbody.innerHTML = '';
 
   if (!result.data || result.data.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="4">No snapshots yet</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="4">暂无快照</td></tr>';
     return;
   }
 
@@ -49,7 +71,7 @@ async function loadHistory() {
     const row = document.createElement('tr');
     row.innerHTML = `
       <td><a href="/api/snapshot/${item.id}" target="_blank">${item.id}</a></td>
-      <td>${item.endpoint}</td>
+      <td>${endpointLabel(item.endpoint)}</td>
       <td>${item.fetched_at}</td>
       <td>${item.status_code}</td>
     `;
@@ -64,15 +86,15 @@ async function loadChanges() {
   tbody.innerHTML = '';
 
   if (!result.data || result.data.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="6">No changes yet</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="6">暂无变更</td></tr>';
     return;
   }
 
   result.data.forEach((item) => {
     const row = document.createElement('tr');
     row.innerHTML = `
-      <td>${item.endpoint}</td>
-      <td>${item.change_type}</td>
+      <td>${endpointLabel(item.endpoint)}</td>
+      <td>${typeLabel(item.change_type)}</td>
       <td>${item.path}</td>
       <td>${safeValue(item.old_value)}</td>
       <td>${safeValue(item.new_value)}</td>
@@ -83,7 +105,7 @@ async function loadChanges() {
 }
 
 function safeValue(value) {
-  if (value == null) return '-';
+  if (value == null) return '—';
   try {
     return JSON.stringify(JSON.parse(value), null, 2).slice(0, 80);
   } catch {
