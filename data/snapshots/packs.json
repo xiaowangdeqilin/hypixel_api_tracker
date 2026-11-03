@@ -1,0 +1,38 @@
+{
+  "checksum": "32f43db21aa57578f3acf49a681bd018e7d01df1309f71e65fc1736290a78228",
+  "endpoint": "packs",
+  "fetched_at": "2026-11-03T06:27:25Z",
+  "payload": {
+    "packs": [
+      {
+        "deployId": "1b5b3899-cdc3-4c90-ac57-7d3867e099d5",
+        "id": "SkyBlock",
+        "lastUpdated": 1793202047607,
+        "versions": [
+          {
+            "hash": "526bd87b753a8c877a75b27bce6ac58ef8bc9bfe",
+            "packFormat": 97,
+            "url": "https://resourcepacks.hypixel.net/SkyBlock/1b5b3899-cdc3-4c90-ac57-7d3867e099d5/97.zip"
+          },
+          {
+            "hash": "5a79711e084ac6da613fb1195c4e69117566a528",
+            "packFormat": 84,
+            "url": "https://resourcepacks.hypixel.net/SkyBlock/1b5b3899-cdc3-4c90-ac57-7d3867e099d5/84.zip"
+          },
+          {
+            "hash": "db4bbcd45f706b9ea7f66c007a2641d364809537",
+            "packFormat": 88,
+            "url": "https://resourcepacks.hypixel.net/SkyBlock/1b5b3899-cdc3-4c90-ac57-7d3867e099d5/88.zip"
+          }
+        ]
+      }
+    ],
+    "success": true
+  },
+  "status_code": 200,
+  "summary": {
+    "deploy_id": "1b5b3899-cdc3-4c90-ac57-7d3867e099d5",
+    "pack_count": 1,
+    "pack_format_count": 3
+  }
+}
