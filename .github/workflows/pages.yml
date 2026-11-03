@@ -14,6 +14,9 @@ jobs:
   build:
     # 固定镜像标签，避免 ubuntu-latest 迁移到 Ubuntu 26 的通知与潜在行为变化
     runs-on: ubuntu-24.04
+    outputs:
+      # 接口或资源包获取失败时脚本会输出 false，本次运行不提交、不部署
+      data_written: ${{ steps.build.outputs.data_written }}
     steps:
       # 以下 action 版本均运行在 Node.js 24，消除 Node.js 20 弃用警告
       - uses: actions/checkout@v5
@@ -28,11 +31,13 @@ jobs:
         run: pip install --disable-pip-version-check requests
 
       - name: Build dashboard
+        id: build
         env:
           HYPIXEL_API_KEY: ${{ secrets.HYPIXEL_API_KEY }}
         run: python scripts/build_dashboard.py
 
       - name: Commit data
+        if: steps.build.outputs.data_written == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -44,11 +49,13 @@ jobs:
           fi
 
       - uses: actions/upload-pages-artifact@v5
+        if: steps.build.outputs.data_written == 'true'
         with:
           path: ./site
 
   deploy:
     needs: build
+    if: needs.build.outputs.data_written == 'true'
     runs-on: ubuntu-24.04
     environment:
       name: github-pages

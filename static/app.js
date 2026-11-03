@@ -47,13 +47,86 @@ function formatTime(value) {
     `${p(shifted.getUTCHours())}:${p(shifted.getUTCMinutes())}:${p(shifted.getUTCSeconds())}`;
 }
 
-function safeValue(value) {
-  if (value == null) return '—';
+function prettyValue(value) {
+  if (value == null) return '';
+  let text;
   try {
-    return JSON.stringify(JSON.parse(value), null, 2).slice(0, 120);
+    text = JSON.stringify(JSON.parse(value), null, 2);
   } catch {
-    return String(value).slice(0, 120);
+    text = String(value);
   }
+  return text.length > 4000 ? text.slice(0, 4000) + '…' : text;
+}
+
+// 逐行 LCS 比对，返回 ctx / del / add 操作序列；文本过大时返回 null 由调用方降级。
+function lcsOps(a, b) {
+  const n = a.length;
+  const m = b.length;
+  if (n > 400 || m > 400 || n * m > 160000) return null;
+  const dp = [];
+  for (let i = 0; i <= n; i++) dp.push(new Uint32Array(m + 1));
+  for (let i = n - 1; i >= 0; i--) {
+    for (let j = m - 1; j >= 0; j--) {
+      dp[i][j] = a[i] === b[j]
+        ? dp[i + 1][j + 1] + 1
+        : Math.max(dp[i + 1][j], dp[i][j + 1]);
+    }
+  }
+  const ops = [];
+  let i = 0;
+  let j = 0;
+  while (i < n && j < m) {
+    if (a[i] === b[j]) {
+      ops.push({ kind: 'ctx', text: a[i] }); i++; j++;
+    } else if (dp[i + 1][j] >= dp[i][j + 1]) {
+      ops.push({ kind: 'del', text: a[i] }); i++;
+    } else {
+      ops.push({ kind: 'add', text: b[j] }); j++;
+    }
+  }
+  while (i < n) ops.push({ kind: 'del', text: a[i++] });
+  while (j < m) ops.push({ kind: 'add', text: b[j++] });
+  return ops;
+}
+
+// 只输出发生变化的片段（带 2 行上下文），未变化的大段内容折叠省略。
+function renderSegments(ops) {
+  const keep = ops.map(() => false);
+  ops.forEach((op, idx) => {
+    if (op.kind === 'ctx') return;
+    const from = Math.max(0, idx - 2);
+    const to = Math.min(ops.length - 1, idx + 2);
+    for (let k = from; k <= to; k++) keep[k] = true;
+  });
+  let html = '';
+  let inSegment = false;
+  ops.forEach((op, idx) => {
+    if (!keep[idx]) {
+      if (inSegment) html += '<div class="diff-omitted">… 未变化内容省略</div>';
+      inSegment = false;
+      return;
+    }
+    inSegment = true;
+    const css = op.kind === 'del' ? 'diff-del' : op.kind === 'add' ? 'diff-add' : 'diff-ctx';
+    const sign = op.kind === 'del' ? '-' : op.kind === 'add' ? '+' : ' ';
+    html += `<div class="diff-line ${css}"><span class="sign">${sign}</span>` +
+      `<pre>${escapeHtml(op.text)}</pre></div>`;
+  });
+  return html || '<div class="diff-line diff-ctx"><span class="sign"> </span><pre>（无可见行变化）</pre></div>';
+}
+
+function renderChangeContent(item, kindClass) {
+  const oldText = prettyValue(item.old_value);
+  const newText = prettyValue(item.new_value);
+  const line = (css, sign, text) =>
+    `<div class="diff-line ${css}"><span class="sign">${sign}</span>` +
+    `<pre>${escapeHtml(text)}</pre></div>`;
+  // 新增：只标绿，前面不出现任何红色行；删除：只标红。
+  if (kindClass === 'added') return line('diff-add', '+', newText);
+  if (kindClass === 'removed') return line('diff-del', '-', oldText);
+  const ops = lcsOps(oldText.split('\n'), newText.split('\n'));
+  if (ops) return renderSegments(ops);
+  return line('diff-del', '-', oldText) + line('diff-add', '+', newText);
 }
 
 async function loadStatus() {
@@ -122,23 +195,20 @@ async function loadChanges() {
   tbody.innerHTML = '';
 
   if (!result.data || result.data.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="6" class="empty">暂无变更</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="5" class="empty">暂无变更</td></tr>';
     return;
   }
 
   result.data.forEach((item) => {
     const kind = item.change_type;
     const kindClass = ['added', 'removed'].includes(kind) ? kind : 'modified';
-    const oldVal = safeValue(item.old_value);
-    const newVal = safeValue(item.new_value);
     const row = document.createElement('tr');
     row.className = `diff-row diff-row-${kindClass}`;
     row.innerHTML = `
       <td>${escapeHtml(endpointLabel(item.endpoint))}</td>
       <td><span class="type type-${escapeHtml(kindClass)}">${escapeHtml(typeLabel(kind))}</span></td>
       <td class="path"><code>${escapeHtml(item.path)}</code></td>
-      <td class="diff-cell diff-del">${item.old_value == null ? '' : `<span class="sign">-</span><pre>${escapeHtml(oldVal)}</pre>`}</td>
-      <td class="diff-cell diff-add">${item.new_value == null ? '' : `<span class="sign">+</span><pre>${escapeHtml(newVal)}</pre>`}</td>
+      <td class="diff-cell">${renderChangeContent(item, kindClass)}</td>
       <td class="time">${escapeHtml(formatTime(item.created_at))}</td>
     `;
     tbody.appendChild(row);

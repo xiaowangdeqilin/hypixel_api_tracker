@@ -15,9 +15,16 @@ data.json 数据文件。
 * **元数据不参与 diff**：``version`` / ``lastUpdated`` / ``success`` 在快照与
   比对前统一剥离，版本号变化不会被当成端点内容更新。
 * **时间统一北京时间**：所有写入与展示的时间均由 ``app.timeutil`` 处理。
+* **资源包取最大 packFormat**：``packFormat`` 会随 Minecraft / Hypixel 更新而变大，
+  每次调用接口都从响应里重新取数值最大的版本，不缓存也不写死任何数字。
+* **失败安全**：抓取与比对过程完全不落盘；只有「五个接口全部拿到数据」且
+  「资源包检查成功」时，才在阶段 3 一次性写入 ``data/``。任一环节失败则整次
+  运行不做任何变化，页面沿用上次结果并标注原因。
+* **只显示变化片段**：修改类变更（端点字段与资源包文本文件）经逐行比对后
+  只输出发生变化的段落，删除行标红、新增行标绿；新增项只标绿，不出现红色行。
 * 快照保存在 ``data/snapshots/``，滚动变更日志 ``data/changes.json``，
   版本状态 ``data/runtime.json``，资源包清单 ``data/pack_files.json`` /
-  ``data/pack_changes.json``。
+  文本缓存 ``data/pack_texts.json`` / 变更记录 ``data/pack_changes.json``。
 """
 
 from __future__ import annotations
@@ -40,9 +47,25 @@ if str(BASE_DIR) not in sys.path:
 from app.timeutil import format_time, now_beijing  # noqa: E402
 
 try:  # 兼容 ``python scripts/build_dashboard.py`` 与模块导入两种方式
-    from pack_inspector import inspect_pack, load_pack_changes
+    from pack_inspector import (
+        collect_pack_versions,
+        commit_pack_result,
+        diff_text_lines,
+        inspect_pack,
+        load_manifest,
+        load_pack_changes,
+        parse_pack_format,
+    )
 except ImportError:  # pragma: no cover
-    from scripts.pack_inspector import inspect_pack, load_pack_changes
+    from scripts.pack_inspector import (
+        collect_pack_versions,
+        commit_pack_result,
+        diff_text_lines,
+        inspect_pack,
+        load_manifest,
+        load_pack_changes,
+        parse_pack_format,
+    )
 
 # --------------------------------------------------------------------------- #
 # 配置
@@ -91,6 +114,7 @@ SUMMARY_LABELS = {
     "product_count": "集市商品数",
     "pack_count": "资源包数",
     "pack_format_count": "格式版本数",
+    "selected_pack_format": "选取格式（最大）",
     "deploy_id": "部署 ID",
 }
 TYPE_LABELS = {
@@ -112,6 +136,7 @@ PACK_STATUS_LABELS = {
     "baseline": "已建立资源包文件基线",
     "error": "资源包检查失败",
     "unavailable": "暂无可用资源包",
+    "texts_backfilled": "已补齐文本缓存（包内容无变化）",
 }
 
 BAZAAR_STRUCTURAL_ONLY = True
@@ -426,7 +451,12 @@ def diff_bazaar(old: Dict[str, Any], new: Dict[str, Any]) -> List[Dict[str, Any]
 
 
 def diff_packs(old: Dict[str, Any], new: Dict[str, Any]) -> List[Dict[str, Any]]:
-    """把 packs 响应摊平成路径->值的映射后比对，可精确到每个 packFormat 的哈希。"""
+    """只比对每个资源包中 **packFormat 数值最大** 的那个版本。
+
+    packFormat 会随 Minecraft / Hypixel 更新而变大，如果把格式号写进路径，
+    一次格式升级就会被误报成「旧格式全部删除 + 新格式全部新增」。这里改用
+    固定键，格式号变化只体现为 ``packFormat`` 字段的一条修改记录。
+    """
 
     def flatten(payload: Dict[str, Any]) -> Dict[str, Any]:
         out: Dict[str, Any] = {}
@@ -435,13 +465,16 @@ def diff_packs(old: Dict[str, Any], new: Dict[str, Any]) -> List[Dict[str, Any]]
                 continue
             pid = str(pack.get("id", "unknown"))
             out[f"{pid}.deployId"] = pack.get("deployId")
-            out[f"{pid}.lastUpdated"] = pack.get("lastUpdated")
-            for version in pack.get("versions") or []:
-                if not isinstance(version, dict):
-                    continue
-                fmt = version.get("packFormat")
-                out[f"{pid}.format{fmt}.hash"] = version.get("hash")
-                out[f"{pid}.format{fmt}.url"] = version.get("url")
+            versions = [
+                v for v in (pack.get("versions") or [])
+                if isinstance(v, dict) and parse_pack_format(v.get("packFormat")) is not None
+            ]
+            if not versions:
+                continue
+            best = max(versions, key=lambda v: parse_pack_format(v.get("packFormat")) or -1)
+            out[f"{pid}.packFormat"] = parse_pack_format(best.get("packFormat"))
+            out[f"{pid}.hash"] = best.get("hash")
+            out[f"{pid}.url"] = best.get("url")
         return out
 
     return diff_dict(flatten(old), flatten(new))
@@ -492,13 +525,14 @@ def summarize_payload(name: str, payload: Dict[str, Any]) -> Dict[str, Any]:
         return {"product_count": len(products) if isinstance(products, dict) else 0}
     if name == "packs":
         packs = payload.get("packs") or []
-        versions = [
-            v for p in packs if isinstance(p, dict) for v in (p.get("versions") or [])
-        ]
+        versions = collect_pack_versions(payload)
         first = packs[0] if packs and isinstance(packs[0], dict) else {}
+        # 每次都从响应里重新取最大值，格式号随 MC 更新而变化，不做缓存。
+        selected = max((v["pack_format"] for v in versions), default=None)
         return {
             "pack_count": len(packs),
             "pack_format_count": len(versions),
+            "selected_pack_format": selected if selected is not None else "-",
             "deploy_id": first.get("deployId", "-"),
         }
     return {}
@@ -568,8 +602,71 @@ def _diff_line(preview: Optional[str], full: Optional[str], css: str, sign: str)
     )
 
 
+def _pretty_json_text(value: Optional[str]) -> Optional[str]:
+    """把日志里的 JSON 字符串整理成多行文本，便于逐行比对。"""
+    if not value:
+        return None
+    try:
+        parsed = json.loads(value)
+    except (json.JSONDecodeError, TypeError):
+        return str(value)
+    if isinstance(parsed, (dict, list)):
+        return json.dumps(parsed, ensure_ascii=False, indent=2, sort_keys=True)
+    return str(value)
+
+
+def change_value_hunks(change: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """字段修改只保留变化片段：原值 / 新值整理成文本后逐行比对。"""
+    old_text = _pretty_json_text(change.get("old_full")) or localize_text(
+        change.get("old")
+    )
+    new_text = _pretty_json_text(change.get("new_full")) or localize_text(
+        change.get("new")
+    )
+    if not old_text and not new_text:
+        return []
+    return diff_text_lines(str(old_text or ""), str(new_text or ""))
+
+
+def render_hunks(hunks: List[Dict[str, Any]], *, show_header: bool = True) -> str:
+    """把逐行 diff 片段渲染成代码审核风格：删除红、新增绿，未变化的段不输出。"""
+    if not hunks:
+        return ""
+    blocks = []
+    for hunk in hunks:
+        rows = []
+        for line in hunk.get("lines", []):
+            kind = line.get("kind", "ctx")
+            css = {"del": "diff-del", "add": "diff-add", "ctx": "diff-ctx"}.get(
+                kind, "diff-ctx"
+            )
+            sign = {"del": "-", "add": "+", "ctx": " "}.get(kind, " ")
+            text = html.escape(str(line.get("text", "")))
+            rows.append(
+                f'<div class="diff-line {css}"><span class="sign">{sign}</span>'
+                f'<div class="diff-code"><code>{text}</code></div></div>'
+            )
+        truncated = hunk.get("truncated")
+        if truncated:
+            rows.append(
+                f'<div class="diff-omitted">… 本段另有 {truncated} 行未显示</div>'
+            )
+        header = ""
+        if show_header:
+            header = (
+                '<div class="diff-hunk">@@ 原值第 '
+                f'{html.escape(str(hunk.get("old_start", "?")))} 行 · 新值第 '
+                f'{html.escape(str(hunk.get("new_start", "?")))} 行 @@</div>'
+            )
+        blocks.append(header + "".join(rows))
+    return f'<div class="diff-hunks">{"".join(blocks)}</div>'
+
+
 def render_change_blocks(changes: List[Dict[str, Any]]) -> str:
-    """把变更渲染成类似 git diff / code review 的区块：新增绿、删除红。"""
+    """把变更渲染成类似 git diff / code review 的区块：新增纯绿、删除纯红。
+
+    修改类变更只显示「发生变化的那一段」，未变化的部分完全不输出。
+    """
     if not changes:
         return (
             '<div class="empty">暂无变更记录。当某个端点返回与上次快照不同的数据时，'
@@ -584,12 +681,17 @@ def render_change_blocks(changes: List[Dict[str, Any]]) -> str:
         }.get(raw_type, "badge-mod")
         lines = []
         if raw_type == "added":
+            # 新增：只标绿，不显示任何红色删除行
             lines.append(_diff_line(c.get("new"), c.get("new_full"), "diff-add", "+"))
         elif raw_type == "removed":
             lines.append(_diff_line(c.get("old"), c.get("old_full"), "diff-del", "-"))
         elif raw_type == "modified":
-            lines.append(_diff_line(c.get("old"), c.get("old_full"), "diff-del", "-"))
-            lines.append(_diff_line(c.get("new"), c.get("new_full"), "diff-add", "+"))
+            hunks = change_value_hunks(c)
+            if hunks:
+                lines.append(render_hunks(hunks))
+            else:
+                lines.append(_diff_line(c.get("old"), c.get("old_full"), "diff-del", "-"))
+                lines.append(_diff_line(c.get("new"), c.get("new_full"), "diff-add", "+"))
         else:
             lines.append(
                 _diff_line(
@@ -612,22 +714,85 @@ def render_change_blocks(changes: List[Dict[str, Any]]) -> str:
     return "".join(blocks)
 
 
-def _pack_file_details(label: str, files: List[str], css: str, sign: str) -> str:
+PACK_FILE_LIMIT = 20
+
+
+def _pack_paths_details(label: str, files: List[str], css: str, sign: str) -> str:
+    """新增 / 删除文件：整段单一颜色，新增前面不出现红色行。"""
     if not files:
         return ""
-    limit = 20
     items = "".join(
         f'<div class="diff-line {css}"><span class="sign">{sign}</span>'
         f'<div class="diff-code"><code>{html.escape(str(path))}</code></div></div>'
-        for path in files[:limit]
+        for path in files[:PACK_FILE_LIMIT]
     )
     more = (
-        f'<div class="pack-more">… 另有 {len(files) - limit} 个文件未展开</div>'
-        if len(files) > limit else ""
+        f'<div class="pack-more">… 另有 {len(files) - PACK_FILE_LIMIT} 个文件未展开</div>'
+        if len(files) > PACK_FILE_LIMIT else ""
     )
     return (
         f'<details class="pack-files"><summary class="cnt-{css}">'
         f'{label}文件（{len(files)}）</summary><div class="diff-lines">{items}{more}</div></details>'
+    )
+
+
+def _pack_modified_details(modified: List[Any]) -> str:
+    """修改文件：只显示发生变化的那一段，删除行标红、新增行标绿。"""
+    if not modified:
+        return ""
+    parts = []
+    for entry in modified[:PACK_FILE_LIMIT]:
+        if isinstance(entry, str):
+            # 兼容旧格式记录（只有文件路径）
+            path, hunks, kind = entry, [], "text"
+            old_hash = new_hash = ""
+        else:
+            path = entry.get("path", "-")
+            hunks = entry.get("hunks") or []
+            kind = entry.get("kind", "text")
+            old_hash = str(entry.get("old_hash", "") or "")
+            new_hash = str(entry.get("new_hash", "") or "")
+        head = (
+            f'<div class="pack-mod-head"><code>{html.escape(str(path))}</code></div>'
+        )
+        if hunks:
+            body = render_hunks(hunks, show_header=False)
+        elif kind == "binary":
+            body = (
+                '<div class="pack-binary">二进制文件已修改，仅显示哈希：'
+                f'{html.escape(old_hash or "-")} → {html.escape(new_hash or "-")}</div>'
+            )
+        else:
+            body = (
+                '<div class="diff-line diff-del"><span class="sign">-</span>'
+                f'<div class="diff-code"><code>哈希 {html.escape(old_hash or "-")}</code></div></div>'
+                '<div class="diff-line diff-add"><span class="sign">+</span>'
+                f'<div class="diff-code"><code>哈希 {html.escape(new_hash or "-")}</code></div></div>'
+            )
+        parts.append(f'<div class="pack-mod">{head}{body}</div>')
+    if len(modified) > PACK_FILE_LIMIT:
+        parts.append(
+            f'<div class="pack-more">… 另有 {len(modified) - PACK_FILE_LIMIT} '
+            '个修改文件未展开</div>'
+        )
+    return (
+        f'<details class="pack-files" open><summary class="cnt-mod">'
+        f'修改文件（{len(modified)}）</summary>{"".join(parts)}</details>'
+    )
+
+
+def _pack_candidates_text(pack_result: Dict[str, Any]) -> str:
+    """说明本次从哪些格式里取了最大值。"""
+    candidates = pack_result.get("candidates") or []
+    pack = pack_result.get("pack") or {}
+    selected = pack.get("pack_format")
+    if not candidates:
+        return ""
+    joined = " / ".join(str(x) for x in candidates)
+    return (
+        f'<span class="pack-formats">本次候选 packFormat：{html.escape(joined)}'
+        f' → 自动选取最大值 <strong>{html.escape(str(selected))}</strong>'
+        '（数字随 MC 更新变化，每次调用接口重新取）</span>'
     )
 
 
@@ -638,12 +803,14 @@ def render_pack_panel(pack_result: Dict[str, Any], pack_changes: List[Dict[str, 
     total_files = pack_result.get("total_files", 0)
     status_text = PACK_STATUS_LABELS.get(status, status)
 
+    candidates_html = _pack_candidates_text(pack_result)
     if pack:
         meta = (
             f'资源包：{html.escape(str(pack.get("id", "-")))} &middot; '
             f'packFormat {html.escape(str(pack.get("pack_format", "-")))} &middot; '
             f'文件总数 {total_files} &middot; '
             f'部署 ID <code>{html.escape(str(pack.get("deploy_id", "-")))}</code>'
+            + (" &middot; " + candidates_html if candidates_html else "")
         )
     else:
         meta = "尚未获取到资源包信息"
@@ -679,9 +846,9 @@ def render_pack_panel(pack_result: Dict[str, Any], pack_changes: List[Dict[str, 
                     <span>共 {html.escape(str(rec.get('total_files', '-')))} 个文件</span>
                   </div>
                   {note_html}
-                  {_pack_file_details('新增', added, 'diff-add', '+')}
-                  {_pack_file_details('修改', modified, 'diff-mod', '~')}
-                  {_pack_file_details('删除', removed, 'diff-del', '-')}
+                  {_pack_paths_details('新增', added, 'diff-add', '+')}
+                  {_pack_modified_details(modified)}
+                  {_pack_paths_details('删除', removed, 'diff-del', '-')}
                 </div>
                 """
             )
@@ -690,7 +857,7 @@ def render_pack_panel(pack_result: Dict[str, Any], pack_changes: List[Dict[str, 
     return f"""
     <div class="panel">
       <h2>资源包文件变更</h2>
-      <p class="hint">工作流会下载 Hypixel 资源包 zip 并解压，按文件内容哈希比对，列出包内文件的新增 / 修改 / 删除。官方哈希未变化时自动跳过下载。</p>
+      <p class="hint">每次调用接口都会从响应里取 <strong>packFormat 数值最大</strong> 的资源包（该数字随 MC 更新变化，不写死）；官方哈希未变化时跳过下载。新增文件只标绿、删除文件只标红；被修改的文本文件<strong>只显示发生变化的那一段</strong>，删除行标红、新增行标绿，未变化的内容不输出。若接口或下载失败，本次运行不会改动任何数据。</p>
       <div class="pack-meta">{status_text} &middot; {meta}</div>
       {err_html}
       {rows}
@@ -748,6 +915,7 @@ def render_html(
     build: str,
     pack_result: Dict[str, Any],
     pack_changes: List[Dict[str, Any]],
+    skipped_reason: Optional[str] = None,
 ) -> str:
     stable = version_info.get("stable_version") or "未获取"
     version_display = f"v{stable}" if stable != "未获取" else "未获取"
@@ -762,6 +930,13 @@ def render_html(
         f'<div class="version-note">{html.escape(version_info.get("note", ""))}</div>'
         if sync_status in ("syncing", "partial") and version_info.get("note") else ""
     )
+    skip_html = ""
+    if skipped_reason:
+        skip_html = (
+            '<div class="skip-banner">本次运行未获取到完整数据，'
+            '<strong>仓库数据未做任何改动</strong>，以下展示的是上一次成功抓取的结果。'
+            f'<br>原因：{html.escape(skipped_reason)}</div>'
+        )
 
     cards = []
     for name in ENDPOINTS:
@@ -894,6 +1069,21 @@ def render_html(
     }}
     .pack-files .diff-line {{ font-size: 11px; }}
     .pack-files code {{ color: inherit; }}
+    .pack-mod {{ border-top: 1px dashed #334155; padding: 6px 0; }}
+    .pack-mod-head {{ font-size: 11px; color: #fcd34d; padding: 2px 12px; word-break: break-all; }}
+    .pack-binary {{ color: #94a3b8; font-size: 11px; padding: 4px 12px; }}
+    .pack-formats {{ color: #7dd3fc; }}
+
+    /* ---- 只显示变化片段 ---- */
+    .diff-hunks {{ border: 1px solid #334155; border-radius: 6px; margin: 6px 0; overflow-x: auto; }}
+    .diff-hunk {{ background: #16213a; color: #94a3b8; font-size: 11px; padding: 3px 12px; }}
+    .diff-omitted {{ color: #64748b; font-size: 11px; padding: 4px 12px; }}
+    .diff-ctx {{ border-left: 3px solid #475569; color: #94a3b8; }}
+    .diff-ctx .sign {{ color: #475569; }}
+    .skip-banner {{
+      background: #451a03; border: 1px solid #f59e0b; color: #fde68a;
+      border-radius: 8px; padding: 10px 14px; font-size: 12px; margin-bottom: 12px;
+    }}
 
     table {{ width: 100%; border-collapse: collapse; font-size: 13px; }}
     th, td {{ text-align: left; padding: 10px 12px; border-bottom: 1px solid #334155; vertical-align: top; }}
@@ -906,6 +1096,7 @@ def render_html(
 </head>
 <body>
   <div class="container">
+    {skip_html}
     <div class="version-bar">
       <div class="version-main">
         <span class="version-tag">当前版本 {version_display}</span>
@@ -926,7 +1117,7 @@ def render_html(
 
     <div class="panel">
       <h2>最近变更</h2>
-      <p class="hint">按代码审核（diff）风格展示：<span style="color:#6ee7b7">绿色 + 为新增</span>、<span style="color:#fca5a5">红色 - 为删除</span>、修改同时显示原值与新值。端点比对已排除 <code>version</code> / <code>lastUpdated</code> / <code>success</code>，版本号变化不会被当成内容更新。</p>
+      <p class="hint">按代码审核（diff）风格展示：<span style="color:#6ee7b7">新增只标绿 +</span>、<span style="color:#fca5a5">删除只标红 -</span>；修改<strong>只显示发生变化的那一段</strong>（删除行标红、新增行标绿，未变化内容不输出）。端点比对已排除 <code>version</code> / <code>lastUpdated</code> / <code>success</code>，版本号变化不会被当成内容更新。</p>
       {render_change_blocks(changes)}
     </div>
 
@@ -939,7 +1130,10 @@ def render_html(
         由于 Hypixel 分批更新时两个接口不一定同时切换，只有两者版本一致才会确认新版本；不一致时保持上次稳定版本并显示「版本同步中」，
         避免版本号来回跳。版本切换单独记录在「版本记录」面板，不混入端点内容变更日志。
         集市（bazaar）的价格波动已被过滤，仅追踪商品的结构性增删。
-        资源包（packs）端点会在官方哈希变化时下载 zip 并解压，按文件内容哈希比对包内文件的增删改。
+        资源包（packs）端点每次都会取 packFormat 数值最大的版本（该数字随 MC 更新变化），
+        在官方哈希变化时下载 zip 并解压，按文件内容哈希比对包内文件的增删改；
+        被修改的文本文件只展示变化片段并标红标绿，新增文件只标绿。
+        若任一接口或资源包下载失败，本次运行不会改动仓库里的任何数据。
       </p>
     </div>
   </div>
@@ -953,56 +1147,94 @@ def render_html(
 # --------------------------------------------------------------------------- #
 
 
+def _write_github_output(key: str, value: str) -> None:
+    """在 Actions 里把结果传给后续步骤；本地运行时是空操作。"""
+    output_path = os.getenv("GITHUB_OUTPUT")
+    if output_path:
+        with open(output_path, "a", encoding="utf-8") as fh:
+            fh.write(f"{key}={value}\n")
+
+
+def _skipped_view() -> Dict[str, Dict[str, Any]]:
+    """跳过模式下从磁盘上的旧快照构造页面卡片（不产生任何新数据）。"""
+    view: Dict[str, Dict[str, Any]] = {}
+    for name in ENDPOINTS:
+        snap = load_snapshot(name)
+        if snap:
+            view[name] = {
+                "status": "ok",
+                "fetched_at": snap.get("fetched_at", "-"),
+                "summary": snap.get("summary", {}),
+            }
+        else:
+            view[name] = {"status": "error", "fetched_at": "-", "summary": {}}
+    return view
+
+
+def _pack_result_from_disk() -> Dict[str, Any]:
+    """跳过模式下从磁盘清单还原资源包状态，保证页面与仓库数据一致。"""
+    manifest = load_manifest(DATA_DIR)
+    files = manifest.get("files") or {}
+    return {
+        "status": "unchanged",
+        "pack": {
+            "id": manifest.get("pack_id", "-"),
+            "pack_format": manifest.get("pack_format", "-"),
+            "deploy_id": manifest.get("deploy_id", "-"),
+        } if files else None,
+        "total_files": len(files),
+        "changes": [],
+        "error": None,
+        "candidates": [],
+    }
+
+
 def main() -> int:
     SITE_DIR.mkdir(parents=True, exist_ok=True)
-    DATA_DIR.mkdir(parents=True, exist_ok=True)
-    SNAPSHOT_DIR.mkdir(parents=True, exist_ok=True)
 
     dashboard_version = read_version()
     build = current_build()
     generated_at = now_beijing()
     runtime = load_runtime()
-    endpoints_result: Dict[str, Dict[str, Any]] = {}
-    new_changes: List[Dict[str, Any]] = []
-    observed_versions: Dict[str, str] = {}
-    packs_payload: Optional[Dict[str, Any]] = None
 
+    # ---- 阶段 1：只抓取，不落盘 ------------------------------------------
+    payloads: Dict[str, Dict[str, Any]] = {}
+    fetch_errors: Dict[str, str] = {}
     for name, url in ENDPOINTS.items():
         payload, error = fetch_endpoint(name, url)
         if payload is None:
-            endpoints_result[name] = {
-                "status": "error", "fetched_at": generated_at,
-                "error": error, "summary": {},
-            }
-            continue
+            fetch_errors[name] = error or "未知错误"
+        else:
+            payloads[name] = payload
 
+    # ---- 阶段 2：只计算，不落盘 ------------------------------------------
+    endpoints_result: Dict[str, Dict[str, Any]] = {}
+    new_changes: List[Dict[str, Any]] = []
+    observed_versions: Dict[str, str] = {}
+    pending_snapshots: Dict[str, Dict[str, Any]] = {}
+
+    for name, payload in payloads.items():
         # 版本观测：collections 与 skills 顶层带 version；items 没有，不参与。
         if name in VERSION_ENDPOINTS and isinstance(payload, dict):
             version_value = payload.get("version")
             if isinstance(version_value, str) and version_value:
                 observed_versions[name] = version_value
 
-        if name == "packs":
-            packs_payload = payload
-
         snapshot = make_snapshot(name, payload)
         previous = load_snapshot(name)
-
         if previous is None:
             endpoints_result[name] = {
                 "status": "ok", "fetched_at": snapshot["fetched_at"],
                 "summary": snapshot["summary"], "note": "first snapshot",
             }
         else:
-            diff_func = DIFF_FUNCS[name]
             try:
                 # 历史快照可能仍含元数据，比对前统一剥离，保证规则一致。
                 old_payload = strip_meta(previous.get("payload", {}))
-                changes = diff_func(old_payload, snapshot["payload"])
+                changes = DIFF_FUNCS[name](old_payload, snapshot["payload"])
             except Exception as exc:  # noqa: BLE001
                 changes = []
                 print(f"[警告] {name} 比对失败：{exc}", file=sys.stderr)
-
             for c in changes:
                 new_changes.append(
                     {
@@ -1012,41 +1244,63 @@ def main() -> int:
                         "time": generated_at,
                     }
                 )
-
             endpoints_result[name] = {
                 "status": "ok", "fetched_at": snapshot["fetched_at"],
                 "summary": snapshot["summary"], "change_count": len(changes),
             }
+        pending_snapshots[name] = snapshot
 
-        save_snapshot(name, snapshot)
-
-    # 双端点版本一致性确认（不再因为版本号变化写入端点变更日志）
     version_info = resolve_version_state(runtime, observed_versions, generated_at)
-    save_runtime(version_info)
 
-    # 资源包下载 / 解压 / 文件变更比对（官方哈希不变时自动跳过下载）。
+    # 资源包检查：只在 packs 接口成功时运行；检查器本身不写盘。
     pack_result: Dict[str, Any] = {
         "status": "unavailable", "pack": None, "total_files": 0,
-        "changes": [], "error": "packs 端点本次未返回数据",
+        "changes": [], "error": None, "candidates": [],
     }
-    if packs_payload is not None:
+    if "packs" in payloads:
         try:
-            pack_result = inspect_pack(packs_payload, DATA_DIR)
+            pack_result = inspect_pack(payloads["packs"], DATA_DIR)
         except Exception as exc:  # noqa: BLE001
             pack_result = {
                 "status": "error", "pack": None, "total_files": 0,
-                "changes": [], "error": str(exc),
+                "changes": [], "error": str(exc), "candidates": [],
             }
-    pack_changes = load_pack_changes(DATA_DIR)
 
-    # 持久化变更日志
-    all_changes = append_changes(new_changes)
-    save_changes(all_changes)
+    # ---- 阶段 3：判定是否允许落盘（失败即整次不做任何变化）----------------
+    reasons: List[str] = []
+    if fetch_errors:
+        failed = "、".join(ENDPOINT_LABELS.get(k, k) for k in fetch_errors)
+        reasons.append(f"{failed} 接口未获取到内容")
+    if pack_result.get("status") in ("error", "unavailable"):
+        detail = pack_result.get("error") or "无法取得可用的资源包下载地址"
+        reasons.append(f"资源包检查未完成（{detail}）")
+    skipped_reason = "；".join(reasons) if reasons else None
 
-    # 渲染站点
+    if skipped_reason is None:
+        # 数据齐备，一次性事务式落盘。
+        for name, snapshot in pending_snapshots.items():
+            save_snapshot(name, snapshot)
+        all_changes = append_changes(new_changes)
+        save_changes(all_changes)
+        save_runtime(version_info)
+        commit_pack_result(pack_result, DATA_DIR)
+        pack_changes = load_pack_changes(DATA_DIR)
+        data_written = True
+    else:
+        # 任何失败都不改动 data/ 下的一个字节，页面沿用上次结果。
+        data_written = False
+        all_changes = load_changes()
+        saved_runtime = load_runtime()
+        if saved_runtime:
+            version_info = saved_runtime
+        pack_changes = load_pack_changes(DATA_DIR)
+        pack_result = _pack_result_from_disk()
+        endpoints_result = _skipped_view()
+
+    # ---- 阶段 4：生成站点产物（artifact，不属于仓库持久化数据）------------
     data_payload = {
         "version_info": version_info,
-        "resource_version": version_info["stable_version"],
+        "resource_version": version_info.get("stable_version", "未获取"),
         "dashboard_version": dashboard_version,
         "build": build,
         "generated_at": generated_at,
@@ -1054,6 +1308,8 @@ def main() -> int:
         "changes": all_changes,
         "pack": {k: v for k, v in pack_result.items() if k != "changes"},
         "pack_changes": pack_changes,
+        "data_written": data_written,
+        "skipped_reason": skipped_reason,
     }
     (SITE_DIR / "data.json").write_text(
         json.dumps(data_payload, ensure_ascii=False, indent=2), encoding="utf-8"
@@ -1068,23 +1324,38 @@ def main() -> int:
             build=build,
             pack_result=pack_result,
             pack_changes=pack_changes,
+            skipped_reason=skipped_reason,
         ),
         encoding="utf-8",
     )
+    _write_github_output("data_written", "true" if data_written else "false")
 
     print(
-        f"[构建] 当前版本 v{version_info['stable_version']} "
-        f"({SYNC_LABELS.get(version_info['sync_status'], version_info['sync_status'])}) "
+        f"[构建] 当前版本 v{version_info.get('stable_version', '未获取')} "
+        f"({SYNC_LABELS.get(version_info.get('sync_status', 'unknown'), '未知')}) "
         f"· 仪表盘 v{dashboard_version} · 构建 {build} · {generated_at}（北京时间）"
     )
-    if version_info["confirmed"]:
-        print(f"[构建] 版本已确认切换：{version_info.get('previous_stable') or '-'} → {version_info['stable_version']}")
-    for name, ep in endpoints_result.items():
-        cc = ep.get("change_count", 0)
-        print(f"[构建] {ENDPOINT_LABELS.get(name, name)}：状态={STATUS_LABELS.get(ep['status'], ep['status'])}，变更 {cc} 条")
-    print(f"[构建] 资源包检查：{PACK_STATUS_LABELS.get(pack_result['status'], pack_result['status'])}，文件 {pack_result.get('total_files', 0)} 个")
-    print(f"[构建] 本次新增变更 {len(new_changes)} 条")
-    print(f"[构建] 页面已写入 {SITE_DIR}")
+    if data_written:
+        if version_info.get("confirmed"):
+            print(
+                f"[构建] 版本已确认切换：{version_info.get('previous_stable') or '-'} "
+                f"→ {version_info['stable_version']}"
+            )
+        for name, ep in endpoints_result.items():
+            cc = ep.get("change_count", 0)
+            print(
+                f"[构建] {ENDPOINT_LABELS.get(name, name)}："
+                f"状态={STATUS_LABELS.get(ep['status'], ep['status'])}，变更 {cc} 条"
+            )
+        print(
+            f"[构建] 资源包检查："
+            f"{PACK_STATUS_LABELS.get(pack_result['status'], pack_result['status'])}，"
+            f"文件 {pack_result.get('total_files', 0)} 个"
+        )
+        print(f"[构建] 本次新增变更 {len(new_changes)} 条")
+    else:
+        print(f"[跳过] {skipped_reason}；本次未改动任何仓库数据")
+    print(f"[构建] 页面已写入 {SITE_DIR}，data_written={str(data_written).lower()}")
 
     return 0
 

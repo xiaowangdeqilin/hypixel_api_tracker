@@ -46,15 +46,14 @@
 
       <div class="panel">
         <h2>最近变更</h2>
-        <p class="hint">按代码审核（diff）风格展示：<span class="legend-add">绿色 + 为新增</span>、<span class="legend-del">红色 - 为删除</span>、修改同时显示原值与新值。端点 diff 已排除 version / lastUpdated 等元数据字段。</p>
+        <p class="hint">按代码审核（diff）风格展示：<span class="legend-add">新增只标绿 +</span>、<span class="legend-del">删除只标红 -</span>；修改<strong>只显示发生变化的那一段</strong>（删除行标红、新增行标绿，未变化内容不输出）。端点 diff 已排除 version / lastUpdated 等元数据字段。</p>
         <table>
           <thead>
             <tr>
               <th>端点</th>
               <th>类型</th>
               <th>字段路径</th>
-              <th>原值</th>
-              <th>新值</th>
+              <th>变化内容</th>
               <th>时间（北京时间）</th>
             </tr>
           </thead>
