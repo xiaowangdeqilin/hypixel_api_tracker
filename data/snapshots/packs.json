@@ -1,7 +1,7 @@
 {
   "checksum": "f044722b46b5171ca277e9d7c6b2a733c4247909c5ff3d57e13c4e4a7a24bf24",
   "endpoint": "packs",
-  "fetched_at": "2026-11-03 15:01:29",
+  "fetched_at": "2026-11-03 15:17:12",
   "payload": {
     "packs": [
       {
@@ -32,6 +32,7 @@
   "summary": {
     "deploy_id": "1b5b3899-cdc3-4c90-ac57-7d3867e099d5",
     "pack_count": 1,
-    "pack_format_count": 3
+    "pack_format_count": 3,
+    "selected_pack_format": 97
   }
 }
