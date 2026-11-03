@@ -19,8 +19,7 @@ import html
 import json
 import os
 import sys
-import time
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -43,16 +42,24 @@ ENDPOINTS: Dict[str, str] = {
     "bazaar": "https://api.hypixel.net/v2/skyblock/bazaar",
 }
 
+ENDPOINT_LABELS = {
+    "collections": "收藏",
+    "skills": "技能",
+    "items": "物品",
+    "bazaar": "拍卖市场",
+}
+SUMMARY_LABELS = {
+    "collection_count": "收藏类别数",
+    "total_items": "收藏物品数",
+    "skill_count": "技能数",
+    "item_count": "物品数",
+    "product_count": "商品数",
+}
+
 REQUEST_TIMEOUT = 30
 MAX_CHANGE_LOG = 500
-# Maximum characters kept for a single old/new value in the change log.
 MAX_LOG_VALUE_CHARS = 1500
-
-# Bazaar price data changes every few seconds; we only care about structural
-# changes (products added / removed) for the change log.  We still snapshot a
-# small summary so the dashboard can show current counts.
 BAZAAR_STRUCTURAL_ONLY = True
-
 
 # --------------------------------------------------------------------------- #
 # Snapshot helpers
@@ -61,6 +68,20 @@ BAZAAR_STRUCTURAL_ONLY = True
 
 def _now_iso() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def to_beijing_time(value: str | None) -> str:
+    if not value:
+        return "-"
+    try:
+        if isinstance(value, datetime):
+            dt = value
+        else:
+            dt = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        return value
+    beijing = dt.astimezone(timezone(timedelta(hours=8)))
+    return beijing.strftime("%Y-%m-%d %H:%M:%S") + "（北京时间）"
 
 
 def checksum(obj: Any) -> str:
@@ -90,6 +111,25 @@ def save_snapshot(name: str, snapshot: Dict[str, Any]) -> None:
     )
 
 
+def extract_version(payload: Dict[str, Any]) -> Optional[str]:
+    if not isinstance(payload, dict):
+        return None
+    version = payload.get("version")
+    if version is not None and str(version).strip():
+        return str(version)
+    return None
+
+
+def is_metadata_path(path: str) -> bool:
+    normalized = path.lower().strip()
+    return (
+        normalized == "version"
+        or normalized.endswith(".version")
+        or normalized == "lastupdated"
+        or normalized.endswith(".lastupdated")
+    )
+
+
 # --------------------------------------------------------------------------- #
 # Diff engine
 # --------------------------------------------------------------------------- #
@@ -103,6 +143,8 @@ def diff_dict(old: Dict[str, Any], new: Dict[str, Any], prefix: str = "") -> Lis
 
     for key in sorted(new_keys - old_keys):
         path = f"{prefix}.{key}" if prefix else key
+        if is_metadata_path(path):
+            continue
         changes.append(
             {
                 "type": "added",
@@ -116,6 +158,8 @@ def diff_dict(old: Dict[str, Any], new: Dict[str, Any], prefix: str = "") -> Lis
 
     for key in sorted(old_keys - new_keys):
         path = f"{prefix}.{key}" if prefix else key
+        if is_metadata_path(path):
+            continue
         changes.append(
             {
                 "type": "removed",
@@ -129,6 +173,8 @@ def diff_dict(old: Dict[str, Any], new: Dict[str, Any], prefix: str = "") -> Lis
 
     for key in sorted(old_keys & new_keys):
         path = f"{prefix}.{key}" if prefix else key
+        if is_metadata_path(path):
+            continue
         ov, nv = old[key], new[key]
         if isinstance(ov, dict) and isinstance(nv, dict):
             changes.extend(diff_dict(ov, nv, path))
@@ -179,7 +225,7 @@ def _log_value(value: Any, max_chars: int = MAX_LOG_VALUE_CHARS) -> Optional[str
         return None
     text = json.dumps(value, ensure_ascii=False, sort_keys=True)
     if len(text) > max_chars:
-        return text[:max_chars] + f"… (已截断，共 {len(text)} 字符)"
+        return text[:max_chars] + f"…（已截断，共 {len(text)} 字符）"
     return text
 
 
@@ -209,11 +255,7 @@ def diff_items(old: Dict[str, Any], new: Dict[str, Any]) -> List[Dict[str, Any]]
 
 
 def diff_bazaar(old: Dict[str, Any], new: Dict[str, Any]) -> List[Dict[str, Any]]:
-    """Only structural changes: products added or removed.
-
-    Snapshots store ``product_ids`` (a sorted list) instead of the full
-    products map, so we diff that list.
-    """
+    """Only structural changes: products added or removed."""
     old_ids = set(old.get("product_ids", []))
     new_ids = set(new.get("product_ids", []))
 
@@ -225,7 +267,7 @@ def diff_bazaar(old: Dict[str, Any], new: Dict[str, Any]) -> List[Dict[str, Any]
                 "path": f"products.{pid}",
                 "old": None,
                 "old_full": None,
-                "new": "new bazaar product",
+                "new": "新增市场商品",
                 "new_full": pid,
             }
         )
@@ -234,7 +276,7 @@ def diff_bazaar(old: Dict[str, Any], new: Dict[str, Any]) -> List[Dict[str, Any]
             {
                 "type": "removed",
                 "path": f"products.{pid}",
-                "old": "bazaar product",
+                "old": "市场商品",
                 "old_full": pid,
                 "new": None,
                 "new_full": None,
@@ -300,12 +342,8 @@ def make_snapshot(name: str, payload: Dict[str, Any]) -> Dict[str, Any]:
         "payload": payload,
     }
     if name == "bazaar" and BAZAAR_STRUCTURAL_ONLY:
-        # We only track structural changes (products added/removed) for bazaar,
-        # so store just the sorted list of product ids to keep the snapshot tiny
-        # and stable across price fluctuations.
         products = payload.get("products", {})
         product_ids = sorted(products.keys()) if isinstance(products, dict) else []
-        slim = {"product_ids": product_ids}
         snap["payload"] = {"success": payload.get("success"), "product_ids": product_ids}
         snap["checksum"] = checksum(product_ids)
     return snap
@@ -344,9 +382,12 @@ def append_changes(new_changes: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
 # --------------------------------------------------------------------------- #
 
 
+def _type_label(type_name: str) -> str:
+    return {"added": "新增", "removed": "删除", "modified": "修改"}.get(type_name, type_name)
+
+
 def _value_cell(preview: Optional[str], full: Optional[str]) -> str:
-    """Render a change value: compact preview, plus the full value after the
-    change inside an expandable <details> block."""
+    """Render a change value with an optional expandable full value."""
     preview_text = html.escape(preview) if preview else "-"
     if not full:
         return f'<span class="val">{preview_text}</span>'
@@ -357,7 +398,7 @@ def _value_cell(preview: Optional[str], full: Optional[str]) -> str:
 
     return (
         f'<span class="val">{preview_text}</span>'
-        f'<details class="value-details"><summary>查看完整值</summary>'
+        f'<details class="value-details"><summary>查看完整内容</summary>'
         f'<pre>{full_text}</pre></details>'
     )
 
@@ -365,26 +406,29 @@ def _value_cell(preview: Optional[str], full: Optional[str]) -> str:
 def render_html(
     *,
     generated_at: str,
+    current_version: Optional[str],
     endpoints: Dict[str, Dict[str, Any]],
     changes: List[Dict[str, Any]],
 ) -> str:
     cards = []
+    generated_at_cn = to_beijing_time(generated_at)
     for name in ENDPOINTS:
         ep = endpoints.get(name, {})
         status = ep.get("status", "error")
+        status_text = "正常" if status == "ok" else "异常"
         status_class = "ok" if status == "ok" else "error"
-        fetched = ep.get("fetched_at", "-")
+        fetched = to_beijing_time(ep.get("fetched_at"))
         summary = ep.get("summary", {})
-        summary_parts = [f"{k}: {v}" for k, v in summary.items()]
+        summary_parts = [f"{SUMMARY_LABELS.get(k, k)}：{v}" for k, v in summary.items()]
         summary_html = "<br>".join(html.escape(s) for s in summary_parts) if summary_parts else "-"
         cards.append(
             f"""
             <div class="card">
               <div class="card-header">
-                <span class="endpoint-name">{html.escape(name)}</span>
-                <span class="badge badge-{status_class}">{html.escape(status.upper())}</span>
+                <span class="endpoint-name">{html.escape(ENDPOINT_LABELS.get(name, name))}</span>
+                <span class="badge badge-{status_class}">{html.escape(status_text)}</span>
               </div>
-              <div class="fetched">{html.escape(fetched)}</div>
+              <div class="fetched">最近抓取：{html.escape(fetched)}</div>
               <div class="summary">{summary_html}</div>
             </div>
             """
@@ -393,29 +437,31 @@ def render_html(
     change_rows = []
     if changes:
         for c in changes[:100]:
+            c_type = _type_label(c.get("type", ""))
+            endpoint_label = ENDPOINT_LABELS.get(c.get("endpoint", ""), c.get("endpoint", ""))
             change_rows.append(
                 f"""
                 <tr>
-                  <td><span class="type type-{html.escape(c.get('type',''))}">{html.escape(c.get('type',''))}</span></td>
-                  <td class="endpoint">{html.escape(c.get('endpoint',''))}</td>
+                  <td><span class="type type-{html.escape(c.get('type',''))}">{html.escape(c_type)}</span></td>
+                  <td class="endpoint">{html.escape(endpoint_label)}</td>
                   <td class="path"><code>{html.escape(c.get('path',''))}</code></td>
                   <td class="old">{_value_cell(c.get('old'), c.get('old_full'))}</td>
                   <td class="new">{_value_cell(c.get('new'), c.get('new_full'))}</td>
-                  <td class="time">{html.escape(c.get('time',''))}</td>
+                  <td class="time">{html.escape(to_beijing_time(c.get('time')))}</td>
                 </tr>
                 """
             )
     else:
         change_rows.append(
-            '<tr><td colspan="6" class="empty">No changes recorded yet. Changes will appear here once an endpoint returns different data.</td></tr>'
+            '<tr><td colspan="6" class="empty">暂无变更记录。只有接口数据实际发生增删改时，才会显示在这里。</td></tr>'
         )
 
     return f"""<!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hypixel SkyBlock API Tracker</title>
+  <title>Hypixel SkyBlock API 监控</title>
   <style>
     * {{ box-sizing: border-box; }}
     body {{
@@ -426,8 +472,8 @@ def render_html(
       padding: 24px;
     }}
     .container {{ max-width: 1200px; margin: 0 auto; }}
-    h1 {{ margin: 0 0 4px 0; font-size: 28px; }}
-    .subtitle {{ color: #94a3b8; margin-bottom: 28px; font-size: 14px; }}
+    h1 {{ margin: 0 0 8px 0; font-size: 28px; }}
+    .subtitle {{ color: #94a3b8; margin-bottom: 28px; font-size: 14px; line-height: 1.7; }}
     .cards {{
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -441,7 +487,7 @@ def render_html(
       padding: 18px;
     }}
     .card-header {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }}
-    .endpoint-name {{ font-weight: 700; font-size: 16px; text-transform: capitalize; }}
+    .endpoint-name {{ font-weight: 700; font-size: 16px; }}
     .badge {{ padding: 2px 10px; border-radius: 999px; font-size: 11px; font-weight: 700; }}
     .badge-ok {{ background: #065f46; color: #6ee7b7; }}
     .badge-error {{ background: #7f1d1d; color: #fca5a5; }}
@@ -460,7 +506,7 @@ def render_html(
     th, td {{ text-align: left; padding: 10px 12px; border-bottom: 1px solid #334155; vertical-align: top; }}
     th {{ background: #0f172a; color: #94a3b8; font-weight: 600; position: sticky; top: 0; }}
     tr:hover td {{ background: #283548; }}
-    .type {{ padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; text-transform: uppercase; }}
+    .type {{ padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; }}
     .type-added {{ background: #065f46; color: #6ee7b7; }}
     .type-removed {{ background: #7f1d1d; color: #fca5a5; }}
     .type-modified {{ background: #78350f; color: #fcd34d; }}
@@ -468,12 +514,7 @@ def render_html(
     .old, .new {{ max-width: 240px; word-break: break-word; color: #cbd5e1; }}
     .val {{ display: block; }}
     .value-details {{ margin-top: 6px; }}
-    .value-details summary {{
-      cursor: pointer;
-      font-size: 11px;
-      color: #38bdf8;
-      user-select: none;
-    }}
+    .value-details summary {{ cursor: pointer; font-size: 11px; color: #38bdf8; user-select: none; }}
     .value-details summary:hover {{ text-decoration: underline; }}
     .value-details pre {{
       margin: 6px 0 0 0;
@@ -490,29 +531,33 @@ def render_html(
       overflow: auto;
     }}
     .time {{ color: #94a3b8; white-space: nowrap; }}
-    .endpoint {{ color: #c4b5fd; text-transform: capitalize; }}
+    .endpoint {{ color: #c4b5fd; }}
     .empty {{ text-align: center; color: #64748b; padding: 24px; }}
     a {{ color: #38bdf8; }}
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Hypixel SkyBlock API Tracker</h1>
-    <div class="subtitle">Generated at {html.escape(generated_at)} UTC &middot; Tracks collections, skills, items &amp; bazaar</div>
+    <h1>Hypixel SkyBlock API 监控</h1>
+    <div class="subtitle">
+      生成时间：{html.escape(generated_at_cn)}<br />
+      当前版本号：{html.escape(current_version or "未知")}<br />
+      监控范围：收藏、技能、物品和拍卖市场
+    </div>
 
     <div class="cards">{''.join(cards)}</div>
 
     <div class="panel">
-      <h2>Recent Changes</h2>
+      <h2>最近变更</h2>
       <table>
         <thead>
           <tr>
-            <th>Type</th>
-            <th>Endpoint</th>
-            <th>Path</th>
-            <th>Old</th>
-            <th>New</th>
-            <th>Time</th>
+            <th>类型</th>
+            <th>数据类别</th>
+            <th>字段路径</th>
+            <th>变更前</th>
+            <th>变更后</th>
+            <th>时间（北京时间）</th>
           </tr>
         </thead>
         <tbody>
@@ -522,13 +567,12 @@ def render_html(
     </div>
 
     <div class="panel">
-      <h2>About</h2>
+      <h2>关于本页面</h2>
       <p style="color:#94a3b8; font-size:13px; line-height:1.7; margin:0;">
-        This dashboard is built automatically by a scheduled GitHub Actions workflow.
-        It polls the Hypixel SkyBlock public API endpoints and compares each response
-        against the previous snapshot. Added / removed / modified fields are recorded
-        in the change log above. Bazaar price fluctuations are filtered out; only
-        structural product changes are tracked.
+        本页面由 GitHub Actions 定时生成，定期获取 Hypixel SkyBlock 公共 API 数据，
+        并与上一份快照进行比较。变更记录展示新增、删除和修改的内容。
+        版本号、数据更新时间等元数据变化不会作为内容变更记录；拍卖市场价格波动也会被忽略，仅跟踪商品的增删。
+        页面中显示的时间均为北京时间（UTC+8）。
       </p>
     </div>
   </div>
@@ -548,6 +592,7 @@ def main() -> int:
     SNAPSHOT_DIR.mkdir(parents=True, exist_ok=True)
 
     generated_at = _now_iso()
+    current_version: Optional[str] = None
     endpoints_result: Dict[str, Dict[str, Any]] = {}
     new_changes: List[Dict[str, Any]] = []
 
@@ -562,6 +607,10 @@ def main() -> int:
             }
             continue
 
+        version = extract_version(payload)
+        if version and not current_version:
+            current_version = version
+
         snapshot = make_snapshot(name, payload)
         previous = load_snapshot(name)
 
@@ -570,7 +619,7 @@ def main() -> int:
                 "status": "ok",
                 "fetched_at": snapshot["fetched_at"],
                 "summary": snapshot["summary"],
-                "note": "first snapshot",
+                "note": "首次快照",
             }
         else:
             diff_func = DIFF_FUNCS[name]
@@ -603,13 +652,13 @@ def main() -> int:
 
         save_snapshot(name, snapshot)
 
-    # Persist change log
     all_changes = append_changes(new_changes)
     save_changes(all_changes)
 
-    # Render site
     data_payload = {
         "generated_at": generated_at,
+        "generated_at_cn": to_beijing_time(generated_at),
+        "current_version": current_version,
         "endpoints": endpoints_result,
         "changes": all_changes,
     }
@@ -618,11 +667,12 @@ def main() -> int:
         encoding="utf-8",
     )
     (SITE_DIR / "index.html").write_text(
-        render_html(generated_at=generated_at, endpoints=endpoints_result, changes=all_changes),
+        render_html(generated_at=generated_at, current_version=current_version, endpoints=endpoints_result, changes=all_changes),
         encoding="utf-8",
     )
 
     print(f"[build] generated_at={generated_at}")
+    print(f"[build] current_version={current_version}")
     for name, ep in endpoints_result.items():
         cc = ep.get("change_count", 0)
         print(f"[build] {name}: status={ep['status']} changes={cc}")
@@ -634,3 +684,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+
