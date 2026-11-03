@@ -1,15 +1,23 @@
 #!/usr/bin/env python3
-"""
-生成 Hypixel SkyBlock API 变更追踪的静态 GitHub Pages 仪表盘。
+"""生成 Hypixel SkyBlock API 变更追踪的静态 GitHub Pages 仪表盘。
 
-本脚本在定时 GitHub Actions 工作流中运行：抓取五个端点的数据（含资源包
-packs），与上一次提交的快照做比对，记录结构性变更；下载并解压资源包 zip，
-比对包内文件的新增 / 修改 / 删除；最后渲染一个自包含的中文 HTML 仪表盘
-以及 data.json 数据文件。
+在定时 GitHub Actions 工作流中运行：抓取五个端点的数据（含资源包 packs），
+与上一次提交的快照做比对，记录结构性变更；下载并解压资源包 zip，比对包内
+文件的新增 / 修改 / 删除；最后渲染一个自包含的中文 HTML 仪表盘以及
+data.json 数据文件。
 
-快照保存在 ``data/snapshots/`` 并随仓库提交，供下一次运行做 diff；滚动
-变更日志保存在 ``data/changes.json``；资源包清单与文件变更分别保存在
-``data/pack_files.json`` 与 ``data/pack_changes.json``。
+关键设计：
+
+* **版本一致性确认**：collections 与 skills 两个资源接口都带 ``version``，
+  但 Hypixel 灰度更新时二者不一定同时切换。页面主版本只在两个接口版本
+  一致时才确认更新；不一致时保持上一次稳定版本并标注「版本同步中」，
+  避免版本号来回跳（打架）。详见 ``resolve_version_state()``。
+* **元数据不参与 diff**：``version`` / ``lastUpdated`` / ``success`` 在快照与
+  比对前统一剥离，版本号变化不会被当成端点内容更新。
+* **时间统一北京时间**：所有写入与展示的时间均由 ``app.timeutil`` 处理。
+* 快照保存在 ``data/snapshots/``，滚动变更日志 ``data/changes.json``，
+  版本状态 ``data/runtime.json``，资源包清单 ``data/pack_files.json`` /
+  ``data/pack_changes.json``。
 """
 
 from __future__ import annotations
@@ -20,11 +28,16 @@ import json
 import os
 import re
 import sys
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
 import requests
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+if str(BASE_DIR) not in sys.path:
+    sys.path.insert(0, str(BASE_DIR))
+
+from app.timeutil import format_time, now_beijing  # noqa: E402
 
 try:  # 兼容 ``python scripts/build_dashboard.py`` 与模块导入两种方式
     from pack_inspector import inspect_pack, load_pack_changes
@@ -35,7 +48,6 @@ except ImportError:  # pragma: no cover
 # 配置
 # --------------------------------------------------------------------------- #
 
-BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "data"
 SNAPSHOT_DIR = DATA_DIR / "snapshots"
 CHANGES_FILE = DATA_DIR / "changes.json"
@@ -50,14 +62,17 @@ ENDPOINTS: Dict[str, str] = {
     "packs": "https://api.hypixel.net/v2/resources/packs",
 }
 
+# 只有这两个资源接口带 version 字段，且可能分批更新。
+VERSION_ENDPOINTS = ("collections", "skills")
+# 顶层元数据字段：只反映版本号 / 抓取时刻 / 请求状态，不属于业务内容。
+# 端点 diff 必须忽略它们，否则版本号一变就会被误判为内容更新。
+META_KEYS = ("version", "lastUpdated", "success")
+
 REQUEST_TIMEOUT = 30
 MAX_CHANGE_LOG = 500
-# 单条变更记录里 old/new 值最多保留的字符数。
 MAX_LOG_VALUE_CHARS = 1500
 
-# 仪表盘自身版本号，统一保存在仓库根目录的 VERSION 文件中。
-# 页面顶部主版本显示的是 Hypixel 资源数据版本（取自 skills 的 version 字段），
-# 这里只作为次要信息展示。
+# 仪表盘自身版本号，统一保存在仓库根目录的 VERSION 文件中（次要信息）。
 VERSION_FILE = BASE_DIR / "VERSION"
 
 # 数据与日志里保留原始英文标识，仅在展示层翻译成中文。
@@ -85,6 +100,12 @@ TYPE_LABELS = {
     "version": "版本更新",
 }
 STATUS_LABELS = {"ok": "正常", "error": "异常"}
+SYNC_LABELS = {
+    "aligned": "版本一致",
+    "syncing": "版本同步中",
+    "partial": "部分接口未返回版本",
+    "unknown": "尚未取得版本",
+}
 PACK_STATUS_LABELS = {
     "unchanged": "资源包未更新，沿用上次清单",
     "updated": "资源包已更新并完成比对",
@@ -93,7 +114,6 @@ PACK_STATUS_LABELS = {
     "unavailable": "暂无可用资源包",
 }
 
-# 集市价格每隔几秒就会变动；变更日志里我们只关心结构性变化（商品增删）。
 BAZAAR_STRUCTURAL_ONLY = True
 
 
@@ -132,6 +152,99 @@ def save_runtime(data: Dict[str, Any]) -> None:
     )
 
 
+def version_key(value: str) -> Tuple[int, ...]:
+    """把 ``0.27.2.22`` 转成可比较的数值元组，用于取较高版本。"""
+    parts = []
+    for piece in re.split(r"[.\-+_]", value):
+        parts.append(int(piece) if piece.isdigit() else 0)
+    return tuple(parts)
+
+
+def resolve_version_state(
+    runtime: Dict[str, Any], observed: Dict[str, str], now: str
+) -> Dict[str, Any]:
+    """双端点版本一致性确认，避免灰度发布期间版本号来回跳。
+
+    ``observed`` 只包含本次成功拿到 ``version`` 的端点。规则：
+
+    1. 两个接口都返回版本且相同 → ``aligned``，该版本成为稳定版本；
+    2. 两个接口都返回版本但不同 → ``syncing``，保持上一次稳定版本不变，
+       页面分别列出各自版本，不确认切换、不写版本变更记录；
+    3. 只拿到部分接口 → ``partial``，同样保持上次稳定版本。
+
+    稳定版本只有从「一致」状态切换到另一个「一致」版本时才更新，
+    因此分批更新过程中页面不会在两个版本号之间抖动。
+    """
+    previous_stable = (
+        runtime.get("stable_version") or runtime.get("resource_version") or ""
+    )
+    prev_versions = runtime.get("versions") or {}
+
+    versions: Dict[str, Dict[str, Any]] = {}
+    for ep in VERSION_ENDPOINTS:
+        prev = prev_versions.get(ep) if isinstance(prev_versions.get(ep), dict) else {}
+        current = observed.get(ep)
+        if current:
+            first_seen = prev.get("observed_at") if prev.get("version") == current else now
+            versions[ep] = {"version": current, "observed_at": first_seen or now}
+        elif prev.get("version"):
+            versions[ep] = {
+                "version": prev["version"],
+                "observed_at": prev.get("observed_at", "-"),
+                "stale": True,
+            }
+
+    available = [versions[ep]["version"] for ep in VERSION_ENDPOINTS if ep in versions]
+    stale = any(versions.get(ep, {}).get("stale") for ep in VERSION_ENDPOINTS)
+
+    if len(available) == len(VERSION_ENDPOINTS) and len(set(available)) == 1 and not stale:
+        status = "aligned"
+        stable = available[0]
+        note = "收藏与技能两个接口版本一致，已确认当前版本"
+    elif len(available) < len(VERSION_ENDPOINTS) or stale:
+        status = "partial"
+        stable = previous_stable or (max(available, key=version_key) if available else "")
+        note = "部分接口本次未返回版本号，沿用上次已确认的稳定版本"
+    else:
+        status = "syncing"
+        stable = previous_stable or max(available, key=version_key)
+        c = versions["collections"]["version"]
+        s = versions["skills"]["version"]
+        note = (
+            f"版本同步中：收藏 v{c}、技能 v{s}。两个接口更新不同步，"
+            "暂不切换当前版本，待二者一致后再确认。"
+        )
+        if previous_stable:
+            note += f"（当前保持 v{previous_stable}）"
+
+    confirmed = status == "aligned" and bool(stable) and stable != previous_stable
+    history = list(runtime.get("history") or [])
+    if confirmed:
+        history.insert(
+            0,
+            {
+                "version": stable,
+                "time": now,
+                "note": "两个接口版本一致，确认切换当前版本",
+                "previous": previous_stable or "-",
+            },
+        )
+        history = history[:20]
+
+    return {
+        "stable_version": stable or "未获取",
+        # 兼容旧版只认 resource_version 的读取方
+        "resource_version": stable or "未获取",
+        "versions": versions,
+        "sync_status": status,
+        "note": note,
+        "confirmed": confirmed,
+        "previous_stable": previous_stable,
+        "updated_at": now,
+        "history": history,
+    }
+
+
 _LEGACY_PATTERNS = [
     (re.compile(r"^\{(\d+) keys\}$"), r"{\1} 个字段"),
     (re.compile(r"^\[(\d+) items\]$"), r"[\1] 项"),
@@ -151,13 +264,21 @@ def localize_text(text: Optional[str]) -> str:
     return text
 
 
+def strip_meta(payload: Any) -> Any:
+    """剥离顶层元数据，版本号变化不再被当成端点内容更新。"""
+    if not isinstance(payload, dict):
+        return payload
+    return {key: value for key, value in payload.items() if key not in META_KEYS}
+
+
 # --------------------------------------------------------------------------- #
 # 快照辅助函数
 # --------------------------------------------------------------------------- #
 
 
 def _now_iso() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    """兼容旧调用名：返回当前北京时间字符串。"""
+    return now_beijing()
 
 
 def checksum(obj: Any) -> str:
@@ -267,7 +388,7 @@ def _log_value(value: Any, max_chars: int = MAX_LOG_VALUE_CHARS) -> Optional[str
 
 
 # --------------------------------------------------------------------------- #
-# 各端点的差异比对
+# 各端点的差异比对（传入的 payload 已剥离顶层元数据）
 # --------------------------------------------------------------------------- #
 
 
@@ -384,20 +505,21 @@ def summarize_payload(name: str, payload: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def make_snapshot(name: str, payload: Dict[str, Any]) -> Dict[str, Any]:
-    """构造持久化到磁盘的快照字典。"""
+    """构造持久化到磁盘的快照字典（已剥离顶层元数据）。"""
+    clean = strip_meta(payload)
     snap = {
         "endpoint": name,
-        "fetched_at": _now_iso(),
+        "fetched_at": now_beijing(),
         "status_code": 200,
-        "checksum": checksum(payload),
+        "checksum": checksum(clean),
         "summary": summarize_payload(name, payload),
-        "payload": payload,
+        "payload": clean,
     }
     if name == "bazaar" and BAZAAR_STRUCTURAL_ONLY:
         # 集市只追踪结构性变化，快照里只保存排序后的商品 id 列表。
         products = payload.get("products", {})
         product_ids = sorted(products.keys()) if isinstance(products, dict) else []
-        snap["payload"] = {"success": payload.get("success"), "product_ids": product_ids}
+        snap["payload"] = {"product_ids": product_ids}
         snap["checksum"] = checksum(product_ids)
     return snap
 
@@ -428,44 +550,89 @@ def append_changes(new_changes: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
 
 
 # --------------------------------------------------------------------------- #
-# HTML 渲染
+# HTML 渲染：代码审核（diff）风格
 # --------------------------------------------------------------------------- #
 
 
-def _value_cell(preview: Optional[str], full: Optional[str]) -> str:
-    """渲染变更值：紧凑摘要，加上可展开查看完整值的 <details> 区块。"""
-    preview_text = html.escape(localize_text(preview))
-    if not full:
-        return f'<span class="val">{preview_text}</span>'
-    full_text = html.escape(localize_text(full))
-    if len(full) <= 80 and full == preview:
-        return f'<span class="val">{full_text}</span>'
+def _diff_line(preview: Optional[str], full: Optional[str], css: str, sign: str) -> str:
+    text = html.escape(localize_text(preview))
+    details = ""
+    if full and full != preview and len(full) > 80:
+        details = (
+            '<details class="value-details"><summary>查看完整值</summary>'
+            f'<pre>{html.escape(localize_text(full))}</pre></details>'
+        )
     return (
-        f'<span class="val">{preview_text}</span>'
-        f'<details class="value-details"><summary>查看完整值</summary>'
-        f'<pre>{full_text}</pre></details>'
+        f'<div class="diff-line {css}"><span class="sign">{sign}</span>'
+        f'<div class="diff-code"><code>{text}</code>{details}</div></div>'
     )
 
 
-def _pack_file_details(label: str, files: List[str], css: str) -> str:
+def render_change_blocks(changes: List[Dict[str, Any]]) -> str:
+    """把变更渲染成类似 git diff / code review 的区块：新增绿、删除红。"""
+    if not changes:
+        return (
+            '<div class="empty">暂无变更记录。当某个端点返回与上次快照不同的数据时，'
+            '变更会以代码审核风格显示在这里。</div>'
+        )
+    blocks = []
+    for c in changes[:100]:
+        raw_type = c.get("type", "")
+        badge_css = {
+            "added": "badge-add", "removed": "badge-del",
+            "modified": "badge-mod", "version": "badge-ver",
+        }.get(raw_type, "badge-mod")
+        lines = []
+        if raw_type == "added":
+            lines.append(_diff_line(c.get("new"), c.get("new_full"), "diff-add", "+"))
+        elif raw_type == "removed":
+            lines.append(_diff_line(c.get("old"), c.get("old_full"), "diff-del", "-"))
+        elif raw_type == "modified":
+            lines.append(_diff_line(c.get("old"), c.get("old_full"), "diff-del", "-"))
+            lines.append(_diff_line(c.get("new"), c.get("new_full"), "diff-add", "+"))
+        else:
+            lines.append(
+                _diff_line(
+                    f"{c.get('old', '-')} → {c.get('new', '-')}", None, "diff-mod", "~"
+                )
+            )
+        blocks.append(
+            f"""
+            <div class="diff-block diff-block-{html.escape(raw_type)}">
+              <div class="diff-header">
+                <span class="diff-badge {badge_css}">{html.escape(TYPE_LABELS.get(raw_type, raw_type))}</span>
+                <span class="diff-endpoint">{html.escape(ENDPOINT_LABELS.get(c.get('endpoint', ''), c.get('endpoint', '')))}</span>
+                <code class="diff-path">{html.escape(c.get('path', ''))}</code>
+                <span class="diff-time">{html.escape(format_time(c.get('time')))}</span>
+              </div>
+              <div class="diff-lines">{''.join(lines)}</div>
+            </div>
+            """
+        )
+    return "".join(blocks)
+
+
+def _pack_file_details(label: str, files: List[str], css: str, sign: str) -> str:
     if not files:
         return ""
     limit = 20
     items = "".join(
-        f"<li><code>{html.escape(str(path))}</code></li>" for path in files[:limit]
+        f'<div class="diff-line {css}"><span class="sign">{sign}</span>'
+        f'<div class="diff-code"><code>{html.escape(str(path))}</code></div></div>'
+        for path in files[:limit]
     )
     more = (
-        f'<li class="pack-more">… 另有 {len(files) - limit} 个文件未展开</li>'
+        f'<div class="pack-more">… 另有 {len(files) - limit} 个文件未展开</div>'
         if len(files) > limit else ""
     )
     return (
         f'<details class="pack-files"><summary class="cnt-{css}">'
-        f'{label}文件（{len(files)}）</summary><ul>{items}{more}</ul></details>'
+        f'{label}文件（{len(files)}）</summary><div class="diff-lines">{items}{more}</div></details>'
     )
 
 
 def render_pack_panel(pack_result: Dict[str, Any], pack_changes: List[Dict[str, Any]]) -> str:
-    """渲染「资源包文件变更」面板。"""
+    """渲染「资源包文件变更」面板（同样使用 diff 配色）。"""
     status = pack_result.get("status", "unavailable")
     pack = pack_result.get("pack") or {}
     total_files = pack_result.get("total_files", 0)
@@ -504,7 +671,7 @@ def render_pack_panel(pack_result: Dict[str, Any], pack_changes: List[Dict[str, 
                 f"""
                 <div class="pack-change">
                   <div class="pack-change-head">
-                    <span class="time">{html.escape(str(rec.get('time', '-')))}</span>
+                    <span class="time">{html.escape(format_time(rec.get('time')))}</span>
                     <span>packFormat {html.escape(str(rec.get('pack_format', '-')))}</span>
                     <span class="cnt cnt-add">新增 {len(added)}</span>
                     <span class="cnt cnt-mod">修改 {len(modified)}</span>
@@ -512,9 +679,9 @@ def render_pack_panel(pack_result: Dict[str, Any], pack_changes: List[Dict[str, 
                     <span>共 {html.escape(str(rec.get('total_files', '-')))} 个文件</span>
                   </div>
                   {note_html}
-                  {_pack_file_details('新增', added, 'add')}
-                  {_pack_file_details('修改', modified, 'mod')}
-                  {_pack_file_details('删除', removed, 'del')}
+                  {_pack_file_details('新增', added, 'diff-add', '+')}
+                  {_pack_file_details('修改', modified, 'diff-mod', '~')}
+                  {_pack_file_details('删除', removed, 'diff-del', '-')}
                 </div>
                 """
             )
@@ -531,20 +698,69 @@ def render_pack_panel(pack_result: Dict[str, Any], pack_changes: List[Dict[str, 
     """
 
 
+def render_version_panel(version_info: Dict[str, Any]) -> str:
+    """渲染「版本记录」面板，说明双端点一致性确认规则。"""
+    history = version_info.get("history") or []
+    versions = version_info.get("versions") or {}
+    rows = []
+    for item in history[:10]:
+        rows.append(
+            f"""
+            <tr>
+              <td><code>v{html.escape(str(item.get('version', '-')))}</code></td>
+              <td class="time">{html.escape(format_time(item.get('time')))}</td>
+              <td>{html.escape(str(item.get('note', '-')))}</td>
+              <td>{html.escape(str(item.get('previous', '-')))}</td>
+            </tr>
+            """
+        )
+    body = "".join(rows) if rows else (
+        '<tr><td colspan="4" class="empty">暂无版本切换记录。'
+        '首次运行会记录当前稳定版本。</td></tr>'
+    )
+    observed = " &middot; ".join(
+        f"{ENDPOINT_LABELS.get(ep, ep)} v{html.escape(str(info.get('version', '-')))}"
+        f"（首次观察 {html.escape(format_time(info.get('observed_at')))}）"
+        f"{' · 本次未返回' if info.get('stale') else ''}"
+        for ep, info in versions.items()
+    ) or "尚未取得版本数据"
+    return f"""
+    <div class="panel">
+      <h2>版本记录</h2>
+      <p class="hint">collections 与 skills 都带 version 字段，但 Hypixel 分批更新时两者不一定同时切换。
+      当前版本只在两个接口版本一致时才确认更新；不一致时保持上一次稳定版本并标注「版本同步中」，避免版本号来回跳。</p>
+      <div class="pack-meta">当前观测：{observed}</div>
+      <table>
+        <thead><tr><th>确认版本</th><th>确认时间（北京时间）</th><th>说明</th><th>上一版本</th></tr></thead>
+        <tbody>{body}</tbody>
+      </table>
+    </div>
+    """
+
+
 def render_html(
     *,
     generated_at: str,
     endpoints: Dict[str, Dict[str, Any]],
     changes: List[Dict[str, Any]],
-    resource_version: str,
+    version_info: Dict[str, Any],
     dashboard_version: str,
     build: str,
     pack_result: Dict[str, Any],
     pack_changes: List[Dict[str, Any]],
 ) -> str:
-    version_display = (
-        f"v{resource_version}" if resource_version and resource_version != "未获取"
-        else "未获取"
+    stable = version_info.get("stable_version") or "未获取"
+    version_display = f"v{stable}" if stable != "未获取" else "未获取"
+    sync_status = version_info.get("sync_status", "unknown")
+    sync_label = SYNC_LABELS.get(sync_status, sync_status)
+    versions = version_info.get("versions") or {}
+    observed_text = " &middot; ".join(
+        f"{ENDPOINT_LABELS.get(ep, ep)} v{html.escape(str(versions.get(ep, {}).get('version', '-')))}"
+        for ep in VERSION_ENDPOINTS
+    )
+    note_html = (
+        f'<div class="version-note">{html.escape(version_info.get("note", ""))}</div>'
+        if sync_status in ("syncing", "partial") and version_info.get("note") else ""
     )
 
     cards = []
@@ -553,7 +769,7 @@ def render_html(
         status = ep.get("status", "error")
         status_class = "ok" if status == "ok" else "error"
         status_text = STATUS_LABELS.get(status, status)
-        fetched = ep.get("fetched_at", "-")
+        fetched = format_time(ep.get("fetched_at", "-"))
         summary = ep.get("summary", {})
         summary_parts = [f"{SUMMARY_LABELS.get(k, k)}：{v}" for k, v in summary.items()]
         summary_html = "<br>".join(html.escape(s) for s in summary_parts) if summary_parts else "-"
@@ -564,32 +780,10 @@ def render_html(
                 <span class="endpoint-name">{html.escape(ENDPOINT_LABELS.get(name, name))}<span class="endpoint-id">{html.escape(name)}</span></span>
                 <span class="badge badge-{status_class}">{html.escape(status_text)}</span>
               </div>
-              <div class="fetched">抓取时间：{html.escape(fetched)}</div>
+              <div class="fetched">抓取时间：{html.escape(fetched)}（北京时间）</div>
               <div class="summary">{summary_html}</div>
             </div>
             """
-        )
-
-    change_rows = []
-    if changes:
-        for c in changes[:100]:
-            raw_type = c.get("type", "")
-            raw_endpoint = c.get("endpoint", "")
-            change_rows.append(
-                f"""
-                <tr>
-                  <td><span class="type type-{html.escape(raw_type)}">{html.escape(TYPE_LABELS.get(raw_type, raw_type))}</span></td>
-                  <td class="endpoint">{html.escape(ENDPOINT_LABELS.get(raw_endpoint, raw_endpoint))}</td>
-                  <td class="path"><code>{html.escape(c.get('path',''))}</code></td>
-                  <td class="old">{_value_cell(c.get('old'), c.get('old_full'))}</td>
-                  <td class="new">{_value_cell(c.get('new'), c.get('new_full'))}</td>
-                  <td class="time">{html.escape(c.get('time',''))}</td>
-                </tr>
-                """
-            )
-    else:
-        change_rows.append(
-            '<tr><td colspan="6" class="empty">暂无变更记录。当某个端点返回与上次快照不同的数据时，变更会显示在这里。</td></tr>'
         )
 
     return f"""<!DOCTYPE html>
@@ -610,12 +804,22 @@ def render_html(
     .container {{ max-width: 1200px; margin: 0 auto; }}
     .version-bar {{
       display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
-      gap: 8px; padding: 10px 16px; margin-bottom: 20px;
+      gap: 8px; padding: 10px 16px; margin-bottom: 12px;
       background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
       border: 1px solid #38bdf8; border-radius: 10px;
     }}
+    .version-main {{ display: flex; align-items: center; gap: 10px; }}
     .version-tag {{ font-size: 15px; font-weight: 700; color: #f8fafc; letter-spacing: .5px; }}
+    .sync-badge {{
+      font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 999px;
+      background: rgba(255,255,255,.22); color: #fff;
+    }}
+    .sync-syncing, .sync-partial {{ background: #f59e0b; color: #1f2937; }}
     .version-meta {{ font-size: 12px; color: #e0f2fe; }}
+    .version-note {{
+      background: #451a03; border: 1px solid #f59e0b; color: #fde68a;
+      border-radius: 8px; padding: 8px 14px; font-size: 12px; margin-bottom: 20px;
+    }}
     h1 {{ margin: 0 0 4px 0; font-size: 28px; }}
     .subtitle {{ color: #94a3b8; margin-bottom: 28px; font-size: 14px; }}
     .cards {{
@@ -636,7 +840,7 @@ def render_html(
       background: #1e293b; border: 1px solid #334155; border-radius: 12px;
       padding: 20px; margin-bottom: 24px; overflow-x: auto;
     }}
-    .hint {{ color: #94a3b8; font-size: 12px; line-height: 1.6; margin: -8px 0 14px 0; }}
+    .hint {{ color: #94a3b8; font-size: 12px; line-height: 1.7; margin: -8px 0 14px 0; }}
     .pack-meta {{ font-size: 13px; color: #cbd5e1; margin-bottom: 14px; word-break: break-all; }}
     .pack-meta code {{ color: #7dd3fc; }}
     .pack-error {{ color: #fca5a5; font-size: 12px; }}
@@ -649,32 +853,53 @@ def render_html(
     .pack-note {{ font-size: 12px; color: #64748b; margin-top: 8px; }}
     .pack-files {{ margin-top: 8px; }}
     .pack-files summary {{ cursor: pointer; font-size: 12px; user-select: none; }}
-    .pack-files ul {{ margin: 8px 0 0 0; padding-left: 18px; max-height: 220px; overflow: auto; }}
-    .pack-files li {{ font-size: 11px; color: #cbd5e1; line-height: 1.6; word-break: break-all; }}
-    .pack-files code {{ color: #7dd3fc; }}
-    .pack-more {{ color: #64748b; list-style: none; }}
+    .pack-more {{ color: #64748b; font-size: 11px; padding: 6px 12px; }}
+
+    /* ---- 代码审核 / git diff 风格 ---- */
+    .diff-block {{
+      background: #0b1220; border: 1px solid #334155; border-radius: 8px;
+      margin-bottom: 12px; overflow: hidden;
+    }}
+    .diff-header {{
+      display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+      padding: 8px 12px; background: #16213a; border-bottom: 1px solid #334155;
+      font-size: 12px;
+    }}
+    .diff-badge {{ padding: 2px 9px; border-radius: 4px; font-size: 11px; font-weight: 700; }}
+    .badge-add {{ background: #064e3b; color: #6ee7b7; }}
+    .badge-del {{ background: #7f1d1d; color: #fca5a5; }}
+    .badge-mod {{ background: #78350f; color: #fcd34d; }}
+    .badge-ver {{ background: #1e40af; color: #bfdbfe; }}
+    .diff-endpoint {{ color: #c4b5fd; font-weight: 600; }}
+    .diff-path {{ color: #7dd3fc; word-break: break-all; }}
+    .diff-time {{ color: #94a3b8; margin-left: auto; white-space: nowrap; }}
+    .diff-lines {{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }}
+    .diff-line {{ display: flex; align-items: flex-start; gap: 10px; padding: 6px 12px; font-size: 12px; line-height: 1.6; }}
+    .diff-line .sign {{ flex: 0 0 14px; font-weight: 700; text-align: center; }}
+    .diff-line code {{ white-space: pre-wrap; word-break: break-all; }}
+    .diff-code {{ min-width: 0; flex: 1; }}
+    .diff-add {{ background: rgba(34,197,94,.12); border-left: 3px solid #22c55e; color: #bbf7d0; }}
+    .diff-add .sign {{ color: #4ade80; }}
+    .diff-del {{ background: rgba(239,68,68,.12); border-left: 3px solid #ef4444; color: #fecaca; }}
+    .diff-del .sign {{ color: #f87171; }}
+    .diff-mod {{ background: rgba(245,158,11,.12); border-left: 3px solid #f59e0b; color: #fde68a; }}
+    .diff-mod .sign {{ color: #fbbf24; }}
+    .value-details {{ margin-top: 6px; font-family: inherit; }}
+    .value-details summary {{ cursor: pointer; font-size: 11px; color: #38bdf8; user-select: none; }}
+    .value-details summary:hover {{ text-decoration: underline; }}
+    .value-details pre {{
+      margin: 6px 0 0 0; padding: 8px; background: #060b16; border: 1px solid #334155;
+      border-radius: 6px; font-size: 11px; line-height: 1.5; color: #e2e8f0;
+      white-space: pre-wrap; word-break: break-all; max-height: 260px; overflow: auto;
+    }}
+    .pack-files .diff-line {{ font-size: 11px; }}
+    .pack-files code {{ color: inherit; }}
+
     table {{ width: 100%; border-collapse: collapse; font-size: 13px; }}
     th, td {{ text-align: left; padding: 10px 12px; border-bottom: 1px solid #334155; vertical-align: top; }}
     th {{ background: #0f172a; color: #94a3b8; font-weight: 600; position: sticky; top: 0; }}
     tr:hover td {{ background: #283548; }}
-    .type {{ padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; }}
-    .type-added {{ background: #065f46; color: #6ee7b7; }}
-    .type-version {{ background: #1e40af; color: #bfdbfe; }}
-    .type-removed {{ background: #7f1d1d; color: #fca5a5; }}
-    .type-modified {{ background: #78350f; color: #fcd34d; }}
-    .path code {{ color: #7dd3fc; word-break: break-all; }}
-    .old, .new {{ max-width: 240px; word-break: break-word; color: #cbd5e1; }}
-    .val {{ display: block; }}
-    .value-details {{ margin-top: 6px; }}
-    .value-details summary {{ cursor: pointer; font-size: 11px; color: #38bdf8; user-select: none; }}
-    .value-details summary:hover {{ text-decoration: underline; }}
-    .value-details pre {{
-      margin: 6px 0 0 0; padding: 8px; background: #0f172a; border: 1px solid #334155;
-      border-radius: 6px; font-size: 11px; line-height: 1.5; color: #e2e8f0;
-      white-space: pre-wrap; word-break: break-all; max-height: 260px; overflow: auto;
-    }}
     .time {{ color: #94a3b8; white-space: nowrap; }}
-    .endpoint {{ color: #c4b5fd; }}
     .empty {{ text-align: center; color: #64748b; padding: 24px; }}
     a {{ color: #38bdf8; }}
   </style>
@@ -682,43 +907,38 @@ def render_html(
 <body>
   <div class="container">
     <div class="version-bar">
-      <span class="version-tag">当前版本 {version_display}</span>
-      <span class="version-meta">Hypixel 资源数据版本 &middot; 仪表盘 v{html.escape(dashboard_version)} &middot; 构建 {html.escape(build)} &middot; 生成于 {html.escape(generated_at)} UTC</span>
+      <div class="version-main">
+        <span class="version-tag">当前版本 {version_display}</span>
+        <span class="sync-badge sync-{html.escape(sync_status)}">{html.escape(sync_label)}</span>
+      </div>
+      <span class="version-meta">{observed_text} &middot; 仪表盘 v{html.escape(dashboard_version)} &middot; 构建 {html.escape(build)} &middot; 生成于 {html.escape(format_time(generated_at))}（北京时间）</span>
     </div>
+    {note_html}
 
     <h1>Hypixel SkyBlock API 变更监控台</h1>
-    <div class="subtitle">监控收藏、技能、物品、集市与资源包五个端点，并解压比对资源包内文件变化。数据由 GitHub Actions 定时抓取。</div>
+    <div class="subtitle">监控收藏、技能、物品、集市与资源包五个端点，并解压比对资源包内文件变化。数据由 GitHub Actions 定时抓取，所有时间均为北京时间（UTC+8）。</div>
 
     <div class="cards">{''.join(cards)}</div>
+
+    {render_version_panel(version_info)}
 
     {render_pack_panel(pack_result, pack_changes)}
 
     <div class="panel">
       <h2>最近变更</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>类型</th>
-            <th>端点</th>
-            <th>字段路径</th>
-            <th>原值</th>
-            <th>新值</th>
-            <th>时间</th>
-          </tr>
-        </thead>
-        <tbody>
-          {''.join(change_rows)}
-        </tbody>
-      </table>
+      <p class="hint">按代码审核（diff）风格展示：<span style="color:#6ee7b7">绿色 + 为新增</span>、<span style="color:#fca5a5">红色 - 为删除</span>、修改同时显示原值与新值。端点比对已排除 <code>version</code> / <code>lastUpdated</code> / <code>success</code>，版本号变化不会被当成内容更新。</p>
+      {render_change_blocks(changes)}
     </div>
 
     <div class="panel">
       <h2>关于本页</h2>
-      <p style="color:#94a3b8; font-size:13px; line-height:1.7; margin:0;">
+      <p style="color:#94a3b8; font-size:13px; line-height:1.8; margin:0;">
         本仪表盘由 GitHub Actions 定时工作流自动生成。它定期抓取 Hypixel SkyBlock 公共 API，
-        并把每次响应与上一次快照做比对，新增 / 删除 / 修改的字段会记录在上方的变更日志中。
-        页面顶部的「当前版本」取自资源 API（skills）返回的 version 字段，版本变化也会作为一条
-        「版本更新」记录写入变更日志。集市（bazaar）的价格波动已被过滤，仅追踪商品的结构性增删。
+        并把每次响应与上一次快照做比对，新增 / 删除 / 修改的字段会以代码审核风格记录在上方的变更日志中。
+        页面顶部的「当前版本」来自 <strong>collections 与 skills 两个资源接口</strong>的 version 字段：
+        由于 Hypixel 分批更新时两个接口不一定同时切换，只有两者版本一致才会确认新版本；不一致时保持上次稳定版本并显示「版本同步中」，
+        避免版本号来回跳。版本切换单独记录在「版本记录」面板，不混入端点内容变更日志。
+        集市（bazaar）的价格波动已被过滤，仅追踪商品的结构性增删。
         资源包（packs）端点会在官方哈希变化时下载 zip 并解压，按文件内容哈希比对包内文件的增删改。
       </p>
     </div>
@@ -740,12 +960,11 @@ def main() -> int:
 
     dashboard_version = read_version()
     build = current_build()
-    generated_at = _now_iso()
+    generated_at = now_beijing()
     runtime = load_runtime()
-    old_resource_version = runtime.get("resource_version")
     endpoints_result: Dict[str, Dict[str, Any]] = {}
     new_changes: List[Dict[str, Any]] = []
-    resource_versions: Dict[str, str] = {}
+    observed_versions: Dict[str, str] = {}
     packs_payload: Optional[Dict[str, Any]] = None
 
     for name, url in ENDPOINTS.items():
@@ -757,11 +976,11 @@ def main() -> int:
             }
             continue
 
-        # Hypixel 资源数据版本：skills 顶层有 version，items 目前没有该字段。
-        if isinstance(payload, dict):
+        # 版本观测：collections 与 skills 顶层带 version；items 没有，不参与。
+        if name in VERSION_ENDPOINTS and isinstance(payload, dict):
             version_value = payload.get("version")
             if isinstance(version_value, str) and version_value:
-                resource_versions[name] = version_value
+                observed_versions[name] = version_value
 
         if name == "packs":
             packs_payload = payload
@@ -777,7 +996,9 @@ def main() -> int:
         else:
             diff_func = DIFF_FUNCS[name]
             try:
-                changes = diff_func(previous.get("payload", {}), snapshot["payload"])
+                # 历史快照可能仍含元数据，比对前统一剥离，保证规则一致。
+                old_payload = strip_meta(previous.get("payload", {}))
+                changes = diff_func(old_payload, snapshot["payload"])
             except Exception as exc:  # noqa: BLE001
                 changes = []
                 print(f"[警告] {name} 比对失败：{exc}", file=sys.stderr)
@@ -799,22 +1020,9 @@ def main() -> int:
 
         save_snapshot(name, snapshot)
 
-    # 资源数据版本：优先 skills，其次 items，都取不到则沿用上次记录。
-    resource_version = (
-        resource_versions.get("skills")
-        or resource_versions.get("items")
-        or old_resource_version
-        or "未获取"
-    )
-    if old_resource_version and old_resource_version != resource_version:
-        new_changes.append(
-            {
-                "endpoint": "skills", "type": "version", "path": "version",
-                "old": old_resource_version, "new": resource_version,
-                "old_full": None, "new_full": None, "time": generated_at,
-            }
-        )
-    save_runtime({"resource_version": resource_version, "updated_at": generated_at})
+    # 双端点版本一致性确认（不再因为版本号变化写入端点变更日志）
+    version_info = resolve_version_state(runtime, observed_versions, generated_at)
+    save_runtime(version_info)
 
     # 资源包下载 / 解压 / 文件变更比对（官方哈希不变时自动跳过下载）。
     pack_result: Dict[str, Any] = {
@@ -837,7 +1045,8 @@ def main() -> int:
 
     # 渲染站点
     data_payload = {
-        "resource_version": resource_version,
+        "version_info": version_info,
+        "resource_version": version_info["stable_version"],
         "dashboard_version": dashboard_version,
         "build": build,
         "generated_at": generated_at,
@@ -854,7 +1063,7 @@ def main() -> int:
             generated_at=generated_at,
             endpoints=endpoints_result,
             changes=all_changes,
-            resource_version=resource_version,
+            version_info=version_info,
             dashboard_version=dashboard_version,
             build=build,
             pack_result=pack_result,
@@ -863,7 +1072,13 @@ def main() -> int:
         encoding="utf-8",
     )
 
-    print(f"[构建] 资源版本 {resource_version} · 仪表盘 v{dashboard_version} · 构建 {build}")
+    print(
+        f"[构建] 当前版本 v{version_info['stable_version']} "
+        f"({SYNC_LABELS.get(version_info['sync_status'], version_info['sync_status'])}) "
+        f"· 仪表盘 v{dashboard_version} · 构建 {build} · {generated_at}（北京时间）"
+    )
+    if version_info["confirmed"]:
+        print(f"[构建] 版本已确认切换：{version_info.get('previous_stable') or '-'} → {version_info['stable_version']}")
     for name, ep in endpoints_result.items():
         cc = ep.get("change_count", 0)
         print(f"[构建] {ENDPOINT_LABELS.get(name, name)}：状态={STATUS_LABELS.get(ep['status'], ep['status'])}，变更 {cc} 条")

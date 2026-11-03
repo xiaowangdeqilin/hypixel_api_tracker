@@ -18,12 +18,18 @@ from __future__ import annotations
 import hashlib
 import io
 import json
+import sys
 import zipfile
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 import requests
+
+ROOT = Path(__file__).resolve().parent.parent
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from app.timeutil import now_beijing  # noqa: E402
 
 # 下载超时（秒）；资源包约 18 MB，留足余量。
 DOWNLOAD_TIMEOUT = 120
@@ -34,7 +40,8 @@ MAX_PACK_CHANGE_RECORDS = 50
 
 
 def _now_iso() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    """兼容旧调用名：返回当前北京时间字符串。"""
+    return now_beijing()
 
 
 def manifest_path(data_dir: Path) -> Path:

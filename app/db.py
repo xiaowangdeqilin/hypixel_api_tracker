@@ -1,9 +1,9 @@
 import json
 import sqlite3
-from datetime import datetime
 from typing import Any, Dict, Optional
 
 from app.config import DB_PATH
+from app.timeutil import now_beijing
 
 
 def get_connection() -> sqlite3.Connection:
@@ -57,7 +57,7 @@ def insert_snapshot(endpoint: str, status_code: int, payload: Dict[str, Any], ch
             """,
             (
                 endpoint,
-                datetime.utcnow().isoformat(timespec="seconds"),
+                now_beijing(),
                 status_code,
                 json.dumps(payload, separators=(",", ":"), ensure_ascii=False),
                 checksum,
@@ -146,7 +146,7 @@ def insert_change_event(
                 path,
                 json.dumps(old_value, ensure_ascii=False) if old_value is not None else None,
                 json.dumps(new_value, ensure_ascii=False) if new_value is not None else None,
-                datetime.utcnow().isoformat(timespec="seconds"),
+                now_beijing(),
             ),
         )
         conn.commit()

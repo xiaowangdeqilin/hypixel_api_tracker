@@ -4,7 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from starlette.requests import Request
 
-from app.config import BASE_DIR, get_resource_version, get_version
+from app.config import BASE_DIR, get_version, get_version_info
 from app.db import (
     get_snapshot_by_id,
     get_status_summary,
@@ -30,7 +30,7 @@ async def index(request: Request):
         {
             "request": request,
             "version": get_version(),
-            "resource_version": get_resource_version(),
+            "version_info": get_version_info(),
         },
     )
 

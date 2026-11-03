@@ -1,4 +1,27 @@
 {
+  "stable_version": "0.27.2.22",
   "resource_version": "0.27.2.22",
-  "updated_at": "2026-11-03T06:27:24Z"
+  "versions": {
+    "collections": {
+      "version": "0.27.2.22",
+      "observed_at": "2026-11-03 14:47:44"
+    },
+    "skills": {
+      "version": "0.27.2.22",
+      "observed_at": "2026-11-03 14:47:44"
+    }
+  },
+  "sync_status": "aligned",
+  "note": "收藏与技能两个接口版本一致，已确认当前版本",
+  "confirmed": false,
+  "previous_stable": "0.27.2.22",
+  "updated_at": "2026-11-03 14:47:44",
+  "history": [
+    {
+      "version": "0.27.2.22",
+      "time": "2026-11-03 14:47:44",
+      "note": "两个接口版本一致，确认当前版本",
+      "previous": "-"
+    }
+  ]
 }
