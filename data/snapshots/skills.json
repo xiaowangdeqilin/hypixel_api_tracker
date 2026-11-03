@@ -1,9 +1,8 @@
 {
-  "checksum": "9336a57c00be4a18c69890905a666ec94e3686552002376f96caa686f61d0906",
+  "checksum": "6e75883bc3877d73cd500ba9b7f93ba575ff091f808e03c617e24b62bb18a6b0",
   "endpoint": "skills",
-  "fetched_at": "2026-11-03T06:27:25Z",
+  "fetched_at": "2026-11-03 14:50:50",
   "payload": {
-    "lastUpdated": 1793654167289,
     "skills": {
       "ALCHEMY": {
         "description": "Brew potions to earn Alchemy EXP!",
@@ -6456,9 +6455,7 @@
         "maxLevel": 60,
         "name": "Taming"
       }
-    },
-    "success": true,
-    "version": "0.27.2.22"
+    }
   },
   "status_code": 200,
   "summary": {

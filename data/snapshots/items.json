@@ -1,7 +1,7 @@
 {
-  "checksum": "d09e3945dbfe51e7789d8af74456b448493d4e41d2d157712c04554382b3175b",
+  "checksum": "15934214e374e969766d3d11308471621cbdd38856f8166bad0656dbe9d0bb8a",
   "endpoint": "items",
-  "fetched_at": "2026-11-03T06:27:25Z",
+  "fetched_at": "2026-11-03 14:50:51",
   "payload": {
     "items": [
       {
@@ -147086,9 +147086,7 @@
         "safari_only": true,
         "tier": "SPECIAL"
       }
-    ],
-    "lastUpdated": 1793311327754,
-    "success": true
+    ]
   },
   "status_code": 200,
   "summary": {
