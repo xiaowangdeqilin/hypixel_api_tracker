@@ -1,7 +1,7 @@
 {
-  "checksum": "6e75883bc3877d73cd500ba9b7f93ba575ff091f808e03c617e24b62bb18a6b0",
+  "checksum": "f213e60ad996f8bf988ce7b894a54fc78b1e59bec335acef07da692934c578fa",
   "endpoint": "skills",
-  "fetched_at": "2026-11-04 11:13:01",
+  "fetched_at": "2026-11-04 12:02:12",
   "payload": {
     "skills": {
       "ALCHEMY": {
@@ -3271,9 +3271,9 @@
             "level": 18,
             "totalExpRequired": 222425.0,
             "unlocks": [
-              "Tiger Shark Sea Creature",
-              "Deep Sea Protector Sea Creature",
-              "Nutcracker Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter 18   Grants +1.7➜1.8  Treasure Chance.",
               "+3 Health",
               "+65,000 Coins",
@@ -3284,9 +3284,9 @@
             "level": 19,
             "totalExpRequired": 322425.0,
             "unlocks": [
-              "Water Hydra Sea Creature",
-              "Manta Ray Sea Creature",
-              "Flaming Worm Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter 19   Grants +1.8➜1.9  Treasure Chance.",
               "+3 Health",
               "+80,000 Coins",
@@ -3297,9 +3297,9 @@
             "level": 20,
             "totalExpRequired": 522425.0,
             "unlocks": [
-              "Alligator Sea Creature",
-              "Lava Blaze Sea Creature",
-              "The Loch Emperor Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter 20   Grants +1.9➜2  Treasure Chance.",
               "+4 Health",
               "+100,000 Coins",
@@ -3310,7 +3310,7 @@
             "level": 21,
             "totalExpRequired": 822425.0,
             "unlocks": [
-              "Phantom Fisher Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter 21   Grants +2➜2.1  Treasure Chance.",
               "+4 Health",
               "+125,000 Coins",
@@ -3321,8 +3321,8 @@
             "level": 22,
             "totalExpRequired": 1222425.0,
             "unlocks": [
-              "Lava Pigman Sea Creature",
-              "Fireproof Witch Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter 22   Grants +2.1➜2.2  Treasure Chance.",
               "+4 Health",
               "+150,000 Coins",
@@ -3343,8 +3343,8 @@
             "level": 24,
             "totalExpRequired": 2322425.0,
             "unlocks": [
-              "Abyssal Miner Sea Creature",
-              "Great White Shark Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter 24   Grants +2.3➜2.4  Treasure Chance.",
               "+4 Health",
               "+200,000 Coins",
@@ -3355,8 +3355,8 @@
             "level": 25,
             "totalExpRequired": 3022425.0,
             "unlocks": [
-              "Yeti Sea Creature",
-              "Nessie Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter 25   Grants +2.4➜2.5  Treasure Chance.",
               "+4 Health",
               "+225,000 Coins",
@@ -3367,7 +3367,7 @@
             "level": 26,
             "totalExpRequired": 3822425.0,
             "unlocks": [
-              "Grim Reaper Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter 26   Grants +2.5➜2.6  Treasure Chance.",
               "+5 Health",
               "+250,000 Coins",
