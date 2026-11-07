@@ -175,7 +175,7 @@ Bingo 5×5 网格保持 5 列阵容可横向滑动（详见 `theme.css` 中的�
 **倒计时在浏览器本地计算**：构建页面时只写入 `start` / `end` 的 epoch 毫秒
 （`bingo_view()` 中的 `start_ms` / `end_ms`），`static/bingo.js` 在浏览器里
 按本地时间逐秒刷新「剩余 / 距开始 / 已结束」。这样倒计时永远准确，
-不会因为 Actions 每 10 分钟才抓一次、页面是几分钟前构建的而偏慢。
+不会因为 Actions 每小时才抓一次、页面是旧快照而偏慢。
 旧版 `data/bingo.json` 没有这两个字段时，读取层会从北京时间字符串自动反推。
 
 **任务文案的颜色码**：Hypixel 的 `lore` 用 Minecraft 传统颜色码（`§7Break §e10M Ore§7 Blocks.`）。
@@ -225,11 +225,11 @@ Hypixel 接口偶尔会宕机、限流或返回不完整数据。为避免「半
 为 `false` 时跳过提交、跳过上传产物与部署，因此**连页面都不会变**。
 
 > 取舍：宁可这次不更新，也不要把「接口没数据」误记成「内容被全部删除」。
-> 定时任务每 10 分钟一次，接口恢复后下一次运行会自动补上。
+> 定时任务每小时一次，接口恢复后下一次运行会自动补上。
 
 ## GitHub Actions 与 Pages
 
-`.github/workflows/pages.yml` 每 10 分钟运行一次（也可手动 `workflow_dispatch`）：
+`.github/workflows/pages.yml` **每小时运行一次**（`cron: "17 * * * *"`，也可手动 `workflow_dispatch`）：
 
 1. 抓取 6 个端点、做 diff、确认版本、检查资源包
 2. 仅在 `data_written=true` 时 `git add data/` 提交回仓库（`[skip ci]` 避免循环触发）
@@ -314,7 +314,7 @@ site/                          # 生成的静态页面（被 .gitignore 忽略�
 | 首次运行资源包显示「基线」 | 正常：只建立文件清单，不报新增；等 Hypixel 更新资源包后才列出文件差异 |
 | 页面顶部提示「未获取到完整数据」 | 接口或资源包下载失败，**本次不改动任何数据**，沿用上次结果；下次运行会自动重试 |
 | 资源包 `packFormat` 变了 | 正常：数字随 MC 更新变化，脚本每次都取最大值，只记为一条修改而非全量增删 |
-| 打开线上页面仍是旧版 | CDN 缓存，等几分钟刷新；定时任务每 10 分钟也会重跑 |
+| 打开线上页面仍是旧版 | CDN 缓存，等几分钟刷新；定时任务每小时也会重跑 |
 | `pip install -r requirements.txt` 失败 | 静态生成不需要它，只装 `requests` 即可 |
 | 抓取报 429 / 超时 | 设置 `HYPIXEL_API_KEY`，或稍后重试；脚本会整次跳过，不会写入半份数据 |
 | Bingo 面板显示「暂无 Bingo 数据」 | `data/bingo.json` 还不存在，跑一次 `python scripts/build_dashboard.py` 即可 |
