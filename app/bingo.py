@@ -19,7 +19,7 @@ from datetime import timedelta
 from typing import Any, Dict, List, Optional, Tuple
 
 from app.mctext import strip_mc_codes
-from app.timeutil import format_time, from_epoch_ms, parse_beijing
+from app.timeutil import format_time, from_epoch_ms, parse_beijing, to_epoch_ms
 
 BINGO_STATE_LABELS = {
     "upcoming": "未开始",
@@ -139,6 +139,8 @@ def bingo_view(
     bingo_id = payload.get("id")
     start = from_epoch_ms(payload.get("start"))
     end = from_epoch_ms(payload.get("end"))
+    start_ms = to_epoch_ms(payload.get("start"))
+    end_ms = to_epoch_ms(payload.get("end"))
     state, remaining = bingo_state(start, end, generated_at)
 
     first_seen = generated_at
@@ -159,6 +161,10 @@ def bingo_view(
         "modifier": payload.get("modifier") or "-",
         "start": start,
         "end": end,
+        # 绝对时间点（epoch 毫秒）：页面倒计时交给浏览器本地计算，
+        # 不用构建时刻的 remaining 文本，避免 Actions 延迟导致倒计时偏慢。
+        "start_ms": start_ms,
+        "end_ms": end_ms,
         "published_at": from_epoch_ms(payload.get("lastUpdated")),
         "first_seen": first_seen,
         "state": state,

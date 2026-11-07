@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hypixel SkyBlock API 变更监控台</title>
     <link rel="stylesheet" href="/static/styles.css" />
+    <link rel="stylesheet" href="/static/bingo.css" />
   </head>
-  <body>
+  <body class="theme-light">
     <div class="container">
       <div class="version-bar">
         <div class="version-main">
@@ -61,7 +62,7 @@
         </table>
       </div>
 
-      <div class="panel">
+      <div class="panel bingo-panel" data-bingo-panel>
         <h2>Bingo 任务{% if bingo %}<span class="panel-sub">第 {{ bingo.id }} 期 · {{ bingo.name }}</span>{% endif %}</h2>
         {% if not bingo %}
         <p class="hint">数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行
@@ -69,10 +70,14 @@
         <div class="empty">暂无 Bingo 数据</div>
         {% else %}
         <p class="hint">发布时间取自接口的 <code>lastUpdated</code>，「首次发现」是本仓库第一次抓到这一期的时刻；
-          开始与结束时间取自 <code>start</code> / <code>end</code>。任务文案保留 Minecraft 颜色码并按官方配色渲染，
-          深色底块便于看清 <code>§f</code> 白色等浅色文字。<strong>全服进度只用于展示，不参与变更比对</strong>。</p>
+          开始与结束时间取自 <code>start</code> / <code>end</code>。任务文案保留 Minecraft 颜色码并按官方配色渲染。
+          <strong>全服进度只用于展示，不参与变更比对</strong>。</p>
         <div class="bingo-head">
-          <div class="bingo-state bingo-state-{{ bingo.state }}">{{ bingo.state_label }} · {{ bingo.remaining }}</div>
+          <div class="bingo-state bingo-state-{{ bingo.state }}" data-bingo-state data-state="{{ bingo.state }}"
+               data-start-ms="{{ bingo.start_ms or '' }}" data-end-ms="{{ bingo.end_ms or '' }}">
+            <span class="bingo-state-label">{{ bingo.state_label }}</span>
+            <span class="bingo-countdown" data-bingo-countdown>{{ bingo.remaining }}</span>
+          </div>
           <div class="bingo-info">
             <div><span class="k">发布时间</span><span class="v">{{ bingo.published_at }}</span></div>
             <div><span class="k">首次发现</span><span class="v">{{ bingo.first_seen }}</span></div>
@@ -82,33 +87,59 @@
             <div><span class="k">任务数量</span><span class="v">{{ bingo.goals | length }} 个</span></div>
           </div>
         </div>
-        <div class="bingo-grid">
-          {% for goal in bingo.goals %}
-          <div class="bingo-goal">
-            <div class="bingo-goal-head">
-              <span class="bingo-index">{{ "%02d" | format(loop.index) }}</span>
-              <span class="bingo-name">{{ goal.name }}</span>
-            </div>
-            <div class="bingo-lore">
-              {% for line in goal.lore_html %}<div class="bingo-lore-line">{{ line | safe }}</div>{% endfor %}
-            </div>
-            <div class="bingo-meta">
-              {% if goal.tiers %}目标档位：<code>{{ goal.requirement_text }}</code>
-              {% elif goal.requirement_text %}要求：<code>{{ goal.requirement_text }}</code>{% endif %}
-            </div>
-            {% if goal.progress_info %}
-            <div class="bingo-bar"><div class="bingo-bar-fill" style="width: {{ goal.progress_info.percent }}%"></div></div>
-            <div class="bingo-progress">全服进度 <code>{{ goal.progress_info.progress_text }}</code>
-              / {{ goal.progress_info.top_text }} · 已达成 {{ goal.progress_info.reached }}/{{ goal.progress_info.total }} 档</div>
-            {% endif %}
-            <div class="bingo-id"><code>{{ goal.id }}</code></div>
+        <p class="bingo-tip">倒计时由浏览器按本地时间逐秒计算，不受 Actions 抓取延迟影响。点击任意格子查看完整文案与全服进度。</p>
+        <div class="bingo-grid-wrap">
+          <div class="bingo-grid">
+            {% for goal in bingo.goals %}
+            {% set p = goal.progress_info %}
+            <button type="button" class="bingo-cell" data-bingo-cell
+                    data-index="{{ '%02d' | format(loop.index) }}"
+                    data-goal-id="{{ goal.id }}"
+                    data-requirement="{% if goal.tiers %}目标档位：{% elif goal.requirement_text %}要求：{% endif %}{{ goal.requirement_text }}"
+                    data-progress="{% if p %}全服 {{ p.progress_text }} / {{ p.top_text }} · 已达成 {{ p.reached }}/{{ p.total }} 档{% endif %}"
+                    data-percent="{% if p %}{{ '%g' | format(p.percent) }}{% endif %}">
+              <span class="bingo-cell-top">
+                <span class="bingo-index">{{ "%02d" | format(loop.index) }}</span>
+                <span class="bingo-cell-badge{% if p and p.percent >= 100 %} is-done{% endif %}">{% if p %}{{ '%g' | format(p.percent) }}%{% else %}—{% endif %}</span>
+              </span>
+              <span class="bingo-cell-name">{{ goal.name }}</span>
+              <span class="bingo-cell-lore">
+                {% if goal.lore_html %}{% for line in goal.lore_html %}<span class="bingo-cell-lore-line">{{ line | safe }}</span>{% endfor %}{% else %}<span class="bingo-cell-lore-line">（该任务没有文案）</span>{% endif %}
+              </span>
+              <span class="bingo-cell-foot">
+                {% if p %}
+                <span class="bingo-bar"><span class="bingo-bar-fill" style="width: {{ p.percent }}%"></span></span>
+                <span class="bingo-cell-progress">{{ p.progress_text }} / {{ p.top_text }} · {{ p.reached }}/{{ p.total }} 档</span>
+                {% else %}
+                <span class="bingo-cell-progress">{% if goal.requirement_text %}要求 {{ goal.requirement_text }}{% else %}无目标数值{% endif %}</span>
+                {% endif %}
+              </span>
+            </button>
+            {% endfor %}
           </div>
-          {% endfor %}
         </div>
+
+        <dialog class="bingo-dialog" data-bingo-dialog aria-label="Bingo 任务详情">
+          <div class="bingo-dialog-inner">
+            <div class="bingo-dialog-head">
+              <span class="bingo-dialog-index" data-dialog-index></span>
+              <span class="bingo-dialog-name" data-dialog-name></span>
+              <button type="button" class="bingo-dialog-close" data-dialog-close aria-label="关闭">×</button>
+            </div>
+            <div class="bingo-dialog-lore" data-dialog-lore></div>
+            <div class="bingo-dialog-facts">
+              <div><span class="k">目标</span><span class="v" data-dialog-requirement></span></div>
+              <div><span class="k">全服进度</span><span class="v" data-dialog-progress></span></div>
+              <div><span class="k">完成度</span><span class="v" data-dialog-percent></span></div>
+            </div>
+            <div class="bingo-dialog-id">任务 ID：<code data-dialog-id></code></div>
+          </div>
+        </dialog>
         {% endif %}
       </div>
     </div>
 
     <script src="/static/app.js"></script>
+    <script src="/static/bingo.js"></script>
   </body>
 </html>

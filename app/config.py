@@ -5,7 +5,7 @@ from typing import Any, Dict
 
 from app.bingo import goal_progress, requirement_text
 from app.mctext import render_mc_text
-from app.timeutil import format_time
+from app.timeutil import format_time, to_epoch_ms
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "data"
@@ -119,6 +119,9 @@ def get_bingo_info() -> Dict[str, Any]:
     view["first_seen"] = format_time(data.get("first_seen"))
     view["start"] = format_time(data.get("start"))
     view["end"] = format_time(data.get("end"))
+    # 兼容早期写下的 bingo.json：没有 start_ms/end_ms 时从北京时间字符串反推。
+    view["start_ms"] = to_epoch_ms(data.get("start_ms")) or to_epoch_ms(data.get("start"))
+    view["end_ms"] = to_epoch_ms(data.get("end_ms")) or to_epoch_ms(data.get("end"))
     return view
 
 

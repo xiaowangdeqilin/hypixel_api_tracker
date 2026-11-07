@@ -43,6 +43,23 @@ def from_epoch_ms(value: object) -> str:
         return "-"
 
 
+def to_epoch_ms(value: object) -> Optional[int]:
+    """把 epoch 毫秒或北京时间字符串统一成毫秒时间戳。
+
+    页面上的倒计时必须拿到绝对时间点才能在浏览器本地计算，因此展示层需要
+    一份不受时区格式影响的毫秒值。无法解析时返回 ``None``。
+    """
+    if isinstance(value, bool) or value is None:
+        return None
+    if isinstance(value, (int, float)):
+        ms = int(value)
+        return ms if ms > 0 else None
+    dt = parse_beijing(str(value))
+    if dt is None:
+        return None
+    return int(dt.timestamp() * 1000)
+
+
 def parse_beijing(value: Optional[str]) -> Optional[datetime]:
     """把北京时间展示字符串解析回带时区的 ``datetime``。
 

@@ -5,6 +5,7 @@ const ENDPOINT_LABELS = {
   items: '物品',
   bazaar: '集市',
   packs: '资源包',
+  bingo: 'Bingo 任务',
 };
 
 const TYPE_LABELS = {

@@ -133,18 +133,29 @@ python scripts/pack_inspector.py --force      # 忽略哈希缓存强制重新�
 `/v2/resources/skyblock/bingo` 返回当前这一期 Bingo 的时间窗口与全部任务，
 页面**最下方**汇总展示（`data/bingo.json` 持久化）。
 
+**任务展示为 5×5 方格**：25 个任务按接口顺序从左到右、从上到下填入格子，
+每个格子显示序号、任务名、MC 配色文案与全服进度；格子空间有限，
+**点击任意格子**会弹出完整文案与进度详情。窄屏下仍保持 5 列阵容，
+可横向滑动查看。
+
 **三个时间**分别取不同字段，页面上分行标注：
 
 | 展示项 | 来源 | 说明 |
 |--------|------|------|
 | 发布时间 | 接口 `lastUpdated` | 官方最后一次刷新这期数据的时刻 |
 | 首次发现 | 本仓库记录 | 第一次抓到这一期的时刻（同一期会沿用，不会被刷新掉） |
-| 开始 / 结束 | 接口 `start` / `end` | 活动起止时间，同时给出「剩余 17 小时」这类相对时间 |
+| 开始 / 结束 | 接口 `start` / `end` | 活动起止时间 |
 
 `start` / `end` / `lastUpdated` 都是 epoch 毫秒，统一由
 `app/timeutil.py:from_epoch_ms()` 换算成北京时间；无效值（`0`、`null`、非数字）
 返回 `-`，不会出现 `1970-01-01` 这种误导性时间。页面还会根据当前时间判断
 **未开始 / 进行中 / 已结束**。
+
+**倒计时在浏览器本地计算**：构建页面时只写入 `start` / `end` 的 epoch 毫秒
+（`bingo_view()` 中的 `start_ms` / `end_ms`），`static/bingo.js` 在浏览器里
+按本地时间逐秒刷新「剩余 / 距开始 / 已结束」。这样倒计时永远准确，
+不会因为 Actions 每 10 分钟才抓一次、页面是几分钟前构建的而偏慢。
+旧版 `data/bingo.json` 没有这两个字段时，读取层会从北京时间字符串自动反推。
 
 **任务文案的颜色码**：Hypixel 的 `lore` 用 Minecraft 传统颜色码（`§7Break §e10M Ore§7 Blocks.`）。
 这类码是「状态」语义而不是「包裹」——`§e` 之后的所有文字都是黄色，直到遇到下一个
@@ -258,7 +269,9 @@ app/                          # 本地 FastAPI 服务 + 脚本共用的纯逻辑
   db.py / diff.py / fetcher.py
   scheduler.py / main.py
 templates/index.html          # FastAPI 页面模板
-static/                        # FastAPI 页面静态资源（app.js / styles.css）
+static/                        # 页面静态资源
+  app.js / styles.css          # FastAPI 页面数据加载与主题样式
+  bingo.css / bingo.js         # Bingo 面板样式与交互（本地 <link> 引用、静态页构建时内联）
 data/
   snapshots/                  # 持久化快照（提交到仓库）
   changes.json                # 字段变更日志
@@ -284,3 +297,4 @@ site/                          # 生成的静态页面（被 .gitignore 忽略�
 | Bingo 面板显示「暂无 Bingo 数据」 | `data/bingo.json` 还不存在，跑一次 `python scripts/build_dashboard.py` 即可 |
 | Bingo 任务文案颜色不对 | 已支持 `§0`–`§f` 与 `§l/§o/§n/§m/§k/§r`；`§0` 纯黑在深色背景不可见，按可用性提亮为 `#404040` |
 | Bingo 显示「未开始」/「已结束」 | 按当前北京时间与 `start`/`end` 计算，属正常；结束后期次数据仍会保留到接口换成下一期 |
+| Bingo 倒计时与构建时间对不上 | 正常：倒计时由浏览器按本地时间逐秒计算，比构建时刻的快照更准 |

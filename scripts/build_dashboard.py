@@ -64,6 +64,7 @@ from app.timeutil import (  # noqa: E402
     format_time,
     from_epoch_ms,
     now_beijing,
+    to_epoch_ms,
 )
 
 try:  # 兼容 ``python scripts/build_dashboard.py`` 与模块导入两种方式
@@ -97,6 +98,10 @@ CHANGES_FILE = DATA_DIR / "changes.json"
 RUNTIME_FILE = DATA_DIR / "runtime.json"
 BINGO_FILE = DATA_DIR / "bingo.json"
 SITE_DIR = BASE_DIR / "site"
+# Bingo 面板的样式与交互脚本：本地页面用 <link>/<script> 引用，
+# 静态页面由构建脚本原样内联，保证两端行为完全一致。
+BINGO_CSS_FILE = BASE_DIR / "static" / "bingo.css"
+BINGO_JS_FILE = BASE_DIR / "static" / "bingo.js"
 
 ENDPOINTS: Dict[str, str] = {
     "collections": "https://api.hypixel.net/v2/resources/skyblock/collections",
@@ -460,6 +465,14 @@ def load_bingo() -> Dict[str, Any]:
     return data if isinstance(data, dict) else {}
 
 
+def read_asset(path: Path) -> str:
+    """读取需要内联到静态页面的前端资源；缺失时降级为空串而不是中断构建。"""
+    try:
+        return path.read_text(encoding="utf-8")
+    except OSError:
+        return ""
+
+
 def save_bingo(view: Dict[str, Any]) -> None:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     BINGO_FILE.write_text(
@@ -467,63 +480,87 @@ def save_bingo(view: Dict[str, Any]) -> None:
     )
 
 
+def percent_text(value: Any) -> str:
+    """把 0–100 的百分比压成 ``100`` / ``33.3``，避免卡片上出现多余小数。"""
+    try:
+        num = float(value)
+    except (TypeError, ValueError):
+        return ""
+    return f"{num:g}"
+
+
 def render_bingo_goal(goal: Dict[str, Any], index: int) -> str:
-    """渲染单个 Bingo 任务卡片（文案里的 MC 颜色码会被还原成对应颜色）。"""
+    """渲染 5×5 方格里的单个任务格（文案里的 MC 颜色码会还原成对应颜色）。"""
     name = html.escape(str(goal.get("name") or "未命名任务"))
     gid = html.escape(str(goal.get("id") or "-"))
+    tier_text = goal.get("requirement_text") or requirement_text(goal)
+    tiers = goal.get("tiers")
+    if isinstance(tiers, list) and tiers:
+        requirement = "目标档位：" + " / ".join(format_amount(t) for t in tiers)
+    elif tier_text:
+        requirement = "要求：" + tier_text
+    else:
+        requirement = "无目标数值"
+
     lore_lines = goal.get("lore_lines")
     if not lore_lines:
         lore_lines = goal.get("fullLore") or ([goal.get("lore")] if goal.get("lore") else [])
     lore_html = "".join(
-        f'<div class="bingo-lore-line">{line}</div>'
+        f'<span class="bingo-cell-lore-line">{line}</span>'
         for line in render_mc_lines([str(x) for x in lore_lines], default_color="#e2e8f0")
-    ) or '<div class="bingo-lore-line"><span style="color:#64748b">（该任务没有文案）</span></div>'
-
-    tiers = goal.get("tiers")
-    required = goal.get("requiredAmount")
-    req_text = goal.get("requirement_text") or requirement_text(goal)
-    if isinstance(tiers, list) and tiers:
-        requirement = (
-            '<span class="bingo-req">目标档位：<code>'
-            + "</code> · <code>".join(html.escape(format_amount(t)) for t in tiers)
-            + "</code></span>"
-        )
-    elif required is not None:
-        requirement = (
-            '<span class="bingo-req">要求：<code>'
-            + html.escape(req_text)
-            + "</code></span>"
-        )
-    else:
-        requirement = ""
+    ) or '<span class="bingo-cell-lore-line">（该任务没有文案）</span>'
 
     progress = goal.get("progress_info") or goal_progress(goal)
-    progress_html = ""
+    percent = progress.get("percent") if progress else None
+    percent_attr = percent_text(percent) if progress else ""
+    badge_attr = " is-done" if progress and percent >= 100 else ""
+
     if progress:
-        progress_html = f"""
-          <div class="bingo-bar"><div class="bingo-bar-fill" style="width:{progress['percent']}%"></div></div>
-          <div class="bingo-progress">全服进度 <code>{html.escape(format_amount(progress['progress']))}</code>
-            / {html.escape(format_amount(progress['top']))} · 已达成 {progress['reached']}/{progress['total']} 档</div>
-        """
+        badge_text = f"{percent_attr}%"
+        progress_attr = (
+            f"全服 {progress['progress_text']} / {progress['top_text']} · "
+            f"已达成 {progress['reached']}/{progress['total']} 档"
+        )
+        foot_html = f"""
+                <span class="bingo-bar"><span class="bingo-bar-fill" style="width:{percent_attr}%"></span></span>
+                <span class="bingo-cell-progress">{html.escape(progress['progress_text'])} / {html.escape(progress['top_text'])}
+                  · {progress['reached']}/{progress['total']} 档</span>"""
+    else:
+        badge_text = "—"
+        progress_attr = ""
+        foot_text = f"要求 {tier_text}" if tier_text else "无目标数值"
+        foot_html = f"""
+                <span class="bingo-cell-progress">{html.escape(foot_text)}</span>"""
+
     return f"""
-        <div class="bingo-goal">
-          <div class="bingo-goal-head">
-            <span class="bingo-index">{index:02d}</span>
-            <span class="bingo-name">{name}</span>
-          </div>
-          <div class="bingo-lore">{lore_html}</div>
-          <div class="bingo-meta">{requirement}</div>
-          {progress_html}
-          <div class="bingo-id"><code>{gid}</code></div>
-        </div>
+            <button type="button" class="bingo-cell" data-bingo-cell
+                    data-index="{index:02d}"
+                    data-goal-id="{gid}"
+                    data-requirement="{html.escape(requirement)}"
+                    data-progress="{html.escape(progress_attr)}"
+                    data-percent="{percent_attr}">
+              <span class="bingo-cell-top">
+                <span class="bingo-index">{index:02d}</span>
+                <span class="bingo-cell-badge{badge_attr}">{badge_text}</span>
+              </span>
+              <span class="bingo-cell-name">{name}</span>
+              <span class="bingo-cell-lore">{lore_html}</span>
+              <span class="bingo-cell-foot">{foot_html}
+              </span>
+            </button>
     """
 
 
 def render_bingo_panel(bingo: Dict[str, Any], *, stale: bool = False) -> str:
-    """渲染页面最底部的「Bingo 任务」面板。"""
+    """渲染页面最底部的「Bingo 任务」面板。
+
+    25 个任务按接口顺序放进 5×5 方格（行优先：从左到右、从上到下）；
+    倒计时不在构建时写死，而是把 ``start`` / ``end`` 的 epoch 毫秒交给浏览器
+    本地逐秒计算，避免 Actions 抓取延迟让「剩余时间」越走越慢。
+    """
     if not bingo or not bingo.get("id"):
         return """
-    <div class="panel">
+    <div class="panel bingo-panel" data-bingo-panel>
       <h2>Bingo 任务</h2>
       <p class="hint">数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有抓到 Bingo 数据，
       运行一次构建后即可显示期次时间与全部任务。</p>
@@ -533,16 +570,21 @@ def render_bingo_panel(bingo: Dict[str, Any], *, stale: bool = False) -> str:
 
     state = bingo.get("state", "unknown")
     goals = [g for g in (bingo.get("goals") or []) if isinstance(g, dict)]
-    goal_cards = "".join(
+    goal_cells = "".join(
         render_bingo_goal(goal, i + 1) for i, goal in enumerate(goals)
     ) or '<div class="empty">该期没有任务数据</div>'
+
+    start_ms = bingo.get("start_ms") or to_epoch_ms(bingo.get("start"))
+    end_ms = bingo.get("end_ms") or to_epoch_ms(bingo.get("end"))
+    start_attr = str(start_ms) if start_ms else ""
+    end_attr = str(end_ms) if end_ms else ""
 
     stale_html = (
         '<div class="bingo-stale">本次运行未抓到最新数据，以下为上一次成功抓取的结果。</div>'
         if stale else ""
     )
     return f"""
-    <div class="panel">
+    <div class="panel bingo-panel" data-bingo-panel>
       <h2>Bingo 任务<span class="panel-sub">第 {html.escape(str(bingo.get('id', '-')))} 期 ·
         {html.escape(str(bingo.get('name', '-')))}</span></h2>
       <p class="hint">数据来自 <code>/v2/resources/skyblock/bingo</code>。发布时间取自接口的
@@ -552,8 +594,10 @@ def render_bingo_panel(bingo: Dict[str, Any], *, stale: bool = False) -> str:
       不参与变更比对</strong>，否则每个抓取周期都会刷出大量无意义变更。</p>
       {stale_html}
       <div class="bingo-head">
-        <div class="bingo-state bingo-state-{html.escape(state)}">
-          {html.escape(str(bingo.get('state_label', '-')))} · {html.escape(str(bingo.get('remaining', '-')))}
+        <div class="bingo-state bingo-state-{html.escape(state)}" data-bingo-state
+             data-state="{html.escape(state)}" data-start-ms="{start_attr}" data-end-ms="{end_attr}">
+          <span class="bingo-state-label">{html.escape(str(bingo.get('state_label', '-'))) }</span>
+          <span class="bingo-countdown" data-bingo-countdown>{html.escape(str(bingo.get('remaining', '-'))) }</span>
         </div>
         <div class="bingo-info">
           <div><span class="k">发布时间</span><span class="v">{html.escape(format_time(bingo.get('published_at')))}</span></div>
@@ -564,7 +608,27 @@ def render_bingo_panel(bingo: Dict[str, Any], *, stale: bool = False) -> str:
           <div><span class="k">任务数量</span><span class="v">{len(goals)} 个</span></div>
         </div>
       </div>
-      <div class="bingo-grid">{goal_cards}</div>
+      <p class="bingo-tip">倒计时由浏览器按本地时间逐秒计算，不受 Actions 抓取延迟影响。点击任意格子查看完整文案与全服进度。</p>
+      <div class="bingo-grid-wrap">
+        <div class="bingo-grid">{goal_cells}</div>
+      </div>
+
+      <dialog class="bingo-dialog" data-bingo-dialog aria-label="Bingo 任务详情">
+        <div class="bingo-dialog-inner">
+          <div class="bingo-dialog-head">
+            <span class="bingo-dialog-index" data-dialog-index></span>
+            <span class="bingo-dialog-name" data-dialog-name></span>
+            <button type="button" class="bingo-dialog-close" data-dialog-close aria-label="关闭">×</button>
+          </div>
+          <div class="bingo-dialog-lore" data-dialog-lore></div>
+          <div class="bingo-dialog-facts">
+            <div><span class="k">目标</span><span class="v" data-dialog-requirement></span></div>
+            <div><span class="k">全服进度</span><span class="v" data-dialog-progress></span></div>
+            <div><span class="k">完成度</span><span class="v" data-dialog-percent></span></div>
+          </div>
+          <div class="bingo-dialog-id">任务 ID：<code data-dialog-id></code></div>
+        </div>
+      </dialog>
     </div>
     """
 
@@ -1193,6 +1257,10 @@ def render_html(
             """
         )
 
+    # Bingo 面板样式与脚本与本地页面共用同一份文件，这里原样内联进静态页。
+    bingo_css = read_asset(BINGO_CSS_FILE)
+    bingo_js = read_asset(BINGO_JS_FILE)
+
     return f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -1382,6 +1450,7 @@ def render_html(
     .empty {{ text-align: center; color: #64748b; padding: 24px; }}
     a {{ color: #38bdf8; }}
   </style>
+  <style>{bingo_css}</style>
 </head>
 <body>
   <div class="container">
@@ -1396,7 +1465,7 @@ def render_html(
     {note_html}
 
     <h1>Hypixel SkyBlock API 变更监控台</h1>
-    <div class="subtitle">监控收藏、技能、物品、集市、资源包与 Bingo 任务六个端点，并解压比对资源包内文件变化。数据由 GitHub Actions 定时抓取，所有时间均为北京时间（UTC+8）。页面最下方汇总当前 Bingo 的全部任务。</div>
+    <div class="subtitle">监控收藏、技能、物品、集市、资源包与 Bingo 任务六个端点，并解压比对资源包内文件变化。数据由 GitHub Actions 定时抓取，所有时间均为北京时间（UTC+8）。页面最下方以 5×5 方格汇总当前 Bingo 的全部任务，倒计时由浏览器本地计算。</div>
 
     <div class="cards">{''.join(cards)}</div>
 
@@ -1422,7 +1491,10 @@ def render_html(
         资源包（packs）端点每次都会取 packFormat 数值最大的版本（该数字随 MC 更新变化），
         在官方哈希变化时下载 zip 并解压，按文件内容哈希比对包内文件的增删改；
         被修改的文本文件只展示变化片段并标红标绿，新增文件只标绿。
-        Bingo 端点（bingo）记录每期任务的发布时间、开始与结束时间，并在页面最下方列出全部任务；
+        Bingo 端点（bingo）记录每期任务的发布时间、开始与结束时间，并以 5×5 方格
+        列出全部任务（从左到右、从上到下，点击格子查看完整文案）；
+        倒计时把 <code>start</code> / <code>end</code> 的 epoch 毫秒交给浏览器逐秒计算，
+        不受 Actions 抓取延迟影响；
         任务文案里的 Minecraft 颜色码（<code>§</code>）会按官方配色还原，
         全服进度只用于展示、不参与变更比对。
         若任一接口或资源包下载失败，本次运行不会改动仓库里的任何数据。
@@ -1431,6 +1503,7 @@ def render_html(
 
     {render_bingo_panel(bingo or {}, stale=bingo_stale)}
   </div>
+  <script>{bingo_js}</script>
 </body>
 </html>
 """
