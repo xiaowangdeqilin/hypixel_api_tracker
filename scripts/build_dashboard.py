@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """生成 Hypixel SkyBlock API 变更追踪的静态 GitHub Pages 仪表盘。
 
-在定时 GitHub Actions 工作流中运行：抓取五个端点的数据（含资源包 packs），
-与上一次提交的快照做比对，记录结构性变更；下载并解压资源包 zip，比对包内
-文件的新增 / 修改 / 删除；最后渲染一个自包含的中文 HTML 仪表盘以及
-data.json 数据文件。
+在定时 GitHub Actions 工作流中运行：抓取六个端点的数据（含资源包 packs 与
+Bingo 任务），与上一次提交的快照做比对，记录结构性变更；下载并解压资源包
+zip，比对包内文件的新增 / 修改 / 删除；最后渲染一个自包含的中文 HTML
+仪表盘以及 data.json 数据文件。
 
 关键设计：
 
@@ -17,14 +17,20 @@ data.json 数据文件。
 * **时间统一北京时间**：所有写入与展示的时间均由 ``app.timeutil`` 处理。
 * **资源包取最大 packFormat**：``packFormat`` 会随 Minecraft / Hypixel 更新而变大，
   每次调用接口都从响应里重新取数值最大的版本，不缓存也不写死任何数字。
-* **失败安全**：抓取与比对过程完全不落盘；只有「五个接口全部拿到数据」且
+* **失败安全**：抓取与比对过程完全不落盘；只有「六个接口全部拿到数据」且
   「资源包检查成功」时，才在阶段 3 一次性写入 ``data/``。任一环节失败则整次
   运行不做任何变化，页面沿用上次结果并标注原因。
 * **只显示变化片段**：修改类变更（端点字段与资源包文本文件）经逐行比对后
   只输出发生变化的段落，删除行标红、新增行标绿；新增项只标绿，不出现红色行。
+* **Bingo 任务**：``/v2/resources/skyblock/bingo`` 的 ``start`` / ``end`` /
+  ``lastUpdated`` 均为 epoch 毫秒，统一转北京时间展示；``goals`` 里的
+  ``progress`` 是全服累计进度、每次抓取都在变，只用于展示，不参与变更比对，
+  否则每个周期都会刷出几十条无意义变更。任务文案里的 Minecraft 颜色码
+  （``§7`` 等）由 ``app.mctext`` 渲染成等价的 HTML 样式。
 * 快照保存在 ``data/snapshots/``，滚动变更日志 ``data/changes.json``，
   版本状态 ``data/runtime.json``，资源包清单 ``data/pack_files.json`` /
-  文本缓存 ``data/pack_texts.json`` / 变更记录 ``data/pack_changes.json``。
+  文本缓存 ``data/pack_texts.json`` / 变更记录 ``data/pack_changes.json``，
+  Bingo 展示数据 ``data/bingo.json``。
 """
 
 from __future__ import annotations
@@ -44,7 +50,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 if str(BASE_DIR) not in sys.path:
     sys.path.insert(0, str(BASE_DIR))
 
-from app.timeutil import format_time, now_beijing  # noqa: E402
+from app.bingo import (  # noqa: E402
+    BINGO_STATE_LABELS,
+    bingo_state,
+    bingo_view,
+    format_amount,
+    goal_progress,
+    normalize_bingo,
+    requirement_text,
+)
+from app.mctext import render_mc_lines  # noqa: E402
+from app.timeutil import (  # noqa: E402
+    format_time,
+    from_epoch_ms,
+    now_beijing,
+)
 
 try:  # 兼容 ``python scripts/build_dashboard.py`` 与模块导入两种方式
     from pack_inspector import (
@@ -75,6 +95,7 @@ DATA_DIR = BASE_DIR / "data"
 SNAPSHOT_DIR = DATA_DIR / "snapshots"
 CHANGES_FILE = DATA_DIR / "changes.json"
 RUNTIME_FILE = DATA_DIR / "runtime.json"
+BINGO_FILE = DATA_DIR / "bingo.json"
 SITE_DIR = BASE_DIR / "site"
 
 ENDPOINTS: Dict[str, str] = {
@@ -83,6 +104,7 @@ ENDPOINTS: Dict[str, str] = {
     "items": "https://api.hypixel.net/v2/resources/skyblock/items",
     "bazaar": "https://api.hypixel.net/v2/skyblock/bazaar",
     "packs": "https://api.hypixel.net/v2/resources/packs",
+    "bingo": "https://api.hypixel.net/v2/resources/skyblock/bingo",
 }
 
 # 只有这两个资源接口带 version 字段，且可能分批更新。
@@ -105,6 +127,7 @@ ENDPOINT_LABELS = {
     "items": "物品",
     "bazaar": "集市",
     "packs": "资源包",
+    "bingo": "Bingo 任务",
 }
 SUMMARY_LABELS = {
     "collection_count": "收藏分类数",
@@ -116,6 +139,10 @@ SUMMARY_LABELS = {
     "pack_format_count": "格式版本数",
     "selected_pack_format": "选取格式（最大）",
     "deploy_id": "部署 ID",
+    "bingo_name": "期次",
+    "bingo_goal_count": "任务数",
+    "bingo_state": "状态",
+    "bingo_window": "活动时间",
 }
 TYPE_LABELS = {
     "added": "新增",
@@ -137,6 +164,12 @@ PACK_STATUS_LABELS = {
     "error": "资源包检查失败",
     "unavailable": "暂无可用资源包",
     "texts_backfilled": "已补齐文本缓存（包内容无变化）",
+}
+BINGO_STATE_LABELS = {
+    "upcoming": "未开始",
+    "active": "进行中",
+    "ended": "已结束",
+    "unknown": "未知",
 }
 
 BAZAAR_STRUCTURAL_ONLY = True
@@ -413,6 +446,130 @@ def _log_value(value: Any, max_chars: int = MAX_LOG_VALUE_CHARS) -> Optional[str
 
 
 # --------------------------------------------------------------------------- #
+# Bingo 任务
+# --------------------------------------------------------------------------- #
+
+
+def load_bingo() -> Dict[str, Any]:
+    if not BINGO_FILE.exists():
+        return {}
+    try:
+        data = json.loads(BINGO_FILE.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def save_bingo(view: Dict[str, Any]) -> None:
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    BINGO_FILE.write_text(
+        json.dumps(view, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+
+
+def render_bingo_goal(goal: Dict[str, Any], index: int) -> str:
+    """渲染单个 Bingo 任务卡片（文案里的 MC 颜色码会被还原成对应颜色）。"""
+    name = html.escape(str(goal.get("name") or "未命名任务"))
+    gid = html.escape(str(goal.get("id") or "-"))
+    lore_lines = goal.get("lore_lines")
+    if not lore_lines:
+        lore_lines = goal.get("fullLore") or ([goal.get("lore")] if goal.get("lore") else [])
+    lore_html = "".join(
+        f'<div class="bingo-lore-line">{line}</div>'
+        for line in render_mc_lines([str(x) for x in lore_lines], default_color="#e2e8f0")
+    ) or '<div class="bingo-lore-line"><span style="color:#64748b">（该任务没有文案）</span></div>'
+
+    tiers = goal.get("tiers")
+    required = goal.get("requiredAmount")
+    req_text = goal.get("requirement_text") or requirement_text(goal)
+    if isinstance(tiers, list) and tiers:
+        requirement = (
+            '<span class="bingo-req">目标档位：<code>'
+            + "</code> · <code>".join(html.escape(format_amount(t)) for t in tiers)
+            + "</code></span>"
+        )
+    elif required is not None:
+        requirement = (
+            '<span class="bingo-req">要求：<code>'
+            + html.escape(req_text)
+            + "</code></span>"
+        )
+    else:
+        requirement = ""
+
+    progress = goal.get("progress_info") or goal_progress(goal)
+    progress_html = ""
+    if progress:
+        progress_html = f"""
+          <div class="bingo-bar"><div class="bingo-bar-fill" style="width:{progress['percent']}%"></div></div>
+          <div class="bingo-progress">全服进度 <code>{html.escape(format_amount(progress['progress']))}</code>
+            / {html.escape(format_amount(progress['top']))} · 已达成 {progress['reached']}/{progress['total']} 档</div>
+        """
+    return f"""
+        <div class="bingo-goal">
+          <div class="bingo-goal-head">
+            <span class="bingo-index">{index:02d}</span>
+            <span class="bingo-name">{name}</span>
+          </div>
+          <div class="bingo-lore">{lore_html}</div>
+          <div class="bingo-meta">{requirement}</div>
+          {progress_html}
+          <div class="bingo-id"><code>{gid}</code></div>
+        </div>
+    """
+
+
+def render_bingo_panel(bingo: Dict[str, Any], *, stale: bool = False) -> str:
+    """渲染页面最底部的「Bingo 任务」面板。"""
+    if not bingo or not bingo.get("id"):
+        return """
+    <div class="panel">
+      <h2>Bingo 任务</h2>
+      <p class="hint">数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有抓到 Bingo 数据，
+      运行一次构建后即可显示期次时间与全部任务。</p>
+      <div class="empty">暂无 Bingo 数据</div>
+    </div>
+    """
+
+    state = bingo.get("state", "unknown")
+    goals = [g for g in (bingo.get("goals") or []) if isinstance(g, dict)]
+    goal_cards = "".join(
+        render_bingo_goal(goal, i + 1) for i, goal in enumerate(goals)
+    ) or '<div class="empty">该期没有任务数据</div>'
+
+    stale_html = (
+        '<div class="bingo-stale">本次运行未抓到最新数据，以下为上一次成功抓取的结果。</div>'
+        if stale else ""
+    )
+    return f"""
+    <div class="panel">
+      <h2>Bingo 任务<span class="panel-sub">第 {html.escape(str(bingo.get('id', '-')))} 期 ·
+        {html.escape(str(bingo.get('name', '-')))}</span></h2>
+      <p class="hint">数据来自 <code>/v2/resources/skyblock/bingo</code>。发布时间取自接口的
+      <code>lastUpdated</code>，另有「首次发现」记录本仓库第一次抓到这一期的时刻；
+      开始与结束时间取自 <code>start</code> / <code>end</code>。任务文案保留 Minecraft
+      颜色码（<code>§</code>）并按官方配色渲染。<strong>全服进度（progress）只用于展示，
+      不参与变更比对</strong>，否则每个抓取周期都会刷出大量无意义变更。</p>
+      {stale_html}
+      <div class="bingo-head">
+        <div class="bingo-state bingo-state-{html.escape(state)}">
+          {html.escape(str(bingo.get('state_label', '-')))} · {html.escape(str(bingo.get('remaining', '-')))}
+        </div>
+        <div class="bingo-info">
+          <div><span class="k">发布时间</span><span class="v">{html.escape(format_time(bingo.get('published_at')))}</span></div>
+          <div><span class="k">首次发现</span><span class="v">{html.escape(format_time(bingo.get('first_seen')))}</span></div>
+          <div><span class="k">开始时间</span><span class="v">{html.escape(format_time(bingo.get('start')))}</span></div>
+          <div><span class="k">结束时间</span><span class="v">{html.escape(format_time(bingo.get('end')))}</span></div>
+          <div><span class="k">难度修饰</span><span class="v">{html.escape(str(bingo.get('modifier', '-')))}</span></div>
+          <div><span class="k">任务数量</span><span class="v">{len(goals)} 个</span></div>
+        </div>
+      </div>
+      <div class="bingo-grid">{goal_cards}</div>
+    </div>
+    """
+
+
+# --------------------------------------------------------------------------- #
 # 各端点的差异比对（传入的 payload 已剥离顶层元数据）
 # --------------------------------------------------------------------------- #
 
@@ -447,6 +604,62 @@ def diff_bazaar(old: Dict[str, Any], new: Dict[str, Any]) -> List[Dict[str, Any]
             {"type": "removed", "path": f"products.{pid}", "old": "集市商品",
              "old_full": pid, "new": None, "new_full": None}
         )
+    return changes
+
+
+def diff_bingo(old: Dict[str, Any], new: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """Bingo 快照已在生成阶段规范化：goals 是按任务 id 索引的字典。
+
+    两种情况分开处理：
+
+    * **同一期任务改动** → 字典比对，可精确到 ``goals.<id>.lore`` 这样的字段；
+    * **换期**（``id`` 变化）→ 整期任务全部换掉，逐条比对会刷出几十条无意义
+      的增删记录，因此合并成一条「期次更新」，必要时补上时间窗口变化。
+
+    全服进度与数据刷新时间已在 ``normalize_bingo()`` 中剔除，不会产生噪音。
+    """
+    old_id, new_id = old.get("id"), new.get("id")
+    if old_id is not None and new_id is not None and str(old_id) != str(new_id):
+        changes: List[Dict[str, Any]] = [
+            {
+                "type": "modified", "path": "id",
+                "old": f"第 {old_id} 期 {old.get('name', '')}".strip(),
+                "old_full": _log_value(old),
+                "new": f"第 {new_id} 期 {new.get('name', '')}".strip(),
+                "new_full": _log_value(new),
+            }
+        ]
+        for field in ("start", "end", "modifier"):
+            if old.get(field) != new.get(field):
+                changes.append(
+                    {
+                        "type": "modified", "path": field,
+                        "old": _summarize(old.get(field)), "old_full": _log_value(old.get(field)),
+                        "new": _summarize(new.get(field)), "new_full": _log_value(new.get(field)),
+                    }
+                )
+        return changes
+    return _enrich_bingo_changes(diff_dict(old, new), old, new)
+
+
+def _enrich_bingo_changes(
+    changes: List[Dict[str, Any]], old: Dict[str, Any], new: Dict[str, Any]
+) -> List[Dict[str, Any]]:
+    """把「新增/删除整条任务」的摘要换成任务名，日志里读得懂。"""
+    old_goals = old.get("goals") or {}
+    new_goals = new.get("goals") or {}
+    if not isinstance(old_goals, dict) or not isinstance(new_goals, dict):
+        return changes
+    for change in changes:
+        parts = str(change.get("path", "")).split(".")
+        if len(parts) != 2 or parts[0] != "goals":
+            continue
+        entry = new_goals.get(parts[1]) or old_goals.get(parts[1]) or {}
+        name = entry.get("name") or parts[1]
+        if change["type"] == "added":
+            change["new"] = f"新增任务「{name}」"
+        elif change["type"] == "removed":
+            change["old"] = f"删除任务「{name}」"
     return changes
 
 
@@ -486,6 +699,7 @@ DIFF_FUNCS = {
     "items": diff_items,
     "bazaar": diff_bazaar,
     "packs": diff_packs,
+    "bingo": diff_bingo,
 }
 
 
@@ -535,6 +749,16 @@ def summarize_payload(name: str, payload: Dict[str, Any]) -> Dict[str, Any]:
             "selected_pack_format": selected if selected is not None else "-",
             "deploy_id": first.get("deployId", "-"),
         }
+    if name == "bingo":
+        goals = payload.get("goals") or []
+        start = from_epoch_ms(payload.get("start"))
+        end = from_epoch_ms(payload.get("end"))
+        state, _ = bingo_state(start, end, now_beijing())
+        return {
+            "bingo_name": payload.get("name") or f"第 {payload.get('id', '-')} 期",
+            "bingo_goal_count": len(goals) if isinstance(goals, list) else 0,
+            "bingo_state": BINGO_STATE_LABELS.get(state, state),
+        }
     return {}
 
 
@@ -555,6 +779,12 @@ def make_snapshot(name: str, payload: Dict[str, Any]) -> Dict[str, Any]:
         product_ids = sorted(products.keys()) if isinstance(products, dict) else []
         snap["payload"] = {"product_ids": product_ids}
         snap["checksum"] = checksum(product_ids)
+    elif name == "bingo":
+        # Bingo 用规范化结构比对：剔除全服进度与数据刷新时间，
+        # 时间统一转成北京时间字符串，变更日志才读得懂。
+        bingo_norm = normalize_bingo(payload)
+        snap["payload"] = bingo_norm
+        snap["checksum"] = checksum(bingo_norm)
     return snap
 
 
@@ -915,6 +1145,8 @@ def render_html(
     build: str,
     pack_result: Dict[str, Any],
     pack_changes: List[Dict[str, Any]],
+    bingo: Optional[Dict[str, Any]] = None,
+    bingo_stale: bool = False,
     skipped_reason: Optional[str] = None,
 ) -> str:
     stable = version_info.get("stable_version") or "未获取"
@@ -1085,6 +1317,63 @@ def render_html(
       border-radius: 8px; padding: 10px 14px; font-size: 12px; margin-bottom: 12px;
     }}
 
+    /* ---- Bingo 任务 ---- */
+    .panel-sub {{ margin-left: 10px; font-size: 12px; font-weight: 400; color: #94a3b8; }}
+    .bingo-stale {{
+      background: #451a03; border: 1px solid #f59e0b; color: #fde68a;
+      border-radius: 8px; padding: 8px 12px; font-size: 12px; margin-bottom: 12px;
+    }}
+    .bingo-head {{
+      display: flex; flex-wrap: wrap; gap: 14px; align-items: stretch;
+      margin: 12px 0 16px;
+    }}
+    .bingo-state {{
+      flex: 0 0 auto; display: flex; align-items: center; justify-content: center;
+      padding: 10px 18px; border-radius: 10px; font-weight: 700; font-size: 13px;
+      border: 1px solid #334155; background: #16213a;
+    }}
+    .bingo-state-active {{ background: #052e16; border-color: #22c55e; color: #86efac; }}
+    .bingo-state-upcoming {{ background: #172554; border-color: #3b82f6; color: #93c5fd; }}
+    .bingo-state-ended {{ background: #3f1d1d; border-color: #ef4444; color: #fca5a5; }}
+    .bingo-info {{
+      flex: 1 1 380px; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 8px 18px; align-content: center;
+    }}
+    .bingo-info > div {{ display: flex; justify-content: space-between; gap: 10px;
+      border-bottom: 1px dashed #334155; padding-bottom: 4px; font-size: 12px; }}
+    .bingo-info .k {{ color: #94a3b8; }}
+    .bingo-info .v {{ color: #e2e8f0; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }}
+    .bingo-grid {{
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 12px;
+    }}
+    .bingo-goal {{
+      background: #16213a; border: 1px solid #334155; border-radius: 10px;
+      padding: 12px 14px; display: flex; flex-direction: column; gap: 8px;
+    }}
+    .bingo-goal-head {{ display: flex; align-items: baseline; gap: 8px; }}
+    .bingo-index {{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 11px; color: #64748b; flex: 0 0 auto;
+    }}
+    .bingo-name {{ font-size: 14px; font-weight: 700; color: #f8fafc; line-height: 1.4; }}
+    .bingo-lore {{ font-size: 13px; line-height: 1.65; }}
+    .bingo-lore-line {{ word-break: break-word; }}
+    .bingo-meta {{ font-size: 11px; color: #94a3b8; }}
+    .bingo-req code {{ color: #7dd3fc; background: #0b1220; padding: 1px 5px; border-radius: 4px; }}
+    .bingo-bar {{ height: 6px; background: #0b1220; border-radius: 999px; overflow: hidden; }}
+    .bingo-bar-fill {{ height: 100%; background: linear-gradient(90deg, #22c55e, #4ade80); }}
+    .bingo-progress {{ font-size: 11px; color: #94a3b8; }}
+    .bingo-progress code {{ color: #86efac; }}
+    .bingo-id {{ margin-top: auto; font-size: 10px; color: #475569; }}
+    .bingo-id code {{ color: inherit; }}
+    /* 混淆码 §k：MC 里表现为随机跳动的字符，这里用轻微抖动示意 */
+    .mc-obf {{ display: inline-block; animation: mc-obf-jitter .45s steps(2) infinite; }}
+    @keyframes mc-obf-jitter {{
+      0% {{ opacity: .55; letter-spacing: .6px; }}
+      50% {{ opacity: 1; letter-spacing: 0; }}
+      100% {{ opacity: .55; letter-spacing: .6px; }}
+    }}
+
     table {{ width: 100%; border-collapse: collapse; font-size: 13px; }}
     th, td {{ text-align: left; padding: 10px 12px; border-bottom: 1px solid #334155; vertical-align: top; }}
     th {{ background: #0f172a; color: #94a3b8; font-weight: 600; position: sticky; top: 0; }}
@@ -1107,7 +1396,7 @@ def render_html(
     {note_html}
 
     <h1>Hypixel SkyBlock API 变更监控台</h1>
-    <div class="subtitle">监控收藏、技能、物品、集市与资源包五个端点，并解压比对资源包内文件变化。数据由 GitHub Actions 定时抓取，所有时间均为北京时间（UTC+8）。</div>
+    <div class="subtitle">监控收藏、技能、物品、集市、资源包与 Bingo 任务六个端点，并解压比对资源包内文件变化。数据由 GitHub Actions 定时抓取，所有时间均为北京时间（UTC+8）。页面最下方汇总当前 Bingo 的全部任务。</div>
 
     <div class="cards">{''.join(cards)}</div>
 
@@ -1133,9 +1422,14 @@ def render_html(
         资源包（packs）端点每次都会取 packFormat 数值最大的版本（该数字随 MC 更新变化），
         在官方哈希变化时下载 zip 并解压，按文件内容哈希比对包内文件的增删改；
         被修改的文本文件只展示变化片段并标红标绿，新增文件只标绿。
+        Bingo 端点（bingo）记录每期任务的发布时间、开始与结束时间，并在页面最下方列出全部任务；
+        任务文案里的 Minecraft 颜色码（<code>§</code>）会按官方配色还原，
+        全服进度只用于展示、不参与变更比对。
         若任一接口或资源包下载失败，本次运行不会改动仓库里的任何数据。
       </p>
     </div>
+
+    {render_bingo_panel(bingo or {}, stale=bingo_stale)}
   </div>
 </body>
 </html>
@@ -1252,6 +1546,14 @@ def main() -> int:
 
     version_info = resolve_version_state(runtime, observed_versions, generated_at)
 
+    # Bingo 展示数据：保留原始 goals（含颜色码与全服进度）。
+    # 同一期的 first_seen 沿用上次记录，避免每次运行都把首发时间刷新掉。
+    bingo_data: Dict[str, Any] = load_bingo()
+    if "bingo" in payloads:
+        bingo_data = bingo_view(
+            payloads["bingo"], generated_at=generated_at, previous=bingo_data
+        )
+
     # 资源包检查：只在 packs 接口成功时运行；检查器本身不写盘。
     pack_result: Dict[str, Any] = {
         "status": "unavailable", "pack": None, "total_files": 0,
@@ -1284,8 +1586,11 @@ def main() -> int:
         save_changes(all_changes)
         save_runtime(version_info)
         commit_pack_result(pack_result, DATA_DIR)
+        if bingo_data:
+            save_bingo(bingo_data)
         pack_changes = load_pack_changes(DATA_DIR)
         data_written = True
+        bingo_stale = False
     else:
         # 任何失败都不改动 data/ 下的一个字节，页面沿用上次结果。
         data_written = False
@@ -1296,6 +1601,9 @@ def main() -> int:
         pack_changes = load_pack_changes(DATA_DIR)
         pack_result = _pack_result_from_disk()
         endpoints_result = _skipped_view()
+        # Bingo 同样回退到磁盘上的上一次结果，并标注为非最新数据。
+        bingo_data = load_bingo()
+        bingo_stale = bool(bingo_data)
 
     # ---- 阶段 4：生成站点产物（artifact，不属于仓库持久化数据）------------
     data_payload = {
@@ -1308,6 +1616,7 @@ def main() -> int:
         "changes": all_changes,
         "pack": {k: v for k, v in pack_result.items() if k != "changes"},
         "pack_changes": pack_changes,
+        "bingo": bingo_data,
         "data_written": data_written,
         "skipped_reason": skipped_reason,
     }
@@ -1324,6 +1633,8 @@ def main() -> int:
             build=build,
             pack_result=pack_result,
             pack_changes=pack_changes,
+            bingo=bingo_data,
+            bingo_stale=bingo_stale,
             skipped_reason=skipped_reason,
         ),
         encoding="utf-8",
@@ -1352,6 +1663,13 @@ def main() -> int:
             f"{PACK_STATUS_LABELS.get(pack_result['status'], pack_result['status'])}，"
             f"文件 {pack_result.get('total_files', 0)} 个"
         )
+        if bingo_data:
+            print(
+                f"[构建] Bingo：第 {bingo_data.get('id', '-')} 期 "
+                f"{bingo_data.get('name', '-')}（{bingo_data.get('state_label', '-')}），"
+                f"{len(bingo_data.get('goals') or [])} 个任务，"
+                f"{bingo_data.get('start', '-')} → {bingo_data.get('end', '-')}（北京时间）"
+            )
         print(f"[构建] 本次新增变更 {len(new_changes)} 条")
     else:
         print(f"[跳过] {skipped_reason}；本次未改动任何仓库数据")

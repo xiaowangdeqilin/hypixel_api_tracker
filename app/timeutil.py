@@ -25,6 +25,44 @@ def now_beijing() -> str:
     return datetime.now(BEIJING_TZ).strftime("%Y-%m-%d %H:%M:%S")
 
 
+def from_epoch_ms(value: object) -> str:
+    """把 Hypixel 常用的毫秒时间戳转换成北京时间展示字符串。
+
+    接口里的 ``start`` / ``end`` / ``lastUpdated`` 都是 epoch 毫秒。无效值
+    统一返回 ``-``，避免页面出现 ``1970-01-01`` 这类误导性时间。
+    """
+    try:
+        ms = int(value)  # type: ignore[arg-type]
+    except (TypeError, ValueError):
+        return "-"
+    if ms <= 0:
+        return "-"
+    try:
+        return datetime.fromtimestamp(ms / 1000, BEIJING_TZ).strftime("%Y-%m-%d %H:%M:%S")
+    except (OverflowError, OSError, ValueError):
+        return "-"
+
+
+def parse_beijing(value: Optional[str]) -> Optional[datetime]:
+    """把北京时间展示字符串解析回带时区的 ``datetime``。
+
+    用于计算倒计时等相对时间；无法解析时返回 ``None``。
+    """
+    if not value:
+        return None
+    text = str(value).strip()
+    if not text or text == "-":
+        return None
+    try:
+        normalized = text[:-1] + "+00:00" if text.endswith("Z") else text
+        dt = datetime.fromisoformat(normalized)
+    except (ValueError, TypeError):
+        return None
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=BEIJING_TZ)
+    return dt.astimezone(BEIJING_TZ)
+
+
 def format_time(value: Optional[str]) -> str:
     """把任意历史时间字符串转换成北京时间展示格式。
 

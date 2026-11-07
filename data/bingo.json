@@ -1,0 +1,436 @@
+{
+  "generated_at": "2026-11-07 18:53:17",
+  "id": 59,
+  "name": "November 2026",
+  "modifier": "NORMAL",
+  "start": "2026-11-01 12:00:00",
+  "end": "2026-11-08 12:00:00",
+  "published_at": "2026-11-07 18:51:05",
+  "first_seen": "2026-11-07 18:49:18",
+  "state": "active",
+  "state_label": "进行中",
+  "remaining": "剩余 17 小时 6 分钟",
+  "goal_count": 25,
+  "goals": [
+    {
+      "id": "break_block_ores",
+      "name": "Operation: Ore",
+      "tiers": [
+        2000000,
+        4000000,
+        6000000,
+        8000000,
+        10000000
+      ],
+      "progress": 26928184,
+      "lore": "§7Break §e10M Ore§7 Blocks.",
+      "fullLore": [
+        "§7Break §e10M Ore§7 Blocks."
+      ],
+      "progress_info": {
+        "ratio": 1.0,
+        "percent": 100.0,
+        "reached": 5,
+        "total": 5,
+        "progress": 26928184,
+        "progress_text": "26.93M",
+        "top": 10000000,
+        "top_text": "10M"
+      },
+      "lore_lines": [
+        "§7Break §e10M Ore§7 Blocks."
+      ],
+      "requirement_text": "2M / 4M / 6M / 8M / 10M"
+    },
+    {
+      "id": "bestiary_level_3",
+      "name": "Collecting Data",
+      "lore": "§7Reach §3Bestiary §7Milestone 3§7.",
+      "fullLore": [
+        "§7Reach §3Bestiary §7Milestone 3§7."
+      ],
+      "requiredAmount": 3,
+      "progress_info": null,
+      "lore_lines": [
+        "§7Reach §3Bestiary §7Milestone 3§7."
+      ],
+      "requirement_text": "3"
+    },
+    {
+      "id": "collection_gold_ingot",
+      "name": "Gold Ingot Collector",
+      "lore": "§7Reach §a72,500 §7Gold Ingot Collection.",
+      "fullLore": [
+        "§7Reach §a72,500 §7Gold Ingot Collection."
+      ],
+      "requiredAmount": 72500,
+      "progress_info": null,
+      "lore_lines": [
+        "§7Reach §a72,500 §7Gold Ingot Collection."
+      ],
+      "requirement_text": "72.5K"
+    },
+    {
+      "id": "UNLOCK_DUNGEON_CHEST_WOOD",
+      "name": "Wooden Treasure",
+      "lore": "§7Unlock a §fWood§7 Dungeon Chest.",
+      "fullLore": [
+        "§7Unlock a §fWood§7 Dungeon Chest."
+      ],
+      "progress_info": null,
+      "lore_lines": [
+        "§7Unlock a §fWood§7 Dungeon Chest."
+      ],
+      "requirement_text": ""
+    },
+    {
+      "id": "skill_average",
+      "name": "Skill Average",
+      "lore": "§7Reach a non-cosmetic Skill Average of §a17§7.",
+      "fullLore": [
+        "§7Reach a non-cosmetic Skill Average of §a17§7."
+      ],
+      "requiredAmount": 17,
+      "progress_info": null,
+      "lore_lines": [
+        "§7Reach a non-cosmetic Skill Average of §a17§7."
+      ],
+      "requirement_text": "17"
+    },
+    {
+      "id": "GET_SKILL_foraging_10",
+      "name": "Lumberjack",
+      "lore": "§7Obtain level §e10§7 in the §6Foraging §7Skill.",
+      "fullLore": [
+        "§7Obtain level §e10§7 in the §6Foraging §7Skill."
+      ],
+      "progress_info": null,
+      "lore_lines": [
+        "§7Obtain level §e10§7 in the §6Foraging §7Skill."
+      ],
+      "requirement_text": ""
+    },
+    {
+      "id": "summon_sea_creatures",
+      "name": "Poseidon",
+      "tiers": [
+        20000,
+        40000,
+        60000,
+        80000,
+        100000
+      ],
+      "progress": 270546,
+      "lore": "§7Summon §a100k §3Sea Creatures§7.",
+      "fullLore": [
+        "§7Summon §a100k §3Sea Creatures§7."
+      ],
+      "progress_info": {
+        "ratio": 1.0,
+        "percent": 100.0,
+        "reached": 5,
+        "total": 5,
+        "progress": 270546,
+        "progress_text": "270.55K",
+        "top": 100000,
+        "top_text": "100K"
+      },
+      "lore_lines": [
+        "§7Summon §a100k §3Sea Creatures§7."
+      ],
+      "requirement_text": "20K / 40K / 60K / 80K / 100K"
+    },
+    {
+      "id": "collection_water_lily",
+      "name": "Lily Pad Collector",
+      "lore": "§7Reach §a800 §7Lily Pad Collection.",
+      "fullLore": [
+        "§7Reach §a800 §7Lily Pad Collection."
+      ],
+      "requiredAmount": 800,
+      "progress_info": null,
+      "lore_lines": [
+        "§7Reach §a800 §7Lily Pad Collection."
+      ],
+      "requirement_text": "800"
+    },
+    {
+      "id": "brew_potion_level",
+      "name": "Trouble is Brewing...",
+      "lore": "§7Brew any level IV or higher potion.",
+      "fullLore": [
+        "§7Brew any level IV or higher potion."
+      ],
+      "progress_info": null,
+      "lore_lines": [
+        "§7Brew any level IV or higher potion."
+      ],
+      "requirement_text": ""
+    },
+    {
+      "id": "DUNGEON_CATACOMBS_1_270",
+      "name": "High Score!",
+      "lore": "§7Obtain a score of §6270§7 or higher on §cFloor 1§7 of §cCatacombs§7.",
+      "fullLore": [
+        "§7Obtain a score of §6270§7 or higher on §cFloor 1§7 of §cCatacombs§7."
+      ],
+      "progress_info": null,
+      "lore_lines": [
+        "§7Obtain a score of §6270§7 or higher on §cFloor 1§7 of §cCatacombs§7."
+      ],
+      "requirement_text": ""
+    },
+    {
+      "id": "craft_item_aspect_of_the_end",
+      "name": "Zoop!",
+      "lore": "§7Craft an §9Aspect of the End§7.",
+      "fullLore": [
+        "§7Craft an §9Aspect of the End§7."
+      ],
+      "progress_info": null,
+      "lore_lines": [
+        "§7Craft an §9Aspect of the End§7."
+      ],
+      "requirement_text": ""
+    },
+    {
+      "id": "stat_critical_damage",
+      "name": "Critical",
+      "lore": "§7Reach §9100% §9 Crit Damage§7.",
+      "fullLore": [
+        "§7Reach §9100% §9 Crit Damage§7."
+      ],
+      "requiredAmount": 100,
+      "progress_info": null,
+      "lore_lines": [
+        "§7Reach §9100% §9 Crit Damage§7."
+      ],
+      "requirement_text": "100"
+    },
+    {
+      "id": "collect_exp_mining",
+      "name": "Skilled",
+      "tiers": [
+        150000000,
+        300000000,
+        450000000,
+        600000000,
+        750000000
+      ],
+      "progress": 4083814876,
+      "lore": "§7Gain §b750M Mining§7 experience",
+      "fullLore": [
+        "§7Gain §b750M Mining§7 experience"
+      ],
+      "progress_info": {
+        "ratio": 1.0,
+        "percent": 100.0,
+        "reached": 5,
+        "total": 5,
+        "progress": 4083814876,
+        "progress_text": "4.08B",
+        "top": 750000000,
+        "top_text": "750M"
+      },
+      "lore_lines": [
+        "§7Gain §b750M Mining§7 experience"
+      ],
+      "requirement_text": "150M / 300M / 450M / 600M / 750M"
+    },
+    {
+      "id": "collection_ink_sack:3",
+      "name": "Cocoa Beans Collector",
+      "lore": "§7Reach §a185,000 §7Cocoa Beans Collection.",
+      "fullLore": [
+        "§7Reach §a185,000 §7Cocoa Beans Collection."
+      ],
+      "requiredAmount": 185000,
+      "progress_info": null,
+      "lore_lines": [
+        "§7Reach §a185,000 §7Cocoa Beans Collection."
+      ],
+      "requirement_text": "185K"
+    },
+    {
+      "id": "kill_runic_mob",
+      "name": "Strange Effects",
+      "lore": "§7Kill a §5Runic §7Mob.",
+      "fullLore": [
+        "§7Kill a §5Runic §7Mob."
+      ],
+      "progress_info": null,
+      "lore_lines": [
+        "§7Kill a §5Runic §7Mob."
+      ],
+      "requirement_text": ""
+    },
+    {
+      "id": "craft_item_piggy_bank",
+      "name": "New Savings",
+      "lore": "§7Craft a §aPiggy Bank§7.",
+      "fullLore": [
+        "§7Craft a §aPiggy Bank§7."
+      ],
+      "progress_info": null,
+      "lore_lines": [
+        "§7Craft a §aPiggy Bank§7."
+      ],
+      "requirement_text": ""
+    },
+    {
+      "id": "stat_health",
+      "name": "Healthy",
+      "lore": "§7Reach §c1,000 §c Health§7.",
+      "fullLore": [
+        "§7Reach §c1,000 §c Health§7."
+      ],
+      "requiredAmount": 1000,
+      "progress_info": null,
+      "lore_lines": [
+        "§7Reach §c1,000 §c Health§7."
+      ],
+      "requirement_text": "1K"
+    },
+    {
+      "id": "fairy_souls",
+      "name": "Fairy Finder",
+      "lore": "§7Obtain §d25 Fairy Souls§7.",
+      "fullLore": [
+        "§7Obtain §d25 Fairy Souls§7."
+      ],
+      "requiredAmount": 25,
+      "progress_info": null,
+      "lore_lines": [
+        "§7Obtain §d25 Fairy Souls§7."
+      ],
+      "requirement_text": "25"
+    },
+    {
+      "id": "loot_drop",
+      "name": "Lucky Looter",
+      "tiers": [
+        50000,
+        100000,
+        150000,
+        200000,
+        250000
+      ],
+      "progress": 823628,
+      "lore": "§7Loot §e250k §7drops with a chance of §e1% §7or lower",
+      "fullLore": [
+        "§7Loot §e250k §7drops with a chance of §e1% §7or lower"
+      ],
+      "progress_info": {
+        "ratio": 1.0,
+        "percent": 100.0,
+        "reached": 5,
+        "total": 5,
+        "progress": 823628,
+        "progress_text": "823.63K",
+        "top": 250000,
+        "top_text": "250K"
+      },
+      "lore_lines": [
+        "§7Loot §e250k §7drops with a chance of §e1% §7or lower"
+      ],
+      "requirement_text": "50K / 100K / 150K / 200K / 250K"
+    },
+    {
+      "id": "FIND_EXPERIMENT_PAIRS_3",
+      "name": "Pair Up!",
+      "lore": "§7Find §93 Pairs §7in the §9Experimentation Table§7.",
+      "fullLore": [
+        "§7Find §93 Pairs §7in the §9Experimentation Table§7."
+      ],
+      "requiredAmount": 3,
+      "progress_info": null,
+      "lore_lines": [
+        "§7Find §93 Pairs §7in the §9Experimentation Table§7."
+      ],
+      "requirement_text": "3"
+    },
+    {
+      "id": "obtain_item_grand_exp_bottle",
+      "name": "Experienced",
+      "lore": "§7Obtain a §aGrand Experience Bottle§7.",
+      "fullLore": [
+        "§7Obtain a §aGrand Experience Bottle§7."
+      ],
+      "progress_info": null,
+      "lore_lines": [
+        "§7Obtain a §aGrand Experience Bottle§7."
+      ],
+      "requirement_text": ""
+    },
+    {
+      "id": "obtain_item_lynx_talisman",
+      "name": "Lynx",
+      "lore": "§7Obtain a §9Lynx Talisman§7.",
+      "fullLore": [
+        "§7Obtain a §9Lynx Talisman§7."
+      ],
+      "progress_info": null,
+      "lore_lines": [
+        "§7Obtain a §9Lynx Talisman§7."
+      ],
+      "requirement_text": ""
+    },
+    {
+      "id": "SOLVE_FETCHUR",
+      "name": "Search And Rescue",
+      "lore": "§7Help §6Fetchur§7 find his item.",
+      "fullLore": [
+        "§7Help §6Fetchur§7 find his item."
+      ],
+      "progress_info": null,
+      "lore_lines": [
+        "§7Help §6Fetchur§7 find his item."
+      ],
+      "requirement_text": ""
+    },
+    {
+      "id": "craft_minions",
+      "name": "Minion Machine",
+      "lore": "§7Obtain §a100 §7unique Minions.",
+      "fullLore": [
+        "§7Obtain §a100 §7unique Minions."
+      ],
+      "requiredAmount": 100,
+      "progress_info": null,
+      "lore_lines": [
+        "§7Obtain §a100 §7unique Minions."
+      ],
+      "requirement_text": "100"
+    },
+    {
+      "id": "hotm_experience",
+      "name": "Cave Commodity",
+      "tiers": [
+        1000000,
+        2000000,
+        3000000,
+        4000000,
+        5000000
+      ],
+      "progress": 67794778,
+      "lore": "§7Gain §55M Heart of the Mountain Experience§7.",
+      "fullLore": [
+        "§7Gain §55M Heart of the Mountain Experience§7."
+      ],
+      "progress_info": {
+        "ratio": 1.0,
+        "percent": 100.0,
+        "reached": 5,
+        "total": 5,
+        "progress": 67794778,
+        "progress_text": "67.79M",
+        "top": 5000000,
+        "top_text": "5M"
+      },
+      "lore_lines": [
+        "§7Gain §55M Heart of the Mountain Experience§7."
+      ],
+      "requirement_text": "1M / 2M / 3M / 4M / 5M"
+    }
+  ]
+}

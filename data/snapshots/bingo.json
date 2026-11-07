@@ -1,0 +1,135 @@
+{
+  "checksum": "976130d6ea975b0554d73459fc142d34bcfcfac8c6641fadbde3a913ccd919f3",
+  "endpoint": "bingo",
+  "fetched_at": "2026-11-07 18:53:24",
+  "payload": {
+    "end": "2026-11-08 12:00:00",
+    "goals": {
+      "DUNGEON_CATACOMBS_1_270": {
+        "lore": "Obtain a score of 270 or higher on Floor 1 of Catacombs.",
+        "name": "High Score!"
+      },
+      "FIND_EXPERIMENT_PAIRS_3": {
+        "lore": "Find 3 Pairs in the Experimentation Table.",
+        "name": "Pair Up!",
+        "required_amount": 3
+      },
+      "GET_SKILL_foraging_10": {
+        "lore": "Obtain level 10 in the Foraging Skill.",
+        "name": "Lumberjack"
+      },
+      "SOLVE_FETCHUR": {
+        "lore": "Help Fetchur find his item.",
+        "name": "Search And Rescue"
+      },
+      "UNLOCK_DUNGEON_CHEST_WOOD": {
+        "lore": "Unlock a Wood Dungeon Chest.",
+        "name": "Wooden Treasure"
+      },
+      "bestiary_level_3": {
+        "lore": "Reach Bestiary Milestone 3.",
+        "name": "Collecting Data",
+        "required_amount": 3
+      },
+      "break_block_ores": {
+        "lore": "Break 10M Ore Blocks.",
+        "name": "Operation: Ore",
+        "tiers": "2M / 4M / 6M / 8M / 10M"
+      },
+      "brew_potion_level": {
+        "lore": "Brew any level IV or higher potion.",
+        "name": "Trouble is Brewing..."
+      },
+      "collect_exp_mining": {
+        "lore": "Gain 750M Mining experience",
+        "name": "Skilled",
+        "tiers": "150M / 300M / 450M / 600M / 750M"
+      },
+      "collection_gold_ingot": {
+        "lore": "Reach 72,500 Gold Ingot Collection.",
+        "name": "Gold Ingot Collector",
+        "required_amount": 72500
+      },
+      "collection_ink_sack:3": {
+        "lore": "Reach 185,000 Cocoa Beans Collection.",
+        "name": "Cocoa Beans Collector",
+        "required_amount": 185000
+      },
+      "collection_water_lily": {
+        "lore": "Reach 800 Lily Pad Collection.",
+        "name": "Lily Pad Collector",
+        "required_amount": 800
+      },
+      "craft_item_aspect_of_the_end": {
+        "lore": "Craft an Aspect of the End.",
+        "name": "Zoop!"
+      },
+      "craft_item_piggy_bank": {
+        "lore": "Craft a Piggy Bank.",
+        "name": "New Savings"
+      },
+      "craft_minions": {
+        "lore": "Obtain 100 unique Minions.",
+        "name": "Minion Machine",
+        "required_amount": 100
+      },
+      "fairy_souls": {
+        "lore": "Obtain 25 Fairy Souls.",
+        "name": "Fairy Finder",
+        "required_amount": 25
+      },
+      "hotm_experience": {
+        "lore": "Gain 5M Heart of the Mountain Experience.",
+        "name": "Cave Commodity",
+        "tiers": "1M / 2M / 3M / 4M / 5M"
+      },
+      "kill_runic_mob": {
+        "lore": "Kill a Runic Mob.",
+        "name": "Strange Effects"
+      },
+      "loot_drop": {
+        "lore": "Loot 250k drops with a chance of 1% or lower",
+        "name": "Lucky Looter",
+        "tiers": "50K / 100K / 150K / 200K / 250K"
+      },
+      "obtain_item_grand_exp_bottle": {
+        "lore": "Obtain a Grand Experience Bottle.",
+        "name": "Experienced"
+      },
+      "obtain_item_lynx_talisman": {
+        "lore": "Obtain a Lynx Talisman.",
+        "name": "Lynx"
+      },
+      "skill_average": {
+        "lore": "Reach a non-cosmetic Skill Average of 17.",
+        "name": "Skill Average",
+        "required_amount": 17
+      },
+      "stat_critical_damage": {
+        "lore": "Reach 100%  Crit Damage.",
+        "name": "Critical",
+        "required_amount": 100
+      },
+      "stat_health": {
+        "lore": "Reach 1,000  Health.",
+        "name": "Healthy",
+        "required_amount": 1000
+      },
+      "summon_sea_creatures": {
+        "lore": "Summon 100k Sea Creatures.",
+        "name": "Poseidon",
+        "tiers": "20K / 40K / 60K / 80K / 100K"
+      }
+    },
+    "id": 59,
+    "modifier": "NORMAL",
+    "name": "November 2026",
+    "start": "2026-11-01 12:00:00"
+  },
+  "status_code": 200,
+  "summary": {
+    "bingo_goal_count": 25,
+    "bingo_name": "November 2026",
+    "bingo_state": "进行中"
+  }
+}

@@ -5,7 +5,7 @@
 
 **在线仪表盘**：https://xiaowangdeqilin.github.io/hypixel_api_tracker/
 
-监控的 5 个端点：
+监控的 6 个端点：
 
 | 端点 | 地址 | 追踪内容 |
 |------|------|----------|
@@ -14,6 +14,7 @@
 | items | `/v2/resources/skyblock/items` | 物品增删（按 `id` 匹配）、字段修改（无 `version`） |
 | bazaar | `/v2/skyblock/bazaar` | **仅商品结构性增删**，忽略每秒波动的价格 |
 | packs | `/v2/resources/packs` | `deployId`、`packFormat`、最大格式的 `hash`/`url`；另见资源包文件比对 |
+| bingo | `/v2/resources/skyblock/bingo` | 期次时间窗口与全部任务；任务文案按 MC 颜色码渲染（见下） |
 
 （域名均为 `https://api.hypixel.net`。）
 
@@ -29,7 +30,7 @@ python scripts/build_dashboard.py
 ```
 
 运行完会生成 `site/index.html`，直接用浏览器打开即可（也可 `python -m http.server -d site 8000`）。
-首次运行会抓取 5 个端点、建立资源包文件基线，耗时约 10–60 秒，取决于网络与资源包下载。
+首次运行会抓取 6 个端点、建立资源包文件基线，耗时约 10–60 秒，取决于网络与资源包下载。
 生成物如下：
 
 | 文件 | 内容 |
@@ -42,6 +43,7 @@ python scripts/build_dashboard.py
 | `data/pack_files.json` | 资源包内文件哈希清单（基线） |
 | `data/pack_texts.json` | 资源包内文本类文件内容缓存（用于展示变化片段） |
 | `data/pack_changes.json` | 资源包文件新增 / 修改 / 删除记录 |
+| `data/bingo.json` | 当前 Bingo 期次、时间窗口与全部任务（供页面展示） |
 
 > `HYPIXEL_API_KEY` 完全可选。若遇到限流，可 `export HYPIXEL_API_KEY=你的key`，
 > 脚本与本地服务都会自动带上 `?key=`。仓库不依赖 `.env` 自动加载。
@@ -68,7 +70,7 @@ python scripts/build_dashboard.py
 因此版本更新不会在「最近变更」里制造一堆 `modified` 记录。
 本地 FastAPI 侧的 `app/fetcher.py` 用同样的规则处理。
 
-`VERSION` 文件（当前 `1.2.0`）是**仪表盘自身版本**，作为次要信息显示在版本条右侧。
+`VERSION` 文件（当前 `1.3.0`）是**仪表盘自身版本**，作为次要信息显示在版本条右侧。
 改版本只需改这一个文件。
 
 ## 时间：统一北京时间（UTC+8）
@@ -78,7 +80,10 @@ python scripts/build_dashboard.py
 
 - `now_beijing()` 生成新数据的时间；
 - `format_time()` 把历史数据里的 UTC 字符串（`...Z` 或无时区后缀）换算成北京时间；
-  已经是北京时间的新格式则原样返回。
+  已经是北京时间的新格式则原样返回；
+- `from_epoch_ms()` 把 Hypixel 常用的 epoch 毫秒（Bingo 的 `start` / `end` /
+  `lastUpdated`、资源包时间戳）换算成北京时间，无效值返回 `-`；
+- `parse_beijing()` 反向解析，用于计算「剩余 17 小时」这类倒计时。
 
 页面上的抓取时间、变更时间、生成时间、版本确认时间、资源包比对时间都经过它处理，
 表头也明确标注「（北京时间）」。
@@ -123,6 +128,54 @@ python scripts/pack_inspector.py              # 检查并写入清单
 python scripts/pack_inspector.py --force      # 忽略哈希缓存强制重新下载
 ```
 
+## Bingo 任务
+
+`/v2/resources/skyblock/bingo` 返回当前这一期 Bingo 的时间窗口与全部任务，
+页面**最下方**汇总展示（`data/bingo.json` 持久化）。
+
+**三个时间**分别取不同字段，页面上分行标注：
+
+| 展示项 | 来源 | 说明 |
+|--------|------|------|
+| 发布时间 | 接口 `lastUpdated` | 官方最后一次刷新这期数据的时刻 |
+| 首次发现 | 本仓库记录 | 第一次抓到这一期的时刻（同一期会沿用，不会被刷新掉） |
+| 开始 / 结束 | 接口 `start` / `end` | 活动起止时间，同时给出「剩余 17 小时」这类相对时间 |
+
+`start` / `end` / `lastUpdated` 都是 epoch 毫秒，统一由
+`app/timeutil.py:from_epoch_ms()` 换算成北京时间；无效值（`0`、`null`、非数字）
+返回 `-`，不会出现 `1970-01-01` 这种误导性时间。页面还会根据当前时间判断
+**未开始 / 进行中 / 已结束**。
+
+**任务文案的颜色码**：Hypixel 的 `lore` 用 Minecraft 传统颜色码（`§7Break §e10M Ore§7 Blocks.`）。
+这类码是「状态」语义而不是「包裹」——`§e` 之后的所有文字都是黄色，直到遇到下一个
+颜色码或 `§r`，所以不能简单字符串替换。`app/mctext.py` 顺序扫描并维护当前样式状态，
+渲染成等价的内联样式 HTML：
+
+| 支持 | 含义 |
+|------|------|
+| `§0`–`§9`、`§a`–`§f` | 16 种官方颜色（取 Minecraft 官方 RGB，`§0` 纯黑在深色背景不可见，提亮为 `#404040`） |
+| `§l` `§o` `§n` `§m` | 粗体 / 斜体 / 下划线 / 删除线，可叠加 |
+| `§k` | 混淆效果，页面用轻微抖动示意 |
+| `§r` | 重置颜色与全部格式 |
+| `§x§R§R§G§G§B§B` | 十六进制颜色（MC 1.16+） |
+
+> 颜色码在 MC 里是大小写不敏感的（`§A` 等同 `§a`）。`&7` 写法默认**不**解析，
+> 避免把 `R&D` 这类普通文本误当成颜色码。本地页面的任务文案放在深色底块里，
+> 保证 `§f` 白色、`§e` 黄色这类浅色文字在浅色主题下也能看清。
+
+**哪些变化算「任务更新」**（`normalize_bingo()` + `diff_bingo()`）：
+
+| 变化 | 是否记录 | 原因 |
+|------|----------|------|
+| 任务文案（`lore`）/ 目标档位 / 要求数值 | ✅ 字段级记录 | 属于任务定义 |
+| 新增 / 删除任务 | ✅ 记录为「新增任务「XXX」」 | 属于任务定义 |
+| 期次切换（`id` 变化） | ✅ **合并为一条**「第 59 期 → 第 60 期」 | 整期换掉时逐条比对会刷出几十条无意义增删 |
+| 全服进度 `progress` | ❌ 不记录 | 每轮抓取都在增长，只用于页面进度条 |
+| `lastUpdated` | ❌ 不记录 | 只是数据刷新时间，页面单独展示 |
+
+本地 FastAPI 侧的 `app/fetcher.py` 用同一套规则：`checksum_payload()` 对 bingo
+改算归一化结构，`diff_for_endpoint()` 里换期只产出一条记录。
+
 ## 接口异常：整次运行不做任何变化
 
 Hypixel 接口偶尔会宕机、限流或返回不完整数据。为避免「半次更新」污染基线，
@@ -130,7 +183,7 @@ Hypixel 接口偶尔会宕机、限流或返回不完整数据。为避免「半
 
 1. **抓取 + 比对阶段完全不落盘**（资源包检查器也只返回待写数据，不自己写文件）
 2. 只有满足全部条件才在最后一次性写入 `data/`：
-   - 5 个接口全部成功拿到数据；
+   - 6 个接口全部成功拿到数据；
    - 资源包检查结果为 `baseline` / `updated` / `unchanged`
      （即没有 `error` / `unavailable`）
 3. 任一环节失败（接口超时、非 200、下载失败、sha1 校验不符、zip 损坏、无可用下载地址），
@@ -146,7 +199,7 @@ Hypixel 接口偶尔会宕机、限流或返回不完整数据。为避免「半
 
 `.github/workflows/pages.yml` 每 10 分钟运行一次（也可手动 `workflow_dispatch`）：
 
-1. 抓取 5 个端点、做 diff、确认版本、检查资源包
+1. 抓取 6 个端点、做 diff、确认版本、检查资源包
 2. 仅在 `data_written=true` 时 `git add data/` 提交回仓库（`[skip ci]` 避免循环触发）
 3. 仅在 `data_written=true` 时上传 `site/` 产物并部署到 GitHub Pages
 
@@ -197,9 +250,11 @@ requirements.txt              # 本地 FastAPI 依赖（静态构建只需 reque
 scripts/
   build_dashboard.py           # 核心：抓取、版本确认、diff、事务式落盘、生成页面
   pack_inspector.py            # 资源包选最大格式 / 下载 / 解压 / 片段级 diff
-app/                          # 本地 FastAPI 服务
+app/                          # 本地 FastAPI 服务 + 脚本共用的纯逻辑
   timeutil.py                 # 北京时间统一处理（脚本与服务共用）
-  config.py                   # 端点配置、版本状态读取
+  mctext.py                   # Minecraft 颜色码（§）渲染（脚本与服务共用）
+  bingo.py                    # Bingo 期次/任务归一化、状态与进度计算
+  config.py                   # 端点配置、版本状态与 Bingo 数据读取
   db.py / diff.py / fetcher.py
   scheduler.py / main.py
 templates/index.html          # FastAPI 页面模板
@@ -211,6 +266,7 @@ data/
   pack_files.json              # 资源包文件哈希清单
   pack_texts.json              # 资源包文本文件缓存（用于变化片段）
   pack_changes.json            # 资源包文件变更记录
+  bingo.json                   # 当前 Bingo 期次与全部任务
 site/                          # 生成的静态页面（被 .gitignore 忽略）
 ```
 
@@ -225,3 +281,6 @@ site/                          # 生成的静态页面（被 .gitignore 忽略�
 | 打开线上页面仍是旧版 | CDN 缓存，等几分钟刷新；定时任务每 10 分钟也会重跑 |
 | `pip install -r requirements.txt` 失败 | 静态生成不需要它，只装 `requests` 即可 |
 | 抓取报 429 / 超时 | 设置 `HYPIXEL_API_KEY`，或稍后重试；脚本会整次跳过，不会写入半份数据 |
+| Bingo 面板显示「暂无 Bingo 数据」 | `data/bingo.json` 还不存在，跑一次 `python scripts/build_dashboard.py` 即可 |
+| Bingo 任务文案颜色不对 | 已支持 `§0`–`§f` 与 `§l/§o/§n/§m/§k/§r`；`§0` 纯黑在深色背景不可见，按可用性提亮为 `#404040` |
+| Bingo 显示「未开始」/「已结束」 | 按当前北京时间与 `start`/`end` 计算，属正常；结束后期次数据仍会保留到接口换成下一期 |

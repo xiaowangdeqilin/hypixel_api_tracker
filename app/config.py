@@ -3,6 +3,8 @@ import os
 from pathlib import Path
 from typing import Any, Dict
 
+from app.bingo import goal_progress, requirement_text
+from app.mctext import render_mc_text
 from app.timeutil import format_time
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -14,6 +16,8 @@ DB_PATH = DATA_DIR / "hypixel_monitor.db"
 VERSION_FILE = BASE_DIR / "VERSION"
 # 资源数据版本状态由 Pages 构建脚本写入此文件（含双接口版本与同步状态）。
 RUNTIME_FILE = DATA_DIR / "runtime.json"
+# Bingo 展示数据同一来源：构建脚本把当前期次与全部任务写在这里。
+BINGO_FILE = DATA_DIR / "bingo.json"
 
 
 def get_version() -> str:
@@ -78,6 +82,46 @@ def get_resource_version() -> str:
     return get_version_info()["stable_version"]
 
 
+def get_bingo_info() -> Dict[str, Any]:
+    """读取当前 Bingo 展示数据，并把任务文案预渲染成带颜色的 HTML。
+
+    数据由 ``scripts/build_dashboard.py`` 写入 ``data/bingo.json``；本地服务
+    第一次启动时如果该文件还不存在，页面会提示先运行一次构建脚本。
+
+    颜色码在这里统一渲染：Minecraft 的 ``§`` 代码是「状态」语义，必须顺序
+    解析，因此模板只负责把结果原样输出（``|safe``）。
+    """
+    try:
+        data = json.loads(BINGO_FILE.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+    if not isinstance(data, dict) or not data.get("id"):
+        return {}
+
+    goals = []
+    for goal in data.get("goals") or []:
+        if not isinstance(goal, dict):
+            continue
+        entry = dict(goal)
+        lines = entry.get("lore_lines") or (
+            [entry.get("lore")] if entry.get("lore") else []
+        )
+        entry["lore_html"] = [
+            render_mc_text(str(line), default_color="#e2e8f0") for line in lines
+        ]
+        entry["progress_info"] = entry.get("progress_info") or goal_progress(entry)
+        entry["requirement_text"] = entry.get("requirement_text") or requirement_text(entry)
+        goals.append(entry)
+
+    view = dict(data)
+    view["goals"] = goals
+    view["published_at"] = format_time(data.get("published_at"))
+    view["first_seen"] = format_time(data.get("first_seen"))
+    view["start"] = format_time(data.get("start"))
+    view["end"] = format_time(data.get("end"))
+    return view
+
+
 ENDPOINTS = {
     "collections": {
         "url": "https://api.hypixel.net/v2/resources/skyblock/collections",
@@ -98,6 +142,10 @@ ENDPOINTS = {
     "packs": {
         "url": "https://api.hypixel.net/v2/resources/packs",
         "interval_minutes": 10,
+    },
+    "bingo": {
+        "url": "https://api.hypixel.net/v2/resources/skyblock/bingo",
+        "interval_minutes": 30,
     },
 }
 

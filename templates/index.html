@@ -60,6 +60,53 @@
           <tbody id="changes-body"></tbody>
         </table>
       </div>
+
+      <div class="panel">
+        <h2>Bingo 任务{% if bingo %}<span class="panel-sub">第 {{ bingo.id }} 期 · {{ bingo.name }}</span>{% endif %}</h2>
+        {% if not bingo %}
+        <p class="hint">数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行
+          <code>python scripts/build_dashboard.py</code> 生成一次即可。</p>
+        <div class="empty">暂无 Bingo 数据</div>
+        {% else %}
+        <p class="hint">发布时间取自接口的 <code>lastUpdated</code>，「首次发现」是本仓库第一次抓到这一期的时刻；
+          开始与结束时间取自 <code>start</code> / <code>end</code>。任务文案保留 Minecraft 颜色码并按官方配色渲染，
+          深色底块便于看清 <code>§f</code> 白色等浅色文字。<strong>全服进度只用于展示，不参与变更比对</strong>。</p>
+        <div class="bingo-head">
+          <div class="bingo-state bingo-state-{{ bingo.state }}">{{ bingo.state_label }} · {{ bingo.remaining }}</div>
+          <div class="bingo-info">
+            <div><span class="k">发布时间</span><span class="v">{{ bingo.published_at }}</span></div>
+            <div><span class="k">首次发现</span><span class="v">{{ bingo.first_seen }}</span></div>
+            <div><span class="k">开始时间</span><span class="v">{{ bingo.start }}</span></div>
+            <div><span class="k">结束时间</span><span class="v">{{ bingo.end }}</span></div>
+            <div><span class="k">难度修饰</span><span class="v">{{ bingo.modifier }}</span></div>
+            <div><span class="k">任务数量</span><span class="v">{{ bingo.goals | length }} 个</span></div>
+          </div>
+        </div>
+        <div class="bingo-grid">
+          {% for goal in bingo.goals %}
+          <div class="bingo-goal">
+            <div class="bingo-goal-head">
+              <span class="bingo-index">{{ "%02d" | format(loop.index) }}</span>
+              <span class="bingo-name">{{ goal.name }}</span>
+            </div>
+            <div class="bingo-lore">
+              {% for line in goal.lore_html %}<div class="bingo-lore-line">{{ line | safe }}</div>{% endfor %}
+            </div>
+            <div class="bingo-meta">
+              {% if goal.tiers %}目标档位：<code>{{ goal.requirement_text }}</code>
+              {% elif goal.requirement_text %}要求：<code>{{ goal.requirement_text }}</code>{% endif %}
+            </div>
+            {% if goal.progress_info %}
+            <div class="bingo-bar"><div class="bingo-bar-fill" style="width: {{ goal.progress_info.percent }}%"></div></div>
+            <div class="bingo-progress">全服进度 <code>{{ goal.progress_info.progress_text }}</code>
+              / {{ goal.progress_info.top_text }} · 已达成 {{ goal.progress_info.reached }}/{{ goal.progress_info.total }} 档</div>
+            {% endif %}
+            <div class="bingo-id"><code>{{ goal.id }}</code></div>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
     </div>
 
     <script src="/static/app.js"></script>
