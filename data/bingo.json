@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07 18:53:17",
+  "generated_at": "2026-11-07 18:55:57",
   "id": 59,
   "name": "November 2026",
   "modifier": "NORMAL",
@@ -9,7 +9,7 @@
   "first_seen": "2026-11-07 18:49:18",
   "state": "active",
   "state_label": "进行中",
-  "remaining": "剩余 17 小时 6 分钟",
+  "remaining": "剩余 17 小时 4 分钟",
   "goal_count": 25,
   "goals": [
     {
