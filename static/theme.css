@@ -1,0 +1,214 @@
+/* ---------------------------------------------------------------------------
+   主题变量与全局适配
+   ---------------------------------------------------------------------------
+   默认跟随系统：theme.js 会在 <head> 里同步写入 <html data-theme="light|dark">，
+   用户点过切换按钮后以 localStorage 里的选择为准。
+   这里只放跨页面复用的变量与极小量的全局规则，具体排版仍在 styles.css /
+   页面内联样式里，避免影响已有结构。
+--------------------------------------------------------------------------- */
+
+:root {
+  color-scheme: light;
+
+  --bg: #f5f7fb;
+  --panel: #ffffff;
+  --panel-2: #f8fafc;
+  --panel-soft: #f9fafb;
+  --code-bg: #f1f5f9;
+
+  --text: #1f2937;
+  --text-strong: #111827;
+  --text-soft: #4b5563;
+  --muted: #6b7280;
+  --muted-2: #9ca3af;
+
+  --line: #e5e7eb;
+  --line-strong: #cbd5e1;
+  --hover: #f1f5f9;
+  --shadow: 0 2px 8px rgba(15, 23, 42, .06);
+
+  --accent: #1d4ed8;
+  --accent-2: #0ea5e9;
+  --code: #0369a1;
+  --purple: #7c3aed;
+
+  --ok-bg: #dcfce7;
+  --ok-bg-strong: #dcfce7;
+  --ok-text: #15803d;
+  --ok-line: #22c55e;
+
+  --warn-bg: #fef3c7;
+  --warn-bg-soft: #fffbeb;
+  --warn-text: #b45309;
+  --warn-text-soft: #92400e;
+  --warn-line: #f59e0b;
+
+  --bad-bg: #fee2e2;
+  --bad-bg-soft: #fef2f2;
+  --bad-text: #b91c1c;
+  --bad-line: #ef4444;
+
+  --info-bg: #dbeafe;
+  --info-text: #1e40af;
+
+  --diff-add-bg: #f0fdf4;
+  --diff-add-text: #166534;
+  --diff-add-sign: #16a34a;
+  --diff-add-row: #fafffb;
+  --diff-del-bg: #fef2f2;
+  --diff-del-text: #991b1b;
+  --diff-del-sign: #dc2626;
+  --diff-del-row: #fffafa;
+  --diff-mod-bg: #fefce8;
+  --diff-mod-text: #92400e;
+  --ctx: #6b7280;
+  --ctx-line: #cbd5e1;
+  --bar-bg: #e5e7eb;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #0f172a;
+  --panel: #1e293b;
+  --panel-2: #16213a;
+  --panel-soft: #0f172a;
+  --code-bg: #0b1220;
+
+  --text: #e2e8f0;
+  --text-strong: #f8fafc;
+  --text-soft: #cbd5e1;
+  --muted: #94a3b8;
+  --muted-2: #64748b;
+
+  --line: #334155;
+  --line-strong: #475569;
+  --hover: #283548;
+  --shadow: none;
+
+  --accent: #38bdf8;
+  --accent-2: #0ea5e9;
+  --code: #7dd3fc;
+  --purple: #c4b5fd;
+
+  --ok-bg: #065f46;
+  --ok-bg-strong: #064e3b;
+  --ok-text: #6ee7b7;
+  --ok-line: #22c55e;
+
+  --warn-bg: #78350f;
+  --warn-bg-soft: #451a03;
+  --warn-text: #fcd34d;
+  --warn-text-soft: #fde68a;
+  --warn-line: #f59e0b;
+
+  --bad-bg: #7f1d1d;
+  --bad-bg-soft: #3f1d1d;
+  --bad-text: #fca5a5;
+  --bad-line: #ef4444;
+
+  --info-bg: #1e40af;
+  --info-text: #bfdbfe;
+
+  --diff-add-bg: rgba(34, 197, 94, .12);
+  --diff-add-text: #bbf7d0;
+  --diff-add-sign: #4ade80;
+  --diff-add-row: transparent;
+  --diff-del-bg: rgba(239, 68, 68, .12);
+  --diff-del-text: #fecaca;
+  --diff-del-sign: #f87171;
+  --diff-del-row: transparent;
+  --diff-mod-bg: rgba(245, 158, 11, .12);
+  --diff-mod-text: #fde68a;
+  --ctx: #94a3b8;
+  --ctx-line: #475569;
+  --bar-bg: #0b1220;
+}
+
+html {
+  background: var(--bg);
+}
+
+/* ---------- 主题切换按钮（放在顶部版本栏里） ---------- */
+.theme-toggle {
+  -webkit-appearance: none;
+  appearance: none;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 5px 12px;
+  margin-left: auto;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #fff;
+  background: rgba(255, 255, 255, .18);
+  border: 1px solid rgba(255, 255, 255, .5);
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .15s ease, border-color .15s ease;
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, .3);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* ---------- 小屏：整体留白与字号收敛 ---------- */
+@media (max-width: 640px) {
+  body {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 21px;
+    line-height: 1.35;
+  }
+
+  .version-bar {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .version-meta {
+    font-size: 11px;
+    line-height: 1.6;
+  }
+
+  .panel {
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .card {
+    padding: 14px;
+  }
+
+  .theme-toggle {
+    padding: 4px 10px;
+    font-size: 11px;
+  }
+
+  /* 表格列多，小屏改为容器内横向滚动，不压缩到不可读 */
+  table {
+    min-width: 720px;
+  }
+
+  .hint {
+    font-size: 11.5px;
+  }
+}

@@ -62,6 +62,14 @@ def get_version_info() -> Dict[str, Any]:
     versions = data.get("versions") or {}
     if not versions and data.get("resource_version"):
         versions = {"collections": stable, "skills": stable}
+    # runtime.json 里可能存 {"version": ..., "observed_at": ...} 结构，
+    # 展示层只需要版本号字符串，这里统一压平。
+    flat_versions: Dict[str, str] = {}
+    for key, value in versions.items():
+        if isinstance(value, dict):
+            flat_versions[key] = str(value.get("version") or "-")
+        else:
+            flat_versions[key] = str(value)
     history = []
     for item in data.get("history", []) or []:
         entry = dict(item)
@@ -69,7 +77,7 @@ def get_version_info() -> Dict[str, Any]:
         history.append(entry)
     return {
         "stable_version": stable,
-        "versions": versions,
+        "versions": flat_versions,
         "sync_status": data.get("sync_status", "aligned"),
         "note": data.get("note", ""),
         "updated_at": format_time(data.get("updated_at", "-")),

@@ -24,7 +24,7 @@
   --bingo-end-text: #fca5a5;
 }
 
-body.theme-light .bingo-panel {
+:root[data-theme="light"] .bingo-panel {
   --bingo-bg: #fbfcfe;
   --bingo-bg-soft: #f1f5f9;
   --bingo-line: #e5e7eb;
@@ -43,6 +43,23 @@ body.theme-light .bingo-panel {
 }
 
 /* ---------- 期次信息 ---------- */
+.bingo-panel .panel-sub {
+  margin-left: 10px;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--bingo-muted);
+}
+
+.bingo-stale {
+  background: var(--warn-bg-soft);
+  border: 1px solid var(--warn-line);
+  color: var(--warn-text-soft);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
 .bingo-head {
   display: flex;
   flex-wrap: wrap;

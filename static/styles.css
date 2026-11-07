@@ -1,7 +1,7 @@
 body {
   font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif;
-  background: #f5f7fb;
-  color: #1f2937;
+  background: var(--bg);
+  color: var(--text);
   margin: 0;
   padding: 20px;
 }
@@ -12,7 +12,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  background: linear-gradient(90deg, #2563eb, #0ea5e9);
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
   border-radius: 10px;
   padding: 10px 16px;
   margin-bottom: 20px;
@@ -41,7 +41,7 @@ body {
 
 .sync-syncing, .sync-partial {
   background: #f59e0b;
-  color: #1f2937;
+  color: var(--text);
 }
 
 .version-meta {
@@ -50,9 +50,9 @@ body {
 }
 
 .version-note {
-  background: #fffbeb;
-  border: 1px solid #fcd34d;
-  color: #92400e;
+  background: var(--warn-bg-soft);
+  border: 1px solid var(--warn-line);
+  color: var(--warn-text-soft);
   border-radius: 8px;
   padding: 8px 14px;
   font-size: 12px;
@@ -70,13 +70,13 @@ h1 {
 
 .hint {
   font-size: 12px;
-  color: #6b7280;
+  color: var(--muted);
   line-height: 1.7;
   margin: -6px 0 12px 0;
 }
 
-.legend-add { color: #15803d; font-weight: 700; }
-.legend-del { color: #b91c1c; font-weight: 700; }
+.legend-add { color: var(--ok-text); font-weight: 700; }
+.legend-del { color: var(--bad-text); font-weight: 700; }
 
 .cards {
   display: grid;
@@ -86,15 +86,15 @@ h1 {
 }
 
 .card {
-  background: white;
+  background: var(--panel);
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 8px var(--shadow);
   padding: 16px;
 }
 
 .label {
   font-size: 12px;
-  color: #6b7280;
+  color: var(--muted);
   margin-bottom: 8px;
 }
 
@@ -105,15 +105,15 @@ h1 {
 
 .meta {
   font-size: 12px;
-  color: #4b5563;
+  color: var(--text-soft);
   margin-top: 8px;
 }
 
 .panel {
-  background: white;
+  background: var(--panel);
   border-radius: 12px;
   padding: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 8px var(--shadow);
   margin-bottom: 20px;
   overflow-x: auto;
 }
@@ -132,26 +132,26 @@ h1 {
 
 .chart-name {
   font-size: 12px;
-  color: #374151;
+  color: var(--text-soft);
 }
 
 .chart-bar-bg {
   height: 14px;
-  background: #e5e7eb;
+  background: var(--line);
   border-radius: 999px;
   overflow: hidden;
 }
 
 .chart-bar {
   height: 100%;
-  background: linear-gradient(90deg, #3b82f6, #22c55e);
+  background: linear-gradient(90deg, #3b82f6, var(--ok-line));
   border-radius: 999px;
 }
 
 .chart-count {
   font-size: 12px;
   text-align: right;
-  color: #374151;
+  color: var(--text-soft);
 }
 
 table {
@@ -162,7 +162,7 @@ table {
 
 th,
 td {
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid var(--line);
   text-align: left;
   padding: 10px 8px;
   vertical-align: top;
@@ -170,17 +170,17 @@ td {
 }
 
 th {
-  background: #f9fafb;
+  background: var(--panel-soft);
 }
 
 .empty {
   text-align: center;
-  color: #6b7280;
+  color: var(--muted);
   padding: 20px;
 }
 
 .path code {
-  color: #0369a1;
+  color: var(--code);
   word-break: break-all;
 }
 
@@ -192,9 +192,9 @@ th {
   font-weight: 700;
 }
 
-.type-added { background: #dcfce7; color: #15803d; }
-.type-removed { background: #fee2e2; color: #b91c1c; }
-.type-modified { background: #fef3c7; color: #92400e; }
+.type-added { background: var(--ok-bg); color: var(--ok-text); }
+.type-removed { background: var(--bad-bg); color: var(--bad-text); }
+.type-modified { background: var(--warn-bg); color: var(--warn-text-soft); }
 
 /* 代码审核风格：新增绿、删除红，修改只显示变化片段 */
 .diff-cell {
@@ -231,35 +231,35 @@ th {
 }
 
 .diff-ctx {
-  border-left-color: #cbd5e1;
-  color: #6b7280;
+  border-left-color: var(--ctx-line);
+  color: var(--muted);
 }
 
-.diff-ctx .sign { color: #cbd5e1; }
+.diff-ctx .sign { color: var(--ctx-line); }
 
 .diff-omitted {
-  color: #9ca3af;
+  color: var(--muted-2);
   font-size: 11px;
   padding: 2px 6px;
 }
 
 .diff-add {
-  background: #f0fdf4;
-  border-left: 3px solid #22c55e;
-  color: #166534;
+  background: var(--diff-add-bg);
+  border-left: 3px solid var(--ok-line);
+  color: var(--diff-add-text);
 }
 
 .diff-del {
-  background: #fef2f2;
-  border-left: 3px solid #ef4444;
-  color: #991b1b;
+  background: var(--diff-del-bg);
+  border-left: 3px solid var(--bad-line);
+  color: var(--diff-del-text);
 }
 
-.diff-row-added td { background: #fafffb; }
-.diff-row-removed td { background: #fffafa; }
+.diff-row-added td { background: var(--diff-add-row); }
+.diff-row-removed td { background: var(--diff-del-row); }
 
 .time {
-  color: #6b7280;
+  color: var(--muted);
   white-space: nowrap;
 }
 

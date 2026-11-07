@@ -38,11 +38,11 @@ python scripts/build_dashboard.py
 | `site/index.html` | 自包含的中文仪表盘页面 |
 | `site/data.json` | 同源结构化数据（含 `version_info`、`data_written`） |
 | `data/snapshots/*.json` | 各端点快照，供下次运行做 diff |
-| `data/changes.json` | 字段变更日志（最多 500 条） |
+| `data/changes.json` | 字段变更日志（只保留最近 30 天，最多 500 条） |
 | `data/runtime.json` | 版本一致性状态与版本切换历史 |
 | `data/pack_files.json` | 资源包内文件哈希清单（基线） |
 | `data/pack_texts.json` | 资源包内文本类文件内容缓存（用于展示变化片段） |
-| `data/pack_changes.json` | 资源包文件新增 / 修改 / 删除记录 |
+| `data/pack_changes.json` | 资源包文件新增 / 修改 / 删除记录（只保留最近 30 天，最多 50 批） |
 | `data/bingo.json` | 当前 Bingo 期次、时间窗口与全部任务（供页面展示） |
 
 > `HYPIXEL_API_KEY` 完全可选。若遇到限流，可 `export HYPIXEL_API_KEY=你的key`，
@@ -101,6 +101,13 @@ python scripts/build_dashboard.py
 长值可点「查看完整值」展开，路径、端点、时间显示在区块头部。
 本地 FastAPI 页面用同一套规则（前端用 LCS 逐行比对，见 `static/app.js`）。
 
+**增删改记录只保留最近 30 天**（`app/retention.py` 统一口径）：
+
+- 构建时过滤 `changes.json` 与 `pack_changes.json`，超过 30 天的记录直接从数据文件删除
+- 静态页面与本地页面渲染前再过滤一次，即使数据还没重建也不会显示旧记录
+- 本地 SQLite（`change_events` 表）在启动、写入、查询三处同步清理
+- 时间字段混用过北京时间与 UTC ISO 两种写法，统一解析后比较；无法解析的时间按过期处理
+
 ## 资源包文件比对
 
 `scripts/pack_inspector.py` 负责下载并拆解 Hypixel 资源包：
@@ -127,6 +134,20 @@ python scripts/build_dashboard.py
 python scripts/pack_inspector.py              # 检查并写入清单
 python scripts/pack_inspector.py --force      # 忽略哈希缓存强制重新下载
 ```
+
+## 主题切换与多设备适配
+
+页面支持**亮色 / 深色**两种主题（`static/theme.css` 定义变量、`static/theme.js` 负责切换）：
+
+- **默认跟随设备**：读取系统的 `prefers-color-scheme`，手机系统是深色就自动用深色
+- 点击顶部版本栏右侧的「🌙 深色 / ☀ 浅色」按钮手动切换，选择写入
+  `localStorage`（键 `hypixel-theme`），之后不再被系统设置覆盖
+- 用户没手动选过时，系统在运行中切换深浅色（如日落自动切换），页面会跟着变
+- 脚本放在 `<head>` 同步执行，先写 `<html data-theme>` 再渲染，避免首屏闪色
+- 本地 FastAPI 页面与静态 Pages 页面共用同一份主题实现，两边视觉一致
+
+多设备适配：小屏下卡片改单列、表格在容器内横向滚动、版本栏自动换行、
+Bingo 5×5 网格保持 5 列阵容可横向滑动（详见 `theme.css` 中的媒体查询）。
 
 ## Bingo 任务
 
@@ -265,6 +286,7 @@ app/                          # 本地 FastAPI 服务 + 脚本共用的纯逻辑
   timeutil.py                 # 北京时间统一处理（脚本与服务共用）
   mctext.py                   # Minecraft 颜色码（§）渲染（脚本与服务共用）
   bingo.py                    # Bingo 期次/任务归一化、状态与进度计算
+  retention.py                # 变更记录 30 天保留期（两端共用）
   config.py                   # 端点配置、版本状态与 Bingo 数据读取
   db.py / diff.py / fetcher.py
   scheduler.py / main.py
@@ -272,6 +294,7 @@ templates/index.html          # FastAPI 页面模板
 static/                        # 页面静态资源
   app.js / styles.css          # FastAPI 页面数据加载与主题样式
   bingo.css / bingo.js         # Bingo 面板样式与交互（本地 <link> 引用、静态页构建时内联）
+  theme.css / theme.js         # 亮色/深色主题变量、切换按钮与系统跟随
 data/
   snapshots/                  # 持久化快照（提交到仓库）
   changes.json                # 字段变更日志
@@ -298,3 +321,5 @@ site/                          # 生成的静态页面（被 .gitignore 忽略�
 | Bingo 任务文案颜色不对 | 已支持 `§0`–`§f` 与 `§l/§o/§n/§m/§k/§r`；`§0` 纯黑在深色背景不可见，按可用性提亮为 `#404040` |
 | Bingo 显示「未开始」/「已结束」 | 按当前北京时间与 `start`/`end` 计算，属正常；结束后期次数据仍会保留到接口换成下一期 |
 | Bingo 倒计时与构建时间对不上 | 正常：倒计时由浏览器按本地时间逐秒计算，比构建时刻的快照更准 |
+| 变更列表越来越短 | 正常：增删改记录只保留最近 30 天，更早的会自动从页面和数据中清理 |
+| 切换的主题过几天又变了 | 正常：跟随系统是默认行为；点一次切换按钮后你的选择会被记住 |

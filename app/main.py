@@ -5,6 +5,7 @@ from fastapi.templating import Jinja2Templates
 from starlette.requests import Request
 
 from app.config import BASE_DIR, get_bingo_info, get_version, get_version_info
+from app.retention import RETENTION_DAYS
 from app.db import (
     get_snapshot_by_id,
     get_status_summary,
@@ -32,6 +33,7 @@ async def index(request: Request):
             "version": get_version(),
             "version_info": get_version_info(),
             "bingo": get_bingo_info(),
+            "retention_days": RETENTION_DAYS,
         },
     )
 

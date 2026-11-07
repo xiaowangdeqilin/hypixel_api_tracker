@@ -35,6 +35,7 @@ ROOT = Path(__file__).resolve().parent.parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+from app.retention import filter_recent  # noqa: E402
 from app.timeutil import now_beijing  # noqa: E402
 
 # 下载超时（秒）；资源包约 18 MB，留足余量。
@@ -102,6 +103,11 @@ def load_texts(data_dir: Path) -> Dict[str, Any]:
 def load_pack_changes(data_dir: Path) -> List[Dict[str, Any]]:
     data = _load_json(pack_changes_path(data_dir), [])
     return data if isinstance(data, list) else []
+
+
+def save_pack_changes(data_dir: Path, changes: List[Dict[str, Any]]) -> None:
+    """写回资源包变更记录（用于清理超过保留期的记录）。"""
+    _write_json(pack_changes_path(data_dir), changes)
 
 
 # --------------------------------------------------------------------------- #
@@ -438,6 +444,8 @@ def inspect_pack(
     }
 
     changes = [record] + result["changes"]
+    # 超过保留期（30 天）的批次不再展示，也不再进入数据文件。
+    changes = filter_recent(changes, key="time")
     changes = changes[:MAX_PACK_CHANGE_RECORDS]
     result["changes"] = changes
     result["total_files"] = len(current_files)

@@ -3,6 +3,7 @@ import sqlite3
 from typing import Any, Dict, Optional
 
 from app.config import DB_PATH
+from app.retention import RETENTION_DAYS, cutoff_beijing
 from app.timeutil import now_beijing
 
 
@@ -41,6 +42,11 @@ def init_db() -> None:
                 created_at TEXT NOT NULL
             )
             """
+        )
+        # 超过保留期的变更记录直接清掉：页面不再展示，磁盘也不留。
+        conn.execute(
+            "DELETE FROM change_events WHERE created_at < ?",
+            (cutoff_beijing(),),
         )
         conn.commit()
     finally:
@@ -149,21 +155,28 @@ def insert_change_event(
                 now_beijing(),
             ),
         )
+        # 写入时顺带清理过期记录，长时间运行也不会无限增长。
+        conn.execute(
+            "DELETE FROM change_events WHERE created_at < ?",
+            (cutoff_beijing(),),
+        )
         conn.commit()
     finally:
         conn.close()
 
 
 def list_recent_changes(limit: int = 20):
+    """只返回保留期（默认 30 天）内的变更，避免页面被历史记录拉长。"""
     conn = get_connection()
     try:
         rows = conn.execute(
             """
             SELECT * FROM change_events
+            WHERE created_at >= ?
             ORDER BY id DESC
             LIMIT ?
             """,
-            (limit,),
+            (cutoff_beijing(), limit),
         ).fetchall()
         return [dict(row) for row in rows]
     finally:

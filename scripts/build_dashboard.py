@@ -60,6 +60,7 @@ from app.bingo import (  # noqa: E402
     requirement_text,
 )
 from app.mctext import render_mc_lines  # noqa: E402
+from app.retention import RETENTION_DAYS, filter_recent, prune_list  # noqa: E402
 from app.timeutil import (  # noqa: E402
     format_time,
     from_epoch_ms,
@@ -76,6 +77,7 @@ try:  # 兼容 ``python scripts/build_dashboard.py`` 与模块导入两种方式
         load_manifest,
         load_pack_changes,
         parse_pack_format,
+        save_pack_changes,
     )
 except ImportError:  # pragma: no cover
     from scripts.pack_inspector import (
@@ -86,6 +88,7 @@ except ImportError:  # pragma: no cover
         load_manifest,
         load_pack_changes,
         parse_pack_format,
+        save_pack_changes,
     )
 
 # --------------------------------------------------------------------------- #
@@ -102,6 +105,9 @@ SITE_DIR = BASE_DIR / "site"
 # 静态页面由构建脚本原样内联，保证两端行为完全一致。
 BINGO_CSS_FILE = BASE_DIR / "static" / "bingo.css"
 BINGO_JS_FILE = BASE_DIR / "static" / "bingo.js"
+# 主题变量与切换脚本同样两端共用
+THEME_CSS_FILE = BASE_DIR / "static" / "theme.css"
+THEME_JS_FILE = BASE_DIR / "static" / "theme.js"
 
 ENDPOINTS: Dict[str, str] = {
     "collections": "https://api.hypixel.net/v2/resources/skyblock/collections",
@@ -507,7 +513,7 @@ def render_bingo_goal(goal: Dict[str, Any], index: int) -> str:
         lore_lines = goal.get("fullLore") or ([goal.get("lore")] if goal.get("lore") else [])
     lore_html = "".join(
         f'<span class="bingo-cell-lore-line">{line}</span>'
-        for line in render_mc_lines([str(x) for x in lore_lines], default_color="#e2e8f0")
+        for line in render_mc_lines([str(x) for x in lore_lines], default_color="var(--text)")
     ) or '<span class="bingo-cell-lore-line">（该任务没有文案）</span>'
 
     progress = goal.get("progress_info") or goal_progress(goal)
@@ -874,7 +880,14 @@ def save_changes(changes: List[Dict[str, Any]]) -> None:
 
 
 def append_changes(new_changes: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    return (new_changes + load_changes())[:MAX_CHANGE_LOG]
+    """合并新旧变更，并丢掉超过保留期（默认 30 天）的记录。
+
+    变更日志同时受两个上限约束：时间窗口（30 天）与条数上限（500 条）。
+    先按时间过滤再截断，避免一堆过期记录把新记录挤掉。
+    """
+    merged = new_changes + load_changes()
+    merged = filter_recent(merged, key="time")
+    return merged[:MAX_CHANGE_LOG]
 
 
 # --------------------------------------------------------------------------- #
@@ -1151,7 +1164,7 @@ def render_pack_panel(pack_result: Dict[str, Any], pack_changes: List[Dict[str, 
     return f"""
     <div class="panel">
       <h2>资源包文件变更</h2>
-      <p class="hint">每次调用接口都会从响应里取 <strong>packFormat 数值最大</strong> 的资源包（该数字随 MC 更新变化，不写死）；官方哈希未变化时跳过下载。新增文件只标绿、删除文件只标红；被修改的文本文件<strong>只显示发生变化的那一段</strong>，删除行标红、新增行标绿，未变化的内容不输出。若接口或下载失败，本次运行不会改动任何数据。</p>
+      <p class="hint">只展示最近 {RETENTION_DAYS} 天内的文件变更，更早的批次会自动清理。每次调用接口都会从响应里取 <strong>packFormat 数值最大</strong> 的资源包（该数字随 MC 更新变化，不写死）；官方哈希未变化时跳过下载。新增文件只标绿、删除文件只标红；被修改的文本文件<strong>只显示发生变化的那一段</strong>，删除行标红、新增行标绿，未变化的内容不输出。若接口或下载失败，本次运行不会改动任何数据。</p>
       <div class="pack-meta">{status_text} &middot; {meta}</div>
       {err_html}
       {rows}
@@ -1260,6 +1273,8 @@ def render_html(
     # Bingo 面板样式与脚本与本地页面共用同一份文件，这里原样内联进静态页。
     bingo_css = read_asset(BINGO_CSS_FILE)
     bingo_js = read_asset(BINGO_JS_FILE)
+    theme_css = read_asset(THEME_CSS_FILE)
+    theme_js = read_asset(THEME_JS_FILE)
 
     return f"""<!DOCTYPE html>
 <html lang="zh-CN">
@@ -1271,8 +1286,8 @@ def render_html(
     * {{ box-sizing: border-box; }}
     body {{
       font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
+      background: var(--bg);
+      color: var(--text);
       margin: 0;
       padding: 24px;
     }}
@@ -1281,159 +1296,110 @@ def render_html(
       display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
       gap: 8px; padding: 10px 16px; margin-bottom: 12px;
       background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
-      border: 1px solid #38bdf8; border-radius: 10px;
+      border: 1px solid var(--accent); border-radius: 10px;
     }}
     .version-main {{ display: flex; align-items: center; gap: 10px; }}
-    .version-tag {{ font-size: 15px; font-weight: 700; color: #f8fafc; letter-spacing: .5px; }}
+    .version-tag {{ font-size: 15px; font-weight: 700; color: var(--text-strong); letter-spacing: .5px; }}
     .sync-badge {{
       font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 999px;
       background: rgba(255,255,255,.22); color: #fff;
     }}
-    .sync-syncing, .sync-partial {{ background: #f59e0b; color: #1f2937; }}
-    .version-meta {{ font-size: 12px; color: #e0f2fe; }}
+    .sync-syncing, .sync-partial {{ background: var(--warn-line); color: #1f2937; }}
+    .version-meta {{ font-size: 12px; color: rgba(255, 255, 255, .9); }}
     .version-note {{
-      background: #451a03; border: 1px solid #f59e0b; color: #fde68a;
+      background: var(--warn-bg-soft); border: 1px solid var(--warn-line); color: var(--warn-text-soft);
       border-radius: 8px; padding: 8px 14px; font-size: 12px; margin-bottom: 20px;
     }}
     h1 {{ margin: 0 0 4px 0; font-size: 28px; }}
-    .subtitle {{ color: #94a3b8; margin-bottom: 28px; font-size: 14px; }}
+    .subtitle {{ color: var(--muted); margin-bottom: 28px; font-size: 14px; }}
     .cards {{
       display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 16px; margin-bottom: 32px;
     }}
-    .card {{ background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 18px; }}
+    .card {{ background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }}
     .card-header {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }}
     .endpoint-name {{ font-weight: 700; font-size: 16px; }}
-    .endpoint-id {{ display: block; font-size: 11px; font-weight: 400; color: #64748b; margin-top: 2px; }}
+    .endpoint-id {{ display: block; font-size: 11px; font-weight: 400; color: var(--muted-2); margin-top: 2px; }}
     .badge {{ padding: 2px 10px; border-radius: 999px; font-size: 11px; font-weight: 700; }}
-    .badge-ok {{ background: #065f46; color: #6ee7b7; }}
-    .badge-error {{ background: #7f1d1d; color: #fca5a5; }}
-    .fetched {{ font-size: 12px; color: #94a3b8; margin-bottom: 10px; }}
-    .summary {{ font-size: 13px; color: #cbd5e1; line-height: 1.6; word-break: break-all; }}
+    .badge-ok {{ background: var(--ok-bg); color: var(--ok-text); }}
+    .badge-error {{ background: var(--bad-bg); color: var(--bad-text); }}
+    .fetched {{ font-size: 12px; color: var(--muted); margin-bottom: 10px; }}
+    .summary {{ font-size: 13px; color: var(--text-soft); line-height: 1.6; word-break: break-all; }}
     h2 {{ font-size: 18px; margin: 0 0 16px 0; }}
     .panel {{
-      background: #1e293b; border: 1px solid #334155; border-radius: 12px;
+      background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
       padding: 20px; margin-bottom: 24px; overflow-x: auto;
     }}
-    .hint {{ color: #94a3b8; font-size: 12px; line-height: 1.7; margin: -8px 0 14px 0; }}
-    .pack-meta {{ font-size: 13px; color: #cbd5e1; margin-bottom: 14px; word-break: break-all; }}
-    .pack-meta code {{ color: #7dd3fc; }}
-    .pack-error {{ color: #fca5a5; font-size: 12px; }}
-    .pack-change {{ background: #0f172a; border: 1px solid #334155; border-radius: 8px; padding: 12px; margin-bottom: 10px; }}
-    .pack-change-head {{ display: flex; flex-wrap: wrap; gap: 10px; align-items: center; font-size: 12px; color: #94a3b8; }}
+    .hint {{ color: var(--muted); font-size: 12px; line-height: 1.7; margin: -8px 0 14px 0; }}
+    .pack-meta {{ font-size: 13px; color: var(--text-soft); margin-bottom: 14px; word-break: break-all; }}
+    .pack-meta code {{ color: var(--code); }}
+    .pack-error {{ color: var(--bad-text); font-size: 12px; }}
+    .pack-change {{ background: var(--panel-soft); border: 1px solid var(--line); border-radius: 8px; padding: 12px; margin-bottom: 10px; }}
+    .pack-change-head {{ display: flex; flex-wrap: wrap; gap: 10px; align-items: center; font-size: 12px; color: var(--muted); }}
     .cnt {{ padding: 2px 8px; border-radius: 4px; font-weight: 700; }}
-    .cnt-add {{ background: #065f46; color: #6ee7b7; }}
-    .cnt-mod {{ background: #78350f; color: #fcd34d; }}
-    .cnt-del {{ background: #7f1d1d; color: #fca5a5; }}
-    .pack-note {{ font-size: 12px; color: #64748b; margin-top: 8px; }}
+    .cnt-add {{ background: var(--ok-bg); color: var(--ok-text); }}
+    .cnt-mod {{ background: var(--warn-bg); color: var(--warn-text); }}
+    .cnt-del {{ background: var(--bad-bg); color: var(--bad-text); }}
+    .pack-note {{ font-size: 12px; color: var(--muted-2); margin-top: 8px; }}
     .pack-files {{ margin-top: 8px; }}
     .pack-files summary {{ cursor: pointer; font-size: 12px; user-select: none; }}
-    .pack-more {{ color: #64748b; font-size: 11px; padding: 6px 12px; }}
+    .pack-more {{ color: var(--muted-2); font-size: 11px; padding: 6px 12px; }}
 
     /* ---- 代码审核 / git diff 风格 ---- */
     .diff-block {{
-      background: #0b1220; border: 1px solid #334155; border-radius: 8px;
+      background: var(--code-bg); border: 1px solid var(--line); border-radius: 8px;
       margin-bottom: 12px; overflow: hidden;
     }}
     .diff-header {{
       display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
-      padding: 8px 12px; background: #16213a; border-bottom: 1px solid #334155;
+      padding: 8px 12px; background: var(--panel-2); border-bottom: 1px solid var(--line);
       font-size: 12px;
     }}
     .diff-badge {{ padding: 2px 9px; border-radius: 4px; font-size: 11px; font-weight: 700; }}
-    .badge-add {{ background: #064e3b; color: #6ee7b7; }}
-    .badge-del {{ background: #7f1d1d; color: #fca5a5; }}
-    .badge-mod {{ background: #78350f; color: #fcd34d; }}
-    .badge-ver {{ background: #1e40af; color: #bfdbfe; }}
-    .diff-endpoint {{ color: #c4b5fd; font-weight: 600; }}
-    .diff-path {{ color: #7dd3fc; word-break: break-all; }}
-    .diff-time {{ color: #94a3b8; margin-left: auto; white-space: nowrap; }}
+    .badge-add {{ background: var(--ok-bg-strong); color: var(--ok-text); }}
+    .badge-del {{ background: var(--bad-bg); color: var(--bad-text); }}
+    .badge-mod {{ background: var(--warn-bg); color: var(--warn-text); }}
+    .badge-ver {{ background: var(--info-bg); color: var(--info-text); }}
+    .diff-endpoint {{ color: var(--purple); font-weight: 600; }}
+    .diff-path {{ color: var(--code); word-break: break-all; }}
+    .diff-time {{ color: var(--muted); margin-left: auto; white-space: nowrap; }}
     .diff-lines {{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }}
     .diff-line {{ display: flex; align-items: flex-start; gap: 10px; padding: 6px 12px; font-size: 12px; line-height: 1.6; }}
     .diff-line .sign {{ flex: 0 0 14px; font-weight: 700; text-align: center; }}
     .diff-line code {{ white-space: pre-wrap; word-break: break-all; }}
     .diff-code {{ min-width: 0; flex: 1; }}
-    .diff-add {{ background: rgba(34,197,94,.12); border-left: 3px solid #22c55e; color: #bbf7d0; }}
-    .diff-add .sign {{ color: #4ade80; }}
-    .diff-del {{ background: rgba(239,68,68,.12); border-left: 3px solid #ef4444; color: #fecaca; }}
-    .diff-del .sign {{ color: #f87171; }}
-    .diff-mod {{ background: rgba(245,158,11,.12); border-left: 3px solid #f59e0b; color: #fde68a; }}
-    .diff-mod .sign {{ color: #fbbf24; }}
+    .diff-add {{ background: var(--diff-add-bg); border-left: 3px solid var(--ok-line); color: var(--diff-add-text); }}
+    .diff-add .sign {{ color: var(--diff-add-sign); }}
+    .diff-del {{ background: var(--diff-del-bg); border-left: 3px solid var(--bad-line); color: var(--diff-del-text); }}
+    .diff-del .sign {{ color: var(--diff-del-sign); }}
+    .diff-mod {{ background: var(--diff-mod-bg); border-left: 3px solid var(--warn-line); color: var(--warn-text-soft); }}
+    .diff-mod .sign {{ color: var(--warn-text); }}
     .value-details {{ margin-top: 6px; font-family: inherit; }}
-    .value-details summary {{ cursor: pointer; font-size: 11px; color: #38bdf8; user-select: none; }}
+    .value-details summary {{ cursor: pointer; font-size: 11px; color: var(--accent); user-select: none; }}
     .value-details summary:hover {{ text-decoration: underline; }}
     .value-details pre {{
-      margin: 6px 0 0 0; padding: 8px; background: #060b16; border: 1px solid #334155;
-      border-radius: 6px; font-size: 11px; line-height: 1.5; color: #e2e8f0;
+      margin: 6px 0 0 0; padding: 8px; background: var(--code-bg); border: 1px solid var(--line);
+      border-radius: 6px; font-size: 11px; line-height: 1.5; color: var(--text);
       white-space: pre-wrap; word-break: break-all; max-height: 260px; overflow: auto;
     }}
     .pack-files .diff-line {{ font-size: 11px; }}
     .pack-files code {{ color: inherit; }}
-    .pack-mod {{ border-top: 1px dashed #334155; padding: 6px 0; }}
-    .pack-mod-head {{ font-size: 11px; color: #fcd34d; padding: 2px 12px; word-break: break-all; }}
-    .pack-binary {{ color: #94a3b8; font-size: 11px; padding: 4px 12px; }}
-    .pack-formats {{ color: #7dd3fc; }}
+    .pack-mod {{ border-top: 1px dashed var(--line); padding: 6px 0; }}
+    .pack-mod-head {{ font-size: 11px; color: var(--warn-text); padding: 2px 12px; word-break: break-all; }}
+    .pack-binary {{ color: var(--muted); font-size: 11px; padding: 4px 12px; }}
+    .pack-formats {{ color: var(--code); }}
 
     /* ---- 只显示变化片段 ---- */
-    .diff-hunks {{ border: 1px solid #334155; border-radius: 6px; margin: 6px 0; overflow-x: auto; }}
-    .diff-hunk {{ background: #16213a; color: #94a3b8; font-size: 11px; padding: 3px 12px; }}
-    .diff-omitted {{ color: #64748b; font-size: 11px; padding: 4px 12px; }}
-    .diff-ctx {{ border-left: 3px solid #475569; color: #94a3b8; }}
-    .diff-ctx .sign {{ color: #475569; }}
+    .diff-hunks {{ border: 1px solid var(--line); border-radius: 6px; margin: 6px 0; overflow-x: auto; }}
+    .diff-hunk {{ background: var(--panel-2); color: var(--muted); font-size: 11px; padding: 3px 12px; }}
+    .diff-omitted {{ color: var(--muted-2); font-size: 11px; padding: 4px 12px; }}
+    .diff-ctx {{ border-left: 3px solid var(--line-strong); color: var(--muted); }}
+    .diff-ctx .sign {{ color: var(--line-strong); }}
     .skip-banner {{
-      background: #451a03; border: 1px solid #f59e0b; color: #fde68a;
+      background: var(--warn-bg-soft); border: 1px solid var(--warn-line); color: var(--warn-text-soft);
       border-radius: 8px; padding: 10px 14px; font-size: 12px; margin-bottom: 12px;
     }}
 
-    /* ---- Bingo 任务 ---- */
-    .panel-sub {{ margin-left: 10px; font-size: 12px; font-weight: 400; color: #94a3b8; }}
-    .bingo-stale {{
-      background: #451a03; border: 1px solid #f59e0b; color: #fde68a;
-      border-radius: 8px; padding: 8px 12px; font-size: 12px; margin-bottom: 12px;
-    }}
-    .bingo-head {{
-      display: flex; flex-wrap: wrap; gap: 14px; align-items: stretch;
-      margin: 12px 0 16px;
-    }}
-    .bingo-state {{
-      flex: 0 0 auto; display: flex; align-items: center; justify-content: center;
-      padding: 10px 18px; border-radius: 10px; font-weight: 700; font-size: 13px;
-      border: 1px solid #334155; background: #16213a;
-    }}
-    .bingo-state-active {{ background: #052e16; border-color: #22c55e; color: #86efac; }}
-    .bingo-state-upcoming {{ background: #172554; border-color: #3b82f6; color: #93c5fd; }}
-    .bingo-state-ended {{ background: #3f1d1d; border-color: #ef4444; color: #fca5a5; }}
-    .bingo-info {{
-      flex: 1 1 380px; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-      gap: 8px 18px; align-content: center;
-    }}
-    .bingo-info > div {{ display: flex; justify-content: space-between; gap: 10px;
-      border-bottom: 1px dashed #334155; padding-bottom: 4px; font-size: 12px; }}
-    .bingo-info .k {{ color: #94a3b8; }}
-    .bingo-info .v {{ color: #e2e8f0; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }}
-    .bingo-grid {{
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 12px;
-    }}
-    .bingo-goal {{
-      background: #16213a; border: 1px solid #334155; border-radius: 10px;
-      padding: 12px 14px; display: flex; flex-direction: column; gap: 8px;
-    }}
-    .bingo-goal-head {{ display: flex; align-items: baseline; gap: 8px; }}
-    .bingo-index {{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 11px; color: #64748b; flex: 0 0 auto;
-    }}
-    .bingo-name {{ font-size: 14px; font-weight: 700; color: #f8fafc; line-height: 1.4; }}
-    .bingo-lore {{ font-size: 13px; line-height: 1.65; }}
-    .bingo-lore-line {{ word-break: break-word; }}
-    .bingo-meta {{ font-size: 11px; color: #94a3b8; }}
-    .bingo-req code {{ color: #7dd3fc; background: #0b1220; padding: 1px 5px; border-radius: 4px; }}
-    .bingo-bar {{ height: 6px; background: #0b1220; border-radius: 999px; overflow: hidden; }}
-    .bingo-bar-fill {{ height: 100%; background: linear-gradient(90deg, #22c55e, #4ade80); }}
-    .bingo-progress {{ font-size: 11px; color: #94a3b8; }}
-    .bingo-progress code {{ color: #86efac; }}
-    .bingo-id {{ margin-top: auto; font-size: 10px; color: #475569; }}
-    .bingo-id code {{ color: inherit; }}
     /* 混淆码 §k：MC 里表现为随机跳动的字符，这里用轻微抖动示意 */
     .mc-obf {{ display: inline-block; animation: mc-obf-jitter .45s steps(2) infinite; }}
     @keyframes mc-obf-jitter {{
@@ -1443,14 +1409,16 @@ def render_html(
     }}
 
     table {{ width: 100%; border-collapse: collapse; font-size: 13px; }}
-    th, td {{ text-align: left; padding: 10px 12px; border-bottom: 1px solid #334155; vertical-align: top; }}
-    th {{ background: #0f172a; color: #94a3b8; font-weight: 600; position: sticky; top: 0; }}
-    tr:hover td {{ background: #283548; }}
-    .time {{ color: #94a3b8; white-space: nowrap; }}
-    .empty {{ text-align: center; color: #64748b; padding: 24px; }}
-    a {{ color: #38bdf8; }}
+    th, td {{ text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }}
+    th {{ background: var(--panel-soft); color: var(--muted); font-weight: 600; position: sticky; top: 0; }}
+    tr:hover td {{ background: var(--hover); }}
+    .time {{ color: var(--muted); white-space: nowrap; }}
+    .empty {{ text-align: center; color: var(--muted-2); padding: 24px; }}
+    a {{ color: var(--accent); }}
   </style>
   <style>{bingo_css}</style>
+  <style>{theme_css}</style>
+  <script>{theme_js}</script>
 </head>
 <body>
   <div class="container">
@@ -1475,13 +1443,13 @@ def render_html(
 
     <div class="panel">
       <h2>最近变更</h2>
-      <p class="hint">按代码审核（diff）风格展示：<span style="color:#6ee7b7">新增只标绿 +</span>、<span style="color:#fca5a5">删除只标红 -</span>；修改<strong>只显示发生变化的那一段</strong>（删除行标红、新增行标绿，未变化内容不输出）。端点比对已排除 <code>version</code> / <code>lastUpdated</code> / <code>success</code>，版本号变化不会被当成内容更新。</p>
+      <p class="hint">按代码审核（diff）风格展示：<span style="color:var(--ok-text)">新增只标绿 +</span>、<span style="color:var(--bad-text)">删除只标红 -</span>；修改<strong>只显示发生变化的那一段</strong>（删除行标红、新增行标绿，未变化内容不输出）。端点比对已排除 <code>version</code> / <code>lastUpdated</code> / <code>success</code>，版本号变化不会被当成内容更新。<strong>只展示最近 {RETENTION_DAYS} 天的增删改，更早的记录会自动从页面和数据中清理。</strong></p>
       {render_change_blocks(changes)}
     </div>
 
     <div class="panel">
       <h2>关于本页</h2>
-      <p style="color:#94a3b8; font-size:13px; line-height:1.8; margin:0;">
+      <p style="color:var(--muted); font-size:13px; line-height:1.8; margin:0;">
         本仪表盘由 GitHub Actions 定时工作流自动生成。它定期抓取 Hypixel SkyBlock 公共 API，
         并把每次响应与上一次快照做比对，新增 / 删除 / 修改的字段会以代码审核风格记录在上方的变更日志中。
         页面顶部的「当前版本」来自 <strong>collections 与 skills 两个资源接口</strong>的 version 字段：
@@ -1662,16 +1630,21 @@ def main() -> int:
         if bingo_data:
             save_bingo(bingo_data)
         pack_changes = load_pack_changes(DATA_DIR)
+        pack_changes, expired_pack_records = prune_list(pack_changes, key="time")
+        if expired_pack_records:
+            # 资源包没更新时 commit_pack_result 不会写盘，这里单独清理过期记录。
+            save_pack_changes(DATA_DIR, pack_changes)
         data_written = True
         bingo_stale = False
     else:
         # 任何失败都不改动 data/ 下的一个字节，页面沿用上次结果。
         data_written = False
-        all_changes = load_changes()
+        # 页面只展示保留期内的记录，旧数据即使还在磁盘上也不再显示。
+        all_changes = filter_recent(load_changes(), key="time")
         saved_runtime = load_runtime()
         if saved_runtime:
             version_info = saved_runtime
-        pack_changes = load_pack_changes(DATA_DIR)
+        pack_changes = filter_recent(load_pack_changes(DATA_DIR), key="time")
         pack_result = _pack_result_from_disk()
         endpoints_result = _skipped_view()
         # Bingo 同样回退到磁盘上的上一次结果，并标注为非最新数据。

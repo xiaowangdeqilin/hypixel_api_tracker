@@ -6,8 +6,10 @@
     <title>Hypixel SkyBlock API 变更监控台</title>
     <link rel="stylesheet" href="/static/styles.css" />
     <link rel="stylesheet" href="/static/bingo.css" />
+    <link rel="stylesheet" href="/static/theme.css" />
+    <script src="/static/theme.js"></script>
   </head>
-  <body class="theme-light">
+  <body>
     <div class="container">
       <div class="version-bar">
         <div class="version-main">
@@ -47,7 +49,7 @@
 
       <div class="panel">
         <h2>最近变更</h2>
-        <p class="hint">按代码审核（diff）风格展示：<span class="legend-add">新增只标绿 +</span>、<span class="legend-del">删除只标红 -</span>；修改<strong>只显示发生变化的那一段</strong>（删除行标红、新增行标绿，未变化内容不输出）。端点 diff 已排除 version / lastUpdated 等元数据字段。</p>
+        <p class="hint">按代码审核（diff）风格展示：<span class="legend-add">新增只标绿 +</span>、<span class="legend-del">删除只标红 -</span>；修改<strong>只显示发生变化的那一段</strong>（删除行标红、新增行标绿，未变化内容不输出）。端点 diff 已排除 version / lastUpdated 等元数据字段。<strong>只展示最近 {{ retention_days }} 天的增删改，更早的记录会自动清理。</strong></p>
         <table>
           <thead>
             <tr>
