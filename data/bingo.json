@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08 05:54:44",
+  "generated_at": "2026-11-08 09:28:08",
   "id": 59,
   "name": "November 2026",
   "modifier": "NORMAL",
@@ -7,11 +7,11 @@
   "end": "2026-11-08 12:00:00",
   "start_ms": 1793505600000,
   "end_ms": 1794110400000,
-  "published_at": "2026-11-08 05:51:05",
+  "published_at": "2026-11-08 09:26:05",
   "first_seen": "2026-11-07 18:49:18",
   "state": "active",
   "state_label": "进行中",
-  "remaining": "剩余 6 小时 5 分钟",
+  "remaining": "剩余 2 小时 31 分钟",
   "goal_count": 25,
   "goals": [
     {
@@ -24,7 +24,7 @@
         8000000,
         10000000
       ],
-      "progress": 27560794,
+      "progress": 27347860,
       "lore": "§7Break §e10M Ore§7 Blocks.",
       "fullLore": [
         "§7Break §e10M Ore§7 Blocks."
@@ -34,8 +34,8 @@
         "percent": 100.0,
         "reached": 5,
         "total": 5,
-        "progress": 27560794,
-        "progress_text": "27.56M",
+        "progress": 27347860,
+        "progress_text": "27.35M",
         "top": 10000000,
         "top_text": "10M"
       },
@@ -122,7 +122,7 @@
         80000,
         100000
       ],
-      "progress": 282205,
+      "progress": 280103,
       "lore": "§7Summon §a100k §3Sea Creatures§7.",
       "fullLore": [
         "§7Summon §a100k §3Sea Creatures§7."
@@ -132,8 +132,8 @@
         "percent": 100.0,
         "reached": 5,
         "total": 5,
-        "progress": 282205,
-        "progress_text": "282.2K",
+        "progress": 280103,
+        "progress_text": "280.1K",
         "top": 100000,
         "top_text": "100K"
       },
@@ -219,7 +219,7 @@
         600000000,
         750000000
       ],
-      "progress": 4244337481,
+      "progress": 4199735703,
       "lore": "§7Gain §b750M Mining§7 experience",
       "fullLore": [
         "§7Gain §b750M Mining§7 experience"
@@ -229,8 +229,8 @@
         "percent": 100.0,
         "reached": 5,
         "total": 5,
-        "progress": 4244337481,
-        "progress_text": "4.24B",
+        "progress": 4199735703,
+        "progress_text": "4.2B",
         "top": 750000000,
         "top_text": "750M"
       },
@@ -317,7 +317,7 @@
         200000,
         250000
       ],
-      "progress": 843033,
+      "progress": 837795,
       "lore": "§7Loot §e250k §7drops with a chance of §e1% §7or lower",
       "fullLore": [
         "§7Loot §e250k §7drops with a chance of §e1% §7or lower"
@@ -327,8 +327,8 @@
         "percent": 100.0,
         "reached": 5,
         "total": 5,
-        "progress": 843033,
-        "progress_text": "843.03K",
+        "progress": 837795,
+        "progress_text": "837.79K",
         "top": 250000,
         "top_text": "250K"
       },
@@ -414,7 +414,7 @@
         4000000,
         5000000
       ],
-      "progress": 70330196,
+      "progress": 69569296,
       "lore": "§7Gain §55M Heart of the Mountain Experience§7.",
       "fullLore": [
         "§7Gain §55M Heart of the Mountain Experience§7."
@@ -424,8 +424,8 @@
         "percent": 100.0,
         "reached": 5,
         "total": 5,
-        "progress": 70330196,
-        "progress_text": "70.33M",
+        "progress": 69569296,
+        "progress_text": "69.57M",
         "top": 5000000,
         "top_text": "5M"
       },
