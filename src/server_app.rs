@@ -771,16 +771,14 @@ fn api_snapshot(id: u64) -> (u16, &'static str, String) {
 
 fn api_changes(query: &str) -> String {
     let params = parse_query(query);
-    let limit = params
-        .get("limit")
-        .and_then(|l| l.parse::<usize>().ok())
-        .unwrap_or(20)
-        .clamp(1, 100);
+    // 默认返回 30 天内的全部变更（不限条数）；显式传 limit 时才截断，方便调试。
+    let limit = params.get("limit").and_then(|l| l.parse::<usize>().ok());
     // changes.json 新记录在最前（append_changes 的合并顺序保证）；
     // 响应形状与旧版 SQLite change_events 对齐。
-    let data: Vec<Value> = state::load_changes()
+    let all = state::load_changes();
+    let data: Vec<Value> = all
         .into_iter()
-        .take(limit)
+        .take(limit.unwrap_or(usize::MAX))
         .map(|entry| {
             json!({
                 "endpoint": entry.get("endpoint").cloned().unwrap_or(Value::Null),

@@ -35,9 +35,12 @@
 
     <div class="panel">
       <h2>最近变更</h2>
-      <p class="hint">按代码审核（diff）风格展示：<span style="color:var(--ok-text)">新增只标绿 +</span>、<span style="color:var(--bad-text)">删除只标红 -</span>；修改<strong>只显示发生变化的那一段</strong>（删除行标红、新增行标绿，未变化内容不输出）。端点比对已排除 <code>version</code> / <code>lastUpdated</code> / <code>success</code>，版本号变化不会被当成内容更新。<strong>只展示最近 {{ retention_days }} 天的增删改，更早的记录会自动从页面和数据中清理。</strong></p>
+      <p class="hint">按代码审核（diff）风格展示：<span style="color:var(--ok-text)">新增只标绿 +</span>、<span style="color:var(--bad-text)">删除只标红 -</span>；修改<strong>只显示发生变化的那一段</strong>（删除行标红、新增行标绿，未变化内容不输出）。端点比对已排除 <code>version</code> / <code>lastUpdated</code> / <code>success</code>，版本号变化不会被当成内容更新。<strong>只展示最近 {{ retention_days }} 天的增删改，不限条数；更早的记录会自动从页面和数据中清理。</strong></p>
       {{ changes_blocks }}
     </div>
+
+    {{ firesales_panel }}
+    {{ bingo_panel }}
 
     <div class="panel">
       <h2>关于本页</h2>
@@ -62,9 +65,6 @@
         若任一接口或资源包下载失败，本次运行不会改动仓库里的任何数据。
       </p>
     </div>
-
-    {{ firesales_panel }}
-    {{ bingo_panel }}
   </div>
   <script>{{ bingo_js }}</script>
   <script>{{ firesale_js }}</script>

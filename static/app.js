@@ -210,7 +210,8 @@ async function loadHistory() {
 }
 
 async function loadChanges() {
-  const response = await fetch('/api/changes?limit=20');
+  // 不限条数：服务端默认返回保留期（30 天）内的全部变更
+  const response = await fetch('/api/changes');
   const result = await response.json();
   const tbody = document.getElementById('changes-body');
   tbody.innerHTML = '';

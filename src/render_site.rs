@@ -150,7 +150,8 @@ pub fn render_change_blocks(changes: &[Map<String, Value>]) -> String {
         return "<div class=\"empty\">暂无变更记录。当某个端点返回与上次快照不同的数据时，变更会以代码审核风格显示在这里。</div>".into();
     }
     let mut blocks = String::new();
-    for change in changes.iter().take(100) {
+    // 不限制条数：只按保留期（30 天）清理，记录多少条就完整展示多少条。
+    for change in changes.iter() {
         let raw_type = change.get("type").and_then(|v| v.as_str()).unwrap_or("");
         let badge_css = match raw_type {
             "added" => "badge-add",

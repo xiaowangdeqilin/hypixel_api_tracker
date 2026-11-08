@@ -138,3 +138,22 @@ fn bingo_view_marks_diagonal_as_community() {
     assert_eq!(out2[0]["is_community"].as_bool().unwrap(), true);
     assert_eq!(out2[1]["is_community"].as_bool().unwrap(), false);
 }
+
+#[test]
+fn append_changes_has_no_count_cap() {
+    use hypixel_tracker::state::append_changes;
+    use serde_json::Map;
+    let now = hypixel_tracker::retention::now();
+    let make = |path: String| {
+        let mut m = Map::new();
+        m.insert("time".into(), json!(now));
+        m.insert("path".into(), json!(path));
+        m
+    };
+    // 600 条仍在保留期内：超过旧的 500 条上限也应全部保留
+    let mut existing: Vec<Map<String, serde_json::Value>> =
+        (0..600).map(|i| make(format!("p{}", i))).collect();
+    append_changes(&mut existing, vec![make("new".into())]);
+    assert_eq!(existing.len(), 601);
+    assert_eq!(existing[0]["path"], json!("new"));
+}

@@ -82,5 +82,4 @@ pub fn summary_label(key: &str) -> String {
 
 pub const VERSION_ENDPOINTS: [&str; 2] = ["collections", "skills"];
 pub const META_KEYS: [&str; 3] = ["version", "lastUpdated", "success"];
-pub const MAX_CHANGE_LOG: usize = 500;
 pub const MAX_LOG_VALUE_CHARS: usize = 1500;

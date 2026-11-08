@@ -122,16 +122,16 @@ pub fn save_changes(changes: &[Map<String, Value>]) -> std::io::Result<()> {
     )
 }
 
-/// 合并新旧变更，并丢掉超过保留期（30 天）的记录；先按时间过滤再截断。
+/// 合并新旧变更，并丢掉超过保留期（30 天）的记录。
+///
+/// 除保留期外不再限制条数：30 天内有多少条就保留多少条。
 pub fn append_changes(
     existing: &mut Vec<Map<String, Value>>,
     new_changes: Vec<Map<String, Value>>,
 ) {
     let mut merged = new_changes;
     merged.extend(existing.drain(..));
-    let kept = crate::retention::filter_recent(merged, "time");
-    let capped: Vec<Map<String, Value>> = kept.into_iter().take(crate::labels::MAX_CHANGE_LOG).collect();
-    *existing = capped;
+    *existing = crate::retention::filter_recent(merged, "time");
 }
 
 /// 构造一条变更记录（changes.json 统一 schema）。
