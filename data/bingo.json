@@ -2,7 +2,7 @@
   "end": "2026-11-08 12:00:00",
   "end_ms": 1794110400000,
   "first_seen": "2026-11-07 18:49:18",
-  "generated_at": "2026-11-08 16:45:49",
+  "generated_at": "2026-11-08 16:53:38",
   "goal_count": 25,
   "goals": [
     {
@@ -16,11 +16,11 @@
         "§7Break §e10M Ore§7 Blocks."
       ],
       "name": "Operation: Ore",
-      "progress": 29240552,
+      "progress": 30244793,
       "progress_info": {
         "percent": 100.0,
-        "progress": 29240552.0,
-        "progress_text": "29.24M",
+        "progress": 30244793.0,
+        "progress_text": "30.24M",
         "ratio": 1.0,
         "reached": 5,
         "top": 10000000.0,
@@ -115,11 +115,11 @@
         "§7Summon §a100k §3Sea Creatures§7."
       ],
       "name": "Poseidon",
-      "progress": 309799,
+      "progress": 326745,
       "progress_info": {
         "percent": 100.0,
-        "progress": 309799.0,
-        "progress_text": "309.8K",
+        "progress": 326745.0,
+        "progress_text": "326.75K",
         "ratio": 1.0,
         "reached": 5,
         "top": 100000.0,
@@ -213,11 +213,11 @@
         "§7Gain §b750M Mining§7 experience"
       ],
       "name": "Skilled",
-      "progress": 4619873649,
+      "progress": 4838678838,
       "progress_info": {
         "percent": 100.0,
-        "progress": 4619873649.0,
-        "progress_text": "4.62B",
+        "progress": 4838678838.0,
+        "progress_text": "4.84B",
         "ratio": 1.0,
         "reached": 5,
         "top": 750000000.0,
@@ -312,11 +312,11 @@
         "§7Loot §e250k §7drops with a chance of §e1% §7or lower"
       ],
       "name": "Lucky Looter",
-      "progress": 877878,
+      "progress": 894937,
       "progress_info": {
         "percent": 100.0,
-        "progress": 877878.0,
-        "progress_text": "877.88K",
+        "progress": 894937.0,
+        "progress_text": "894.94K",
         "ratio": 1.0,
         "reached": 5,
         "top": 250000.0,
@@ -410,11 +410,11 @@
         "§7Gain §55M Heart of the Mountain Experience§7."
       ],
       "name": "Cave Commodity",
-      "progress": 75835893,
+      "progress": 78450943,
       "progress_info": {
         "percent": 100.0,
-        "progress": 75835893.0,
-        "progress_text": "75.84M",
+        "progress": 78450943.0,
+        "progress_text": "78.45M",
         "ratio": 1.0,
         "reached": 5,
         "top": 5000000.0,
@@ -434,7 +434,7 @@
   "id": 59,
   "modifier": "NORMAL",
   "name": "November 2026",
-  "published_at": "2026-11-08 16:41:05",
+  "published_at": "2026-11-08 16:51:05",
   "remaining": "-",
   "start": "2026-11-01 12:00:00",
   "start_ms": 1793505600000,
