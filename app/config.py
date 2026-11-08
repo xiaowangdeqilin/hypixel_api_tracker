@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Any, Dict
 
 from app.bingo import goal_progress, requirement_text
+from app.firesale import firesales_view
 from app.mctext import render_mc_text
 from app.timeutil import format_time, to_epoch_ms
 
@@ -18,6 +19,8 @@ VERSION_FILE = BASE_DIR / "VERSION"
 RUNTIME_FILE = DATA_DIR / "runtime.json"
 # Bingo 展示数据同一来源：构建脚本把当前期次与全部任务写在这里。
 BINGO_FILE = DATA_DIR / "bingo.json"
+# 限时特卖展示数据：构建脚本每次运行都会重新抓取并覆盖（开始前可能被官方调整）。
+FIRESALES_FILE = DATA_DIR / "firesales.json"
 
 
 def get_version() -> str:
@@ -133,6 +136,24 @@ def get_bingo_info() -> Dict[str, Any]:
     return view
 
 
+def get_firesales_info() -> Dict[str, Any]:
+    """读取限时特卖展示数据（``data/firesales.json``）。
+
+    数据由 ``scripts/build_dashboard.py`` 每次运行重新抓取写入；
+    文件不存在或为空时返回空 dict，页面显示引导提示。
+    """
+    try:
+        data = json.loads(FIRESALES_FILE.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+    if not isinstance(data, dict) or not data.get("sales"):
+        return {}
+    return firesales_view(
+        {"sales": data.get("sales")},
+        str(data.get("generated_at") or "-"),
+    )
+
+
 ENDPOINTS = {
     "collections": {
         "url": "https://api.hypixel.net/v2/resources/skyblock/collections",
@@ -157,6 +178,11 @@ ENDPOINTS = {
     "bingo": {
         "url": "https://api.hypixel.net/v2/resources/skyblock/bingo",
         "interval_minutes": 30,
+    },
+    # 特卖开始前官方可能随时调整时间/数量/价格，本地服务同样用最短间隔抓取。
+    "firesales": {
+        "url": "https://api.hypixel.net/v2/skyblock/firesales",
+        "interval_minutes": 5,
     },
 }
 

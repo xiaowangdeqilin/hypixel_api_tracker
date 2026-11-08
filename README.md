@@ -44,6 +44,7 @@ python scripts/build_dashboard.py
 | `data/pack_texts.json` | 资源包内文本类文件内容缓存（用于展示变化片段） |
 | `data/pack_changes.json` | 资源包文件新增 / 修改 / 删除记录（只保留最近 30 天，最多 50 批） |
 | `data/bingo.json` | 当前 Bingo 期次、时间窗口与全部任务（供页面展示） |
+| `data/firesales.json` | 限时特卖全部期次（价格/数量/时间窗口），每次构建重新抓取覆盖 |
 
 > `HYPIXEL_API_KEY` 完全可选。若遇到限流，可 `export HYPIXEL_API_KEY=你的key`，
 > 脚本与本地服务都会自动带上 `?key=`。仓库不依赖 `.env` 自动加载。
@@ -148,6 +149,24 @@ python scripts/pack_inspector.py --force      # 忽略哈希缓存强制重新�
 
 多设备适配：小屏下卡片改单列、表格在容器内横向滚动、版本栏自动换行、
 Bingo 5×5 网格保持 5 列阵容可横向滑动（详见 `theme.css` 中的媒体查询）。
+
+## 限时特卖（Firesales）
+
+`/v2/skyblock/firesales` 返回当前所有限时特卖（一次响应里可能同时包含**多期**），
+面板在 Bingo 之前展示（`data/firesales.json` 持久化）。
+
+**多期分割**：每期特卖独立成卡，按开始时间排序，以 `item_id + start` 作为唯一键；
+同一物品分期上架也会各自成卡。主视图只展示**即将开始与进行中**的期次，
+卡片上直接给出**价格（宝石/Gems）与数量**，以及开始 / 结束时间（北京时间）。
+
+**显示额外数据**：面板标题右侧的按钮可展开完整数据——全部期次（含已结束）的表格、
+数据抓取时间与原始 JSON；再点一次收起。
+
+**每次都重新抓取**：特卖在开始前官方随时可能调整时间 / 数量 / 价格，
+因此每次构建（Action 运行）都会重新请求并整体覆盖 `data/firesales.json`，
+不存在「内容没变就跳过」的省略；官方推迟开卖会在变更日志里体现为
+「旧期移除 + 新期新增」，价格 / 数量 / 结束时间变化则是逐字段修改记录。
+物品名称从 items 端点解析，尚未收录的新物品回退为 id 的可读形式。
 
 ## Bingo 任务
 
@@ -304,6 +323,7 @@ data/
   pack_texts.json              # 资源包文本文件缓存（用于变化片段）
   pack_changes.json            # 资源包文件变更记录
   bingo.json                   # 当前 Bingo 期次与全部任务
+  firesales.json               # 限时特卖全部期次（每次构建重新抓取覆盖）
 site/                          # 生成的静态页面（被 .gitignore 忽略）
 ```
 

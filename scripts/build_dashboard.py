@@ -59,6 +59,14 @@ from app.bingo import (  # noqa: E402
     normalize_bingo,
     requirement_text,
 )
+from app.firesale import (  # noqa: E402
+    CURRENCY_LABEL,
+    build_item_names,
+    diff_sales,
+    firesales_view,
+    normalize_sales,
+    sale_key,
+)
 from app.mctext import render_mc_lines  # noqa: E402
 from app.retention import RETENTION_DAYS, filter_recent, prune_list  # noqa: E402
 from app.timeutil import (  # noqa: E402
@@ -100,12 +108,16 @@ SNAPSHOT_DIR = DATA_DIR / "snapshots"
 CHANGES_FILE = DATA_DIR / "changes.json"
 RUNTIME_FILE = DATA_DIR / "runtime.json"
 BINGO_FILE = DATA_DIR / "bingo.json"
+# 限时特卖展示数据：每次运行都会重新抓取并覆盖（开始前可能被官方调整）。
+FIRESALES_FILE = DATA_DIR / "firesales.json"
 SITE_DIR = BASE_DIR / "site"
 # Bingo 面板的样式与交互脚本：本地页面用 <link>/<script> 引用，
 # 静态页面由构建脚本原样内联，保证两端行为完全一致。
 BINGO_CSS_FILE = BASE_DIR / "static" / "bingo.css"
 BINGO_JS_FILE = BASE_DIR / "static" / "bingo.js"
 # 主题变量与切换脚本同样两端共用
+FIRESALE_CSS_FILE = BASE_DIR / "static" / "firesale.css"
+FIRESALE_JS_FILE = BASE_DIR / "static" / "firesale.js"
 THEME_CSS_FILE = BASE_DIR / "static" / "theme.css"
 THEME_JS_FILE = BASE_DIR / "static" / "theme.js"
 
@@ -116,6 +128,7 @@ ENDPOINTS: Dict[str, str] = {
     "bazaar": "https://api.hypixel.net/v2/skyblock/bazaar",
     "packs": "https://api.hypixel.net/v2/resources/packs",
     "bingo": "https://api.hypixel.net/v2/resources/skyblock/bingo",
+    "firesales": "https://api.hypixel.net/v2/skyblock/firesales",
 }
 
 # 只有这两个资源接口带 version 字段，且可能分批更新。
@@ -139,6 +152,7 @@ ENDPOINT_LABELS = {
     "bazaar": "集市",
     "packs": "资源包",
     "bingo": "Bingo 任务",
+    "firesales": "限时特卖",
 }
 SUMMARY_LABELS = {
     "collection_count": "收藏分类数",
@@ -154,6 +168,9 @@ SUMMARY_LABELS = {
     "bingo_goal_count": "任务数",
     "bingo_state": "状态",
     "bingo_window": "活动时间",
+    "firesale_total": "特卖期数",
+    "firesale_upcoming": "即将开始",
+    "firesale_active": "进行中",
 }
 TYPE_LABELS = {
     "added": "新增",
@@ -175,6 +192,12 @@ PACK_STATUS_LABELS = {
     "error": "资源包检查失败",
     "unavailable": "暂无可用资源包",
     "texts_backfilled": "已补齐文本缓存（包内容无变化）",
+}
+FIRESALE_STATE_LABELS = {
+    "upcoming": "即将开始",
+    "active": "进行中",
+    "ended": "已结束",
+    "unknown": "未知",
 }
 BINGO_STATE_LABELS = {
     "upcoming": "未开始",
@@ -471,6 +494,23 @@ def load_bingo() -> Dict[str, Any]:
     return data if isinstance(data, dict) else {}
 
 
+def load_firesales() -> Dict[str, Any]:
+    if not FIRESALES_FILE.exists():
+        return {}
+    try:
+        data = json.loads(FIRESALES_FILE.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def save_firesales(view: Dict[str, Any]) -> None:
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    FIRESALES_FILE.write_text(
+        json.dumps(view, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+
+
 def read_asset(path: Path) -> str:
     """读取需要内联到静态页面的前端资源；缺失时降级为空串而不是中断构建。"""
     try:
@@ -554,6 +594,108 @@ def render_bingo_goal(goal: Dict[str, Any], index: int) -> str:
               <span class="bingo-cell-foot">{foot_html}
               </span>
             </button>
+    """
+
+
+def render_firesale_card(sale: Dict[str, Any], index: int) -> str:
+    """单期特卖卡片：一期一张，多期数据互不混排。"""
+    state = str(sale.get("state") or "unknown")
+    name = html.escape(str(sale.get("name") or "-"))
+    item_id = html.escape(str(sale.get("item_id") or "-"))
+    price = html.escape(format_amount(sale.get("price")))
+    amount = html.escape(format_amount(sale.get("amount")))
+    start = html.escape(str(sale.get("start") or "-"))
+    end = html.escape(str(sale.get("end") or "-"))
+    return f"""
+        <div class="firesale-card firesale-card-{html.escape(state)}">
+          <div class="firesale-card-head">
+            <span class="firesale-index">{index:02d}</span>
+            <span class="firesale-badge firesale-badge-{html.escape(state)}">{html.escape(FIRESALE_STATE_LABELS.get(state, state))}</span>
+          </div>
+          <div class="firesale-name">{name}</div>
+          <div class="firesale-facts">
+            <div><span class="k">价格</span><span class="v firesale-price">{price} {CURRENCY_LABEL}</span></div>
+            <div><span class="k">数量</span><span class="v">{amount}</span></div>
+            <div><span class="k">开始</span><span class="v">{start}</span></div>
+            <div><span class="k">结束</span><span class="v">{end}</span></div>
+          </div>
+          <div class="firesale-id"><code>{item_id}</code></div>
+        </div>
+    """
+
+
+def render_firesales_panel(firesales: Dict[str, Any], *, stale: bool = False) -> str:
+    """「限时特卖」面板：主视图展示即将开始与进行中的特卖，
+    「显示额外数据」按钮展开全部期次（含已结束）与原始数据。"""
+    if not firesales or not firesales.get("sales"):
+        return """
+    <div class="panel">
+      <h2>限时特卖（Firesales）</h2>
+      <p class="hint">数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，
+      运行一次构建后即可显示每期特卖的价格与数量。</p>
+      <div class="empty">暂无限时特卖数据</div>
+    </div>
+    """
+
+    sales = [s for s in (firesales.get("sales") or []) if isinstance(s, dict)]
+    now_sales = [s for s in sales if s.get("state") in ("upcoming", "active")]
+    main_cards = "".join(
+        render_firesale_card(sale, i + 1) for i, sale in enumerate(now_sales)
+    ) or '<div class="empty">当前没有即将开始或进行中的特卖</div>'
+
+    rows = "".join(
+        f"""
+          <tr>
+            <td>{i + 1}</td>
+            <td>{html.escape(str(sale.get('name') or '-'))}</td>
+            <td><code>{html.escape(str(sale.get('item_id') or '-'))}</code></td>
+            <td>{html.escape(format_amount(sale.get('price')))}</td>
+            <td>{html.escape(format_amount(sale.get('amount')))}</td>
+            <td>{html.escape(str(sale.get('state_label') or '-'))}</td>
+            <td class="time">{html.escape(str(sale.get('start') or '-'))}</td>
+            <td class="time">{html.escape(str(sale.get('end') or '-'))}</td>
+          </tr>"""
+        for i, sale in enumerate(sales)
+    )
+    raw_json = html.escape(
+        json.dumps(sales, ensure_ascii=False, indent=2)
+    )
+
+    stale_html = (
+        '<div class="bingo-stale">本次运行未抓到最新数据，以下为上一次成功抓取的结果。</div>'
+        if stale else ""
+    )
+    return f"""
+    <div class="panel firesale-panel" data-firesale-panel>
+      <h2>限时特卖（Firesales）<span class="panel-sub">共 {len(sales)} 期 ·
+        即将开始 {firesales.get('upcoming_count', 0)} · 进行中 {firesales.get('active_count', 0)} ·
+        已结束 {firesales.get('ended_count', 0)}</span>
+        <button type="button" class="firesale-toggle" data-firesale-toggle
+                aria-expanded="false" aria-controls="firesale-extra">显示额外数据</button></h2>
+      <p class="hint">数据来自 <code>/v2/skyblock/firesales</code>，价格以宝石（Gems）结算。
+        特卖<strong>开始前官方可能随时调整时间、数量与价格</strong>，因此每次运行都会重新抓取并覆盖，
+        不存在「查过就跳过」。一次响应里可能同时有多期特卖，每期独立成卡，按开始时间排序；
+        主视图只展示<strong>即将开始与进行中</strong>的期次。</p>
+      {stale_html}
+      <div class="firesale-grid">{main_cards}</div>
+      <div class="firesale-extra" id="firesale-extra" data-firesale-extra hidden>
+        <h3>全部期次（含已结束）</h3>
+        <div class="firesale-table-wrap">
+          <table>
+            <thead>
+              <tr><th>#</th><th>物品</th><th>item_id</th><th>价格（{CURRENCY_LABEL}）</th>
+                  <th>数量</th><th>状态</th><th>开始（北京时间）</th><th>结束（北京时间）</th></tr>
+            </thead>
+            <tbody>{rows}</tbody>
+          </table>
+        </div>
+        <p class="hint">数据抓取时间：{html.escape(str(firesales.get('generated_at') or '-'))}（北京时间）</p>
+        <details>
+          <summary>原始数据（JSON）</summary>
+          <pre class="firesale-raw">{raw_json}</pre>
+        </details>
+      </div>
+    </div>
     """
 
 
@@ -763,6 +905,11 @@ def diff_packs(old: Dict[str, Any], new: Dict[str, Any]) -> List[Dict[str, Any]]
     return diff_dict(flatten(old), flatten(new))
 
 
+def diff_firesales(old: Dict[str, Any], new: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """特卖快照已规范化为 {"sales": [...]}，直接按单期比对。"""
+    return diff_sales(old.get("sales") or [], new.get("sales") or [])
+
+
 DIFF_FUNCS = {
     "collections": diff_collections,
     "skills": diff_skills,
@@ -770,7 +917,9 @@ DIFF_FUNCS = {
     "bazaar": diff_bazaar,
     "packs": diff_packs,
     "bingo": diff_bingo,
+    "firesales": diff_firesales,
 }
+
 
 
 # --------------------------------------------------------------------------- #
@@ -787,6 +936,18 @@ def fetch_endpoint(name: str, url: str) -> Tuple[Optional[Dict[str, Any]], Optio
         return resp.json(), None
     except Exception as exc:  # noqa: BLE001
         return None, str(exc)
+
+
+def _sale_state_quick(sale: Dict[str, Any], now_ms: int) -> Tuple[str, str]:
+    start = sale.get("start_ms") or 0
+    end = sale.get("end_ms") or 0
+    if not start or not end:
+        return "unknown", "-"
+    if now_ms < start:
+        return "upcoming", "-"
+    if now_ms > end:
+        return "ended", "-"
+    return "active", "-"
 
 
 def summarize_payload(name: str, payload: Dict[str, Any]) -> Dict[str, Any]:
@@ -818,6 +979,23 @@ def summarize_payload(name: str, payload: Dict[str, Any]) -> Dict[str, Any]:
             "pack_format_count": len(versions),
             "selected_pack_format": selected if selected is not None else "-",
             "deploy_id": first.get("deployId", "-"),
+        }
+    if name == "firesales":
+        sales = payload.get("sales") or []
+        import time as _time
+
+        now_ms = int(_time.time() * 1000)
+        upcoming = active = 0
+        for sale in normalize_sales(payload):
+            state, _ = _sale_state_quick(sale, now_ms)
+            if state == "upcoming":
+                upcoming += 1
+            elif state == "active":
+                active += 1
+        return {
+            "firesale_total": len(sales) if isinstance(sales, list) else 0,
+            "firesale_upcoming": upcoming,
+            "firesale_active": active,
         }
     if name == "bingo":
         goals = payload.get("goals") or []
@@ -855,6 +1033,12 @@ def make_snapshot(name: str, payload: Dict[str, Any]) -> Dict[str, Any]:
         bingo_norm = normalize_bingo(payload)
         snap["payload"] = bingo_norm
         snap["checksum"] = checksum(bingo_norm)
+    elif name == "firesales":
+        # 特卖同样用规范化结构：按 item_id+start 切分成单期记录，
+        # 时间转成北京时间字符串，多期数据比对时互不干扰。
+        sales_norm = {"sales": normalize_sales(payload)}
+        snap["payload"] = sales_norm
+        snap["checksum"] = checksum(sales_norm)
     return snap
 
 
@@ -1224,6 +1408,7 @@ def render_html(
     pack_changes: List[Dict[str, Any]],
     bingo: Optional[Dict[str, Any]] = None,
     bingo_stale: bool = False,
+    firesales: Optional[Dict[str, Any]] = None,
     skipped_reason: Optional[str] = None,
 ) -> str:
     stable = version_info.get("stable_version") or "未获取"
@@ -1273,6 +1458,8 @@ def render_html(
     # Bingo 面板样式与脚本与本地页面共用同一份文件，这里原样内联进静态页。
     bingo_css = read_asset(BINGO_CSS_FILE)
     bingo_js = read_asset(BINGO_JS_FILE)
+    firesale_css = read_asset(FIRESALE_CSS_FILE)
+    firesale_js = read_asset(FIRESALE_JS_FILE)
     theme_css = read_asset(THEME_CSS_FILE)
     theme_js = read_asset(THEME_JS_FILE)
 
@@ -1417,6 +1604,7 @@ def render_html(
     a {{ color: var(--accent); }}
   </style>
   <style>{bingo_css}</style>
+  <style>{firesale_css}</style>
   <style>{theme_css}</style>
   <script>{theme_js}</script>
 </head>
@@ -1433,7 +1621,7 @@ def render_html(
     {note_html}
 
     <h1>Hypixel SkyBlock API 变更监控台</h1>
-    <div class="subtitle">监控收藏、技能、物品、集市、资源包与 Bingo 任务六个端点，并解压比对资源包内文件变化。数据由 GitHub Actions 定时抓取，所有时间均为北京时间（UTC+8）。页面最下方以 5×5 方格汇总当前 Bingo 的全部任务，倒计时由浏览器本地计算。</div>
+    <div class="subtitle">监控收藏、技能、物品、集市、资源包、限时特卖与 Bingo 任务七个端点，并解压比对资源包内文件变化。数据由 GitHub Actions 定时抓取，所有时间均为北京时间（UTC+8）。页面最下方以 5×5 方格汇总当前 Bingo 的全部任务，倒计时由浏览器本地计算。</div>
 
     <div class="cards">{''.join(cards)}</div>
 
@@ -1465,13 +1653,17 @@ def render_html(
         不受 Actions 抓取延迟影响；
         任务文案里的 Minecraft 颜色码（<code>§</code>）会按官方配色还原，
         全服进度只用于展示、不参与变更比对。
+        限时特卖（firesales）端点每次运行都会重新抓取（特卖开始前官方可能调整时间/数量/价格），
+        每期特卖独立成卡展示价格与数量，「显示额外数据」按钮可展开全部期次与原始 JSON。
         若任一接口或资源包下载失败，本次运行不会改动仓库里的任何数据。
       </p>
     </div>
 
+    {render_firesales_panel(firesales or {})}
     {render_bingo_panel(bingo or {}, stale=bingo_stale)}
   </div>
   <script>{bingo_js}</script>
+  <script>{firesale_js}</script>
 </body>
 </html>
 """
@@ -1595,6 +1787,20 @@ def main() -> int:
             payloads["bingo"], generated_at=generated_at, previous=bingo_data
         )
 
+    # 限时特卖展示数据：每次成功抓取都会整体重建（开始前可能被官方调整，
+    # 不做「内容没变就跳过」的省略），物品名称从 items 端点解析。
+    firesales_data: Dict[str, Any] = {}
+    if "firesales" in payloads:
+        items_payload = payloads.get("items")
+        if items_payload is None:
+            items_snap = load_snapshot("items")
+            items_payload = (items_snap or {}).get("payload")
+        firesales_data = firesales_view(
+            payloads["firesales"],
+            generated_at=generated_at,
+            item_names=build_item_names(items_payload),
+        )
+
     # 资源包检查：只在 packs 接口成功时运行；检查器本身不写盘。
     pack_result: Dict[str, Any] = {
         "status": "unavailable", "pack": None, "total_files": 0,
@@ -1629,6 +1835,8 @@ def main() -> int:
         commit_pack_result(pack_result, DATA_DIR)
         if bingo_data:
             save_bingo(bingo_data)
+        if firesales_data:
+            save_firesales(firesales_data)
         pack_changes = load_pack_changes(DATA_DIR)
         pack_changes, expired_pack_records = prune_list(pack_changes, key="time")
         if expired_pack_records:
@@ -1650,6 +1858,7 @@ def main() -> int:
         # Bingo 同样回退到磁盘上的上一次结果，并标注为非最新数据。
         bingo_data = load_bingo()
         bingo_stale = bool(bingo_data)
+        firesales_data = load_firesales()
 
     # ---- 阶段 4：生成站点产物（artifact，不属于仓库持久化数据）------------
     data_payload = {
@@ -1663,6 +1872,7 @@ def main() -> int:
         "pack": {k: v for k, v in pack_result.items() if k != "changes"},
         "pack_changes": pack_changes,
         "bingo": bingo_data,
+        "firesales": firesales_data,
         "data_written": data_written,
         "skipped_reason": skipped_reason,
     }
@@ -1681,6 +1891,7 @@ def main() -> int:
             pack_changes=pack_changes,
             bingo=bingo_data,
             bingo_stale=bingo_stale,
+            firesales=firesales_data,
             skipped_reason=skipped_reason,
         ),
         encoding="utf-8",
@@ -1715,6 +1926,12 @@ def main() -> int:
                 f"{bingo_data.get('name', '-')}（{bingo_data.get('state_label', '-')}），"
                 f"{len(bingo_data.get('goals') or [])} 个任务，"
                 f"{bingo_data.get('start', '-')} → {bingo_data.get('end', '-')}（北京时间）"
+            )
+        if firesales_data:
+            print(
+                f"[构建] 限时特卖：共 {firesales_data.get('total', 0)} 期"
+                f"（即将开始 {firesales_data.get('upcoming_count', 0)} ·"
+                f" 进行中 {firesales_data.get('active_count', 0)}），已刷新数据"
             )
         print(f"[构建] 本次新增变更 {len(new_changes)} 条")
     else:

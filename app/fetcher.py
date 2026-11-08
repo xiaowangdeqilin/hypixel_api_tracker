@@ -8,6 +8,7 @@ from app.bingo import normalize_bingo
 from app.config import API_KEY, REQUEST_TIMEOUT_SECONDS
 from app.db import get_latest_snapshot, insert_change_event, insert_snapshot
 from app.diff import diff_values
+from app.firesale import diff_sales, normalize_sales
 
 # 这些顶层字段只反映「资源版本号 / 抓取时间 / 请求状态」，不属于业务内容。
 # 版本号由页面顶部的版本监测单独负责，端点 diff 必须忽略它们，避免把版本
@@ -39,6 +40,8 @@ def checksum_payload(payload: Dict[str, Any], endpoint_name: str = "") -> str:
     改用归一化后的结构，进度变化不再产生噪音。
     """
     body = normalize_bingo(payload) if endpoint_name == "bingo" else strip_meta(payload)
+    if endpoint_name == "firesales":
+        body = {"sales": normalize_sales(payload)}
     raw = json.dumps(body, separators=(",", ":"), ensure_ascii=False, sort_keys=True)
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
@@ -62,6 +65,14 @@ def diff_for_endpoint(
                 )
             ]
         return diff_values(old_bingo, new_bingo, path="root")
+
+    # 特卖按「单期 = 一条记录」切分比对，多期数据不会互相干扰；
+    # 开始时间参与 key，推迟开卖体现为旧期删除 + 新期新增。
+    if endpoint_name == "firesales":
+        return [
+            (c["path"], c["type"], c["old"], c["new"])
+            for c in diff_sales(normalize_sales(old), normalize_sales(new))
+        ]
 
     old_clean, new_clean = strip_meta(old), strip_meta(new)
 

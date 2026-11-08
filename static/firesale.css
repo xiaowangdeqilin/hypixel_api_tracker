@@ -1,0 +1,187 @@
+/* ---------------------------------------------------------------------------
+   限时特卖（Firesales）面板
+   ---------------------------------------------------------------------------
+   每期特卖独立成卡（一次响应可能同时包含多期），按开始时间排序。
+   本文件同时被本地 FastAPI 页面（<link>）与静态 Pages 页面（构建时内联）使用，
+   深浅主题通过 CSS 变量切换：默认深色（Pages），:root[data-theme="light"] 覆盖为浅色。
+--------------------------------------------------------------------------- */
+
+.firesale-panel {
+  --fs-bg: #16213a;
+  --fs-bg-soft: #0b1220;
+  --fs-line: #334155;
+  --fs-text: #f8fafc;
+  --fs-muted: #94a3b8;
+  --fs-up-bg: #172554;
+  --fs-up-line: #3b82f6;
+  --fs-up-text: #93c5fd;
+  --fs-ok-bg: #052e16;
+  --fs-ok-line: #22c55e;
+  --fs-ok-text: #86efac;
+  --fs-end-bg: #3f1d1d;
+  --fs-end-line: #ef4444;
+  --fs-end-text: #fca5a5;
+  --fs-price: #fbbf24;
+}
+
+:root[data-theme="light"] .firesale-panel {
+  --fs-bg: #fbfcfe;
+  --fs-bg-soft: #f1f5f9;
+  --fs-line: #e5e7eb;
+  --fs-text: #111827;
+  --fs-muted: #6b7280;
+  --fs-up-bg: #dbeafe;
+  --fs-up-line: #3b82f6;
+  --fs-up-text: #1e40af;
+  --fs-ok-bg: #dcfce7;
+  --fs-ok-line: #22c55e;
+  --fs-ok-text: #166534;
+  --fs-end-bg: #fee2e2;
+  --fs-end-line: #ef4444;
+  --fs-end-text: #991b1b;
+  --fs-price: #b45309;
+}
+
+/* ---------- 展开按钮 ---------- */
+.firesale-toggle {
+  float: right;
+  margin-left: 12px;
+  padding: 5px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid var(--fs-line);
+  background: var(--fs-bg-soft);
+  color: var(--fs-text);
+  cursor: pointer;
+  transition: filter .15s ease;
+}
+
+.firesale-toggle:hover { filter: brightness(1.15); }
+
+.firesale-toggle[aria-expanded="true"] {
+  background: var(--fs-up-bg);
+  border-color: var(--fs-up-line);
+  color: var(--fs-up-text);
+}
+
+/* ---------- 特卖卡片 ---------- */
+.firesale-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.firesale-card {
+  background: var(--fs-bg);
+  border: 1px solid var(--fs-line);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.firesale-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.firesale-index {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--fs-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.firesale-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+
+.firesale-badge-upcoming { background: var(--fs-up-bg); border-color: var(--fs-up-line); color: var(--fs-up-text); }
+.firesale-badge-active { background: var(--fs-ok-bg); border-color: var(--fs-ok-line); color: var(--fs-ok-text); }
+.firesale-badge-ended, .firesale-badge-unknown { background: var(--fs-end-bg); border-color: var(--fs-end-line); color: var(--fs-end-text); }
+
+.firesale-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--fs-text);
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.firesale-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 12px;
+  font-size: 12px;
+}
+
+.firesale-facts .k { color: var(--fs-muted); margin-right: 6px; }
+.firesale-facts .v {
+  color: var(--fs-text);
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.firesale-price { color: var(--fs-price); font-weight: 700; }
+
+.firesale-id { font-size: 10.5px; color: var(--fs-muted); overflow-wrap: anywhere; }
+.firesale-id code {
+  background: var(--fs-bg-soft);
+  border: 1px solid var(--fs-line);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 10.5px;
+}
+
+/* ---------- 额外数据区 ---------- */
+.firesale-extra {
+  margin-top: 6px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--fs-line);
+}
+
+.firesale-extra h3 {
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: var(--fs-text);
+}
+
+.firesale-table-wrap { overflow-x: auto; }
+
+.firesale-extra table { min-width: 640px; }
+
+.firesale-extra details { margin-top: 10px; }
+.firesale-extra summary {
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--fs-muted);
+  user-select: none;
+}
+
+.firesale-raw {
+  margin: 8px 0 0;
+  padding: 10px 12px;
+  background: var(--fs-bg-soft);
+  border: 1px solid var(--fs-line);
+  border-radius: 8px;
+  font-size: 11px;
+  line-height: 1.6;
+  overflow-x: auto;
+  max-height: 360px;
+  color: var(--fs-text);
+}
+
+@media (max-width: 640px) {
+  .firesale-toggle { float: none; display: block; margin: 0 0 10px; width: 100%; }
+  .firesale-grid { grid-template-columns: 1fr; }
+}

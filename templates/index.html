@@ -6,6 +6,7 @@
     <title>Hypixel SkyBlock API 变更监控台</title>
     <link rel="stylesheet" href="/static/styles.css" />
     <link rel="stylesheet" href="/static/bingo.css" />
+    <link rel="stylesheet" href="/static/firesale.css" />
     <link rel="stylesheet" href="/static/theme.css" />
     <script src="/static/theme.js"></script>
   </head>
@@ -62,6 +63,71 @@
           </thead>
           <tbody id="changes-body"></tbody>
         </table>
+      </div>
+
+      <div class="panel firesale-panel" data-firesale-panel>
+        <h2>限时特卖（Firesales）{% if firesales %}<span class="panel-sub">共 {{ firesales.total }} 期 ·
+          即将开始 {{ firesales.upcoming_count }} · 进行中 {{ firesales.active_count }} · 已结束 {{ firesales.ended_count }}</span>{% endif %}
+          {% if firesales %}<button type="button" class="firesale-toggle" data-firesale-toggle
+            aria-expanded="false" aria-controls="firesale-extra">显示额外数据</button>{% endif %}</h2>
+        {% if not firesales %}
+        <p class="hint">数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行
+          <code>python scripts/build_dashboard.py</code> 生成一次即可。</p>
+        <div class="empty">暂无限时特卖数据</div>
+        {% else %}
+        <p class="hint">价格以宝石（Gems）结算。特卖<strong>开始前官方可能随时调整时间、数量与价格</strong>，
+          因此每次运行都会重新抓取并覆盖，不存在「查过就跳过」。一次响应里可能同时有多期特卖，
+          每期独立成卡，按开始时间排序；主视图只展示<strong>即将开始与进行中</strong>的期次。</p>
+        {% set current = firesales.sales | rejectattr('state', 'equalto', 'ended') | list %}
+        {% if current %}
+        <div class="firesale-grid">
+          {% for sale in current %}
+          <div class="firesale-card firesale-card-{{ sale.state }}">
+            <div class="firesale-card-head">
+              <span class="firesale-index">{{ '%02d' | format(loop.index) }}</span>
+              <span class="firesale-badge firesale-badge-{{ sale.state }}">{{ sale.state_label }}</span>
+            </div>
+            <div class="firesale-name">{{ sale.name }}</div>
+            <div class="firesale-facts">
+              <div><span class="k">价格</span><span class="v firesale-price">{{ '%d' | format(sale.price) if sale.price is not none else '-' }} 宝石</span></div>
+              <div><span class="k">数量</span><span class="v">{{ '%d' | format(sale.amount) if sale.amount is not none else '-' }}</span></div>
+              <div><span class="k">开始</span><span class="v">{{ sale.start }}</span></div>
+              <div><span class="k">结束</span><span class="v">{{ sale.end }}</span></div>
+            </div>
+            <div class="firesale-id"><code>{{ sale.item_id }}</code></div>
+          </div>
+          {% endfor %}
+        </div>
+        {% else %}
+        <div class="empty">当前没有即将开始或进行中的特卖</div>
+        {% endif %}
+        <div class="firesale-extra" id="firesale-extra" data-firesale-extra hidden>
+          <h3>全部期次（含已结束）</h3>
+          <div class="firesale-table-wrap">
+            <table>
+              <thead>
+                <tr><th>#</th><th>物品</th><th>item_id</th><th>价格（宝石）</th>
+                    <th>数量</th><th>状态</th><th>开始（北京时间）</th><th>结束（北京时间）</th></tr>
+              </thead>
+              <tbody>
+                {% for sale in firesales.sales %}
+                <tr>
+                  <td>{{ loop.index }}</td>
+                  <td>{{ sale.name }}</td>
+                  <td><code>{{ sale.item_id }}</code></td>
+                  <td>{{ '%d' | format(sale.price) if sale.price is not none else '-' }}</td>
+                  <td>{{ '%d' | format(sale.amount) if sale.amount is not none else '-' }}</td>
+                  <td>{{ sale.state_label }}</td>
+                  <td class="time">{{ sale.start }}</td>
+                  <td class="time">{{ sale.end }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <p class="hint">数据抓取时间：{{ firesales.generated_at }}（北京时间）</p>
+        </div>
+        {% endif %}
       </div>
 
       <div class="panel bingo-panel" data-bingo-panel>
@@ -143,5 +209,6 @@
 
     <script src="/static/app.js"></script>
     <script src="/static/bingo.js"></script>
+    <script src="/static/firesale.js"></script>
   </body>
 </html>
