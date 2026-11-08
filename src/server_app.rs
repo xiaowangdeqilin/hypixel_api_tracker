@@ -596,11 +596,8 @@ fn render_index(query: &str, cookie_lang: Option<&str>) -> String {
         .unwrap_or(0);
     let firesales_non_empty = !firesales.is_null();
     // 秘密 Bingo：提示数据由 data/secret_bingo.json 人工维护，按时间依次解锁；
-    // 没有配置时用占位视图，页面照常预留 3 个任务位（每个任务 3 条提示）。
-    let mut secret_view = crate::secret_bingo::current_view();
-    if secret_view.get("configured").and_then(|v| v.as_bool()) != Some(true) {
-        secret_view = crate::secret_bingo::placeholder_view(3);
-    }
+    // 没有秘密 Bingo 进行时（未配置或不在活动时间窗内）整块不显示。
+    let secret_view = crate::secret_bingo::current_view();
 
     let mut context = tera::Context::new();
     context.insert("lang_code", &lang);

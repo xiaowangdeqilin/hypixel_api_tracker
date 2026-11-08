@@ -273,13 +273,47 @@ fn secret_bingo_pads_missing_hints() {
     assert_eq!(hints[1]["populated"], json!(false));
     assert_eq!(goal["configured_hints"], json!(1));
 
-    // 空配置 → configured=false，渲染层显示预留位
+    // 空配置 → 未配置时 visible=false，页面整块不渲染（不显示占位卡）
     let empty = secret_bingo::view(&json!({"goals": []}), 0);
     assert_eq!(empty["configured"], json!(false));
+    assert_eq!(empty["visible"], json!(false));
     assert_eq!(empty["goal_count"], json!(0));
-    let placeholder = secret_bingo::placeholder_view(3);
-    assert_eq!(placeholder["goals"].as_array().unwrap().len(), 3);
-    assert_eq!(placeholder["configured"], json!(false));
+    assert_eq!(
+        hypixel_tracker::render_site::render_secret_panel(&empty),
+        ""
+    );
+}
+
+#[test]
+fn secret_bingo_hides_outside_event_window() {
+    use hypixel_tracker::render_site::render_secret_panel;
+    use hypixel_tracker::secret_bingo::{view, HINTS_PER_GOAL};
+    // 配置了任务但活动还没开始 → 不显示面板（便于提前把提示写进配置）
+    let raw = json!({
+        "event_id": 60,
+        "start": "2026-12-01 12:00:00",
+        "end": "2026-12-08 12:00:00",
+        "goals": [{"id": "s1", "name": "秘密一", "hints": [{"text": "h1", "reveal_at": "2026-12-01 20:00:00"}]}],
+    });
+    let before = view(&raw, 1_790_000_000_000); // 2026-09 左右，早于 start
+    assert_eq!(before["configured"], json!(true));
+    assert_eq!(before["visible"], json!(false));
+    assert_eq!(render_secret_panel(&before), "");
+
+    // 窗口内 → 显示
+    let start_ms = hypixel_tracker::timeutil::to_epoch_ms(&json!("2026-12-02 12:00:00")).unwrap();
+    let during = view(&raw, start_ms);
+    assert_eq!(during["visible"], json!(true));
+    let html = render_secret_panel(&during);
+    assert!(html.contains("data-secret-panel"));
+    assert!(html.contains("秘密一"));
+    assert_eq!(during["hints_per_goal"], json!(HINTS_PER_GOAL));
+
+    // 结束后 → 也隐藏
+    let end_ms = hypixel_tracker::timeutil::to_epoch_ms(&json!("2026-12-09 12:00:00")).unwrap();
+    let after = view(&raw, end_ms);
+    assert_eq!(after["visible"], json!(false));
+    assert_eq!(render_secret_panel(&after), "");
 }
 
 #[test]

@@ -32,7 +32,6 @@
   "字段路径": "Đường dẫn trường",
   "完成度": "Mức hoàn thành",
   "宝石": "Ngọc",
-  "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Chưa cấu hình gợi ý cho mục tiêu bí mật. Hãy thêm mục tiêu và thời gian mở khóa của từng gợi ý vào data/secret_bingo.json để hiển thị.",
   "已收敛": "Đã hội tụ",
   "已满级": "Đã đạt tối đa",
   "已结束": "Đã kết thúc",

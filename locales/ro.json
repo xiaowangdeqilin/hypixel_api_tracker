@@ -32,7 +32,6 @@
   "字段路径": "Calea câmpului",
   "完成度": "Grad de finalizare",
   "宝石": "pietre",
-  "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Nu există indicii configurate pentru obiectivele secrete. Adaugă obiectivele și ora de deblocare a fiecărui indiciu în data/secret_bingo.json.",
   "已收敛": "Convergit",
   "已满级": "Nivel maxim atins",
   "已结束": "Încheiată",

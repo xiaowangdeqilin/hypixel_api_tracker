@@ -564,28 +564,25 @@ fn render_secret_card(goal: &Value, now: i64, hints_per_goal: usize) -> String {
 /// 渲染「秘密 Bingo」面板。
 ///
 /// 提示内容无法从 API 获取，由 `data/secret_bingo.json` 人工维护；
-/// 面板按 `reveal_at` 依次解锁，每个任务固定 3 条提示。没有配置时显示预留位。
+/// 面板按 `reveal_at` 依次解锁，每个任务固定 3 条提示。没有秘密 Bingo 进行时不渲染。
 pub fn render_secret_panel(secret: &Value) -> String {
+    // 没有秘密 Bingo 进行时整块都不渲染（不显示占位卡、不留空位）
+    let visible = secret.get("visible").and_then(|v| v.as_bool()).unwrap_or(false);
+    let goals: Vec<Value> = secret
+        .get("goals")
+        .and_then(|g| g.as_array())
+        .cloned()
+        .unwrap_or_default();
+    if !visible || goals.is_empty() {
+        return String::new();
+    }
+
     let now = crate::timeutil::now_ms();
     let hints_per_goal = secret
         .get("hints_per_goal")
         .and_then(|v| v.as_u64())
         .map(|v| v as usize)
         .unwrap_or(crate::secret_bingo::HINTS_PER_GOAL);
-    let configured = secret.get("configured").and_then(|v| v.as_bool()).unwrap_or(false);
-
-    let mut goals: Vec<Value> = secret
-        .get("goals")
-        .and_then(|g| g.as_array())
-        .cloned()
-        .unwrap_or_default();
-    if goals.is_empty() {
-        goals = crate::secret_bingo::placeholder_view(3)
-            .get("goals")
-            .and_then(|g| g.as_array())
-            .cloned()
-            .unwrap_or_default();
-    }
 
     let cards: String = goals
         .iter()
@@ -593,15 +590,6 @@ pub fn render_secret_panel(secret: &Value) -> String {
         .collect();
 
     let sub = format!("每个任务 {hints_per_goal} 条提示");
-    let empty_note = if configured {
-        String::new()
-    } else {
-        format!(
-            "<p class=\"secret-note\">尚未配置提示数据：在 <code>data/secret_bingo.json</code> 的 \
-             <code>goals</code> 里按格式填入任务与每条提示的 <code>reveal_at</code>，\
-             页面就会按时间依次解锁（每个任务最多 {hints_per_goal} 条提示）。</p>"
-        )
-    };
 
     format!(
         "<div class=\"panel secret-panel\" data-secret-panel>\
@@ -609,7 +597,6 @@ pub fn render_secret_panel(secret: &Value) -> String {
            <p class=\"secret-note\">秘密任务（Secret Bingo）的提示由官方按时间依次公布，\
              每个任务共 {hints_per_goal} 条提示：到点自动解锁，无需刷新页面；\
              倒计时按浏览器本地时间计算，不受定时构建延迟影响。</p>\
-           {empty_note}\
            <div class=\"secret-grid\">{cards}</div>\
          </div>"
     )

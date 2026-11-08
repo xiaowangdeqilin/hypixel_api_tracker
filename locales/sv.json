@@ -32,7 +32,6 @@
   "字段路径": "Fältsökväg",
   "完成度": "Färdigställande",
   "宝石": "ädelstenar",
-  "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Inga ledtrådar för hemliga mål är konfigurerade än. Lägg till mål och upplåsningstid för varje ledtråd i data/secret_bingo.json.",
   "已收敛": "Konvergerat",
   "已满级": "Maxat",
   "已结束": "Avslutad",

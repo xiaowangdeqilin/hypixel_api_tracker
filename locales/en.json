@@ -32,7 +32,6 @@
   "字段路径": "Field path",
   "完成度": "Completion",
   "宝石": "Gems",
-  "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "No secret goal hints configured yet. Add goals and each hint's unlock time to data/secret_bingo.json to show them here.",
   "已收敛": "Converged",
   "已满级": "Maxed",
   "已结束": "Ended",

@@ -32,7 +32,6 @@
   "字段路径": "Jalur bidang",
   "完成度": "Tingkat penyelesaian",
   "宝石": "Permata",
-  "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Petunjuk tujuan rahasia belum dikonfigurasi. Tambahkan tujuan dan waktu buka setiap petunjuk ke data/secret_bingo.json untuk menampilkannya.",
   "已收敛": "Telah konvergen",
   "已满级": "Maksimal",
   "已结束": "Telah berakhir",

@@ -32,7 +32,6 @@
   "字段路径": "Path ng field",
   "完成度": "Antas ng pagtatapos",
   "宝石": "Gems",
-  "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Wala pang naka-configure na pahiwatig ng secret goal. Idagdag ang mga goal at oras ng pagbukas ng bawat pahiwatig sa data/secret_bingo.json para ipakita.",
   "已收敛": "Nag-converge na",
   "已满级": "Naabot ang max",
   "已结束": "Natapos na",

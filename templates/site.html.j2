@@ -8,7 +8,7 @@
 {{ main_css }}
   </style>
   <style>{{ bingo_css }}</style>
-  <style>{{ secret_css }}</style>
+  {% if secret_panel %}<style>{{ secret_css }}</style>{% endif %}
   <style>{{ firesale_css }}</style>
   <style>{{ theme_css }}</style>
   <script>{{ theme_js }}</script>
@@ -70,7 +70,7 @@
     </div>
   </div>
   <script>{{ bingo_js }}</script>
-  <script>{{ secret_js }}</script>
+  {% if secret_panel %}<script>{{ secret_js }}</script>{% endif %}
   <script>{{ firesale_js }}</script>
 </body>
 </html>

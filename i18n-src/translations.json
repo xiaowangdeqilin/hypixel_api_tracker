@@ -142,8 +142,7 @@
       "待解锁": "Locked",
       "还有 {time} 解锁": "Unlocks in {time}",
       "每个任务 3 条提示": "3 hints per goal",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Secret goal hints are revealed by the official schedule one by one; they unlock automatically at the given time, no page refresh needed.",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "No secret goal hints configured yet. Add goals and each hint's unlock time to data/secret_bingo.json to show them here."
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Secret goal hints are revealed by the official schedule one by one; they unlock automatically at the given time, no page refresh needed."
     },
     "zh-TW": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API 變更監控台",
@@ -252,8 +251,7 @@
       "待解锁": "待解鎖",
       "还有 {time} 解锁": "還有 {time} 解鎖",
       "每个任务 3 条提示": "每個任務 3 條提示",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "秘密任務的提示由官方按時間依次公布，到點自動解鎖，無需重新整理頁面。",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "尚未設定秘密任務提示資料，把任務與每條提示的解鎖時間填入 data/secret_bingo.json 後即可顯示。"
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "秘密任務的提示由官方按時間依次公布，到點自動解鎖，無需重新整理頁面。"
     },
     "ja": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API 変更モニター",
@@ -362,8 +360,7 @@
       "待解锁": "未解除",
       "还有 {time} 解锁": "あと {time} で解除",
       "每个任务 3 条提示": "各タスク 3 ヒント",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "シークレット目標のヒントは公式が時間順に公開します。指定時刻になると自動で解除され、再読み込みは不要です。",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "シークレット目標のヒントはまだ設定されていません。data/secret_bingo.json にタスクと各ヒントの解除時刻を記入すると表示されます。"
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "シークレット目標のヒントは公式が時間順に公開します。指定時刻になると自動で解除され、再読み込みは不要です。"
     },
     "ko": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API 변경 모니터",
@@ -472,8 +469,7 @@
       "待解锁": "잠김",
       "还有 {time} 解锁": "{time} 후 잠금 해제",
       "每个任务 3 条提示": "각 목표 3개 힌트",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "시크릿 목표의 힌트는 공식 일정에 따라 순서대로 공개되며, 지정된 시간에 자동으로 잠금 해제되어 새로고침이 필요 없습니다.",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "시크릿 목표 힌트가 아직 설정되지 않았습니다. data/secret_bingo.json에 목표와 각 힌트의 잠금 해제 시간을 입력하면 표시됩니다."
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "시크릿 목표의 힌트는 공식 일정에 따라 순서대로 공개되며, 지정된 시간에 자동으로 잠금 해제되어 새로고침이 필요 없습니다."
     },
     "vi": {
       "Hypixel SkyBlock API 变更监控台": "Trình giám sát thay đổi Hypixel SkyBlock API",
@@ -582,8 +578,7 @@
       "待解锁": "Chưa mở khóa",
       "还有 {time} 解锁": "Mở khóa sau {time}",
       "每个任务 3 条提示": "3 gợi ý mỗi mục tiêu",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Gợi ý của mục tiêu bí mật được công bố lần lượt theo lịch chính thức; đến giờ sẽ tự động mở khóa, không cần tải lại trang.",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Chưa cấu hình gợi ý cho mục tiêu bí mật. Hãy thêm mục tiêu và thời gian mở khóa của từng gợi ý vào data/secret_bingo.json để hiển thị."
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Gợi ý của mục tiêu bí mật được công bố lần lượt theo lịch chính thức; đến giờ sẽ tự động mở khóa, không cần tải lại trang."
     },
     "th": {
       "Hypixel SkyBlock API 变更监控台": "มอนิเตอร์การเปลี่ยนแปลง Hypixel SkyBlock API",
@@ -692,8 +687,7 @@
       "待解锁": "ยังไม่ปลดล็อก",
       "还有 {time} 解锁": "ปลดล็อกในอีก {time}",
       "每个任务 3 条提示": "3 คำใบ้ต่อเป้าหมาย",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "คำใบ้ของเป้าหมายลับจะถูกเปิดเผยตามลำดับเวลาทางการ และจะปลดล็อกอัตโนมัติเมื่อถึงเวลา ไม่ต้องรีเฟรชหน้า",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "ยังไม่ได้ตั้งค่าคำใบ้ของเป้าหมายลับ เพิ่มเป้าหมายและเวลาปลดล็อกของแต่ละคำใบ้ใน data/secret_bingo.json เพื่อแสดงที่นี่"
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "คำใบ้ของเป้าหมายลับจะถูกเปิดเผยตามลำดับเวลาทางการ และจะปลดล็อกอัตโนมัติเมื่อถึงเวลา ไม่ต้องรีเฟรชหน้า"
     },
     "id": {
       "Hypixel SkyBlock API 变更监控台": "Monitor Perubahan Hypixel SkyBlock API",
@@ -802,8 +796,7 @@
       "待解锁": "Terkunci",
       "还有 {time} 解锁": "Terbuka dalam {time}",
       "每个任务 3 条提示": "3 petunjuk per tujuan",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Petunjuk tujuan rahasia diumumkan resmi secara berurutan; saat waktunya tiba akan terbuka otomatis tanpa perlu memuat ulang halaman.",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Petunjuk tujuan rahasia belum dikonfigurasi. Tambahkan tujuan dan waktu buka setiap petunjuk ke data/secret_bingo.json untuk menampilkannya."
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Petunjuk tujuan rahasia diumumkan resmi secara berurutan; saat waktunya tiba akan terbuka otomatis tanpa perlu memuat ulang halaman."
     },
     "ms": {
       "Hypixel SkyBlock API 变更监控台": "Monitor Perubahan Hypixel SkyBlock API",
@@ -912,8 +905,7 @@
       "待解锁": "Berkunci",
       "还有 {time} 解锁": "Dibuka dalam {time}",
       "每个任务 3 条提示": "3 petunjuk setiap matlamat",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Petunjuk matlamat rahsia diumumkan secara rasmi mengikut urutan masa; apabila tiba masanya akan terbuka automatik tanpa perlu muat semula halaman.",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Petunjuk matlamat rahsia belum dikonfigurasikan. Tambah matlamat dan masa buka setiap petunjuk dalam data/secret_bingo.json untuk memaparkannya."
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Petunjuk matlamat rahsia diumumkan secara rasmi mengikut urutan masa; apabila tiba masanya akan terbuka automatik tanpa perlu muat semula halaman."
     },
     "fil": {
       "Hypixel SkyBlock API 变更监控台": "Monitor ng mga Pagbabago ng Hypixel SkyBlock API",
@@ -1022,8 +1014,7 @@
       "待解锁": "Naka-lock",
       "还有 {time} 解锁": "Mabubuksan sa {time}",
       "每个任务 3 条提示": "3 pahiwatig bawat goal",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Ang mga pahiwatig ng secret goal ay inilalabas ng opisyal nang sunod-sunod ayon sa oras; awtomatikong mabubuksan pagdating ng oras, hindi na kailangang i-refresh ang pahina.",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Wala pang naka-configure na pahiwatig ng secret goal. Idagdag ang mga goal at oras ng pagbukas ng bawat pahiwatig sa data/secret_bingo.json para ipakita."
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Ang mga pahiwatig ng secret goal ay inilalabas ng opisyal nang sunod-sunod ayon sa oras; awtomatikong mabubuksan pagdating ng oras, hindi na kailangang i-refresh ang pahina."
     },
     "hi": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API परिवर्तन मॉनिटर",
@@ -1132,8 +1123,7 @@
       "待解锁": "लॉक है",
       "还有 {time} 解锁": "{time} में खुलेगा",
       "每个任务 3 条提示": "प्रति लक्ष्य 3 संकेत",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "सीक्रेट लक्ष्य के संकेत आधिकारिक समय-सारणी के अनुसार एक-एक करके जारी होते हैं; समय आने पर स्वतः खुल जाते हैं, पेज रीफ़्रेश करने की ज़रूरत नहीं।",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "सीक्रेट लक्ष्य के संकेत अभी कॉन्फ़िगर नहीं हैं। लक्ष्य और प्रत्येक संकेत का अनलॉक समय data/secret_bingo.json में जोड़ें।"
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "सीक्रेट लक्ष्य के संकेत आधिकारिक समय-सारणी के अनुसार एक-एक करके जारी होते हैं; समय आने पर स्वतः खुल जाते हैं, पेज रीफ़्रेश करने की ज़रूरत नहीं।"
     },
     "bn": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API পরিবর্তন মনিটর",
@@ -1242,8 +1232,7 @@
       "待解锁": "লক করা",
       "还有 {time} 解锁": "{time} পরে খুলবে",
       "每个任务 3 条提示": "প্রতি লক্ষ্যে ৩টি ইঙ্গিত",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "সিক্রেট লক্ষ্যের ইঙ্গিতগুলি অফিসিয়াল সময়সূচি অনুসারে একে একে প্রকাশিত হয়; নির্দিষ্ট সময়ে স্বয়ংক্রিয়ভাবে খুলে যায়, পেজ রিফ্রেশ করার দরকার নেই।",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "সিক্রেট লক্ষ্যের ইঙ্গিত এখনও কনফিগার করা হয়নি। লক্ষ্য ও প্রতিটি ইঙ্গিতের আনলক সময় data/secret_bingo.json-এ যোগ করুন।"
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "সিক্রেট লক্ষ্যের ইঙ্গিতগুলি অফিসিয়াল সময়সূচি অনুসারে একে একে প্রকাশিত হয়; নির্দিষ্ট সময়ে স্বয়ংক্রিয়ভাবে খুলে যায়, পেজ রিফ্রেশ করার দরকার নেই।"
     },
     "ur": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API تبدیلات مانیٹر",
@@ -1352,8 +1341,7 @@
       "待解锁": "مقفل",
       "还有 {time} 解锁": "{time} میں کھلے گا",
       "每个任务 3 条提示": "ہر ہدف کے لیے 3 اشارے",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "سیکرٹ ہدف کے اشارے سرکاری وقت کے مطابق یکے بعد دیگرے جاری ہوتے ہیں؛ وقت آنے پر خودکار کھل جاتے ہیں، صفحہ ریفریش کرنے کی ضرورت نہیں۔",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "سیکرٹ ہدف کے اشارے ابھی ترتیب نہیں دیے گئے۔ اہداف اور ہر اشارے کا کھلنے کا وقت data/secret_bingo.json میں درج کریں۔"
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "سیکرٹ ہدف کے اشارے سرکاری وقت کے مطابق یکے بعد دیگرے جاری ہوتے ہیں؛ وقت آنے پر خودکار کھل جاتے ہیں، صفحہ ریفریش کرنے کی ضرورت نہیں۔"
     },
     "ar": {
       "Hypixel SkyBlock API 变更监控台": "مراقب تغييرات Hypixel SkyBlock API",
@@ -1462,8 +1450,7 @@
       "待解锁": "مقفل",
       "还有 {time} 解锁": "يُفتح بعد {time}",
       "每个任务 3 条提示": "3 تلميحات لكل هدف",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "تُنشر تلميحات الأهداف السرية رسميًا بالتتابع حسب الوقت، وتُفتح تلقائيًا عند حلول موعدها دون الحاجة لتحديث الصفحة.",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "لم تُضبط تلميحات الأهداف السرية بعد. أضف الأهداف ووقت فتح كل تلميح إلى data/secret_bingo.json لعرضها."
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "تُنشر تلميحات الأهداف السرية رسميًا بالتتابع حسب الوقت، وتُفتح تلقائيًا عند حلول موعدها دون الحاجة لتحديث الصفحة."
     },
     "he": {
       "Hypixel SkyBlock API 变更监控台": "מוניטור שינויים Hypixel SkyBlock API",
@@ -1572,8 +1559,7 @@
       "待解锁": "נעול",
       "还有 {time} 解锁": "ייפתח בעוד {time}",
       "每个任务 3 条提示": "3 רמזים לכל יעד",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "רמזי יעדים סודיים מתפרסמים רשמית בזה אחר זה לפי הזמנים; הם נפתחים אוטומטית כשמגיע הזמן, ללא צורך ברענון הדף.",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "רמזי יעדים סודיים טרם הוגדרו. הוסף יעדים וזמן פתיחה לכל רמז בקובץ data/secret_bingo.json כדי להציגם."
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "רמזי יעדים סודיים מתפרסמים רשמית בזה אחר זה לפי הזמנים; הם נפתחים אוטומטית כשמגיע הזמן, ללא צורך ברענון הדף."
     },
     "fa": {
       "Hypixel SkyBlock API 变更监控台": "پایش تغییرات Hypixel SkyBlock API",
@@ -1682,8 +1668,7 @@
       "待解锁": "قفل است",
       "还有 {time} 解锁": "تا {time} دیگر باز می‌شود",
       "每个任务 3 条提示": "۳ راهنما برای هر هدف",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "راهنماهای هدف‌های مخفی به‌صورت رسمی و به ترتیب زمان منتشر می‌شوند؛ در زمان مقرر خودکار باز می‌شوند و نیازی به بازخوانی صفحه نیست.",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "راهنمای هدف‌های مخفی هنوز تنظیم نشده است. هدف‌ها و زمان باز شدن هر راهنما را در data/secret_bingo.json وارد کنید."
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "راهنماهای هدف‌های مخفی به‌صورت رسمی و به ترتیب زمان منتشر می‌شوند؛ در زمان مقرر خودکار باز می‌شوند و نیازی به بازخوانی صفحه نیست."
     },
     "tr": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API Değişiklik İzleyicisi",
@@ -1792,8 +1777,7 @@
       "待解锁": "Kilitli",
       "还有 {time} 解锁": "{time} sonra açılır",
       "每个任务 3 条提示": "Hedef başına 3 ipucu",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Gizli hedef ipuçları resmî olarak zaman sırasına göre yayınlanır; zamanı geldiğinde otomatik açılır, sayfayı yenilemeye gerek yoktur.",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Gizli hedef ipuçları henüz yapılandırılmadı. Hedefleri ve her ipucunun açılma zamanını data/secret_bingo.json dosyasına ekleyin."
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Gizli hedef ipuçları resmî olarak zaman sırasına göre yayınlanır; zamanı geldiğinde otomatik açılır, sayfayı yenilemeye gerek yoktur."
     },
     "fr": {
       "Hypixel SkyBlock API 变更监控台": "Moniteur de changements Hypixel SkyBlock API",
@@ -1902,8 +1886,7 @@
       "待解锁": "Verrouillé",
       "还有 {time} 解锁": "Débloqué dans {time}",
       "每个任务 3 条提示": "3 indices par objectif",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Les indices des objectifs secrets sont dévoilés officiellement au fil du temps ; ils se débloquent automatiquement à l'heure prévue, sans rechargement de la page.",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Aucun indice d'objectif secret configuré. Ajoutez les objectifs et l'heure de déblocage de chaque indice dans data/secret_bingo.json."
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Les indices des objectifs secrets sont dévoilés officiellement au fil du temps ; ils se débloquent automatiquement à l'heure prévue, sans rechargement de la page."
     },
     "de": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API Änderungsmonitor",
@@ -2012,8 +1995,7 @@
       "待解锁": "Gesperrt",
       "还有 {time} 解锁": "Freigabe in {time}",
       "每个任务 3 条提示": "3 Hinweise pro Ziel",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Hinweise zu geheimen Zielen werden offiziell nach und nach zeitlich veröffentlicht; zur angegebenen Zeit werden sie automatisch freigeschaltet, ohne die Seite neu zu laden.",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Noch keine Hinweise für geheime Ziele konfiguriert. Ziele und Freigabezeiten der Hinweise in data/secret_bingo.json eintragen."
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Hinweise zu geheimen Zielen werden offiziell nach und nach zeitlich veröffentlicht; zur angegebenen Zeit werden sie automatisch freigeschaltet, ohne die Seite neu zu laden."
     },
     "es": {
       "Hypixel SkyBlock API 变更监控台": "Monitor de cambios de Hypixel SkyBlock API",
@@ -2122,8 +2104,7 @@
       "待解锁": "Bloqueado",
       "还有 {time} 解锁": "Se desbloquea en {time}",
       "每个任务 3 条提示": "3 pistas por objetivo",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Las pistas de los objetivos secretos se publican oficialmente de forma escalonada; se desbloquean automáticamente al llegar la hora, sin recargar la página.",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Aún no hay pistas de objetivos secretos configuradas. Añade los objetivos y la hora de desbloqueo de cada pista en data/secret_bingo.json."
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Las pistas de los objetivos secretos se publican oficialmente de forma escalonada; se desbloquean automáticamente al llegar la hora, sin recargar la página."
     },
     "it": {
       "Hypixel SkyBlock API 变更监控台": "Monitor delle modifiche Hypixel SkyBlock API",
@@ -2232,8 +2213,7 @@
       "待解锁": "Bloccato",
       "还有 {time} 解锁": "Si sblocca tra {time}",
       "每个任务 3 条提示": "3 indizi per obiettivo",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Gli indizi degli obiettivi segreti vengono pubblicati ufficialmente in ordine temporale; si sbloccano automaticamente all'orario previsto, senza ricaricare la pagina.",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Nessun indizio per obiettivi segreti configurato. Aggiungi gli obiettivi e l'orario di sblocco di ogni indizio in data/secret_bingo.json."
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Gli indizi degli obiettivi segreti vengono pubblicati ufficialmente in ordine temporale; si sbloccano automaticamente all'orario previsto, senza ricaricare la pagina."
     },
     "pt": {
       "Hypixel SkyBlock API 变更监控台": "Monitor de alterações da Hypixel SkyBlock API",
@@ -2342,8 +2322,7 @@
       "待解锁": "Bloqueado",
       "还有 {time} 解锁": "Desbloqueia em {time}",
       "每个任务 3 条提示": "3 dicas por objetivo",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "As dicas dos objetivos secretos são divulgadas oficialmente ao longo do tempo; desbloqueiam automaticamente na hora marcada, sem recarregar a página.",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Nenhuma dica de objetivo secreto configurada. Adicione os objetivos e a hora de desbloqueio de cada dica em data/secret_bingo.json."
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "As dicas dos objetivos secretos são divulgadas oficialmente ao longo do tempo; desbloqueiam automaticamente na hora marcada, sem recarregar a página."
     },
     "nl": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API-wijzigingsmonitor",
@@ -2452,8 +2431,7 @@
       "待解锁": "Vergrendeld",
       "还有 {time} 解锁": "Vrijgave over {time}",
       "每个任务 3 条提示": "3 hints per doel",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Hints voor geheime doelen worden officieel gefaseerd vrijgegeven; op het aangegeven tijdstip worden ze automatisch ontgrendeld, zonder de pagina te vernieuwen.",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Nog geen hints voor geheime doelen ingesteld. Voeg doelen en de vrijgavetijd van elke hint toe in data/secret_bingo.json."
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Hints voor geheime doelen worden officieel gefaseerd vrijgegeven; op het aangegeven tijdstip worden ze automatisch ontgrendeld, zonder de pagina te vernieuwen."
     },
     "ru": {
       "Hypixel SkyBlock API 变更监控台": "Монитор изменений Hypixel SkyBlock API",
@@ -2562,8 +2540,7 @@
       "待解锁": "Заблокировано",
       "还有 {time} 解锁": "Откроется через {time}",
       "每个任务 3 条提示": "3 подсказки на цель",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Подсказки к секретным целям публикуются официально по расписанию; в указанное время они открываются автоматически, перезагружать страницу не нужно.",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Подсказки к секретным целям ещё не настроены. Добавьте цели и время открытия каждой подсказки в data/secret_bingo.json."
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Подсказки к секретным целям публикуются официально по расписанию; в указанное время они открываются автоматически, перезагружать страницу не нужно."
     },
     "uk": {
       "Hypixel SkyBlock API 变更监控台": "Монітор змін Hypixel SkyBlock API",
@@ -2672,8 +2649,7 @@
       "待解锁": "Заблоковано",
       "还有 {time} 解锁": "Відкриється через {time}",
       "每个任务 3 条提示": "3 підказки на ціль",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Підказки до секретних цілей публікуються офіційно за розкладом; у вказаний час вони відкриваються автоматично, перезавантажувати сторінку не потрібно.",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Підказки до секретних цілей ще не налаштовані. Додайте цілі та час відкриття кожної підказки в data/secret_bingo.json."
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Підказки до секретних цілей публікуються офіційно за розкладом; у вказаний час вони відкриваються автоматично, перезавантажувати сторінку не потрібно."
     },
     "pl": {
       "Hypixel SkyBlock API 变更监控台": "Monitor zmian Hypixel SkyBlock API",
@@ -2782,8 +2758,7 @@
       "待解锁": "Zablokowane",
       "还有 {time} 解锁": "Odblokowanie za {time}",
       "每个任务 3 条提示": "3 podpowiedzi na cel",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Podpowiedzi do sekretnych celów są publikowane oficjalnie po kolei; w wyznaczonym czasie odblokowują się automatycznie, bez odświeżania strony.",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Nie skonfigurowano jeszcze podpowiedzi do sekretnych celów. Dodaj cele i czas odblokowania każdej podpowiedzi w data/secret_bingo.json."
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Podpowiedzi do sekretnych celów są publikowane oficjalnie po kolei; w wyznaczonym czasie odblokowują się automatycznie, bez odświeżania strony."
     },
     "cs": {
       "Hypixel SkyBlock API 变更监控台": "Monitor změn Hypixel SkyBlock API",
@@ -2892,8 +2867,7 @@
       "待解锁": "Uzamčeno",
       "还有 {time} 解锁": "Odemkne se za {time}",
       "每个任务 3 条提示": "3 nápovědy na cíl",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Nápovědy k tajným cílům jsou zveřejňovány oficiálně postupně podle času; ve stanovený čas se odemknou automaticky, není třeba obnovovat stránku.",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Nápovědy k tajným cílům zatím nejsou nastaveny. Přidejte cíle a čas odemčení každé nápovědy do data/secret_bingo.json."
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Nápovědy k tajným cílům jsou zveřejňovány oficiálně postupně podle času; ve stanovený čas se odemknou automaticky, není třeba obnovovat stránku."
     },
     "hu": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API változásfigyelő",
@@ -3002,8 +2976,7 @@
       "待解锁": "Zárolva",
       "还有 {time} 解锁": "Feloldás {time} múlva",
       "每个任务 3 条提示": "3 tipp célonként",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "A titkos célok tippjei hivatalosan, időrendben jelennek meg; a megadott időpontban automatikusan feloldódnak, nem kell újratölteni az oldalt.",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "A titkos célok tippjei még nincsenek beállítva. Add hozzá a célokat és az egyes tippek feloldási idejét a data/secret_bingo.json fájlhoz."
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "A titkos célok tippjei hivatalosan, időrendben jelennek meg; a megadott időpontban automatikusan feloldódnak, nem kell újratölteni az oldalt."
     },
     "ro": {
       "Hypixel SkyBlock API 变更监控台": "Monitor de modificări Hypixel SkyBlock API",
@@ -3112,8 +3085,7 @@
       "待解锁": "Blocat",
       "还有 {time} 解锁": "Se deblochează în {time}",
       "每个任务 3 条提示": "3 indicii per obiectiv",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Indiciile obiectivelor secrete sunt publicate oficial pe rând, în funcție de timp; se deblochează automat la ora stabilită, fără a reîmprospăta pagina.",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Nu există indicii configurate pentru obiectivele secrete. Adaugă obiectivele și ora de deblocare a fiecărui indiciu în data/secret_bingo.json."
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Indiciile obiectivelor secrete sunt publicate oficial pe rând, în funcție de timp; se deblochează automat la ora stabilită, fără a reîmprospăta pagina."
     },
     "el": {
       "Hypixel SkyBlock API 变更监控台": "Εποπτικός οθόνη αλλαγών Hypixel SkyBlock API",
@@ -3222,8 +3194,7 @@
       "待解锁": "Κλειδωμένο",
       "还有 {time} 解锁": "Ξεκλειδώνει σε {time}",
       "每个任务 3 条提示": "3 υποδείξεις ανά στόχο",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Οι υποδείξεις των μυστικών στόχων ανακοινώνονται επίσημα με χρονική σειρά· ξεκλειδώνονται αυτόματα στην καθορισμένη ώρα, χωρίς ανανέωση της σελίδας.",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Δεν έχουν ρυθμιστεί υποδείξεις για μυστικούς στόχους. Πρόσθεσε στόχους και ώρα ξεκλειδώματος κάθε υπόδειξης στο data/secret_bingo.json."
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Οι υποδείξεις των μυστικών στόχων ανακοινώνονται επίσημα με χρονική σειρά· ξεκλειδώνονται αυτόματα στην καθορισμένη ώρα, χωρίς ανανέωση της σελίδας."
     },
     "sv": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API-ändringsövervakare",
@@ -3332,8 +3303,7 @@
       "待解锁": "Låst",
       "还有 {time} 解锁": "Låses upp om {time}",
       "每个任务 3 条提示": "3 ledtrådar per mål",
-      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Ledtrådar till hemliga mål publiceras officiellt i tidsordning; de låses upp automatiskt vid angiven tid, utan att sidan laddas om.",
-      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Inga ledtrådar för hemliga mål är konfigurerade än. Lägg till mål och upplåsningstid för varje ledtråd i data/secret_bingo.json."
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Ledtrådar till hemliga mål publiceras officiellt i tidsordning; de låses upp automatiskt vid angiven tid, utan att sidan laddas om."
     }
   }
 }

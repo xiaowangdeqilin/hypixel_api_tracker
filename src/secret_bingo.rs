@@ -6,13 +6,17 @@
 //!
 //! 1. 把每条提示与它的 `reveal_at`（北京时间）对齐成固定 3 个槽位；
 //! 2. 按当前时间算出「已解锁 / 未解锁」，供页面渲染初始状态；
-//! 3. 输出 `reveal_ms`，交给浏览器逐秒倒计时并在到点时自动解锁。
+//! 3. 输出 `reveal_ms`，交给浏览器逐秒倒计时并在到点时自动解锁；
+//! 4. 输出 `visible`：没有秘密 Bingo 进行时（未配置或不在 `start`/`end` 时间窗内），
+//!    页面整块面板都不渲染。
 //!
 //! 数据格式（`data/secret_bingo.json`）：
 //!
 //! ```json
 //! {
 //!   "event_id": 59,
+//!   "start": "2026-11-01 12:00:00",
+//!   "end": "2026-11-08 12:00:00",
 //!   "goals": [
 //!     {
 //!       "id": "secret-1",
@@ -25,6 +29,7 @@
 //! }
 //! ```
 //!
+//! `start` / `end` 可选，留空表示「有配置就显示」。
 //! `reveal_at` 支持北京时间串（`YYYY-MM-DD HH:MM:SS`）或 epoch 毫秒；
 //! 无法解析时按「已解锁」处理，避免写错日期导致提示永久隐藏。
 
@@ -43,13 +48,13 @@ pub fn data_path() -> PathBuf {
     state::data_dir().join("secret_bingo.json")
 }
 
-/// 读取秘密 Bingo 配置；文件缺失、损坏或结构不对时返回空配置（页面显示预留位）。
+/// 读取秘密 Bingo 配置；文件缺失、损坏或结构不对时返回空配置（页面不显示该面板）。
 pub fn load() -> Value {
     let raw = state::load_json(&data_path()).unwrap_or(Value::Null);
     normalize_raw(&raw)
 }
 
-/// 把任意输入收敛成 `{event_id, goals: [...]}` 结构。
+/// 把任意输入收敛成 `{event_id, start, end, goals: [...]}` 结构。
 fn normalize_raw(raw: &Value) -> Value {
     let obj = raw.as_object();
     let goals: Vec<Value> = obj
@@ -59,8 +64,19 @@ fn normalize_raw(raw: &Value) -> Value {
         .unwrap_or_default();
     json!({
         "event_id": obj.and_then(|o| o.get("event_id")).cloned().unwrap_or(Value::Null),
+        // 可选活动时间窗：填写后只在窗口内显示面板，便于提前把提示写进配置
+        "start": obj.and_then(|o| o.get("start")).cloned().unwrap_or(Value::Null),
+        "end": obj.and_then(|o| o.get("end")).cloned().unwrap_or(Value::Null),
         "goals": goals,
     })
+}
+
+/// 兼容 JSON 数值/字符串的 to_epoch_ms。
+fn to_epoch_ms_value(value: &Value) -> Option<i64> {
+    match value {
+        Value::Null => None,
+        other => to_epoch_ms(other),
+    }
 }
 
 /// 单个提示槽：文本 + 解锁时间。
@@ -87,12 +103,16 @@ fn read_slot(hint: &Value) -> Slot {
 
 /// 生成展示视图。
 ///
+/// - `visible` 决定页面是否渲染整个面板：没有配置秘密任务、或当前时间不在
+///   可选的活动时间窗（顶层 `start` / `end`）内时一律为 `false`；
 /// - 每个任务固定 [`HINTS_PER_GOAL`] 个槽位：配置不足的补空槽，超出的截断；
 /// - 槽位按解锁时间升序排列（「依次给出提示」），无时间的排在最后；
 /// - `unlocked` 由 `now` 与 `reveal_ms` 比较得出，`reveal_ms` 交给前端倒计时。
 pub fn view(raw: &Value, now: i64) -> Value {
     let normalized = normalize_raw(raw);
     let event_id = normalized.get("event_id").cloned().unwrap_or(Value::Null);
+    let window_start = normalized.get("start").and_then(to_epoch_ms_value);
+    let window_end = normalized.get("end").and_then(to_epoch_ms_value);
     let raw_goals = normalized
         .get("goals")
         .and_then(|g| g.as_array())
@@ -186,9 +206,19 @@ pub fn view(raw: &Value, now: i64) -> Value {
         .map(|g| g.get("unlocked_count").and_then(|v| v.as_u64()).unwrap_or(0) as usize)
         .sum();
 
+    // 没有任何秘密任务配置时，页面上完全不显示这一块（用户要求：没有秘密 Bingo
+    // 进行的时候不要显示）；配置了时间窗时，窗口外同样隐藏。
+    let in_window = window_start.map(|ms| now >= ms).unwrap_or(true)
+        && window_end.map(|ms| now <= ms).unwrap_or(true);
+    let visible = goal_count > 0 && in_window;
+
     json!({
         "event_id": event_id,
         "configured": goal_count > 0,
+        "visible": visible,
+        "in_window": in_window,
+        "start": format_time(&normalized.get("start").cloned().unwrap_or(Value::Null)),
+        "end": format_time(&normalized.get("end").cloned().unwrap_or(Value::Null)),
         "goal_count": goal_count,
         "hints_per_goal": HINTS_PER_GOAL,
         "total_hints": goal_count * HINTS_PER_GOAL,
@@ -200,41 +230,4 @@ pub fn view(raw: &Value, now: i64) -> Value {
 /// 便捷入口：读取配置并按当前时间生成视图。
 pub fn current_view() -> Value {
     view(&load(), now_ms())
-}
-
-/// 一组占位任务（用于「预留位置」的空态展示）。
-pub fn placeholder_view(count: usize) -> Value {
-    let goals: Vec<Value> = (0..count)
-        .map(|i| {
-            json!({
-                "index": i + 1,
-                "index_str": format!("{:02}", i + 1),
-                "id": format!("placeholder-{}", i + 1),
-                "name": "",
-                "has_name": false,
-                "hints": (0..HINTS_PER_GOAL).map(|h| json!({
-                    "index": h + 1,
-                    "text": "",
-                    "reveal_at": "-",
-                    "reveal_ms": Value::Null,
-                    "unlocked": false,
-                    "populated": false,
-                })).collect::<Vec<_>>(),
-                "unlocked_count": 0,
-                "total_hints": HINTS_PER_GOAL,
-                "configured_hints": 0,
-                "all_unlocked": false,
-                "next_reveal_ms": Value::Null,
-            })
-        })
-        .collect();
-    json!({
-        "event_id": Value::Null,
-        "configured": false,
-        "goal_count": count,
-        "hints_per_goal": HINTS_PER_GOAL,
-        "total_hints": count * HINTS_PER_GOAL,
-        "unlocked_hints": 0,
-        "goals": goals,
-    })
 }

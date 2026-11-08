@@ -32,7 +32,6 @@
   "字段路径": "Veldpad",
   "完成度": "Voortgang",
   "宝石": "edelstenen",
-  "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Nog geen hints voor geheime doelen ingesteld. Voeg doelen en de vrijgavetijd van elke hint toe in data/secret_bingo.json.",
   "已收敛": "Geconvergeerd",
   "已满级": "Maximaal bereikt",
   "已结束": "Afgelopen",

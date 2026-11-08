@@ -6,7 +6,7 @@
     <title>{{ t['Hypixel SkyBlock API 变更监控台'] }}</title>
     <link rel="stylesheet" href="/static/styles.css" />
     <link rel="stylesheet" href="/static/bingo.css" />
-    <link rel="stylesheet" href="/static/secret.css" />
+    {% if secret_view.visible %}<link rel="stylesheet" href="/static/secret.css" />{% endif %}
     <link rel="stylesheet" href="/static/firesale.css" />
     <link rel="stylesheet" href="/static/theme.css" />
     <link rel="stylesheet" href="/static/i18n.css" />
@@ -221,13 +221,12 @@
         {% endif %}
       </div>
 
-      {# 秘密 Bingo：提示由官方按时间依次公布，每个任务固定 3 条，到点由 secret.js 自动解锁 #}
+      {# 秘密 Bingo：提示由官方按时间依次公布，每个任务固定 3 条，到点由 secret.js 自动解锁
+         没有秘密 Bingo 进行时（未配置或不在活动时间窗内）整块不渲染 #}
+      {% if secret_view.visible %}
       <div class="panel secret-panel" data-secret-panel>
         <h2>{{ t['秘密 Bingo'] }}<span class="panel-sub">{{ t['每个任务 3 条提示'] }}</span></h2>
         <p class="secret-note">{{ t['秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。'] }}</p>
-        {% if not secret_view.configured %}
-        <p class="secret-note">{{ t['尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。'] }}</p>
-        {% endif %}
         <div class="secret-grid">
           {% for goal in secret_view.goals %}
           <article class="secret-card" data-secret-goal data-goal-index="{{ goal.index_str }}">
@@ -262,11 +261,12 @@
           {% endfor %}
         </div>
       </div>
+      {% endif %}
     </div>
 
     <script src="/static/app.js"></script>
     <script src="/static/bingo.js"></script>
-    <script src="/static/secret.js"></script>
+    {% if secret_view.visible %}<script src="/static/secret.js"></script>{% endif %}
     <script src="/static/firesale.js"></script>
   </body>
 </html>

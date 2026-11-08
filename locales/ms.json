@@ -32,7 +32,6 @@
   "字段路径": "Laluan medan",
   "完成度": "Tahap siap",
   "宝石": "Permata",
-  "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Petunjuk matlamat rahsia belum dikonfigurasikan. Tambah matlamat dan masa buka setiap petunjuk dalam data/secret_bingo.json untuk memaparkannya.",
   "已收敛": "Telah konvergen",
   "已满级": "Maksimum",
   "已结束": "Telah berakhir",

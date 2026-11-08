@@ -32,7 +32,6 @@
   "字段路径": "Feldpfad",
   "完成度": "Fertigstellung",
   "宝石": "Edelsteine",
-  "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Noch keine Hinweise für geheime Ziele konfiguriert. Ziele und Freigabezeiten der Hinweise in data/secret_bingo.json eintragen.",
   "已收敛": "Konvergiert",
   "已满级": "Maximal erreicht",
   "已结束": "Beendet",
