@@ -73,7 +73,8 @@ def bingo_state(start: str, end: str, now: str) -> Tuple[str, str]:
     if now_dt < start_dt:
         return "upcoming", f"距开始还有 {humanize_delta(start_dt - now_dt)}"
     if now_dt > end_dt:
-        return "ended", f"已于 {humanize_delta(now_dt - end_dt)}前结束"
+        # 已结束的期次不再计时（页面也隐藏倒计时组件），只保留「已结束」状态徽章。
+        return "ended", "-"
     return "active", f"剩余 {humanize_delta(end_dt - now_dt)}"
 
 

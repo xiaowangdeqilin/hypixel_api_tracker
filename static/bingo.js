@@ -16,6 +16,8 @@
   var labelEl = panel.querySelector('.bingo-state-label');
 
   var STATE_LABELS = { upcoming: '未开始', active: '进行中', ended: '已结束', unknown: '未知' };
+  /* 只有「未开始」和「进行中」需要倒计时；已结束只保留状态徽章 */
+  var COUNTDOWN_PREFIX = { upcoming: '距开始 ', active: '剩余 ' };
 
   function pad(n) {
     return String(n).padStart(2, '0');
@@ -39,9 +41,28 @@
 
   var startMs = stateEl ? parseMs(stateEl.dataset.startMs) : 0;
   var endMs = stateEl ? parseMs(stateEl.dataset.endMs) : 0;
+  var timer = null;
+  var finished = false;
+
+  function applyState(state, text) {
+    /* 组件同步变化：徽章配色 + 状态文案 + 倒计时（已结束时整个隐藏） */
+    if (stateEl.dataset.state !== state) {
+      stateEl.dataset.state = state;
+      stateEl.classList.remove('bingo-state-upcoming', 'bingo-state-active', 'bingo-state-ended');
+      stateEl.classList.add('bingo-state-' + state);
+      if (labelEl) labelEl.textContent = STATE_LABELS[state] || state;
+    }
+    if (countdownEl) {
+      var showCountdown = text !== null;
+      if (countdownEl.hidden !== !showCountdown) countdownEl.hidden = !showCountdown;
+      if (showCountdown && countdownEl.textContent !== text) {
+        countdownEl.textContent = text;
+      }
+    }
+  }
 
   function tick() {
-    if (!stateEl || !countdownEl || !startMs || !endMs) return;
+    if (!stateEl || !startMs || !endMs) return false;
 
     var now = Date.now();
     var state;
@@ -49,33 +70,33 @@
 
     if (now < startMs) {
       state = 'upcoming';
-      text = '距开始 ' + humanDuration(startMs - now);
+      text = COUNTDOWN_PREFIX.upcoming + humanDuration(startMs - now);
     } else if (now > endMs) {
       state = 'ended';
-      text = '已结束 ' + humanDuration(now - endMs);
+      text = null; /* 已结束不再计时 */
     } else {
       state = 'active';
-      text = '剩余 ' + humanDuration(endMs - now);
+      text = COUNTDOWN_PREFIX.active + humanDuration(endMs - now);
     }
 
-    /* 页面可能是几分钟前由 Actions 构建的，状态以浏览器当前时间为准 */
-    if (stateEl.dataset.state !== state) {
-      stateEl.dataset.state = state;
-      stateEl.classList.remove('bingo-state-upcoming', 'bingo-state-active', 'bingo-state-ended');
-      stateEl.classList.add('bingo-state-' + state);
-      if (labelEl) labelEl.textContent = STATE_LABELS[state] || state;
-    }
+    /* 页面可能是几小时前由 Actions 构建的，状态以浏览器当前时间为准：
+       到点自动从未开始切进行中、从进行中切已结束，无需等下次抓取 */
+    applyState(state, text);
 
-    if (countdownEl.textContent !== text) {
-      countdownEl.textContent = text;
+    if (state === 'ended') {
+      finished = true;
+      if (timer) { window.clearInterval(timer); timer = null; }
+      return false;
     }
+    return true;
   }
 
-  tick();
-  window.setInterval(tick, 1000);
-  document.addEventListener('visibilitychange', function () {
-    if (!document.hidden) tick();
-  });
+  if (tick()) {
+    timer = window.setInterval(tick, 1000);
+    document.addEventListener('visibilitychange', function () {
+      if (!document.hidden && !finished) tick();
+    });
+  }
 
   /* ---------- 详情弹层 ---------- */
   var dialog = panel.querySelector('[data-bingo-dialog]');

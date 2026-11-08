@@ -78,7 +78,7 @@
           <div class="bingo-state bingo-state-{{ bingo.state }}" data-bingo-state data-state="{{ bingo.state }}"
                data-start-ms="{{ bingo.start_ms or '' }}" data-end-ms="{{ bingo.end_ms or '' }}">
             <span class="bingo-state-label">{{ bingo.state_label }}</span>
-            <span class="bingo-countdown" data-bingo-countdown>{{ bingo.remaining }}</span>
+            <span class="bingo-countdown" data-bingo-countdown{% if bingo.state == 'ended' %} hidden{% endif %}>{{ bingo.remaining }}</span>
           </div>
           <div class="bingo-info">
             <div><span class="k">发布时间</span><span class="v">{{ bingo.published_at }}</span></div>
@@ -89,7 +89,7 @@
             <div><span class="k">任务数量</span><span class="v">{{ bingo.goals | length }} 个</span></div>
           </div>
         </div>
-        <p class="bingo-tip">倒计时由浏览器按本地时间逐秒计算，不受 Actions 抓取延迟影响。点击任意格子查看完整文案与全服进度。</p>
+        <p class="bingo-tip">只有「未开始」和「进行中」显示倒计时，由浏览器按本地时间逐秒计算，到点自动切换状态，不受 Actions 抓取延迟影响；已结束的期次不再计时。点击任意格子查看完整文案与全服进度。</p>
         <div class="bingo-grid-wrap">
           <div class="bingo-grid">
             {% for goal in bingo.goals %}

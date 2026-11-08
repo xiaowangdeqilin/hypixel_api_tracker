@@ -603,7 +603,7 @@ def render_bingo_panel(bingo: Dict[str, Any], *, stale: bool = False) -> str:
         <div class="bingo-state bingo-state-{html.escape(state)}" data-bingo-state
              data-state="{html.escape(state)}" data-start-ms="{start_attr}" data-end-ms="{end_attr}">
           <span class="bingo-state-label">{html.escape(str(bingo.get('state_label', '-'))) }</span>
-          <span class="bingo-countdown" data-bingo-countdown>{html.escape(str(bingo.get('remaining', '-'))) }</span>
+          <span class="bingo-countdown" data-bingo-countdown{' hidden' if state == 'ended' else ''}>{html.escape(str(bingo.get('remaining', '-'))) }</span>
         </div>
         <div class="bingo-info">
           <div><span class="k">发布时间</span><span class="v">{html.escape(format_time(bingo.get('published_at')))}</span></div>
@@ -614,7 +614,7 @@ def render_bingo_panel(bingo: Dict[str, Any], *, stale: bool = False) -> str:
           <div><span class="k">任务数量</span><span class="v">{len(goals)} 个</span></div>
         </div>
       </div>
-      <p class="bingo-tip">倒计时由浏览器按本地时间逐秒计算，不受 Actions 抓取延迟影响。点击任意格子查看完整文案与全服进度。</p>
+      <p class="bingo-tip">只有「未开始」和「进行中」显示倒计时，由浏览器按本地时间逐秒计算，到点自动切换状态，不受 Actions 抓取延迟影响；已结束的期次不再计时。点击任意格子查看完整文案与全服进度。</p>
       <div class="bingo-grid-wrap">
         <div class="bingo-grid">{goal_cells}</div>
       </div>
