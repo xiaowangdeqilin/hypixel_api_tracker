@@ -182,6 +182,9 @@ pub fn goal_progress(goal: &Value) -> Option<Value> {
     if top == 0.0 {
         return None;
     }
+    // 社区任务最多 5 档（满级）；到达最高档后进度不再增长，
+    // 展示值同样封顶，避免出现「30M / 10M」这类超过满级的数字。
+    let capped = progress.min(top);
     let ratio = (progress / top).clamp(0.0, 1.0);
     let reached = numeric.iter().filter(|&&t| progress >= t).count();
     let percent = (ratio * 100.0 * 10.0).round() / 10.0;
@@ -190,8 +193,9 @@ pub fn goal_progress(goal: &Value) -> Option<Value> {
         "percent": percent,
         "reached": reached,
         "total": numeric.len(),
+        "is_maxed": reached >= numeric.len(),
         "progress": progress,
-        "progress_text": format_amount(&Value::from(progress)),
+        "progress_text": format_amount(&Value::from(capped)),
         "top": top,
         "top_text": format_amount(&Value::from(top)),
     }))

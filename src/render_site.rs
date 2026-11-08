@@ -307,22 +307,34 @@ fn render_bingo_goal(goal: &Value, index: usize) -> String {
         ""
     };
 
-    let (badge_text, progress_attr, foot_html) = if !progress.is_null() {        let progress_text = progress.get("progress_text").and_then(|v| v.as_str()).unwrap_or("");
+    let (badge_text, progress_attr, foot_html) = if !progress.is_null() {
+        let progress_text = progress.get("progress_text").and_then(|v| v.as_str()).unwrap_or("");
         let top_text = progress.get("top_text").and_then(|v| v.as_str()).unwrap_or("");
         let reached = progress.get("reached").map(|v| v.to_string()).unwrap_or_default();
         let total = progress.get("total").map(|v| v.to_string()).unwrap_or_default();
-        let foot = format!(
-            "<span class=\"bingo-bar\"><span class=\"bingo-bar-fill\" style=\"width:{percent_text}%\"></span></span>\
-             <span class=\"bingo-cell-progress\">{} / {} · {}/{} 档</span>",
-            escape_html(progress_text),
-            escape_html(top_text),
-            reached,
-            total
-        );
-        let attr = format!(
-            "全服 {} / {} · 已达成 {}/{} 档",
-            progress_text, top_text, reached, total
-        );
+        let is_maxed = progress.get("is_maxed").and_then(|v| v.as_bool()).unwrap_or(false);
+        // 满级（5/5 档）后进度条封顶 100%，文案显示「已满级」而不是继续累加的数字
+        let foot = if is_maxed {
+            format!(
+                "<span class=\"bingo-bar\"><span class=\"bingo-bar-fill\" style=\"width:100%\"></span></span>\
+                 <span class=\"bingo-cell-progress\">已满级 · {}/{} 档</span>",
+                reached, total
+            )
+        } else {
+            format!(
+                "<span class=\"bingo-bar\"><span class=\"bingo-bar-fill\" style=\"width:{percent_text}%\"></span></span>\
+                 <span class=\"bingo-cell-progress\">{} / {} · {}/{} 档</span>",
+                escape_html(progress_text),
+                escape_html(top_text),
+                reached,
+                total
+            )
+        };
+        let attr = if is_maxed {
+            format!("全服 {} · 已满级（{}/{} 档）", progress_text, reached, total)
+        } else {
+            format!("全服 {} / {} · 已达成 {}/{} 档", progress_text, top_text, reached, total)
+        };
         (format!("{percent_text}%"), attr, foot)
     } else {
         let foot_text = if tier_text.is_empty() {

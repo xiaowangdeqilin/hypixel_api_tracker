@@ -133,7 +133,9 @@
       "个人任务": "Personal Goal",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Data comes from <code>/v2/skyblock/firesales</code>. No firesale data yet — run <code>cargo run --release --bin tracker-build</code> once to generate it.",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Data comes from <code>/v2/resources/skyblock/bingo</code>. No Bingo data yet — run <code>cargo run --release --bin tracker-build</code> once to generate it.",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "On the board, only the top-left to bottom-right diagonal are community goals (with shared server-wide progress); all other cells are personal goals. Countdowns show only for upcoming/active events and auto-switch when time is up; ended events no longer count down. Click any cell for details."
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "On the board, only the top-left to bottom-right diagonal are community goals (with shared server-wide progress); all other cells are personal goals. Countdowns show only for upcoming/active events and auto-switch when time is up; ended events no longer count down. Click any cell for details.",
+      "已满级": "Maxed",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Server-wide {progress} · Maxed ({reached}/{total} tiers)"
     },
     "zh-TW": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API 變更監控台",
@@ -233,7 +235,9 @@
       "个人任务": "個人任務",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "資料來自 <code>/v2/skyblock/firesales</code>。目前還沒有特賣資料，先執行 <code>cargo run --release --bin tracker-build</code> 產生一次即可。",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "資料來自 <code>/v2/resources/skyblock/bingo</code>。目前還沒有 Bingo 資料，先執行 <code>cargo run --release --bin tracker-build</code> 產生一次即可。",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "棋盤上從左上到右下的對角線是社區任務（有全服共享進度），其餘均為個人任務；只有「未開始」與「進行中」顯示倒數，到點自動切換，已結束不再計時。點擊任意格子查看完整詳情。"
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "棋盤上從左上到右下的對角線是社區任務（有全服共享進度），其餘均為個人任務；只有「未開始」與「進行中」顯示倒數，到點自動切換，已結束不再計時。點擊任意格子查看完整詳情。",
+      "已满级": "已滿級",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "全服 {progress} · 已滿級（{reached}/{total} 檔）"
     },
     "ja": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API 変更モニター",
@@ -333,7 +337,9 @@
       "个人任务": "個人目標",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "データは <code>/v2/skyblock/firesales</code> から取得しています。限定セールのデータがまだありません。<code>cargo run --release --bin tracker-build</code> を一度実行して生成してください。",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "データは <code>/v2/resources/skyblock/bingo</code> から取得しています。Bingo データがまだありません。<code>cargo run --release --bin tracker-build</code> を一度実行して生成してください。",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "盤面で左上から右下への対角線はコミュニティ目標（全サーバー共有の進捗あり）、その他は個人目標です。カウントダウンは「未開始」と「進行中」のみ表示され、時点で自動切替、終了したら表示されません。セルをクリックすると詳細を表示します。"
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "盤面で左上から右下への対角線はコミュニティ目標（全サーバー共有の進捗あり）、その他は個人目標です。カウントダウンは「未開始」と「進行中」のみ表示され、時点で自動切替、終了したら表示されません。セルをクリックすると詳細を表示します。",
+      "已满级": "最大達成",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "全サーバー {progress} · 最大達成（{reached}/{total} 段階）"
     },
     "ko": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API 변경 모니터",
@@ -433,7 +439,9 @@
       "个人任务": "개인 목표",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "데이터 출처: <code>/v2/skyblock/firesales</code>. 아직 한정 세일 데이터가 없습니다. <code>cargo run --release --bin tracker-build</code>를 한 번 실행해 생성하세요.",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "데이터 출처: <code>/v2/resources/skyblock/bingo</code>. 아직 Bingo 데이터가 없습니다. <code>cargo run --release --bin tracker-build</code>를 한 번 실행해 생성하세요.",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "보드에서 왼쪽 위→오른쪽 아래 대각선은 커뮤니티 목표(전체 서버 공유 진행도)이며, 나머지는 개인 목표입니다. 카운트다운은 \"시작 전\"과 \"진행 중\"에만 표시되며 시간이 되면 자동으로 전환되고 종료된 이벤트는 표시되지 않습니다. 칸을 클릭하면 상세 정보를 볼 수 있습니다."
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "보드에서 왼쪽 위→오른쪽 아래 대각선은 커뮤니티 목표(전체 서버 공유 진행도)이며, 나머지는 개인 목표입니다. 카운트다운은 \"시작 전\"과 \"진행 중\"에만 표시되며 시간이 되면 자동으로 전환되고 종료된 이벤트는 표시되지 않습니다. 칸을 클릭하면 상세 정보를 볼 수 있습니다.",
+      "已满级": "최대 달성",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "전체 서버 {progress} · 최대 달성 ({reached}/{total} 단계)"
     },
     "vi": {
       "Hypixel SkyBlock API 变更监控台": "Trình giám sát thay đổi Hypixel SkyBlock API",
@@ -533,7 +541,9 @@
       "个人任务": "Mục tiêu cá nhân",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Dữ liệu đến từ <code>/v2/skyblock/firesales</code>. Chưa có dữ liệu firesale — hãy chạy <code>cargo run --release --bin tracker-build</code> một lần để tạo.",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Dữ liệu đến từ <code>/v2/resources/skyblock/bingo</code>. Chưa có dữ liệu Bingo — hãy chạy <code>cargo run --release --bin tracker-build</code> một lần để tạo.",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Trên bảng, chỉ đường chéo từ trên trái xuống dưới phải là mục tiêu cộng đồng (có tiến độ chung toàn server), các ô còn lại là mục tiêu cá nhân. Đếm ngược chỉ hiển thị với \"chưa bắt đầu\" và \"đang diễn ra\", tự chuyển khi hết giờ; sự kiện đã kết thúc không còn đếm ngược. Nhấp vào ô để xem chi tiết."
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Trên bảng, chỉ đường chéo từ trên trái xuống dưới phải là mục tiêu cộng đồng (có tiến độ chung toàn server), các ô còn lại là mục tiêu cá nhân. Đếm ngược chỉ hiển thị với \"chưa bắt đầu\" và \"đang diễn ra\", tự chuyển khi hết giờ; sự kiện đã kết thúc không còn đếm ngược. Nhấp vào ô để xem chi tiết.",
+      "已满级": "Đã đạt tối đa",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Toàn server {progress} · Đã đạt tối đa ({reached}/{total} bậc)"
     },
     "th": {
       "Hypixel SkyBlock API 变更监控台": "มอนิเตอร์การเปลี่ยนแปลง Hypixel SkyBlock API",
@@ -633,7 +643,9 @@
       "个人任务": "เป้าหมายส่วนตัว",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "ข้อมูลจาก <code>/v2/skyblock/firesales</code> ยังไม่มีข้อมูลแฟลชเซล — รัน <code>cargo run --release --bin tracker-build</code> หนึ่งครั้งเพื่อสร้างข้อมูล",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "ข้อมูลจาก <code>/v2/resources/skyblock/bingo</code> ยังไม่มีข้อมูล Bingo — รัน <code>cargo run --release --bin tracker-build</code> หนึ่งครั้งเพื่อสร้างข้อมูล",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "บนกระดาน มีเฉพาะแนวทแยงจากซ้ายบนไปขวาล่างเป็นเป้าหมายชุมชน (มีความคืบหน้ารวมของเซิร์ฟเวอร์) ส่วนที่เหลือเป็นเป้าหมายส่วนตัว นับถอยหลังเฉพาะ \"ยังไม่เริ่ม\" และ \"กำลังดำเนินการ\" เมื่อถึงเวลาจะสลับอัตโนมัติ งานที่จบแล้วไม่นับถอยหลัง คลิกช่องใดก็ได้เพื่อดูรายละเอียด"
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "บนกระดาน มีเฉพาะแนวทแยงจากซ้ายบนไปขวาล่างเป็นเป้าหมายชุมชน (มีความคืบหน้ารวมของเซิร์ฟเวอร์) ส่วนที่เหลือเป็นเป้าหมายส่วนตัว นับถอยหลังเฉพาะ \"ยังไม่เริ่ม\" และ \"กำลังดำเนินการ\" เมื่อถึงเวลาจะสลับอัตโนมัติ งานที่จบแล้วไม่นับถอยหลัง คลิกช่องใดก็ได้เพื่อดูรายละเอียด",
+      "已满级": "ถึงระดับสูงสุด",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "ทั้งเซิร์ฟเวอร์ {progress} · ถึงระดับสูงสุด ({reached}/{total} ขั้น)"
     },
     "id": {
       "Hypixel SkyBlock API 变更监控台": "Monitor Perubahan Hypixel SkyBlock API",
@@ -733,7 +745,9 @@
       "个人任务": "Tujuan Pribadi",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Data berasal dari <code>/v2/skyblock/firesales</code>. Belum ada data firesale — jalankan <code>cargo run --release --bin tracker-build</code> sekali untuk membuatnya.",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Data berasal dari <code>/v2/resources/skyblock/bingo</code>. Belum ada data Bingo — jalankan <code>cargo run --release --bin tracker-build</code> sekali untuk membuatnya.",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Di papan, hanya diagonal kiri atas ke kanan bawah yang merupakan tujuan komunitas (dengan progres bersama seluruh server); sel lainnya adalah tujuan pribadi. Hitung mundur hanya ditampilkan untuk \"belum mulai\" dan \"sedang berlangsung\", berpindah otomatis saat waktunya habis; acara yang sudah berakhir tidak dihitung mundur. Klik sel mana pun untuk detail."
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Di papan, hanya diagonal kiri atas ke kanan bawah yang merupakan tujuan komunitas (dengan progres bersama seluruh server); sel lainnya adalah tujuan pribadi. Hitung mundur hanya ditampilkan untuk \"belum mulai\" dan \"sedang berlangsung\", berpindah otomatis saat waktunya habis; acara yang sudah berakhir tidak dihitung mundur. Klik sel mana pun untuk detail.",
+      "已满级": "Maksimal",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Seluruh server {progress} · Maksimal ({reached}/{total} tingkat)"
     },
     "ms": {
       "Hypixel SkyBlock API 变更监控台": "Monitor Perubahan Hypixel SkyBlock API",
@@ -833,7 +847,9 @@
       "个人任务": "Matlamat Peribadi",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Data dari <code>/v2/skyblock/firesales</code>. Belum ada data jualan kilat — jalankan <code>cargo run --release --bin tracker-build</code> sekali untuk menjananya.",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Data dari <code>/v2/resources/skyblock/bingo</code>. Belum ada data Bingo — jalankan <code>cargo run --release --bin tracker-build</code> sekali untuk menjananya.",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Di papan, hanya pepenjuru dari kiri atas ke kanan bawah ialah matlamat komuniti (dengan kemajuan bersama seluruh pelayan); sel lain ialah matlamat peribadi. Kiraan detik hanya ditunjukkan untuk \"belum bermula\" dan \"sedang berjalan\", bertukar automatik apabila masa habis; acara yang telah berakhir tidak lagi dikira detik. Klik mana-mana sel untuk butiran."
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Di papan, hanya pepenjuru dari kiri atas ke kanan bawah ialah matlamat komuniti (dengan kemajuan bersama seluruh pelayan); sel lain ialah matlamat peribadi. Kiraan detik hanya ditunjukkan untuk \"belum bermula\" dan \"sedang berjalan\", bertukar automatik apabila masa habis; acara yang telah berakhir tidak lagi dikira detik. Klik mana-mana sel untuk butiran.",
+      "已满级": "Maksimum",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Seluruh pelayan {progress} · Maksimum ({reached}/{total} peringkat)"
     },
     "fil": {
       "Hypixel SkyBlock API 变更监控台": "Monitor ng mga Pagbabago ng Hypixel SkyBlock API",
@@ -933,7 +949,9 @@
       "个人任务": "Personal na Goal",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Galing ang data sa <code>/v2/skyblock/firesales</code>. Wala pang firesale data — patakbuhin ang <code>cargo run --release --bin tracker-build</code> nang isang beses para makabuo.",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Galing ang data sa <code>/v2/resources/skyblock/bingo</code>. Wala pang Bingo data — patakbuhin ang <code>cargo run --release --bin tracker-build</code> nang isang beses para makabuo.",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Sa board, ang diagonal mula kaliwa-itaas hanggang kanan-ibaba lang ang community goal (may shared server-wide progress); ang iba pang cells ay personal na goals. Ang countdown ay ipinapakita lang para sa \"hindi pa nagsisimula\" at \"isinasagawa\", awtomatikong lumilipat kapag tapos na; ang mga tapos na ay hindi na bumibilang. I-click ang alinmang cell para sa detalye."
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Sa board, ang diagonal mula kaliwa-itaas hanggang kanan-ibaba lang ang community goal (may shared server-wide progress); ang iba pang cells ay personal na goals. Ang countdown ay ipinapakita lang para sa \"hindi pa nagsisimula\" at \"isinasagawa\", awtomatikong lumilipat kapag tapos na; ang mga tapos na ay hindi na bumibilang. I-click ang alinmang cell para sa detalye.",
+      "已满级": "Naabot ang max",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Buong server {progress} · Naabot ang max ({reached}/{total} tier)"
     },
     "hi": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API परिवर्तन मॉनिटर",
@@ -1033,7 +1051,9 @@
       "个人任务": "व्यक्तिगत लक्ष्य",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "डेटा <code>/v2/skyblock/firesales</code> से आता है। अभी कोई बिक्री डेटा नहीं है — एक बार <code>cargo run --release --bin tracker-build</code> चलाएँ।",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "डेटा <code>/v2/resources/skyblock/bingo</code> से आता है। अभी कोई Bingo डेटा नहीं है — एक बार <code>cargo run --release --bin tracker-build</code> चलाएँ।",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "बोर्ड पर केवल ऊपरी-बाएँ से निचले-दाएँ विकर्ण सामुदायिक लक्ष्य हैं (साझा सर्वर-व्यापी प्रगति के साथ); बाकी सेल व्यक्तिगत लक्ष्य हैं। काउंटडाउन केवल \"शुरू नहीं हुआ\" और \"चल रहा है\" के लिए दिखता है, समय पर स्वतः बदल जाता है; समाप्त ईवेंट की गिनती नहीं होती। विवरण के लिए किसी भी सेल पर क्लिक करें।"
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "बोर्ड पर केवल ऊपरी-बाएँ से निचले-दाएँ विकर्ण सामुदायिक लक्ष्य हैं (साझा सर्वर-व्यापी प्रगति के साथ); बाकी सेल व्यक्तिगत लक्ष्य हैं। काउंटडाउन केवल \"शुरू नहीं हुआ\" और \"चल रहा है\" के लिए दिखता है, समय पर स्वतः बदल जाता है; समाप्त ईवेंट की गिनती नहीं होती। विवरण के लिए किसी भी सेल पर क्लिक करें।",
+      "已满级": "अधिकतम पूर्ण",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "संपूर्ण सर्वर {progress} · अधिकतम पूर्ण ({reached}/{total} स्तर)"
     },
     "bn": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API পরিবর্তন মনিটর",
@@ -1133,7 +1153,9 @@
       "个人任务": "ব্যক্তিগত লক্ষ্য",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "ডেটা আসে <code>/v2/skyblock/firesales</code> থেকে। এখনও কোনো বিক্রয় ডেটা নেই — একবার <code>cargo run --release --bin tracker-build</code> চালান।",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "ডেটা আসে <code>/v2/resources/skyblock/bingo</code> থেকে। এখনও Bingo ডেটা নেই — একবার <code>cargo run --release --bin tracker-build</code> চালান।",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "বোর্ডে শুধু উপরে-বাঁ থেকে নিচে-ডান কর্ণটি কমিউনিটি লক্ষ্য (সার্ভারব্যাপী শেয়ার্ড অগ্রগতি সহ); বাকি ঘরগুলো ব্যক্তিগত লক্ষ্য। কাউন্টডাউন শুধু \"শুরু হয়নি\" ও \"চলছে\" অবস্থায় দেখায়, সময় শেষে স্বয়ংক্রিয়ভাবে বদলায়; শেষ হওয়া ইভেন্ট আর গণনা করে না। বিস্তারিত দেখতে যেকোনো ঘরে ক্লিক করুন।"
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "বোর্ডে শুধু উপরে-বাঁ থেকে নিচে-ডান কর্ণটি কমিউনিটি লক্ষ্য (সার্ভারব্যাপী শেয়ার্ড অগ্রগতি সহ); বাকি ঘরগুলো ব্যক্তিগত লক্ষ্য। কাউন্টডাউন শুধু \"শুরু হয়নি\" ও \"চলছে\" অবস্থায় দেখায়, সময় শেষে স্বয়ংক্রিয়ভাবে বদলায়; শেষ হওয়া ইভেন্ট আর গণনা করে না। বিস্তারিত দেখতে যেকোনো ঘরে ক্লিক করুন।",
+      "已满级": "সর্বোচ্চ সম্পূর্ণ",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "সম্পূর্ণ সার্ভার {progress} · সর্বোচ্চ সম্পূর্ণ ({reached}/{total} স্তর)"
     },
     "ur": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API تبدیلات مانیٹر",
@@ -1233,7 +1255,9 @@
       "个人任务": "ذاتی ہدف",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "ڈیٹا <code>/v2/skyblock/firesales</code> سے آتا ہے۔ ابھی کوئی فروخت ڈیٹا نہیں — ایک بار <code>cargo run --release --bin tracker-build</code> چلائیں۔",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "ڈیٹا <code>/v2/resources/skyblock/bingo</code> سے آتا ہے۔ ابھی Bingo ڈیٹا نہیں — ایک بار <code>cargo run --release --bin tracker-build</code> چلائیں۔",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "بورڈ پر صرف اوپر بائیں سے نیچے دائیں تک کا ترچھ خط کمیونٹی ہدف ہے (سرور وائیڈ مشترکہ پیش رفت کے ساتھ)؛ باقی خانے ذاتی اہداف ہیں۔ کاؤنٹ ڈاؤن صرف \"ابھی شروع نہیں ہوا\" اور \"جاری ہے\" کے لیے دکھایا جاتا ہے، وقت ختم ہونے پر خودکار تبدیل ہو جاتا ہے؛ ختم شدہ ایونٹس کی گنتی نہیں ہوتی۔ تفصیل کے لیے کسی بھی خانے پر کلک کریں۔"
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "بورڈ پر صرف اوپر بائیں سے نیچے دائیں تک کا ترچھ خط کمیونٹی ہدف ہے (سرور وائیڈ مشترکہ پیش رفت کے ساتھ)؛ باقی خانے ذاتی اہداف ہیں۔ کاؤنٹ ڈاؤن صرف \"ابھی شروع نہیں ہوا\" اور \"جاری ہے\" کے لیے دکھایا جاتا ہے، وقت ختم ہونے پر خودکار تبدیل ہو جاتا ہے؛ ختم شدہ ایونٹس کی گنتی نہیں ہوتی۔ تفصیل کے لیے کسی بھی خانے پر کلک کریں۔",
+      "已满级": "زیادہ سے زیادہ مکمل",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "پورا سرور {progress} · زیادہ سے زیادہ مکمل ({reached}/{total} درجے)"
     },
     "ar": {
       "Hypixel SkyBlock API 变更监控台": "مراقب تغييرات Hypixel SkyBlock API",
@@ -1333,7 +1357,9 @@
       "个人任务": "هدف شخصي",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "البيانات من <code>/v2/skyblock/firesales</code>. لا توجد بيانات عروض بعد — شغّل <code>cargo run --release --bin tracker-build</code> مرة واحدة لإنشائها.",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "البيانات من <code>/v2/resources/skyblock/bingo</code>. لا توجد بيانات Bingo بعد — شغّل <code>cargo run --release --bin tracker-build</code> مرة واحدة لإنشائها.",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "على اللوحة، القطر من أعلى اليسار إلى أسفل اليمين فقط هو الأهداف الجماعية (مع تقدم مشترك على مستوى الخادم)، وبقية الخلايا أهداف شخصية. يظهر العد التنازلي فقط لـ\"لم يبدأ\" و\"جارٍ\"، ويتحول تلقائيًا عند انتهاء الوقت؛ الأحداث المنتهية لا تعدّ تنازليًا. انقر أي خلية لعرض التفاصيل."
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "على اللوحة، القطر من أعلى اليسار إلى أسفل اليمين فقط هو الأهداف الجماعية (مع تقدم مشترك على مستوى الخادم)، وبقية الخلايا أهداف شخصية. يظهر العد التنازلي فقط لـ\"لم يبدأ\" و\"جارٍ\"، ويتحول تلقائيًا عند انتهاء الوقت؛ الأحداث المنتهية لا تعدّ تنازليًا. انقر أي خلية لعرض التفاصيل.",
+      "已满级": "بلغ الحد الأقصى",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "كامل الخادم {progress} · بلغ الحد الأقصى ({reached}/{total} مستويات)"
     },
     "he": {
       "Hypixel SkyBlock API 变更监控台": "מוניטור שינויים Hypixel SkyBlock API",
@@ -1433,7 +1459,9 @@
       "个人任务": "יעד אישי",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "הנתונים מגיעים מ-<code>/v2/skyblock/firesales</code>. עדיין אין נתוני מבצעים — הריצו <code>cargo run --release --bin tracker-build</code> פעם אחת כדי ליצור.",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "הנתונים מגיעים מ-<code>/v2/resources/skyblock/bingo</code>. עדיין אין נתוני Bingo — הריצו <code>cargo run --release --bin tracker-build</code> פעם אחת כדי ליצור.",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "בלוח, רק האלכסון משמאל למעלה לימין למטה הוא יעדים קהילתיים (עם התקדמות משותפת ברמת השרת); שאר התאים הם יעדים אישיים. ספירה לאחור מוצגת רק עבור \"טרם החל\" ו\"פעיל\", עוברת אוטומטית עם סיום הזמן; אירועים שהסתיימו אינם נספרים לאחור. לחץ על כל תא לפרטים."
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "בלוח, רק האלכסון משמאל למעלה לימין למטה הוא יעדים קהילתיים (עם התקדמות משותפת ברמת השרת); שאר התאים הם יעדים אישיים. ספירה לאחור מוצגת רק עבור \"טרם החל\" ו\"פעיל\", עוברת אוטומטית עם סיום הזמן; אירועים שהסתיימו אינם נספרים לאחור. לחץ על כל תא לפרטים.",
+      "已满级": "הושג מקסימום",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "כל השרת {progress} · הושג מקסימום ({reached}/{total} דרגות)"
     },
     "fa": {
       "Hypixel SkyBlock API 变更监控台": "پایش تغییرات Hypixel SkyBlock API",
@@ -1533,7 +1561,9 @@
       "个人任务": "هدف شخصی",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "داده از <code>/v2/skyblock/firesales</code> می‌آید. هنوز داده‌ای برای فروش‌ها نیست — یک بار <code>cargo run --release --bin tracker-build</code> را اجرا کنید.",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "داده از <code>/v2/resources/skyblock/bingo</code> می‌آید. هنوز داده Bingo نیست — یک بار <code>cargo run --release --bin tracker-build</code> را اجرا کنید.",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "روی تخته، فقط قطر از بالا-چپ به پایین-راست هدف‌های اجتماعی هستند (با پیشرفت مشترک سراسری)؛ بقیه خانه‌ها هدف‌های شخصی‌اند. شمارش معکوس فقط برای «شروع نشده» و «در جریان» نشان داده می‌شود و در پایان زمان خودکار تغییر می‌کند؛ رویدادهای پایان‌یافته دیگر شمارش نمی‌شوند. برای جزئیات روی هر خانه کلیک کنید."
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "روی تخته، فقط قطر از بالا-چپ به پایین-راست هدف‌های اجتماعی هستند (با پیشرفت مشترک سراسری)؛ بقیه خانه‌ها هدف‌های شخصی‌اند. شمارش معکوس فقط برای «شروع نشده» و «در جریان» نشان داده می‌شود و در پایان زمان خودکار تغییر می‌کند؛ رویدادهای پایان‌یافته دیگر شمارش نمی‌شوند. برای جزئیات روی هر خانه کلیک کنید.",
+      "已满级": "به حداکثر رسید",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "کل سرور {progress} · به حداکثر رسید ({reached}/{total} سطح)"
     },
     "tr": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API Değişiklik İzleyicisi",
@@ -1633,7 +1663,9 @@
       "个人任务": "Kişisel Hedef",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Veriler <code>/v2/skyblock/firesales</code> adresinden gelir. Henüz indirim verisi yok — oluşturmak için <code>cargo run --release --bin tracker-build</code> dosyasını bir kez çalıştırın.",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Veriler <code>/v2/resources/skyblock/bingo</code> adresinden gelir. Henüz Bingo verisi yok — oluşturmak için <code>cargo run --release --bin tracker-build</code> dosyasını bir kez çalıştırın.",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Tahtada yalnızca sol üstten sağ alta çapraz topluluk hedefleridir (sunucu genelinde paylaşılan ilerleme); diğer hücreler kişisel hedeflerdir. Geri sayım yalnızca \"başlamadı\" ve \"devam ediyor\" durumlarında gösterilir, süre bitince otomatik geçer; biten etkinlikler artık geri saymaz. Ayrıntılar için herhangi bir hücreye tıklayın."
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Tahtada yalnızca sol üstten sağ alta çapraz topluluk hedefleridir (sunucu genelinde paylaşılan ilerleme); diğer hücreler kişisel hedeflerdir. Geri sayım yalnızca \"başlamadı\" ve \"devam ediyor\" durumlarında gösterilir, süre bitince otomatik geçer; biten etkinlikler artık geri saymaz. Ayrıntılar için herhangi bir hücreye tıklayın.",
+      "已满级": "Maksimum",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Tüm sunucu {progress} · Maksimum ({reached}/{total} kademe)"
     },
     "fr": {
       "Hypixel SkyBlock API 变更监控台": "Moniteur de changements Hypixel SkyBlock API",
@@ -1733,7 +1765,9 @@
       "个人任务": "Objectif personnel",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Les données proviennent de <code>/v2/skyblock/firesales</code>. Aucune donnée de vente pour l'instant — exécutez <code>cargo run --release --bin tracker-build</code> une fois pour la générer.",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Les données proviennent de <code>/v2/resources/skyblock/bingo</code>. Aucune donnée Bingo pour l'instant — exécutez <code>cargo run --release --bin tracker-build</code> une fois pour la générer.",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Sur la grille, seule la diagonale du coin supérieur gauche au coin inférieur droit correspond aux objectifs communautaires (avec une progression partagée à l'échelle du serveur) ; les autres cases sont des objectifs personnels. Le compte à rebours ne s'affiche que pour « à venir » et « en cours », bascule automatiquement à échéance ; les événements terminés ne comptent plus à rebours. Cliquez sur une case pour plus de détails."
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Sur la grille, seule la diagonale du coin supérieur gauche au coin inférieur droit correspond aux objectifs communautaires (avec une progression partagée à l'échelle du serveur) ; les autres cases sont des objectifs personnels. Le compte à rebours ne s'affiche que pour « à venir » et « en cours », bascule automatiquement à échéance ; les événements terminés ne comptent plus à rebours. Cliquez sur une case pour plus de détails.",
+      "已满级": "Niveau max atteint",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Tout le serveur {progress} · Niveau max atteint ({reached}/{total} paliers)"
     },
     "de": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API Änderungsmonitor",
@@ -1833,7 +1867,9 @@
       "个人任务": "Persönliches Ziel",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Daten stammen aus <code>/v2/skyblock/firesales</code>. Noch keine Angebotsdaten — führe <code>cargo run --release --bin tracker-build</code> einmal aus, um sie zu erzeugen.",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Daten stammen aus <code>/v2/resources/skyblock/bingo</code>. Noch keine Bingo-Daten — führe <code>cargo run --release --bin tracker-build</code> einmal aus, um sie zu erzeugen.",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Auf dem Brett ist nur die Diagonale von oben links nach unten rechts Community-Ziele (mit serverweitem gemeinsamen Fortschritt); alle anderen Felder sind persönliche Ziele. Der Countdown erscheint nur für „nicht begonnen\" und „laufend\", wechselt bei Ablauf automatisch; beendete Ereignisse zählen nicht mehr herunter. Klicke auf ein Feld für Details."
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Auf dem Brett ist nur die Diagonale von oben links nach unten rechts Community-Ziele (mit serverweitem gemeinsamen Fortschritt); alle anderen Felder sind persönliche Ziele. Der Countdown erscheint nur für „nicht begonnen\" und „laufend\", wechselt bei Ablauf automatisch; beendete Ereignisse zählen nicht mehr herunter. Klicke auf ein Feld für Details.",
+      "已满级": "Maximal erreicht",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Gesamtserver {progress} · Maximal erreicht ({reached}/{total} Stufen)"
     },
     "es": {
       "Hypixel SkyBlock API 变更监控台": "Monitor de cambios de Hypixel SkyBlock API",
@@ -1933,7 +1969,9 @@
       "个人任务": "Objetivo personal",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Los datos provienen de <code>/v2/skyblock/firesales</code>. Aún no hay datos de ofertas — ejecuta <code>cargo run --release --bin tracker-build</code> una vez para generarlos.",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Los datos provienen de <code>/v2/resources/skyblock/bingo</code>. Aún no hay datos de Bingo — ejecuta <code>cargo run --release --bin tracker-build</code> una vez para generarlos.",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "En el tablero, solo la diagonal de arriba a la izquierda a abajo a la derecha son objetivos comunitarios (con progreso compartido de todo el servidor); las demás casillas son objetivos personales. La cuenta regresiva solo se muestra para «no iniciado» y «en curso», cambia automáticamente al vencer el tiempo; los eventos finalizados ya no cuentan. Haz clic en cualquier casilla para ver detalles."
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "En el tablero, solo la diagonal de arriba a la izquierda a abajo a la derecha son objetivos comunitarios (con progreso compartido de todo el servidor); las demás casillas son objetivos personales. La cuenta regresiva solo se muestra para «no iniciado» y «en curso», cambia automáticamente al vencer el tiempo; los eventos finalizados ya no cuentan. Haz clic en cualquier casilla para ver detalles.",
+      "已满级": "Nivel máximo",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Todo el servidor {progress} · Nivel máximo ({reached}/{total} niveles)"
     },
     "it": {
       "Hypixel SkyBlock API 变更监控台": "Monitor delle modifiche Hypixel SkyBlock API",
@@ -2033,7 +2071,9 @@
       "个人任务": "Obiettivo personale",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "I dati provengono da <code>/v2/skyblock/firesales</code>. Non ci sono ancora dati sulle vendite — esegui una volta <code>cargo run --release --bin tracker-build</code> per generarli.",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "I dati provengono da <code>/v2/resources/skyblock/bingo</code>. Non ci sono ancora dati Bingo — esegui una volta <code>cargo run --release --bin tracker-build</code> per generarli.",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Sulla griglia, solo la diagonale dall'alto a sinistra al basso a destra è composta da obiettivi comunitari (con progresso condiviso su tutto il server); le altre caselle sono obiettivi personali. Il conto alla rovescia appare solo per \"non iniziato\" e \"in corso\", passa automaticamente alla scadenza; gli eventi conclusi non vengono più conteggiati. Fai clic su qualsiasi casella per i dettagli."
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Sulla griglia, solo la diagonale dall'alto a sinistra al basso a destra è composta da obiettivi comunitari (con progresso condiviso su tutto il server); le altre caselle sono obiettivi personali. Il conto alla rovescia appare solo per \"non iniziato\" e \"in corso\", passa automaticamente alla scadenza; gli eventi conclusi non vengono più conteggiati. Fai clic su qualsiasi casella per i dettagli.",
+      "已满级": "Livello massimo",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Tutto il server {progress} · Livello massimo ({reached}/{total} livelli)"
     },
     "pt": {
       "Hypixel SkyBlock API 变更监控台": "Monitor de alterações da Hypixel SkyBlock API",
@@ -2133,7 +2173,9 @@
       "个人任务": "Objetivo pessoal",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Os dados vêm de <code>/v2/skyblock/firesales</code>. Ainda não há dados de ofertas — execute <code>cargo run --release --bin tracker-build</code> uma vez para gerá-los.",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Os dados vêm de <code>/v2/resources/skyblock/bingo</code>. Ainda não há dados de Bingo — execute <code>cargo run --release --bin tracker-build</code> uma vez para gerá-los.",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "No tabuleiro, apenas a diagonal do canto superior esquerdo ao inferior direito são objetivos comunitários (com progresso partilhado de todo o servidor); as restantes casas são objetivos pessoais. A contagem regressiva só é exibida para «não iniciado» e «em andamento», mudando automaticamente ao expirar; eventos encerrados não contam mais. Clique em qualquer casa para ver detalhes."
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "No tabuleiro, apenas a diagonal do canto superior esquerdo ao inferior direito são objetivos comunitários (com progresso partilhado de todo o servidor); as restantes casas são objetivos pessoais. A contagem regressiva só é exibida para «não iniciado» e «em andamento», mudando automaticamente ao expirar; eventos encerrados não contam mais. Clique em qualquer casa para ver detalhes.",
+      "已满级": "Nível máximo",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Todo o servidor {progress} · Nível máximo ({reached}/{total} níveis)"
     },
     "nl": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API-wijzigingsmonitor",
@@ -2233,7 +2275,9 @@
       "个人任务": "Persoonlijk doel",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "De gegevens komen van <code>/v2/skyblock/firesales</code>. Nog geen sale-gegevens — voer <code>cargo run --release --bin tracker-build</code> één keer uit om ze te genereren.",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "De gegevens komen van <code>/v2/resources/skyblock/bingo</code>. Nog geen Bingo-gegevens — voer <code>cargo run --release --bin tracker-build</code> één keer uit om ze te genereren.",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Op het bord is alleen de diagonaal van linksboven naar rechtsonder communitydoelen (met gedeelde serverbrede voortgang); de overige cellen zijn persoonlijke doelen. De aftelling wordt alleen getoond voor \"niet gestart\" en \"bezig\", schakelt automatisch bij het verstrijken; beëindigde events tellen niet meer af. Klik op een cel voor details."
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Op het bord is alleen de diagonaal van linksboven naar rechtsonder communitydoelen (met gedeelde serverbrede voortgang); de overige cellen zijn persoonlijke doelen. De aftelling wordt alleen getoond voor \"niet gestart\" en \"bezig\", schakelt automatisch bij het verstrijken; beëindigde events tellen niet meer af. Klik op een cel voor details.",
+      "已满级": "Maximaal bereikt",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Hele server {progress} · Maximaal bereikt ({reached}/{total} niveaus)"
     },
     "ru": {
       "Hypixel SkyBlock API 变更监控台": "Монитор изменений Hypixel SkyBlock API",
@@ -2333,7 +2377,9 @@
       "个人任务": "Личная цель",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Данные из <code>/v2/skyblock/firesales</code>. Данных распродаж пока нет — запустите один раз <code>cargo run --release --bin tracker-build</code>.",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Данные из <code>/v2/resources/skyblock/bingo</code>. Данных Bingo пока нет — запустите один раз <code>cargo run --release --bin tracker-build</code>.",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "На доске только диагональ из левого верхнего в правый нижний угол — общие цели (с прогрессом, общим для всего сервера); остальные клетки — личные цели. Обратный отсчёт показывается только для «не начато» и «идёт», автоматически переключается по истечении времени; завершившиеся события не отсчитываются. Нажмите на любую клетку для подробностей."
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "На доске только диагональ из левого верхнего в правый нижний угол — общие цели (с прогрессом, общим для всего сервера); остальные клетки — личные цели. Обратный отсчёт показывается только для «не начато» и «идёт», автоматически переключается по истечении времени; завершившиеся события не отсчитываются. Нажмите на любую клетку для подробностей.",
+      "已满级": "Максимум достигнут",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Весь сервер {progress} · Максимум достигнут ({reached}/{total} уровней)"
     },
     "uk": {
       "Hypixel SkyBlock API 变更监控台": "Монітор змін Hypixel SkyBlock API",
@@ -2433,7 +2479,9 @@
       "个人任务": "Особиста мета",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Дані з <code>/v2/skyblock/firesales</code>. Даних розпродажів ще немає — запустіть один раз <code>cargo run --release --bin tracker-build</code>.",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Дані з <code>/v2/resources/skyblock/bingo</code>. Даних Bingo ще немає — запустіть один раз <code>cargo run --release --bin tracker-build</code>.",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "На дошці лише діагональ з лівого верхнього кута до правого нижнього — спільні цілі (із прогресом, спільним для всього сервера); решта клітинок — особисті цілі. Зворотний відлік показується лише для «не почато» та «триває», автоматично перемикається після завершення часу; закінчені події не відлічуються. Натисніть на будь-яку клітинку для деталей."
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "На дошці лише діагональ з лівого верхнього кута до правого нижнього — спільні цілі (із прогресом, спільним для всього сервера); решта клітинок — особисті цілі. Зворотний відлік показується лише для «не почато» та «триває», автоматично перемикається після завершення часу; закінчені події не відлічуються. Натисніть на будь-яку клітинку для деталей.",
+      "已满级": "Максимум досягнуто",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Увесь сервер {progress} · Максимум досягнуто ({reached}/{total} рівнів)"
     },
     "pl": {
       "Hypixel SkyBlock API 变更监控台": "Monitor zmian Hypixel SkyBlock API",
@@ -2533,7 +2581,9 @@
       "个人任务": "Cel osobisty",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Dane pochodzą z <code>/v2/skyblock/firesales</code>. Nie ma jeszcze danych wyprzedaży — uruchom raz <code>cargo run --release --bin tracker-build</code>.",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Dane pochodzą z <code>/v2/resources/skyblock/bingo</code>. Nie ma jeszcze danych Bingo — uruchom raz <code>cargo run --release --bin tracker-build</code>.",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Na planszy tylko przekątna od lewego górnego do prawego dolnego rogu to cele społecznościowe (ze wspólnym postępem całego serwera); pozostałe pola to cele osobiste. Odliczanie pokazywane jest tylko dla „nie rozpoczęto\" i „w toku\", automatycznie przełącza się po upływie czasu; zakończone wydarzenia nie odliczają. Kliknij dowolne pole, aby zobaczyć szczegóły."
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Na planszy tylko przekątna od lewego górnego do prawego dolnego rogu to cele społecznościowe (ze wspólnym postępem całego serwera); pozostałe pola to cele osobiste. Odliczanie pokazywane jest tylko dla „nie rozpoczęto\" i „w toku\", automatycznie przełącza się po upływie czasu; zakończone wydarzenia nie odliczają. Kliknij dowolne pole, aby zobaczyć szczegóły.",
+      "已满级": "Osiągnięto maksimum",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Cały serwer {progress} · Osiągnięto maksimum ({reached}/{total} poziomów)"
     },
     "cs": {
       "Hypixel SkyBlock API 变更监控台": "Monitor změn Hypixel SkyBlock API",
@@ -2633,7 +2683,9 @@
       "个人任务": "Osobní cíl",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Data pocházejí z <code>/v2/skyblock/firesales</code>. Zatím nejsou žádná data o výprodejích — spusťte jednou <code>cargo run --release --bin tracker-build</code>.",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Data pocházejí z <code>/v2/resources/skyblock/bingo</code>. Zatím nejsou data Bingo — spusťte jednou <code>cargo run --release --bin tracker-build</code>.",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Na desce je diagonála z levého horního do pravého dolního rohu tvořena komunitními cíli (s postupem sdíleným celým serverem); ostatní pole jsou osobní cíle. Odpočet se zobrazuje jen pro „nezačato\" a „probíhá\", po vypršení času se automaticky přepne; ukončené akce se neodpočítávají. Klepnutím na libovolné pole zobrazíte podrobnosti."
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Na desce je diagonála z levého horního do pravého dolního rohu tvořena komunitními cíli (s postupem sdíleným celým serverem); ostatní pole jsou osobní cíle. Odpočet se zobrazuje jen pro „nezačato\" a „probíhá\", po vypršení času se automaticky přepne; ukončené akce se neodpočítávají. Klepnutím na libovolné pole zobrazíte podrobnosti.",
+      "已满级": "Dosaženo maxima",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Celý server {progress} · Dosaženo maxima ({reached}/{total} úrovní)"
     },
     "hu": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API változásfigyelő",
@@ -2733,7 +2785,9 @@
       "个人任务": "Személyes cél",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Az adatok a <code>/v2/skyblock/firesales</code> végpontról származnak. Még nincsenek akcióadatok — futtasd egyszer a <code>cargo run --release --bin tracker-build</code> szkriptet.",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Az adatok a <code>/v2/resources/skyblock/bingo</code> végpontról származnak. Még nincsenek Bingo-adatok — futtasd egyszer a <code>cargo run --release --bin tracker-build</code> szkriptet.",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "A táblán csak a bal felsőtől a jobb alsóig futó átló közösségi cél (szerverszinten megosztott haladással); a többi mező személyes cél. A visszaszámlálás csak a „nem kezdődött el\" és „folyamatban\" állapotoknál jelenik meg, lejáratkor automatikusan átvált; a befejezett események nem számolnak tovább. Kattints bármely mezőre a részletekért."
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "A táblán csak a bal felsőtől a jobb alsóig futó átló közösségi cél (szerverszinten megosztott haladással); a többi mező személyes cél. A visszaszámlálás csak a „nem kezdődött el\" és „folyamatban\" állapotoknál jelenik meg, lejáratkor automatikusan átvált; a befejezett események nem számolnak tovább. Kattints bármely mezőre a részletekért.",
+      "已满级": "Maximum elérve",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Teljes szerver {progress} · Maximum elérve ({reached}/{total} szint)"
     },
     "ro": {
       "Hypixel SkyBlock API 变更监控台": "Monitor de modificări Hypixel SkyBlock API",
@@ -2833,7 +2887,9 @@
       "个人任务": "Obiectiv personal",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Datele provin de la <code>/v2/skyblock/firesales</code>. Nu există încă date despre reduceri — rulează o dată <code>cargo run --release --bin tracker-build</code>.",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Datele provin de la <code>/v2/resources/skyblock/bingo</code>. Nu există încă date Bingo — rulează o dată <code>cargo run --release --bin tracker-build</code>.",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Pe tablă, doar diagonala din stânga sus în dreapta jos este formată din obiective comunitare (cu progres partajat la nivel de server); restul celulelor sunt obiective personale. Numărătoarea inversă se afișează doar pentru „neînceput\" și „în desfășurare\", comutând automat la expirare; evenimentele încheiate nu mai numără invers. Dați clic pe orice celulă pentru detalii."
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Pe tablă, doar diagonala din stânga sus în dreapta jos este formată din obiective comunitare (cu progres partajat la nivel de server); restul celulelor sunt obiective personale. Numărătoarea inversă se afișează doar pentru „neînceput\" și „în desfășurare\", comutând automat la expirare; evenimentele încheiate nu mai numără invers. Dați clic pe orice celulă pentru detalii.",
+      "已满级": "Nivel maxim atins",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Întregul server {progress} · Nivel maxim atins ({reached}/{total} niveluri)"
     },
     "el": {
       "Hypixel SkyBlock API 变更监控台": "Εποπτικός οθόνη αλλαγών Hypixel SkyBlock API",
@@ -2933,7 +2989,9 @@
       "个人任务": "Προσωπικός στόχος",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Τα δεδομένα προέρχονται από το <code>/v2/skyblock/firesales</code>. Δεν υπάρχουν ακόμη δεδομένα προσφορών — εκτελέστε μία φορά το <code>cargo run --release --bin tracker-build</code>.",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Τα δεδομένα προέρχονται από το <code>/v2/resources/skyblock/bingo</code>. Δεν υπάρχουν ακόμη δεδομένα Bingo — εκτελέστε μία φορά το <code>cargo run --release --bin tracker-build</code>.",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Στον πίνακα, μόνο η διαγώνιος από πάνω αριστερά προς κάτω δεξιά αποτελείται από κοινοτικούς στόχους (με κοινή πρόοδο σε όλο τον διακομιστή); τα υπόλοιπα κελιά είναι προσωπικοί στόχοι. Η αντίστροφη μέτρηση εμφανίζεται μόνο για «δεν ξεκίνησε» και «σε εξέλιξη», αλλάζει αυτόματα τη λήξη· οι ολοκληρωμένες εκδηλώσεις δεν μετρούν αντίστροφα. Κάντε κλικ σε οποιοδήποτε κελί για λεπτομέρειες."
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Στον πίνακα, μόνο η διαγώνιος από πάνω αριστερά προς κάτω δεξιά αποτελείται από κοινοτικούς στόχους (με κοινή πρόοδο σε όλο τον διακομιστή); τα υπόλοιπα κελιά είναι προσωπικοί στόχοι. Η αντίστροφη μέτρηση εμφανίζεται μόνο για «δεν ξεκίνησε» και «σε εξέλιξη», αλλάζει αυτόματα τη λήξη· οι ολοκληρωμένες εκδηλώσεις δεν μετρούν αντίστροφα. Κάντε κλικ σε οποιοδήποτε κελί για λεπτομέρειες.",
+      "已满级": "Μέγιστο",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Όλος ο διακομιστής {progress} · Μέγιστο ({reached}/{total} βαθμίδες)"
     },
     "sv": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API-ändringsövervakare",
@@ -3033,7 +3091,9 @@
       "个人任务": "Personligt mål",
       "数据来自 <code>/v2/skyblock/firesales</code>。当前还没有特卖数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Data kommer från <code>/v2/skyblock/firesales</code>. Ingen rea-data ännu — kör <code>cargo run --release --bin tracker-build</code> en gång för att skapa.",
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Data kommer från <code>/v2/resources/skyblock/bingo</code>. Ingen Bingo-data ännu — kör <code>cargo run --release --bin tracker-build</code> en gång för att skapa.",
-      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "På brädet är endast diagonalen från övre vänstra till nedre högra hörnet communitymål (med serveromfattande delad utveckling); övriga rutor är personliga mål. Nedräkningen visas bara för \"ej påbörjad\" och \"pågående\", växlar automatiskt när tiden går ut; avslutade evenemang räknas inte ner. Klicka på valfri ruta för detaljer."
+      "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "På brädet är endast diagonalen från övre vänstra till nedre högra hörnet communitymål (med serveromfattande delad utveckling); övriga rutor är personliga mål. Nedräkningen visas bara för \"ej påbörjad\" och \"pågående\", växlar automatiskt när tiden går ut; avslutade evenemang räknas inte ner. Klicka på valfri ruta för detaljer.",
+      "已满级": "Maxat",
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Hela servern {progress} · Maxat ({reached}/{total} nivåer)"
     }
   }
 }

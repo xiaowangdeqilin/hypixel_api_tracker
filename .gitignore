@@ -3,3 +3,4 @@ data/server/
 *.json.tmp
 *.tmp
 __pycache__/
+core.[0-9]*

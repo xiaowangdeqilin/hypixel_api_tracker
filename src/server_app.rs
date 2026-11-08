@@ -511,7 +511,21 @@ fn render_index(query: &str, cookie_lang: Option<&str>) -> String {
                     .unwrap_or_default();
                 gobj.insert("percent_str".into(), Value::String(percent_str));
                 gobj.insert("index_str".into(), Value::String(format!("{:02}", idx + 1)));
+                let is_maxed = p
+                    .as_ref()
+                    .and_then(|p| p.get("is_maxed"))
+                    .and_then(|v| v.as_bool())
+                    .unwrap_or(false);
                 let progress_attr = match &p {
+                    Some(p) if is_maxed => i18n::translate(
+                        &lang,
+                        "全服 {progress} · 已满级（{reached}/{total} 档）",
+                        Some(&param_map([
+                            ("progress", p.get("progress_text").and_then(|v| v.as_str()).unwrap_or("")),
+                            ("reached", &p.get("reached").map(|v| v.to_string()).unwrap_or_default()),
+                            ("total", &p.get("total").map(|v| v.to_string()).unwrap_or_default()),
+                        ])),
+                    ),
                     Some(p) => i18n::translate(
                         &lang,
                         "全服 {progress} / {top} · 已达成 {reached}/{total} 档",
@@ -536,6 +550,14 @@ fn render_index(query: &str, cookie_lang: Option<&str>) -> String {
                     ),
                 );
                 let foot = match &p {
+                    // 满级后进度条到 100% 即止，文案也不再显示"超出满级"的数字
+                    Some(p) if is_maxed => format!(
+                        "{} · {}/{} {}",
+                        i18n::translate(&lang, "已满级", None),
+                        p.get("reached").map(|v| v.to_string()).unwrap_or_default(),
+                        p.get("total").map(|v| v.to_string()).unwrap_or_default(),
+                        i18n::translate(&lang, "档", None)
+                    ),
                     Some(p) => format!(
                         "{} / {} · {}/{} {}",
                         p.get("progress_text").and_then(|v| v.as_str()).unwrap_or(""),

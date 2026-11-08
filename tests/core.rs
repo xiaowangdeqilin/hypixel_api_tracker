@@ -157,3 +157,23 @@ fn append_changes_has_no_count_cap() {
     assert_eq!(existing.len(), 601);
     assert_eq!(existing[0]["path"], json!("new"));
 }
+
+#[test]
+fn bingo_goal_progress_caps_at_max_tier() {
+    use hypixel_tracker::bingo::goal_progress;
+    // 5 档满级：progress 超出最高档时，展示值封顶、百分比 100%、标记满级
+    let goal = json!({"tiers": [10, 20, 30, 40, 50], "progress": 999});
+    let p = goal_progress(&goal).unwrap();
+    assert_eq!(p["is_maxed"], json!(true));
+    assert_eq!(p["percent"], json!(100.0));
+    assert_eq!(p["progress_text"], json!("50"));
+    assert_eq!(p["reached"], json!(5));
+    assert_eq!(p["total"], json!(5));
+
+    // 未满级不受影响
+    let goal2 = json!({"tiers": [10, 20, 30], "progress": 15});
+    let p2 = goal_progress(&goal2).unwrap();
+    assert_eq!(p2["is_maxed"], json!(false));
+    assert_eq!(p2["progress_text"], json!("15"));
+    assert_eq!(p2["reached"], json!(1));
+}
