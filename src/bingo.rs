@@ -245,7 +245,10 @@ pub fn bingo_view(payload: &Value, generated_at: &str, previous: Option<&Value>)
         }
     }
 
-    for goal in goals.iter_mut() {
+    // 社区/个人任务识别：5×5 棋盘上只有左上→右下对角线（第 r 行第 r 列）是社区任务，
+    // 其余均为个人任务。任务数量不是 25 时退回「带档位（tiers）即为社区任务」的旧规则。
+    let board_mode = goals.len() == 25;
+    for (idx, goal) in goals.iter_mut().enumerate() {
         // 先做只读计算，再取可变借用（避免借用冲突）
         let progress = goal_progress(goal);
         let lore_lines: Vec<String> = match goal.get("fullLore").and_then(|l| l.as_array()) {
@@ -260,7 +263,14 @@ pub fn bingo_view(payload: &Value, generated_at: &str, previous: Option<&Value>)
                 .unwrap_or_default(),
         };
         let requirement = requirement_text(goal);
+        // 社区/个人任务识别（board_mode 已在循环前计算，避免借用冲突）
+        let is_community = if board_mode {
+            idx / 5 == idx % 5
+        } else {
+            goal.get("tiers").and_then(|t| t.as_array()).is_some_and(|t| !t.is_empty())
+        };
         let Some(gobj) = goal.as_object_mut() else { continue };
+        gobj.insert("is_community".into(), Value::Bool(is_community));
         match progress {
             Some(p) => {
                 gobj.insert("progress_info".into(), p);

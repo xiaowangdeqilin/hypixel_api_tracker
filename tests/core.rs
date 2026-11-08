@@ -99,3 +99,42 @@ fn retention_prunes_unparseable_time() {
     let kept = filter_recent(records, "time");
     assert_eq!(kept.len(), 1);
 }
+
+#[test]
+fn bingo_view_marks_diagonal_as_community() {
+    use hypixel_tracker::bingo::bingo_view;
+    let goals: Vec<serde_json::Value> = (0..25)
+        .map(|i| {
+            let mut g = json!({"id": format!("g{}", i), "name": format!("G{}", i), "lore": "l"});
+            if i % 6 == 0 {
+                g["tiers"] = json!([10, 20]);
+                g["progress"] = json!(15);
+            } else {
+                g["requiredAmount"] = json!(5);
+            }
+            g
+        })
+        .collect();
+    let payload = json!({
+        "id": 60, "name": "B",
+        "start": 1762147200000i64, "end": 1762233600000i64,
+        "goals": goals,
+    });
+    let view = bingo_view(&payload, "2026-11-08 12:00:00", None);
+    let out = view["goals"].as_array().unwrap();
+    assert_eq!(out.len(), 25);
+    for (i, g) in out.iter().enumerate() {
+        let expect = i / 5 == i % 5; // 左上→右下对角线
+        assert_eq!(g["is_community"].as_bool().unwrap(), expect, "idx {}", i);
+    }
+    // 非棋盘数量时退回档位规则
+    let payload2 = json!({"id": 61, "name": "C", "start": 1762147200000i64, "end": 1762233600000i64,
+        "goals": [
+            {"id": "a", "name": "A", "tiers": [1], "progress": 1},
+            {"id": "b", "name": "B", "requiredAmount": 2},
+        ]});
+    let view2 = bingo_view(&payload2, "2026-11-08 12:00:00", None);
+    let out2 = view2["goals"].as_array().unwrap();
+    assert_eq!(out2[0]["is_community"].as_bool().unwrap(), true);
+    assert_eq!(out2[1]["is_community"].as_bool().unwrap(), false);
+}

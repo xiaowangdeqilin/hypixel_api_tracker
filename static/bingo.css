@@ -202,6 +202,25 @@
   flex: 0 0 auto;
 }
 
+
+/* 社区/个人任务徽章（对角线为社区任务） */
+.bingo-cell-kind {
+  flex: 0 0 auto;
+  padding: 1px 6px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--bingo-muted);
+  background: transparent;
+  border: 1px dashed var(--bingo-line);
+}
+
+.bingo-cell-kind.is-community {
+  color: var(--bingo-accent, #2563eb);
+  background: var(--bingo-bg-soft);
+  border-style: solid;
+}
+
 .bingo-cell-badge {
   flex: 0 0 auto;
   padding: 1px 6px;

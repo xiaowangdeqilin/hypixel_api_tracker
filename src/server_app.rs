@@ -552,6 +552,17 @@ fn render_index(query: &str, cookie_lang: Option<&str>) -> String {
                     None => i18n::translate(&lang, "无目标数值", None),
                 };
                 gobj.insert("foot_text".into(), Value::String(foot));
+                // 社区/个人任务标签（对角线规则，见 bingo_view）
+                let kind_label = if gobj
+                    .get("is_community")
+                    .and_then(|v| v.as_bool())
+                    .unwrap_or(false)
+                {
+                    i18n::translate(&lang, "社区任务", None)
+                } else {
+                    i18n::translate(&lang, "个人任务", None)
+                };
+                gobj.insert("kind_label_t".into(), Value::String(kind_label));
             }
         }
     }

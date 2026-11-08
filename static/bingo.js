@@ -127,6 +127,7 @@
   var dlgProgress = dialog.querySelector('[data-dialog-progress]');
   var dlgPercent = dialog.querySelector('[data-dialog-percent]');
   var dlgId = dialog.querySelector('[data-dialog-id]');
+  var dlgKind = dialog.querySelector('[data-dialog-kind]');
 
   function openDialog(cell) {
     if (dlgIndex) dlgIndex.textContent = cell.dataset.index || '';
@@ -135,6 +136,7 @@
     if (dlgProgress) dlgProgress.textContent = cell.dataset.progress || T('暂无全服进度');
     if (dlgPercent) dlgPercent.textContent = cell.dataset.percent ? cell.dataset.percent + '%' : '—';
     if (dlgId) dlgId.textContent = cell.dataset.goalId || '';
+    if (dlgKind) dlgKind.textContent = cell.dataset.kindLabel || '—';
 
     if (dlgLore) {
       var lore = cell.querySelector('.bingo-cell-lore');

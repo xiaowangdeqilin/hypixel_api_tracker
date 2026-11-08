@@ -2,7 +2,7 @@
   "end": "2026-11-08 12:00:00",
   "end_ms": 1794110400000,
   "first_seen": "2026-11-07 18:49:18",
-  "generated_at": "2026-11-08 16:09:34",
+  "generated_at": "2026-11-08 16:17:55",
   "goal_count": 25,
   "goals": [
     {
@@ -10,6 +10,7 @@
         "§7Break §e10M Ore§7 Blocks."
       ],
       "id": "break_block_ores",
+      "is_community": true,
       "lore": "§7Break §e10M Ore§7 Blocks.",
       "lore_lines": [
         "§7Break §e10M Ore§7 Blocks."
@@ -40,6 +41,7 @@
         "§7Reach §3Bestiary §7Milestone 3§7."
       ],
       "id": "bestiary_level_3",
+      "is_community": false,
       "lore": "§7Reach §3Bestiary §7Milestone 3§7.",
       "lore_lines": [
         "§7Reach §3Bestiary §7Milestone 3§7."
@@ -53,6 +55,7 @@
         "§7Reach §a72,500 §7Gold Ingot Collection."
       ],
       "id": "collection_gold_ingot",
+      "is_community": false,
       "lore": "§7Reach §a72,500 §7Gold Ingot Collection.",
       "lore_lines": [
         "§7Reach §a72,500 §7Gold Ingot Collection."
@@ -66,6 +69,7 @@
         "§7Unlock a §fWood§7 Dungeon Chest."
       ],
       "id": "UNLOCK_DUNGEON_CHEST_WOOD",
+      "is_community": false,
       "lore": "§7Unlock a §fWood§7 Dungeon Chest.",
       "lore_lines": [
         "§7Unlock a §fWood§7 Dungeon Chest."
@@ -78,6 +82,7 @@
         "§7Reach a non-cosmetic Skill Average of §a17§7."
       ],
       "id": "skill_average",
+      "is_community": false,
       "lore": "§7Reach a non-cosmetic Skill Average of §a17§7.",
       "lore_lines": [
         "§7Reach a non-cosmetic Skill Average of §a17§7."
@@ -91,6 +96,7 @@
         "§7Obtain level §e10§7 in the §6Foraging §7Skill."
       ],
       "id": "GET_SKILL_foraging_10",
+      "is_community": false,
       "lore": "§7Obtain level §e10§7 in the §6Foraging §7Skill.",
       "lore_lines": [
         "§7Obtain level §e10§7 in the §6Foraging §7Skill."
@@ -103,6 +109,7 @@
         "§7Summon §a100k §3Sea Creatures§7."
       ],
       "id": "summon_sea_creatures",
+      "is_community": true,
       "lore": "§7Summon §a100k §3Sea Creatures§7.",
       "lore_lines": [
         "§7Summon §a100k §3Sea Creatures§7."
@@ -133,6 +140,7 @@
         "§7Reach §a800 §7Lily Pad Collection."
       ],
       "id": "collection_water_lily",
+      "is_community": false,
       "lore": "§7Reach §a800 §7Lily Pad Collection.",
       "lore_lines": [
         "§7Reach §a800 §7Lily Pad Collection."
@@ -146,6 +154,7 @@
         "§7Brew any level IV or higher potion."
       ],
       "id": "brew_potion_level",
+      "is_community": false,
       "lore": "§7Brew any level IV or higher potion.",
       "lore_lines": [
         "§7Brew any level IV or higher potion."
@@ -158,6 +167,7 @@
         "§7Obtain a score of §6270§7 or higher on §cFloor 1§7 of §cCatacombs§7."
       ],
       "id": "DUNGEON_CATACOMBS_1_270",
+      "is_community": false,
       "lore": "§7Obtain a score of §6270§7 or higher on §cFloor 1§7 of §cCatacombs§7.",
       "lore_lines": [
         "§7Obtain a score of §6270§7 or higher on §cFloor 1§7 of §cCatacombs§7."
@@ -170,6 +180,7 @@
         "§7Craft an §9Aspect of the End§7."
       ],
       "id": "craft_item_aspect_of_the_end",
+      "is_community": false,
       "lore": "§7Craft an §9Aspect of the End§7.",
       "lore_lines": [
         "§7Craft an §9Aspect of the End§7."
@@ -182,6 +193,7 @@
         "§7Reach §9100% §9 Crit Damage§7."
       ],
       "id": "stat_critical_damage",
+      "is_community": false,
       "lore": "§7Reach §9100% §9 Crit Damage§7.",
       "lore_lines": [
         "§7Reach §9100% §9 Crit Damage§7."
@@ -195,6 +207,7 @@
         "§7Gain §b750M Mining§7 experience"
       ],
       "id": "collect_exp_mining",
+      "is_community": true,
       "lore": "§7Gain §b750M Mining§7 experience",
       "lore_lines": [
         "§7Gain §b750M Mining§7 experience"
@@ -225,6 +238,7 @@
         "§7Reach §a185,000 §7Cocoa Beans Collection."
       ],
       "id": "collection_ink_sack:3",
+      "is_community": false,
       "lore": "§7Reach §a185,000 §7Cocoa Beans Collection.",
       "lore_lines": [
         "§7Reach §a185,000 §7Cocoa Beans Collection."
@@ -238,6 +252,7 @@
         "§7Kill a §5Runic §7Mob."
       ],
       "id": "kill_runic_mob",
+      "is_community": false,
       "lore": "§7Kill a §5Runic §7Mob.",
       "lore_lines": [
         "§7Kill a §5Runic §7Mob."
@@ -250,6 +265,7 @@
         "§7Craft a §aPiggy Bank§7."
       ],
       "id": "craft_item_piggy_bank",
+      "is_community": false,
       "lore": "§7Craft a §aPiggy Bank§7.",
       "lore_lines": [
         "§7Craft a §aPiggy Bank§7."
@@ -262,6 +278,7 @@
         "§7Reach §c1,000 §c Health§7."
       ],
       "id": "stat_health",
+      "is_community": false,
       "lore": "§7Reach §c1,000 §c Health§7.",
       "lore_lines": [
         "§7Reach §c1,000 §c Health§7."
@@ -275,6 +292,7 @@
         "§7Obtain §d25 Fairy Souls§7."
       ],
       "id": "fairy_souls",
+      "is_community": false,
       "lore": "§7Obtain §d25 Fairy Souls§7.",
       "lore_lines": [
         "§7Obtain §d25 Fairy Souls§7."
@@ -288,6 +306,7 @@
         "§7Loot §e250k §7drops with a chance of §e1% §7or lower"
       ],
       "id": "loot_drop",
+      "is_community": true,
       "lore": "§7Loot §e250k §7drops with a chance of §e1% §7or lower",
       "lore_lines": [
         "§7Loot §e250k §7drops with a chance of §e1% §7or lower"
@@ -318,6 +337,7 @@
         "§7Find §93 Pairs §7in the §9Experimentation Table§7."
       ],
       "id": "FIND_EXPERIMENT_PAIRS_3",
+      "is_community": false,
       "lore": "§7Find §93 Pairs §7in the §9Experimentation Table§7.",
       "lore_lines": [
         "§7Find §93 Pairs §7in the §9Experimentation Table§7."
@@ -331,6 +351,7 @@
         "§7Obtain a §aGrand Experience Bottle§7."
       ],
       "id": "obtain_item_grand_exp_bottle",
+      "is_community": false,
       "lore": "§7Obtain a §aGrand Experience Bottle§7.",
       "lore_lines": [
         "§7Obtain a §aGrand Experience Bottle§7."
@@ -343,6 +364,7 @@
         "§7Obtain a §9Lynx Talisman§7."
       ],
       "id": "obtain_item_lynx_talisman",
+      "is_community": false,
       "lore": "§7Obtain a §9Lynx Talisman§7.",
       "lore_lines": [
         "§7Obtain a §9Lynx Talisman§7."
@@ -355,6 +377,7 @@
         "§7Help §6Fetchur§7 find his item."
       ],
       "id": "SOLVE_FETCHUR",
+      "is_community": false,
       "lore": "§7Help §6Fetchur§7 find his item.",
       "lore_lines": [
         "§7Help §6Fetchur§7 find his item."
@@ -367,6 +390,7 @@
         "§7Obtain §a100 §7unique Minions."
       ],
       "id": "craft_minions",
+      "is_community": false,
       "lore": "§7Obtain §a100 §7unique Minions.",
       "lore_lines": [
         "§7Obtain §a100 §7unique Minions."
@@ -380,6 +404,7 @@
         "§7Gain §55M Heart of the Mountain Experience§7."
       ],
       "id": "hotm_experience",
+      "is_community": true,
       "lore": "§7Gain §55M Heart of the Mountain Experience§7.",
       "lore_lines": [
         "§7Gain §55M Heart of the Mountain Experience§7."
@@ -409,7 +434,7 @@
   "id": 59,
   "modifier": "NORMAL",
   "name": "November 2026",
-  "published_at": "2026-11-08 16:06:05",
+  "published_at": "2026-11-08 16:16:05",
   "remaining": "-",
   "start": "2026-11-01 12:00:00",
   "start_ms": 1793505600000,

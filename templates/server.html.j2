@@ -173,11 +173,13 @@
             <button type="button" class="bingo-cell" data-bingo-cell
                     data-index="{{ goal.index_str }}"
                     data-goal-id="{{ goal.id }}"
+                    data-kind-label="{{ goal.kind_label_t | default(value='') }}"
                     data-requirement="{{ goal.requirement_attr }}"
                     data-progress="{{ goal.progress_attr }}"
                     data-percent="{{ goal.percent_str }}">
               <span class="bingo-cell-top">
                 <span class="bingo-index">{{ goal.index_str }}</span>
+                <span class="bingo-cell-kind{% if goal.is_community | default(value=false) %} is-community{% endif %}">{{ goal.kind_label_t | default(value='') }}</span>
                 <span class="bingo-cell-badge{% if goal.is_done %} is-done{% endif %}">{% if p %}<span dir="ltr">{{ goal.percent_str }}%</span>{% else %}—{% endif %}</span>
               </span>
               <span class="bingo-cell-name">{{ goal.name }}</span>
@@ -206,6 +208,7 @@
             </div>
             <div class="bingo-dialog-lore" data-dialog-lore></div>
             <div class="bingo-dialog-facts">
+              <div><span class="k">{{ t['类型'] }}</span><span class="v" data-dialog-kind></span></div>
               <div><span class="k">{{ t['目标'] }}</span><span class="v" data-dialog-requirement></span></div>
               <div><span class="k">{{ t['全服进度'] }}</span><span class="v" data-dialog-progress></span></div>
               <div><span class="k">{{ t['完成度'] }}</span><span class="v" data-dialog-percent></span></div>

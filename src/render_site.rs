@@ -306,8 +306,7 @@ fn render_bingo_goal(goal: &Value, index: usize) -> String {
         ""
     };
 
-    let (badge_text, progress_attr, foot_html) = if !progress.is_null() {
-        let progress_text = progress.get("progress_text").and_then(|v| v.as_str()).unwrap_or("");
+    let (badge_text, progress_attr, foot_html) = if !progress.is_null() {        let progress_text = progress.get("progress_text").and_then(|v| v.as_str()).unwrap_or("");
         let top_text = progress.get("top_text").and_then(|v| v.as_str()).unwrap_or("");
         let reached = progress.get("reached").map(|v| v.to_string()).unwrap_or_default();
         let total = progress.get("total").map(|v| v.to_string()).unwrap_or_default();
@@ -340,10 +339,20 @@ fn render_bingo_goal(goal: &Value, index: usize) -> String {
         )
     };
 
+    // 社区/个人任务徽章（对角线规则，见 bingo_view；无标记时按档位兜底）
+    let is_community = gobj
+        .get("is_community")
+        .and_then(|v| v.as_bool())
+        .unwrap_or_else(|| {
+            gobj.get("tiers").and_then(|t| t.as_array()).is_some_and(|t| !t.is_empty())
+        });
+    let kind_label = if is_community { "社区任务" } else { "个人任务" };
+
     format!(
         "<button type=\"button\" class=\"bingo-cell\" data-bingo-cell data-index=\"{index:02}\" \
-         data-goal-id=\"{gid}\" data-requirement=\"{}\" data-progress=\"{}\" data-percent=\"{percent_text}\">\
+         data-goal-id=\"{gid}\" data-kind-label=\"{kind_label}\" data-requirement=\"{}\" data-progress=\"{}\" data-percent=\"{percent_text}\">\
            <span class=\"bingo-cell-top\"><span class=\"bingo-index\">{index:02}</span>\
+           <span class=\"bingo-cell-kind{}\">{kind_label}</span>\
            <span class=\"bingo-cell-badge{badge_attr}\">{badge_text}</span></span>\
            <span class=\"bingo-cell-name\">{name}</span>\
            <span class=\"bingo-cell-lore\">{lore_html}</span>\
@@ -351,6 +360,7 @@ fn render_bingo_goal(goal: &Value, index: usize) -> String {
          </button>",
         escape_html(&requirement),
         escape_html(&progress_attr),
+        if is_community { " is-community" } else { "" },
     )
 }
 
