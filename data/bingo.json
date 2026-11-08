@@ -2,7 +2,7 @@
   "end": "2026-11-08 12:00:00",
   "end_ms": 1794110400000,
   "first_seen": "2026-11-07 18:49:18",
-  "generated_at": "2026-11-08 16:01:36",
+  "generated_at": "2026-11-08 16:09:34",
   "goal_count": 25,
   "goals": [
     {
@@ -409,7 +409,7 @@
   "id": 59,
   "modifier": "NORMAL",
   "name": "November 2026",
-  "published_at": "2026-11-08 16:01:05",
+  "published_at": "2026-11-08 16:06:05",
   "remaining": "-",
   "start": "2026-11-01 12:00:00",
   "start_ms": 1793505600000,
