@@ -2,7 +2,7 @@
   "end": "2026-11-08 12:00:00",
   "end_ms": 1794110400000,
   "first_seen": "2026-11-07 18:49:18",
-  "generated_at": "2026-11-08 17:00:13",
+  "generated_at": "2026-11-08 17:35:48",
   "goal_count": 25,
   "goals": [
     {
@@ -16,11 +16,11 @@
         "§7Break §e10M Ore§7 Blocks."
       ],
       "name": "Operation: Ore",
-      "progress": 30339485,
+      "progress": 30244793,
       "progress_info": {
         "is_maxed": true,
         "percent": 100.0,
-        "progress": 30339485.0,
+        "progress": 30244793.0,
         "progress_text": "10M",
         "ratio": 1.0,
         "reached": 5,
@@ -116,11 +116,11 @@
         "§7Summon §a100k §3Sea Creatures§7."
       ],
       "name": "Poseidon",
-      "progress": 328110,
+      "progress": 326745,
       "progress_info": {
         "is_maxed": true,
         "percent": 100.0,
-        "progress": 328110.0,
+        "progress": 326745.0,
         "progress_text": "100K",
         "ratio": 1.0,
         "reached": 5,
@@ -215,11 +215,11 @@
         "§7Gain §b750M Mining§7 experience"
       ],
       "name": "Skilled",
-      "progress": 4853552636,
+      "progress": 4838678838,
       "progress_info": {
         "is_maxed": true,
         "percent": 100.0,
-        "progress": 4853552636.0,
+        "progress": 4838678838.0,
         "progress_text": "750M",
         "ratio": 1.0,
         "reached": 5,
@@ -315,11 +315,11 @@
         "§7Loot §e250k §7drops with a chance of §e1% §7or lower"
       ],
       "name": "Lucky Looter",
-      "progress": 896916,
+      "progress": 894937,
       "progress_info": {
         "is_maxed": true,
         "percent": 100.0,
-        "progress": 896916.0,
+        "progress": 894937.0,
         "progress_text": "250K",
         "ratio": 1.0,
         "reached": 5,
@@ -414,11 +414,11 @@
         "§7Gain §55M Heart of the Mountain Experience§7."
       ],
       "name": "Cave Commodity",
-      "progress": 78611883,
+      "progress": 78450943,
       "progress_info": {
         "is_maxed": true,
         "percent": 100.0,
-        "progress": 78611883.0,
+        "progress": 78450943.0,
         "progress_text": "5M",
         "ratio": 1.0,
         "reached": 5,
@@ -439,7 +439,7 @@
   "id": 59,
   "modifier": "NORMAL",
   "name": "November 2026",
-  "published_at": "2026-11-08 16:56:05",
+  "published_at": "2026-11-08 17:31:05",
   "remaining": "-",
   "start": "2026-11-01 12:00:00",
   "start_ms": 1793505600000,
