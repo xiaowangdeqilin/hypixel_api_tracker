@@ -177,3 +177,88 @@ fn bingo_goal_progress_caps_at_max_tier() {
     assert_eq!(p2["progress_text"], json!("15"));
     assert_eq!(p2["reached"], json!(1));
 }
+
+#[test]
+fn secret_bingo_unlocks_hints_by_time() {
+    use hypixel_tracker::secret_bingo;
+    // 4 条提示打乱顺序给出：按时间排序后取前 3 条（每个任务固定 3 条），
+    // now = 2026-01-06 12:00（北京时间）时只有第一条已解锁。
+    let raw = json!({
+        "event_id": 59,
+        "goals": [{
+            "id": "s1",
+            "name": "测试秘密任务",
+            "hints": [
+                {"text": "第三条", "reveal_at": "2026-01-07 20:00:00"},
+                {"text": "第一条", "reveal_at": "2026-01-05 20:00:00"},
+                {"text": "第二条", "reveal_at": "2026-01-06 20:00:00"},
+                {"text": "多余的第四条", "reveal_at": "2026-01-08 20:00:00"}
+            ]
+        }]
+    });
+    let now = to_epoch_ms(&json!("2026-01-06 12:00:00")).unwrap();
+    let view = secret_bingo::view(&raw, now);
+    assert_eq!(view["configured"], json!(true));
+    assert_eq!(view["hints_per_goal"], json!(3));
+    let goals = view["goals"].as_array().unwrap();
+    assert_eq!(goals.len(), 1);
+    let hints = goals[0]["hints"].as_array().unwrap();
+    assert_eq!(hints.len(), 3);
+    // 依次给出：按解锁时间升序
+    assert_eq!(hints[0]["text"], json!("第一条"));
+    assert_eq!(hints[1]["text"], json!("第二条"));
+    assert_eq!(hints[2]["text"], json!("第三条"));
+    assert_eq!(hints[0]["unlocked"], json!(true));
+    assert_eq!(hints[1]["unlocked"], json!(false));
+    assert_eq!(hints[2]["unlocked"], json!(false));
+    assert_eq!(goals[0]["unlocked_count"], json!(1));
+    assert_eq!(goals[0]["total_hints"], json!(3));
+    assert!(goals[0]["next_reveal_ms"].as_i64().is_some());
+}
+
+#[test]
+fn secret_bingo_pads_missing_hints() {
+    use hypixel_tracker::secret_bingo;
+    // 配置不足 3 条时补空槽；没有 unlock 时间的提示视为立即可见
+    let raw = json!({"goals": [{"id": "a", "hints": [{"text": "唯一一条提示"}]}]});
+    let view = secret_bingo::view(&raw, 0);
+    let goal = &view["goals"][0];
+    let hints = goal["hints"].as_array().unwrap();
+    assert_eq!(hints.len(), 3);
+    assert_eq!(hints[0]["text"], json!("唯一一条提示"));
+    assert_eq!(hints[0]["unlocked"], json!(true));
+    assert_eq!(hints[1]["populated"], json!(false));
+    assert_eq!(goal["configured_hints"], json!(1));
+
+    // 空配置 → configured=false，渲染层显示预留位
+    let empty = secret_bingo::view(&json!({"goals": []}), 0);
+    assert_eq!(empty["configured"], json!(false));
+    assert_eq!(empty["goal_count"], json!(0));
+    let placeholder = secret_bingo::placeholder_view(3);
+    assert_eq!(placeholder["goals"].as_array().unwrap().len(), 3);
+    assert_eq!(placeholder["configured"], json!(false));
+}
+
+#[test]
+fn personal_goal_has_no_server_progress() {
+    use hypixel_tracker::bingo::{bingo_view, goal_progress};
+    // 个人任务（无 tiers）不应产出全服进度，页面因此不会渲染进度条与百分比
+    let goal = json!({"id": "p1", "name": "个人", "requiredAmount": 5});
+    assert!(goal_progress(&goal).is_none());
+    let payload = json!({
+        "id": 59, "name": "B",
+        "start": 1762147200000i64, "end": 1762233600000i64,
+        "goals": (0..25).map(|i| {
+            if i % 6 == 0 {
+                json!({"id": format!("c{}", i), "name": "C", "tiers": [10], "progress": 5})
+            } else {
+                json!({"id": format!("p{}", i), "name": "P", "requiredAmount": 3})
+            }
+        }).collect::<Vec<_>>(),
+    });
+    let view = bingo_view(&payload, "2026-11-08 12:00:00", None);
+    for (i, g) in view["goals"].as_array().unwrap().iter().enumerate() {
+        let has_progress = g.get("progress_info").is_some();
+        assert_eq!(has_progress, i % 6 == 0, "idx {}", i);
+    }
+}

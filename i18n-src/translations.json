@@ -135,7 +135,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Data comes from <code>/v2/resources/skyblock/bingo</code>. No Bingo data yet — run <code>cargo run --release --bin tracker-build</code> once to generate it.",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "On the board, only the top-left to bottom-right diagonal are community goals (with shared server-wide progress); all other cells are personal goals. Countdowns show only for upcoming/active events and auto-switch when time is up; ended events no longer count down. Click any cell for details.",
       "已满级": "Maxed",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "Server-wide {progress} · Maxed ({reached}/{total} tiers)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Server-wide {progress} · Maxed ({reached}/{total} tiers)",
+      "秘密 Bingo": "Secret Bingo",
+      "秘密任务": "Secret Goal",
+      "提示": "Hint",
+      "待解锁": "Locked",
+      "还有 {time} 解锁": "Unlocks in {time}",
+      "每个任务 3 条提示": "3 hints per goal",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Secret goal hints are revealed by the official schedule one by one; they unlock automatically at the given time, no page refresh needed.",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "No secret goal hints configured yet. Add goals and each hint's unlock time to data/secret_bingo.json to show them here."
     },
     "zh-TW": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API 變更監控台",
@@ -237,7 +245,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "資料來自 <code>/v2/resources/skyblock/bingo</code>。目前還沒有 Bingo 資料，先執行 <code>cargo run --release --bin tracker-build</code> 產生一次即可。",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "棋盤上從左上到右下的對角線是社區任務（有全服共享進度），其餘均為個人任務；只有「未開始」與「進行中」顯示倒數，到點自動切換，已結束不再計時。點擊任意格子查看完整詳情。",
       "已满级": "已滿級",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "全服 {progress} · 已滿級（{reached}/{total} 檔）"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "全服 {progress} · 已滿級（{reached}/{total} 檔）",
+      "秘密 Bingo": "秘密 Bingo",
+      "秘密任务": "秘密任務",
+      "提示": "提示",
+      "待解锁": "待解鎖",
+      "还有 {time} 解锁": "還有 {time} 解鎖",
+      "每个任务 3 条提示": "每個任務 3 條提示",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "秘密任務的提示由官方按時間依次公布，到點自動解鎖，無需重新整理頁面。",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "尚未設定秘密任務提示資料，把任務與每條提示的解鎖時間填入 data/secret_bingo.json 後即可顯示。"
     },
     "ja": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API 変更モニター",
@@ -339,7 +355,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "データは <code>/v2/resources/skyblock/bingo</code> から取得しています。Bingo データがまだありません。<code>cargo run --release --bin tracker-build</code> を一度実行して生成してください。",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "盤面で左上から右下への対角線はコミュニティ目標（全サーバー共有の進捗あり）、その他は個人目標です。カウントダウンは「未開始」と「進行中」のみ表示され、時点で自動切替、終了したら表示されません。セルをクリックすると詳細を表示します。",
       "已满级": "最大達成",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "全サーバー {progress} · 最大達成（{reached}/{total} 段階）"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "全サーバー {progress} · 最大達成（{reached}/{total} 段階）",
+      "秘密 Bingo": "シークレット Bingo",
+      "秘密任务": "シークレット目標",
+      "提示": "ヒント",
+      "待解锁": "未解除",
+      "还有 {time} 解锁": "あと {time} で解除",
+      "每个任务 3 条提示": "各タスク 3 ヒント",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "シークレット目標のヒントは公式が時間順に公開します。指定時刻になると自動で解除され、再読み込みは不要です。",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "シークレット目標のヒントはまだ設定されていません。data/secret_bingo.json にタスクと各ヒントの解除時刻を記入すると表示されます。"
     },
     "ko": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API 변경 모니터",
@@ -441,7 +465,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "데이터 출처: <code>/v2/resources/skyblock/bingo</code>. 아직 Bingo 데이터가 없습니다. <code>cargo run --release --bin tracker-build</code>를 한 번 실행해 생성하세요.",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "보드에서 왼쪽 위→오른쪽 아래 대각선은 커뮤니티 목표(전체 서버 공유 진행도)이며, 나머지는 개인 목표입니다. 카운트다운은 \"시작 전\"과 \"진행 중\"에만 표시되며 시간이 되면 자동으로 전환되고 종료된 이벤트는 표시되지 않습니다. 칸을 클릭하면 상세 정보를 볼 수 있습니다.",
       "已满级": "최대 달성",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "전체 서버 {progress} · 최대 달성 ({reached}/{total} 단계)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "전체 서버 {progress} · 최대 달성 ({reached}/{total} 단계)",
+      "秘密 Bingo": "시크릿 Bingo",
+      "秘密任务": "시크릿 목표",
+      "提示": "힌트",
+      "待解锁": "잠김",
+      "还有 {time} 解锁": "{time} 후 잠금 해제",
+      "每个任务 3 条提示": "각 목표 3개 힌트",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "시크릿 목표의 힌트는 공식 일정에 따라 순서대로 공개되며, 지정된 시간에 자동으로 잠금 해제되어 새로고침이 필요 없습니다.",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "시크릿 목표 힌트가 아직 설정되지 않았습니다. data/secret_bingo.json에 목표와 각 힌트의 잠금 해제 시간을 입력하면 표시됩니다."
     },
     "vi": {
       "Hypixel SkyBlock API 变更监控台": "Trình giám sát thay đổi Hypixel SkyBlock API",
@@ -543,7 +575,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Dữ liệu đến từ <code>/v2/resources/skyblock/bingo</code>. Chưa có dữ liệu Bingo — hãy chạy <code>cargo run --release --bin tracker-build</code> một lần để tạo.",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Trên bảng, chỉ đường chéo từ trên trái xuống dưới phải là mục tiêu cộng đồng (có tiến độ chung toàn server), các ô còn lại là mục tiêu cá nhân. Đếm ngược chỉ hiển thị với \"chưa bắt đầu\" và \"đang diễn ra\", tự chuyển khi hết giờ; sự kiện đã kết thúc không còn đếm ngược. Nhấp vào ô để xem chi tiết.",
       "已满级": "Đã đạt tối đa",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "Toàn server {progress} · Đã đạt tối đa ({reached}/{total} bậc)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Toàn server {progress} · Đã đạt tối đa ({reached}/{total} bậc)",
+      "秘密 Bingo": "Bingo Bí Mật",
+      "秘密任务": "Mục tiêu bí mật",
+      "提示": "Gợi ý",
+      "待解锁": "Chưa mở khóa",
+      "还有 {time} 解锁": "Mở khóa sau {time}",
+      "每个任务 3 条提示": "3 gợi ý mỗi mục tiêu",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Gợi ý của mục tiêu bí mật được công bố lần lượt theo lịch chính thức; đến giờ sẽ tự động mở khóa, không cần tải lại trang.",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Chưa cấu hình gợi ý cho mục tiêu bí mật. Hãy thêm mục tiêu và thời gian mở khóa của từng gợi ý vào data/secret_bingo.json để hiển thị."
     },
     "th": {
       "Hypixel SkyBlock API 变更监控台": "มอนิเตอร์การเปลี่ยนแปลง Hypixel SkyBlock API",
@@ -645,7 +685,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "ข้อมูลจาก <code>/v2/resources/skyblock/bingo</code> ยังไม่มีข้อมูล Bingo — รัน <code>cargo run --release --bin tracker-build</code> หนึ่งครั้งเพื่อสร้างข้อมูล",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "บนกระดาน มีเฉพาะแนวทแยงจากซ้ายบนไปขวาล่างเป็นเป้าหมายชุมชน (มีความคืบหน้ารวมของเซิร์ฟเวอร์) ส่วนที่เหลือเป็นเป้าหมายส่วนตัว นับถอยหลังเฉพาะ \"ยังไม่เริ่ม\" และ \"กำลังดำเนินการ\" เมื่อถึงเวลาจะสลับอัตโนมัติ งานที่จบแล้วไม่นับถอยหลัง คลิกช่องใดก็ได้เพื่อดูรายละเอียด",
       "已满级": "ถึงระดับสูงสุด",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "ทั้งเซิร์ฟเวอร์ {progress} · ถึงระดับสูงสุด ({reached}/{total} ขั้น)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "ทั้งเซิร์ฟเวอร์ {progress} · ถึงระดับสูงสุด ({reached}/{total} ขั้น)",
+      "秘密 Bingo": "Bingo ลับ",
+      "秘密任务": "เป้าหมายลับ",
+      "提示": "คำใบ้",
+      "待解锁": "ยังไม่ปลดล็อก",
+      "还有 {time} 解锁": "ปลดล็อกในอีก {time}",
+      "每个任务 3 条提示": "3 คำใบ้ต่อเป้าหมาย",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "คำใบ้ของเป้าหมายลับจะถูกเปิดเผยตามลำดับเวลาทางการ และจะปลดล็อกอัตโนมัติเมื่อถึงเวลา ไม่ต้องรีเฟรชหน้า",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "ยังไม่ได้ตั้งค่าคำใบ้ของเป้าหมายลับ เพิ่มเป้าหมายและเวลาปลดล็อกของแต่ละคำใบ้ใน data/secret_bingo.json เพื่อแสดงที่นี่"
     },
     "id": {
       "Hypixel SkyBlock API 变更监控台": "Monitor Perubahan Hypixel SkyBlock API",
@@ -747,7 +795,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Data berasal dari <code>/v2/resources/skyblock/bingo</code>. Belum ada data Bingo — jalankan <code>cargo run --release --bin tracker-build</code> sekali untuk membuatnya.",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Di papan, hanya diagonal kiri atas ke kanan bawah yang merupakan tujuan komunitas (dengan progres bersama seluruh server); sel lainnya adalah tujuan pribadi. Hitung mundur hanya ditampilkan untuk \"belum mulai\" dan \"sedang berlangsung\", berpindah otomatis saat waktunya habis; acara yang sudah berakhir tidak dihitung mundur. Klik sel mana pun untuk detail.",
       "已满级": "Maksimal",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "Seluruh server {progress} · Maksimal ({reached}/{total} tingkat)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Seluruh server {progress} · Maksimal ({reached}/{total} tingkat)",
+      "秘密 Bingo": "Bingo Rahasia",
+      "秘密任务": "Tujuan Rahasia",
+      "提示": "Petunjuk",
+      "待解锁": "Terkunci",
+      "还有 {time} 解锁": "Terbuka dalam {time}",
+      "每个任务 3 条提示": "3 petunjuk per tujuan",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Petunjuk tujuan rahasia diumumkan resmi secara berurutan; saat waktunya tiba akan terbuka otomatis tanpa perlu memuat ulang halaman.",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Petunjuk tujuan rahasia belum dikonfigurasi. Tambahkan tujuan dan waktu buka setiap petunjuk ke data/secret_bingo.json untuk menampilkannya."
     },
     "ms": {
       "Hypixel SkyBlock API 变更监控台": "Monitor Perubahan Hypixel SkyBlock API",
@@ -849,7 +905,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Data dari <code>/v2/resources/skyblock/bingo</code>. Belum ada data Bingo — jalankan <code>cargo run --release --bin tracker-build</code> sekali untuk menjananya.",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Di papan, hanya pepenjuru dari kiri atas ke kanan bawah ialah matlamat komuniti (dengan kemajuan bersama seluruh pelayan); sel lain ialah matlamat peribadi. Kiraan detik hanya ditunjukkan untuk \"belum bermula\" dan \"sedang berjalan\", bertukar automatik apabila masa habis; acara yang telah berakhir tidak lagi dikira detik. Klik mana-mana sel untuk butiran.",
       "已满级": "Maksimum",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "Seluruh pelayan {progress} · Maksimum ({reached}/{total} peringkat)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Seluruh pelayan {progress} · Maksimum ({reached}/{total} peringkat)",
+      "秘密 Bingo": "Bingo Rahsia",
+      "秘密任务": "Matlamat Rahsia",
+      "提示": "Petunjuk",
+      "待解锁": "Berkunci",
+      "还有 {time} 解锁": "Dibuka dalam {time}",
+      "每个任务 3 条提示": "3 petunjuk setiap matlamat",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Petunjuk matlamat rahsia diumumkan secara rasmi mengikut urutan masa; apabila tiba masanya akan terbuka automatik tanpa perlu muat semula halaman.",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Petunjuk matlamat rahsia belum dikonfigurasikan. Tambah matlamat dan masa buka setiap petunjuk dalam data/secret_bingo.json untuk memaparkannya."
     },
     "fil": {
       "Hypixel SkyBlock API 变更监控台": "Monitor ng mga Pagbabago ng Hypixel SkyBlock API",
@@ -951,7 +1015,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Galing ang data sa <code>/v2/resources/skyblock/bingo</code>. Wala pang Bingo data — patakbuhin ang <code>cargo run --release --bin tracker-build</code> nang isang beses para makabuo.",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Sa board, ang diagonal mula kaliwa-itaas hanggang kanan-ibaba lang ang community goal (may shared server-wide progress); ang iba pang cells ay personal na goals. Ang countdown ay ipinapakita lang para sa \"hindi pa nagsisimula\" at \"isinasagawa\", awtomatikong lumilipat kapag tapos na; ang mga tapos na ay hindi na bumibilang. I-click ang alinmang cell para sa detalye.",
       "已满级": "Naabot ang max",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "Buong server {progress} · Naabot ang max ({reached}/{total} tier)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Buong server {progress} · Naabot ang max ({reached}/{total} tier)",
+      "秘密 Bingo": "Secret Bingo",
+      "秘密任务": "Secret na Goal",
+      "提示": "Pahiwatig",
+      "待解锁": "Naka-lock",
+      "还有 {time} 解锁": "Mabubuksan sa {time}",
+      "每个任务 3 条提示": "3 pahiwatig bawat goal",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Ang mga pahiwatig ng secret goal ay inilalabas ng opisyal nang sunod-sunod ayon sa oras; awtomatikong mabubuksan pagdating ng oras, hindi na kailangang i-refresh ang pahina.",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Wala pang naka-configure na pahiwatig ng secret goal. Idagdag ang mga goal at oras ng pagbukas ng bawat pahiwatig sa data/secret_bingo.json para ipakita."
     },
     "hi": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API परिवर्तन मॉनिटर",
@@ -1053,7 +1125,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "डेटा <code>/v2/resources/skyblock/bingo</code> से आता है। अभी कोई Bingo डेटा नहीं है — एक बार <code>cargo run --release --bin tracker-build</code> चलाएँ।",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "बोर्ड पर केवल ऊपरी-बाएँ से निचले-दाएँ विकर्ण सामुदायिक लक्ष्य हैं (साझा सर्वर-व्यापी प्रगति के साथ); बाकी सेल व्यक्तिगत लक्ष्य हैं। काउंटडाउन केवल \"शुरू नहीं हुआ\" और \"चल रहा है\" के लिए दिखता है, समय पर स्वतः बदल जाता है; समाप्त ईवेंट की गिनती नहीं होती। विवरण के लिए किसी भी सेल पर क्लिक करें।",
       "已满级": "अधिकतम पूर्ण",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "संपूर्ण सर्वर {progress} · अधिकतम पूर्ण ({reached}/{total} स्तर)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "संपूर्ण सर्वर {progress} · अधिकतम पूर्ण ({reached}/{total} स्तर)",
+      "秘密 Bingo": "सीक्रेट बिंगो",
+      "秘密任务": "सीक्रेट लक्ष्य",
+      "提示": "संकेत",
+      "待解锁": "लॉक है",
+      "还有 {time} 解锁": "{time} में खुलेगा",
+      "每个任务 3 条提示": "प्रति लक्ष्य 3 संकेत",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "सीक्रेट लक्ष्य के संकेत आधिकारिक समय-सारणी के अनुसार एक-एक करके जारी होते हैं; समय आने पर स्वतः खुल जाते हैं, पेज रीफ़्रेश करने की ज़रूरत नहीं।",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "सीक्रेट लक्ष्य के संकेत अभी कॉन्फ़िगर नहीं हैं। लक्ष्य और प्रत्येक संकेत का अनलॉक समय data/secret_bingo.json में जोड़ें।"
     },
     "bn": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API পরিবর্তন মনিটর",
@@ -1155,7 +1235,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "ডেটা আসে <code>/v2/resources/skyblock/bingo</code> থেকে। এখনও Bingo ডেটা নেই — একবার <code>cargo run --release --bin tracker-build</code> চালান।",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "বোর্ডে শুধু উপরে-বাঁ থেকে নিচে-ডান কর্ণটি কমিউনিটি লক্ষ্য (সার্ভারব্যাপী শেয়ার্ড অগ্রগতি সহ); বাকি ঘরগুলো ব্যক্তিগত লক্ষ্য। কাউন্টডাউন শুধু \"শুরু হয়নি\" ও \"চলছে\" অবস্থায় দেখায়, সময় শেষে স্বয়ংক্রিয়ভাবে বদলায়; শেষ হওয়া ইভেন্ট আর গণনা করে না। বিস্তারিত দেখতে যেকোনো ঘরে ক্লিক করুন।",
       "已满级": "সর্বোচ্চ সম্পূর্ণ",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "সম্পূর্ণ সার্ভার {progress} · সর্বোচ্চ সম্পূর্ণ ({reached}/{total} স্তর)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "সম্পূর্ণ সার্ভার {progress} · সর্বোচ্চ সম্পূর্ণ ({reached}/{total} স্তর)",
+      "秘密 Bingo": "সিক্রেট বিঙ্গো",
+      "秘密任务": "সিক্রেট লক্ষ্য",
+      "提示": "ইঙ্গিত",
+      "待解锁": "লক করা",
+      "还有 {time} 解锁": "{time} পরে খুলবে",
+      "每个任务 3 条提示": "প্রতি লক্ষ্যে ৩টি ইঙ্গিত",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "সিক্রেট লক্ষ্যের ইঙ্গিতগুলি অফিসিয়াল সময়সূচি অনুসারে একে একে প্রকাশিত হয়; নির্দিষ্ট সময়ে স্বয়ংক্রিয়ভাবে খুলে যায়, পেজ রিফ্রেশ করার দরকার নেই।",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "সিক্রেট লক্ষ্যের ইঙ্গিত এখনও কনফিগার করা হয়নি। লক্ষ্য ও প্রতিটি ইঙ্গিতের আনলক সময় data/secret_bingo.json-এ যোগ করুন।"
     },
     "ur": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API تبدیلات مانیٹر",
@@ -1257,7 +1345,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "ڈیٹا <code>/v2/resources/skyblock/bingo</code> سے آتا ہے۔ ابھی Bingo ڈیٹا نہیں — ایک بار <code>cargo run --release --bin tracker-build</code> چلائیں۔",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "بورڈ پر صرف اوپر بائیں سے نیچے دائیں تک کا ترچھ خط کمیونٹی ہدف ہے (سرور وائیڈ مشترکہ پیش رفت کے ساتھ)؛ باقی خانے ذاتی اہداف ہیں۔ کاؤنٹ ڈاؤن صرف \"ابھی شروع نہیں ہوا\" اور \"جاری ہے\" کے لیے دکھایا جاتا ہے، وقت ختم ہونے پر خودکار تبدیل ہو جاتا ہے؛ ختم شدہ ایونٹس کی گنتی نہیں ہوتی۔ تفصیل کے لیے کسی بھی خانے پر کلک کریں۔",
       "已满级": "زیادہ سے زیادہ مکمل",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "پورا سرور {progress} · زیادہ سے زیادہ مکمل ({reached}/{total} درجے)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "پورا سرور {progress} · زیادہ سے زیادہ مکمل ({reached}/{total} درجے)",
+      "秘密 Bingo": "سیکرٹ بنگو",
+      "秘密任务": "سیکرٹ ہدف",
+      "提示": "اشارہ",
+      "待解锁": "مقفل",
+      "还有 {time} 解锁": "{time} میں کھلے گا",
+      "每个任务 3 条提示": "ہر ہدف کے لیے 3 اشارے",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "سیکرٹ ہدف کے اشارے سرکاری وقت کے مطابق یکے بعد دیگرے جاری ہوتے ہیں؛ وقت آنے پر خودکار کھل جاتے ہیں، صفحہ ریفریش کرنے کی ضرورت نہیں۔",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "سیکرٹ ہدف کے اشارے ابھی ترتیب نہیں دیے گئے۔ اہداف اور ہر اشارے کا کھلنے کا وقت data/secret_bingo.json میں درج کریں۔"
     },
     "ar": {
       "Hypixel SkyBlock API 变更监控台": "مراقب تغييرات Hypixel SkyBlock API",
@@ -1359,7 +1455,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "البيانات من <code>/v2/resources/skyblock/bingo</code>. لا توجد بيانات Bingo بعد — شغّل <code>cargo run --release --bin tracker-build</code> مرة واحدة لإنشائها.",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "على اللوحة، القطر من أعلى اليسار إلى أسفل اليمين فقط هو الأهداف الجماعية (مع تقدم مشترك على مستوى الخادم)، وبقية الخلايا أهداف شخصية. يظهر العد التنازلي فقط لـ\"لم يبدأ\" و\"جارٍ\"، ويتحول تلقائيًا عند انتهاء الوقت؛ الأحداث المنتهية لا تعدّ تنازليًا. انقر أي خلية لعرض التفاصيل.",
       "已满级": "بلغ الحد الأقصى",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "كامل الخادم {progress} · بلغ الحد الأقصى ({reached}/{total} مستويات)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "كامل الخادم {progress} · بلغ الحد الأقصى ({reached}/{total} مستويات)",
+      "秘密 Bingo": "بينغو سري",
+      "秘密任务": "هدف سري",
+      "提示": "تلميح",
+      "待解锁": "مقفل",
+      "还有 {time} 解锁": "يُفتح بعد {time}",
+      "每个任务 3 条提示": "3 تلميحات لكل هدف",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "تُنشر تلميحات الأهداف السرية رسميًا بالتتابع حسب الوقت، وتُفتح تلقائيًا عند حلول موعدها دون الحاجة لتحديث الصفحة.",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "لم تُضبط تلميحات الأهداف السرية بعد. أضف الأهداف ووقت فتح كل تلميح إلى data/secret_bingo.json لعرضها."
     },
     "he": {
       "Hypixel SkyBlock API 变更监控台": "מוניטור שינויים Hypixel SkyBlock API",
@@ -1461,7 +1565,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "הנתונים מגיעים מ-<code>/v2/resources/skyblock/bingo</code>. עדיין אין נתוני Bingo — הריצו <code>cargo run --release --bin tracker-build</code> פעם אחת כדי ליצור.",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "בלוח, רק האלכסון משמאל למעלה לימין למטה הוא יעדים קהילתיים (עם התקדמות משותפת ברמת השרת); שאר התאים הם יעדים אישיים. ספירה לאחור מוצגת רק עבור \"טרם החל\" ו\"פעיל\", עוברת אוטומטית עם סיום הזמן; אירועים שהסתיימו אינם נספרים לאחור. לחץ על כל תא לפרטים.",
       "已满级": "הושג מקסימום",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "כל השרת {progress} · הושג מקסימום ({reached}/{total} דרגות)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "כל השרת {progress} · הושג מקסימום ({reached}/{total} דרגות)",
+      "秘密 Bingo": "בינגו סודי",
+      "秘密任务": "יעד סודי",
+      "提示": "רמז",
+      "待解锁": "נעול",
+      "还有 {time} 解锁": "ייפתח בעוד {time}",
+      "每个任务 3 条提示": "3 רמזים לכל יעד",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "רמזי יעדים סודיים מתפרסמים רשמית בזה אחר זה לפי הזמנים; הם נפתחים אוטומטית כשמגיע הזמן, ללא צורך ברענון הדף.",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "רמזי יעדים סודיים טרם הוגדרו. הוסף יעדים וזמן פתיחה לכל רמז בקובץ data/secret_bingo.json כדי להציגם."
     },
     "fa": {
       "Hypixel SkyBlock API 变更监控台": "پایش تغییرات Hypixel SkyBlock API",
@@ -1563,7 +1675,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "داده از <code>/v2/resources/skyblock/bingo</code> می‌آید. هنوز داده Bingo نیست — یک بار <code>cargo run --release --bin tracker-build</code> را اجرا کنید.",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "روی تخته، فقط قطر از بالا-چپ به پایین-راست هدف‌های اجتماعی هستند (با پیشرفت مشترک سراسری)؛ بقیه خانه‌ها هدف‌های شخصی‌اند. شمارش معکوس فقط برای «شروع نشده» و «در جریان» نشان داده می‌شود و در پایان زمان خودکار تغییر می‌کند؛ رویدادهای پایان‌یافته دیگر شمارش نمی‌شوند. برای جزئیات روی هر خانه کلیک کنید.",
       "已满级": "به حداکثر رسید",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "کل سرور {progress} · به حداکثر رسید ({reached}/{total} سطح)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "کل سرور {progress} · به حداکثر رسید ({reached}/{total} سطح)",
+      "秘密 Bingo": "بینگوی مخفی",
+      "秘密任务": "هدف مخفی",
+      "提示": "راهنما",
+      "待解锁": "قفل است",
+      "还有 {time} 解锁": "تا {time} دیگر باز می‌شود",
+      "每个任务 3 条提示": "۳ راهنما برای هر هدف",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "راهنماهای هدف‌های مخفی به‌صورت رسمی و به ترتیب زمان منتشر می‌شوند؛ در زمان مقرر خودکار باز می‌شوند و نیازی به بازخوانی صفحه نیست.",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "راهنمای هدف‌های مخفی هنوز تنظیم نشده است. هدف‌ها و زمان باز شدن هر راهنما را در data/secret_bingo.json وارد کنید."
     },
     "tr": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API Değişiklik İzleyicisi",
@@ -1665,7 +1785,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Veriler <code>/v2/resources/skyblock/bingo</code> adresinden gelir. Henüz Bingo verisi yok — oluşturmak için <code>cargo run --release --bin tracker-build</code> dosyasını bir kez çalıştırın.",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Tahtada yalnızca sol üstten sağ alta çapraz topluluk hedefleridir (sunucu genelinde paylaşılan ilerleme); diğer hücreler kişisel hedeflerdir. Geri sayım yalnızca \"başlamadı\" ve \"devam ediyor\" durumlarında gösterilir, süre bitince otomatik geçer; biten etkinlikler artık geri saymaz. Ayrıntılar için herhangi bir hücreye tıklayın.",
       "已满级": "Maksimum",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "Tüm sunucu {progress} · Maksimum ({reached}/{total} kademe)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Tüm sunucu {progress} · Maksimum ({reached}/{total} kademe)",
+      "秘密 Bingo": "Gizli Bingo",
+      "秘密任务": "Gizli Hedef",
+      "提示": "İpucu",
+      "待解锁": "Kilitli",
+      "还有 {time} 解锁": "{time} sonra açılır",
+      "每个任务 3 条提示": "Hedef başına 3 ipucu",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Gizli hedef ipuçları resmî olarak zaman sırasına göre yayınlanır; zamanı geldiğinde otomatik açılır, sayfayı yenilemeye gerek yoktur.",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Gizli hedef ipuçları henüz yapılandırılmadı. Hedefleri ve her ipucunun açılma zamanını data/secret_bingo.json dosyasına ekleyin."
     },
     "fr": {
       "Hypixel SkyBlock API 变更监控台": "Moniteur de changements Hypixel SkyBlock API",
@@ -1767,7 +1895,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Les données proviennent de <code>/v2/resources/skyblock/bingo</code>. Aucune donnée Bingo pour l'instant — exécutez <code>cargo run --release --bin tracker-build</code> une fois pour la générer.",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Sur la grille, seule la diagonale du coin supérieur gauche au coin inférieur droit correspond aux objectifs communautaires (avec une progression partagée à l'échelle du serveur) ; les autres cases sont des objectifs personnels. Le compte à rebours ne s'affiche que pour « à venir » et « en cours », bascule automatiquement à échéance ; les événements terminés ne comptent plus à rebours. Cliquez sur une case pour plus de détails.",
       "已满级": "Niveau max atteint",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "Tout le serveur {progress} · Niveau max atteint ({reached}/{total} paliers)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Tout le serveur {progress} · Niveau max atteint ({reached}/{total} paliers)",
+      "秘密 Bingo": "Bingo Secret",
+      "秘密任务": "Objectif secret",
+      "提示": "Indice",
+      "待解锁": "Verrouillé",
+      "还有 {time} 解锁": "Débloqué dans {time}",
+      "每个任务 3 条提示": "3 indices par objectif",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Les indices des objectifs secrets sont dévoilés officiellement au fil du temps ; ils se débloquent automatiquement à l'heure prévue, sans rechargement de la page.",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Aucun indice d'objectif secret configuré. Ajoutez les objectifs et l'heure de déblocage de chaque indice dans data/secret_bingo.json."
     },
     "de": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API Änderungsmonitor",
@@ -1869,7 +2005,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Daten stammen aus <code>/v2/resources/skyblock/bingo</code>. Noch keine Bingo-Daten — führe <code>cargo run --release --bin tracker-build</code> einmal aus, um sie zu erzeugen.",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Auf dem Brett ist nur die Diagonale von oben links nach unten rechts Community-Ziele (mit serverweitem gemeinsamen Fortschritt); alle anderen Felder sind persönliche Ziele. Der Countdown erscheint nur für „nicht begonnen\" und „laufend\", wechselt bei Ablauf automatisch; beendete Ereignisse zählen nicht mehr herunter. Klicke auf ein Feld für Details.",
       "已满级": "Maximal erreicht",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "Gesamtserver {progress} · Maximal erreicht ({reached}/{total} Stufen)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Gesamtserver {progress} · Maximal erreicht ({reached}/{total} Stufen)",
+      "秘密 Bingo": "Geheimnis-Bingo",
+      "秘密任务": "Geheimes Ziel",
+      "提示": "Hinweis",
+      "待解锁": "Gesperrt",
+      "还有 {time} 解锁": "Freigabe in {time}",
+      "每个任务 3 条提示": "3 Hinweise pro Ziel",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Hinweise zu geheimen Zielen werden offiziell nach und nach zeitlich veröffentlicht; zur angegebenen Zeit werden sie automatisch freigeschaltet, ohne die Seite neu zu laden.",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Noch keine Hinweise für geheime Ziele konfiguriert. Ziele und Freigabezeiten der Hinweise in data/secret_bingo.json eintragen."
     },
     "es": {
       "Hypixel SkyBlock API 变更监控台": "Monitor de cambios de Hypixel SkyBlock API",
@@ -1971,7 +2115,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Los datos provienen de <code>/v2/resources/skyblock/bingo</code>. Aún no hay datos de Bingo — ejecuta <code>cargo run --release --bin tracker-build</code> una vez para generarlos.",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "En el tablero, solo la diagonal de arriba a la izquierda a abajo a la derecha son objetivos comunitarios (con progreso compartido de todo el servidor); las demás casillas son objetivos personales. La cuenta regresiva solo se muestra para «no iniciado» y «en curso», cambia automáticamente al vencer el tiempo; los eventos finalizados ya no cuentan. Haz clic en cualquier casilla para ver detalles.",
       "已满级": "Nivel máximo",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "Todo el servidor {progress} · Nivel máximo ({reached}/{total} niveles)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Todo el servidor {progress} · Nivel máximo ({reached}/{total} niveles)",
+      "秘密 Bingo": "Bingo Secreto",
+      "秘密任务": "Objetivo secreto",
+      "提示": "Pista",
+      "待解锁": "Bloqueado",
+      "还有 {time} 解锁": "Se desbloquea en {time}",
+      "每个任务 3 条提示": "3 pistas por objetivo",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Las pistas de los objetivos secretos se publican oficialmente de forma escalonada; se desbloquean automáticamente al llegar la hora, sin recargar la página.",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Aún no hay pistas de objetivos secretos configuradas. Añade los objetivos y la hora de desbloqueo de cada pista en data/secret_bingo.json."
     },
     "it": {
       "Hypixel SkyBlock API 变更监控台": "Monitor delle modifiche Hypixel SkyBlock API",
@@ -2073,7 +2225,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "I dati provengono da <code>/v2/resources/skyblock/bingo</code>. Non ci sono ancora dati Bingo — esegui una volta <code>cargo run --release --bin tracker-build</code> per generarli.",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Sulla griglia, solo la diagonale dall'alto a sinistra al basso a destra è composta da obiettivi comunitari (con progresso condiviso su tutto il server); le altre caselle sono obiettivi personali. Il conto alla rovescia appare solo per \"non iniziato\" e \"in corso\", passa automaticamente alla scadenza; gli eventi conclusi non vengono più conteggiati. Fai clic su qualsiasi casella per i dettagli.",
       "已满级": "Livello massimo",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "Tutto il server {progress} · Livello massimo ({reached}/{total} livelli)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Tutto il server {progress} · Livello massimo ({reached}/{total} livelli)",
+      "秘密 Bingo": "Bingo Segreto",
+      "秘密任务": "Obiettivo segreto",
+      "提示": "Indizio",
+      "待解锁": "Bloccato",
+      "还有 {time} 解锁": "Si sblocca tra {time}",
+      "每个任务 3 条提示": "3 indizi per obiettivo",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Gli indizi degli obiettivi segreti vengono pubblicati ufficialmente in ordine temporale; si sbloccano automaticamente all'orario previsto, senza ricaricare la pagina.",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Nessun indizio per obiettivi segreti configurato. Aggiungi gli obiettivi e l'orario di sblocco di ogni indizio in data/secret_bingo.json."
     },
     "pt": {
       "Hypixel SkyBlock API 变更监控台": "Monitor de alterações da Hypixel SkyBlock API",
@@ -2175,7 +2335,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Os dados vêm de <code>/v2/resources/skyblock/bingo</code>. Ainda não há dados de Bingo — execute <code>cargo run --release --bin tracker-build</code> uma vez para gerá-los.",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "No tabuleiro, apenas a diagonal do canto superior esquerdo ao inferior direito são objetivos comunitários (com progresso partilhado de todo o servidor); as restantes casas são objetivos pessoais. A contagem regressiva só é exibida para «não iniciado» e «em andamento», mudando automaticamente ao expirar; eventos encerrados não contam mais. Clique em qualquer casa para ver detalhes.",
       "已满级": "Nível máximo",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "Todo o servidor {progress} · Nível máximo ({reached}/{total} níveis)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Todo o servidor {progress} · Nível máximo ({reached}/{total} níveis)",
+      "秘密 Bingo": "Bingo Secreto",
+      "秘密任务": "Objetivo secreto",
+      "提示": "Dica",
+      "待解锁": "Bloqueado",
+      "还有 {time} 解锁": "Desbloqueia em {time}",
+      "每个任务 3 条提示": "3 dicas por objetivo",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "As dicas dos objetivos secretos são divulgadas oficialmente ao longo do tempo; desbloqueiam automaticamente na hora marcada, sem recarregar a página.",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Nenhuma dica de objetivo secreto configurada. Adicione os objetivos e a hora de desbloqueio de cada dica em data/secret_bingo.json."
     },
     "nl": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API-wijzigingsmonitor",
@@ -2277,7 +2445,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "De gegevens komen van <code>/v2/resources/skyblock/bingo</code>. Nog geen Bingo-gegevens — voer <code>cargo run --release --bin tracker-build</code> één keer uit om ze te genereren.",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Op het bord is alleen de diagonaal van linksboven naar rechtsonder communitydoelen (met gedeelde serverbrede voortgang); de overige cellen zijn persoonlijke doelen. De aftelling wordt alleen getoond voor \"niet gestart\" en \"bezig\", schakelt automatisch bij het verstrijken; beëindigde events tellen niet meer af. Klik op een cel voor details.",
       "已满级": "Maximaal bereikt",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "Hele server {progress} · Maximaal bereikt ({reached}/{total} niveaus)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Hele server {progress} · Maximaal bereikt ({reached}/{total} niveaus)",
+      "秘密 Bingo": "Geheime Bingo",
+      "秘密任务": "Geheim doel",
+      "提示": "Hint",
+      "待解锁": "Vergrendeld",
+      "还有 {time} 解锁": "Vrijgave over {time}",
+      "每个任务 3 条提示": "3 hints per doel",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Hints voor geheime doelen worden officieel gefaseerd vrijgegeven; op het aangegeven tijdstip worden ze automatisch ontgrendeld, zonder de pagina te vernieuwen.",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Nog geen hints voor geheime doelen ingesteld. Voeg doelen en de vrijgavetijd van elke hint toe in data/secret_bingo.json."
     },
     "ru": {
       "Hypixel SkyBlock API 变更监控台": "Монитор изменений Hypixel SkyBlock API",
@@ -2379,7 +2555,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Данные из <code>/v2/resources/skyblock/bingo</code>. Данных Bingo пока нет — запустите один раз <code>cargo run --release --bin tracker-build</code>.",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "На доске только диагональ из левого верхнего в правый нижний угол — общие цели (с прогрессом, общим для всего сервера); остальные клетки — личные цели. Обратный отсчёт показывается только для «не начато» и «идёт», автоматически переключается по истечении времени; завершившиеся события не отсчитываются. Нажмите на любую клетку для подробностей.",
       "已满级": "Максимум достигнут",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "Весь сервер {progress} · Максимум достигнут ({reached}/{total} уровней)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Весь сервер {progress} · Максимум достигнут ({reached}/{total} уровней)",
+      "秘密 Bingo": "Секретное бинго",
+      "秘密任务": "Секретная цель",
+      "提示": "Подсказка",
+      "待解锁": "Заблокировано",
+      "还有 {time} 解锁": "Откроется через {time}",
+      "每个任务 3 条提示": "3 подсказки на цель",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Подсказки к секретным целям публикуются официально по расписанию; в указанное время они открываются автоматически, перезагружать страницу не нужно.",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Подсказки к секретным целям ещё не настроены. Добавьте цели и время открытия каждой подсказки в data/secret_bingo.json."
     },
     "uk": {
       "Hypixel SkyBlock API 变更监控台": "Монітор змін Hypixel SkyBlock API",
@@ -2481,7 +2665,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Дані з <code>/v2/resources/skyblock/bingo</code>. Даних Bingo ще немає — запустіть один раз <code>cargo run --release --bin tracker-build</code>.",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "На дошці лише діагональ з лівого верхнього кута до правого нижнього — спільні цілі (із прогресом, спільним для всього сервера); решта клітинок — особисті цілі. Зворотний відлік показується лише для «не почато» та «триває», автоматично перемикається після завершення часу; закінчені події не відлічуються. Натисніть на будь-яку клітинку для деталей.",
       "已满级": "Максимум досягнуто",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "Увесь сервер {progress} · Максимум досягнуто ({reached}/{total} рівнів)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Увесь сервер {progress} · Максимум досягнуто ({reached}/{total} рівнів)",
+      "秘密 Bingo": "Секретне бінго",
+      "秘密任务": "Секретна мета",
+      "提示": "Підказка",
+      "待解锁": "Заблоковано",
+      "还有 {time} 解锁": "Відкриється через {time}",
+      "每个任务 3 条提示": "3 підказки на ціль",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Підказки до секретних цілей публікуються офіційно за розкладом; у вказаний час вони відкриваються автоматично, перезавантажувати сторінку не потрібно.",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Підказки до секретних цілей ще не налаштовані. Додайте цілі та час відкриття кожної підказки в data/secret_bingo.json."
     },
     "pl": {
       "Hypixel SkyBlock API 变更监控台": "Monitor zmian Hypixel SkyBlock API",
@@ -2583,7 +2775,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Dane pochodzą z <code>/v2/resources/skyblock/bingo</code>. Nie ma jeszcze danych Bingo — uruchom raz <code>cargo run --release --bin tracker-build</code>.",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Na planszy tylko przekątna od lewego górnego do prawego dolnego rogu to cele społecznościowe (ze wspólnym postępem całego serwera); pozostałe pola to cele osobiste. Odliczanie pokazywane jest tylko dla „nie rozpoczęto\" i „w toku\", automatycznie przełącza się po upływie czasu; zakończone wydarzenia nie odliczają. Kliknij dowolne pole, aby zobaczyć szczegóły.",
       "已满级": "Osiągnięto maksimum",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "Cały serwer {progress} · Osiągnięto maksimum ({reached}/{total} poziomów)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Cały serwer {progress} · Osiągnięto maksimum ({reached}/{total} poziomów)",
+      "秘密 Bingo": "Sekretne Bingo",
+      "秘密任务": "Sekretny cel",
+      "提示": "Podpowiedź",
+      "待解锁": "Zablokowane",
+      "还有 {time} 解锁": "Odblokowanie za {time}",
+      "每个任务 3 条提示": "3 podpowiedzi na cel",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Podpowiedzi do sekretnych celów są publikowane oficjalnie po kolei; w wyznaczonym czasie odblokowują się automatycznie, bez odświeżania strony.",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Nie skonfigurowano jeszcze podpowiedzi do sekretnych celów. Dodaj cele i czas odblokowania każdej podpowiedzi w data/secret_bingo.json."
     },
     "cs": {
       "Hypixel SkyBlock API 变更监控台": "Monitor změn Hypixel SkyBlock API",
@@ -2685,7 +2885,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Data pocházejí z <code>/v2/resources/skyblock/bingo</code>. Zatím nejsou data Bingo — spusťte jednou <code>cargo run --release --bin tracker-build</code>.",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Na desce je diagonála z levého horního do pravého dolního rohu tvořena komunitními cíli (s postupem sdíleným celým serverem); ostatní pole jsou osobní cíle. Odpočet se zobrazuje jen pro „nezačato\" a „probíhá\", po vypršení času se automaticky přepne; ukončené akce se neodpočítávají. Klepnutím na libovolné pole zobrazíte podrobnosti.",
       "已满级": "Dosaženo maxima",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "Celý server {progress} · Dosaženo maxima ({reached}/{total} úrovní)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Celý server {progress} · Dosaženo maxima ({reached}/{total} úrovní)",
+      "秘密 Bingo": "Tajné Bingo",
+      "秘密任务": "Tajný cíl",
+      "提示": "Nápověda",
+      "待解锁": "Uzamčeno",
+      "还有 {time} 解锁": "Odemkne se za {time}",
+      "每个任务 3 条提示": "3 nápovědy na cíl",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Nápovědy k tajným cílům jsou zveřejňovány oficiálně postupně podle času; ve stanovený čas se odemknou automaticky, není třeba obnovovat stránku.",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Nápovědy k tajným cílům zatím nejsou nastaveny. Přidejte cíle a čas odemčení každé nápovědy do data/secret_bingo.json."
     },
     "hu": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API változásfigyelő",
@@ -2787,7 +2995,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Az adatok a <code>/v2/resources/skyblock/bingo</code> végpontról származnak. Még nincsenek Bingo-adatok — futtasd egyszer a <code>cargo run --release --bin tracker-build</code> szkriptet.",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "A táblán csak a bal felsőtől a jobb alsóig futó átló közösségi cél (szerverszinten megosztott haladással); a többi mező személyes cél. A visszaszámlálás csak a „nem kezdődött el\" és „folyamatban\" állapotoknál jelenik meg, lejáratkor automatikusan átvált; a befejezett események nem számolnak tovább. Kattints bármely mezőre a részletekért.",
       "已满级": "Maximum elérve",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "Teljes szerver {progress} · Maximum elérve ({reached}/{total} szint)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Teljes szerver {progress} · Maximum elérve ({reached}/{total} szint)",
+      "秘密 Bingo": "Titkos Bingo",
+      "秘密任务": "Titkos cél",
+      "提示": "Tipp",
+      "待解锁": "Zárolva",
+      "还有 {time} 解锁": "Feloldás {time} múlva",
+      "每个任务 3 条提示": "3 tipp célonként",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "A titkos célok tippjei hivatalosan, időrendben jelennek meg; a megadott időpontban automatikusan feloldódnak, nem kell újratölteni az oldalt.",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "A titkos célok tippjei még nincsenek beállítva. Add hozzá a célokat és az egyes tippek feloldási idejét a data/secret_bingo.json fájlhoz."
     },
     "ro": {
       "Hypixel SkyBlock API 变更监控台": "Monitor de modificări Hypixel SkyBlock API",
@@ -2889,7 +3105,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Datele provin de la <code>/v2/resources/skyblock/bingo</code>. Nu există încă date Bingo — rulează o dată <code>cargo run --release --bin tracker-build</code>.",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Pe tablă, doar diagonala din stânga sus în dreapta jos este formată din obiective comunitare (cu progres partajat la nivel de server); restul celulelor sunt obiective personale. Numărătoarea inversă se afișează doar pentru „neînceput\" și „în desfășurare\", comutând automat la expirare; evenimentele încheiate nu mai numără invers. Dați clic pe orice celulă pentru detalii.",
       "已满级": "Nivel maxim atins",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "Întregul server {progress} · Nivel maxim atins ({reached}/{total} niveluri)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Întregul server {progress} · Nivel maxim atins ({reached}/{total} niveluri)",
+      "秘密 Bingo": "Bingo Secret",
+      "秘密任务": "Obiectiv secret",
+      "提示": "Indiciu",
+      "待解锁": "Blocat",
+      "还有 {time} 解锁": "Se deblochează în {time}",
+      "每个任务 3 条提示": "3 indicii per obiectiv",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Indiciile obiectivelor secrete sunt publicate oficial pe rând, în funcție de timp; se deblochează automat la ora stabilită, fără a reîmprospăta pagina.",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Nu există indicii configurate pentru obiectivele secrete. Adaugă obiectivele și ora de deblocare a fiecărui indiciu în data/secret_bingo.json."
     },
     "el": {
       "Hypixel SkyBlock API 变更监控台": "Εποπτικός οθόνη αλλαγών Hypixel SkyBlock API",
@@ -2991,7 +3215,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Τα δεδομένα προέρχονται από το <code>/v2/resources/skyblock/bingo</code>. Δεν υπάρχουν ακόμη δεδομένα Bingo — εκτελέστε μία φορά το <code>cargo run --release --bin tracker-build</code>.",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "Στον πίνακα, μόνο η διαγώνιος από πάνω αριστερά προς κάτω δεξιά αποτελείται από κοινοτικούς στόχους (με κοινή πρόοδο σε όλο τον διακομιστή); τα υπόλοιπα κελιά είναι προσωπικοί στόχοι. Η αντίστροφη μέτρηση εμφανίζεται μόνο για «δεν ξεκίνησε» και «σε εξέλιξη», αλλάζει αυτόματα τη λήξη· οι ολοκληρωμένες εκδηλώσεις δεν μετρούν αντίστροφα. Κάντε κλικ σε οποιοδήποτε κελί για λεπτομέρειες.",
       "已满级": "Μέγιστο",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "Όλος ο διακομιστής {progress} · Μέγιστο ({reached}/{total} βαθμίδες)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Όλος ο διακομιστής {progress} · Μέγιστο ({reached}/{total} βαθμίδες)",
+      "秘密 Bingo": "Μυστικό Bingo",
+      "秘密任务": "Μυστικός στόχος",
+      "提示": "Υπόδειξη",
+      "待解锁": "Κλειδωμένο",
+      "还有 {time} 解锁": "Ξεκλειδώνει σε {time}",
+      "每个任务 3 条提示": "3 υποδείξεις ανά στόχο",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Οι υποδείξεις των μυστικών στόχων ανακοινώνονται επίσημα με χρονική σειρά· ξεκλειδώνονται αυτόματα στην καθορισμένη ώρα, χωρίς ανανέωση της σελίδας.",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Δεν έχουν ρυθμιστεί υποδείξεις για μυστικούς στόχους. Πρόσθεσε στόχους και ώρα ξεκλειδώματος κάθε υπόδειξης στο data/secret_bingo.json."
     },
     "sv": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API-ändringsövervakare",
@@ -3093,7 +3325,15 @@
       "数据来自 <code>/v2/resources/skyblock/bingo</code>。当前还没有 Bingo 数据，先运行 <code>cargo run --release --bin tracker-build</code> 生成一次即可。": "Data kommer från <code>/v2/resources/skyblock/bingo</code>. Ingen Bingo-data ännu — kör <code>cargo run --release --bin tracker-build</code> en gång för att skapa.",
       "棋盘上从左上到右下的对角线是社区任务（有全服共享进度），其余均为个人任务；只有「未开始」和「进行中」显示倒计时，到点自动切换，已结束不再计时。点击任意格子查看完整详情。": "På brädet är endast diagonalen från övre vänstra till nedre högra hörnet communitymål (med serveromfattande delad utveckling); övriga rutor är personliga mål. Nedräkningen visas bara för \"ej påbörjad\" och \"pågående\", växlar automatiskt när tiden går ut; avslutade evenemang räknas inte ner. Klicka på valfri ruta för detaljer.",
       "已满级": "Maxat",
-      "全服 {progress} · 已满级（{reached}/{total} 档）": "Hela servern {progress} · Maxat ({reached}/{total} nivåer)"
+      "全服 {progress} · 已满级（{reached}/{total} 档）": "Hela servern {progress} · Maxat ({reached}/{total} nivåer)",
+      "秘密 Bingo": "Hemligt Bingo",
+      "秘密任务": "Hemligt mål",
+      "提示": "Ledtråd",
+      "待解锁": "Låst",
+      "还有 {time} 解锁": "Låses upp om {time}",
+      "每个任务 3 条提示": "3 ledtrådar per mål",
+      "秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。": "Ledtrådar till hemliga mål publiceras officiellt i tidsordning; de låses upp automatiskt vid angiven tid, utan att sidan laddas om.",
+      "尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。": "Inga ledtrådar för hemliga mål är konfigurerade än. Lägg till mål och upplåsningstid för varje ledtråd i data/secret_bingo.json."
     }
   }
 }

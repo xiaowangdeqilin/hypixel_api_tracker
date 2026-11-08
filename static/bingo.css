@@ -409,6 +409,12 @@
   font-size: 12px;
 }
 
+
+/* 个人任务没有全服进度：detail 行由 bingo.js 用 hidden 隐藏 */
+.bingo-dialog-facts > div[hidden] {
+  display: none !important;
+}
+
 .bingo-dialog-facts .k { color: var(--bingo-muted); }
 
 .bingo-dialog-facts .v {

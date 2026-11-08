@@ -285,6 +285,7 @@ fn run() -> i32 {
         &bingo_data,
         bingo_stale,
         &firesales_data,
+        &hypixel_tracker::secret_bingo::current_view(),
         skipped_reason.as_deref(),
     );
     match html {

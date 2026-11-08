@@ -6,6 +6,7 @@
     <title>{{ t['Hypixel SkyBlock API 变更监控台'] }}</title>
     <link rel="stylesheet" href="/static/styles.css" />
     <link rel="stylesheet" href="/static/bingo.css" />
+    <link rel="stylesheet" href="/static/secret.css" />
     <link rel="stylesheet" href="/static/firesale.css" />
     <link rel="stylesheet" href="/static/theme.css" />
     <link rel="stylesheet" href="/static/i18n.css" />
@@ -174,13 +175,14 @@
                     data-index="{{ goal.index_str }}"
                     data-goal-id="{{ goal.id }}"
                     data-kind-label="{{ goal.kind_label_t | default(value='') }}"
+                    data-community="{% if goal.is_community | default(value=false) %}1{% else %}0{% endif %}"
                     data-requirement="{{ goal.requirement_attr }}"
                     data-progress="{{ goal.progress_attr }}"
                     data-percent="{{ goal.percent_str }}">
               <span class="bingo-cell-top">
                 <span class="bingo-index">{{ goal.index_str }}</span>
                 <span class="bingo-cell-kind{% if goal.is_community | default(value=false) %} is-community{% endif %}">{{ goal.kind_label_t | default(value='') }}</span>
-                <span class="bingo-cell-badge{% if goal.is_done %} is-done{% endif %}">{% if p %}<span dir="ltr">{{ goal.percent_str }}%</span>{% else %}—{% endif %}</span>
+                {% if p %}<span class="bingo-cell-badge{% if goal.is_done %} is-done{% endif %}"><span dir="ltr">{{ goal.percent_str }}%</span></span>{% endif %}
               </span>
               <span class="bingo-cell-name">{{ goal.name }}</span>
               <span class="bingo-cell-lore">
@@ -210,18 +212,61 @@
             <div class="bingo-dialog-facts">
               <div><span class="k">{{ t['类型'] }}</span><span class="v" data-dialog-kind></span></div>
               <div><span class="k">{{ t['目标'] }}</span><span class="v" data-dialog-requirement></span></div>
-              <div><span class="k">{{ t['全服进度'] }}</span><span class="v" data-dialog-progress></span></div>
-              <div><span class="k">{{ t['完成度'] }}</span><span class="v" data-dialog-percent></span></div>
+              <div data-dialog-row="progress"><span class="k">{{ t['全服进度'] }}</span><span class="v" data-dialog-progress></span></div>
+              <div data-dialog-row="percent"><span class="k">{{ t['完成度'] }}</span><span class="v" data-dialog-percent></span></div>
             </div>
             <div class="bingo-dialog-id">{{ t['任务 ID：'] }}<code dir="ltr" data-dialog-id></code></div>
           </div>
         </dialog>
         {% endif %}
       </div>
+
+      {# 秘密 Bingo：提示由官方按时间依次公布，每个任务固定 3 条，到点由 secret.js 自动解锁 #}
+      <div class="panel secret-panel" data-secret-panel>
+        <h2>{{ t['秘密 Bingo'] }}<span class="panel-sub">{{ t['每个任务 3 条提示'] }}</span></h2>
+        <p class="secret-note">{{ t['秘密任务的提示由官方按时间依次公布，到点自动解锁，无需刷新页面。'] }}</p>
+        {% if not secret_view.configured %}
+        <p class="secret-note">{{ t['尚未配置秘密任务提示数据，把任务与每条提示的解锁时间填入 data/secret_bingo.json 后即可显示。'] }}</p>
+        {% endif %}
+        <div class="secret-grid">
+          {% for goal in secret_view.goals %}
+          <article class="secret-card" data-secret-goal data-goal-index="{{ goal.index_str }}">
+            <header class="secret-card-head">
+              <span class="secret-index">{{ goal.index_str }}</span>
+              <span class="secret-name">{% if goal.has_name %}{{ goal.name }}{% else %}{{ t['秘密任务'] }} {{ goal.index }}{% endif %}</span>
+              <span class="secret-count{% if goal.all_unlocked %} is-done{% endif %}" data-secret-count>{{ goal.unlocked_count }}/{{ goal.total_hints }}</span>
+            </header>
+            <ol class="secret-hints">
+              {% for hint in goal.hints %}
+              {% if not hint.populated %}
+              <li class="secret-hint is-empty" data-secret-hint>
+                <span class="secret-hint-no">{{ t['提示'] }} {{ hint.index }}</span>
+                <span class="secret-hint-lock">{{ t['待解锁'] }}</span>
+              </li>
+              {% elif hint.unlocked %}
+              <li class="secret-hint is-unlocked" data-secret-hint title="{{ hint.reveal_at }}">
+                <span class="secret-hint-no">{{ t['提示'] }} {{ hint.index }}</span>
+                <span class="secret-hint-text" data-hint-text>{{ hint.text }}</span>
+                <span class="secret-hint-lock" data-hint-lock hidden></span>
+              </li>
+              {% else %}
+              <li class="secret-hint is-locked" data-secret-hint{% if hint.reveal_ms %} data-reveal-ms="{{ hint.reveal_ms }}"{% endif %}>
+                <span class="secret-hint-no">{{ t['提示'] }} {{ hint.index }}</span>
+                <span class="secret-hint-text" data-hint-text hidden>{{ hint.text }}</span>
+                <span class="secret-hint-lock" data-hint-lock>{{ t['待解锁'] }}</span>
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ol>
+          </article>
+          {% endfor %}
+        </div>
+      </div>
     </div>
 
     <script src="/static/app.js"></script>
     <script src="/static/bingo.js"></script>
+    <script src="/static/secret.js"></script>
     <script src="/static/firesale.js"></script>
   </body>
 </html>

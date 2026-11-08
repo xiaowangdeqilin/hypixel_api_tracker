@@ -128,13 +128,23 @@
   var dlgPercent = dialog.querySelector('[data-dialog-percent]');
   var dlgId = dialog.querySelector('[data-dialog-id]');
   var dlgKind = dialog.querySelector('[data-dialog-kind]');
+  /* 个人任务没有全服进度：整行隐藏（含「完成度」），只保留类型与目标 */
+  var rowProgress = dialog.querySelector('[data-dialog-row="progress"]');
+  var rowPercent = dialog.querySelector('[data-dialog-row="percent"]');
 
   function openDialog(cell) {
+    var isCommunity = cell.dataset.community === '1';
+    if (rowProgress) rowProgress.hidden = !isCommunity;
+    if (rowPercent) rowPercent.hidden = !isCommunity;
     if (dlgIndex) dlgIndex.textContent = cell.dataset.index || '';
     if (dlgName) dlgName.textContent = (cell.querySelector('.bingo-cell-name') || {}).textContent || '';
     if (dlgReq) dlgReq.textContent = cell.dataset.requirement || '—';
-    if (dlgProgress) dlgProgress.textContent = cell.dataset.progress || T('暂无全服进度');
-    if (dlgPercent) dlgPercent.textContent = cell.dataset.percent ? cell.dataset.percent + '%' : '—';
+    if (dlgProgress) {
+      dlgProgress.textContent = isCommunity ? (cell.dataset.progress || T('暂无全服进度')) : '';
+    }
+    if (dlgPercent) {
+      dlgPercent.textContent = isCommunity && cell.dataset.percent ? cell.dataset.percent + '%' : '';
+    }
     if (dlgId) dlgId.textContent = cell.dataset.goalId || '';
     if (dlgKind) dlgKind.textContent = cell.dataset.kindLabel || '—';
 

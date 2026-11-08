@@ -595,6 +595,12 @@ fn render_index(query: &str, cookie_lang: Option<&str>) -> String {
         .map(|a| a.len())
         .unwrap_or(0);
     let firesales_non_empty = !firesales.is_null();
+    // 秘密 Bingo：提示数据由 data/secret_bingo.json 人工维护，按时间依次解锁；
+    // 没有配置时用占位视图，页面照常预留 3 个任务位（每个任务 3 条提示）。
+    let mut secret_view = crate::secret_bingo::current_view();
+    if secret_view.get("configured").and_then(|v| v.as_bool()) != Some(true) {
+        secret_view = crate::secret_bingo::placeholder_view(3);
+    }
 
     let mut context = tera::Context::new();
     context.insert("lang_code", &lang);
@@ -618,6 +624,7 @@ fn render_index(query: &str, cookie_lang: Option<&str>) -> String {
     context.insert("goal_count", &goal_count);
     context.insert("firesales", &firesales_ctx);
     context.insert("firesales_non_empty", &firesales_non_empty);
+    context.insert("secret_view", &secret_view);
 
     // 参数化长句
     context.insert(

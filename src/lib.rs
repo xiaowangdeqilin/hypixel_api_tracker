@@ -8,6 +8,7 @@
 //! - `retention` 30 天保留期（原 app/retention.py）
 //! - `bingo`     Bingo 任务整形（原 app/bingo.py）
 //! - `firesale`  限时特卖整形（原 app/firesale.py）
+//! - `secret_bingo` 秘密 Bingo 任务与提示的时间解锁（新增，无 Python 对应）
 //! - `labels`    展示层中文文案（原 build_dashboard 顶部常量）
 //! - `fetch`     HTTP 抓取 / 校验和 / 服务端抓取循环（原 app/fetcher.py）
 //! - `state`     数据文件读写与版本状态机（原 db.py + build_dashboard 状态部分）
@@ -35,6 +36,7 @@ pub mod packs;
 pub mod render_site;
 pub mod retention;
 pub mod security;
+pub mod secret_bingo;
 pub mod server_app;
 pub mod state;
 pub mod textdiff;

@@ -307,6 +307,7 @@ fn render_bingo_goal(goal: &Value, index: usize) -> String {
         ""
     };
 
+    // 个人任务没有全服进度：不显示百分比徽章，也不画进度条（只保留「要求 x」）
     let (badge_text, progress_attr, foot_html) = if !progress.is_null() {
         let progress_text = progress.get("progress_text").and_then(|v| v.as_str()).unwrap_or("");
         let top_text = progress.get("top_text").and_then(|v| v.as_str()).unwrap_or("");
@@ -343,7 +344,7 @@ fn render_bingo_goal(goal: &Value, index: usize) -> String {
             format!("要求 {}", tier_text)
         };
         (
-            "—".into(),
+            String::new(),
             String::new(),
             format!(
                 "<span class=\"bingo-cell-progress\">{}</span>",
@@ -360,17 +361,25 @@ fn render_bingo_goal(goal: &Value, index: usize) -> String {
             gobj.get("tiers").and_then(|t| t.as_array()).is_some_and(|t| !t.is_empty())
         });
     let kind_label = if is_community { "社区任务" } else { "个人任务" };
+    // 个人任务没有百分比徽章，直接不渲染该元素（避免出现「—」占位）
+    let badge_html = if badge_text.is_empty() {
+        String::new()
+    } else {
+        format!("<span class=\"bingo-cell-badge{badge_attr}\">{badge_text}</span>")
+    };
 
     format!(
         "<button type=\"button\" class=\"bingo-cell\" data-bingo-cell data-index=\"{index:02}\" \
-         data-goal-id=\"{gid}\" data-kind-label=\"{kind_label}\" data-requirement=\"{}\" data-progress=\"{}\" data-percent=\"{percent_text}\">\
+         data-goal-id=\"{gid}\" data-kind-label=\"{kind_label}\" data-community=\"{}\" \
+         data-requirement=\"{}\" data-progress=\"{}\" data-percent=\"{percent_text}\">\
            <span class=\"bingo-cell-top\"><span class=\"bingo-index\">{index:02}</span>\
            <span class=\"bingo-cell-kind{}\">{kind_label}</span>\
-           <span class=\"bingo-cell-badge{badge_attr}\">{badge_text}</span></span>\
+           {badge_html}</span>\
            <span class=\"bingo-cell-name\">{name}</span>\
            <span class=\"bingo-cell-lore\">{lore_html}</span>\
            <span class=\"bingo-cell-foot\">{foot_html}</span>\
          </button>",
+        if is_community { "1" } else { "0" },
         escape_html(&requirement),
         escape_html(&progress_attr),
         if is_community { " is-community" } else { "" },
@@ -460,9 +469,10 @@ pub fn render_bingo_panel(bingo: &Value, stale: bool) -> String {
           </div>
           <div class="bingo-dialog-lore" data-dialog-lore></div>
           <div class="bingo-dialog-facts">
+            <div><span class="k">类型</span><span class="v" data-dialog-kind></span></div>
             <div><span class="k">目标</span><span class="v" data-dialog-requirement></span></div>
-            <div><span class="k">全服进度</span><span class="v" data-dialog-progress></span></div>
-            <div><span class="k">完成度</span><span class="v" data-dialog-percent></span></div>
+            <div data-dialog-row="progress"><span class="k">全服进度</span><span class="v" data-dialog-progress></span></div>
+            <div data-dialog-row="percent"><span class="k">完成度</span><span class="v" data-dialog-percent></span></div>
           </div>
           <div class="bingo-dialog-id">任务 ID：<code data-dialog-id></code></div>
         </div>
@@ -473,6 +483,138 @@ pub fn render_bingo_panel(bingo: &Value, stale: bool) -> String {
         state_label = escape_html(bingo.get("state_label").and_then(|v| v.as_str()).unwrap_or("-")),
         remaining = escape_html(bingo.get("remaining").and_then(|v| v.as_str()).unwrap_or("-")),
         hidden = if state == "ended" { " hidden" } else { "" },
+    )
+}
+
+/// 渲染单张「秘密 Bingo」任务卡。
+fn render_secret_card(goal: &Value, now: i64, hints_per_goal: usize) -> String {
+    let index = goal.get("index").and_then(|v| v.as_u64()).unwrap_or(0);
+    let index_str = goal
+        .get("index_str")
+        .and_then(|v| v.as_str())
+        .map(str::to_string)
+        .unwrap_or_else(|| format!("{:02}", index));
+    let has_name = goal.get("has_name").and_then(|v| v.as_bool()).unwrap_or(false);
+    let name = if has_name {
+        escape_html(goal.get("name").and_then(|v| v.as_str()).unwrap_or(""))
+    } else {
+        format!("秘密任务 {}", index)
+    };
+    let unlocked_count = goal.get("unlocked_count").and_then(|v| v.as_u64()).unwrap_or(0);
+    let count_class = if unlocked_count as usize >= hints_per_goal { " is-done" } else { "" };
+
+    let mut hints_html = String::new();
+    let hints = goal.get("hints").and_then(|h| h.as_array()).cloned().unwrap_or_default();
+    for (i, hint) in hints.iter().enumerate() {
+        let hint_no = format!("提示 {}", hint.get("index").and_then(|v| v.as_u64()).unwrap_or(i as u64 + 1));
+        let populated = hint.get("populated").and_then(|v| v.as_bool()).unwrap_or(false);
+        let text = escape_html(hint.get("text").and_then(|v| v.as_str()).unwrap_or(""));
+        let reveal_ms = hint.get("reveal_ms").and_then(|v| v.as_i64());
+        let reveal_at = escape_html(hint.get("reveal_at").and_then(|v| v.as_str()).unwrap_or("-"));
+
+        if !populated {
+            hints_html.push_str(&format!(
+                "<li class=\"secret-hint is-empty\" data-secret-hint>\
+                   <span class=\"secret-hint-no\">{hint_no}</span>\
+                   <span class=\"secret-hint-lock\">待公布</span>\
+                 </li>"
+            ));
+            continue;
+        }
+        let unlocked = hint.get("unlocked").and_then(|v| v.as_bool()).unwrap_or(true);
+        match (unlocked, reveal_ms) {
+            (true, _) => hints_html.push_str(&format!(
+                "<li class=\"secret-hint is-unlocked\" data-secret-hint data-reveal-ms=\"{}\" \
+                     title=\"解锁于 {reveal_at}\">\
+                   <span class=\"secret-hint-no\">{hint_no}</span>\
+                   <span class=\"secret-hint-text\" data-hint-text>{text}</span>\
+                   <span class=\"secret-hint-lock\" data-hint-lock hidden></span>\
+                 </li>",
+                reveal_ms.unwrap_or(0)
+            )),
+            (false, Some(ms)) => {
+                let remain = crate::bingo::humanize_delta_pub((ms - now) / 1000);
+                hints_html.push_str(&format!(
+                    "<li class=\"secret-hint is-locked\" data-secret-hint data-reveal-ms=\"{ms}\">\
+                       <span class=\"secret-hint-no\">{hint_no}</span>\
+                       <span class=\"secret-hint-text\" data-hint-text hidden>{text}</span>\
+                       <span class=\"secret-hint-lock\" data-hint-lock>还有 {remain} 解锁</span>\
+                     </li>"
+                ));
+            }
+            (false, None) => hints_html.push_str(&format!(
+                "<li class=\"secret-hint is-locked\" data-secret-hint>\
+                   <span class=\"secret-hint-no\">{hint_no}</span>\
+                   <span class=\"secret-hint-text\" data-hint-text hidden>{text}</span>\
+                   <span class=\"secret-hint-lock\" data-hint-lock>待公布</span>\
+                 </li>"
+            )),
+        }
+    }
+
+    format!(
+        "<article class=\"secret-card\" data-secret-goal data-goal-index=\"{index_str}\">\
+           <header class=\"secret-card-head\">\
+             <span class=\"secret-index\">{index_str}</span>\
+             <span class=\"secret-name\">{name}</span>\
+             <span class=\"secret-count{count_class}\" data-secret-count>{unlocked_count}/{hints_per_goal}</span>\
+           </header>\
+           <ol class=\"secret-hints\">{hints_html}</ol>\
+         </article>"
+    )
+}
+
+/// 渲染「秘密 Bingo」面板。
+///
+/// 提示内容无法从 API 获取，由 `data/secret_bingo.json` 人工维护；
+/// 面板按 `reveal_at` 依次解锁，每个任务固定 3 条提示。没有配置时显示预留位。
+pub fn render_secret_panel(secret: &Value) -> String {
+    let now = crate::timeutil::now_ms();
+    let hints_per_goal = secret
+        .get("hints_per_goal")
+        .and_then(|v| v.as_u64())
+        .map(|v| v as usize)
+        .unwrap_or(crate::secret_bingo::HINTS_PER_GOAL);
+    let configured = secret.get("configured").and_then(|v| v.as_bool()).unwrap_or(false);
+
+    let mut goals: Vec<Value> = secret
+        .get("goals")
+        .and_then(|g| g.as_array())
+        .cloned()
+        .unwrap_or_default();
+    if goals.is_empty() {
+        goals = crate::secret_bingo::placeholder_view(3)
+            .get("goals")
+            .and_then(|g| g.as_array())
+            .cloned()
+            .unwrap_or_default();
+    }
+
+    let cards: String = goals
+        .iter()
+        .map(|goal| render_secret_card(goal, now, hints_per_goal))
+        .collect();
+
+    let sub = format!("每个任务 {hints_per_goal} 条提示");
+    let empty_note = if configured {
+        String::new()
+    } else {
+        format!(
+            "<p class=\"secret-note\">尚未配置提示数据：在 <code>data/secret_bingo.json</code> 的 \
+             <code>goals</code> 里按格式填入任务与每条提示的 <code>reveal_at</code>，\
+             页面就会按时间依次解锁（每个任务最多 {hints_per_goal} 条提示）。</p>"
+        )
+    };
+
+    format!(
+        "<div class=\"panel secret-panel\" data-secret-panel>\
+           <h2>秘密 Bingo <span class=\"panel-sub\">{sub}</span></h2>\
+           <p class=\"secret-note\">秘密任务（Secret Bingo）的提示由官方按时间依次公布，\
+             每个任务共 {hints_per_goal} 条提示：到点自动解锁，无需刷新页面；\
+             倒计时按浏览器本地时间计算，不受定时构建延迟影响。</p>\
+           {empty_note}\
+           <div class=\"secret-grid\">{cards}</div>\
+         </div>"
     )
 }
 
@@ -863,6 +1005,7 @@ pub fn build_site_html(
     bingo: &Value,
     bingo_stale: bool,
     firesales: &Value,
+    secret: &Value,
     skipped_reason: Option<&str>,
 ) -> Result<String, String> {
     // 顶部版本栏
@@ -960,11 +1103,14 @@ pub fn build_site_html(
     let pack_panel = render_pack_panel(pack_result, pack_changes);
     let firesales_panel = render_firesales_panel(firesales, false);
     let bingo_panel = render_bingo_panel(bingo, bingo_stale);
+    let secret_panel = render_secret_panel(secret);
 
     // 内联样式与脚本（与本地服务两端共用同一份文件）
     let static_dir = base_dir().join("static");
     let bingo_css = read_asset(&static_dir.join("bingo.css"));
     let bingo_js = read_asset(&static_dir.join("bingo.js"));
+    let secret_css = read_asset(&static_dir.join("secret.css"));
+    let secret_js = read_asset(&static_dir.join("secret.js"));
     let firesale_css = read_asset(&static_dir.join("firesale.css"));
     let firesale_js = read_asset(&static_dir.join("firesale.js"));
     let theme_css = read_asset(&static_dir.join("theme.css"));
@@ -1001,6 +1147,9 @@ pub fn build_site_html(
     context.insert("firesales_panel", &firesales_panel);
     context.insert("bingo_panel", &bingo_panel);
     context.insert("bingo_js", &bingo_js);
+    context.insert("secret_panel", &secret_panel);
+    context.insert("secret_css", &secret_css);
+    context.insert("secret_js", &secret_js);
     context.insert("firesale_js", &firesale_js);
 
     tera.render("site", &context).map_err(|e| format!("渲染静态站失败：{:?}", e))
