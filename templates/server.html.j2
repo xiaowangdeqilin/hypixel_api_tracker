@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="{{ lang_code }}" dir="{{ lang_dir }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ t['Hypixel SkyBlock API 变更监控台'] }}</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <link rel="stylesheet" href="/static/bingo.css" />
+    <link rel="stylesheet" href="/static/firesale.css" />
+    <link rel="stylesheet" href="/static/theme.css" />
+    <link rel="stylesheet" href="/static/i18n.css" />
+    {% if i18n_enabled %}{# 译文以不可执行的 JSON 数据块注入，配合 CSP script-src 'self' #}
+    <script type="application/json" id="i18n-pack">{{ i18n_pack }}</script>
+    {% endif %}
+    <script src="/static/theme.js"></script>
+    {% if i18n_enabled %}
+    <script src="/static/i18n.js"></script>
+    {% endif %}
+  </head>
+  <body>
+    <div class="container">
+      <div class="version-bar">
+        <div class="version-main">
+          <span class="version-tag">{{ t['当前版本'] }} {% if version_info.stable_version and version_info.stable_version != '未获取' %}v{{ version_info.stable_version }}{% else %}{{ t['未获取'] }}{% endif %}</span>
+          <span class="sync-badge sync-{{ sync_status }}">{{ sync_label }}</span>
+        </div>
+        {% if i18n_enabled %}
+        <label class="lang-switch" data-lang-switch>
+          <span class="lang-switch-label">{{ t['语言'] }}</span>
+          <select id="lang-select" data-lang-select aria-label="{{ t['语言'] }}">
+            {% for lang in languages %}
+            <option value="{{ lang.code }}"{% if lang.code == lang_code %} selected{% endif %}>{{ lang.name }}</option>
+            {% endfor %}
+          </select>
+        </label>
+        {% endif %}
+        <span class="version-meta">
+          {{ t['收藏'] }} v{{ version_info.versions.collections | default(value=t['未获取']) }} · {{ t['技能'] }} v{{ version_info.versions.skills | default(value=t['未获取']) }}
+          · {{ t['仪表盘'] }} v{{ version }} · {{ t['更新于'] }} {{ version_info.updated_at }}{{ t['（北京时间）'] }} · {{ t['每 30 秒自动刷新'] }}
+        </span>
+      </div>
+      {% if version_info.note %}<div class="version-note">{{ version_info.note }}</div>{% endif %}
+
+      <h1>{{ t['Hypixel SkyBlock API 变更监控台'] }}</h1>
+
+      <div id="status-cards" class="cards"></div>
+
+      <div class="panel">
+        <h2>{{ t['端点变更概览'] }}</h2>
+        <div id="chart" class="chart"></div>
+      </div>
+
+      <div class="panel">
+        <h2>{{ t['最近快照'] }}</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>{{ t['编号'] }}</th>
+              <th>{{ t['端点'] }}</th>
+              <th>{{ t['抓取时间（北京时间）'] }}</th>
+              <th>{{ t['状态'] }}</th>
+            </tr>
+          </thead>
+          <tbody id="history-body"></tbody>
+        </table>
+      </div>
+
+      <div class="panel">
+        <h2>{{ t['最近变更'] }}</h2>
+        <p class="hint">{{ changes_hint | safe }}</p>
+        <table>
+          <thead>
+            <tr>
+              <th>{{ t['端点'] }}</th>
+              <th>{{ t['类型'] }}</th>
+              <th>{{ t['字段路径'] }}</th>
+              <th>{{ t['变化内容'] }}</th>
+              <th>{{ t['时间（北京时间）'] }}</th>
+            </tr>
+          </thead>
+          <tbody id="changes-body"></tbody>
+        </table>
+      </div>
+
+      <div class="panel firesale-panel" data-firesale-panel>
+        <h2>{{ t['限时特卖（Firesales）'] }}{% if firesales_non_empty %}<span class="panel-sub">{{ firesales_header }} ·
+          {{ t['即将开始'] }} {{ firesales.upcoming_count }} · {{ t['进行中'] }} {{ firesales.active_count }} · {{ t['已结束'] }} {{ firesales.ended_count }}</span>
+          <button type="button" class="firesale-toggle" data-firesale-toggle
+            aria-expanded="false" aria-controls="firesale-extra">{{ t['显示额外数据'] }}</button>{% endif %}</h2>
+        {% if not firesales_non_empty %}
+        <p class="hint">{{ firesale_empty_hint | safe }}</p>
+        <div class="empty">{{ t['暂无限时特卖数据'] }}</div>
+        {% else %}
+        <p class="hint">{{ firesale_hint | safe }}</p>
+        {% if current_sales | length > 0 %}
+        <div class="firesale-grid">
+          {% for sale in current_sales %}
+          <div class="firesale-card firesale-card-{{ sale.state }}">
+            <div class="firesale-card-head">
+              <span class="firesale-index" dir="ltr">{{ loop.index | pad02 }}</span>
+              <span class="firesale-badge firesale-badge-{{ sale.state }}">{{ sale.state_label_t }}</span>
+            </div>
+            <div class="firesale-name">{{ sale.name }}</div>
+            <div class="firesale-facts">
+              <div><span class="k">{{ t['价格'] }}</span><span class="v firesale-price" dir="ltr">{{ sale.price_str }} {{ t['宝石'] }}</span></div>
+              <div><span class="k">{{ t['数量'] }}</span><span class="v" dir="ltr">{{ sale.amount_str }}</span></div>
+              <div><span class="k">{{ t['开始'] }}</span><span class="v" dir="ltr">{{ sale.start }}</span></div>
+              <div><span class="k">{{ t['结束'] }}</span><span class="v" dir="ltr">{{ sale.end }}</span></div>
+            </div>
+            <div class="firesale-id"><code dir="ltr">{{ sale.item_id }}</code></div>
+          </div>
+          {% endfor %}
+        </div>
+        {% else %}
+        <div class="empty">{{ t['当前没有即将开始或进行中的特卖'] }}</div>
+        {% endif %}
+        <div class="firesale-extra" id="firesale-extra" data-firesale-extra hidden>
+          <h3>{{ t['全部期次（含已结束）'] }}</h3>
+          <div class="firesale-table-wrap">
+            <table>
+              <thead>
+                <tr><th dir="ltr">#</th><th>{{ t['物品'] }}</th><th>item_id</th><th>{{ t['价格（宝石）'] }}</th>
+                    <th>{{ t['数量'] }}</th><th>{{ t['状态'] }}</th><th>{{ t['开始（北京时间）'] }}</th><th>{{ t['结束（北京时间）'] }}</th></tr>
+              </thead>
+              <tbody>
+                {% for sale in firesales.sales %}
+                <tr>
+                  <td dir="ltr">{{ loop.index }}</td>
+                  <td>{{ sale.name }}</td>
+                  <td><code dir="ltr">{{ sale.item_id }}</code></td>
+                  <td dir="ltr">{{ sale.price_str }}</td>
+                  <td dir="ltr">{{ sale.amount_str }}</td>
+                  <td>{{ sale.state_label_t }}</td>
+                  <td class="time" dir="ltr">{{ sale.start }}</td>
+                  <td class="time" dir="ltr">{{ sale.end }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <p class="hint">{{ firesale_generated_hint }}</p>
+        </div>
+        {% endif %}
+      </div>
+
+      <div class="panel bingo-panel" data-bingo-panel>
+        <h2>{{ t['Bingo 任务'] }}{% if bingo %}<span class="panel-sub">{{ bingo_header }} · {{ bingo.name }}</span>{% endif %}</h2>
+        {% if not bingo %}
+        <p class="hint">{{ bingo_empty_hint | safe }}</p>
+        <div class="empty">{{ t['暂无 Bingo 数据'] }}</div>
+        {% else %}
+        <p class="hint">{{ bingo_hint | safe }}</p>
+        <div class="bingo-head">
+          <div class="bingo-state bingo-state-{{ bingo.state }}" data-bingo-state data-state="{{ bingo.state }}"
+               data-start-ms="{% if bingo.start_ms %}{{ bingo.start_ms }}{% endif %}" data-end-ms="{% if bingo.end_ms %}{{ bingo.end_ms }}{% endif %}">
+            <span class="bingo-state-label">{{ bingo.state_label_t }}</span>
+            <span class="bingo-countdown" dir="ltr" data-bingo-countdown{% if bingo.state == 'ended' %} hidden{% endif %}>{{ bingo.remaining }}</span>
+          </div>
+          <div class="bingo-info">
+            <div><span class="k">{{ t['发布时间'] }}</span><span class="v" dir="ltr">{{ bingo.published_at }}</span></div>
+            <div><span class="k">{{ t['首次发现'] }}</span><span class="v" dir="ltr">{{ bingo.first_seen }}</span></div>
+            <div><span class="k">{{ t['开始时间'] }}</span><span class="v" dir="ltr">{{ bingo.start }}</span></div>
+            <div><span class="k">{{ t['结束时间'] }}</span><span class="v" dir="ltr">{{ bingo.end }}</span></div>
+            <div><span class="k">{{ t['难度修饰'] }}</span><span class="v">{{ bingo.modifier }}</span></div>
+            <div><span class="k">{{ t['任务数量'] }}</span><span class="v" dir="ltr">{{ goal_count }} {{ t['个'] }}</span></div>
+          </div>
+        </div>
+        <p class="bingo-tip">{{ bingo_tip }}</p>
+        <div class="bingo-grid-wrap">
+          <div class="bingo-grid">
+            {% for goal in bingo.goals %}
+            {% set p = goal.progress_info | default(value=false) %}
+            <button type="button" class="bingo-cell" data-bingo-cell
+                    data-index="{{ goal.index_str }}"
+                    data-goal-id="{{ goal.id }}"
+                    data-requirement="{{ goal.requirement_attr }}"
+                    data-progress="{{ goal.progress_attr }}"
+                    data-percent="{{ goal.percent_str }}">
+              <span class="bingo-cell-top">
+                <span class="bingo-index">{{ goal.index_str }}</span>
+                <span class="bingo-cell-badge{% if goal.is_done %} is-done{% endif %}">{% if p %}<span dir="ltr">{{ goal.percent_str }}%</span>{% else %}—{% endif %}</span>
+              </span>
+              <span class="bingo-cell-name">{{ goal.name }}</span>
+              <span class="bingo-cell-lore">
+                {% if goal.lore_html %}{% for line in goal.lore_html %}<span class="bingo-cell-lore-line">{{ line | safe }}</span>{% endfor %}{% else %}<span class="bingo-cell-lore-line">{{ t['（该任务没有文案）'] }}</span>{% endif %}
+              </span>
+              <span class="bingo-cell-foot">
+                {% if p %}
+                <span class="bingo-bar"><span class="bingo-bar-fill" style="width: {{ p.percent }}%"></span></span>
+                <span class="bingo-cell-progress" dir="ltr">{{ goal.foot_text }}</span>
+                {% else %}
+                <span class="bingo-cell-progress">{{ goal.foot_text }}</span>
+                {% endif %}
+              </span>
+            </button>
+            {% endfor %}
+          </div>
+        </div>
+
+        <dialog class="bingo-dialog" data-bingo-dialog aria-label="{{ t['Bingo 任务详情'] }}">
+          <div class="bingo-dialog-inner">
+            <div class="bingo-dialog-head">
+              <span class="bingo-dialog-index" data-dialog-index></span>
+              <span class="bingo-dialog-name" data-dialog-name></span>
+              <button type="button" class="bingo-dialog-close" data-dialog-close aria-label="{{ t['关闭'] }}">×</button>
+            </div>
+            <div class="bingo-dialog-lore" data-dialog-lore></div>
+            <div class="bingo-dialog-facts">
+              <div><span class="k">{{ t['目标'] }}</span><span class="v" data-dialog-requirement></span></div>
+              <div><span class="k">{{ t['全服进度'] }}</span><span class="v" data-dialog-progress></span></div>
+              <div><span class="k">{{ t['完成度'] }}</span><span class="v" data-dialog-percent></span></div>
+            </div>
+            <div class="bingo-dialog-id">{{ t['任务 ID：'] }}<code dir="ltr" data-dialog-id></code></div>
+          </div>
+        </dialog>
+        {% endif %}
+      </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+    <script src="/static/bingo.js"></script>
+    <script src="/static/firesale.js"></script>
+  </body>
+</html>

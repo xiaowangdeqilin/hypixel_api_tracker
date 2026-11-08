@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-11-08 13:13:35",
+  "active_count": 3,
+  "ended_count": 0,
+  "generated_at": "2026-11-08 15:42:56",
   "sales": [
     {
+      "amount": 950,
+      "end": "2026-11-12 01:00:00",
+      "end_ms": 1794416400000,
       "item_id": "WITHER_GOGGLES_ECLIPSED_SPECTRE",
-      "start_ms": 1794070800000,
-      "end_ms": 1794416400000,
-      "start": "2026-11-08 01:00:00",
-      "end": "2026-11-12 01:00:00",
-      "amount": 950,
+      "key": "WITHER_GOGGLES_ECLIPSED_SPECTRE@1794070800000",
+      "name": "WITHER GOGGLES ECLIPSED SPECTRE",
       "price": 650,
-      "name": "Wither Goggles Eclipsed Spectre",
+      "start": "2026-11-08 01:00:00",
+      "start_ms": 1794070800000,
       "state": "active",
-      "state_label": "进行中",
-      "key": "WITHER_GOGGLES_ECLIPSED_SPECTRE@1794070800000"
+      "state_label": "进行中"
     },
     {
+      "amount": 950,
+      "end": "2026-11-12 01:00:00",
+      "end_ms": 1794416400000,
       "item_id": "WITHER_GOGGLES_LAGOON_SPECTRE",
-      "start_ms": 1794070800000,
-      "end_ms": 1794416400000,
-      "start": "2026-11-08 01:00:00",
-      "end": "2026-11-12 01:00:00",
-      "amount": 950,
+      "key": "WITHER_GOGGLES_LAGOON_SPECTRE@1794070800000",
+      "name": "WITHER GOGGLES LAGOON SPECTRE",
       "price": 650,
-      "name": "Wither Goggles Lagoon Spectre",
+      "start": "2026-11-08 01:00:00",
+      "start_ms": 1794070800000,
       "state": "active",
-      "state_label": "进行中",
-      "key": "WITHER_GOGGLES_LAGOON_SPECTRE@1794070800000"
+      "state_label": "进行中"
     },
     {
-      "item_id": "WITHER_GOGGLES_MIDNIGHT_SPECTRE",
-      "start_ms": 1794070800000,
-      "end_ms": 1794416400000,
-      "start": "2026-11-08 01:00:00",
-      "end": "2026-11-12 01:00:00",
       "amount": 950,
+      "end": "2026-11-12 01:00:00",
+      "end_ms": 1794416400000,
+      "item_id": "WITHER_GOGGLES_MIDNIGHT_SPECTRE",
+      "key": "WITHER_GOGGLES_MIDNIGHT_SPECTRE@1794070800000",
+      "name": "WITHER GOGGLES MIDNIGHT SPECTRE",
       "price": 650,
-      "name": "Wither Goggles Midnight Spectre",
+      "start": "2026-11-08 01:00:00",
+      "start_ms": 1794070800000,
       "state": "active",
-      "state_label": "进行中",
-      "key": "WITHER_GOGGLES_MIDNIGHT_SPECTRE@1794070800000"
+      "state_label": "进行中"
     }
   ],
   "total": 3,
-  "upcoming_count": 0,
-  "active_count": 3,
-  "ended_count": 0
+  "upcoming_count": 0
 }

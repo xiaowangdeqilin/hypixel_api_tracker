@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hypixel SkyBlock API 变更监控台</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      margin: 0;
+      padding: 24px;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .version-bar {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+      gap: 8px; padding: 10px 16px; margin-bottom: 12px;
+      background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+      border: 1px solid #38bdf8; border-radius: 10px;
+    }
+    .version-main { display: flex; align-items: center; gap: 10px; }
+    .version-tag { font-size: 15px; font-weight: 700; color: #f8fafc; letter-spacing: .5px; }
+    .sync-badge {
+      font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 999px;
+      background: rgba(255,255,255,.22); color: #fff;
+    }
+    .sync-syncing, .sync-partial { background: #f59e0b; color: #1f2937; }
+    .version-meta { font-size: 12px; color: #e0f2fe; }
+    .version-note {
+      background: #451a03; border: 1px solid #f59e0b; color: #fde68a;
+      border-radius: 8px; padding: 8px 14px; font-size: 12px; margin-bottom: 20px;
+    }
+    h1 { margin: 0 0 4px 0; font-size: 28px; }
+    .subtitle { color: #94a3b8; margin-bottom: 28px; font-size: 14px; }
+    .cards {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px; margin-bottom: 32px;
+    }
+    .card { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 18px; }
+    .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .endpoint-name { font-weight: 700; font-size: 16px; }
+    .endpoint-id { display: block; font-size: 11px; font-weight: 400; color: #64748b; margin-top: 2px; }
+    .badge { padding: 2px 10px; border-radius: 999px; font-size: 11px; font-weight: 700; }
+    .badge-ok { background: #065f46; color: #6ee7b7; }
+    .badge-error { background: #7f1d1d; color: #fca5a5; }
+    .fetched { font-size: 12px; color: #94a3b8; margin-bottom: 10px; }
+    .summary { font-size: 13px; color: #cbd5e1; line-height: 1.6; word-break: break-all; }
+    h2 { font-size: 18px; margin: 0 0 16px 0; }
+    .panel {
+      background: #1e293b; border: 1px solid #334155; border-radius: 12px;
+      padding: 20px; margin-bottom: 24px; overflow-x: auto;
+    }
+    .hint { color: #94a3b8; font-size: 12px; line-height: 1.7; margin: -8px 0 14px 0; }
+    .pack-meta { font-size: 13px; color: #cbd5e1; margin-bottom: 14px; word-break: break-all; }
+    .pack-meta code { color: #7dd3fc; }
+    .pack-error { color: #fca5a5; font-size: 12px; }
+    .pack-change { background: #0f172a; border: 1px solid #334155; border-radius: 8px; padding: 12px; margin-bottom: 10px; }
+    .pack-change-head { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; font-size: 12px; color: #94a3b8; }
+    .cnt { padding: 2px 8px; border-radius: 4px; font-weight: 700; }
+    .cnt-add { background: #065f46; color: #6ee7b7; }
+    .cnt-mod { background: #78350f; color: #fcd34d; }
+    .cnt-del { background: #7f1d1d; color: #fca5a5; }
+    .pack-note { font-size: 12px; color: #64748b; margin-top: 8px; }
+    .pack-files { margin-top: 8px; }
+    .pack-files summary { cursor: pointer; font-size: 12px; user-select: none; }
+    .pack-more { color: #64748b; font-size: 11px; padding: 6px 12px; }
+
+    /* ---- 代码审核 / git diff 风格 ---- */
+    .diff-block {
+      background: #0b1220; border: 1px solid #334155; border-radius: 8px;
+      margin-bottom: 12px; overflow: hidden;
+    }
+    .diff-header {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+      padding: 8px 12px; background: #16213a; border-bottom: 1px solid #334155;
+      font-size: 12px;
+    }
+    .diff-badge { padding: 2px 9px; border-radius: 4px; font-size: 11px; font-weight: 700; }
+    .badge-add { background: #064e3b; color: #6ee7b7; }
+    .badge-del { background: #7f1d1d; color: #fca5a5; }
+    .badge-mod { background: #78350f; color: #fcd34d; }
+    .badge-ver { background: #1e40af; color: #bfdbfe; }
+    .diff-endpoint { color: #c4b5fd; font-weight: 600; }
+    .diff-path { color: #7dd3fc; word-break: break-all; }
+    .diff-time { color: #94a3b8; margin-left: auto; white-space: nowrap; }
+    .diff-lines { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .diff-line { display: flex; align-items: flex-start; gap: 10px; padding: 6px 12px; font-size: 12px; line-height: 1.6; }
+    .diff-line .sign { flex: 0 0 14px; font-weight: 700; text-align: center; }
+    .diff-line code { white-space: pre-wrap; word-break: break-all; }
+    .diff-code { min-width: 0; flex: 1; }
+    .diff-add { background: rgba(34,197,94,.12); border-left: 3px solid #22c55e; color: #bbf7d0; }
+    .diff-add .sign { color: #4ade80; }
+    .diff-del { background: rgba(239,68,68,.12); border-left: 3px solid #ef4444; color: #fecaca; }
+    .diff-del .sign { color: #f87171; }
+    .diff-mod { background: rgba(245,158,11,.12); border-left: 3px solid #f59e0b; color: #fde68a; }
+    .diff-mod .sign { color: #fbbf24; }
+    .value-details { margin-top: 6px; font-family: inherit; }
+    .value-details summary { cursor: pointer; font-size: 11px; color: #38bdf8; user-select: none; }
+    .value-details summary:hover { text-decoration: underline; }
+    .value-details pre {
+      margin: 6px 0 0 0; padding: 8px; background: #060b16; border: 1px solid #334155;
+      border-radius: 6px; font-size: 11px; line-height: 1.5; color: #e2e8f0;
+      white-space: pre-wrap; word-break: break-all; max-height: 260px; overflow: auto;
+    }
+    .pack-files .diff-line { font-size: 11px; }
+    .pack-files code { color: inherit; }
+    .pack-mod { border-top: 1px dashed #334155; padding: 6px 0; }
+    .pack-mod-head { font-size: 11px; color: #fcd34d; padding: 2px 12px; word-break: break-all; }
+    .pack-binary { color: #94a3b8; font-size: 11px; padding: 4px 12px; }
+    .pack-formats { color: #7dd3fc; }
+
+    /* ---- 只显示变化片段 ---- */
+    .diff-hunks { border: 1px solid #334155; border-radius: 6px; margin: 6px 0; overflow-x: auto; }
+    .diff-hunk { background: #16213a; color: #94a3b8; font-size: 11px; padding: 3px 12px; }
+    .diff-omitted { color: #64748b; font-size: 11px; padding: 4px 12px; }
+    .diff-ctx { border-left: 3px solid #475569; color: #94a3b8; }
+    .diff-ctx .sign { color: #475569; }
+    .skip-banner {
+      background: #451a03; border: 1px solid #f59e0b; color: #fde68a;
+      border-radius: 8px; padding: 10px 14px; font-size: 12px; margin-bottom: 12px;
+    }
+
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #334155; vertical-align: top; }
+    th { background: #0f172a; color: #94a3b8; font-weight: 600; position: sticky; top: 0; }
+    tr:hover td { background: #283548; }
+    .time { color: #94a3b8; white-space: nowrap; }
+    .empty { text-align: center; color: #64748b; padding: 24px; }
+    a { color: #38bdf8; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <div class="version-bar">
+      <div class="version-main">
+        <span class="version-tag">当前版本 v0.27.2.22</span>
+        <span class="sync-badge sync-aligned">版本一致</span>
+      </div>
+      <span class="version-meta">收藏 v0.27.2.22 &middot; 技能 v0.27.2.22 &middot; 仪表盘 v1.2.0 &middot; 构建 演示：模拟资源包更新 &middot; 生成于 2026-11-03 15:16:14（北京时间）</span>
+    </div>
+    
+
+    <h1>Hypixel SkyBlock API 变更监控台</h1>
+    <div class="skip-banner">这是<strong>演示页面</strong>：模拟 Hypixel 把资源包升到 packFormat 98 的情形，用于展示「新增只标绿、删除只标红、修改只显示变化片段」的效果。线上真实页面在资源包未更新时显示为「资源包未更新，沿用上次清单」。</div><div class="subtitle">监控收藏、技能、物品、集市与资源包五个端点，并解压比对资源包内文件变化。数据由 GitHub Actions 定时抓取，所有时间均为北京时间（UTC+8）。</div>
+
+    <div class="cards">
+            <div class="card">
+              <div class="card-header">
+                <span class="endpoint-name">收藏<span class="endpoint-id">collections</span></span>
+                <span class="badge badge-ok">正常</span>
+              </div>
+              <div class="fetched">抓取时间：2026-11-03 15:14:49（北京时间）</div>
+              <div class="summary">收藏分类数：6<br>收藏物品总数：90</div>
+            </div>
+            
+            <div class="card">
+              <div class="card-header">
+                <span class="endpoint-name">技能<span class="endpoint-id">skills</span></span>
+                <span class="badge badge-ok">正常</span>
+              </div>
+              <div class="fetched">抓取时间：2026-11-03 15:14:49（北京时间）</div>
+              <div class="summary">技能数：12</div>
+            </div>
+            
+            <div class="card">
+              <div class="card-header">
+                <span class="endpoint-name">物品<span class="endpoint-id">items</span></span>
+                <span class="badge badge-ok">正常</span>
+              </div>
+              <div class="fetched">抓取时间：2026-11-03 15:14:49（北京时间）</div>
+              <div class="summary">物品数：5682</div>
+            </div>
+            
+            <div class="card">
+              <div class="card-header">
+                <span class="endpoint-name">集市<span class="endpoint-id">bazaar</span></span>
+                <span class="badge badge-ok">正常</span>
+              </div>
+              <div class="fetched">抓取时间：2026-11-03 15:14:49（北京时间）</div>
+              <div class="summary">集市商品数：2201</div>
+            </div>
+            
+            <div class="card">
+              <div class="card-header">
+                <span class="endpoint-name">资源包<span class="endpoint-id">packs</span></span>
+                <span class="badge badge-ok">正常</span>
+              </div>
+              <div class="fetched">抓取时间：2026-11-03 15:14:49（北京时间）</div>
+              <div class="summary">部署 ID：1b5b3899-cdc3-4c90-ac57-7d3867e099d5<br>资源包数：1<br>格式版本数：3<br>选取格式（最大）：97</div>
+            </div>
+            </div>
+
+    
+    <div class="panel">
+      <h2>版本记录</h2>
+      <p class="hint">collections 与 skills 都带 version 字段，但 Hypixel 分批更新时两者不一定同时切换。
+      当前版本只在两个接口版本一致时才确认更新；不一致时保持上一次稳定版本并标注「版本同步中」，避免版本号来回跳。</p>
+      <div class="pack-meta">当前观测：收藏 v0.27.2.22（首次观察 2026-11-03 14:47:44） &middot; 技能 v0.27.2.22（首次观察 2026-11-03 14:47:44）</div>
+      <table>
+        <thead><tr><th>确认版本</th><th>确认时间（北京时间）</th><th>说明</th><th>上一版本</th></tr></thead>
+        <tbody>
+            <tr>
+              <td><code>v0.27.2.22</code></td>
+              <td class="time">2026-11-03 14:47:44</td>
+              <td>两个接口版本一致，确认当前版本</td>
+              <td>-</td>
+            </tr>
+            </tbody>
+      </table>
+    </div>
+    
+
+    
+    <div class="panel">
+      <h2>资源包文件变更</h2>
+      <p class="hint">每次调用接口都会从响应里取 <strong>packFormat 数值最大</strong> 的资源包（该数字随 MC 更新变化，不写死）；官方哈希未变化时跳过下载。新增文件只标绿、删除文件只标红；被修改的文本文件<strong>只显示发生变化的那一段</strong>，删除行标红、新增行标绿，未变化的内容不输出。若接口或下载失败，本次运行不会改动任何数据。</p>
+      <div class="pack-meta">资源包已更新并完成比对 &middot; 资源包：SkyBlock &middot; packFormat 98 &middot; 文件总数 4761 &middot; 部署 ID <code>1b5b3899-cdc3-4c90-ac57-7d3867e099d5</code> &middot; <span class="pack-formats">本次候选 packFormat：98 / 97 / 84 → 自动选取最大值 <strong>98</strong>（数字随 MC 更新变化，每次调用接口重新取）</span></div>
+      
+      
+                <div class="pack-change">
+                  <div class="pack-change-head">
+                    <span class="time">2026-11-03 15:16:14</span>
+                    <span>packFormat 98</span>
+                    <span class="cnt cnt-add">新增 2</span>
+                    <span class="cnt cnt-mod">修改 3</span>
+                    <span class="cnt cnt-del">删除 1</span>
+                    <span>共 4761 个文件</span>
+                  </div>
+                  
+                  <details class="pack-files"><summary class="cnt-diff-add">新增文件（2）</summary><div class="diff-lines"><div class="diff-line diff-add"><span class="sign">+</span><div class="diff-code"><code>assets/minecraft/models/item/new_blade.json</code></div></div><div class="diff-line diff-add"><span class="sign">+</span><div class="diff-code"><code>assets/minecraft/textures/item/new_blade.png</code></div></div></div></details>
+                  <details class="pack-files" open><summary class="cnt-mod">修改文件（3）</summary><div class="pack-mod"><div class="pack-mod-head"><code>pack.mcmeta</code></div><div class="diff-hunks"><div class="diff-line diff-ctx"><span class="sign"> </span><div class="diff-code"><code>  &quot;pack&quot;: {</code></div></div><div class="diff-line diff-del"><span class="sign">-</span><div class="diff-code"><code>    &quot;pack_format&quot;: 97,</code></div></div><div class="diff-line diff-add"><span class="sign">+</span><div class="diff-code"><code>    &quot;pack_format&quot;: 98,</code></div></div><div class="diff-line diff-ctx"><span class="sign"> </span><div class="diff-code"><code>    &quot;description&quot;: &quot;Hypixel SkyBlock&quot;</code></div></div><div class="diff-line diff-ctx"><span class="sign"> </span><div class="diff-code"><code>  }</code></div></div></div></div><div class="pack-mod"><div class="pack-mod-head"><code>assets/hypixel_skyblock/lang/en_us.json</code></div><div class="diff-hunks"><div class="diff-line diff-ctx"><span class="sign"> </span><div class="diff-code"><code>  &quot;item.hypixel.crimson_blade&quot;: &quot;Crimson Blade&quot;,</code></div></div><div class="diff-line diff-del"><span class="sign">-</span><div class="diff-code"><code>  &quot;item.hypixel.draconic_staff&quot;: &quot;Draconic Staff&quot;,</code></div></div><div class="diff-line diff-add"><span class="sign">+</span><div class="diff-code"><code>  &quot;item.hypixel.draconic_staff&quot;: &quot;Draconic Staff (Reworked)&quot;,</code></div></div><div class="diff-line diff-add"><span class="sign">+</span><div class="diff-code"><code>  &quot;item.hypixel.new_blade&quot;: &quot;New Blade&quot;,</code></div></div><div class="diff-line diff-ctx"><span class="sign"> </span><div class="diff-code"><code>  &quot;item.hypixel.ender_sword&quot;: &quot;Ender Sword&quot;,</code></div></div></div></div><div class="pack-mod"><div class="pack-mod-head"><code>assets/minecraft/textures/block/dragon_egg.png</code></div><div class="pack-binary">二进制文件已修改，仅显示哈希：1122334455667788 → 99aabbccddeeff00</div></div></details>
+                  <details class="pack-files"><summary class="cnt-diff-del">删除文件（1）</summary><div class="diff-lines"><div class="diff-line diff-del"><span class="sign">-</span><div class="diff-code"><code>assets/minecraft/textures/item/removed_staff.png</code></div></div></div></details>
+                </div>
+                
+    </div>
+    
+
+    <div class="panel">
+      <h2>最近变更</h2>
+      <p class="hint">按代码审核（diff）风格展示：<span style="color:#6ee7b7">新增只标绿 +</span>、<span style="color:#fca5a5">删除只标红 -</span>；修改<strong>只显示发生变化的那一段</strong>（删除行标红、新增行标绿，未变化内容不输出）。端点比对已排除 <code>version</code> / <code>lastUpdated</code> / <code>success</code>，版本号变化不会被当成内容更新。</p>
+      
+            <div class="diff-block diff-block-modified">
+              <div class="diff-header">
+                <span class="diff-badge badge-mod">修改</span>
+                <span class="diff-endpoint">技能</span>
+                <code class="diff-path">skills.ALCHEMY.levels</code>
+                <span class="diff-time">2026-11-03 05:57:06</span>
+              </div>
+              <div class="diff-lines"><div class="diff-hunks"><div class="diff-hunk">@@ 原值第 1 行 · 新值第 1 行 @@</div><div class="diff-line diff-del"><span class="sign">-</span><div class="diff-code"><code>[{&quot;level&quot;: 1, &quot;totalExpRequired&quot;: 50.0, &quot;unlocks&quot;: [&quot;Brewer I   Potions that you brew have a 1% longer duration.&quot;, &quot;+1 Intelligence&quot;, &quot;+100 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 2, &quot;totalExpRequired&quot;: 175.0, &quot;unlocks&quot;: [&quot;Brewer II   Potions that you brew have a 1➜2% longer duration.&quot;, &quot;+1 Intelligence&quot;, &quot;+250 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 3, &quot;totalExpRequired&quot;: 375.0, &quot;unlocks&quot;: [&quot;Brewer III   Potions that you brew have a 2➜3% longer duration.&quot;, &quot;+1 Intelligence&quot;, &quot;+500 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 4, &quot;totalExpRequired&quot;: 675.0, &quot;unlocks&quot;: [&quot;Brewer IV   Potions that you brew have a 3➜4% longer duration.&quot;, &quot;+1 Intelligence&quot;, &quot;+750 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 5, &quot;totalExpRequired&quot;: 1175.0, &quot;unlocks&quot;: [&quot;Brewer V   Potions that you brew have a 4➜5% longer duration.&quot;, &quot;+1 Intelligence&quot;, &quot;+1,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 6, &quot;totalExpRequired&quot;: 1925.0, &quot;unlocks&quot;: [&quot;Brewer VI   Potions that you brew have a 5➜6% longer duration.&quot;, &quot;+1 Intelligence&quot;, &quot;+2,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 7, &quot;totalExpRequired&quot;: 2925.0, &quot;unlocks&quot;: [&quot;Brewer VII   Potions that you brew have a 6➜7% longer duration.&quot;, &quot;+1 Intelligence&quot;, &quot;+3,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 8, &quot;totalExpRequired&quot;: 4425.0, &quot;unlocks&quot;: [&quot;Brewer VIII   Potions that you brew have a 7➜8% longer duration.&quot;, &quot;+1 Intelligence&quot;, &quot;+4,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 9, &quot;totalExpRequired&quot;: 6425.0, &quot;unlocks&quot;: [&quot;Brewer IX   Potions that you brew have a 8➜9% longer durat… (已截断，共 9183 字符)</code></div></div><div class="diff-line diff-add"><span class="sign">+</span><div class="diff-code"><code>[{&quot;level&quot;: 1, &quot;totalExpRequired&quot;: 50.0, &quot;unlocks&quot;: [&quot;Brewer 1   Potions that you brew have a 1% longer duration.&quot;, &quot;+1 Intelligence&quot;, &quot;+100 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 2, &quot;totalExpRequired&quot;: 175.0, &quot;unlocks&quot;: [&quot;Brewer 2   Potions that you brew have a 1➜2% longer duration.&quot;, &quot;+1 Intelligence&quot;, &quot;+250 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 3, &quot;totalExpRequired&quot;: 375.0, &quot;unlocks&quot;: [&quot;Brewer 3   Potions that you brew have a 2➜3% longer duration.&quot;, &quot;+1 Intelligence&quot;, &quot;+500 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 4, &quot;totalExpRequired&quot;: 675.0, &quot;unlocks&quot;: [&quot;Brewer 4   Potions that you brew have a 3➜4% longer duration.&quot;, &quot;+1 Intelligence&quot;, &quot;+750 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 5, &quot;totalExpRequired&quot;: 1175.0, &quot;unlocks&quot;: [&quot;Brewer 5   Potions that you brew have a 4➜5% longer duration.&quot;, &quot;+1 Intelligence&quot;, &quot;+1,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 6, &quot;totalExpRequired&quot;: 1925.0, &quot;unlocks&quot;: [&quot;Brewer 6   Potions that you brew have a 5➜6% longer duration.&quot;, &quot;+1 Intelligence&quot;, &quot;+2,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 7, &quot;totalExpRequired&quot;: 2925.0, &quot;unlocks&quot;: [&quot;Brewer 7   Potions that you brew have a 6➜7% longer duration.&quot;, &quot;+1 Intelligence&quot;, &quot;+3,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 8, &quot;totalExpRequired&quot;: 4425.0, &quot;unlocks&quot;: [&quot;Brewer 8   Potions that you brew have a 7➜8% longer duration.&quot;, &quot;+1 Intelligence&quot;, &quot;+4,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 9, &quot;totalExpRequired&quot;: 6425.0, &quot;unlocks&quot;: [&quot;Brewer 9   Potions that you brew have a 8➜9% longer duration.&quot;, &quot;+1… (已截断，共 9093 字符)</code></div></div></div></div>
+            </div>
+            
+            <div class="diff-block diff-block-modified">
+              <div class="diff-header">
+                <span class="diff-badge badge-mod">修改</span>
+                <span class="diff-endpoint">技能</span>
+                <code class="diff-path">skills.COMBAT.levels</code>
+                <span class="diff-time">2026-11-03 05:57:06</span>
+              </div>
+              <div class="diff-lines"><div class="diff-hunks"><div class="diff-hunk">@@ 原值第 1 行 · 新值第 1 行 @@</div><div class="diff-line diff-del"><span class="sign">-</span><div class="diff-code"><code>[{&quot;level&quot;: 1, &quot;totalExpRequired&quot;: 50.0, &quot;unlocks&quot;: [&quot;+Access to Spider&#x27;s Den&quot;, &quot;Warrior I   Deal 4% more damage to mobs.&quot;, &quot;+0.5% Crit Chance&quot;, &quot;+100 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 2, &quot;totalExpRequired&quot;: 175.0, &quot;unlocks&quot;: [&quot;Warrior II   Deal 4➜8% more damage to mobs.&quot;, &quot;+0.5% Crit Chance&quot;, &quot;+250 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 3, &quot;totalExpRequired&quot;: 375.0, &quot;unlocks&quot;: [&quot;Warrior III   Deal 8➜12% more damage to mobs.&quot;, &quot;+0.5% Crit Chance&quot;, &quot;+500 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 4, &quot;totalExpRequired&quot;: 675.0, &quot;unlocks&quot;: [&quot;Warrior IV   Deal 12➜16% more damage to mobs.&quot;, &quot;+0.5% Crit Chance&quot;, &quot;+750 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 5, &quot;totalExpRequired&quot;: 1175.0, &quot;unlocks&quot;: [&quot;Warrior V   Deal 16➜20% more damage to mobs.&quot;, &quot;+0.5% Crit Chance&quot;, &quot;+1,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 6, &quot;totalExpRequired&quot;: 1925.0, &quot;unlocks&quot;: [&quot;Warrior VI   Deal 20➜24% more damage to mobs.&quot;, &quot;+0.5% Crit Chance&quot;, &quot;+2,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 7, &quot;totalExpRequired&quot;: 2925.0, &quot;unlocks&quot;: [&quot;Warrior VII   Deal 24➜28% more damage to mobs.&quot;, &quot;+0.5% Crit Chance&quot;, &quot;+3,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 8, &quot;totalExpRequired&quot;: 4425.0, &quot;unlocks&quot;: [&quot;Warrior VIII   Deal 28➜32% more damage to mobs.&quot;, &quot;+0.5% Crit Chance&quot;, &quot;+4,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 9, &quot;totalExpRequired&quot;: 6425.0, &quot;unlocks&quot;: [&quot;Warrior IX   Deal 32➜36% more damage to mobs.&quot;, &quot;+0.5% Crit Chance&quot;, &quot;+5,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 10, &quot;totalExpRequired&quot;: 9925.0, &quot;unlocks… (已截断，共 10939 字符)</code></div></div><div class="diff-line diff-add"><span class="sign">+</span><div class="diff-code"><code>[{&quot;level&quot;: 1, &quot;totalExpRequired&quot;: 50.0, &quot;unlocks&quot;: [&quot;+Access to Spider&#x27;s Den&quot;, &quot;Warrior 1   Deal 4% more damage to mobs.&quot;, &quot;+0.5% Crit Chance&quot;, &quot;+100 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 2, &quot;totalExpRequired&quot;: 175.0, &quot;unlocks&quot;: [&quot;Warrior 2   Deal 4➜8% more damage to mobs.&quot;, &quot;+0.5% Crit Chance&quot;, &quot;+250 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 3, &quot;totalExpRequired&quot;: 375.0, &quot;unlocks&quot;: [&quot;Warrior 3   Deal 8➜12% more damage to mobs.&quot;, &quot;+0.5% Crit Chance&quot;, &quot;+500 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 4, &quot;totalExpRequired&quot;: 675.0, &quot;unlocks&quot;: [&quot;Warrior 4   Deal 12➜16% more damage to mobs.&quot;, &quot;+0.5% Crit Chance&quot;, &quot;+750 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 5, &quot;totalExpRequired&quot;: 1175.0, &quot;unlocks&quot;: [&quot;Warrior 5   Deal 16➜20% more damage to mobs.&quot;, &quot;+0.5% Crit Chance&quot;, &quot;+1,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 6, &quot;totalExpRequired&quot;: 1925.0, &quot;unlocks&quot;: [&quot;Warrior 6   Deal 20➜24% more damage to mobs.&quot;, &quot;+0.5% Crit Chance&quot;, &quot;+2,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 7, &quot;totalExpRequired&quot;: 2925.0, &quot;unlocks&quot;: [&quot;Warrior 7   Deal 24➜28% more damage to mobs.&quot;, &quot;+0.5% Crit Chance&quot;, &quot;+3,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 8, &quot;totalExpRequired&quot;: 4425.0, &quot;unlocks&quot;: [&quot;Warrior 8   Deal 28➜32% more damage to mobs.&quot;, &quot;+0.5% Crit Chance&quot;, &quot;+4,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 9, &quot;totalExpRequired&quot;: 6425.0, &quot;unlocks&quot;: [&quot;Warrior 9   Deal 32➜36% more damage to mobs.&quot;, &quot;+0.5% Crit Chance&quot;, &quot;+5,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 10, &quot;totalExpRequired&quot;: 9925.0, &quot;unlocks&quot;: [&quot;Warrio… (已截断，共 10838 字符)</code></div></div></div></div>
+            </div>
+            
+            <div class="diff-block diff-block-modified">
+              <div class="diff-header">
+                <span class="diff-badge badge-mod">修改</span>
+                <span class="diff-endpoint">技能</span>
+                <code class="diff-path">skills.ENCHANTING.levels</code>
+                <span class="diff-time">2026-11-03 05:57:06</span>
+              </div>
+              <div class="diff-lines"><div class="diff-hunks"><div class="diff-hunk">@@ 原值第 1 行 · 新值第 1 行 @@</div><div class="diff-line diff-del"><span class="sign">-</span><div class="diff-code"><code>[{&quot;level&quot;: 1, &quot;totalExpRequired&quot;: 50.0, &quot;unlocks&quot;: [&quot;Conjurer I   Gain 5% more experience orbs from any source.&quot;, &quot;+0.5% Ability Damage&quot;, &quot;+1 Intelligence&quot;, &quot;Scavenger Enchantment&quot;, &quot;+100 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 2, &quot;totalExpRequired&quot;: 175.0, &quot;unlocks&quot;: [&quot;Conjurer II   Gain 5➜10% more experience orbs from any source.&quot;, &quot;+0.5% Ability Damage&quot;, &quot;+1 Intelligence&quot;, &quot;Infinite Quiver Enchantment&quot;, &quot;Sunder Enchantment&quot;, &quot;Harvesting Enchantment&quot;, &quot;+250 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 3, &quot;totalExpRequired&quot;: 375.0, &quot;unlocks&quot;: [&quot;Conjurer III   Gain 10➜15% more experience orbs from any source.&quot;, &quot;+0.5% Ability Damage&quot;, &quot;+1 Intelligence&quot;, &quot;Luck Enchantment&quot;, &quot;Cubism Enchantment&quot;, &quot;+500 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 4, &quot;totalExpRequired&quot;: 675.0, &quot;unlocks&quot;: [&quot;Conjurer IV   Gain 15➜20% more experience orbs from any source.&quot;, &quot;+0.5% Ability Damage&quot;, &quot;+1 Intelligence&quot;, &quot;Cleave Enchantment&quot;, &quot;Angler Enchantment&quot;, &quot;+750 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 5, &quot;totalExpRequired&quot;: 1175.0, &quot;unlocks&quot;: [&quot;Conjurer V   Gain 20➜25% more experience orbs from any source.&quot;, &quot;+0.5% Ability Damage&quot;, &quot;+1 Intelligence&quot;, &quot;Life Steal Enchantment&quot;, &quot;Scuba Enchantment&quot;, &quot;Feast Enchantment&quot;, &quot;Woodsplitter Enchantment&quot;, &quot;Growth Enchantment&quot;, &quot;+1,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 6, &quot;totalExpRequired&quot;: 1925.0, &quot;unlocks&quot;: [&quot;Conjurer VI   Gain 25➜30% more experience orbs from any source.&quot;, &quot;+0.5% Ability Damage&quot;, &quot;+1 Intelligence&quot;, &quot;Snipe Enchantment&quot;, &quot;Rainbow Enchantmen… (已截断，共 15114 字符)</code></div></div><div class="diff-line diff-add"><span class="sign">+</span><div class="diff-code"><code>[{&quot;level&quot;: 1, &quot;totalExpRequired&quot;: 50.0, &quot;unlocks&quot;: [&quot;Conjurer 1   Gain 5% more experience orbs from any source.&quot;, &quot;+0.5% Ability Damage&quot;, &quot;+1 Intelligence&quot;, &quot;Scavenger Enchantment&quot;, &quot;+100 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 2, &quot;totalExpRequired&quot;: 175.0, &quot;unlocks&quot;: [&quot;Conjurer 2   Gain 5➜10% more experience orbs from any source.&quot;, &quot;+0.5% Ability Damage&quot;, &quot;+1 Intelligence&quot;, &quot;Infinite Quiver Enchantment&quot;, &quot;Sunder Enchantment&quot;, &quot;Harvesting Enchantment&quot;, &quot;+250 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 3, &quot;totalExpRequired&quot;: 375.0, &quot;unlocks&quot;: [&quot;Conjurer 3   Gain 10➜15% more experience orbs from any source.&quot;, &quot;+0.5% Ability Damage&quot;, &quot;+1 Intelligence&quot;, &quot;Luck Enchantment&quot;, &quot;Cubism Enchantment&quot;, &quot;+500 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 4, &quot;totalExpRequired&quot;: 675.0, &quot;unlocks&quot;: [&quot;Conjurer 4   Gain 15➜20% more experience orbs from any source.&quot;, &quot;+0.5% Ability Damage&quot;, &quot;+1 Intelligence&quot;, &quot;Cleave Enchantment&quot;, &quot;Angler Enchantment&quot;, &quot;+750 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 5, &quot;totalExpRequired&quot;: 1175.0, &quot;unlocks&quot;: [&quot;Conjurer 5   Gain 20➜25% more experience orbs from any source.&quot;, &quot;+0.5% Ability Damage&quot;, &quot;+1 Intelligence&quot;, &quot;Life Steal Enchantment&quot;, &quot;Scuba Enchantment&quot;, &quot;Feast Enchantment&quot;, &quot;Woodsplitter Enchantment&quot;, &quot;Growth Enchantment&quot;, &quot;+1,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 6, &quot;totalExpRequired&quot;: 1925.0, &quot;unlocks&quot;: [&quot;Conjurer 6   Gain 25➜30% more experience orbs from any source.&quot;, &quot;+0.5% Ability Damage&quot;, &quot;+1 Intelligence&quot;, &quot;Snipe Enchantment&quot;, &quot;Rainbow Enchantment&quot;, &quot;… (已截断，共 15013 字符)</code></div></div></div></div>
+            </div>
+            
+            <div class="diff-block diff-block-modified">
+              <div class="diff-header">
+                <span class="diff-badge badge-mod">修改</span>
+                <span class="diff-endpoint">技能</span>
+                <code class="diff-path">skills.FARMING.levels</code>
+                <span class="diff-time">2026-11-03 05:57:06</span>
+              </div>
+              <div class="diff-lines"><div class="diff-hunks"><div class="diff-hunk">@@ 原值第 1 行 · 新值第 1 行 @@</div><div class="diff-line diff-del"><span class="sign">-</span><div class="diff-code"><code>[{&quot;level&quot;: 1, &quot;totalExpRequired&quot;: 50.0, &quot;unlocks&quot;: [&quot;+Access to The Barn&quot;, &quot;Farmhand I   Grants +4  Farming Fortune, which increases your chance for multiple crops.&quot;, &quot;+2 Health&quot;, &quot;+100 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 2, &quot;totalExpRequired&quot;: 175.0, &quot;unlocks&quot;: [&quot;Farmhand II   Grants +4➜8  Farming Fortune, which increases your chance for multiple crops.&quot;, &quot;+2 Health&quot;, &quot;+250 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 3, &quot;totalExpRequired&quot;: 375.0, &quot;unlocks&quot;: [&quot;Farmhand III   Grants +8➜12  Farming Fortune, which increases your chance for multiple crops.&quot;, &quot;+2 Health&quot;, &quot;+500 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 4, &quot;totalExpRequired&quot;: 675.0, &quot;unlocks&quot;: [&quot;Farmhand IV   Grants +12➜16  Farming Fortune, which increases your chance for multiple crops.&quot;, &quot;+2 Health&quot;, &quot;+750 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 5, &quot;totalExpRequired&quot;: 1175.0, &quot;unlocks&quot;: [&quot;+Access to Mushroom Desert&quot;, &quot;Farmhand V   Grants +16➜20  Farming Fortune, which increases your chance for multiple crops.&quot;, &quot;+2 Health&quot;, &quot;+1,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 6, &quot;totalExpRequired&quot;: 1925.0, &quot;unlocks&quot;: [&quot;Farmhand VI   Grants +20➜24  Farming Fortune, which increases your chance for multiple crops.&quot;, &quot;+2 Health&quot;, &quot;+2,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 7, &quot;totalExpRequired&quot;: 2925.0, &quot;unlocks&quot;: [&quot;Farmhand VII   Grants +24➜28  Farming Fortune, which increases your chance for multiple crops.&quot;, &quot;+2 Health&quot;, &quot;+3,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 8, &quot;totalExpRequired&quot;: 4425.0, &quot;unlocks&quot;: [&quot;Farmh… (已截断，共 12644 字符)</code></div></div><div class="diff-line diff-add"><span class="sign">+</span><div class="diff-code"><code>[{&quot;level&quot;: 1, &quot;totalExpRequired&quot;: 50.0, &quot;unlocks&quot;: [&quot;+Access to The Barn&quot;, &quot;Farmhand 1   Grants +4  Farming Fortune, which increases your chance for multiple crops.&quot;, &quot;+2 Health&quot;, &quot;+100 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 2, &quot;totalExpRequired&quot;: 175.0, &quot;unlocks&quot;: [&quot;Farmhand 2   Grants +4➜8  Farming Fortune, which increases your chance for multiple crops.&quot;, &quot;+2 Health&quot;, &quot;+250 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 3, &quot;totalExpRequired&quot;: 375.0, &quot;unlocks&quot;: [&quot;Farmhand 3   Grants +8➜12  Farming Fortune, which increases your chance for multiple crops.&quot;, &quot;+2 Health&quot;, &quot;+500 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 4, &quot;totalExpRequired&quot;: 675.0, &quot;unlocks&quot;: [&quot;Farmhand 4   Grants +12➜16  Farming Fortune, which increases your chance for multiple crops.&quot;, &quot;+2 Health&quot;, &quot;+750 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 5, &quot;totalExpRequired&quot;: 1175.0, &quot;unlocks&quot;: [&quot;+Access to Mushroom Desert&quot;, &quot;Farmhand 5   Grants +16➜20  Farming Fortune, which increases your chance for multiple crops.&quot;, &quot;+2 Health&quot;, &quot;+1,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 6, &quot;totalExpRequired&quot;: 1925.0, &quot;unlocks&quot;: [&quot;Farmhand 6   Grants +20➜24  Farming Fortune, which increases your chance for multiple crops.&quot;, &quot;+2 Health&quot;, &quot;+2,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 7, &quot;totalExpRequired&quot;: 2925.0, &quot;unlocks&quot;: [&quot;Farmhand 7   Grants +24➜28  Farming Fortune, which increases your chance for multiple crops.&quot;, &quot;+2 Health&quot;, &quot;+3,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 8, &quot;totalExpRequired&quot;: 4425.0, &quot;unlocks&quot;: [&quot;Farmhand 8  … (已截断，共 12543 字符)</code></div></div></div></div>
+            </div>
+            
+            <div class="diff-block diff-block-modified">
+              <div class="diff-header">
+                <span class="diff-badge badge-mod">修改</span>
+                <span class="diff-endpoint">技能</span>
+                <code class="diff-path">skills.FISHING.levels</code>
+                <span class="diff-time">2026-11-03 05:57:06</span>
+              </div>
+              <div class="diff-lines"><div class="diff-hunks"><div class="diff-hunk">@@ 原值第 1 行 · 新值第 1 行 @@</div><div class="diff-line diff-del"><span class="sign">-</span><div class="diff-code"><code>[{&quot;level&quot;: 1, &quot;totalExpRequired&quot;: 50.0, &quot;unlocks&quot;: [&quot;Squid Sea Creature&quot;, &quot;Sea Walker Sea Creature&quot;, &quot;Frozen Steve Sea Creature&quot;, &quot;Frosty Sea Creature&quot;, &quot;Treasure Hunter I   Grants +0.1  Treasure Chance.&quot;, &quot;+2 Health&quot;, &quot;+100 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 2, &quot;totalExpRequired&quot;: 175.0, &quot;unlocks&quot;: [&quot;Treasure Hunter II   Grants +0.1➜0.2  Treasure Chance.&quot;, &quot;+2 Health&quot;, &quot;+250 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 3, &quot;totalExpRequired&quot;: 375.0, &quot;unlocks&quot;: [&quot;Treasure Hunter III   Grants +0.2➜0.3  Treasure Chance.&quot;, &quot;+2 Health&quot;, &quot;+500 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 4, &quot;totalExpRequired&quot;: 675.0, &quot;unlocks&quot;: [&quot;Treasure Hunter IV   Grants +0.3➜0.4  Treasure Chance.&quot;, &quot;+2 Health&quot;, &quot;+750 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 5, &quot;totalExpRequired&quot;: 1175.0, &quot;unlocks&quot;: [&quot;+Access to Lotus Atoll&quot;, &quot;Dumpster Diver Sea Creature&quot;, &quot;Frog Man Sea Creature&quot;, &quot;Trash Gobbler Sea Creature&quot;, &quot;Bogged Sea Creature&quot;, &quot;Nurse Shark Sea Creature&quot;, &quot;Treasure Hunter V   Grants +0.4➜0.5  Treasure Chance.&quot;, &quot;+2 Health&quot;, &quot;+1,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 6, &quot;totalExpRequired&quot;: 1925.0, &quot;unlocks&quot;: [&quot;Jumpin&#x27; Jack Sea Creature&quot;, &quot;Medium Mithril Grubber Sea Creature&quot;, &quot;Mithril Grubber Sea Creature&quot;, &quot;Bloated Mithril Grubber Sea Creature&quot;, &quot;Large Mithril Grubber Sea Creature&quot;, &quot;Treasure Hunter VI   Grants +0.5➜0.6  Treasure Chance.&quot;, &quot;+2 Health&quot;, &quot;+2,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 7, &quot;totalExpRequired&quot;: 2925.0, &quot;unlocks&quot;: [&quot;??? Sea Creature&quot;, &quot;??? Sea Creature&quot;, &quot;??? Sea C… (已截断，共 10334 字符)</code></div></div><div class="diff-line diff-add"><span class="sign">+</span><div class="diff-code"><code>[{&quot;level&quot;: 1, &quot;totalExpRequired&quot;: 50.0, &quot;unlocks&quot;: [&quot;Squid Sea Creature&quot;, &quot;Sea Walker Sea Creature&quot;, &quot;Frozen Steve Sea Creature&quot;, &quot;Frosty Sea Creature&quot;, &quot;Treasure Hunter 1   Grants +0.1  Treasure Chance.&quot;, &quot;+2 Health&quot;, &quot;+100 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 2, &quot;totalExpRequired&quot;: 175.0, &quot;unlocks&quot;: [&quot;Treasure Hunter 2   Grants +0.1➜0.2  Treasure Chance.&quot;, &quot;+2 Health&quot;, &quot;+250 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 3, &quot;totalExpRequired&quot;: 375.0, &quot;unlocks&quot;: [&quot;Treasure Hunter 3   Grants +0.2➜0.3  Treasure Chance.&quot;, &quot;+2 Health&quot;, &quot;+500 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 4, &quot;totalExpRequired&quot;: 675.0, &quot;unlocks&quot;: [&quot;Treasure Hunter 4   Grants +0.3➜0.4  Treasure Chance.&quot;, &quot;+2 Health&quot;, &quot;+750 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 5, &quot;totalExpRequired&quot;: 1175.0, &quot;unlocks&quot;: [&quot;+Access to Lotus Atoll&quot;, &quot;Dumpster Diver Sea Creature&quot;, &quot;Frog Man Sea Creature&quot;, &quot;Trash Gobbler Sea Creature&quot;, &quot;Bogged Sea Creature&quot;, &quot;Nurse Shark Sea Creature&quot;, &quot;Treasure Hunter 5   Grants +0.4➜0.5  Treasure Chance.&quot;, &quot;+2 Health&quot;, &quot;+1,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 6, &quot;totalExpRequired&quot;: 1925.0, &quot;unlocks&quot;: [&quot;Jumpin&#x27; Jack Sea Creature&quot;, &quot;Medium Mithril Grubber Sea Creature&quot;, &quot;Mithril Grubber Sea Creature&quot;, &quot;Bloated Mithril Grubber Sea Creature&quot;, &quot;Large Mithril Grubber Sea Creature&quot;, &quot;Treasure Hunter 6   Grants +0.5➜0.6  Treasure Chance.&quot;, &quot;+2 Health&quot;, &quot;+2,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 7, &quot;totalExpRequired&quot;: 2925.0, &quot;unlocks&quot;: [&quot;Wetwing Sea Creature&quot;, &quot;Inkling Sea Creature&quot;, &quot;Sea Wi… (已截断，共 10673 字符)</code></div></div></div></div>
+            </div>
+            
+            <div class="diff-block diff-block-modified">
+              <div class="diff-header">
+                <span class="diff-badge badge-mod">修改</span>
+                <span class="diff-endpoint">技能</span>
+                <code class="diff-path">skills.FORAGING.levels</code>
+                <span class="diff-time">2026-11-03 05:57:06</span>
+              </div>
+              <div class="diff-lines"><div class="diff-hunks"><div class="diff-hunk">@@ 原值第 1 行 · 新值第 1 行 @@</div><div class="diff-line diff-del"><span class="sign">-</span><div class="diff-code"><code>[{&quot;level&quot;: 1, &quot;totalExpRequired&quot;: 50.0, &quot;unlocks&quot;: [&quot;+Access to The Park&quot;, &quot;Logger I   Grants +4  Foraging Fortune, which increases your chance for multiple logs.&quot;, &quot;+1 Strength&quot;, &quot;+100 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 2, &quot;totalExpRequired&quot;: 175.0, &quot;unlocks&quot;: [&quot;Logger II   Grants +4➜8  Foraging Fortune, which increases your chance for multiple logs.&quot;, &quot;+1 Strength&quot;, &quot;+250 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 3, &quot;totalExpRequired&quot;: 375.0, &quot;unlocks&quot;: [&quot;Logger III   Grants +8➜12  Foraging Fortune, which increases your chance for multiple logs.&quot;, &quot;+1 Strength&quot;, &quot;+500 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 4, &quot;totalExpRequired&quot;: 675.0, &quot;unlocks&quot;: [&quot;Logger IV   Grants +12➜16  Foraging Fortune, which increases your chance for multiple logs.&quot;, &quot;+1 Strength&quot;, &quot;+750 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 5, &quot;totalExpRequired&quot;: 1175.0, &quot;unlocks&quot;: [&quot;Logger V   Grants +16➜20  Foraging Fortune, which increases your chance for multiple logs.&quot;, &quot;+1 Strength&quot;, &quot;+1,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 6, &quot;totalExpRequired&quot;: 1925.0, &quot;unlocks&quot;: [&quot;Logger VI   Grants +20➜24  Foraging Fortune, which increases your chance for multiple logs.&quot;, &quot;+1 Strength&quot;, &quot;+2,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 7, &quot;totalExpRequired&quot;: 2925.0, &quot;unlocks&quot;: [&quot;Logger VII   Grants +24➜28  Foraging Fortune, which increases your chance for multiple logs.&quot;, &quot;+1 Strength&quot;, &quot;+3,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 8, &quot;totalExpRequired&quot;: 4425.0, &quot;unlocks&quot;: [&quot;Logger VIII   Grants +28➜32  Forag… (已截断，共 11991 字符)</code></div></div><div class="diff-line diff-add"><span class="sign">+</span><div class="diff-code"><code>[{&quot;level&quot;: 1, &quot;totalExpRequired&quot;: 50.0, &quot;unlocks&quot;: [&quot;+Access to The Park&quot;, &quot;Logger 1   Grants +4  Foraging Fortune, which increases your chance for multiple logs.&quot;, &quot;+1 Strength&quot;, &quot;+100 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 2, &quot;totalExpRequired&quot;: 175.0, &quot;unlocks&quot;: [&quot;Logger 2   Grants +4➜8  Foraging Fortune, which increases your chance for multiple logs.&quot;, &quot;+1 Strength&quot;, &quot;+250 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 3, &quot;totalExpRequired&quot;: 375.0, &quot;unlocks&quot;: [&quot;Logger 3   Grants +8➜12  Foraging Fortune, which increases your chance for multiple logs.&quot;, &quot;+1 Strength&quot;, &quot;+500 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 4, &quot;totalExpRequired&quot;: 675.0, &quot;unlocks&quot;: [&quot;Logger 4   Grants +12➜16  Foraging Fortune, which increases your chance for multiple logs.&quot;, &quot;+1 Strength&quot;, &quot;+750 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 5, &quot;totalExpRequired&quot;: 1175.0, &quot;unlocks&quot;: [&quot;Logger 5   Grants +16➜20  Foraging Fortune, which increases your chance for multiple logs.&quot;, &quot;+1 Strength&quot;, &quot;+1,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 6, &quot;totalExpRequired&quot;: 1925.0, &quot;unlocks&quot;: [&quot;Logger 6   Grants +20➜24  Foraging Fortune, which increases your chance for multiple logs.&quot;, &quot;+1 Strength&quot;, &quot;+2,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 7, &quot;totalExpRequired&quot;: 2925.0, &quot;unlocks&quot;: [&quot;Logger 7   Grants +24➜28  Foraging Fortune, which increases your chance for multiple logs.&quot;, &quot;+1 Strength&quot;, &quot;+3,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 8, &quot;totalExpRequired&quot;: 4425.0, &quot;unlocks&quot;: [&quot;Logger 8   Grants +28➜32  Foraging Fortun… (已截断，共 11894 字符)</code></div></div></div></div>
+            </div>
+            
+            <div class="diff-block diff-block-modified">
+              <div class="diff-header">
+                <span class="diff-badge badge-mod">修改</span>
+                <span class="diff-endpoint">技能</span>
+                <code class="diff-path">skills.HUNTING.levels</code>
+                <span class="diff-time">2026-11-03 05:57:06</span>
+              </div>
+              <div class="diff-lines"><div class="diff-hunks"><div class="diff-hunk">@@ 原值第 1 行 · 新值第 1 行 @@</div><div class="diff-line diff-del"><span class="sign">-</span><div class="diff-code"><code>[{&quot;level&quot;: 1, &quot;totalExpRequired&quot;: 50.0, &quot;unlocks&quot;: [&quot;Charming I   Grants +0.04 ❣ Charm Chance.&quot;, &quot;+1 Hunting Fortune&quot;, &quot;+100 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 2, &quot;totalExpRequired&quot;: 175.0, &quot;unlocks&quot;: [&quot;Charming II   Grants +0.04➜0.08 ❣ Charm Chance.&quot;, &quot;+1 Hunting Fortune&quot;, &quot;+250 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 3, &quot;totalExpRequired&quot;: 375.0, &quot;unlocks&quot;: [&quot;Charming III   Grants +0.08➜0.12 ❣ Charm Chance.&quot;, &quot;+1 Hunting Fortune&quot;, &quot;+500 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 4, &quot;totalExpRequired&quot;: 675.0, &quot;unlocks&quot;: [&quot;Charming IV   Grants +0.12➜0.16 ❣ Charm Chance.&quot;, &quot;+1 Hunting Fortune&quot;, &quot;+750 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 5, &quot;totalExpRequired&quot;: 1175.0, &quot;unlocks&quot;: [&quot;Charming V   Grants +0.16➜0.2 ❣ Charm Chance.&quot;, &quot;+1 Hunting Fortune&quot;, &quot;+1,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 6, &quot;totalExpRequired&quot;: 1925.0, &quot;unlocks&quot;: [&quot;Charming VI   Grants +0.2➜0.24 ❣ Charm Chance.&quot;, &quot;+1 Hunting Fortune&quot;, &quot;+2,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 7, &quot;totalExpRequired&quot;: 2925.0, &quot;unlocks&quot;: [&quot;Charming VII   Grants +0.24➜0.28 ❣ Charm Chance.&quot;, &quot;+1 Hunting Fortune&quot;, &quot;+3,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 8, &quot;totalExpRequired&quot;: 4425.0, &quot;unlocks&quot;: [&quot;Charming VIII   Grants +0.28➜0.32 ❣ Charm Chance.&quot;, &quot;+1 Hunting Fortune&quot;, &quot;+4,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 9, &quot;totalExpRequired&quot;: 6425.0, &quot;unlocks&quot;: [&quot;Charming IX   Grants +0.32➜0.36 ❣ Charm Chance.&quot;, &quot;+1 Hunting Fortune&quot;, &quot;+5,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 10, &quot;totalExpRequired&quot;: 9925.0, &quot;unlocks… (已截断，共 8503 字符)</code></div></div><div class="diff-line diff-add"><span class="sign">+</span><div class="diff-code"><code>[{&quot;level&quot;: 1, &quot;totalExpRequired&quot;: 50.0, &quot;unlocks&quot;: [&quot;Charming 1   Grants +0.04 ❣ Charm Chance.&quot;, &quot;+1 Hunting Fortune&quot;, &quot;+100 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 2, &quot;totalExpRequired&quot;: 175.0, &quot;unlocks&quot;: [&quot;Charming 2   Grants +0.04➜0.08 ❣ Charm Chance.&quot;, &quot;+1 Hunting Fortune&quot;, &quot;+250 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 3, &quot;totalExpRequired&quot;: 375.0, &quot;unlocks&quot;: [&quot;Charming 3   Grants +0.08➜0.12 ❣ Charm Chance.&quot;, &quot;+1 Hunting Fortune&quot;, &quot;+500 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 4, &quot;totalExpRequired&quot;: 675.0, &quot;unlocks&quot;: [&quot;Charming 4   Grants +0.12➜0.16 ❣ Charm Chance.&quot;, &quot;+1 Hunting Fortune&quot;, &quot;+750 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 5, &quot;totalExpRequired&quot;: 1175.0, &quot;unlocks&quot;: [&quot;Charming 5   Grants +0.16➜0.2 ❣ Charm Chance.&quot;, &quot;+1 Hunting Fortune&quot;, &quot;+1,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 6, &quot;totalExpRequired&quot;: 1925.0, &quot;unlocks&quot;: [&quot;Charming 6   Grants +0.2➜0.24 ❣ Charm Chance.&quot;, &quot;+1 Hunting Fortune&quot;, &quot;+2,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 7, &quot;totalExpRequired&quot;: 2925.0, &quot;unlocks&quot;: [&quot;Charming 7   Grants +0.24➜0.28 ❣ Charm Chance.&quot;, &quot;+1 Hunting Fortune&quot;, &quot;+3,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 8, &quot;totalExpRequired&quot;: 4425.0, &quot;unlocks&quot;: [&quot;Charming 8   Grants +0.28➜0.32 ❣ Charm Chance.&quot;, &quot;+1 Hunting Fortune&quot;, &quot;+4,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 9, &quot;totalExpRequired&quot;: 6425.0, &quot;unlocks&quot;: [&quot;Charming 9   Grants +0.32➜0.36 ❣ Charm Chance.&quot;, &quot;+1 Hunting Fortune&quot;, &quot;+5,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 10, &quot;totalExpRequired&quot;: 9925.0, &quot;unlocks&quot;: [&quot;Charmi… (已截断，共 8413 字符)</code></div></div></div></div>
+            </div>
+            
+            <div class="diff-block diff-block-modified">
+              <div class="diff-header">
+                <span class="diff-badge badge-mod">修改</span>
+                <span class="diff-endpoint">技能</span>
+                <code class="diff-path">skills.MINING.levels</code>
+                <span class="diff-time">2026-11-03 05:57:06</span>
+              </div>
+              <div class="diff-lines"><div class="diff-hunks"><div class="diff-hunk">@@ 原值第 1 行 · 新值第 1 行 @@</div><div class="diff-line diff-del"><span class="sign">-</span><div class="diff-code"><code>[{&quot;level&quot;: 1, &quot;totalExpRequired&quot;: 50.0, &quot;unlocks&quot;: [&quot;+Access to Gold Mine&quot;, &quot;Spelunker I   Grants +4  Mining Fortune, which increases your chance for multiple ore drops.&quot;, &quot;+1 Defense&quot;, &quot;Jerry Stone Reforge&quot;, &quot;+100 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 2, &quot;totalExpRequired&quot;: 175.0, &quot;unlocks&quot;: [&quot;Spelunker II   Grants +4➜8  Mining Fortune, which increases your chance for multiple ore drops.&quot;, &quot;+1 Defense&quot;, &quot;Black Diamond Reforge&quot;, &quot;+250 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 3, &quot;totalExpRequired&quot;: 375.0, &quot;unlocks&quot;: [&quot;Spelunker III   Grants +8➜12  Mining Fortune, which increases your chance for multiple ore drops.&quot;, &quot;+1 Defense&quot;, &quot;Overflowing Trash Can Reforge&quot;, &quot;+500 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 4, &quot;totalExpRequired&quot;: 675.0, &quot;unlocks&quot;: [&quot;Spelunker IV   Grants +12➜16  Mining Fortune, which increases your chance for multiple ore drops.&quot;, &quot;+1 Defense&quot;, &quot;+750 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 5, &quot;totalExpRequired&quot;: 1175.0, &quot;unlocks&quot;: [&quot;+Access to Deep Caverns&quot;, &quot;Spelunker V   Grants +16➜20  Mining Fortune, which increases your chance for multiple ore drops.&quot;, &quot;+1 Defense&quot;, &quot;Lapis Crystal Reforge&quot;, &quot;Moil Log Reforge&quot;, &quot;+1,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 6, &quot;totalExpRequired&quot;: 1925.0, &quot;unlocks&quot;: [&quot;Spelunker VI   Grants +20➜24  Mining Fortune, which increases your chance for multiple ore drops.&quot;, &quot;+1 Defense&quot;, &quot;+2,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 7, &quot;totalExpRequired&quot;: 2925.0, &quot;unlocks&quot;: [&quot;Spelunker VII   Grants +24➜28  Mining Fortune, which… (已截断，共 14889 字符)</code></div></div><div class="diff-line diff-add"><span class="sign">+</span><div class="diff-code"><code>[{&quot;level&quot;: 1, &quot;totalExpRequired&quot;: 50.0, &quot;unlocks&quot;: [&quot;+Access to Gold Mine&quot;, &quot;Spelunker 1   Grants +4  Mining Fortune, which increases your chance for multiple ore drops.&quot;, &quot;+1 Defense&quot;, &quot;Jerry Stone Reforge&quot;, &quot;+100 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 2, &quot;totalExpRequired&quot;: 175.0, &quot;unlocks&quot;: [&quot;Spelunker 2   Grants +4➜8  Mining Fortune, which increases your chance for multiple ore drops.&quot;, &quot;+1 Defense&quot;, &quot;Black Diamond Reforge&quot;, &quot;+250 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 3, &quot;totalExpRequired&quot;: 375.0, &quot;unlocks&quot;: [&quot;Spelunker 3   Grants +8➜12  Mining Fortune, which increases your chance for multiple ore drops.&quot;, &quot;+1 Defense&quot;, &quot;Overflowing Trash Can Reforge&quot;, &quot;+500 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 4, &quot;totalExpRequired&quot;: 675.0, &quot;unlocks&quot;: [&quot;Spelunker 4   Grants +12➜16  Mining Fortune, which increases your chance for multiple ore drops.&quot;, &quot;+1 Defense&quot;, &quot;+750 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 5, &quot;totalExpRequired&quot;: 1175.0, &quot;unlocks&quot;: [&quot;+Access to Deep Caverns&quot;, &quot;Spelunker 5   Grants +16➜20  Mining Fortune, which increases your chance for multiple ore drops.&quot;, &quot;+1 Defense&quot;, &quot;Lapis Crystal Reforge&quot;, &quot;Moil Log Reforge&quot;, &quot;+1,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 6, &quot;totalExpRequired&quot;: 1925.0, &quot;unlocks&quot;: [&quot;Spelunker 6   Grants +20➜24  Mining Fortune, which increases your chance for multiple ore drops.&quot;, &quot;+1 Defense&quot;, &quot;+2,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 7, &quot;totalExpRequired&quot;: 2925.0, &quot;unlocks&quot;: [&quot;Spelunker 7   Grants +24➜28  Mining Fortune, which increa… (已截断，共 14788 字符)</code></div></div></div></div>
+            </div>
+            
+            <div class="diff-block diff-block-modified">
+              <div class="diff-header">
+                <span class="diff-badge badge-mod">修改</span>
+                <span class="diff-endpoint">技能</span>
+                <code class="diff-path">skills.TAMING.levels</code>
+                <span class="diff-time">2026-11-03 05:57:06</span>
+              </div>
+              <div class="diff-lines"><div class="diff-hunks"><div class="diff-hunk">@@ 原值第 1 行 · 新值第 1 行 @@</div><div class="diff-line diff-del"><span class="sign">-</span><div class="diff-code"><code>[{&quot;level&quot;: 1, &quot;totalExpRequired&quot;: 50.0, &quot;unlocks&quot;: [&quot;Zoologist I   Gain 1% extra pet exp.&quot;, &quot;+Gain 0.2% Exp Share rate.&quot;, &quot;+1 Pet Luck&quot;, &quot;+100 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 2, &quot;totalExpRequired&quot;: 175.0, &quot;unlocks&quot;: [&quot;Zoologist II   Gain 1➜2% extra pet exp.&quot;, &quot;+Gain 0.2➜0.4% Exp Share rate.&quot;, &quot;+1 Pet Luck&quot;, &quot;+250 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 3, &quot;totalExpRequired&quot;: 375.0, &quot;unlocks&quot;: [&quot;Zoologist III   Gain 2➜3% extra pet exp.&quot;, &quot;+Gain 0.4➜0.6% Exp Share rate.&quot;, &quot;+1 Pet Luck&quot;, &quot;+500 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 4, &quot;totalExpRequired&quot;: 675.0, &quot;unlocks&quot;: [&quot;Zoologist IV   Gain 3➜4% extra pet exp.&quot;, &quot;+Gain 0.6➜0.8% Exp Share rate.&quot;, &quot;+1 Pet Luck&quot;, &quot;+750 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 5, &quot;totalExpRequired&quot;: 1175.0, &quot;unlocks&quot;: [&quot;Zoologist V   Gain 4➜5% extra pet exp.&quot;, &quot;+Gain 0.8➜1% Exp Share rate.&quot;, &quot;+1 Pet Luck&quot;, &quot;+1,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 6, &quot;totalExpRequired&quot;: 1925.0, &quot;unlocks&quot;: [&quot;Zoologist VI   Gain 5➜6% extra pet exp.&quot;, &quot;+Gain 1➜1.2% Exp Share rate.&quot;, &quot;+1 Pet Luck&quot;, &quot;+2,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 7, &quot;totalExpRequired&quot;: 2925.0, &quot;unlocks&quot;: [&quot;Zoologist VII   Gain 6➜7% extra pet exp.&quot;, &quot;+Gain 1.2➜1.4% Exp Share rate.&quot;, &quot;+1 Pet Luck&quot;, &quot;+3,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 8, &quot;totalExpRequired&quot;: 4425.0, &quot;unlocks&quot;: [&quot;Zoologist VIII   Gain 7➜8% extra pet exp.&quot;, &quot;+Gain 1.4➜1.6% Exp Share rate.&quot;, &quot;+1 Pet Luck&quot;, &quot;+4,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 9, &quot;totalExpRequired&quot;: 6425.0, &quot;unlocks&quot;: [&quot;Zoologist … (已截断，共 11671 字符)</code></div></div><div class="diff-line diff-add"><span class="sign">+</span><div class="diff-code"><code>[{&quot;level&quot;: 1, &quot;totalExpRequired&quot;: 50.0, &quot;unlocks&quot;: [&quot;Zoologist 1   Gain 1% extra pet exp.&quot;, &quot;+Gain 0.2% Exp Share rate.&quot;, &quot;+1 Pet Luck&quot;, &quot;+100 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 2, &quot;totalExpRequired&quot;: 175.0, &quot;unlocks&quot;: [&quot;Zoologist 2   Gain 1➜2% extra pet exp.&quot;, &quot;+Gain 0.2➜0.4% Exp Share rate.&quot;, &quot;+1 Pet Luck&quot;, &quot;+250 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 3, &quot;totalExpRequired&quot;: 375.0, &quot;unlocks&quot;: [&quot;Zoologist 3   Gain 2➜3% extra pet exp.&quot;, &quot;+Gain 0.4➜0.6% Exp Share rate.&quot;, &quot;+1 Pet Luck&quot;, &quot;+500 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 4, &quot;totalExpRequired&quot;: 675.0, &quot;unlocks&quot;: [&quot;Zoologist 4   Gain 3➜4% extra pet exp.&quot;, &quot;+Gain 0.6➜0.8% Exp Share rate.&quot;, &quot;+1 Pet Luck&quot;, &quot;+750 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 5, &quot;totalExpRequired&quot;: 1175.0, &quot;unlocks&quot;: [&quot;Zoologist 5   Gain 4➜5% extra pet exp.&quot;, &quot;+Gain 0.8➜1% Exp Share rate.&quot;, &quot;+1 Pet Luck&quot;, &quot;+1,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 6, &quot;totalExpRequired&quot;: 1925.0, &quot;unlocks&quot;: [&quot;Zoologist 6   Gain 5➜6% extra pet exp.&quot;, &quot;+Gain 1➜1.2% Exp Share rate.&quot;, &quot;+1 Pet Luck&quot;, &quot;+2,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 7, &quot;totalExpRequired&quot;: 2925.0, &quot;unlocks&quot;: [&quot;Zoologist 7   Gain 6➜7% extra pet exp.&quot;, &quot;+Gain 1.2➜1.4% Exp Share rate.&quot;, &quot;+1 Pet Luck&quot;, &quot;+3,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 8, &quot;totalExpRequired&quot;: 4425.0, &quot;unlocks&quot;: [&quot;Zoologist 8   Gain 7➜8% extra pet exp.&quot;, &quot;+Gain 1.4➜1.6% Exp Share rate.&quot;, &quot;+1 Pet Luck&quot;, &quot;+4,000 Coins&quot;, &quot;+5 SkyBlock XP&quot;]}, {&quot;level&quot;: 9, &quot;totalExpRequired&quot;: 6425.0, &quot;unlocks&quot;: [&quot;Zoologist 9   Gain 8… (已截断，共 11570 字符)</code></div></div></div></div>
+            </div>
+            
+            <div class="diff-block diff-block-modified">
+              <div class="diff-header">
+                <span class="diff-badge badge-mod">修改</span>
+                <span class="diff-endpoint">技能</span>
+                <code class="diff-path">skills.FISHING.levels</code>
+                <span class="diff-time">2026-10-30 07:38:45</span>
+              </div>
+              <div class="diff-lines"><div class="diff-line diff-del"><span class="sign">-</span><div class="diff-code"><code>[50] 项</code></div></div><div class="diff-line diff-add"><span class="sign">+</span><div class="diff-code"><code>[50] 项</code></div></div></div>
+            </div>
+            
+            <div class="diff-block diff-block-added">
+              <div class="diff-header">
+                <span class="diff-badge badge-add">新增</span>
+                <span class="diff-endpoint">物品</span>
+                <code class="diff-path">items.TALISMAN_ENRICHMENT_SWAPPER.soulbound</code>
+                <span class="diff-time">2026-10-30 07:38:45</span>
+              </div>
+              <div class="diff-lines"><div class="diff-line diff-add"><span class="sign">+</span><div class="diff-code"><code>&quot;COOP&quot;</code></div></div></div>
+            </div>
+            
+            <div class="diff-block diff-block-modified">
+              <div class="diff-header">
+                <span class="diff-badge badge-mod">修改</span>
+                <span class="diff-endpoint">技能</span>
+                <code class="diff-path">skills.FISHING.levels</code>
+                <span class="diff-time">2026-10-30 03:41:36</span>
+              </div>
+              <div class="diff-lines"><div class="diff-line diff-del"><span class="sign">-</span><div class="diff-code"><code>[50] 项</code></div></div><div class="diff-line diff-add"><span class="sign">+</span><div class="diff-code"><code>[50] 项</code></div></div></div>
+            </div>
+            
+    </div>
+
+    <div class="panel">
+      <h2>关于本页</h2>
+      <p style="color:#94a3b8; font-size:13px; line-height:1.8; margin:0;">
+        本仪表盘由 GitHub Actions 定时工作流自动生成。它定期抓取 Hypixel SkyBlock 公共 API，
+        并把每次响应与上一次快照做比对，新增 / 删除 / 修改的字段会以代码审核风格记录在上方的变更日志中。
+        页面顶部的「当前版本」来自 <strong>collections 与 skills 两个资源接口</strong>的 version 字段：
+        由于 Hypixel 分批更新时两个接口不一定同时切换，只有两者版本一致才会确认新版本；不一致时保持上次稳定版本并显示「版本同步中」，
+        避免版本号来回跳。版本切换单独记录在「版本记录」面板，不混入端点内容变更日志。
+        集市（bazaar）的价格波动已被过滤，仅追踪商品的结构性增删。
+        资源包（packs）端点每次都会取 packFormat 数值最大的版本（该数字随 MC 更新变化），
+        在官方哈希变化时下载 zip 并解压，按文件内容哈希比对包内文件的增删改；
+        被修改的文本文件只展示变化片段并标红标绿，新增文件只标绿。
+        若任一接口或资源包下载失败，本次运行不会改动仓库里的任何数据。
+      </p>
+    </div>
+  </div>
+</body>
+</html>

@@ -15,7 +15,7 @@ jobs:
     # 固定镜像标签，避免 ubuntu-latest 迁移到 Ubuntu 26 的通知与潜在行为变化
     runs-on: ubuntu-24.04
     outputs:
-      # 接口或资源包获取失败时脚本会输出 false，本次运行不提交、不部署
+      # 接口或资源包获取失败时程序会输出 false，本次运行不提交、不部署
       data_written: ${{ steps.build.outputs.data_written }}
     steps:
       # 以下 action 版本均运行在 Node.js 24，消除 Node.js 20 弃用警告
@@ -23,25 +23,22 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-python@v6
-        with:
-          python-version: "3.11"
-
-      - name: Install deps
-        run: pip install --disable-pip-version-check requests
+      # Rust 工具链 + 依赖缓存：首次构建约多花 2-4 分钟，之后增量编译约 30 秒
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
 
       - name: Build dashboard
         id: build
         env:
           HYPIXEL_API_KEY: ${{ secrets.HYPIXEL_API_KEY }}
-        run: python scripts/build_dashboard.py
+        run: cargo run --release --locked --bin tracker-build
 
       - name: Commit data
         if: steps.build.outputs.data_written == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # data/ 下包含快照、变更日志、版本状态与资源包文件清单
+          # data/ 下包含快照、变更日志、版本状态、Bingo/特卖数据与资源包清单
           git add data/
           if ! git diff --cached --quiet; then
             git commit -m "chore: update snapshots [skip ci]"

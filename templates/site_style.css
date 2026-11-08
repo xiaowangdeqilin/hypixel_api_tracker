@@ -1,0 +1,132 @@
+    * { box-sizing: border-box; }
+    body {
+      font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 24px;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .version-bar {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+      gap: 8px; padding: 10px 16px; margin-bottom: 12px;
+      background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+      border: 1px solid var(--accent); border-radius: 10px;
+    }
+    .version-main { display: flex; align-items: center; gap: 10px; }
+    .version-tag { font-size: 15px; font-weight: 700; color: var(--text-strong); letter-spacing: .5px; }
+    .sync-badge {
+      font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 999px;
+      background: rgba(255,255,255,.22); color: #fff;
+    }
+    .sync-syncing, .sync-partial { background: var(--warn-line); color: #1f2937; }
+    .version-meta { font-size: 12px; color: rgba(255, 255, 255, .9); }
+    .version-note {
+      background: var(--warn-bg-soft); border: 1px solid var(--warn-line); color: var(--warn-text-soft);
+      border-radius: 8px; padding: 8px 14px; font-size: 12px; margin-bottom: 20px;
+    }
+    h1 { margin: 0 0 4px 0; font-size: 28px; }
+    .subtitle { color: var(--muted); margin-bottom: 28px; font-size: 14px; }
+    .cards {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px; margin-bottom: 32px;
+    }
+    .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
+    .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .endpoint-name { font-weight: 700; font-size: 16px; }
+    .endpoint-id { display: block; font-size: 11px; font-weight: 400; color: var(--muted-2); margin-top: 2px; }
+    .badge { padding: 2px 10px; border-radius: 999px; font-size: 11px; font-weight: 700; }
+    .badge-ok { background: var(--ok-bg); color: var(--ok-text); }
+    .badge-error { background: var(--bad-bg); color: var(--bad-text); }
+    .fetched { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+    .summary { font-size: 13px; color: var(--text-soft); line-height: 1.6; word-break: break-all; }
+    h2 { font-size: 18px; margin: 0 0 16px 0; }
+    .panel {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+      padding: 20px; margin-bottom: 24px; overflow-x: auto;
+    }
+    .hint { color: var(--muted); font-size: 12px; line-height: 1.7; margin: -8px 0 14px 0; }
+    .pack-meta { font-size: 13px; color: var(--text-soft); margin-bottom: 14px; word-break: break-all; }
+    .pack-meta code { color: var(--code); }
+    .pack-error { color: var(--bad-text); font-size: 12px; }
+    .pack-change { background: var(--panel-soft); border: 1px solid var(--line); border-radius: 8px; padding: 12px; margin-bottom: 10px; }
+    .pack-change-head { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; font-size: 12px; color: var(--muted); }
+    .cnt { padding: 2px 8px; border-radius: 4px; font-weight: 700; }
+    .cnt-add { background: var(--ok-bg); color: var(--ok-text); }
+    .cnt-mod { background: var(--warn-bg); color: var(--warn-text); }
+    .cnt-del { background: var(--bad-bg); color: var(--bad-text); }
+    .pack-note { font-size: 12px; color: var(--muted-2); margin-top: 8px; }
+    .pack-files { margin-top: 8px; }
+    .pack-files summary { cursor: pointer; font-size: 12px; user-select: none; }
+    .pack-more { color: var(--muted-2); font-size: 11px; padding: 6px 12px; }
+
+    /* ---- 代码审核 / git diff 风格 ---- */
+    .diff-block {
+      background: var(--code-bg); border: 1px solid var(--line); border-radius: 8px;
+      margin-bottom: 12px; overflow: hidden;
+    }
+    .diff-header {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+      padding: 8px 12px; background: var(--panel-2); border-bottom: 1px solid var(--line);
+      font-size: 12px;
+    }
+    .diff-badge { padding: 2px 9px; border-radius: 4px; font-size: 11px; font-weight: 700; }
+    .badge-add { background: var(--ok-bg-strong); color: var(--ok-text); }
+    .badge-del { background: var(--bad-bg); color: var(--bad-text); }
+    .badge-mod { background: var(--warn-bg); color: var(--warn-text); }
+    .badge-ver { background: var(--info-bg); color: var(--info-text); }
+    .diff-endpoint { color: var(--purple); font-weight: 600; }
+    .diff-path { color: var(--code); word-break: break-all; }
+    .diff-time { color: var(--muted); margin-left: auto; white-space: nowrap; }
+    .diff-lines { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .diff-line { display: flex; align-items: flex-start; gap: 10px; padding: 6px 12px; font-size: 12px; line-height: 1.6; }
+    .diff-line .sign { flex: 0 0 14px; font-weight: 700; text-align: center; }
+    .diff-line code { white-space: pre-wrap; word-break: break-all; }
+    .diff-code { min-width: 0; flex: 1; }
+    .diff-add { background: var(--diff-add-bg); border-left: 3px solid var(--ok-line); color: var(--diff-add-text); }
+    .diff-add .sign { color: var(--diff-add-sign); }
+    .diff-del { background: var(--diff-del-bg); border-left: 3px solid var(--bad-line); color: var(--diff-del-text); }
+    .diff-del .sign { color: var(--diff-del-sign); }
+    .diff-mod { background: var(--diff-mod-bg); border-left: 3px solid var(--warn-line); color: var(--warn-text-soft); }
+    .diff-mod .sign { color: var(--warn-text); }
+    .value-details { margin-top: 6px; font-family: inherit; }
+    .value-details summary { cursor: pointer; font-size: 11px; color: var(--accent); user-select: none; }
+    .value-details summary:hover { text-decoration: underline; }
+    .value-details pre {
+      margin: 6px 0 0 0; padding: 8px; background: var(--code-bg); border: 1px solid var(--line);
+      border-radius: 6px; font-size: 11px; line-height: 1.5; color: var(--text);
+      white-space: pre-wrap; word-break: break-all; max-height: 260px; overflow: auto;
+    }
+    .pack-files .diff-line { font-size: 11px; }
+    .pack-files code { color: inherit; }
+    .pack-mod { border-top: 1px dashed var(--line); padding: 6px 0; }
+    .pack-mod-head { font-size: 11px; color: var(--warn-text); padding: 2px 12px; word-break: break-all; }
+    .pack-binary { color: var(--muted); font-size: 11px; padding: 4px 12px; }
+    .pack-formats { color: var(--code); }
+
+    /* ---- 只显示变化片段 ---- */
+    .diff-hunks { border: 1px solid var(--line); border-radius: 6px; margin: 6px 0; overflow-x: auto; }
+    .diff-hunk { background: var(--panel-2); color: var(--muted); font-size: 11px; padding: 3px 12px; }
+    .diff-omitted { color: var(--muted-2); font-size: 11px; padding: 4px 12px; }
+    .diff-ctx { border-left: 3px solid var(--line-strong); color: var(--muted); }
+    .diff-ctx .sign { color: var(--line-strong); }
+    .skip-banner {
+      background: var(--warn-bg-soft); border: 1px solid var(--warn-line); color: var(--warn-text-soft);
+      border-radius: 8px; padding: 10px 14px; font-size: 12px; margin-bottom: 12px;
+    }
+
+    /* 混淆码 §k：MC 里表现为随机跳动的字符，这里用轻微抖动示意 */
+    .mc-obf { display: inline-block; animation: mc-obf-jitter .45s steps(2) infinite; }
+    @keyframes mc-obf-jitter {
+      0% { opacity: .55; letter-spacing: .6px; }
+      50% { opacity: 1; letter-spacing: 0; }
+      100% { opacity: .55; letter-spacing: .6px; }
+    }
+
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { background: var(--panel-soft); color: var(--muted); font-weight: 600; position: sticky; top: 0; }
+    tr:hover td { background: var(--hover); }
+    .time { color: var(--muted); white-space: nowrap; }
+    .empty { text-align: center; color: var(--muted-2); padding: 24px; }
+    a { color: var(--accent); }

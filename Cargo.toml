@@ -1,0 +1,34 @@
+[package]
+name = "hypixel-tracker"
+version = "2.0.0"
+edition = "2021"
+description = "Hypixel SkyBlock API 变更追踪器（Rust 实现）：构建静态仪表盘 + 本地监控服务"
+
+[[bin]]
+name = "tracker-build"
+path = "src/bin/build.rs"
+
+[[bin]]
+name = "tracker-server"
+path = "src/bin/server.rs"
+
+[[bin]]
+name = "locales-gen"
+path = "src/bin/locales_gen.rs"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+# 轻量 HTTP 客户端（rustls TLS + gzip），避免引入 tokio 重栈
+ureq = { version = "2", default-features = false, features = ["json", "tls", "gzip"] }
+# 轻量同步 HTTP 服务器：本项目路由少、流量低，无需异步运行时
+tiny_http = "0.12"
+# Jinja2 风格模板（服务端页面 + 静态站骨架）
+tera = "1"
+chrono = { version = "0.4", default-features = false, features = ["clock", "std"] }
+sha1 = "0.10"
+sha2 = "0.10"
+zip = { version = "0.6", default-features = false, features = ["deflate"] }
+
+[profile.release]
+opt-level = 2

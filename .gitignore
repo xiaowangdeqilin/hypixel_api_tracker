@@ -1,15 +1,5 @@
-# Python
+target/
+data/server/
+*.json.tmp
+*.tmp
 __pycache__/
-*.py[cod]
-*.egg-info/
-.venv/
-venv/
-
-# Local FastAPI database (not used by GitHub Pages build)
-data/*.db
-
-# Generated static site (deployed via Pages artifact, not committed)
-site/
-
-# Environment
-.env

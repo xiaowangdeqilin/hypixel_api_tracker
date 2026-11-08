@@ -1,226 +1,5002 @@
 [
   {
-    "endpoint": "skills",
-    "type": "modified",
-    "path": "skills.ALCHEMY.levels",
-    "old": "[50 项]",
-    "new": "[50 项]",
-    "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Brewer 1   Potions that you brew have a 1% longer duration.\", \"+1 Intelligence\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Brewer 2   Potions that you brew have a 1➜2% longer duration.\", \"+1 Intelligence\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Brewer 3   Potions that you brew have a 2➜3% longer duration.\", \"+1 Intelligence\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Brewer 4   Potions that you brew have a 3➜4% longer duration.\", \"+1 Intelligence\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Brewer 5   Potions that you brew have a 4➜5% longer duration.\", \"+1 Intelligence\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Brewer 6   Potions that you brew have a 5➜6% longer duration.\", \"+1 Intelligence\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Brewer 7   Potions that you brew have a 6➜7% longer duration.\", \"+1 Intelligence\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Brewer 8   Potions that you brew have a 7➜8% longer duration.\", \"+1 Intelligence\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Brewer 9   Potions that you brew have a 8➜9% longer duration.\", \"+1…（已截断，共 9093 字符）",
-    "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Brewer I   Potions that you brew have a 1% longer duration.\", \"+1 Intelligence\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Brewer II   Potions that you brew have a 1➜2% longer duration.\", \"+1 Intelligence\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Brewer III   Potions that you brew have a 2➜3% longer duration.\", \"+1 Intelligence\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Brewer IV   Potions that you brew have a 3➜4% longer duration.\", \"+1 Intelligence\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Brewer V   Potions that you brew have a 4➜5% longer duration.\", \"+1 Intelligence\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Brewer VI   Potions that you brew have a 5➜6% longer duration.\", \"+1 Intelligence\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Brewer VII   Potions that you brew have a 6➜7% longer duration.\", \"+1 Intelligence\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Brewer VIII   Potions that you brew have a 7➜8% longer duration.\", \"+1 Intelligence\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Brewer IX   Potions that you brew have a 8➜9% longer durat…（已截断，共 9183 字符）",
-    "time": "2026-11-05 12:54:54"
-  },
-  {
-    "endpoint": "skills",
-    "type": "modified",
-    "path": "skills.COMBAT.levels",
-    "old": "[60 项]",
-    "new": "[60 项]",
-    "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to Spider's Den\", \"Warrior 1   Deal 4% more damage to mobs.\", \"+0.5% Crit Chance\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Warrior 2   Deal 4➜8% more damage to mobs.\", \"+0.5% Crit Chance\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Warrior 3   Deal 8➜12% more damage to mobs.\", \"+0.5% Crit Chance\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Warrior 4   Deal 12➜16% more damage to mobs.\", \"+0.5% Crit Chance\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Warrior 5   Deal 16➜20% more damage to mobs.\", \"+0.5% Crit Chance\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Warrior 6   Deal 20➜24% more damage to mobs.\", \"+0.5% Crit Chance\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Warrior 7   Deal 24➜28% more damage to mobs.\", \"+0.5% Crit Chance\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Warrior 8   Deal 28➜32% more damage to mobs.\", \"+0.5% Crit Chance\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Warrior 9   Deal 32➜36% more damage to mobs.\", \"+0.5% Crit Chance\", \"+5,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 10, \"totalExpRequired\": 9925.0, \"unlocks\": [\"Warrio…（已截断，共 10838 字符）",
-    "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to Spider's Den\", \"Warrior I   Deal 4% more damage to mobs.\", \"+0.5% Crit Chance\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Warrior II   Deal 4➜8% more damage to mobs.\", \"+0.5% Crit Chance\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Warrior III   Deal 8➜12% more damage to mobs.\", \"+0.5% Crit Chance\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Warrior IV   Deal 12➜16% more damage to mobs.\", \"+0.5% Crit Chance\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Warrior V   Deal 16➜20% more damage to mobs.\", \"+0.5% Crit Chance\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Warrior VI   Deal 20➜24% more damage to mobs.\", \"+0.5% Crit Chance\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Warrior VII   Deal 24➜28% more damage to mobs.\", \"+0.5% Crit Chance\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Warrior VIII   Deal 28➜32% more damage to mobs.\", \"+0.5% Crit Chance\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Warrior IX   Deal 32➜36% more damage to mobs.\", \"+0.5% Crit Chance\", \"+5,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 10, \"totalExpRequired\": 9925.0, \"unlocks…（已截断，共 10939 字符）",
-    "time": "2026-11-05 12:54:54"
-  },
-  {
-    "endpoint": "skills",
-    "type": "modified",
-    "path": "skills.ENCHANTING.levels",
-    "old": "[60 项]",
-    "new": "[60 项]",
-    "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Conjurer 1   Gain 5% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Scavenger Enchantment\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Conjurer 2   Gain 5➜10% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Infinite Quiver Enchantment\", \"Sunder Enchantment\", \"Harvesting Enchantment\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Conjurer 3   Gain 10➜15% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Luck Enchantment\", \"Cubism Enchantment\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Conjurer 4   Gain 15➜20% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Cleave Enchantment\", \"Angler Enchantment\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Conjurer 5   Gain 20➜25% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Life Steal Enchantment\", \"Scuba Enchantment\", \"Feast Enchantment\", \"Woodsplitter Enchantment\", \"Growth Enchantment\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Conjurer 6   Gain 25➜30% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Snipe Enchantment\", \"Rainbow Enchantment\", \"…（已截断，共 15013 字符）",
-    "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Conjurer I   Gain 5% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Scavenger Enchantment\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Conjurer II   Gain 5➜10% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Infinite Quiver Enchantment\", \"Sunder Enchantment\", \"Harvesting Enchantment\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Conjurer III   Gain 10➜15% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Luck Enchantment\", \"Cubism Enchantment\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Conjurer IV   Gain 15➜20% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Cleave Enchantment\", \"Angler Enchantment\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Conjurer V   Gain 20➜25% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Life Steal Enchantment\", \"Scuba Enchantment\", \"Feast Enchantment\", \"Woodsplitter Enchantment\", \"Growth Enchantment\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Conjurer VI   Gain 25➜30% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Snipe Enchantment\", \"Rainbow Enchantmen…（已截断，共 15114 字符）",
-    "time": "2026-11-05 12:54:54"
-  },
-  {
-    "endpoint": "skills",
-    "type": "modified",
-    "path": "skills.FARMING.levels",
-    "old": "[60 项]",
-    "new": "[60 项]",
-    "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to The Barn\", \"Farmhand 1   Grants +4  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Farmhand 2   Grants +4➜8  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Farmhand 3   Grants +8➜12  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Farmhand 4   Grants +12➜16  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Mushroom Desert\", \"Farmhand 5   Grants +16➜20  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Farmhand 6   Grants +20➜24  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Farmhand 7   Grants +24➜28  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Farmhand 8  …（已截断，共 12543 字符）",
-    "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to The Barn\", \"Farmhand I   Grants +4  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Farmhand II   Grants +4➜8  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Farmhand III   Grants +8➜12  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Farmhand IV   Grants +12➜16  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Mushroom Desert\", \"Farmhand V   Grants +16➜20  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Farmhand VI   Grants +20➜24  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Farmhand VII   Grants +24➜28  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Farmh…（已截断，共 12644 字符）",
-    "time": "2026-11-05 12:54:54"
-  },
-  {
-    "endpoint": "skills",
-    "type": "modified",
-    "path": "skills.FISHING.levels",
-    "old": "[50 项]",
-    "new": "[50 项]",
-    "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Squid Sea Creature\", \"Sea Walker Sea Creature\", \"Frozen Steve Sea Creature\", \"Frosty Sea Creature\", \"Treasure Hunter 1   Grants +0.1  Treasure Chance.\", \"+2 Health\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Treasure Hunter 2   Grants +0.1➜0.2  Treasure Chance.\", \"+2 Health\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Treasure Hunter 3   Grants +0.2➜0.3  Treasure Chance.\", \"+2 Health\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Treasure Hunter 4   Grants +0.3➜0.4  Treasure Chance.\", \"+2 Health\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Lotus Atoll\", \"Dumpster Diver Sea Creature\", \"Frog Man Sea Creature\", \"Trash Gobbler Sea Creature\", \"Bogged Sea Creature\", \"Nurse Shark Sea Creature\", \"Treasure Hunter 5   Grants +0.4➜0.5  Treasure Chance.\", \"+2 Health\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Jumpin' Jack Sea Creature\", \"Medium Mithril Grubber Sea Creature\", \"Mithril Grubber Sea Creature\", \"Bloated Mithril Grubber Sea Creature\", \"Large Mithril Grubber Sea Creature\", \"Treasure Hunter 6   Grants +0.5➜0.6  Treasure Chance.\", \"+2 Health\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Wetwing Sea Creature\", \"Inkling Sea Creature\", \"Sea Wi…（已截断，共 10725 字符）",
-    "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Squid Sea Creature\", \"Sea Walker Sea Creature\", \"Frozen Steve Sea Creature\", \"Frosty Sea Creature\", \"Treasure Hunter I   Grants +0.1  Treasure Chance.\", \"+2 Health\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Treasure Hunter II   Grants +0.1➜0.2  Treasure Chance.\", \"+2 Health\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Treasure Hunter III   Grants +0.2➜0.3  Treasure Chance.\", \"+2 Health\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Treasure Hunter IV   Grants +0.3➜0.4  Treasure Chance.\", \"+2 Health\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Lotus Atoll\", \"Dumpster Diver Sea Creature\", \"Frog Man Sea Creature\", \"Trash Gobbler Sea Creature\", \"Bogged Sea Creature\", \"Nurse Shark Sea Creature\", \"Treasure Hunter V   Grants +0.4➜0.5  Treasure Chance.\", \"+2 Health\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Jumpin' Jack Sea Creature\", \"Medium Mithril Grubber Sea Creature\", \"Mithril Grubber Sea Creature\", \"Bloated Mithril Grubber Sea Creature\", \"Large Mithril Grubber Sea Creature\", \"Treasure Hunter VI   Grants +0.5➜0.6  Treasure Chance.\", \"+2 Health\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Wetwing Sea Creature\", \"Inkling Sea Creature\", \"S…（已截断，共 10868 字符）",
-    "time": "2026-11-05 12:54:54"
-  },
-  {
-    "endpoint": "skills",
-    "type": "modified",
-    "path": "skills.FORAGING.levels",
-    "old": "[57 项]",
-    "new": "[57 项]",
-    "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to The Park\", \"Logger 1   Grants +4  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Logger 2   Grants +4➜8  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Logger 3   Grants +8➜12  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Logger 4   Grants +12➜16  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Logger 5   Grants +16➜20  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Logger 6   Grants +20➜24  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Logger 7   Grants +24➜28  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Logger 8   Grants +28➜32  Foraging Fortun…（已截断，共 11894 字符）",
-    "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to The Park\", \"Logger I   Grants +4  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Logger II   Grants +4➜8  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Logger III   Grants +8➜12  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Logger IV   Grants +12➜16  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Logger V   Grants +16➜20  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Logger VI   Grants +20➜24  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Logger VII   Grants +24➜28  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Logger VIII   Grants +28➜32  Forag…（已截断，共 11991 字符）",
-    "time": "2026-11-05 12:54:54"
-  },
-  {
-    "endpoint": "skills",
-    "type": "modified",
-    "path": "skills.HUNTING.levels",
-    "old": "[50 项]",
-    "new": "[50 项]",
-    "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Charming 1   Grants +0.04 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Charming 2   Grants +0.04➜0.08 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Charming 3   Grants +0.08➜0.12 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Charming 4   Grants +0.12➜0.16 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Charming 5   Grants +0.16➜0.2 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Charming 6   Grants +0.2➜0.24 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Charming 7   Grants +0.24➜0.28 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Charming 8   Grants +0.28➜0.32 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Charming 9   Grants +0.32➜0.36 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+5,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 10, \"totalExpRequired\": 9925.0, \"unlocks\": [\"Charmi…（已截断，共 8413 字符）",
-    "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Charming I   Grants +0.04 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Charming II   Grants +0.04➜0.08 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Charming III   Grants +0.08➜0.12 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Charming IV   Grants +0.12➜0.16 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Charming V   Grants +0.16➜0.2 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Charming VI   Grants +0.2➜0.24 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Charming VII   Grants +0.24➜0.28 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Charming VIII   Grants +0.28➜0.32 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Charming IX   Grants +0.32➜0.36 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+5,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 10, \"totalExpRequired\": 9925.0, \"unlocks…（已截断，共 8503 字符）",
-    "time": "2026-11-05 12:54:54"
-  },
-  {
-    "endpoint": "skills",
-    "type": "modified",
-    "path": "skills.MINING.levels",
-    "old": "[60 项]",
-    "new": "[60 项]",
-    "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to Gold Mine\", \"Spelunker 1   Grants +4  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Jerry Stone Reforge\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Spelunker 2   Grants +4➜8  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Black Diamond Reforge\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Spelunker 3   Grants +8➜12  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Overflowing Trash Can Reforge\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Spelunker 4   Grants +12➜16  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Deep Caverns\", \"Spelunker 5   Grants +16➜20  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Lapis Crystal Reforge\", \"Moil Log Reforge\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Spelunker 6   Grants +20➜24  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Spelunker 7   Grants +24➜28  Mining Fortune, which increa…（已截断，共 14788 字符）",
-    "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to Gold Mine\", \"Spelunker I   Grants +4  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Jerry Stone Reforge\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Spelunker II   Grants +4➜8  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Black Diamond Reforge\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Spelunker III   Grants +8➜12  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Overflowing Trash Can Reforge\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Spelunker IV   Grants +12➜16  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Deep Caverns\", \"Spelunker V   Grants +16➜20  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Lapis Crystal Reforge\", \"Moil Log Reforge\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Spelunker VI   Grants +20➜24  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Spelunker VII   Grants +24➜28  Mining Fortune, which…（已截断，共 14889 字符）",
-    "time": "2026-11-05 12:54:54"
-  },
-  {
-    "endpoint": "skills",
-    "type": "modified",
-    "path": "skills.TAMING.levels",
-    "old": "[60 项]",
-    "new": "[60 项]",
-    "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Zoologist 1   Gain 1% extra pet exp.\", \"+Gain 0.2% Exp Share rate.\", \"+1 Pet Luck\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Zoologist 2   Gain 1➜2% extra pet exp.\", \"+Gain 0.2➜0.4% Exp Share rate.\", \"+1 Pet Luck\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Zoologist 3   Gain 2➜3% extra pet exp.\", \"+Gain 0.4➜0.6% Exp Share rate.\", \"+1 Pet Luck\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Zoologist 4   Gain 3➜4% extra pet exp.\", \"+Gain 0.6➜0.8% Exp Share rate.\", \"+1 Pet Luck\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Zoologist 5   Gain 4➜5% extra pet exp.\", \"+Gain 0.8➜1% Exp Share rate.\", \"+1 Pet Luck\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Zoologist 6   Gain 5➜6% extra pet exp.\", \"+Gain 1➜1.2% Exp Share rate.\", \"+1 Pet Luck\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Zoologist 7   Gain 6➜7% extra pet exp.\", \"+Gain 1.2➜1.4% Exp Share rate.\", \"+1 Pet Luck\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Zoologist 8   Gain 7➜8% extra pet exp.\", \"+Gain 1.4➜1.6% Exp Share rate.\", \"+1 Pet Luck\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Zoologist 9   Gain 8…（已截断，共 11570 字符）",
-    "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Zoologist I   Gain 1% extra pet exp.\", \"+Gain 0.2% Exp Share rate.\", \"+1 Pet Luck\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Zoologist II   Gain 1➜2% extra pet exp.\", \"+Gain 0.2➜0.4% Exp Share rate.\", \"+1 Pet Luck\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Zoologist III   Gain 2➜3% extra pet exp.\", \"+Gain 0.4➜0.6% Exp Share rate.\", \"+1 Pet Luck\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Zoologist IV   Gain 3➜4% extra pet exp.\", \"+Gain 0.6➜0.8% Exp Share rate.\", \"+1 Pet Luck\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Zoologist V   Gain 4➜5% extra pet exp.\", \"+Gain 0.8➜1% Exp Share rate.\", \"+1 Pet Luck\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Zoologist VI   Gain 5➜6% extra pet exp.\", \"+Gain 1➜1.2% Exp Share rate.\", \"+1 Pet Luck\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Zoologist VII   Gain 6➜7% extra pet exp.\", \"+Gain 1.2➜1.4% Exp Share rate.\", \"+1 Pet Luck\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Zoologist VIII   Gain 7➜8% extra pet exp.\", \"+Gain 1.4➜1.6% Exp Share rate.\", \"+1 Pet Luck\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Zoologist …（已截断，共 11671 字符）",
-    "time": "2026-11-05 12:54:54"
-  },
-  {
-    "endpoint": "skills",
-    "type": "modified",
-    "path": "skills.FISHING.levels",
-    "old": "[50 项]",
-    "new": "[50 项]",
-    "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Squid Sea Creature\", \"Sea Walker Sea Creature\", \"Frozen Steve Sea Creature\", \"Frosty Sea Creature\", \"Treasure Hunter 1   Grants +0.1  Treasure Chance.\", \"+2 Health\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Treasure Hunter 2   Grants +0.1➜0.2  Treasure Chance.\", \"+2 Health\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Treasure Hunter 3   Grants +0.2➜0.3  Treasure Chance.\", \"+2 Health\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Treasure Hunter 4   Grants +0.3➜0.4  Treasure Chance.\", \"+2 Health\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Lotus Atoll\", \"Dumpster Diver Sea Creature\", \"Frog Man Sea Creature\", \"Trash Gobbler Sea Creature\", \"Bogged Sea Creature\", \"Nurse Shark Sea Creature\", \"Treasure Hunter 5   Grants +0.4➜0.5  Treasure Chance.\", \"+2 Health\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Jumpin' Jack Sea Creature\", \"Medium Mithril Grubber Sea Creature\", \"Mithril Grubber Sea Creature\", \"Bloated Mithril Grubber Sea Creature\", \"Large Mithril Grubber Sea Creature\", \"Treasure Hunter 6   Grants +0.5➜0.6  Treasure Chance.\", \"+2 Health\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Wetwing Sea Creature\", \"Inkling Sea Creature\", \"Sea Wi…（已截断，共 10527 字符）",
-    "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Squid Sea Creature\", \"Sea Walker Sea Creature\", \"Frozen Steve Sea Creature\", \"Frosty Sea Creature\", \"Treasure Hunter 1   Grants +0.1  Treasure Chance.\", \"+2 Health\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Treasure Hunter 2   Grants +0.1➜0.2  Treasure Chance.\", \"+2 Health\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Treasure Hunter 3   Grants +0.2➜0.3  Treasure Chance.\", \"+2 Health\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Treasure Hunter 4   Grants +0.3➜0.4  Treasure Chance.\", \"+2 Health\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Lotus Atoll\", \"Dumpster Diver Sea Creature\", \"Frog Man Sea Creature\", \"Trash Gobbler Sea Creature\", \"Bogged Sea Creature\", \"Nurse Shark Sea Creature\", \"Treasure Hunter 5   Grants +0.4➜0.5  Treasure Chance.\", \"+2 Health\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Jumpin' Jack Sea Creature\", \"Medium Mithril Grubber Sea Creature\", \"Mithril Grubber Sea Creature\", \"Bloated Mithril Grubber Sea Creature\", \"Large Mithril Grubber Sea Creature\", \"Treasure Hunter 6   Grants +0.5➜0.6  Treasure Chance.\", \"+2 Health\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Wetwing Sea Creature\", \"Inkling Sea Creature\", \"Sea Wi…（已截断，共 10725 字符）",
-    "time": "2026-11-05 02:36:18"
-  },
-  {
-    "endpoint": "skills",
-    "type": "modified",
-    "path": "skills.FISHING.levels",
-    "old": "[50 项]",
-    "new": "[50 项]",
-    "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Squid Sea Creature\", \"Sea Walker Sea Creature\", \"Frozen Steve Sea Creature\", \"Frosty Sea Creature\", \"Treasure Hunter 1   Grants +0.1  Treasure Chance.\", \"+2 Health\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Treasure Hunter 2   Grants +0.1➜0.2  Treasure Chance.\", \"+2 Health\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Treasure Hunter 3   Grants +0.2➜0.3  Treasure Chance.\", \"+2 Health\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Treasure Hunter 4   Grants +0.3➜0.4  Treasure Chance.\", \"+2 Health\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Lotus Atoll\", \"Dumpster Diver Sea Creature\", \"Frog Man Sea Creature\", \"Trash Gobbler Sea Creature\", \"Bogged Sea Creature\", \"Nurse Shark Sea Creature\", \"Treasure Hunter 5   Grants +0.4➜0.5  Treasure Chance.\", \"+2 Health\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Jumpin' Jack Sea Creature\", \"Medium Mithril Grubber Sea Creature\", \"Mithril Grubber Sea Creature\", \"Bloated Mithril Grubber Sea Creature\", \"Large Mithril Grubber Sea Creature\", \"Treasure Hunter 6   Grants +0.5➜0.6  Treasure Chance.\", \"+2 Health\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Wetwing Sea Creature\", \"Inkling Sea Creature\", \"Sea Wi…（已截断，共 10673 字符）",
-    "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Squid Sea Creature\", \"Sea Walker Sea Creature\", \"Frozen Steve Sea Creature\", \"Frosty Sea Creature\", \"Treasure Hunter 1   Grants +0.1  Treasure Chance.\", \"+2 Health\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Treasure Hunter 2   Grants +0.1➜0.2  Treasure Chance.\", \"+2 Health\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Treasure Hunter 3   Grants +0.2➜0.3  Treasure Chance.\", \"+2 Health\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Treasure Hunter 4   Grants +0.3➜0.4  Treasure Chance.\", \"+2 Health\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Lotus Atoll\", \"Dumpster Diver Sea Creature\", \"Frog Man Sea Creature\", \"Trash Gobbler Sea Creature\", \"Bogged Sea Creature\", \"Nurse Shark Sea Creature\", \"Treasure Hunter 5   Grants +0.4➜0.5  Treasure Chance.\", \"+2 Health\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Jumpin' Jack Sea Creature\", \"Medium Mithril Grubber Sea Creature\", \"Mithril Grubber Sea Creature\", \"Bloated Mithril Grubber Sea Creature\", \"Large Mithril Grubber Sea Creature\", \"Treasure Hunter 6   Grants +0.5➜0.6  Treasure Chance.\", \"+2 Health\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Wetwing Sea Creature\", \"Inkling Sea Creature\", \"Sea Wi…（已截断，共 10527 字符）",
-    "time": "2026-11-04 12:02:11"
-  },
-  {
-    "endpoint": "skills",
-    "type": "modified",
-    "path": "skills.ALCHEMY.levels",
-    "old": "[50 items]",
-    "new": "[50 items]",
-    "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Brewer I   Potions that you brew have a 1% longer duration.\", \"+1 Intelligence\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Brewer II   Potions that you brew have a 1➜2% longer duration.\", \"+1 Intelligence\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Brewer III   Potions that you brew have a 2➜3% longer duration.\", \"+1 Intelligence\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Brewer IV   Potions that you brew have a 3➜4% longer duration.\", \"+1 Intelligence\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Brewer V   Potions that you brew have a 4➜5% longer duration.\", \"+1 Intelligence\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Brewer VI   Potions that you brew have a 5➜6% longer duration.\", \"+1 Intelligence\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Brewer VII   Potions that you brew have a 6➜7% longer duration.\", \"+1 Intelligence\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Brewer VIII   Potions that you brew have a 7➜8% longer duration.\", \"+1 Intelligence\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Brewer IX   Potions that you brew have a 8➜9% longer durat… (已截断，共 9183 字符)",
-    "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Brewer 1   Potions that you brew have a 1% longer duration.\", \"+1 Intelligence\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Brewer 2   Potions that you brew have a 1➜2% longer duration.\", \"+1 Intelligence\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Brewer 3   Potions that you brew have a 2➜3% longer duration.\", \"+1 Intelligence\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Brewer 4   Potions that you brew have a 3➜4% longer duration.\", \"+1 Intelligence\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Brewer 5   Potions that you brew have a 4➜5% longer duration.\", \"+1 Intelligence\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Brewer 6   Potions that you brew have a 5➜6% longer duration.\", \"+1 Intelligence\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Brewer 7   Potions that you brew have a 6➜7% longer duration.\", \"+1 Intelligence\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Brewer 8   Potions that you brew have a 7➜8% longer duration.\", \"+1 Intelligence\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Brewer 9   Potions that you brew have a 8➜9% longer duration.\", \"+1… (已截断，共 9093 字符)",
-    "time": "2026-11-02T21:57:06Z"
-  },
-  {
-    "endpoint": "skills",
-    "type": "modified",
-    "path": "skills.COMBAT.levels",
-    "old": "[60 items]",
-    "new": "[60 items]",
-    "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to Spider's Den\", \"Warrior I   Deal 4% more damage to mobs.\", \"+0.5% Crit Chance\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Warrior II   Deal 4➜8% more damage to mobs.\", \"+0.5% Crit Chance\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Warrior III   Deal 8➜12% more damage to mobs.\", \"+0.5% Crit Chance\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Warrior IV   Deal 12➜16% more damage to mobs.\", \"+0.5% Crit Chance\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Warrior V   Deal 16➜20% more damage to mobs.\", \"+0.5% Crit Chance\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Warrior VI   Deal 20➜24% more damage to mobs.\", \"+0.5% Crit Chance\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Warrior VII   Deal 24➜28% more damage to mobs.\", \"+0.5% Crit Chance\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Warrior VIII   Deal 28➜32% more damage to mobs.\", \"+0.5% Crit Chance\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Warrior IX   Deal 32➜36% more damage to mobs.\", \"+0.5% Crit Chance\", \"+5,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 10, \"totalExpRequired\": 9925.0, \"unlocks… (已截断，共 10939 字符)",
-    "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to Spider's Den\", \"Warrior 1   Deal 4% more damage to mobs.\", \"+0.5% Crit Chance\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Warrior 2   Deal 4➜8% more damage to mobs.\", \"+0.5% Crit Chance\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Warrior 3   Deal 8➜12% more damage to mobs.\", \"+0.5% Crit Chance\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Warrior 4   Deal 12➜16% more damage to mobs.\", \"+0.5% Crit Chance\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Warrior 5   Deal 16➜20% more damage to mobs.\", \"+0.5% Crit Chance\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Warrior 6   Deal 20➜24% more damage to mobs.\", \"+0.5% Crit Chance\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Warrior 7   Deal 24➜28% more damage to mobs.\", \"+0.5% Crit Chance\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Warrior 8   Deal 28➜32% more damage to mobs.\", \"+0.5% Crit Chance\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Warrior 9   Deal 32➜36% more damage to mobs.\", \"+0.5% Crit Chance\", \"+5,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 10, \"totalExpRequired\": 9925.0, \"unlocks\": [\"Warrio… (已截断，共 10838 字符)",
-    "time": "2026-11-02T21:57:06Z"
-  },
-  {
-    "endpoint": "skills",
-    "type": "modified",
-    "path": "skills.ENCHANTING.levels",
-    "old": "[60 items]",
-    "new": "[60 items]",
-    "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Conjurer I   Gain 5% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Scavenger Enchantment\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Conjurer II   Gain 5➜10% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Infinite Quiver Enchantment\", \"Sunder Enchantment\", \"Harvesting Enchantment\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Conjurer III   Gain 10➜15% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Luck Enchantment\", \"Cubism Enchantment\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Conjurer IV   Gain 15➜20% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Cleave Enchantment\", \"Angler Enchantment\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Conjurer V   Gain 20➜25% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Life Steal Enchantment\", \"Scuba Enchantment\", \"Feast Enchantment\", \"Woodsplitter Enchantment\", \"Growth Enchantment\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Conjurer VI   Gain 25➜30% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Snipe Enchantment\", \"Rainbow Enchantmen… (已截断，共 15114 字符)",
-    "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Conjurer 1   Gain 5% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Scavenger Enchantment\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Conjurer 2   Gain 5➜10% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Infinite Quiver Enchantment\", \"Sunder Enchantment\", \"Harvesting Enchantment\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Conjurer 3   Gain 10➜15% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Luck Enchantment\", \"Cubism Enchantment\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Conjurer 4   Gain 15➜20% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Cleave Enchantment\", \"Angler Enchantment\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Conjurer 5   Gain 20➜25% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Life Steal Enchantment\", \"Scuba Enchantment\", \"Feast Enchantment\", \"Woodsplitter Enchantment\", \"Growth Enchantment\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Conjurer 6   Gain 25➜30% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Snipe Enchantment\", \"Rainbow Enchantment\", \"… (已截断，共 15013 字符)",
-    "time": "2026-11-02T21:57:06Z"
-  },
-  {
-    "endpoint": "skills",
-    "type": "modified",
-    "path": "skills.FARMING.levels",
-    "old": "[60 items]",
-    "new": "[60 items]",
-    "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to The Barn\", \"Farmhand I   Grants +4  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Farmhand II   Grants +4➜8  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Farmhand III   Grants +8➜12  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Farmhand IV   Grants +12➜16  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Mushroom Desert\", \"Farmhand V   Grants +16➜20  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Farmhand VI   Grants +20➜24  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Farmhand VII   Grants +24➜28  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Farmh… (已截断，共 12644 字符)",
-    "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to The Barn\", \"Farmhand 1   Grants +4  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Farmhand 2   Grants +4➜8  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Farmhand 3   Grants +8➜12  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Farmhand 4   Grants +12➜16  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Mushroom Desert\", \"Farmhand 5   Grants +16➜20  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Farmhand 6   Grants +20➜24  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Farmhand 7   Grants +24➜28  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Farmhand 8  … (已截断，共 12543 字符)",
-    "time": "2026-11-02T21:57:06Z"
-  },
-  {
-    "endpoint": "skills",
-    "type": "modified",
-    "path": "skills.FISHING.levels",
-    "old": "[50 items]",
-    "new": "[50 items]",
-    "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Squid Sea Creature\", \"Sea Walker Sea Creature\", \"Frozen Steve Sea Creature\", \"Frosty Sea Creature\", \"Treasure Hunter I   Grants +0.1  Treasure Chance.\", \"+2 Health\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Treasure Hunter II   Grants +0.1➜0.2  Treasure Chance.\", \"+2 Health\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Treasure Hunter III   Grants +0.2➜0.3  Treasure Chance.\", \"+2 Health\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Treasure Hunter IV   Grants +0.3➜0.4  Treasure Chance.\", \"+2 Health\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Lotus Atoll\", \"Dumpster Diver Sea Creature\", \"Frog Man Sea Creature\", \"Trash Gobbler Sea Creature\", \"Bogged Sea Creature\", \"Nurse Shark Sea Creature\", \"Treasure Hunter V   Grants +0.4➜0.5  Treasure Chance.\", \"+2 Health\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Jumpin' Jack Sea Creature\", \"Medium Mithril Grubber Sea Creature\", \"Mithril Grubber Sea Creature\", \"Bloated Mithril Grubber Sea Creature\", \"Large Mithril Grubber Sea Creature\", \"Treasure Hunter VI   Grants +0.5➜0.6  Treasure Chance.\", \"+2 Health\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"??? Sea Creature\", \"??? Sea Creature\", \"??? Sea C… (已截断，共 10334 字符)",
-    "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Squid Sea Creature\", \"Sea Walker Sea Creature\", \"Frozen Steve Sea Creature\", \"Frosty Sea Creature\", \"Treasure Hunter 1   Grants +0.1  Treasure Chance.\", \"+2 Health\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Treasure Hunter 2   Grants +0.1➜0.2  Treasure Chance.\", \"+2 Health\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Treasure Hunter 3   Grants +0.2➜0.3  Treasure Chance.\", \"+2 Health\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Treasure Hunter 4   Grants +0.3➜0.4  Treasure Chance.\", \"+2 Health\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Lotus Atoll\", \"Dumpster Diver Sea Creature\", \"Frog Man Sea Creature\", \"Trash Gobbler Sea Creature\", \"Bogged Sea Creature\", \"Nurse Shark Sea Creature\", \"Treasure Hunter 5   Grants +0.4➜0.5  Treasure Chance.\", \"+2 Health\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Jumpin' Jack Sea Creature\", \"Medium Mithril Grubber Sea Creature\", \"Mithril Grubber Sea Creature\", \"Bloated Mithril Grubber Sea Creature\", \"Large Mithril Grubber Sea Creature\", \"Treasure Hunter 6   Grants +0.5➜0.6  Treasure Chance.\", \"+2 Health\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Wetwing Sea Creature\", \"Inkling Sea Creature\", \"Sea Wi… (已截断，共 10673 字符)",
-    "time": "2026-11-02T21:57:06Z"
-  },
-  {
-    "endpoint": "skills",
-    "type": "modified",
-    "path": "skills.FORAGING.levels",
-    "old": "[57 items]",
-    "new": "[57 items]",
-    "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to The Park\", \"Logger I   Grants +4  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Logger II   Grants +4➜8  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Logger III   Grants +8➜12  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Logger IV   Grants +12➜16  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Logger V   Grants +16➜20  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Logger VI   Grants +20➜24  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Logger VII   Grants +24➜28  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Logger VIII   Grants +28➜32  Forag… (已截断，共 11991 字符)",
-    "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to The Park\", \"Logger 1   Grants +4  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Logger 2   Grants +4➜8  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Logger 3   Grants +8➜12  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Logger 4   Grants +12➜16  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Logger 5   Grants +16➜20  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Logger 6   Grants +20➜24  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Logger 7   Grants +24➜28  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Logger 8   Grants +28➜32  Foraging Fortun… (已截断，共 11894 字符)",
-    "time": "2026-11-02T21:57:06Z"
-  },
-  {
-    "endpoint": "skills",
-    "type": "modified",
-    "path": "skills.HUNTING.levels",
-    "old": "[50 items]",
-    "new": "[50 items]",
-    "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Charming I   Grants +0.04 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Charming II   Grants +0.04➜0.08 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Charming III   Grants +0.08➜0.12 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Charming IV   Grants +0.12➜0.16 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Charming V   Grants +0.16➜0.2 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Charming VI   Grants +0.2➜0.24 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Charming VII   Grants +0.24➜0.28 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Charming VIII   Grants +0.28➜0.32 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Charming IX   Grants +0.32➜0.36 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+5,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 10, \"totalExpRequired\": 9925.0, \"unlocks… (已截断，共 8503 字符)",
-    "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Charming 1   Grants +0.04 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Charming 2   Grants +0.04➜0.08 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Charming 3   Grants +0.08➜0.12 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Charming 4   Grants +0.12➜0.16 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Charming 5   Grants +0.16➜0.2 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Charming 6   Grants +0.2➜0.24 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Charming 7   Grants +0.24➜0.28 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Charming 8   Grants +0.28➜0.32 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Charming 9   Grants +0.32➜0.36 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+5,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 10, \"totalExpRequired\": 9925.0, \"unlocks\": [\"Charmi… (已截断，共 8413 字符)",
-    "time": "2026-11-02T21:57:06Z"
-  },
-  {
-    "endpoint": "skills",
-    "type": "modified",
-    "path": "skills.MINING.levels",
-    "old": "[60 items]",
-    "new": "[60 items]",
-    "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to Gold Mine\", \"Spelunker I   Grants +4  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Jerry Stone Reforge\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Spelunker II   Grants +4➜8  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Black Diamond Reforge\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Spelunker III   Grants +8➜12  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Overflowing Trash Can Reforge\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Spelunker IV   Grants +12➜16  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Deep Caverns\", \"Spelunker V   Grants +16➜20  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Lapis Crystal Reforge\", \"Moil Log Reforge\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Spelunker VI   Grants +20➜24  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Spelunker VII   Grants +24➜28  Mining Fortune, which… (已截断，共 14889 字符)",
-    "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to Gold Mine\", \"Spelunker 1   Grants +4  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Jerry Stone Reforge\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Spelunker 2   Grants +4➜8  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Black Diamond Reforge\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Spelunker 3   Grants +8➜12  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Overflowing Trash Can Reforge\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Spelunker 4   Grants +12➜16  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Deep Caverns\", \"Spelunker 5   Grants +16➜20  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Lapis Crystal Reforge\", \"Moil Log Reforge\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Spelunker 6   Grants +20➜24  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Spelunker 7   Grants +24➜28  Mining Fortune, which increa… (已截断，共 14788 字符)",
-    "time": "2026-11-02T21:57:06Z"
-  },
-  {
-    "endpoint": "skills",
-    "type": "modified",
-    "path": "skills.TAMING.levels",
-    "old": "[60 items]",
-    "new": "[60 items]",
-    "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Zoologist I   Gain 1% extra pet exp.\", \"+Gain 0.2% Exp Share rate.\", \"+1 Pet Luck\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Zoologist II   Gain 1➜2% extra pet exp.\", \"+Gain 0.2➜0.4% Exp Share rate.\", \"+1 Pet Luck\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Zoologist III   Gain 2➜3% extra pet exp.\", \"+Gain 0.4➜0.6% Exp Share rate.\", \"+1 Pet Luck\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Zoologist IV   Gain 3➜4% extra pet exp.\", \"+Gain 0.6➜0.8% Exp Share rate.\", \"+1 Pet Luck\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Zoologist V   Gain 4➜5% extra pet exp.\", \"+Gain 0.8➜1% Exp Share rate.\", \"+1 Pet Luck\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Zoologist VI   Gain 5➜6% extra pet exp.\", \"+Gain 1➜1.2% Exp Share rate.\", \"+1 Pet Luck\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Zoologist VII   Gain 6➜7% extra pet exp.\", \"+Gain 1.2➜1.4% Exp Share rate.\", \"+1 Pet Luck\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Zoologist VIII   Gain 7➜8% extra pet exp.\", \"+Gain 1.4➜1.6% Exp Share rate.\", \"+1 Pet Luck\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Zoologist … (已截断，共 11671 字符)",
-    "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Zoologist 1   Gain 1% extra pet exp.\", \"+Gain 0.2% Exp Share rate.\", \"+1 Pet Luck\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Zoologist 2   Gain 1➜2% extra pet exp.\", \"+Gain 0.2➜0.4% Exp Share rate.\", \"+1 Pet Luck\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Zoologist 3   Gain 2➜3% extra pet exp.\", \"+Gain 0.4➜0.6% Exp Share rate.\", \"+1 Pet Luck\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Zoologist 4   Gain 3➜4% extra pet exp.\", \"+Gain 0.6➜0.8% Exp Share rate.\", \"+1 Pet Luck\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Zoologist 5   Gain 4➜5% extra pet exp.\", \"+Gain 0.8➜1% Exp Share rate.\", \"+1 Pet Luck\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Zoologist 6   Gain 5➜6% extra pet exp.\", \"+Gain 1➜1.2% Exp Share rate.\", \"+1 Pet Luck\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Zoologist 7   Gain 6➜7% extra pet exp.\", \"+Gain 1.2➜1.4% Exp Share rate.\", \"+1 Pet Luck\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Zoologist 8   Gain 7➜8% extra pet exp.\", \"+Gain 1.4➜1.6% Exp Share rate.\", \"+1 Pet Luck\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Zoologist 9   Gain 8… (已截断，共 11570 字符)",
-    "time": "2026-11-02T21:57:06Z"
-  },
-  {
-    "endpoint": "skills",
-    "type": "modified",
-    "path": "skills.FISHING.levels",
-    "old": "[50 items]",
-    "new": "[50 items]",
-    "time": "2026-10-29T23:38:45Z"
-  },
-  {
-    "endpoint": "items",
-    "type": "added",
-    "path": "items.TALISMAN_ENRICHMENT_SWAPPER.soulbound",
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ABSOLUTE_ENDER_PEARL",
     "old": null,
-    "new": "\"COOP\"",
-    "time": "2026-10-29T23:38:45Z"
+    "old_full": null,
+    "path": "products.ABSOLUTE_ENDER_PEARL",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
   },
   {
-    "endpoint": "skills",
-    "type": "modified",
-    "path": "skills.FISHING.levels",
-    "old": "[50 items]",
-    "new": "[50 items]",
-    "time": "2026-10-29T19:41:36Z"
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ACACIA_BIRDHOUSE",
+    "old": null,
+    "old_full": null,
+    "path": "products.ACACIA_BIRDHOUSE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "AGARIMOO_TONGUE",
+    "old": null,
+    "old_full": null,
+    "path": "products.AGARIMOO_TONGUE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "AGATHA_COUPON",
+    "old": null,
+    "old_full": null,
+    "path": "products.AGATHA_COUPON",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "AGGOURDIAN",
+    "old": null,
+    "old_full": null,
+    "path": "products.AGGOURDIAN",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ALLIGATOR_SKIN",
+    "old": null,
+    "old_full": null,
+    "path": "products.ALLIGATOR_SKIN",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ALL_IN_ALOE",
+    "old": null,
+    "old_full": null,
+    "path": "products.ALL_IN_ALOE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "AMALGAMATED_CRIMSONITE",
+    "old": null,
+    "old_full": null,
+    "path": "products.AMALGAMATED_CRIMSONITE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "AMALGAMATED_CRIMSONITE_NEW",
+    "old": null,
+    "old_full": null,
+    "path": "products.AMALGAMATED_CRIMSONITE_NEW",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "AMBER_MATERIAL",
+    "old": null,
+    "old_full": null,
+    "path": "products.AMBER_MATERIAL",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ANCIENT_CLAW",
+    "old": null,
+    "old_full": null,
+    "path": "products.ANCIENT_CLAW",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "AOTE_STONE",
+    "old": null,
+    "old_full": null,
+    "path": "products.AOTE_STONE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ARACHNE_FANG",
+    "old": null,
+    "old_full": null,
+    "path": "products.ARACHNE_FANG",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ARACHNE_FRAGMENT",
+    "old": null,
+    "old_full": null,
+    "path": "products.ARACHNE_FRAGMENT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ARACHNE_KEEPER_FRAGMENT",
+    "old": null,
+    "old_full": null,
+    "path": "products.ARACHNE_KEEPER_FRAGMENT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ARCHITECT_FIRST_DRAFT",
+    "old": null,
+    "old_full": null,
+    "path": "products.ARCHITECT_FIRST_DRAFT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ARROW_BUNDLE_MAGMA",
+    "old": null,
+    "old_full": null,
+    "path": "products.ARROW_BUNDLE_MAGMA",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ASCENSION_ROPE",
+    "old": null,
+    "old_full": null,
+    "path": "products.ASCENSION_ROPE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ASHWREATH",
+    "old": null,
+    "old_full": null,
+    "path": "products.ASHWREATH",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "AUTO_SMELTER",
+    "old": null,
+    "old_full": null,
+    "path": "products.AUTO_SMELTER",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "AVARICIOUS_CHALICE",
+    "old": null,
+    "old_full": null,
+    "path": "products.AVARICIOUS_CHALICE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BACHELOR_ROSE",
+    "old": null,
+    "old_full": null,
+    "path": "products.BACHELOR_ROSE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BAT_FIREWORK",
+    "old": null,
+    "old_full": null,
+    "path": "products.BAT_FIREWORK",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BAYOU_WATER_ORB",
+    "old": null,
+    "old_full": null,
+    "path": "products.BAYOU_WATER_ORB",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BAZAAR_COOKIE",
+    "old": null,
+    "old_full": null,
+    "path": "products.BAZAAR_COOKIE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BEADY_EYES",
+    "old": null,
+    "old_full": null,
+    "path": "products.BEADY_EYES",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BEATING_HEART",
+    "old": null,
+    "old_full": null,
+    "path": "products.BEATING_HEART",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BEE_SALIVA",
+    "old": null,
+    "old_full": null,
+    "path": "products.BEE_SALIVA",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BEHEMOTH_POT_OF_HONEYCOMB",
+    "old": null,
+    "old_full": null,
+    "path": "products.BEHEMOTH_POT_OF_HONEYCOMB",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BEJEWELED_HANDLE",
+    "old": null,
+    "old_full": null,
+    "path": "products.BEJEWELED_HANDLE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BERBERIS_FUEL_INJECTOR",
+    "old": null,
+    "old_full": null,
+    "path": "products.BERBERIS_FUEL_INJECTOR",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BEZOS",
+    "old": null,
+    "old_full": null,
+    "path": "products.BEZOS",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BLACK_WOOLEN_YARN",
+    "old": null,
+    "old_full": null,
+    "path": "products.BLACK_WOOLEN_YARN",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BLASTBERRY",
+    "old": null,
+    "old_full": null,
+    "path": "products.BLASTBERRY",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BLAZEN_SPHERE",
+    "old": null,
+    "old_full": null,
+    "path": "products.BLAZEN_SPHERE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BLAZE_ASHES",
+    "old": null,
+    "old_full": null,
+    "path": "products.BLAZE_ASHES",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BLAZE_ROD",
+    "old": null,
+    "old_full": null,
+    "path": "products.BLAZE_ROD",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BLAZE_ROD_DISTILLATE",
+    "old": null,
+    "old_full": null,
+    "path": "products.BLAZE_ROD_DISTILLATE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BLAZE_WAX",
+    "old": null,
+    "old_full": null,
+    "path": "products.BLAZE_WAX",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BLESSED_BAIT",
+    "old": null,
+    "old_full": null,
+    "path": "products.BLESSED_BAIT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BLESSED_FRUIT",
+    "old": null,
+    "old_full": null,
+    "path": "products.BLESSED_FRUIT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BLIZZARD_BOTTLE",
+    "old": null,
+    "old_full": null,
+    "path": "products.BLIZZARD_BOTTLE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BLOOD_SOAKED_COINS",
+    "old": null,
+    "old_full": null,
+    "path": "products.BLOOD_SOAKED_COINS",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BLOOD_STAINED_COINS",
+    "old": null,
+    "old_full": null,
+    "path": "products.BLOOD_STAINED_COINS",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BLOOMING_THORNS",
+    "old": null,
+    "old_full": null,
+    "path": "products.BLOOMING_THORNS",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BLUE_ICE_HUNK",
+    "old": null,
+    "old_full": null,
+    "path": "products.BLUE_ICE_HUNK",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BLUE_RING",
+    "old": null,
+    "old_full": null,
+    "path": "products.BLUE_RING",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BLUE_SHARK_TOOTH",
+    "old": null,
+    "old_full": null,
+    "path": "products.BLUE_SHARK_TOOTH",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BOBBIN_SCRIPTURES",
+    "old": null,
+    "old_full": null,
+    "path": "products.BOBBIN_SCRIPTURES",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BOB_OMB",
+    "old": null,
+    "old_full": null,
+    "path": "products.BOB_OMB",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BONE",
+    "old": null,
+    "old_full": null,
+    "path": "products.BONE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BONZO_FRAGMENT",
+    "old": null,
+    "old_full": null,
+    "path": "products.BONZO_FRAGMENT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BOOKWORM_BOOK",
+    "old": null,
+    "old_full": null,
+    "path": "products.BOOKWORM_BOOK",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BOOK_OF_STATS",
+    "old": null,
+    "old_full": null,
+    "path": "products.BOOK_OF_STATS",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BOOSTER_COOKIE",
+    "old": null,
+    "old_full": null,
+    "path": "products.BOOSTER_COOKIE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BOTROOT",
+    "old": null,
+    "old_full": null,
+    "path": "products.BOTROOT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BOTTLED_MISCHIEF",
+    "old": null,
+    "old_full": null,
+    "path": "products.BOTTLED_MISCHIEF",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BOUNCY_BEACH_BALL",
+    "old": null,
+    "old_full": null,
+    "path": "products.BOUNCY_BEACH_BALL",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BOX_OF_SEEDS",
+    "old": null,
+    "old_full": null,
+    "path": "products.BOX_OF_SEEDS",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BRAIDED_GRIFFIN_FEATHER",
+    "old": null,
+    "old_full": null,
+    "path": "products.BRAIDED_GRIFFIN_FEATHER",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BRAIN_FOOD",
+    "old": null,
+    "old_full": null,
+    "path": "products.BRAIN_FOOD",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BRIMSTONE_HANDLE",
+    "old": null,
+    "old_full": null,
+    "path": "products.BRIMSTONE_HANDLE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BRINE_TONIC",
+    "old": null,
+    "old_full": null,
+    "path": "products.BRINE_TONIC",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BROKEN_RADAR",
+    "old": null,
+    "old_full": null,
+    "path": "products.BROKEN_RADAR",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BRONZE_BOWL",
+    "old": null,
+    "old_full": null,
+    "path": "products.BRONZE_BOWL",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BROWN_MUSHROOM",
+    "old": null,
+    "old_full": null,
+    "path": "products.BROWN_MUSHROOM",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BUBBA_BLISTER",
+    "old": null,
+    "old_full": null,
+    "path": "products.BUBBA_BLISTER",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BUCKET_OF_FROGSPAWN",
+    "old": null,
+    "old_full": null,
+    "path": "products.BUCKET_OF_FROGSPAWN",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BUDGET_HOPPER",
+    "old": null,
+    "old_full": null,
+    "path": "products.BUDGET_HOPPER",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BULKY_STONE",
+    "old": null,
+    "old_full": null,
+    "path": "products.BULKY_STONE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BURNING_EYE",
+    "old": null,
+    "old_full": null,
+    "path": "products.BURNING_EYE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BURROWING_SPORES",
+    "old": null,
+    "old_full": null,
+    "path": "products.BURROWING_SPORES",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "BUSTED_BELT_BUCKLE",
+    "old": null,
+    "old_full": null,
+    "path": "products.BUSTED_BELT_BUCKLE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CACTUS",
+    "old": null,
+    "old_full": null,
+    "path": "products.CACTUS",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CACTUS_FLOWER",
+    "old": null,
+    "old_full": null,
+    "path": "products.CACTUS_FLOWER",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CALCIFIED_HEART",
+    "old": null,
+    "old_full": null,
+    "path": "products.CALCIFIED_HEART",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CANDYCOMB",
+    "old": null,
+    "old_full": null,
+    "path": "products.CANDYCOMB",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CANDY_CORN",
+    "old": null,
+    "old_full": null,
+    "path": "products.CANDY_CORN",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CANE_KNOT",
+    "old": null,
+    "old_full": null,
+    "path": "products.CANE_KNOT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CAN_OF_WORMS",
+    "old": null,
+    "old_full": null,
+    "path": "products.CAN_OF_WORMS",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CAPSAICIN_EYEDROPS_NO_CHARGES",
+    "old": null,
+    "old_full": null,
+    "path": "products.CAPSAICIN_EYEDROPS_NO_CHARGES",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CARROT_BAIT",
+    "old": null,
+    "old_full": null,
+    "path": "products.CARROT_BAIT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CARROT_ITEM",
+    "old": null,
+    "old_full": null,
+    "path": "products.CARROT_ITEM",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CARROT_ZEST",
+    "old": null,
+    "old_full": null,
+    "path": "products.CARROT_ZEST",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CATALYST",
+    "old": null,
+    "old_full": null,
+    "path": "products.CATALYST",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CELESTIAL_MASON_JAR",
+    "old": null,
+    "old_full": null,
+    "path": "products.CELESTIAL_MASON_JAR",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CHAIN_END_TIMES",
+    "old": null,
+    "old_full": null,
+    "path": "products.CHAIN_END_TIMES",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CHEESEBITE",
+    "old": null,
+    "old_full": null,
+    "path": "products.CHEESEBITE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CHEESE_FUEL",
+    "old": null,
+    "old_full": null,
+    "path": "products.CHEESE_FUEL",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CHILI_PEPPER",
+    "old": null,
+    "old_full": null,
+    "path": "products.CHILI_PEPPER",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CHLORONITE",
+    "old": null,
+    "old_full": null,
+    "path": "products.CHLORONITE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CHOCOBERRY",
+    "old": null,
+    "old_full": null,
+    "path": "products.CHOCOBERRY",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CHOCOLATE_CHIP",
+    "old": null,
+    "old_full": null,
+    "path": "products.CHOCOLATE_CHIP",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CHOCONUT",
+    "old": null,
+    "old_full": null,
+    "path": "products.CHOCONUT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CHORUS_FRUIT",
+    "old": null,
+    "old_full": null,
+    "path": "products.CHORUS_FRUIT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CHUM",
+    "old": null,
+    "old_full": null,
+    "path": "products.CHUM",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CHYME",
+    "old": null,
+    "old_full": null,
+    "path": "products.CHYME",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CINDERSHADE",
+    "old": null,
+    "old_full": null,
+    "path": "products.CINDERSHADE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CLAW_FOSSIL",
+    "old": null,
+    "old_full": null,
+    "path": "products.CLAW_FOSSIL",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CLAY_BALL",
+    "old": null,
+    "old_full": null,
+    "path": "products.CLAY_BALL",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CLIPPED_WINGS",
+    "old": null,
+    "old_full": null,
+    "path": "products.CLIPPED_WINGS",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CLUBBED_FOSSIL",
+    "old": null,
+    "old_full": null,
+    "path": "products.CLUBBED_FOSSIL",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "COAL",
+    "old": null,
+    "old_full": null,
+    "path": "products.COAL",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "COALROOT",
+    "old": null,
+    "old_full": null,
+    "path": "products.COALROOT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "COBBLESTONE",
+    "old": null,
+    "old_full": null,
+    "path": "products.COBBLESTONE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "COLOSSAL_EXP_BOTTLE",
+    "old": null,
+    "old_full": null,
+    "path": "products.COLOSSAL_EXP_BOTTLE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "COMPACTED_MOONFLOWER",
+    "old": null,
+    "old_full": null,
+    "path": "products.COMPACTED_MOONFLOWER",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "COMPACTED_SUNFLOWER",
+    "old": null,
+    "old_full": null,
+    "path": "products.COMPACTED_SUNFLOWER",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "COMPACTED_WILD_ROSE",
+    "old": null,
+    "old_full": null,
+    "path": "products.COMPACTED_WILD_ROSE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "COMPACTOR",
+    "old": null,
+    "old_full": null,
+    "path": "products.COMPACTOR",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "COMPACT_OOZE",
+    "old": null,
+    "old_full": null,
+    "path": "products.COMPACT_OOZE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "COMPOST",
+    "old": null,
+    "old_full": null,
+    "path": "products.COMPOST",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CONCENTRATED_STONE",
+    "old": null,
+    "old_full": null,
+    "path": "products.CONCENTRATED_STONE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CONDENSED_FERMENTO",
+    "old": null,
+    "old_full": null,
+    "path": "products.CONDENSED_FERMENTO",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CONDENSED_HELIANTHUS",
+    "old": null,
+    "old_full": null,
+    "path": "products.CONDENSED_HELIANTHUS",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CONDENSED_WATER_LILY",
+    "old": null,
+    "old_full": null,
+    "path": "products.CONDENSED_WATER_LILY",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CONTROL_SWITCH",
+    "old": null,
+    "old_full": null,
+    "path": "products.CONTROL_SWITCH",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CORLEONITE",
+    "old": null,
+    "old_full": null,
+    "path": "products.CORLEONITE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CORNUCOPIA",
+    "old": null,
+    "old_full": null,
+    "path": "products.CORNUCOPIA",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CORRUPTED_BAIT",
+    "old": null,
+    "old_full": null,
+    "path": "products.CORRUPTED_BAIT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CORRUPTED_FRAGMENT",
+    "old": null,
+    "old_full": null,
+    "path": "products.CORRUPTED_FRAGMENT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CORRUPTED_NETHER_STAR",
+    "old": null,
+    "old_full": null,
+    "path": "products.CORRUPTED_NETHER_STAR",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CORRUPT_SOIL",
+    "old": null,
+    "old_full": null,
+    "path": "products.CORRUPT_SOIL",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CREAMBLOOM",
+    "old": null,
+    "old_full": null,
+    "path": "products.CREAMBLOOM",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CROPIE",
+    "old": null,
+    "old_full": null,
+    "path": "products.CROPIE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CROPSHOT_GARDEN_CHIP",
+    "old": null,
+    "old_full": null,
+    "path": "products.CROPSHOT_GARDEN_CHIP",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CRUDE_GABAGOOL",
+    "old": null,
+    "old_full": null,
+    "path": "products.CRUDE_GABAGOOL",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CRUDE_GABAGOOL_DISTILLATE",
+    "old": null,
+    "old_full": null,
+    "path": "products.CRUDE_GABAGOOL_DISTILLATE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CRYSTALIZED_MOONLIGHT",
+    "old": null,
+    "old_full": null,
+    "path": "products.CRYSTALIZED_MOONLIGHT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CRYSTAL_FRAGMENT",
+    "old": null,
+    "old_full": null,
+    "path": "products.CRYSTAL_FRAGMENT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "CUP_OF_BLOOD",
+    "old": null,
+    "old_full": null,
+    "path": "products.CUP_OF_BLOOD",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DAEDALUS_NOTES",
+    "old": null,
+    "old_full": null,
+    "path": "products.DAEDALUS_NOTES",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DAEDALUS_STICK",
+    "old": null,
+    "old_full": null,
+    "path": "products.DAEDALUS_STICK",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DARK_BAIT",
+    "old": null,
+    "old_full": null,
+    "path": "products.DARK_BAIT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DARK_CANDY",
+    "old": null,
+    "old_full": null,
+    "path": "products.DARK_CANDY",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DARK_ORB",
+    "old": null,
+    "old_full": null,
+    "path": "products.DARK_ORB",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DARK_QUEENS_SOUL_DROP",
+    "old": null,
+    "old_full": null,
+    "path": "products.DARK_QUEENS_SOUL_DROP",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DAYSWITCH",
+    "old": null,
+    "old_full": null,
+    "path": "products.DAYSWITCH",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DEAD_PLANT",
+    "old": null,
+    "old_full": null,
+    "path": "products.DEAD_PLANT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DEEPFRIES",
+    "old": null,
+    "old_full": null,
+    "path": "products.DEEPFRIES",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DEEP_ROOT",
+    "old": null,
+    "old_full": null,
+    "path": "products.DEEP_ROOT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DEEP_SEA_ORB",
+    "old": null,
+    "old_full": null,
+    "path": "products.DEEP_SEA_ORB",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DERELICT_ASHE",
+    "old": null,
+    "old_full": null,
+    "path": "products.DERELICT_ASHE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DESIGNER_COFFEE_BEANS",
+    "old": null,
+    "old_full": null,
+    "path": "products.DESIGNER_COFFEE_BEANS",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DEVOURER",
+    "old": null,
+    "old_full": null,
+    "path": "products.DEVOURER",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DIAMOND",
+    "old": null,
+    "old_full": null,
+    "path": "products.DIAMOND",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DIAMOND_ATOM",
+    "old": null,
+    "old_full": null,
+    "path": "products.DIAMOND_ATOM",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DIAMOND_SPREADING",
+    "old": null,
+    "old_full": null,
+    "path": "products.DIAMOND_SPREADING",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DIAMONITE",
+    "old": null,
+    "old_full": null,
+    "path": "products.DIAMONITE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DIGESTED_MUSHROOMS",
+    "old": null,
+    "old_full": null,
+    "path": "products.DIGESTED_MUSHROOMS",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DIRT_BOTTLE",
+    "old": null,
+    "old_full": null,
+    "path": "products.DIRT_BOTTLE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DISPLACED_LEECH",
+    "old": null,
+    "old_full": null,
+    "path": "products.DISPLACED_LEECH",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DISTANT_ECHO",
+    "old": null,
+    "old_full": null,
+    "path": "products.DISTANT_ECHO",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DIVAN_FRAGMENT",
+    "old": null,
+    "old_full": null,
+    "path": "products.DIVAN_FRAGMENT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DIVAN_POWDER_COATING",
+    "old": null,
+    "old_full": null,
+    "path": "products.DIVAN_POWDER_COATING",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DIVER_FRAGMENT",
+    "old": null,
+    "old_full": null,
+    "path": "products.DIVER_FRAGMENT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DOUBLE_PLANT",
+    "old": null,
+    "old_full": null,
+    "path": "products.DOUBLE_PLANT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DO_NOT_EAT_SHROOM",
+    "old": null,
+    "old_full": null,
+    "path": "products.DO_NOT_EAT_SHROOM",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DRAGON_CLAW",
+    "old": null,
+    "old_full": null,
+    "path": "products.DRAGON_CLAW",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DRAGON_HORN",
+    "old": null,
+    "old_full": null,
+    "path": "products.DRAGON_HORN",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DRAGON_SCALE",
+    "old": null,
+    "old_full": null,
+    "path": "products.DRAGON_SCALE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DRILL_ENGINE",
+    "old": null,
+    "old_full": null,
+    "path": "products.DRILL_ENGINE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DUNG",
+    "old": null,
+    "old_full": null,
+    "path": "products.DUNG",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DUNGEON_CHEST_KEY",
+    "old": null,
+    "old_full": null,
+    "path": "products.DUNGEON_CHEST_KEY",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DUNGEON_DECOY",
+    "old": null,
+    "old_full": null,
+    "path": "products.DUNGEON_DECOY",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DUNGEON_TRAP",
+    "old": null,
+    "old_full": null,
+    "path": "products.DUNGEON_TRAP",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DUSKBLOOM",
+    "old": null,
+    "old_full": null,
+    "path": "products.DUSKBLOOM",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DUSTGRAIN",
+    "old": null,
+    "old_full": null,
+    "path": "products.DUSTGRAIN",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DWARVEN_COMPACTOR",
+    "old": null,
+    "old_full": null,
+    "path": "products.DWARVEN_COMPACTOR",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DWARVEN_OS_BLOCK_BRAN",
+    "old": null,
+    "old_full": null,
+    "path": "products.DWARVEN_OS_BLOCK_BRAN",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DWARVEN_OS_GEMSTONE_GRAHAMS",
+    "old": null,
+    "old_full": null,
+    "path": "products.DWARVEN_OS_GEMSTONE_GRAHAMS",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DWARVEN_OS_METALLIC_MINIS",
+    "old": null,
+    "old_full": null,
+    "path": "products.DWARVEN_OS_METALLIC_MINIS",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DWARVEN_OS_ORE_OATS",
+    "old": null,
+    "old_full": null,
+    "path": "products.DWARVEN_OS_ORE_OATS",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "DWARVEN_TREASURE",
+    "old": null,
+    "old_full": null,
+    "path": "products.DWARVEN_TREASURE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ECCENTRIC_PAINTING",
+    "old": null,
+    "old_full": null,
+    "path": "products.ECCENTRIC_PAINTING",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ECTOPLASM",
+    "old": null,
+    "old_full": null,
+    "path": "products.ECTOPLASM",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "EGG",
+    "old": null,
+    "old_full": null,
+    "path": "products.EGG",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ELECTRON_TRANSMITTER",
+    "old": null,
+    "old_full": null,
+    "path": "products.ELECTRON_TRANSMITTER",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "EMERALD",
+    "old": null,
+    "old_full": null,
+    "path": "products.EMERALD",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "EMPTY_CHUM_BUCKET",
+    "old": null,
+    "old_full": null,
+    "path": "products.EMPTY_CHUM_BUCKET",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_ACACIA_LOG",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_ACACIA_LOG",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_ANCIENT_CLAW",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_ANCIENT_CLAW",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_BAKED_POTATO",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_BAKED_POTATO",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_BIRCH_LOG",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_BIRCH_LOG",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_BLAZE_POWDER",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_BLAZE_POWDER",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_BLAZE_ROD",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_BLAZE_ROD",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_BONE",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_BONE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_BONE_BLOCK",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_BONE_BLOCK",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_BONE_MEAL",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_BONE_MEAL",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_BREAD",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_BREAD",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_BROWN_MUSHROOM",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_BROWN_MUSHROOM",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_CACTUS",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_CACTUS",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_CACTUS_GREEN",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_CACTUS_GREEN",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_CAKE",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_CAKE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_CARROT",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_CARROT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_CARROT_ON_A_STICK",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_CARROT_ON_A_STICK",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_CARROT_STICK",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_CARROT_STICK",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_CHARCOAL",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_CHARCOAL",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_CLAY_BALL",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_CLAY_BALL",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_CLAY_BLOCK",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_CLAY_BLOCK",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_CLOWNFISH",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_CLOWNFISH",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_COAL",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_COAL",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_COAL_BLOCK",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_COAL_BLOCK",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_COBBLESTONE",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_COBBLESTONE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_COCOA",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_COCOA",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_COMPOST",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_COMPOST",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_COOKED_FISH",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_COOKED_FISH",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_COOKED_MUTTON",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_COOKED_MUTTON",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_COOKED_RABBIT",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_COOKED_RABBIT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_COOKED_SALMON",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_COOKED_SALMON",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_COOKIE",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_COOKIE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_DANDELION",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_DANDELION",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_DARK_OAK_LOG",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_DARK_OAK_LOG",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_DIAMOND",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_DIAMOND",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_DIAMOND_BLOCK",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_DIAMOND_BLOCK",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_EGG",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_EGG",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_EMERALD",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_EMERALD",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_EMERALD_BLOCK",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_EMERALD_BLOCK",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_ENDER_PEARL",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_ENDER_PEARL",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_ENDSTONE",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_ENDSTONE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_EYE_OF_ENDER",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_EYE_OF_ENDER",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_FEATHER",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_FEATHER",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_FERMENTED_SPIDER_EYE",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_FERMENTED_SPIDER_EYE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_FIG_LOG",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_FIG_LOG",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_FIREWORK_ROCKET",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_FIREWORK_ROCKET",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_FLINT",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_FLINT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_GHAST_TEAR",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_GHAST_TEAR",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_GLACITE",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_GLACITE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_GLISTERING_MELON",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_GLISTERING_MELON",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_GLOWSTONE",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_GLOWSTONE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_GLOWSTONE_DUST",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_GLOWSTONE_DUST",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_GOLD",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_GOLD",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_GOLDEN_CARROT",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_GOLDEN_CARROT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_GOLD_BLOCK",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_GOLD_BLOCK",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_GRILLED_PORK",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_GRILLED_PORK",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_GUNPOWDER",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_GUNPOWDER",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_HARD_STONE",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_HARD_STONE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_HAY_BALE",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_HAY_BALE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_HAY_BLOCK",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_HAY_BLOCK",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_HELIX_LOG",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_HELIX_LOG",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_HONEYCOMB",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_HONEYCOMB",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_HONEYCOMB_BLOCK",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_HONEYCOMB_BLOCK",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_HOPPER",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_HOPPER",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_HUGE_MUSHROOM_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_HUGE_MUSHROOM_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_HUGE_MUSHROOM_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_HUGE_MUSHROOM_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_ICE",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_ICE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_INK_SACK",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_INK_SACK",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_IRON",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_IRON",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_IRON_BLOCK",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_IRON_BLOCK",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_JUNGLE_LOG",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_JUNGLE_LOG",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_LAPIS_LAZULI",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_LAPIS_LAZULI",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_LAPIS_LAZULI_BLOCK",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_LAPIS_LAZULI_BLOCK",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_LAVA_BUCKET",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_LAVA_BUCKET",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_LEATHER",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_LEATHER",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_LUSH_BERBERIS",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_LUSH_BERBERIS",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_MAGMA_CREAM",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_MAGMA_CREAM",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_MANGROVE_LOG",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_MANGROVE_LOG",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_MELON",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_MELON",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_MELON_BLOCK",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_MELON_BLOCK",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_MITHRIL",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_MITHRIL",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_MOONFLOWER",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_MOONFLOWER",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_MUTTON",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_MUTTON",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_MYCELIUM",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_MYCELIUM",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_MYCELIUM_CUBE",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_MYCELIUM_CUBE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_NETHERRACK",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_NETHERRACK",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_NETHER_STALK",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_NETHER_STALK",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_OAK_LOG",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_OAK_LOG",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_OBSIDIAN",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_OBSIDIAN",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_PACKED_ICE",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_PACKED_ICE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_PAPER",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_PAPER",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_POISONOUS_POTATO",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_POISONOUS_POTATO",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_POPPY",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_POPPY",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_PORK",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_PORK",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_POTATO",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_POTATO",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_PRISMARINE_CRYSTALS",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_PRISMARINE_CRYSTALS",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_PRISMARINE_SHARD",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_PRISMARINE_SHARD",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_PUFFERFISH",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_PUFFERFISH",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_PUMPKIN",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_PUMPKIN",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_QUARTZ",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_QUARTZ",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_QUARTZ_BLOCK",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_QUARTZ_BLOCK",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_RABBIT",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_RABBIT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_RABBIT_FOOT",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_RABBIT_FOOT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_RABBIT_HIDE",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_RABBIT_HIDE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_RAW_BEEF",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_RAW_BEEF",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_RAW_CHICKEN",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_RAW_CHICKEN",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_RAW_FISH",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_RAW_FISH",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_RAW_SALMON",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_RAW_SALMON",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_REDSTONE",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_REDSTONE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_REDSTONE_BLOCK",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_REDSTONE_BLOCK",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_REDSTONE_LAMP",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_REDSTONE_LAMP",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_RED_MUSHROOM",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_RED_MUSHROOM",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_RED_SAND",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_RED_SAND",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_RED_SAND_CUBE",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_RED_SAND_CUBE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_ROTTEN_FLESH",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_ROTTEN_FLESH",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_RUBY_VEILSHROOM",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_RUBY_VEILSHROOM",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_SAND",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_SAND",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_SEA_LUMIES",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_SEA_LUMIES",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_SEEDS",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_SEEDS",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_SHARK_FIN",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_SHARK_FIN",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_SLIME_BALL",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_SLIME_BALL",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_SLIME_BLOCK",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_SLIME_BLOCK",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_SNOW_BLOCK",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_SNOW_BLOCK",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_SPIDER_EYE",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_SPIDER_EYE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_SPONGE",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_SPONGE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_SPRUCE_LOG",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_SPRUCE_LOG",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_STRING",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_STRING",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_SUGAR",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_SUGAR",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_SUGAR_CANE",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_SUGAR_CANE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_SULPHUR",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_SULPHUR",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_SULPHUR_CUBE",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_SULPHUR_CUBE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_SUNFLOWER",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_SUNFLOWER",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_TENDER_WOOD",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_TENDER_WOOD",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_TITANIUM",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_TITANIUM",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_TUNGSTEN",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_TUNGSTEN",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_TURBO_GOURD",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_TURBO_GOURD",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_UMBER",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_UMBER",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_VINESAP",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_VINESAP",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_WATER_LILY",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_WATER_LILY",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_WET_SPONGE",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_WET_SPONGE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_WHEAT",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_WHEAT",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_WILD_ROSE",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_WILD_ROSE",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTED_WOOL",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTED_WOOL",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_ABSORB_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_ABSORB_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_AIMING_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_AIMING_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_AIMING_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_AIMING_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_AIMING_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_AIMING_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_AIMING_4",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_AIMING_4",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_AIMING_5",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_AIMING_5",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_ANGLER_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_ANGLER_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_ANGLER_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_ANGLER_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_ANGLER_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_ANGLER_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_ANGLER_4",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_ANGLER_4",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_ANGLER_5",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_ANGLER_5",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_ANGLER_6",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_ANGLER_6",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_AQUA_AFFINITY_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_AQUA_AFFINITY_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_ARCANE_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_ARCANE_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_ARCANE_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_ARCANE_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_ARCANE_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_ARCANE_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_ARCANE_4",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_ARCANE_4",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_ARCANE_5",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_ARCANE_5",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_ARCANE_6",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_ARCANE_6",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BANE_OF_ARTHROPODS_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BANE_OF_ARTHROPODS_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BANE_OF_ARTHROPODS_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BANE_OF_ARTHROPODS_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BANE_OF_ARTHROPODS_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BANE_OF_ARTHROPODS_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BANE_OF_ARTHROPODS_4",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BANE_OF_ARTHROPODS_4",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BANE_OF_ARTHROPODS_5",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BANE_OF_ARTHROPODS_5",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BANE_OF_ARTHROPODS_6",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BANE_OF_ARTHROPODS_6",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BANE_OF_ARTHROPODS_7",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BANE_OF_ARTHROPODS_7",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BIG_BRAIN_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BIG_BRAIN_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BIG_BRAIN_4",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BIG_BRAIN_4",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BIG_BRAIN_5",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BIG_BRAIN_5",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BLAST_PROTECTION_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BLAST_PROTECTION_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BLAST_PROTECTION_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BLAST_PROTECTION_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BLAST_PROTECTION_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BLAST_PROTECTION_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BLAST_PROTECTION_4",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BLAST_PROTECTION_4",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BLAST_PROTECTION_5",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BLAST_PROTECTION_5",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BLAST_PROTECTION_6",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BLAST_PROTECTION_6",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BLAST_PROTECTION_7",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BLAST_PROTECTION_7",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BLESSING_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BLESSING_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BLESSING_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BLESSING_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BLESSING_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BLESSING_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BLESSING_4",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BLESSING_4",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BLESSING_5",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BLESSING_5",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BLESSING_6",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BLESSING_6",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BUG_BLENDER_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BUG_BLENDER_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BUG_BLENDER_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BUG_BLENDER_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BUG_BLENDER_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BUG_BLENDER_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BUG_BLENDER_4",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BUG_BLENDER_4",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_BUG_BLENDER_5",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_BUG_BLENDER_5",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CASTER_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CASTER_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CASTER_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CASTER_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CASTER_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CASTER_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CASTER_4",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CASTER_4",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CASTER_5",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CASTER_5",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CASTER_6",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CASTER_6",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CAYENNE_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CAYENNE_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CAYENNE_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CAYENNE_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CAYENNE_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CAYENNE_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CAYENNE_4",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CAYENNE_4",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CAYENNE_5",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CAYENNE_5",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CHAMPION_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CHAMPION_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CHAMPION_10",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CHAMPION_10",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CHAMPION_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CHAMPION_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CHAMPION_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CHAMPION_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CHAMPION_4",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CHAMPION_4",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CHAMPION_5",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CHAMPION_5",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CHAMPION_6",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CHAMPION_6",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CHAMPION_7",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CHAMPION_7",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CHAMPION_8",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CHAMPION_8",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CHAMPION_9",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CHAMPION_9",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CHANCE_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CHANCE_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CHANCE_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CHANCE_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CHANCE_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CHANCE_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CHANCE_4",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CHANCE_4",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CHANCE_5",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CHANCE_5",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CHARM_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CHARM_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CHARM_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CHARM_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CHARM_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CHARM_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CHARM_4",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CHARM_4",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CHARM_5",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CHARM_5",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CLEAVE_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CLEAVE_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CLEAVE_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CLEAVE_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CLEAVE_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CLEAVE_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CLEAVE_4",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CLEAVE_4",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CLEAVE_5",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CLEAVE_5",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CLEAVE_6",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CLEAVE_6",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_COMPACT_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_COMPACT_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_COMPACT_10",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_COMPACT_10",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_COMPACT_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_COMPACT_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_COMPACT_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_COMPACT_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_COMPACT_4",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_COMPACT_4",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_COMPACT_5",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_COMPACT_5",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_COMPACT_6",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_COMPACT_6",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_COMPACT_7",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_COMPACT_7",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_COMPACT_8",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_COMPACT_8",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_COMPACT_9",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_COMPACT_9",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CORRUPTION_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CORRUPTION_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CORRUPTION_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CORRUPTION_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CORRUPTION_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CORRUPTION_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CORRUPTION_4",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CORRUPTION_4",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CORRUPTION_5",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CORRUPTION_5",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_COUNTER_STRIKE_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_COUNTER_STRIKE_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_COUNTER_STRIKE_4",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_COUNTER_STRIKE_4",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_COUNTER_STRIKE_5",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_COUNTER_STRIKE_5",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CRITICAL_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CRITICAL_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CRITICAL_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CRITICAL_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CRITICAL_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CRITICAL_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CRITICAL_4",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CRITICAL_4",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CRITICAL_5",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CRITICAL_5",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CRITICAL_6",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CRITICAL_6",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CRITICAL_7",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CRITICAL_7",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CUBISM_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CUBISM_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CUBISM_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CUBISM_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CUBISM_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CUBISM_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CUBISM_4",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CUBISM_4",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CUBISM_5",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CUBISM_5",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CUBISM_6",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CUBISM_6",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CULTIVATING_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CULTIVATING_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CULTIVATING_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CULTIVATING_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CULTIVATING_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CULTIVATING_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CULTIVATING_4",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CULTIVATING_4",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CULTIVATING_5",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CULTIVATING_5",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CULTIVATING_6",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CULTIVATING_6",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CULTIVATING_7",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CULTIVATING_7",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CULTIVATING_8",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CULTIVATING_8",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CULTIVATING_9",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CULTIVATING_9",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_CURSE_OF_VANISHING_0",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_CURSE_OF_VANISHING_0",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_DEDICATION_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_DEDICATION_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_DEDICATION_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_DEDICATION_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_DEDICATION_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_DEDICATION_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_DEDICATION_4",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_DEDICATION_4",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_DELICATE_5",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_DELICATE_5",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_DEPTH_STRIDER_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_DEPTH_STRIDER_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_DEPTH_STRIDER_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_DEPTH_STRIDER_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_DEPTH_STRIDER_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_DEPTH_STRIDER_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_DIVINE_GIFT_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_DIVINE_GIFT_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_DIVINE_GIFT_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_DIVINE_GIFT_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_DIVINE_GIFT_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_DIVINE_GIFT_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_DRAGON_HUNTER_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_DRAGON_HUNTER_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_DRAGON_HUNTER_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_DRAGON_HUNTER_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_DRAGON_HUNTER_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_DRAGON_HUNTER_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_DRAGON_HUNTER_4",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_DRAGON_HUNTER_4",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_DRAGON_HUNTER_5",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_DRAGON_HUNTER_5",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_DRAGON_HUNTER_6",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_DRAGON_HUNTER_6",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EFFICIENCY_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EFFICIENCY_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EFFICIENCY_10",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EFFICIENCY_10",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EFFICIENCY_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EFFICIENCY_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EFFICIENCY_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EFFICIENCY_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EFFICIENCY_4",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EFFICIENCY_4",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EFFICIENCY_5",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EFFICIENCY_5",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EFFICIENCY_6",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EFFICIENCY_6",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EFFICIENCY_7",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EFFICIENCY_7",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EFFICIENCY_8",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EFFICIENCY_8",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EFFICIENCY_9",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EFFICIENCY_9",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_ENDER_SLAYER_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_ENDER_SLAYER_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_ENDER_SLAYER_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_ENDER_SLAYER_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_ENDER_SLAYER_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_ENDER_SLAYER_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_ENDER_SLAYER_4",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_ENDER_SLAYER_4",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_ENDER_SLAYER_5",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_ENDER_SLAYER_5",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_ENDER_SLAYER_6",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_ENDER_SLAYER_6",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_ENDER_SLAYER_7",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_ENDER_SLAYER_7",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EXECUTE_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EXECUTE_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EXECUTE_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EXECUTE_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EXECUTE_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EXECUTE_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EXECUTE_4",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EXECUTE_4",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EXECUTE_5",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EXECUTE_5",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EXECUTE_6",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EXECUTE_6",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EXPERIENCE_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EXPERIENCE_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EXPERIENCE_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EXPERIENCE_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EXPERIENCE_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EXPERIENCE_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EXPERIENCE_4",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EXPERIENCE_4",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EXPERIENCE_5",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EXPERIENCE_5",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EXPERTISE_1",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EXPERTISE_1",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EXPERTISE_10",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EXPERTISE_10",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EXPERTISE_2",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EXPERTISE_2",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EXPERTISE_3",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EXPERTISE_3",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EXPERTISE_4",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EXPERTISE_4",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EXPERTISE_5",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EXPERTISE_5",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EXPERTISE_6",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EXPERTISE_6",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_EXPERTISE_7",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_EXPERTISE_7",
+    "time": "2026-11-08 15:52:50",
+    "type": "added"
   }
 ]

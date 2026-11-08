@@ -1,0 +1,848 @@
+{
+  "bingo": {
+    "end": "2026-11-08 12:00:00",
+    "end_ms": 1794110400000,
+    "first_seen": "2026-11-07 18:49:18",
+    "generated_at": "2026-11-08 15:42:56",
+    "goal_count": 25,
+    "goals": [
+      {
+        "fullLore": [
+          "§7Break §e10M Ore§7 Blocks."
+        ],
+        "id": "break_block_ores",
+        "lore": "§7Break §e10M Ore§7 Blocks.",
+        "lore_lines": [
+          "§7Break §e10M Ore§7 Blocks."
+        ],
+        "name": "Operation: Ore",
+        "progress": 30339485,
+        "progress_info": {
+          "percent": 100.0,
+          "progress": 30339485.0,
+          "progress_text": "30.34M",
+          "ratio": 1.0,
+          "reached": 5,
+          "top": 10000000.0,
+          "top_text": "10M",
+          "total": 5
+        },
+        "requirement_text": "2M / 4M / 6M / 8M / 10M",
+        "tiers": [
+          2000000,
+          4000000,
+          6000000,
+          8000000,
+          10000000
+        ]
+      },
+      {
+        "fullLore": [
+          "§7Reach §3Bestiary §7Milestone 3§7."
+        ],
+        "id": "bestiary_level_3",
+        "lore": "§7Reach §3Bestiary §7Milestone 3§7.",
+        "lore_lines": [
+          "§7Reach §3Bestiary §7Milestone 3§7."
+        ],
+        "name": "Collecting Data",
+        "requiredAmount": 3,
+        "requirement_text": "3"
+      },
+      {
+        "fullLore": [
+          "§7Reach §a72,500 §7Gold Ingot Collection."
+        ],
+        "id": "collection_gold_ingot",
+        "lore": "§7Reach §a72,500 §7Gold Ingot Collection.",
+        "lore_lines": [
+          "§7Reach §a72,500 §7Gold Ingot Collection."
+        ],
+        "name": "Gold Ingot Collector",
+        "requiredAmount": 72500,
+        "requirement_text": "72.5K"
+      },
+      {
+        "fullLore": [
+          "§7Unlock a §fWood§7 Dungeon Chest."
+        ],
+        "id": "UNLOCK_DUNGEON_CHEST_WOOD",
+        "lore": "§7Unlock a §fWood§7 Dungeon Chest.",
+        "lore_lines": [
+          "§7Unlock a §fWood§7 Dungeon Chest."
+        ],
+        "name": "Wooden Treasure",
+        "requirement_text": ""
+      },
+      {
+        "fullLore": [
+          "§7Reach a non-cosmetic Skill Average of §a17§7."
+        ],
+        "id": "skill_average",
+        "lore": "§7Reach a non-cosmetic Skill Average of §a17§7.",
+        "lore_lines": [
+          "§7Reach a non-cosmetic Skill Average of §a17§7."
+        ],
+        "name": "Skill Average",
+        "requiredAmount": 17,
+        "requirement_text": "17"
+      },
+      {
+        "fullLore": [
+          "§7Obtain level §e10§7 in the §6Foraging §7Skill."
+        ],
+        "id": "GET_SKILL_foraging_10",
+        "lore": "§7Obtain level §e10§7 in the §6Foraging §7Skill.",
+        "lore_lines": [
+          "§7Obtain level §e10§7 in the §6Foraging §7Skill."
+        ],
+        "name": "Lumberjack",
+        "requirement_text": ""
+      },
+      {
+        "fullLore": [
+          "§7Summon §a100k §3Sea Creatures§7."
+        ],
+        "id": "summon_sea_creatures",
+        "lore": "§7Summon §a100k §3Sea Creatures§7.",
+        "lore_lines": [
+          "§7Summon §a100k §3Sea Creatures§7."
+        ],
+        "name": "Poseidon",
+        "progress": 328110,
+        "progress_info": {
+          "percent": 100.0,
+          "progress": 328110.0,
+          "progress_text": "328.11K",
+          "ratio": 1.0,
+          "reached": 5,
+          "top": 100000.0,
+          "top_text": "100K",
+          "total": 5
+        },
+        "requirement_text": "20K / 40K / 60K / 80K / 100K",
+        "tiers": [
+          20000,
+          40000,
+          60000,
+          80000,
+          100000
+        ]
+      },
+      {
+        "fullLore": [
+          "§7Reach §a800 §7Lily Pad Collection."
+        ],
+        "id": "collection_water_lily",
+        "lore": "§7Reach §a800 §7Lily Pad Collection.",
+        "lore_lines": [
+          "§7Reach §a800 §7Lily Pad Collection."
+        ],
+        "name": "Lily Pad Collector",
+        "requiredAmount": 800,
+        "requirement_text": "800"
+      },
+      {
+        "fullLore": [
+          "§7Brew any level IV or higher potion."
+        ],
+        "id": "brew_potion_level",
+        "lore": "§7Brew any level IV or higher potion.",
+        "lore_lines": [
+          "§7Brew any level IV or higher potion."
+        ],
+        "name": "Trouble is Brewing...",
+        "requirement_text": ""
+      },
+      {
+        "fullLore": [
+          "§7Obtain a score of §6270§7 or higher on §cFloor 1§7 of §cCatacombs§7."
+        ],
+        "id": "DUNGEON_CATACOMBS_1_270",
+        "lore": "§7Obtain a score of §6270§7 or higher on §cFloor 1§7 of §cCatacombs§7.",
+        "lore_lines": [
+          "§7Obtain a score of §6270§7 or higher on §cFloor 1§7 of §cCatacombs§7."
+        ],
+        "name": "High Score!",
+        "requirement_text": ""
+      },
+      {
+        "fullLore": [
+          "§7Craft an §9Aspect of the End§7."
+        ],
+        "id": "craft_item_aspect_of_the_end",
+        "lore": "§7Craft an §9Aspect of the End§7.",
+        "lore_lines": [
+          "§7Craft an §9Aspect of the End§7."
+        ],
+        "name": "Zoop!",
+        "requirement_text": ""
+      },
+      {
+        "fullLore": [
+          "§7Reach §9100% §9 Crit Damage§7."
+        ],
+        "id": "stat_critical_damage",
+        "lore": "§7Reach §9100% §9 Crit Damage§7.",
+        "lore_lines": [
+          "§7Reach §9100% §9 Crit Damage§7."
+        ],
+        "name": "Critical",
+        "requiredAmount": 100,
+        "requirement_text": "100"
+      },
+      {
+        "fullLore": [
+          "§7Gain §b750M Mining§7 experience"
+        ],
+        "id": "collect_exp_mining",
+        "lore": "§7Gain §b750M Mining§7 experience",
+        "lore_lines": [
+          "§7Gain §b750M Mining§7 experience"
+        ],
+        "name": "Skilled",
+        "progress": 4853552636,
+        "progress_info": {
+          "percent": 100.0,
+          "progress": 4853552636.0,
+          "progress_text": "4.85B",
+          "ratio": 1.0,
+          "reached": 5,
+          "top": 750000000.0,
+          "top_text": "750M",
+          "total": 5
+        },
+        "requirement_text": "150M / 300M / 450M / 600M / 750M",
+        "tiers": [
+          150000000,
+          300000000,
+          450000000,
+          600000000,
+          750000000
+        ]
+      },
+      {
+        "fullLore": [
+          "§7Reach §a185,000 §7Cocoa Beans Collection."
+        ],
+        "id": "collection_ink_sack:3",
+        "lore": "§7Reach §a185,000 §7Cocoa Beans Collection.",
+        "lore_lines": [
+          "§7Reach §a185,000 §7Cocoa Beans Collection."
+        ],
+        "name": "Cocoa Beans Collector",
+        "requiredAmount": 185000,
+        "requirement_text": "185K"
+      },
+      {
+        "fullLore": [
+          "§7Kill a §5Runic §7Mob."
+        ],
+        "id": "kill_runic_mob",
+        "lore": "§7Kill a §5Runic §7Mob.",
+        "lore_lines": [
+          "§7Kill a §5Runic §7Mob."
+        ],
+        "name": "Strange Effects",
+        "requirement_text": ""
+      },
+      {
+        "fullLore": [
+          "§7Craft a §aPiggy Bank§7."
+        ],
+        "id": "craft_item_piggy_bank",
+        "lore": "§7Craft a §aPiggy Bank§7.",
+        "lore_lines": [
+          "§7Craft a §aPiggy Bank§7."
+        ],
+        "name": "New Savings",
+        "requirement_text": ""
+      },
+      {
+        "fullLore": [
+          "§7Reach §c1,000 §c Health§7."
+        ],
+        "id": "stat_health",
+        "lore": "§7Reach §c1,000 §c Health§7.",
+        "lore_lines": [
+          "§7Reach §c1,000 §c Health§7."
+        ],
+        "name": "Healthy",
+        "requiredAmount": 1000,
+        "requirement_text": "1K"
+      },
+      {
+        "fullLore": [
+          "§7Obtain §d25 Fairy Souls§7."
+        ],
+        "id": "fairy_souls",
+        "lore": "§7Obtain §d25 Fairy Souls§7.",
+        "lore_lines": [
+          "§7Obtain §d25 Fairy Souls§7."
+        ],
+        "name": "Fairy Finder",
+        "requiredAmount": 25,
+        "requirement_text": "25"
+      },
+      {
+        "fullLore": [
+          "§7Loot §e250k §7drops with a chance of §e1% §7or lower"
+        ],
+        "id": "loot_drop",
+        "lore": "§7Loot §e250k §7drops with a chance of §e1% §7or lower",
+        "lore_lines": [
+          "§7Loot §e250k §7drops with a chance of §e1% §7or lower"
+        ],
+        "name": "Lucky Looter",
+        "progress": 896916,
+        "progress_info": {
+          "percent": 100.0,
+          "progress": 896916.0,
+          "progress_text": "896.92K",
+          "ratio": 1.0,
+          "reached": 5,
+          "top": 250000.0,
+          "top_text": "250K",
+          "total": 5
+        },
+        "requirement_text": "50K / 100K / 150K / 200K / 250K",
+        "tiers": [
+          50000,
+          100000,
+          150000,
+          200000,
+          250000
+        ]
+      },
+      {
+        "fullLore": [
+          "§7Find §93 Pairs §7in the §9Experimentation Table§7."
+        ],
+        "id": "FIND_EXPERIMENT_PAIRS_3",
+        "lore": "§7Find §93 Pairs §7in the §9Experimentation Table§7.",
+        "lore_lines": [
+          "§7Find §93 Pairs §7in the §9Experimentation Table§7."
+        ],
+        "name": "Pair Up!",
+        "requiredAmount": 3,
+        "requirement_text": "3"
+      },
+      {
+        "fullLore": [
+          "§7Obtain a §aGrand Experience Bottle§7."
+        ],
+        "id": "obtain_item_grand_exp_bottle",
+        "lore": "§7Obtain a §aGrand Experience Bottle§7.",
+        "lore_lines": [
+          "§7Obtain a §aGrand Experience Bottle§7."
+        ],
+        "name": "Experienced",
+        "requirement_text": ""
+      },
+      {
+        "fullLore": [
+          "§7Obtain a §9Lynx Talisman§7."
+        ],
+        "id": "obtain_item_lynx_talisman",
+        "lore": "§7Obtain a §9Lynx Talisman§7.",
+        "lore_lines": [
+          "§7Obtain a §9Lynx Talisman§7."
+        ],
+        "name": "Lynx",
+        "requirement_text": ""
+      },
+      {
+        "fullLore": [
+          "§7Help §6Fetchur§7 find his item."
+        ],
+        "id": "SOLVE_FETCHUR",
+        "lore": "§7Help §6Fetchur§7 find his item.",
+        "lore_lines": [
+          "§7Help §6Fetchur§7 find his item."
+        ],
+        "name": "Search And Rescue",
+        "requirement_text": ""
+      },
+      {
+        "fullLore": [
+          "§7Obtain §a100 §7unique Minions."
+        ],
+        "id": "craft_minions",
+        "lore": "§7Obtain §a100 §7unique Minions.",
+        "lore_lines": [
+          "§7Obtain §a100 §7unique Minions."
+        ],
+        "name": "Minion Machine",
+        "requiredAmount": 100,
+        "requirement_text": "100"
+      },
+      {
+        "fullLore": [
+          "§7Gain §55M Heart of the Mountain Experience§7."
+        ],
+        "id": "hotm_experience",
+        "lore": "§7Gain §55M Heart of the Mountain Experience§7.",
+        "lore_lines": [
+          "§7Gain §55M Heart of the Mountain Experience§7."
+        ],
+        "name": "Cave Commodity",
+        "progress": 78611883,
+        "progress_info": {
+          "percent": 100.0,
+          "progress": 78611883.0,
+          "progress_text": "78.61M",
+          "ratio": 1.0,
+          "reached": 5,
+          "top": 5000000.0,
+          "top_text": "5M",
+          "total": 5
+        },
+        "requirement_text": "1M / 2M / 3M / 4M / 5M",
+        "tiers": [
+          1000000,
+          2000000,
+          3000000,
+          4000000,
+          5000000
+        ]
+      }
+    ],
+    "id": 59,
+    "modifier": "NORMAL",
+    "name": "November 2026",
+    "published_at": "2026-11-08 15:41:05",
+    "remaining": "-",
+    "start": "2026-11-01 12:00:00",
+    "start_ms": 1793505600000,
+    "state": "ended",
+    "state_label": "已结束"
+  },
+  "build": "本地构建",
+  "changes": [
+    {
+      "endpoint": "skills",
+      "new": "[50 项]",
+      "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Brewer I   Potions that you brew have a 1% longer duration.\", \"+1 Intelligence\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Brewer II   Potions that you brew have a 1➜2% longer duration.\", \"+1 Intelligence\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Brewer III   Potions that you brew have a 2➜3% longer duration.\", \"+1 Intelligence\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Brewer IV   Potions that you brew have a 3➜4% longer duration.\", \"+1 Intelligence\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Brewer V   Potions that you brew have a 4➜5% longer duration.\", \"+1 Intelligence\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Brewer VI   Potions that you brew have a 5➜6% longer duration.\", \"+1 Intelligence\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Brewer VII   Potions that you brew have a 6➜7% longer duration.\", \"+1 Intelligence\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Brewer VIII   Potions that you brew have a 7➜8% longer duration.\", \"+1 Intelligence\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Brewer IX   Potions that you brew have a 8➜9% longer durat…（已截断，共 9183 字符）",
+      "old": "[50 项]",
+      "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Brewer 1   Potions that you brew have a 1% longer duration.\", \"+1 Intelligence\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Brewer 2   Potions that you brew have a 1➜2% longer duration.\", \"+1 Intelligence\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Brewer 3   Potions that you brew have a 2➜3% longer duration.\", \"+1 Intelligence\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Brewer 4   Potions that you brew have a 3➜4% longer duration.\", \"+1 Intelligence\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Brewer 5   Potions that you brew have a 4➜5% longer duration.\", \"+1 Intelligence\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Brewer 6   Potions that you brew have a 5➜6% longer duration.\", \"+1 Intelligence\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Brewer 7   Potions that you brew have a 6➜7% longer duration.\", \"+1 Intelligence\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Brewer 8   Potions that you brew have a 7➜8% longer duration.\", \"+1 Intelligence\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Brewer 9   Potions that you brew have a 8➜9% longer duration.\", \"+1…（已截断，共 9093 字符）",
+      "path": "skills.ALCHEMY.levels",
+      "time": "2026-11-05 12:54:54",
+      "type": "modified"
+    },
+    {
+      "endpoint": "skills",
+      "new": "[60 项]",
+      "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to Spider's Den\", \"Warrior I   Deal 4% more damage to mobs.\", \"+0.5% Crit Chance\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Warrior II   Deal 4➜8% more damage to mobs.\", \"+0.5% Crit Chance\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Warrior III   Deal 8➜12% more damage to mobs.\", \"+0.5% Crit Chance\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Warrior IV   Deal 12➜16% more damage to mobs.\", \"+0.5% Crit Chance\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Warrior V   Deal 16➜20% more damage to mobs.\", \"+0.5% Crit Chance\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Warrior VI   Deal 20➜24% more damage to mobs.\", \"+0.5% Crit Chance\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Warrior VII   Deal 24➜28% more damage to mobs.\", \"+0.5% Crit Chance\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Warrior VIII   Deal 28➜32% more damage to mobs.\", \"+0.5% Crit Chance\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Warrior IX   Deal 32➜36% more damage to mobs.\", \"+0.5% Crit Chance\", \"+5,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 10, \"totalExpRequired\": 9925.0, \"unlocks…（已截断，共 10939 字符）",
+      "old": "[60 项]",
+      "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to Spider's Den\", \"Warrior 1   Deal 4% more damage to mobs.\", \"+0.5% Crit Chance\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Warrior 2   Deal 4➜8% more damage to mobs.\", \"+0.5% Crit Chance\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Warrior 3   Deal 8➜12% more damage to mobs.\", \"+0.5% Crit Chance\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Warrior 4   Deal 12➜16% more damage to mobs.\", \"+0.5% Crit Chance\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Warrior 5   Deal 16➜20% more damage to mobs.\", \"+0.5% Crit Chance\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Warrior 6   Deal 20➜24% more damage to mobs.\", \"+0.5% Crit Chance\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Warrior 7   Deal 24➜28% more damage to mobs.\", \"+0.5% Crit Chance\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Warrior 8   Deal 28➜32% more damage to mobs.\", \"+0.5% Crit Chance\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Warrior 9   Deal 32➜36% more damage to mobs.\", \"+0.5% Crit Chance\", \"+5,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 10, \"totalExpRequired\": 9925.0, \"unlocks\": [\"Warrio…（已截断，共 10838 字符）",
+      "path": "skills.COMBAT.levels",
+      "time": "2026-11-05 12:54:54",
+      "type": "modified"
+    },
+    {
+      "endpoint": "skills",
+      "new": "[60 项]",
+      "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Conjurer I   Gain 5% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Scavenger Enchantment\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Conjurer II   Gain 5➜10% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Infinite Quiver Enchantment\", \"Sunder Enchantment\", \"Harvesting Enchantment\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Conjurer III   Gain 10➜15% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Luck Enchantment\", \"Cubism Enchantment\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Conjurer IV   Gain 15➜20% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Cleave Enchantment\", \"Angler Enchantment\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Conjurer V   Gain 20➜25% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Life Steal Enchantment\", \"Scuba Enchantment\", \"Feast Enchantment\", \"Woodsplitter Enchantment\", \"Growth Enchantment\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Conjurer VI   Gain 25➜30% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Snipe Enchantment\", \"Rainbow Enchantmen…（已截断，共 15114 字符）",
+      "old": "[60 项]",
+      "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Conjurer 1   Gain 5% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Scavenger Enchantment\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Conjurer 2   Gain 5➜10% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Infinite Quiver Enchantment\", \"Sunder Enchantment\", \"Harvesting Enchantment\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Conjurer 3   Gain 10➜15% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Luck Enchantment\", \"Cubism Enchantment\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Conjurer 4   Gain 15➜20% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Cleave Enchantment\", \"Angler Enchantment\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Conjurer 5   Gain 20➜25% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Life Steal Enchantment\", \"Scuba Enchantment\", \"Feast Enchantment\", \"Woodsplitter Enchantment\", \"Growth Enchantment\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Conjurer 6   Gain 25➜30% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Snipe Enchantment\", \"Rainbow Enchantment\", \"…（已截断，共 15013 字符）",
+      "path": "skills.ENCHANTING.levels",
+      "time": "2026-11-05 12:54:54",
+      "type": "modified"
+    },
+    {
+      "endpoint": "skills",
+      "new": "[60 项]",
+      "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to The Barn\", \"Farmhand I   Grants +4  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Farmhand II   Grants +4➜8  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Farmhand III   Grants +8➜12  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Farmhand IV   Grants +12➜16  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Mushroom Desert\", \"Farmhand V   Grants +16➜20  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Farmhand VI   Grants +20➜24  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Farmhand VII   Grants +24➜28  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Farmh…（已截断，共 12644 字符）",
+      "old": "[60 项]",
+      "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to The Barn\", \"Farmhand 1   Grants +4  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Farmhand 2   Grants +4➜8  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Farmhand 3   Grants +8➜12  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Farmhand 4   Grants +12➜16  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Mushroom Desert\", \"Farmhand 5   Grants +16➜20  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Farmhand 6   Grants +20➜24  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Farmhand 7   Grants +24➜28  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Farmhand 8  …（已截断，共 12543 字符）",
+      "path": "skills.FARMING.levels",
+      "time": "2026-11-05 12:54:54",
+      "type": "modified"
+    },
+    {
+      "endpoint": "skills",
+      "new": "[50 项]",
+      "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Squid Sea Creature\", \"Sea Walker Sea Creature\", \"Frozen Steve Sea Creature\", \"Frosty Sea Creature\", \"Treasure Hunter I   Grants +0.1  Treasure Chance.\", \"+2 Health\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Treasure Hunter II   Grants +0.1➜0.2  Treasure Chance.\", \"+2 Health\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Treasure Hunter III   Grants +0.2➜0.3  Treasure Chance.\", \"+2 Health\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Treasure Hunter IV   Grants +0.3➜0.4  Treasure Chance.\", \"+2 Health\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Lotus Atoll\", \"Dumpster Diver Sea Creature\", \"Frog Man Sea Creature\", \"Trash Gobbler Sea Creature\", \"Bogged Sea Creature\", \"Nurse Shark Sea Creature\", \"Treasure Hunter V   Grants +0.4➜0.5  Treasure Chance.\", \"+2 Health\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Jumpin' Jack Sea Creature\", \"Medium Mithril Grubber Sea Creature\", \"Mithril Grubber Sea Creature\", \"Bloated Mithril Grubber Sea Creature\", \"Large Mithril Grubber Sea Creature\", \"Treasure Hunter VI   Grants +0.5➜0.6  Treasure Chance.\", \"+2 Health\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Wetwing Sea Creature\", \"Inkling Sea Creature\", \"S…（已截断，共 10868 字符）",
+      "old": "[50 项]",
+      "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Squid Sea Creature\", \"Sea Walker Sea Creature\", \"Frozen Steve Sea Creature\", \"Frosty Sea Creature\", \"Treasure Hunter 1   Grants +0.1  Treasure Chance.\", \"+2 Health\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Treasure Hunter 2   Grants +0.1➜0.2  Treasure Chance.\", \"+2 Health\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Treasure Hunter 3   Grants +0.2➜0.3  Treasure Chance.\", \"+2 Health\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Treasure Hunter 4   Grants +0.3➜0.4  Treasure Chance.\", \"+2 Health\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Lotus Atoll\", \"Dumpster Diver Sea Creature\", \"Frog Man Sea Creature\", \"Trash Gobbler Sea Creature\", \"Bogged Sea Creature\", \"Nurse Shark Sea Creature\", \"Treasure Hunter 5   Grants +0.4➜0.5  Treasure Chance.\", \"+2 Health\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Jumpin' Jack Sea Creature\", \"Medium Mithril Grubber Sea Creature\", \"Mithril Grubber Sea Creature\", \"Bloated Mithril Grubber Sea Creature\", \"Large Mithril Grubber Sea Creature\", \"Treasure Hunter 6   Grants +0.5➜0.6  Treasure Chance.\", \"+2 Health\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Wetwing Sea Creature\", \"Inkling Sea Creature\", \"Sea Wi…（已截断，共 10725 字符）",
+      "path": "skills.FISHING.levels",
+      "time": "2026-11-05 12:54:54",
+      "type": "modified"
+    },
+    {
+      "endpoint": "skills",
+      "new": "[57 项]",
+      "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to The Park\", \"Logger I   Grants +4  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Logger II   Grants +4➜8  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Logger III   Grants +8➜12  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Logger IV   Grants +12➜16  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Logger V   Grants +16➜20  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Logger VI   Grants +20➜24  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Logger VII   Grants +24➜28  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Logger VIII   Grants +28➜32  Forag…（已截断，共 11991 字符）",
+      "old": "[57 项]",
+      "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to The Park\", \"Logger 1   Grants +4  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Logger 2   Grants +4➜8  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Logger 3   Grants +8➜12  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Logger 4   Grants +12➜16  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Logger 5   Grants +16➜20  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Logger 6   Grants +20➜24  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Logger 7   Grants +24➜28  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Logger 8   Grants +28➜32  Foraging Fortun…（已截断，共 11894 字符）",
+      "path": "skills.FORAGING.levels",
+      "time": "2026-11-05 12:54:54",
+      "type": "modified"
+    },
+    {
+      "endpoint": "skills",
+      "new": "[50 项]",
+      "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Charming I   Grants +0.04 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Charming II   Grants +0.04➜0.08 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Charming III   Grants +0.08➜0.12 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Charming IV   Grants +0.12➜0.16 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Charming V   Grants +0.16➜0.2 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Charming VI   Grants +0.2➜0.24 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Charming VII   Grants +0.24➜0.28 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Charming VIII   Grants +0.28➜0.32 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Charming IX   Grants +0.32➜0.36 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+5,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 10, \"totalExpRequired\": 9925.0, \"unlocks…（已截断，共 8503 字符）",
+      "old": "[50 项]",
+      "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Charming 1   Grants +0.04 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Charming 2   Grants +0.04➜0.08 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Charming 3   Grants +0.08➜0.12 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Charming 4   Grants +0.12➜0.16 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Charming 5   Grants +0.16➜0.2 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Charming 6   Grants +0.2➜0.24 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Charming 7   Grants +0.24➜0.28 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Charming 8   Grants +0.28➜0.32 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Charming 9   Grants +0.32➜0.36 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+5,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 10, \"totalExpRequired\": 9925.0, \"unlocks\": [\"Charmi…（已截断，共 8413 字符）",
+      "path": "skills.HUNTING.levels",
+      "time": "2026-11-05 12:54:54",
+      "type": "modified"
+    },
+    {
+      "endpoint": "skills",
+      "new": "[60 项]",
+      "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to Gold Mine\", \"Spelunker I   Grants +4  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Jerry Stone Reforge\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Spelunker II   Grants +4➜8  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Black Diamond Reforge\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Spelunker III   Grants +8➜12  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Overflowing Trash Can Reforge\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Spelunker IV   Grants +12➜16  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Deep Caverns\", \"Spelunker V   Grants +16➜20  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Lapis Crystal Reforge\", \"Moil Log Reforge\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Spelunker VI   Grants +20➜24  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Spelunker VII   Grants +24➜28  Mining Fortune, which…（已截断，共 14889 字符）",
+      "old": "[60 项]",
+      "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to Gold Mine\", \"Spelunker 1   Grants +4  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Jerry Stone Reforge\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Spelunker 2   Grants +4➜8  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Black Diamond Reforge\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Spelunker 3   Grants +8➜12  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Overflowing Trash Can Reforge\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Spelunker 4   Grants +12➜16  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Deep Caverns\", \"Spelunker 5   Grants +16➜20  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Lapis Crystal Reforge\", \"Moil Log Reforge\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Spelunker 6   Grants +20➜24  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Spelunker 7   Grants +24➜28  Mining Fortune, which increa…（已截断，共 14788 字符）",
+      "path": "skills.MINING.levels",
+      "time": "2026-11-05 12:54:54",
+      "type": "modified"
+    },
+    {
+      "endpoint": "skills",
+      "new": "[60 项]",
+      "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Zoologist I   Gain 1% extra pet exp.\", \"+Gain 0.2% Exp Share rate.\", \"+1 Pet Luck\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Zoologist II   Gain 1➜2% extra pet exp.\", \"+Gain 0.2➜0.4% Exp Share rate.\", \"+1 Pet Luck\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Zoologist III   Gain 2➜3% extra pet exp.\", \"+Gain 0.4➜0.6% Exp Share rate.\", \"+1 Pet Luck\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Zoologist IV   Gain 3➜4% extra pet exp.\", \"+Gain 0.6➜0.8% Exp Share rate.\", \"+1 Pet Luck\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Zoologist V   Gain 4➜5% extra pet exp.\", \"+Gain 0.8➜1% Exp Share rate.\", \"+1 Pet Luck\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Zoologist VI   Gain 5➜6% extra pet exp.\", \"+Gain 1➜1.2% Exp Share rate.\", \"+1 Pet Luck\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Zoologist VII   Gain 6➜7% extra pet exp.\", \"+Gain 1.2➜1.4% Exp Share rate.\", \"+1 Pet Luck\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Zoologist VIII   Gain 7➜8% extra pet exp.\", \"+Gain 1.4➜1.6% Exp Share rate.\", \"+1 Pet Luck\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Zoologist …（已截断，共 11671 字符）",
+      "old": "[60 项]",
+      "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Zoologist 1   Gain 1% extra pet exp.\", \"+Gain 0.2% Exp Share rate.\", \"+1 Pet Luck\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Zoologist 2   Gain 1➜2% extra pet exp.\", \"+Gain 0.2➜0.4% Exp Share rate.\", \"+1 Pet Luck\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Zoologist 3   Gain 2➜3% extra pet exp.\", \"+Gain 0.4➜0.6% Exp Share rate.\", \"+1 Pet Luck\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Zoologist 4   Gain 3➜4% extra pet exp.\", \"+Gain 0.6➜0.8% Exp Share rate.\", \"+1 Pet Luck\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Zoologist 5   Gain 4➜5% extra pet exp.\", \"+Gain 0.8➜1% Exp Share rate.\", \"+1 Pet Luck\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Zoologist 6   Gain 5➜6% extra pet exp.\", \"+Gain 1➜1.2% Exp Share rate.\", \"+1 Pet Luck\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Zoologist 7   Gain 6➜7% extra pet exp.\", \"+Gain 1.2➜1.4% Exp Share rate.\", \"+1 Pet Luck\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Zoologist 8   Gain 7➜8% extra pet exp.\", \"+Gain 1.4➜1.6% Exp Share rate.\", \"+1 Pet Luck\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Zoologist 9   Gain 8…（已截断，共 11570 字符）",
+      "path": "skills.TAMING.levels",
+      "time": "2026-11-05 12:54:54",
+      "type": "modified"
+    },
+    {
+      "endpoint": "skills",
+      "new": "[50 项]",
+      "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Squid Sea Creature\", \"Sea Walker Sea Creature\", \"Frozen Steve Sea Creature\", \"Frosty Sea Creature\", \"Treasure Hunter 1   Grants +0.1  Treasure Chance.\", \"+2 Health\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Treasure Hunter 2   Grants +0.1➜0.2  Treasure Chance.\", \"+2 Health\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Treasure Hunter 3   Grants +0.2➜0.3  Treasure Chance.\", \"+2 Health\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Treasure Hunter 4   Grants +0.3➜0.4  Treasure Chance.\", \"+2 Health\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Lotus Atoll\", \"Dumpster Diver Sea Creature\", \"Frog Man Sea Creature\", \"Trash Gobbler Sea Creature\", \"Bogged Sea Creature\", \"Nurse Shark Sea Creature\", \"Treasure Hunter 5   Grants +0.4➜0.5  Treasure Chance.\", \"+2 Health\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Jumpin' Jack Sea Creature\", \"Medium Mithril Grubber Sea Creature\", \"Mithril Grubber Sea Creature\", \"Bloated Mithril Grubber Sea Creature\", \"Large Mithril Grubber Sea Creature\", \"Treasure Hunter 6   Grants +0.5➜0.6  Treasure Chance.\", \"+2 Health\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Wetwing Sea Creature\", \"Inkling Sea Creature\", \"Sea Wi…（已截断，共 10725 字符）",
+      "old": "[50 项]",
+      "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Squid Sea Creature\", \"Sea Walker Sea Creature\", \"Frozen Steve Sea Creature\", \"Frosty Sea Creature\", \"Treasure Hunter 1   Grants +0.1  Treasure Chance.\", \"+2 Health\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Treasure Hunter 2   Grants +0.1➜0.2  Treasure Chance.\", \"+2 Health\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Treasure Hunter 3   Grants +0.2➜0.3  Treasure Chance.\", \"+2 Health\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Treasure Hunter 4   Grants +0.3➜0.4  Treasure Chance.\", \"+2 Health\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Lotus Atoll\", \"Dumpster Diver Sea Creature\", \"Frog Man Sea Creature\", \"Trash Gobbler Sea Creature\", \"Bogged Sea Creature\", \"Nurse Shark Sea Creature\", \"Treasure Hunter 5   Grants +0.4➜0.5  Treasure Chance.\", \"+2 Health\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Jumpin' Jack Sea Creature\", \"Medium Mithril Grubber Sea Creature\", \"Mithril Grubber Sea Creature\", \"Bloated Mithril Grubber Sea Creature\", \"Large Mithril Grubber Sea Creature\", \"Treasure Hunter 6   Grants +0.5➜0.6  Treasure Chance.\", \"+2 Health\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Wetwing Sea Creature\", \"Inkling Sea Creature\", \"Sea Wi…（已截断，共 10527 字符）",
+      "path": "skills.FISHING.levels",
+      "time": "2026-11-05 02:36:18",
+      "type": "modified"
+    },
+    {
+      "endpoint": "skills",
+      "new": "[50 项]",
+      "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Squid Sea Creature\", \"Sea Walker Sea Creature\", \"Frozen Steve Sea Creature\", \"Frosty Sea Creature\", \"Treasure Hunter 1   Grants +0.1  Treasure Chance.\", \"+2 Health\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Treasure Hunter 2   Grants +0.1➜0.2  Treasure Chance.\", \"+2 Health\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Treasure Hunter 3   Grants +0.2➜0.3  Treasure Chance.\", \"+2 Health\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Treasure Hunter 4   Grants +0.3➜0.4  Treasure Chance.\", \"+2 Health\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Lotus Atoll\", \"Dumpster Diver Sea Creature\", \"Frog Man Sea Creature\", \"Trash Gobbler Sea Creature\", \"Bogged Sea Creature\", \"Nurse Shark Sea Creature\", \"Treasure Hunter 5   Grants +0.4➜0.5  Treasure Chance.\", \"+2 Health\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Jumpin' Jack Sea Creature\", \"Medium Mithril Grubber Sea Creature\", \"Mithril Grubber Sea Creature\", \"Bloated Mithril Grubber Sea Creature\", \"Large Mithril Grubber Sea Creature\", \"Treasure Hunter 6   Grants +0.5➜0.6  Treasure Chance.\", \"+2 Health\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Wetwing Sea Creature\", \"Inkling Sea Creature\", \"Sea Wi…（已截断，共 10527 字符）",
+      "old": "[50 项]",
+      "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Squid Sea Creature\", \"Sea Walker Sea Creature\", \"Frozen Steve Sea Creature\", \"Frosty Sea Creature\", \"Treasure Hunter 1   Grants +0.1  Treasure Chance.\", \"+2 Health\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Treasure Hunter 2   Grants +0.1➜0.2  Treasure Chance.\", \"+2 Health\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Treasure Hunter 3   Grants +0.2➜0.3  Treasure Chance.\", \"+2 Health\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Treasure Hunter 4   Grants +0.3➜0.4  Treasure Chance.\", \"+2 Health\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Lotus Atoll\", \"Dumpster Diver Sea Creature\", \"Frog Man Sea Creature\", \"Trash Gobbler Sea Creature\", \"Bogged Sea Creature\", \"Nurse Shark Sea Creature\", \"Treasure Hunter 5   Grants +0.4➜0.5  Treasure Chance.\", \"+2 Health\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Jumpin' Jack Sea Creature\", \"Medium Mithril Grubber Sea Creature\", \"Mithril Grubber Sea Creature\", \"Bloated Mithril Grubber Sea Creature\", \"Large Mithril Grubber Sea Creature\", \"Treasure Hunter 6   Grants +0.5➜0.6  Treasure Chance.\", \"+2 Health\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Wetwing Sea Creature\", \"Inkling Sea Creature\", \"Sea Wi…（已截断，共 10673 字符）",
+      "path": "skills.FISHING.levels",
+      "time": "2026-11-04 12:02:11",
+      "type": "modified"
+    },
+    {
+      "endpoint": "skills",
+      "new": "[50 items]",
+      "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Brewer 1   Potions that you brew have a 1% longer duration.\", \"+1 Intelligence\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Brewer 2   Potions that you brew have a 1➜2% longer duration.\", \"+1 Intelligence\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Brewer 3   Potions that you brew have a 2➜3% longer duration.\", \"+1 Intelligence\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Brewer 4   Potions that you brew have a 3➜4% longer duration.\", \"+1 Intelligence\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Brewer 5   Potions that you brew have a 4➜5% longer duration.\", \"+1 Intelligence\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Brewer 6   Potions that you brew have a 5➜6% longer duration.\", \"+1 Intelligence\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Brewer 7   Potions that you brew have a 6➜7% longer duration.\", \"+1 Intelligence\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Brewer 8   Potions that you brew have a 7➜8% longer duration.\", \"+1 Intelligence\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Brewer 9   Potions that you brew have a 8➜9% longer duration.\", \"+1… (已截断，共 9093 字符)",
+      "old": "[50 items]",
+      "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Brewer I   Potions that you brew have a 1% longer duration.\", \"+1 Intelligence\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Brewer II   Potions that you brew have a 1➜2% longer duration.\", \"+1 Intelligence\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Brewer III   Potions that you brew have a 2➜3% longer duration.\", \"+1 Intelligence\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Brewer IV   Potions that you brew have a 3➜4% longer duration.\", \"+1 Intelligence\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Brewer V   Potions that you brew have a 4➜5% longer duration.\", \"+1 Intelligence\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Brewer VI   Potions that you brew have a 5➜6% longer duration.\", \"+1 Intelligence\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Brewer VII   Potions that you brew have a 6➜7% longer duration.\", \"+1 Intelligence\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Brewer VIII   Potions that you brew have a 7➜8% longer duration.\", \"+1 Intelligence\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Brewer IX   Potions that you brew have a 8➜9% longer durat… (已截断，共 9183 字符)",
+      "path": "skills.ALCHEMY.levels",
+      "time": "2026-11-02T21:57:06Z",
+      "type": "modified"
+    },
+    {
+      "endpoint": "skills",
+      "new": "[60 items]",
+      "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to Spider's Den\", \"Warrior 1   Deal 4% more damage to mobs.\", \"+0.5% Crit Chance\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Warrior 2   Deal 4➜8% more damage to mobs.\", \"+0.5% Crit Chance\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Warrior 3   Deal 8➜12% more damage to mobs.\", \"+0.5% Crit Chance\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Warrior 4   Deal 12➜16% more damage to mobs.\", \"+0.5% Crit Chance\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Warrior 5   Deal 16➜20% more damage to mobs.\", \"+0.5% Crit Chance\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Warrior 6   Deal 20➜24% more damage to mobs.\", \"+0.5% Crit Chance\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Warrior 7   Deal 24➜28% more damage to mobs.\", \"+0.5% Crit Chance\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Warrior 8   Deal 28➜32% more damage to mobs.\", \"+0.5% Crit Chance\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Warrior 9   Deal 32➜36% more damage to mobs.\", \"+0.5% Crit Chance\", \"+5,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 10, \"totalExpRequired\": 9925.0, \"unlocks\": [\"Warrio… (已截断，共 10838 字符)",
+      "old": "[60 items]",
+      "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to Spider's Den\", \"Warrior I   Deal 4% more damage to mobs.\", \"+0.5% Crit Chance\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Warrior II   Deal 4➜8% more damage to mobs.\", \"+0.5% Crit Chance\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Warrior III   Deal 8➜12% more damage to mobs.\", \"+0.5% Crit Chance\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Warrior IV   Deal 12➜16% more damage to mobs.\", \"+0.5% Crit Chance\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Warrior V   Deal 16➜20% more damage to mobs.\", \"+0.5% Crit Chance\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Warrior VI   Deal 20➜24% more damage to mobs.\", \"+0.5% Crit Chance\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Warrior VII   Deal 24➜28% more damage to mobs.\", \"+0.5% Crit Chance\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Warrior VIII   Deal 28➜32% more damage to mobs.\", \"+0.5% Crit Chance\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Warrior IX   Deal 32➜36% more damage to mobs.\", \"+0.5% Crit Chance\", \"+5,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 10, \"totalExpRequired\": 9925.0, \"unlocks… (已截断，共 10939 字符)",
+      "path": "skills.COMBAT.levels",
+      "time": "2026-11-02T21:57:06Z",
+      "type": "modified"
+    },
+    {
+      "endpoint": "skills",
+      "new": "[60 items]",
+      "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Conjurer 1   Gain 5% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Scavenger Enchantment\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Conjurer 2   Gain 5➜10% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Infinite Quiver Enchantment\", \"Sunder Enchantment\", \"Harvesting Enchantment\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Conjurer 3   Gain 10➜15% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Luck Enchantment\", \"Cubism Enchantment\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Conjurer 4   Gain 15➜20% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Cleave Enchantment\", \"Angler Enchantment\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Conjurer 5   Gain 20➜25% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Life Steal Enchantment\", \"Scuba Enchantment\", \"Feast Enchantment\", \"Woodsplitter Enchantment\", \"Growth Enchantment\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Conjurer 6   Gain 25➜30% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Snipe Enchantment\", \"Rainbow Enchantment\", \"… (已截断，共 15013 字符)",
+      "old": "[60 items]",
+      "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Conjurer I   Gain 5% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Scavenger Enchantment\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Conjurer II   Gain 5➜10% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Infinite Quiver Enchantment\", \"Sunder Enchantment\", \"Harvesting Enchantment\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Conjurer III   Gain 10➜15% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Luck Enchantment\", \"Cubism Enchantment\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Conjurer IV   Gain 15➜20% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Cleave Enchantment\", \"Angler Enchantment\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Conjurer V   Gain 20➜25% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Life Steal Enchantment\", \"Scuba Enchantment\", \"Feast Enchantment\", \"Woodsplitter Enchantment\", \"Growth Enchantment\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Conjurer VI   Gain 25➜30% more experience orbs from any source.\", \"+0.5% Ability Damage\", \"+1 Intelligence\", \"Snipe Enchantment\", \"Rainbow Enchantmen… (已截断，共 15114 字符)",
+      "path": "skills.ENCHANTING.levels",
+      "time": "2026-11-02T21:57:06Z",
+      "type": "modified"
+    },
+    {
+      "endpoint": "skills",
+      "new": "[60 items]",
+      "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to The Barn\", \"Farmhand 1   Grants +4  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Farmhand 2   Grants +4➜8  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Farmhand 3   Grants +8➜12  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Farmhand 4   Grants +12➜16  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Mushroom Desert\", \"Farmhand 5   Grants +16➜20  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Farmhand 6   Grants +20➜24  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Farmhand 7   Grants +24➜28  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Farmhand 8  … (已截断，共 12543 字符)",
+      "old": "[60 items]",
+      "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to The Barn\", \"Farmhand I   Grants +4  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Farmhand II   Grants +4➜8  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Farmhand III   Grants +8➜12  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Farmhand IV   Grants +12➜16  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Mushroom Desert\", \"Farmhand V   Grants +16➜20  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Farmhand VI   Grants +20➜24  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Farmhand VII   Grants +24➜28  Farming Fortune, which increases your chance for multiple crops.\", \"+2 Health\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Farmh… (已截断，共 12644 字符)",
+      "path": "skills.FARMING.levels",
+      "time": "2026-11-02T21:57:06Z",
+      "type": "modified"
+    },
+    {
+      "endpoint": "skills",
+      "new": "[50 items]",
+      "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Squid Sea Creature\", \"Sea Walker Sea Creature\", \"Frozen Steve Sea Creature\", \"Frosty Sea Creature\", \"Treasure Hunter 1   Grants +0.1  Treasure Chance.\", \"+2 Health\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Treasure Hunter 2   Grants +0.1➜0.2  Treasure Chance.\", \"+2 Health\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Treasure Hunter 3   Grants +0.2➜0.3  Treasure Chance.\", \"+2 Health\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Treasure Hunter 4   Grants +0.3➜0.4  Treasure Chance.\", \"+2 Health\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Lotus Atoll\", \"Dumpster Diver Sea Creature\", \"Frog Man Sea Creature\", \"Trash Gobbler Sea Creature\", \"Bogged Sea Creature\", \"Nurse Shark Sea Creature\", \"Treasure Hunter 5   Grants +0.4➜0.5  Treasure Chance.\", \"+2 Health\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Jumpin' Jack Sea Creature\", \"Medium Mithril Grubber Sea Creature\", \"Mithril Grubber Sea Creature\", \"Bloated Mithril Grubber Sea Creature\", \"Large Mithril Grubber Sea Creature\", \"Treasure Hunter 6   Grants +0.5➜0.6  Treasure Chance.\", \"+2 Health\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Wetwing Sea Creature\", \"Inkling Sea Creature\", \"Sea Wi… (已截断，共 10673 字符)",
+      "old": "[50 items]",
+      "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Squid Sea Creature\", \"Sea Walker Sea Creature\", \"Frozen Steve Sea Creature\", \"Frosty Sea Creature\", \"Treasure Hunter I   Grants +0.1  Treasure Chance.\", \"+2 Health\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Treasure Hunter II   Grants +0.1➜0.2  Treasure Chance.\", \"+2 Health\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Treasure Hunter III   Grants +0.2➜0.3  Treasure Chance.\", \"+2 Health\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Treasure Hunter IV   Grants +0.3➜0.4  Treasure Chance.\", \"+2 Health\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Lotus Atoll\", \"Dumpster Diver Sea Creature\", \"Frog Man Sea Creature\", \"Trash Gobbler Sea Creature\", \"Bogged Sea Creature\", \"Nurse Shark Sea Creature\", \"Treasure Hunter V   Grants +0.4➜0.5  Treasure Chance.\", \"+2 Health\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Jumpin' Jack Sea Creature\", \"Medium Mithril Grubber Sea Creature\", \"Mithril Grubber Sea Creature\", \"Bloated Mithril Grubber Sea Creature\", \"Large Mithril Grubber Sea Creature\", \"Treasure Hunter VI   Grants +0.5➜0.6  Treasure Chance.\", \"+2 Health\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"??? Sea Creature\", \"??? Sea Creature\", \"??? Sea C… (已截断，共 10334 字符)",
+      "path": "skills.FISHING.levels",
+      "time": "2026-11-02T21:57:06Z",
+      "type": "modified"
+    },
+    {
+      "endpoint": "skills",
+      "new": "[57 items]",
+      "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to The Park\", \"Logger 1   Grants +4  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Logger 2   Grants +4➜8  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Logger 3   Grants +8➜12  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Logger 4   Grants +12➜16  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Logger 5   Grants +16➜20  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Logger 6   Grants +20➜24  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Logger 7   Grants +24➜28  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Logger 8   Grants +28➜32  Foraging Fortun… (已截断，共 11894 字符)",
+      "old": "[57 items]",
+      "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to The Park\", \"Logger I   Grants +4  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Logger II   Grants +4➜8  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Logger III   Grants +8➜12  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Logger IV   Grants +12➜16  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Logger V   Grants +16➜20  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Logger VI   Grants +20➜24  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Logger VII   Grants +24➜28  Foraging Fortune, which increases your chance for multiple logs.\", \"+1 Strength\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Logger VIII   Grants +28➜32  Forag… (已截断，共 11991 字符)",
+      "path": "skills.FORAGING.levels",
+      "time": "2026-11-02T21:57:06Z",
+      "type": "modified"
+    },
+    {
+      "endpoint": "skills",
+      "new": "[50 items]",
+      "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Charming 1   Grants +0.04 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Charming 2   Grants +0.04➜0.08 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Charming 3   Grants +0.08➜0.12 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Charming 4   Grants +0.12➜0.16 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Charming 5   Grants +0.16➜0.2 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Charming 6   Grants +0.2➜0.24 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Charming 7   Grants +0.24➜0.28 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Charming 8   Grants +0.28➜0.32 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Charming 9   Grants +0.32➜0.36 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+5,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 10, \"totalExpRequired\": 9925.0, \"unlocks\": [\"Charmi… (已截断，共 8413 字符)",
+      "old": "[50 items]",
+      "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Charming I   Grants +0.04 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Charming II   Grants +0.04➜0.08 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Charming III   Grants +0.08➜0.12 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Charming IV   Grants +0.12➜0.16 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Charming V   Grants +0.16➜0.2 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Charming VI   Grants +0.2➜0.24 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Charming VII   Grants +0.24➜0.28 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Charming VIII   Grants +0.28➜0.32 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Charming IX   Grants +0.32➜0.36 ❣ Charm Chance.\", \"+1 Hunting Fortune\", \"+5,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 10, \"totalExpRequired\": 9925.0, \"unlocks… (已截断，共 8503 字符)",
+      "path": "skills.HUNTING.levels",
+      "time": "2026-11-02T21:57:06Z",
+      "type": "modified"
+    },
+    {
+      "endpoint": "skills",
+      "new": "[60 items]",
+      "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to Gold Mine\", \"Spelunker 1   Grants +4  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Jerry Stone Reforge\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Spelunker 2   Grants +4➜8  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Black Diamond Reforge\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Spelunker 3   Grants +8➜12  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Overflowing Trash Can Reforge\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Spelunker 4   Grants +12➜16  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Deep Caverns\", \"Spelunker 5   Grants +16➜20  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Lapis Crystal Reforge\", \"Moil Log Reforge\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Spelunker 6   Grants +20➜24  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Spelunker 7   Grants +24➜28  Mining Fortune, which increa… (已截断，共 14788 字符)",
+      "old": "[60 items]",
+      "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"+Access to Gold Mine\", \"Spelunker I   Grants +4  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Jerry Stone Reforge\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Spelunker II   Grants +4➜8  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Black Diamond Reforge\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Spelunker III   Grants +8➜12  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Overflowing Trash Can Reforge\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Spelunker IV   Grants +12➜16  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"+Access to Deep Caverns\", \"Spelunker V   Grants +16➜20  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"Lapis Crystal Reforge\", \"Moil Log Reforge\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Spelunker VI   Grants +20➜24  Mining Fortune, which increases your chance for multiple ore drops.\", \"+1 Defense\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Spelunker VII   Grants +24➜28  Mining Fortune, which… (已截断，共 14889 字符)",
+      "path": "skills.MINING.levels",
+      "time": "2026-11-02T21:57:06Z",
+      "type": "modified"
+    },
+    {
+      "endpoint": "skills",
+      "new": "[60 items]",
+      "new_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Zoologist 1   Gain 1% extra pet exp.\", \"+Gain 0.2% Exp Share rate.\", \"+1 Pet Luck\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Zoologist 2   Gain 1➜2% extra pet exp.\", \"+Gain 0.2➜0.4% Exp Share rate.\", \"+1 Pet Luck\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Zoologist 3   Gain 2➜3% extra pet exp.\", \"+Gain 0.4➜0.6% Exp Share rate.\", \"+1 Pet Luck\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Zoologist 4   Gain 3➜4% extra pet exp.\", \"+Gain 0.6➜0.8% Exp Share rate.\", \"+1 Pet Luck\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Zoologist 5   Gain 4➜5% extra pet exp.\", \"+Gain 0.8➜1% Exp Share rate.\", \"+1 Pet Luck\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Zoologist 6   Gain 5➜6% extra pet exp.\", \"+Gain 1➜1.2% Exp Share rate.\", \"+1 Pet Luck\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Zoologist 7   Gain 6➜7% extra pet exp.\", \"+Gain 1.2➜1.4% Exp Share rate.\", \"+1 Pet Luck\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Zoologist 8   Gain 7➜8% extra pet exp.\", \"+Gain 1.4➜1.6% Exp Share rate.\", \"+1 Pet Luck\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Zoologist 9   Gain 8… (已截断，共 11570 字符)",
+      "old": "[60 items]",
+      "old_full": "[{\"level\": 1, \"totalExpRequired\": 50.0, \"unlocks\": [\"Zoologist I   Gain 1% extra pet exp.\", \"+Gain 0.2% Exp Share rate.\", \"+1 Pet Luck\", \"+100 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 2, \"totalExpRequired\": 175.0, \"unlocks\": [\"Zoologist II   Gain 1➜2% extra pet exp.\", \"+Gain 0.2➜0.4% Exp Share rate.\", \"+1 Pet Luck\", \"+250 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 3, \"totalExpRequired\": 375.0, \"unlocks\": [\"Zoologist III   Gain 2➜3% extra pet exp.\", \"+Gain 0.4➜0.6% Exp Share rate.\", \"+1 Pet Luck\", \"+500 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 4, \"totalExpRequired\": 675.0, \"unlocks\": [\"Zoologist IV   Gain 3➜4% extra pet exp.\", \"+Gain 0.6➜0.8% Exp Share rate.\", \"+1 Pet Luck\", \"+750 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 5, \"totalExpRequired\": 1175.0, \"unlocks\": [\"Zoologist V   Gain 4➜5% extra pet exp.\", \"+Gain 0.8➜1% Exp Share rate.\", \"+1 Pet Luck\", \"+1,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 6, \"totalExpRequired\": 1925.0, \"unlocks\": [\"Zoologist VI   Gain 5➜6% extra pet exp.\", \"+Gain 1➜1.2% Exp Share rate.\", \"+1 Pet Luck\", \"+2,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 7, \"totalExpRequired\": 2925.0, \"unlocks\": [\"Zoologist VII   Gain 6➜7% extra pet exp.\", \"+Gain 1.2➜1.4% Exp Share rate.\", \"+1 Pet Luck\", \"+3,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 8, \"totalExpRequired\": 4425.0, \"unlocks\": [\"Zoologist VIII   Gain 7➜8% extra pet exp.\", \"+Gain 1.4➜1.6% Exp Share rate.\", \"+1 Pet Luck\", \"+4,000 Coins\", \"+5 SkyBlock XP\"]}, {\"level\": 9, \"totalExpRequired\": 6425.0, \"unlocks\": [\"Zoologist … (已截断，共 11671 字符)",
+      "path": "skills.TAMING.levels",
+      "time": "2026-11-02T21:57:06Z",
+      "type": "modified"
+    },
+    {
+      "endpoint": "skills",
+      "new": "[50 items]",
+      "old": "[50 items]",
+      "path": "skills.FISHING.levels",
+      "time": "2026-10-29T23:38:45Z",
+      "type": "modified"
+    },
+    {
+      "endpoint": "items",
+      "new": "\"COOP\"",
+      "old": null,
+      "path": "items.TALISMAN_ENRICHMENT_SWAPPER.soulbound",
+      "time": "2026-10-29T23:38:45Z",
+      "type": "added"
+    },
+    {
+      "endpoint": "skills",
+      "new": "[50 items]",
+      "old": "[50 items]",
+      "path": "skills.FISHING.levels",
+      "time": "2026-10-29T19:41:36Z",
+      "type": "modified"
+    }
+  ],
+  "dashboard_version": "2.0.0",
+  "data_written": true,
+  "endpoints": {
+    "bazaar": {
+      "change_count": 0,
+      "fetched_at": "2026-11-08 15:42:56",
+      "status": "ok",
+      "summary": {
+        "product_count": 2201
+      }
+    },
+    "bingo": {
+      "change_count": 0,
+      "fetched_at": "2026-11-08 15:42:56",
+      "status": "ok",
+      "summary": {
+        "bingo_goal_count": 25,
+        "bingo_name": "November 2026",
+        "bingo_state": "已结束"
+      }
+    },
+    "collections": {
+      "change_count": 0,
+      "fetched_at": "2026-11-08 15:42:56",
+      "status": "ok",
+      "summary": {
+        "collection_count": 6,
+        "total_items": 90
+      }
+    },
+    "firesales": {
+      "change_count": 0,
+      "fetched_at": "2026-11-08 15:42:56",
+      "status": "ok",
+      "summary": {
+        "firesale_active": 3,
+        "firesale_total": 3,
+        "firesale_upcoming": 0
+      }
+    },
+    "items": {
+      "change_count": 0,
+      "fetched_at": "2026-11-08 15:42:56",
+      "status": "ok",
+      "summary": {
+        "item_count": 5682
+      }
+    },
+    "packs": {
+      "change_count": 0,
+      "fetched_at": "2026-11-08 15:42:56",
+      "status": "ok",
+      "summary": {
+        "deploy_id": "1b5b3899-cdc3-4c90-ac57-7d3867e099d5",
+        "pack_count": 1,
+        "pack_format_count": 3,
+        "selected_pack_format": 97
+      }
+    },
+    "skills": {
+      "change_count": 0,
+      "fetched_at": "2026-11-08 15:42:56",
+      "status": "ok",
+      "summary": {
+        "skill_count": 12
+      }
+    }
+  },
+  "firesales": {
+    "active_count": 3,
+    "ended_count": 0,
+    "generated_at": "2026-11-08 15:42:56",
+    "sales": [
+      {
+        "amount": 950,
+        "end": "2026-11-12 01:00:00",
+        "end_ms": 1794416400000,
+        "item_id": "WITHER_GOGGLES_ECLIPSED_SPECTRE",
+        "key": "WITHER_GOGGLES_ECLIPSED_SPECTRE@1794070800000",
+        "name": "WITHER GOGGLES ECLIPSED SPECTRE",
+        "price": 650,
+        "start": "2026-11-08 01:00:00",
+        "start_ms": 1794070800000,
+        "state": "active",
+        "state_label": "进行中"
+      },
+      {
+        "amount": 950,
+        "end": "2026-11-12 01:00:00",
+        "end_ms": 1794416400000,
+        "item_id": "WITHER_GOGGLES_LAGOON_SPECTRE",
+        "key": "WITHER_GOGGLES_LAGOON_SPECTRE@1794070800000",
+        "name": "WITHER GOGGLES LAGOON SPECTRE",
+        "price": 650,
+        "start": "2026-11-08 01:00:00",
+        "start_ms": 1794070800000,
+        "state": "active",
+        "state_label": "进行中"
+      },
+      {
+        "amount": 950,
+        "end": "2026-11-12 01:00:00",
+        "end_ms": 1794416400000,
+        "item_id": "WITHER_GOGGLES_MIDNIGHT_SPECTRE",
+        "key": "WITHER_GOGGLES_MIDNIGHT_SPECTRE@1794070800000",
+        "name": "WITHER GOGGLES MIDNIGHT SPECTRE",
+        "price": 650,
+        "start": "2026-11-08 01:00:00",
+        "start_ms": 1794070800000,
+        "state": "active",
+        "state_label": "进行中"
+      }
+    ],
+    "total": 3,
+    "upcoming_count": 0
+  },
+  "generated_at": "2026-11-08 15:42:56",
+  "pack": {
+    "candidates": [
+      97,
+      88,
+      84
+    ],
+    "error": null,
+    "pack": {
+      "candidates": [
+        97,
+        88,
+        84
+      ],
+      "deploy_id": "1b5b3899-cdc3-4c90-ac57-7d3867e099d5",
+      "hash": "526bd87b753a8c877a75b27bce6ac58ef8bc9bfe",
+      "id": "SkyBlock",
+      "pack_count": 1,
+      "pack_format": 97,
+      "url": "https://resourcepacks.hypixel.net/SkyBlock/1b5b3899-cdc3-4c90-ac57-7d3867e099d5/97.zip"
+    },
+    "status": "unchanged",
+    "total_files": 4756
+  },
+  "pack_changes": [
+    {
+      "added": [],
+      "deploy_id": "1b5b3899-cdc3-4c90-ac57-7d3867e099d5",
+      "modified": [],
+      "note": "首次建立基线",
+      "pack_format": 97,
+      "pack_hash": "526bd87b753a8c877a75b27bce6ac58ef8bc9bfe",
+      "pack_id": "SkyBlock",
+      "removed": [],
+      "time": "2026-11-03T06:27:26Z",
+      "total_files": 4756
+    }
+  ],
+  "resource_version": "0.27.2.25",
+  "skipped_reason": null,
+  "version_info": {
+    "confirmed": false,
+    "history": [
+      {
+        "note": "两个接口版本一致，确认切换当前版本",
+        "previous": "0.27.2.24",
+        "time": "2026-11-05 12:54:54",
+        "version": "0.27.2.25"
+      },
+      {
+        "note": "两个接口版本一致，确认切换当前版本",
+        "previous": "0.27.2.23",
+        "time": "2026-11-05 02:36:18",
+        "version": "0.27.2.24"
+      },
+      {
+        "note": "两个接口版本一致，确认切换当前版本",
+        "previous": "0.27.2.22",
+        "time": "2026-11-04 12:02:11",
+        "version": "0.27.2.23"
+      },
+      {
+        "note": "两个接口版本一致，确认当前版本",
+        "previous": "-",
+        "time": "2026-11-03 14:47:44",
+        "version": "0.27.2.22"
+      }
+    ],
+    "note": "收藏与技能两个接口版本一致，已确认当前版本",
+    "previous_stable": "0.27.2.25",
+    "resource_version": "0.27.2.25",
+    "stable_version": "0.27.2.25",
+    "sync_status": "aligned",
+    "updated_at": "2026-11-08 15:42:56",
+    "versions": {
+      "collections": {
+        "observed_at": "2026-11-05 12:54:54",
+        "version": "0.27.2.25"
+      },
+      "skills": {
+        "observed_at": "2026-11-05 12:54:54",
+        "version": "0.27.2.25"
+      }
+    }
+  }
+}
