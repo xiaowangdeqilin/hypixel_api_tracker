@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08 13:10:16",
+  "generated_at": "2026-11-08 13:13:35",
   "id": 59,
   "name": "November 2026",
   "modifier": "NORMAL",
@@ -7,7 +7,7 @@
   "end": "2026-11-08 12:00:00",
   "start_ms": 1793505600000,
   "end_ms": 1794110400000,
-  "published_at": "2026-11-08 13:06:05",
+  "published_at": "2026-11-08 13:11:05",
   "first_seen": "2026-11-07 18:49:18",
   "state": "ended",
   "state_label": "已结束",
