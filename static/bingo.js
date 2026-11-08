@@ -8,6 +8,24 @@
 (function () {
   'use strict';
 
+  /* 多语言助手：译文来自 #i18n-pack（i18n 关闭时回退中文原文） */
+  var I18N = (function () {
+    try {
+      var el = document.getElementById('i18n-pack');
+      return el ? (JSON.parse(el.textContent) || {}) : {};
+    } catch (e) { return {}; }
+  })();
+
+  function T(text, params) {
+    var s = I18N[text] || text;
+    if (params) {
+      s = s.replace(/\{(\w+)\}/g, function (m, k) {
+        return params[k] !== undefined ? params[k] : m;
+      });
+    }
+    return s;
+  }
+
   var panel = document.querySelector('[data-bingo-panel]');
   if (!panel) return;
 
@@ -17,7 +35,7 @@
 
   var STATE_LABELS = { upcoming: '未开始', active: '进行中', ended: '已结束', unknown: '未知' };
   /* 只有「未开始」和「进行中」需要倒计时；已结束只保留状态徽章 */
-  var COUNTDOWN_PREFIX = { upcoming: '距开始 ', active: '剩余 ' };
+  var COUNTDOWN_PREFIX = { upcoming: '距开始 {time}', active: '剩余 {time}' };
 
   function pad(n) {
     return String(n).padStart(2, '0');
@@ -31,7 +49,7 @@
     var minutes = Math.floor((total % 3600) / 60);
     var seconds = total % 60;
     var clock = pad(hours) + ':' + pad(minutes) + ':' + pad(seconds);
-    return days > 0 ? days + ' 天 ' + clock : clock;
+    return days > 0 ? T('{days} 天 {time}', { days: days, time: clock }) : clock;
   }
 
   function parseMs(value) {
@@ -50,7 +68,7 @@
       stateEl.dataset.state = state;
       stateEl.classList.remove('bingo-state-upcoming', 'bingo-state-active', 'bingo-state-ended');
       stateEl.classList.add('bingo-state-' + state);
-      if (labelEl) labelEl.textContent = STATE_LABELS[state] || state;
+      if (labelEl) labelEl.textContent = T(STATE_LABELS[state] || state);
     }
     if (countdownEl) {
       var showCountdown = text !== null;
@@ -70,13 +88,13 @@
 
     if (now < startMs) {
       state = 'upcoming';
-      text = COUNTDOWN_PREFIX.upcoming + humanDuration(startMs - now);
+      text = T(COUNTDOWN_PREFIX.upcoming, { time: humanDuration(startMs - now) });
     } else if (now > endMs) {
       state = 'ended';
       text = null; /* 已结束不再计时 */
     } else {
       state = 'active';
-      text = COUNTDOWN_PREFIX.active + humanDuration(endMs - now);
+      text = T(COUNTDOWN_PREFIX.active, { time: humanDuration(endMs - now) });
     }
 
     /* 页面可能是几小时前由 Actions 构建的，状态以浏览器当前时间为准：
@@ -114,7 +132,7 @@
     if (dlgIndex) dlgIndex.textContent = cell.dataset.index || '';
     if (dlgName) dlgName.textContent = (cell.querySelector('.bingo-cell-name') || {}).textContent || '';
     if (dlgReq) dlgReq.textContent = cell.dataset.requirement || '—';
-    if (dlgProgress) dlgProgress.textContent = cell.dataset.progress || '暂无全服进度';
+    if (dlgProgress) dlgProgress.textContent = cell.dataset.progress || T('暂无全服进度');
     if (dlgPercent) dlgPercent.textContent = cell.dataset.percent ? cell.dataset.percent + '%' : '—';
     if (dlgId) dlgId.textContent = cell.dataset.goalId || '';
 

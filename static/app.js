@@ -1,3 +1,22 @@
+// 多语言：译文来自 <head> 里 <script type="application/json" id="i18n-pack">
+// （i18n 关闭时为空对象，所有 T() 直接回退中文原文）。
+var I18N = (function () {
+  try {
+    var el = document.getElementById('i18n-pack');
+    return el ? (JSON.parse(el.textContent) || {}) : {};
+  } catch (e) { return {}; }
+})();
+
+function T(text, params) {
+  var s = I18N[text] || text;
+  if (params) {
+    s = s.replace(/\{(\w+)\}/g, function (m, k) {
+      return params[k] !== undefined ? params[k] : m;
+    });
+  }
+  return s;
+}
+
 // 数据里保留原始英文标识，仅在展示层翻译成中文。
 const ENDPOINT_LABELS = {
   collections: '收藏',
@@ -18,11 +37,11 @@ const TYPE_LABELS = {
 };
 
 function endpointLabel(value) {
-  return ENDPOINT_LABELS[value] || value;
+  return T(ENDPOINT_LABELS[value] || value);
 }
 
 function typeLabel(value) {
-  return TYPE_LABELS[value] || value;
+  return T(TYPE_LABELS[value] || value);
 }
 
 function escapeHtml(value) {
@@ -103,7 +122,7 @@ function renderSegments(ops) {
   let inSegment = false;
   ops.forEach((op, idx) => {
     if (!keep[idx]) {
-      if (inSegment) html += '<div class="diff-omitted">… 未变化内容省略</div>';
+      if (inSegment) html += '<div class="diff-omitted">… ' + T('未变化内容省略') + '</div>';
       inSegment = false;
       return;
     }
@@ -113,7 +132,7 @@ function renderSegments(ops) {
     html += `<div class="diff-line ${css}"><span class="sign">${sign}</span>` +
       `<pre>${escapeHtml(op.text)}</pre></div>`;
   });
-  return html || '<div class="diff-line diff-ctx"><span class="sign"> </span><pre>（无可见行变化）</pre></div>';
+  return html || '<div class="diff-line diff-ctx"><span class="sign"> </span><pre>' + escapeHtml(T('（无可见行变化）')) + '</pre></div>';
 }
 
 function renderChangeContent(item, kindClass) {
@@ -139,7 +158,8 @@ async function loadStatus() {
   chart.innerHTML = '';
 
   if (!result.data || result.data.length === 0) {
-    cards.innerHTML = '<div class="card"><div class="label">暂无数据</div><div class="value">等待首次抓取</div></div>';
+    cards.innerHTML = '<div class="card"><div class="label">' + escapeHtml(T('暂无数据')) +
+      '</div><div class="value">' + escapeHtml(T('等待首次抓取')) + '</div></div>';
     return;
   }
 
@@ -151,7 +171,7 @@ async function loadStatus() {
     card.innerHTML = `
       <div class="label">${escapeHtml(endpointLabel(item.endpoint))}</div>
       <div class="value">${escapeHtml(formatTime(item.fetched_at))}</div>
-      <div class="meta">状态：${escapeHtml(item.status_code)} ／ 变更：${escapeHtml(item.change_count)}</div>
+      <div class="meta">${escapeHtml(T('状态：{status} ／ 变更：{count}', { status: item.status_code, count: item.change_count }))}</div>
     `;
     cards.appendChild(card);
 
@@ -173,7 +193,7 @@ async function loadHistory() {
   tbody.innerHTML = '';
 
   if (!result.data || result.data.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="4" class="empty">暂无快照</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="4" class="empty">' + escapeHtml(T('暂无快照')) + '</td></tr>';
     return;
   }
 
@@ -196,7 +216,7 @@ async function loadChanges() {
   tbody.innerHTML = '';
 
   if (!result.data || result.data.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="5" class="empty">暂无变更</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="5" class="empty">' + escapeHtml(T('暂无变更')) + '</td></tr>';
     return;
   }
 

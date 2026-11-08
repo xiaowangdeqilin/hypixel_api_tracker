@@ -13,6 +13,18 @@
   var media = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
   var NEXT_LABEL = { light: '🌙 深色', dark: '☀ 浅色' };
 
+  /* 多语言助手：译文来自 #i18n-pack（脚本位于其之后执行，i18n 关闭时回退中文） */
+  var I18N = (function () {
+    try {
+      var el = document.getElementById('i18n-pack');
+      return el ? (JSON.parse(el.textContent) || {}) : {};
+    } catch (e) { return {}; }
+  })();
+
+  function T(text) {
+    return I18N[text] || text;
+  }
+
   function storedTheme() {
     try {
       var value = localStorage.getItem(STORAGE_KEY);
@@ -27,8 +39,8 @@
   }
 
   function updateButtons(theme) {
-    var label = NEXT_LABEL[theme] || NEXT_LABEL.light;
-    var hint = theme === 'dark' ? '切换到浅色主题' : '切换到深色主题';
+    var label = T(NEXT_LABEL[theme] || NEXT_LABEL.light);
+    var hint = theme === 'dark' ? T('切换到浅色主题') : T('切换到深色主题');
     var buttons = document.querySelectorAll('[data-theme-toggle]');
     Array.prototype.forEach.call(buttons, function (btn) {
       btn.textContent = label;

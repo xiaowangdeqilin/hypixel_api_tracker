@@ -1,0 +1,69 @@
+/* ---------------------------------------------------------------------------
+   多语言 / RTL（从右往左）适配
+   ---------------------------------------------------------------------------
+   * 语言切换器样式
+   * <html dir="rtl"> 时的镜像适配：文本右对齐、图标间距翻转
+   * 代码片段、时间戳、纯数字、diff 等内容保持 LTR 展示，
+     不受页面整体方向影响（内容多为英文标识与阿拉伯数字）
+--------------------------------------------------------------------------- */
+
+/* ---------- 语言切换器 ---------- */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.lang-switch-label {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.lang-switch select {
+  max-width: 160px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border, rgba(128, 128, 128, 0.35));
+  background: var(--bg-card, transparent);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* ---------- RTL 适配 ---------- */
+[dir='rtl'] body {
+  text-align: right;
+}
+
+/* 这些内容本质是代码 / 时间 / 数字，永远按 LTR 展示 */
+[dir='rtl'] code,
+[dir='rtl'] pre,
+[dir='rtl'] .time,
+[dir='rtl'] .bingo-countdown,
+[dir='rtl'] .bingo-cell-progress,
+[dir='rtl'] .bingo-index,
+[dir='rtl'] .bingo-dialog-index,
+[dir='rtl'] .firesale-index,
+[dir='rtl'] .firesale-price,
+[dir='rtl'] .chart-count,
+[dir='rtl'] .version-tag,
+[dir='rtl'] .diff-line .sign {
+  direction: ltr;
+  unicode-bidi: isolate;
+  text-align: start;
+}
+
+/* diff 视图整体保持 LTR（代码审核风格），仅容器随页面布局 */
+[dir='rtl'] .diff-cell {
+  direction: ltr;
+  text-align: left;
+}
+
+/* 物理方向属性翻转 */
+[dir='rtl'] .chart-bar {
+  margin-right: auto;
+}
+
+/* 状态徽章 / 表格内边距自动跟随 dir，无需逐个覆盖；
+   各主题变量（--border / --bg-card）由 theme.css 提供，缺省值兜底。 */

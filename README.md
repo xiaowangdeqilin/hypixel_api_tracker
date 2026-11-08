@@ -292,6 +292,62 @@ uvicorn app.main:app --host 0.0.0.0 --port 8000
 > 只比较商品 id 集合，避免价格与版本变化刷屏。变更表格同样按「新增纯绿、
 > 删除纯红、修改只显示变化片段」渲染。
 
+## 多语言支持（默认关闭）
+
+本地 FastAPI 仪表盘内置可选的界面多语言支持，**默认完全关闭**——不设置
+环境变量时行为与旧版一致（纯中文、无切换器、零开销）：
+
+```bash
+# 开启多语言
+ENABLE_I18N=1 uvicorn app.main:app --port 8000
+
+# 可选：调整 /api/* 限流阈值（次/分钟，默认 240）
+API_RATE_LIMIT=240 uvicorn app.main:app --port 8000
+```
+
+开启后页面右上角出现语言切换器，选择结果保存在 Cookie（一年有效），
+也可以直接用 `?lang=` 参数覆盖（如 `/?lang=ar`）。
+
+当前内置 **30 种语言包**（加上默认的简体中文，切换器共 31 种）：
+繁體中文、English、日本語、한국어、Tiếng Việt、ไทย、Bahasa Indonesia、Bahasa Melayu、Filipino、हिन्दी、বাংলা、
+اردو、العربية、עברית、فارسی、Türkçe、Français、Deutsch、Español、Italiano、
+Português、Nederlands、Русский、Українська、Polski、Čeština、Magyar、
+Română、Ελληνικά、Svenska。
+
+其中**阿拉伯语、希伯来语、波斯语、乌尔都语**为从右往左（RTL）语言：
+`<html dir="rtl">` 自动生效，`static/i18n.css` 负责整体镜像适配；代码、
+时间戳、数字、diff 等内容保持 LTR 展示不受影响。
+
+译文存放于 `app/locales/<语言代码>.json`，键为简体中文原文、值为译文；
+缺失条目自动回退中文。**新增语言**只需：
+
+1. 在 `scripts/build_locales.py` 追加一个语言块（或直接手写一个 JSON）；
+2. 在 `app/i18n.py` 的 `LANGUAGE_NAMES` 登记代码与母语名称；
+3. RTL 语言同时加入 `RTL_LANGUAGES`；
+4. 运行 `python scripts/build_locales.py` 重新生成。
+
+> 说明：`app/locales` 仅作用于本地 FastAPI 页面；GitHub Pages 静态页面
+> 由 Actions 构建生成，暂不参与多语言。
+
+## 安全加固
+
+本地服务自带一层基础防护（`app/security.py`，无需额外依赖）：
+
+- **安全响应头**：`Content-Security-Policy`（禁内联脚本）、
+  `X-Frame-Options: DENY`、`X-Content-Type-Options: nosniff`、
+  `Referrer-Policy` 等；前端译文通过不可执行的
+  `<script type="application/json">` 注入，规避内联脚本。
+- **API 限流**：`/api/*` 读接口按 IP 滑动窗口限流（默认 240 次/分钟，
+  超限返回 429 与 `Retry-After`），可用 `API_RATE_LIMIT` 调整；
+  阈值硬上限 10000，`/health` 不受限。
+- **参数收敛**：`limit` 类查询参数强制 `1 ≤ limit ≤ 100`，
+  `endpoint` 参数限长 50，`lang` 参数走白名单校验，非法取值一律忽略。
+- **Cookie 安全**：语言偏好 Cookie 带 `SameSite=Lax`。
+- 所有 SQL 均为参数化查询；模板全程自动转义；语言包来自仓库受控内容。
+
+> 部署在反向代理之后时，请确保代理正确覆写（而非透传客户端可伪造的）
+> `X-Forwarded-For`，限流才能按真实客户端 IP 生效。
+
 ## 项目结构
 
 ```
@@ -309,7 +365,11 @@ app/                          # 本地 FastAPI 服务 + 脚本共用的纯逻辑
   retention.py                # 变更记录 30 天保留期（两端共用）
   config.py                   # 端点配置、版本状态与 Bingo 数据读取
   db.py / diff.py / fetcher.py
+  i18n.py                     # 可选多语言：语言白名单、翻译函数、RTL 判定
+  security.py                 # 安全响应头 + API 限流中间件
   scheduler.py / main.py
+app/locales/                  # 语言包（<语言代码>.json，键为中文原文）
+scripts/build_locales.py      # 语言包生成脚本（单一事实来源）
 templates/index.html          # FastAPI 页面模板
 static/                        # 页面静态资源
   app.js / styles.css          # FastAPI 页面数据加载与主题样式
