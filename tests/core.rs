@@ -179,6 +179,49 @@ fn bingo_goal_progress_caps_at_max_tier() {
 }
 
 #[test]
+fn percent_text_keeps_trailing_zeros() {
+    use hypixel_tracker::bingo::format_percent;
+    // 回归：100.0 曾被裁零成 "1"，页面显示 1%
+    assert_eq!(format_percent(100.0), "100");
+    assert_eq!(format_percent(50.0), "50");
+    assert_eq!(format_percent(20.0), "20");
+    assert_eq!(format_percent(0.0), "0");
+    assert_eq!(format_percent(12.5), "12.5");
+    assert_eq!(format_percent(6.25), "6.3");
+    assert_eq!(format_percent(99.9), "99.9");
+}
+
+#[test]
+fn bingo_panel_renders_full_percent() {
+    use hypixel_tracker::bingo::bingo_view;
+    use hypixel_tracker::render_site::render_bingo_panel;
+    // 满级任务：页面徽章必须显示 100%，不能变成 1%
+    let goals: Vec<serde_json::Value> = (0..25)
+        .map(|i| json!({"name": format!("g{}", i), "lore": "x", "tiers": [10, 20, 30, 40, 50], "progress": 999}))
+        .collect();
+    let raw = json!({"id": "1", "start": 0, "end": 0, "goals": goals});
+    let view = bingo_view(&raw, "2026-01-01 00:00:00", None);
+    let html = render_bingo_panel(&view, false);
+    assert!(html.contains("100%"), "满级任务应显示 100%");
+    assert!(!html.contains(">1%<"), "不应出现被裁零后的 1%");
+
+    // 进度一半：50%
+    let goals2: Vec<serde_json::Value> = (0..25)
+        .map(|i| {
+            if i % 6 == 0 {
+                json!({"name": format!("g{}", i), "lore": "x", "tiers": [10, 20, 30, 40], "progress": 20})
+            } else {
+                json!({"name": format!("g{}", i), "lore": "x"})
+            }
+        })
+        .collect();
+    let raw2 = json!({"id": "1", "start": 0, "end": 0, "goals": goals2});
+    let view2 = bingo_view(&raw2, "2026-01-01 00:00:00", None);
+    let html2 = render_bingo_panel(&view2, false);
+    assert!(html2.contains("50%"));
+}
+
+#[test]
 fn secret_bingo_unlocks_hints_by_time() {
     use hypixel_tracker::secret_bingo;
     // 4 条提示打乱顺序给出：按时间排序后取前 3 条（每个任务固定 3 条），

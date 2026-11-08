@@ -50,6 +50,22 @@ pub fn format_amount(value: &Value) -> String {
     }
 }
 
+/// 百分比展示文本：最多保留 1 位小数，整数不带小数点。
+///
+/// 注意不能直接用 `trim_end_matches('0')` 裁零——`format!("{}", 100.0)` 得到 `"100"`，
+/// 裁掉末尾的 `0` 会变成 `"1"`，页面就会把 100% 显示成 1%。
+pub fn format_percent(value: f64) -> String {
+    if !value.is_finite() {
+        return "0".into();
+    }
+    let rounded = (value * 10.0).round() / 10.0;
+    if (rounded - rounded.round()).abs() < 1e-9 {
+        format!("{}", rounded.round() as i64)
+    } else {
+        format!("{:.1}", rounded)
+    }
+}
+
 /// 千位分隔（12 345 -> "12,345"）。
 pub fn format_thousands(value: i64) -> String {
     let sign = if value < 0 { "-" } else { "" };

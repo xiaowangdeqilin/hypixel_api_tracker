@@ -3,8 +3,8 @@
 定时监控 Hypixel SkyBlock 公共 API 的变化，自动生成中文 GitHub Pages 仪表盘；
 另附一个可选的本地实时仪表盘。
 
-**v2.0 起整个项目使用 Rust 重写**（原 Python 实现已全部移除）：单一静态二进制、
-无 Python/数据库依赖、数据全部为 JSON 文件，CI 用 cargo 缓存构建。
+**v2.0 起整个项目使用 Rust 重写**：单一静态二进制、无额外运行时依赖、
+数据全部为 JSON 文件，CI 用 cargo 缓存构建。
 
 **在线仪表盘**：https://xiaowangdeqilin.github.io/hypixel_api_tracker/
 
@@ -33,8 +33,8 @@ cd hypixel_api_tracker
 cargo run --release --bin tracker-build
 ```
 
-运行完会生成 `site/index.html`，直接用浏览器打开即可（也可
-`python3 -m http.server -d site 8000`）。首次运行会抓取 7 个端点、
+运行完会生成 `site/index.html`，直接用浏览器打开即可（也可用任意静态文件服务器托管
+`site/` 目录）。首次运行会抓取 7 个端点、
 建立资源包文件基线，编译约 2–10 分钟（之后增量编译很快），
 抓取耗时约 10–60 秒。三个二进制：
 
@@ -51,7 +51,7 @@ cargo run --release --bin tracker-build
 | `site/index.html` | 自包含的中文仪表盘页面 |
 | `site/data.json` | 同源结构化数据（含 `version_info`、`data_written`） |
 | `data/snapshots/*.json` | 各端点快照，供下次运行做 diff |
-| `data/changes.json` | 字段变更日志（只保留最近 30 天，最多 500 条；静态站与本地服务共用） |
+| `data/changes.json` | 字段变更日志（只保留最近 30 天，不限条数；静态站与本地服务共用） |
 | `data/version.json` | 版本一致性状态与版本切换历史（v1 的 `runtime.json`） |
 | `data/pack_files.json` | 资源包内文件哈希清单（基线） |
 | `data/pack_texts.json` | 资源包内文本类文件内容缓存（用于展示变化片段） |

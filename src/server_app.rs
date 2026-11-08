@@ -507,7 +507,7 @@ fn render_index(query: &str, cookie_lang: Option<&str>) -> String {
                     .as_ref()
                     .and_then(|p| p.get("percent"))
                     .and_then(|v| v.as_f64())
-                    .map(trim_num)
+                    .map(crate::bingo::format_percent)
                     .unwrap_or_default();
                 gobj.insert("percent_str".into(), Value::String(percent_str));
                 gobj.insert("index_str".into(), Value::String(format!("{:02}", idx + 1)));
@@ -688,15 +688,6 @@ fn render_index(query: &str, cookie_lang: Option<&str>) -> String {
 
     tera.render("server.html.j2", &context)
         .unwrap_or_else(|e| format!("<h1>渲染失败</h1><pre>{}</pre>", escape_html(&format!("{:?}", e))))
-}
-
-fn trim_num(v: f64) -> String {
-    let text = format!("{}", v);
-    if text.contains('.') {
-        text.trim_end_matches('0').trim_end_matches('.').to_string()
-    } else {
-        text
-    }
 }
 
 fn param_map<const N: usize>(pairs: [(&str, &str); N]) -> BTreeMap<String, String> {

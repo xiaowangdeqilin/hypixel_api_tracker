@@ -291,10 +291,7 @@ fn render_bingo_goal(goal: &Value, index: usize) -> String {
     let percent_text = progress
         .get("percent")
         .and_then(|v| v.as_f64())
-        .map(|p| {
-            let text = format!("{}", p);
-            text.trim_end_matches('0').trim_end_matches('.').to_string()
-        })
+        .map(crate::bingo::format_percent)
         .unwrap_or_default();
     let badge_attr = if progress
         .get("percent")
