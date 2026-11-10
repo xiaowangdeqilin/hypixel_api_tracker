@@ -363,3 +363,35 @@ fn personal_goal_has_no_server_progress() {
         assert_eq!(has_progress, i % 6 == 0, "idx {}", i);
     }
 }
+
+#[test]
+fn version_history_prunes_older_than_30_days_and_caps_at_20() {
+    use chrono::Duration;
+    use hypixel_tracker::state::resolve_version_state;
+    let now = hypixel_tracker::timeutil::now_beijing();
+    let base = hypixel_tracker::timeutil::parse_beijing(&now).unwrap();
+    let stamp = |days_ago: i64| (base - Duration::days(days_ago)).format("%Y-%m-%d %H:%M:%S").to_string();
+
+    // 1 条 40 天前（应被删除）+ 25 条 1 天前（应截断到 20 条）
+    let mut history: Vec<serde_json::Value> = vec![serde_json::json!({
+        "version": "0.0.1", "time": stamp(40), "note": "过期", "previous": "-"
+    })];
+    for i in 0..25 {
+        history.push(serde_json::json!({
+            "version": format!("0.0.{}", i + 2), "time": stamp(1), "note": "近期", "previous": "-"
+        }));
+    }
+    let runtime = serde_json::json!({
+        "stable_version": "0.27.2.25",
+        "versions": {"collections": {"version": "0.27.2.25"}, "skills": {"version": "0.27.2.25"}},
+        "history": history,
+    });
+    let observed: std::collections::BTreeMap<String, String> = std::collections::BTreeMap::new();
+    let out = resolve_version_state(&runtime, &observed, &now);
+    let kept = out["history"].as_array().unwrap();
+    assert_eq!(kept.len(), hypixel_tracker::state::MAX_VERSION_HISTORY);
+    assert!(
+        kept.iter().all(|h| h["version"] != serde_json::json!("0.0.1")),
+        "超过 30 天的记录应被删除"
+    );
+}

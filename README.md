@@ -80,6 +80,10 @@ cargo run --release --bin tracker-build
 只有从「一致」切换到另一个「一致」时才会确认新版本，并在「版本记录」面板留一条记录
 （含北京时间与上一版本）；不同步的中间态不会切换、也不会产生版本变更记录。
 
+**版本记录同样有保留期**：每次构建都会清掉超过 30 天的记录，并且最多只保留最近
+20 条（`src/state.rs::MAX_VERSION_HISTORY`）；过滤在写入新记录之后执行，
+所以刚确认的这一次永远不会被自己的清理逻辑误删。
+
 **版本号变化不会被当成端点内容更新**：`version` / `lastUpdated` / `success`
 三个顶层元数据字段在写快照与做 diff 前统一由 `strip_meta()` 剥离，
 因此版本更新不会在「最近变更」里制造一堆 `modified` 记录。
@@ -359,15 +363,30 @@ API_RATE_LIMIT=240 cargo run --release --bin tracker-server
 开启后页面右上角出现语言切换器，选择结果保存在 Cookie（一年有效），
 也可以直接用 `?lang=` 参数覆盖（如 `/?lang=ar`）。
 
-当前内置 **30 种语言包**（加上默认的简体中文，切换器共 31 种）：
-繁體中文、English、日本語、한국어、Tiếng Việt、ไทย、Bahasa Indonesia、Bahasa Melayu、Filipino、हिन्दी、বাংলা、
-اردو、العربية、עברית、فارسی、Türkçe、Français、Deutsch、Español、Italiano、
-Português、Nederlands、Русский、Українська、Polski、Čeština、Magyar、
-Română、Ελληνικά、Svenska。
+当前内置 **103 种语言包**（加上默认的简体中文，切换器共 104 项），覆盖欧洲、
+亚洲、非洲、美洲与大洋洲的主要语言及各国官方语言：繁體中文、English、日本語、한국어、
+Tiếng Việt、ไทย、Bahasa Indonesia、Bahasa Melayu、Filipino、हिन्दी、বাংলা、اردو、العربية、
+עברית、فارسی、Türkçe、Français、Deutsch、Español、Italiano、Português、Nederlands、
+Русский、Українська、Polski、Čeština、Magyar、Română、Ελληνικά、Svenska、
+Norsk、Dansk、Suomi、Íslenska、Frysk、Lëtzebuergesch、Afrikaans、Eesti、Latviešu、
+Lietuvių、Slovenčina、Slovenščina、Hrvatski、Српски、Bosanski、Македонски、Български、
+Беларуская、Shqip、Gaeilge、Cymraeg、Malti、Català、Galego、Euskara、Brezhoneg、
+မြန်မာ、ខ្មែរ、ລາວ、नेपाली、සිංහල、தமிழ்、తెలుగు、മലയാളം、ಕನ್ನಡ、ગુજરાતી、मराठी、ਪੰਜਾਬੀ、
+سنڌي、پښتو、Kurdî、Azərbaycan dili、Հայերեն、ქართული、Қазақша、Кыргызча、Oʻzbekcha、
+Türkmençe、Тоҷикӣ、Монгол、አማርኛ、ትግርኛ、Soomaali、Kiswahili、Ikinyarwanda、isiZulu、
+isiXhosa、Hausa、Asụsụ Igbo、Èdè Yorùbá、Malagasy、Kreyòl ayisyen、Runa Simi、Avañe'ẽ、
+Te Reo Māori、Gagana Sāmoa、Lea Faka-Tonga、Na Vosa Vakaviti、ʻŌlelo Hawaiʻi、Kalaallisut、
+ᐃᓄᒃᑎᑐᑦ、བོད་སྐད、རྫོང་ཁ。
 
-其中**阿拉伯语、希伯来语、波斯语、乌尔都语**为从右往左（RTL）语言：
+其中**阿拉伯语、希伯来语、波斯语、乌尔都语、信德语、普什图语**为从右往左（RTL）语言：
 `<html dir="rtl">` 自动生效，`static/i18n.css` 负责整体镜像适配；代码、
 时间戳、数字、diff 等内容保持 LTR 展示不受影响。
+常见变体自动归并：`nb`/`nn` → 挪威语，`pt-BR`/`pt-PT` → 葡萄牙语，
+`sr-Latn`、`az-Latn`、`uz-Latn`、`tl`、`in`、`iw` 等同样能正确命中对应语言包。
+
+> 说明：新增的 73 种语言为机器辅助初译，长文案（如 diff 说明、集市与 Bingo 面板的
+> 提示文字）建议使用者按母语习惯校对；发现不妥之处欢迎直接修改
+> `i18n-src/translations.json` 后运行 `locales-gen` 重新生成。
 
 译文存放于 `locales/<语言代码>.json`，键为简体中文原文、值为译文；
 缺失条目自动回退中文。单一事实来源是 `i18n-src/translations.json`。
@@ -411,7 +430,7 @@ Română、Ελληνικά、Svenska。
 .github/workflows/pages.yml   # 定时抓取 + 部署 Pages（Rust 工具链 + 依赖缓存）
 VERSION                       # 仪表盘自身版本号
 Cargo.toml / Cargo.lock       # Rust 工程与锁定依赖（单一 crate、三个 bin）
-i18n-src/translations.json    # 语言包单一事实来源（30 种语言 × 95 条）
+i18n-src/translations.json    # 语言包单一事实来源（103 种语言 × 107 条）
 locales/                      # 生成的语言包（<语言代码>.json，键为中文原文）
 templates/
   site.html.j2                # 静态站页面骨架（tracker-build 渲染）

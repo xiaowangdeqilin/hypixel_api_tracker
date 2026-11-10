@@ -36,7 +36,10 @@ pub fn run() -> i32 {
     };
     eprintln!("[服务] Hypixel SkyBlock API 变更监控台已启动：http://{}", bind);
     if !i18n::is_enabled() {
-        eprintln!("[服务] 多语言未开启（设置 ENABLE_I18N=1 启用 31 种语言与 RTL 适配）");
+        eprintln!(
+            "[服务] 多语言未开启（设置 ENABLE_I18N=1 启用 {} 种语言与 RTL 适配）",
+            i18n::available_languages().len()
+        );
     }
 
     // 后台抓取线程：启动即抓一轮，之后按各端点间隔调度

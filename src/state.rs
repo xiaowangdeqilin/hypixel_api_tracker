@@ -316,8 +316,10 @@ pub fn resolve_version_state(
                 "previous": if previous_stable.is_empty() { "-".to_string() } else { previous_stable.clone() },
             }),
         );
-        history.truncate(20);
     }
+    // 版本切换历史同样受保留期约束：超过 30 天的记录删除，最多再保留最近 20 条。
+    history.retain(|item| item.get("time").map(crate::retention::is_within_days).unwrap_or(false));
+    history.truncate(MAX_VERSION_HISTORY);
 
     json!({
         "stable_version": if stable.is_empty() { "未获取".to_string() } else { stable.clone() },
@@ -403,6 +405,8 @@ pub fn read_asset(path: &Path) -> String {
 // ---------------------------------------------------------------------------
 
 pub const SERVER_HISTORY_MAX_PER_ENDPOINT: usize = 30;
+/// 版本切换历史的最大保留条数（另有 30 天保留期，见 `resolve_version_state`）。
+pub const MAX_VERSION_HISTORY: usize = 20;
 /// 单条快照 payload 的持久化上限：超过则只存元数据（payload=null），
 /// 避免 items（6MB+）把历史文件撑爆。
 pub const SERVER_PAYLOAD_MAX_BYTES: usize = 512 * 1024;

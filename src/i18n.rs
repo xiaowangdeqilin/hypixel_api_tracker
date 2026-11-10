@@ -5,7 +5,7 @@
 //! - 开启方式：启动前设置 `ENABLE_I18N=1`（也接受 true/yes/on）；
 //! - 译文存放在 `locales/<语言代码>.json`，**键为简体中文原文，值为译文**；
 //! - 缺失或未翻译的条目自动回退为简体中文原文；
-//! - RTL 语言（ar/he/fa/ur）会把 `<html dir>` 设为 `rtl`；
+//! - RTL 语言（ar/he/fa/ur/sd/ps）会把 `<html dir>` 设为 `rtl`；
 //! - 语言解析顺序：URL `?lang=` > Cookie `hypixel-lang` > 简体中文。
 use std::collections::BTreeMap;
 use std::path::PathBuf;
@@ -15,7 +15,7 @@ use std::sync::OnceLock;
 pub const DEFAULT_LANGUAGE: &str = "zh-CN";
 pub const COOKIE_NAME: &str = "hypixel-lang";
 pub const COOKIE_MAX_AGE: i64 = 365 * 24 * 60 * 60;
-pub const RTL_LANGUAGES: [&str; 4] = ["ar", "he", "fa", "ur"];
+pub const RTL_LANGUAGES: [&str; 6] = ["ar", "he", "fa", "ur", "sd", "ps"];
 
 /// 语言代码 -> 本语言自称（用于语言切换器展示，一律用母语书写）。
 pub fn language_names() -> &'static BTreeMap<&'static str, &'static str> {
@@ -53,6 +53,84 @@ pub fn language_names() -> &'static BTreeMap<&'static str, &'static str> {
             ("ro", "Română"),
             ("el", "Ελληνικά"),
             ("sv", "Svenska"),
+            // ---- 第二批：欧洲其余语言 ----
+            ("no", "Norsk"),
+            ("da", "Dansk"),
+            ("fi", "Suomi"),
+            ("is", "Íslenska"),
+            ("fy", "Frysk"),
+            ("lb", "Lëtzebuergesch"),
+            ("af", "Afrikaans"),
+            ("et", "Eesti"),
+            ("lv", "Latviešu"),
+            ("lt", "Lietuvių"),
+            ("sk", "Slovenčina"),
+            ("sl", "Slovenščina"),
+            ("hr", "Hrvatski"),
+            ("sr", "Српски"),
+            ("bs", "Bosanski"),
+            ("mk", "Македонски"),
+            ("bg", "Български"),
+            ("be", "Беларуская"),
+            ("sq", "Shqip"),
+            ("ga", "Gaeilge"),
+            ("cy", "Cymraeg"),
+            ("mt", "Malti"),
+            ("ca", "Català"),
+            ("gl", "Galego"),
+            ("eu", "Euskara"),
+            ("br", "Brezhoneg"),
+            // ---- 南亚 / 东南亚 ----
+            ("my", "မြန်မာ"),
+            ("km", "ខ្មែរ"),
+            ("lo", "ລາວ"),
+            ("ne", "नेपाली"),
+            ("si", "සිංහල"),
+            ("ta", "தமிழ்"),
+            ("te", "తెలుగు"),
+            ("ml", "മലയാളം"),
+            ("kn", "ಕನ್ನಡ"),
+            ("gu", "ગુજરાતી"),
+            ("mr", "मराठी"),
+            ("pa", "ਪੰਜਾਬੀ"),
+            // ---- 中亚 / 高加索 / 中东 ----
+            ("sd", "سنڌي"),
+            ("ps", "پښتو"),
+            ("ku", "Kurdî"),
+            ("az", "Azərbaycan dili"),
+            ("hy", "Հայերեն"),
+            ("ka", "ქართული"),
+            ("kk", "Қазақша"),
+            ("ky", "Кыргызча"),
+            ("uz", "Oʻzbekcha"),
+            ("tk", "Türkmençe"),
+            ("tg", "Тоҷикӣ"),
+            ("mn", "Монгол"),
+            // ---- 非洲 ----
+            ("am", "አማርኛ"),
+            ("ti", "ትግርኛ"),
+            ("so", "Soomaali"),
+            ("sw", "Kiswahili"),
+            ("rw", "Ikinyarwanda"),
+            ("zu", "isiZulu"),
+            ("xh", "isiXhosa"),
+            ("ha", "Hausa"),
+            ("ig", "Asụsụ Igbo"),
+            ("yo", "Èdè Yorùbá"),
+            ("mg", "Malagasy"),
+            // ---- 美洲 / 大洋洲 / 其他 ----
+            ("ht", "Kreyòl ayisyen"),
+            ("qu", "Runa Simi"),
+            ("gn", "Avañe'ẽ"),
+            ("mi", "Te Reo Māori"),
+            ("sm", "Gagana Sāmoa"),
+            ("to", "Lea Faka-Tonga"),
+            ("fj", "Na Vosa Vakaviti"),
+            ("haw", "ʻŌlelo Hawaiʻi"),
+            ("kl", "Kalaallisut"),
+            ("iu", "ᐃᓄᒃᑎᑐᑦ"),
+            ("bo", "བོད་སྐད"),
+            ("dz", "རྫོང་ཁ"),
         ])
     })
 }
@@ -66,14 +144,20 @@ fn lowercase_aliases() -> &'static BTreeMap<&'static str, &'static str> {
             ("zh-hans-cn", "zh-CN"),
             ("zh-hant", "zh-TW"),
             ("zh-hant-tw", "zh-TW"),
-            ("no", "sv"), // 挪威语归并到北欧语言（回退链相同）
-            ("nb", "sv"),
-            ("nn", "sv"),
+            ("nb", "no"), // 书面挪威语
+            ("nn", "no"), // 新挪威语（回退同一语言包）
             ("tl", "fil"),
             ("in", "id"),
             ("iw", "he"),
             ("pt-br", "pt"),
             ("pt-pt", "pt"),
+            // 常见区域变体 -> 已登记的主代码
+            ("sr-latn", "sr"),
+            ("az-latn", "az"),
+            ("uz-latn", "uz"),
+            ("ku-arab", "ku"),
+            ("pa-guru", "pa"),
+            ("mn-cyrl", "mn"),
         ])
     })
 }
