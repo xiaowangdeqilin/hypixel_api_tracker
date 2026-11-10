@@ -207,12 +207,22 @@ pub fn diff_for_endpoint(endpoint_name: &str, old: &Value, new: &Value) -> Vec<C
 }
 
 /// 集市商品 id 集合（raw payload 的 products 键）。
+/// 提取集市商品 ID 集合。
+///
+/// 兼容两种形态：抓取到的完整 payload（`products` 对象的键）与
+/// 快照里压缩后的 `product_ids` 数组——build.rs 传给 diff 的两侧都是快照
+/// payload，此前只认 `products` 导致两边都解析成空集合，商品增删永远检不出来。
 fn product_ids(payload: &Value) -> std::collections::BTreeSet<String> {
-    payload
-        .get("products")
-        .and_then(|p| p.as_object())
-        .map(|obj| obj.keys().cloned().collect())
-        .unwrap_or_default()
+    if let Some(obj) = payload.get("products").and_then(|p| p.as_object()) {
+        return obj.keys().cloned().collect();
+    }
+    if let Some(arr) = payload.get("product_ids").and_then(|p| p.as_array()) {
+        return arr
+            .iter()
+            .filter_map(|v| v.as_str().map(|s| s.to_string()))
+            .collect();
+    }
+    std::collections::BTreeSet::new()
 }
 
 /// 通用 diff：字典递归、列表按键比对（items 用 id）、其余整体比较。

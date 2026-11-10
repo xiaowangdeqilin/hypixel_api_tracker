@@ -285,6 +285,30 @@ fn secret_bingo_pads_missing_hints() {
 }
 
 #[test]
+fn bazaar_diff_detects_added_products_in_snapshot_format() {
+    use hypixel_tracker::fetch::diff_for_endpoint;
+    // 回归：build.rs 传给 diff 的两侧都是快照 payload（压缩成 product_ids 数组），
+    // 此前 product_ids() 只认 products 对象，导致商品增删永远检不出来。
+    let old = json!({"product_ids": ["COAL", "LOG", "WHEAT"]});
+    let new = json!({"product_ids": ["COAL", "LOG", "WHEAT", "ENCHANTMENT_LOOTING_6"]});
+    let changes = diff_for_endpoint("bazaar", &old, &new);
+    assert_eq!(changes.len(), 1);
+    assert_eq!(changes[0].kind, "added");
+    assert_eq!(changes[0].path, "products.ENCHANTMENT_LOOTING_6");
+
+    // 删除同样要能检出
+    let changes2 = diff_for_endpoint("bazaar", &new, &old);
+    assert_eq!(changes2.len(), 1);
+    assert_eq!(changes2[0].kind, "removed");
+
+    // 混合形态：旧快照含完整 products 对象、新快照是压缩列表，也应可比对
+    let old_full = json!({"products": {"COAL": {"a": 1}, "LOG": {"a": 1}, "WHEAT": {"a": 1}}});
+    let changes3 = diff_for_endpoint("bazaar", &old_full, &new);
+    assert_eq!(changes3.len(), 1);
+    assert_eq!(changes3[0].kind, "added");
+}
+
+#[test]
 fn secret_bingo_hides_outside_event_window() {
     use hypixel_tracker::render_site::render_secret_panel;
     use hypixel_tracker::secret_bingo::{view, HINTS_PER_GOAL};
