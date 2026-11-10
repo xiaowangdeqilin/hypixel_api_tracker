@@ -1,7 +1,7 @@
 {
-  "checksum": "bf5625d0f93a1ca53b98e0a9ede2d67709743512dcf3a2f53ddd0c30915e61fa",
+  "checksum": "6a80e4edfbcc263a7ed0a7f7a93be0a332ea2bac4cc800a5646f4ab4b082e635",
   "endpoint": "bazaar",
-  "fetched_at": "2026-11-10 10:10:58",
+  "fetched_at": "2026-11-10 11:55:13",
   "payload": {
     "product_ids": [
       "ABSOLUTE_ENDER_PEARL",
@@ -655,6 +655,8 @@
       "ENCHANTMENT_LOOTING_3",
       "ENCHANTMENT_LOOTING_4",
       "ENCHANTMENT_LOOTING_5",
+      "ENCHANTMENT_LOOTING_6",
+      "ENCHANTMENT_LOOTING_7",
       "ENCHANTMENT_LUCK_1",
       "ENCHANTMENT_LUCK_2",
       "ENCHANTMENT_LUCK_3",
@@ -827,6 +829,7 @@
       "ENCHANTMENT_SMOLDERING_3",
       "ENCHANTMENT_SMOLDERING_4",
       "ENCHANTMENT_SMOLDERING_5",
+      "ENCHANTMENT_SMOLDERING_6",
       "ENCHANTMENT_SNIPE_1",
       "ENCHANTMENT_SNIPE_2",
       "ENCHANTMENT_SNIPE_3",
@@ -2209,6 +2212,6 @@
   },
   "status_code": 200,
   "summary": {
-    "product_count": 2201
+    "product_count": 2204
   }
 }
