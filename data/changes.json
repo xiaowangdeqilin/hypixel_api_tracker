@@ -2,6 +2,36 @@
   {
     "endpoint": "bazaar",
     "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_SMOLDERING_6",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_SMOLDERING_6",
+    "time": "2026-11-10 12:06:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_LOOTING_7",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_LOOTING_7",
+    "time": "2026-11-10 12:06:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
+    "new_full": "ENCHANTMENT_LOOTING_6",
+    "old": null,
+    "old_full": null,
+    "path": "products.ENCHANTMENT_LOOTING_6",
+    "time": "2026-11-10 12:06:50",
+    "type": "added"
+  },
+  {
+    "endpoint": "bazaar",
+    "new": "新增集市商品",
     "new_full": "ABSOLUTE_ENDER_PEARL",
     "old": null,
     "old_full": null,
