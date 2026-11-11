@@ -1,48 +1,8 @@
 {
-  "active_count": 3,
+  "active_count": 0,
   "ended_count": 0,
-  "generated_at": "2026-11-11 23:17:10",
-  "sales": [
-    {
-      "amount": 950,
-      "end": "2026-11-12 01:00:00",
-      "end_ms": 1794416400000,
-      "item_id": "WITHER_GOGGLES_ECLIPSED_SPECTRE",
-      "key": "WITHER_GOGGLES_ECLIPSED_SPECTRE@1794070800000",
-      "name": "WITHER GOGGLES ECLIPSED SPECTRE",
-      "price": 650,
-      "start": "2026-11-08 01:00:00",
-      "start_ms": 1794070800000,
-      "state": "active",
-      "state_label": "进行中"
-    },
-    {
-      "amount": 950,
-      "end": "2026-11-12 01:00:00",
-      "end_ms": 1794416400000,
-      "item_id": "WITHER_GOGGLES_LAGOON_SPECTRE",
-      "key": "WITHER_GOGGLES_LAGOON_SPECTRE@1794070800000",
-      "name": "WITHER GOGGLES LAGOON SPECTRE",
-      "price": 650,
-      "start": "2026-11-08 01:00:00",
-      "start_ms": 1794070800000,
-      "state": "active",
-      "state_label": "进行中"
-    },
-    {
-      "amount": 950,
-      "end": "2026-11-12 01:00:00",
-      "end_ms": 1794416400000,
-      "item_id": "WITHER_GOGGLES_MIDNIGHT_SPECTRE",
-      "key": "WITHER_GOGGLES_MIDNIGHT_SPECTRE@1794070800000",
-      "name": "WITHER GOGGLES MIDNIGHT SPECTRE",
-      "price": 650,
-      "start": "2026-11-08 01:00:00",
-      "start_ms": 1794070800000,
-      "state": "active",
-      "state_label": "进行中"
-    }
-  ],
-  "total": 3,
+  "generated_at": "2026-11-12 06:04:28",
+  "sales": [],
+  "total": 0,
   "upcoming_count": 0
 }

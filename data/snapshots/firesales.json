@@ -1,42 +1,14 @@
 {
-  "checksum": "715cbf5b66b8d48c5ed1302286a79a08bfae560b1744c963e324e52b0ec4e7f6",
+  "checksum": "68e13fd9a650a16e5d0d3427cd32e95e93c6951dfb2a4507eb451e318cd94fab",
   "endpoint": "firesales",
-  "fetched_at": "2026-11-11 23:17:10",
+  "fetched_at": "2026-11-12 06:04:28",
   "payload": {
-    "sales": [
-      {
-        "amount": 950,
-        "end": "2026-11-12 01:00:00",
-        "end_ms": 1794416400000,
-        "item_id": "WITHER_GOGGLES_ECLIPSED_SPECTRE",
-        "price": 650,
-        "start": "2026-11-08 01:00:00",
-        "start_ms": 1794070800000
-      },
-      {
-        "amount": 950,
-        "end": "2026-11-12 01:00:00",
-        "end_ms": 1794416400000,
-        "item_id": "WITHER_GOGGLES_LAGOON_SPECTRE",
-        "price": 650,
-        "start": "2026-11-08 01:00:00",
-        "start_ms": 1794070800000
-      },
-      {
-        "amount": 950,
-        "end": "2026-11-12 01:00:00",
-        "end_ms": 1794416400000,
-        "item_id": "WITHER_GOGGLES_MIDNIGHT_SPECTRE",
-        "price": 650,
-        "start": "2026-11-08 01:00:00",
-        "start_ms": 1794070800000
-      }
-    ]
+    "sales": []
   },
   "status_code": 200,
   "summary": {
-    "firesale_active": 3,
-    "firesale_total": 3,
+    "firesale_active": 0,
+    "firesale_total": 0,
     "firesale_upcoming": 0
   }
 }

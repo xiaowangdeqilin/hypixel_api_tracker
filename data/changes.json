@@ -1,5 +1,45 @@
 [
   {
+    "endpoint": "firesales",
+    "new": null,
+    "new_full": null,
+    "old": "移除特卖：WITHER GOGGLES ECLIPSED SPECTRE ×950 @ 650 宝石（- → -）",
+    "old_full": "{\"amount\":950,\"end\":\"-\",\"end_ms\":1794416400000,\"item_id\":\"WITHER_GOGGLES_ECLIPSED_SPECTRE\",\"name\":\"WITHER GOGGLES ECLIPSED SPECTRE\",\"price\":650,\"start\":\"-\",\"start_ms\":1794070800000}",
+    "path": "sales.WITHER_GOGGLES_ECLIPSED_SPECTRE@1794070800000",
+    "time": "2026-11-12 06:04:28",
+    "type": "removed"
+  },
+  {
+    "endpoint": "firesales",
+    "new": null,
+    "new_full": null,
+    "old": "移除特卖：WITHER GOGGLES LAGOON SPECTRE ×950 @ 650 宝石（- → -）",
+    "old_full": "{\"amount\":950,\"end\":\"-\",\"end_ms\":1794416400000,\"item_id\":\"WITHER_GOGGLES_LAGOON_SPECTRE\",\"name\":\"WITHER GOGGLES LAGOON SPECTRE\",\"price\":650,\"start\":\"-\",\"start_ms\":1794070800000}",
+    "path": "sales.WITHER_GOGGLES_LAGOON_SPECTRE@1794070800000",
+    "time": "2026-11-12 06:04:28",
+    "type": "removed"
+  },
+  {
+    "endpoint": "firesales",
+    "new": null,
+    "new_full": null,
+    "old": "移除特卖：WITHER GOGGLES MIDNIGHT SPECTRE ×950 @ 650 宝石（- → -）",
+    "old_full": "{\"amount\":950,\"end\":\"-\",\"end_ms\":1794416400000,\"item_id\":\"WITHER_GOGGLES_MIDNIGHT_SPECTRE\",\"name\":\"WITHER GOGGLES MIDNIGHT SPECTRE\",\"price\":650,\"start\":\"-\",\"start_ms\":1794070800000}",
+    "path": "sales.WITHER_GOGGLES_MIDNIGHT_SPECTRE@1794070800000",
+    "time": "2026-11-12 06:04:28",
+    "type": "removed"
+  },
+  {
+    "endpoint": "skills",
+    "new": "[50 项]",
+    "new_full": "[{\"level\":1,\"totalExpRequired\":50.0,\"unlocks\":[\"Squid Sea Creature\",\"Sea Walker Sea Creature\",\"Frozen Steve Sea Creature\",\"Frosty Sea Creature\",\"Treasure Hunter I   Grants +0.1  Treasure Chance.\",\"+2 Health\",\"+100 Coins\",\"+5 SkyBlock XP\"]},{\"level\":2,\"totalExpRequired\":175.0,\"unlocks\":[\"Treasure Hunter II   Grants +0.1➜0.2  Treasure Chance.\",\"+2 Health\",\"+250 Coins\",\"+5 SkyBlock XP\"]},{\"level\":3,\"totalExpRequired\":375.0,\"unlocks\":[\"Treasure Hunter III   Grants +0.2➜0.3  Treasure Chance.\",\"+2 Health\",\"+500 Coins\",\"+5 SkyBlock XP\"]},{\"level\":4,\"totalExpRequired\":675.0,\"unlocks\":[\"Treasure Hunter IV   Grants +0.3➜0.4  Treasure Chance.\",\"+2 Health\",\"+750 Coins\",\"+5 SkyBlock XP\"]},{\"level\":5,\"totalExpRequired\":1175.0,\"unlocks\":[\"+Access to Lotus Atoll\",\"Dumpster Diver Sea Creature\",\"Frog Man Sea Creature\",\"Trash Gobbler Sea Creature\",\"Bogged Sea Creature\",\"Nurse Shark Sea Creature\",\"Treasure Hunter V   Grants +0.4➜0.5  Treasure Chance.\",\"+2 Health\",\"+1,000 Coins\",\"+5 SkyBlock XP\"]},{\"level\":6,\"totalExpRequired\":1925.0,\"unlocks\":[\"Jumpin' Jack Sea Creature\",\"Medium Mithril Grubber Sea Creature\",\"Mithril Grubber Sea Creature\",\"Bloated Mithril Grubber Sea Creature\",\"Large Mithril Grubber Sea Creature\",\"Treasure Hunter VI   Grants +0.5➜0.6  Treasure Chance.\",\"+2 Health\",\"+2,000 Coins\",\"+5 SkyBlock XP\"]},{\"level\":7,\"totalExpRequired\":2925.0,\"unlocks\":[\"Wetwing Sea Creature\",\"Inkling Sea Creature\",\"Sea Witch Sea Creature\",\"Treasure Hunter VII   Grants +0.6➜0.7  Treasure Cha…（已截断，共 10133 字符）",
+    "old": "[50 项]",
+    "old_full": "[{\"level\":1,\"totalExpRequired\":50.0,\"unlocks\":[\"Squid Sea Creature\",\"Sea Walker Sea Creature\",\"Frozen Steve Sea Creature\",\"Frosty Sea Creature\",\"Treasure Hunter I   Grants +0.1  Treasure Chance.\",\"+2 Health\",\"+100 Coins\",\"+5 SkyBlock XP\"]},{\"level\":2,\"totalExpRequired\":175.0,\"unlocks\":[\"Treasure Hunter II   Grants +0.1➜0.2  Treasure Chance.\",\"+2 Health\",\"+250 Coins\",\"+5 SkyBlock XP\"]},{\"level\":3,\"totalExpRequired\":375.0,\"unlocks\":[\"Treasure Hunter III   Grants +0.2➜0.3  Treasure Chance.\",\"+2 Health\",\"+500 Coins\",\"+5 SkyBlock XP\"]},{\"level\":4,\"totalExpRequired\":675.0,\"unlocks\":[\"Treasure Hunter IV   Grants +0.3➜0.4  Treasure Chance.\",\"+2 Health\",\"+750 Coins\",\"+5 SkyBlock XP\"]},{\"level\":5,\"totalExpRequired\":1175.0,\"unlocks\":[\"+Access to Lotus Atoll\",\"Dumpster Diver Sea Creature\",\"Frog Man Sea Creature\",\"Trash Gobbler Sea Creature\",\"Bogged Sea Creature\",\"Nurse Shark Sea Creature\",\"Treasure Hunter V   Grants +0.4➜0.5  Treasure Chance.\",\"+2 Health\",\"+1,000 Coins\",\"+5 SkyBlock XP\"]},{\"level\":6,\"totalExpRequired\":1925.0,\"unlocks\":[\"Jumpin' Jack Sea Creature\",\"Medium Mithril Grubber Sea Creature\",\"Mithril Grubber Sea Creature\",\"Bloated Mithril Grubber Sea Creature\",\"Large Mithril Grubber Sea Creature\",\"Treasure Hunter VI   Grants +0.5➜0.6  Treasure Chance.\",\"+2 Health\",\"+2,000 Coins\",\"+5 SkyBlock XP\"]},{\"level\":7,\"totalExpRequired\":2925.0,\"unlocks\":[\"Wetwing Sea Creature\",\"Inkling Sea Creature\",\"Sea Witch Sea Creature\",\"Treasure Hunter VII   Grants +0.6➜0.7  Treasure Cha…（已截断，共 10350 字符）",
+    "path": "skills.FISHING.levels",
+    "time": "2026-11-12 06:04:28",
+    "type": "modified"
+  },
+  {
     "endpoint": "skills",
     "new": "[50 项]",
     "new_full": "[{\"level\":1,\"totalExpRequired\":50.0,\"unlocks\":[\"Squid Sea Creature\",\"Sea Walker Sea Creature\",\"Frozen Steve Sea Creature\",\"Frosty Sea Creature\",\"Treasure Hunter I   Grants +0.1  Treasure Chance.\",\"+2 Health\",\"+100 Coins\",\"+5 SkyBlock XP\"]},{\"level\":2,\"totalExpRequired\":175.0,\"unlocks\":[\"Treasure Hunter II   Grants +0.1➜0.2  Treasure Chance.\",\"+2 Health\",\"+250 Coins\",\"+5 SkyBlock XP\"]},{\"level\":3,\"totalExpRequired\":375.0,\"unlocks\":[\"Treasure Hunter III   Grants +0.2➜0.3  Treasure Chance.\",\"+2 Health\",\"+500 Coins\",\"+5 SkyBlock XP\"]},{\"level\":4,\"totalExpRequired\":675.0,\"unlocks\":[\"Treasure Hunter IV   Grants +0.3➜0.4  Treasure Chance.\",\"+2 Health\",\"+750 Coins\",\"+5 SkyBlock XP\"]},{\"level\":5,\"totalExpRequired\":1175.0,\"unlocks\":[\"+Access to Lotus Atoll\",\"Dumpster Diver Sea Creature\",\"Frog Man Sea Creature\",\"Trash Gobbler Sea Creature\",\"Bogged Sea Creature\",\"Nurse Shark Sea Creature\",\"Treasure Hunter V   Grants +0.4➜0.5  Treasure Chance.\",\"+2 Health\",\"+1,000 Coins\",\"+5 SkyBlock XP\"]},{\"level\":6,\"totalExpRequired\":1925.0,\"unlocks\":[\"Jumpin' Jack Sea Creature\",\"Medium Mithril Grubber Sea Creature\",\"Mithril Grubber Sea Creature\",\"Bloated Mithril Grubber Sea Creature\",\"Large Mithril Grubber Sea Creature\",\"Treasure Hunter VI   Grants +0.5➜0.6  Treasure Chance.\",\"+2 Health\",\"+2,000 Coins\",\"+5 SkyBlock XP\"]},{\"level\":7,\"totalExpRequired\":2925.0,\"unlocks\":[\"Wetwing Sea Creature\",\"Inkling Sea Creature\",\"Sea Witch Sea Creature\",\"Treasure Hunter VII   Grants +0.6➜0.7  Treasure Cha…（已截断，共 10350 字符）",
