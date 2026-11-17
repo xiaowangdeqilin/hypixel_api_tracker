@@ -33,9 +33,16 @@ FastAPI 版面板（`pip install` 即用）。
 |---|---|---|
 | Windows | `HypixelTracker-Setup-v3.0.0.exe` | 安装器，界面支持 8 种语言 |
 | Windows | `hypixel-tracker-v3.0.0-x86_64-pc-windows-msvc.zip` | 便携版，解压即用 |
-| macOS | `hypixel-tracker-v3.0.0-aarch64-apple-darwin.pkg` / `.dmg` | Apple Silicon；Intel 用 `x86_64` 后缀 |
+| macOS | `hypixel-tracker-v3.0.0-aarch64-apple-darwin.pkg` / `.dmg` | Apple Silicon；Intel 用 `x86_64` 后缀（见下方说明） |
 | Linux | `hypixel-tracker_3.0.0_amd64.deb` / `.rpm` | `sudo dpkg -i` 或 `sudo rpm -i` |
 | Linux | `hypixel-tracker-v3.0.0-*.tar.gz` | 便携版，glibc 与 musl 都有 |
+
+> **macOS 产物说明**：macOS 二进制需要 GitHub 托管的 macOS 运行器。本仓库当前
+> 账号拿不到这类运行器（任务会一直排队而不是失败），因此 Release 里默认没有
+> macOS 包，工作流用仓库变量 `MACOS_RUNNERS=1` 控制：在
+> Settings → Secrets and variables → Actions → Variables 里加一个 `MACOS_RUNNERS=1`，
+> 下次打 tag 就会把 `macos-14` / `macos-13` 两块加回矩阵。
+> 在此之前，macOS 用户可以用 Python 版，或在本机 `cargo build --release` 自行编译。
 
 装完执行 `tracker-server`，浏览器打开 <http://127.0.0.1:8000>。
 数据目录：Windows `%APPDATA%\HypixelTracker`、macOS `~/Library/Application Support/HypixelTracker`、

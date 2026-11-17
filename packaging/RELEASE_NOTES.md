@@ -14,6 +14,10 @@
   直接读取本仓库发布的数据，提供 REST API 与轻量网页（103 种语言、时区换算、崩溃报告）。
 - **多语言**：界面 103 种语言；安装器与安装说明覆盖中文、English、日本語、Deutsch、Español、Français、Русский、Português。
 - **最近变更已重置**：v3.0.0 之前的快照差异不再显示，变更日志从零开始（不是数据丢失，快照仍是新的）。
+- **macOS 包说明**：macOS 二进制需要 GitHub 托管的 macOS 运行器，本仓库当前拿不到
+  （任务会一直排队），所以本次 Release 没有 `.pkg` / `.dmg`。把仓库变量
+  `MACOS_RUNNERS` 设为 `1` 后重新打 tag 即可产出；在此之前 macOS 用户可用 Python 版，
+  或本机 `cargo build --release` 自行编译。
 
 **安装**
 
