@@ -1,28 +1,28 @@
 {
-  "checksum": "f044722b46b5171ca277e9d7c6b2a733c4247909c5ff3d57e13c4e4a7a24bf24",
+  "checksum": "ebfce26af310b54b1cc025e941ad89c98636a1a69923e44eea767716d69ee9d4",
   "endpoint": "packs",
-  "fetched_at": "2026-11-17 22:06:11",
+  "fetched_at": "2026-11-17 22:30:01",
   "payload": {
     "packs": [
       {
-        "deployId": "1b5b3899-cdc3-4c90-ac57-7d3867e099d5",
+        "deployId": "cbc47fbe-5c43-4257-ba87-94c37a400f6f",
         "id": "SkyBlock",
-        "lastUpdated": 1793202047607,
+        "lastUpdated": 1794924884372,
         "versions": [
           {
-            "hash": "526bd87b753a8c877a75b27bce6ac58ef8bc9bfe",
+            "hash": "d6713050c8f95c355714d9d62ff91f8f6d6790fc",
             "packFormat": 97,
-            "url": "https://resourcepacks.hypixel.net/SkyBlock/1b5b3899-cdc3-4c90-ac57-7d3867e099d5/97.zip"
+            "url": "https://resourcepacks.hypixel.net/SkyBlock/cbc47fbe-5c43-4257-ba87-94c37a400f6f/97.zip"
           },
           {
-            "hash": "5a79711e084ac6da613fb1195c4e69117566a528",
+            "hash": "4e46ee63ed732375b78603c87a2e14bf8b05878f",
             "packFormat": 84,
-            "url": "https://resourcepacks.hypixel.net/SkyBlock/1b5b3899-cdc3-4c90-ac57-7d3867e099d5/84.zip"
+            "url": "https://resourcepacks.hypixel.net/SkyBlock/cbc47fbe-5c43-4257-ba87-94c37a400f6f/84.zip"
           },
           {
-            "hash": "db4bbcd45f706b9ea7f66c007a2641d364809537",
+            "hash": "4278398a9e3e1bfc6daaba071b74c8fa5dd0455a",
             "packFormat": 88,
-            "url": "https://resourcepacks.hypixel.net/SkyBlock/1b5b3899-cdc3-4c90-ac57-7d3867e099d5/88.zip"
+            "url": "https://resourcepacks.hypixel.net/SkyBlock/cbc47fbe-5c43-4257-ba87-94c37a400f6f/88.zip"
           }
         ]
       }
@@ -30,7 +30,7 @@
   },
   "status_code": 200,
   "summary": {
-    "deploy_id": "1b5b3899-cdc3-4c90-ac57-7d3867e099d5",
+    "deploy_id": "cbc47fbe-5c43-4257-ba87-94c37a400f6f",
     "pack_count": 1,
     "pack_format_count": 3,
     "selected_pack_format": 97

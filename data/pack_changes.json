@@ -1,14 +1,4339 @@
 [
   {
-    "time": "2026-11-03T06:27:26Z",
+    "added": [
+      "assets/hypixel_skyblock/font/map.json",
+      "assets/hypixel_skyblock/items/item/cosmetic/bundles/blackfriday26/elven_flame.json",
+      "assets/hypixel_skyblock/items/item/cosmetic/bundles/blackfriday26/elven_orb_tintable.json",
+      "assets/hypixel_skyblock/items/item/fishing/rod/admin_rod.json",
+      "assets/hypixel_skyblock/items/item/island_relevant/dungeons/catacombs_gobbler.json",
+      "assets/hypixel_skyblock/items/item/uncategorized/divine_gift.json",
+      "assets/hypixel_skyblock/models/item/cosmetic/bundles/blackfriday26/elven_flame.json",
+      "assets/hypixel_skyblock/models/item/cosmetic/bundles/blackfriday26/elven_orb_tintable.json",
+      "assets/hypixel_skyblock/models/item/fishing/rod/admin_rod.json",
+      "assets/hypixel_skyblock/models/item/fishing/rod/admin_rod_cast.json",
+      "assets/hypixel_skyblock/models/item/island_relevant/dungeons/catacombs_gobbler.json",
+      "assets/hypixel_skyblock/models/item/uncategorized/divine_gift.json",
+      "assets/hypixel_skyblock/textures/item/cosmetic/bundles/blackfriday26/elven_flame.png",
+      "assets/hypixel_skyblock/textures/item/cosmetic/bundles/blackfriday26/elven_orb_tintable.png",
+      "assets/hypixel_skyblock/textures/item/fishing/rod/admin_rod.png",
+      "assets/hypixel_skyblock/textures/item/fishing/rod/admin_rod_cast.png",
+      "assets/hypixel_skyblock/textures/item/island_relevant/dungeons/catacombs_gobbler.png",
+      "assets/hypixel_skyblock/textures/item/uncategorized/divine_gift.png",
+      "assets/hypixel_skyblock/textures/menu/map/hub_map.png",
+      "assets/minecraft/shaders/core/item.vsh",
+      "assets/minecraft/shaders/include/emissives.glsl"
+    ],
+    "deploy_id": "cbc47fbe-5c43-4257-ba87-94c37a400f6f",
+    "modified": [
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/bingo/bingbow\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/bingo/bingbow\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "4309eb23b3d8a5fb",
+        "old_hash": "907c1cff3b8a0083",
+        "path": "assets/hypixel_skyblock/models/item/bingo/bingbow.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/bingo/bingbow_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/bingo/bingbow_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "b9da27108b17640e",
+        "old_hash": "46cc11f98f84125c",
+        "path": "assets/hypixel_skyblock/models/item/bingo/bingbow_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/bingo/bingbow_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/bingo/bingbow_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "6f357e274ad12bf9",
+        "old_hash": "7b692119c04e2107",
+        "path": "assets/hypixel_skyblock/models/item/bingo/bingbow_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/bingo/bingbow_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/bingo/bingbow_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "1140158a701d58f5",
+        "old_hash": "dfb5f45a8b5fa41c",
+        "path": "assets/hypixel_skyblock/models/item/bingo/bingbow_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/broken/broken_bow\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/broken/broken_bow\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "67985334f1dba6ac",
+        "old_hash": "fe6b404a0e0dad46",
+        "path": "assets/hypixel_skyblock/models/item/broken/broken_bow.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/broken/broken_bow_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/broken/broken_bow_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "ab0d0571e581a47f",
+        "old_hash": "61f828cbc28dcc1e",
+        "path": "assets/hypixel_skyblock/models/item/broken/broken_bow_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/broken/broken_bow_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/broken/broken_bow_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "a4a181cdf86f1223",
+        "old_hash": "9129c30b2106e72c",
+        "path": "assets/hypixel_skyblock/models/item/broken/broken_bow_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/broken/broken_bow_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/broken/broken_bow_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "5baf97fbf251b31d",
+        "old_hash": "ab99e0eb6538a358",
+        "path": "assets/hypixel_skyblock/models/item/broken/broken_bow_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/combat_3/dragon_shortbow\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/combat_3/dragon_shortbow\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "2bf904591d315032",
+        "old_hash": "50b8c00f391a5158",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/combat_3/dragon_shortbow.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/combat_3/dragon_shortbow_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/combat_3/dragon_shortbow_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "dc561c09ff269071",
+        "old_hash": "b40d07ddec1f70b3",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/combat_3/dragon_shortbow_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/combat_3/dragon_shortbow_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/combat_3/dragon_shortbow_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "3ff597dd1444e444",
+        "old_hash": "49694e7153ec5afc",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/combat_3/dragon_shortbow_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/combat_3/dragon_shortbow_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/combat_3/dragon_shortbow_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "cff9fcc102147f28",
+        "old_hash": "7e5a3ca2d6e14cca",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/combat_3/dragon_shortbow_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/combat_3/weapons/end_stone_bow\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/combat_3/weapons/end_stone_bow\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "835aaf42912cf7b8",
+        "old_hash": "81c7a12ef955a41f",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/combat_3/weapons/end_stone_bow.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/combat_3/weapons/end_stone_bow_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/combat_3/weapons/end_stone_bow_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "9ea6c1cc7f9764be",
+        "old_hash": "965d9a11496113db",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/combat_3/weapons/end_stone_bow_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/combat_3/weapons/end_stone_bow_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/combat_3/weapons/end_stone_bow_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "8fa00bae95c8a7d4",
+        "old_hash": "db8e67baf087eaa3",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/combat_3/weapons/end_stone_bow_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/combat_3/weapons/end_stone_bow_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/combat_3/weapons/end_stone_bow_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "8e5d525bdc4581ab",
+        "old_hash": "d753f906f0b20d0b",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/combat_3/weapons/end_stone_bow_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/combat_3/weapons/ender_bow\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/combat_3/weapons/ender_bow\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "83316248a57bade2",
+        "old_hash": "437f16caee3ff868",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/combat_3/weapons/ender_bow.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/combat_3/weapons/ender_bow_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/combat_3/weapons/ender_bow_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "c0498f8bf1a3ffb4",
+        "old_hash": "ffc13ab28304a75c",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/combat_3/weapons/ender_bow_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/combat_3/weapons/ender_bow_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/combat_3/weapons/ender_bow_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "866aa0fd1ad12d9a",
+        "old_hash": "0ab8298299d5f5fc",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/combat_3/weapons/ender_bow_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/combat_3/weapons/ender_bow_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/combat_3/weapons/ender_bow_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "e35ab2bf99ed0417",
+        "old_hash": "f57f4a9ba8f06fbb",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/combat_3/weapons/ender_bow_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/dungeons/spirit_shortbow\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/dungeons/spirit_shortbow\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "6855ca56a2768066",
+        "old_hash": "ef94032eb6f54f83",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/dungeons/spirit_shortbow.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/dungeons/spirit_shortbow_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/dungeons/spirit_shortbow_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "df5f59f83b78694f",
+        "old_hash": "403446a2bbdd3f1a",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/dungeons/spirit_shortbow_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/dungeons/spirit_shortbow_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/dungeons/spirit_shortbow_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "f35cd0376bdb2c87",
+        "old_hash": "24ea98da0d11919d",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/dungeons/spirit_shortbow_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/dungeons/spirit_shortbow_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/dungeons/spirit_shortbow_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "65995117c1114eeb",
+        "old_hash": "7648d5298393025e",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/dungeons/spirit_shortbow_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/garden/vacuum/admin_vacuum\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/garden/vacuum/admin_vacuum\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "b49c0b51c47b0cd0",
+        "old_hash": "9ad69c422212e56f",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/garden/vacuum/admin_vacuum.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/garden/vacuum/infini_vacuum\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/garden/vacuum/infini_vacuum\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "af843c39cd7d871a",
+        "old_hash": "c22d61093e14ebce",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/garden/vacuum/infini_vacuum.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/garden/vacuum/infini_vacuum_hooverius\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/garden/vacuum/infini_vacuum_hooverius\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "9ef3d5f85e902454",
+        "old_hash": "f4238a3c911a2e9a",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/garden/vacuum/infini_vacuum_hooverius.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/garden/vacuum/skymart_hyper_vacuum\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/garden/vacuum/skymart_hyper_vacuum\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "bef96145a2bc2f52",
+        "old_hash": "e3fb7175295d2da6",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/garden/vacuum/skymart_hyper_vacuum.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/garden/vacuum/skymart_turbo_vacuum\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/garden/vacuum/skymart_turbo_vacuum\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "f764623f98fa1e0d",
+        "old_hash": "faf0f2b2ecc015e7",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/garden/vacuum/skymart_turbo_vacuum.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/garden/vacuum/skymart_vacuum\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/garden/vacuum/skymart_vacuum\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "26dc23bcdbc85ebf",
+        "old_hash": "c1371766c82dd673",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/garden/vacuum/skymart_vacuum.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/rift/zones/mirrorcosm/crafting_room/crafts/wob\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/rift/zones/mirrorcosm/crafting_room/crafts/wob\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "47b67f25f0b2311d",
+        "old_hash": "9d25266559b5c9fe",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/rift/zones/mirrorcosm/crafting_room/crafts/wob.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/rift/zones/mirrorcosm/crafting_room/crafts/wob_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/rift/zones/mirrorcosm/crafting_room/crafts/wob_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "8ebcfa8947a88eb9",
+        "old_hash": "2f2cabfa4ba88df6",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/rift/zones/mirrorcosm/crafting_room/crafts/wob_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/rift/zones/mirrorcosm/crafting_room/crafts/wob_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/rift/zones/mirrorcosm/crafting_room/crafts/wob_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "3fdd63007f7112e2",
+        "old_hash": "792c84140be9001d",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/rift/zones/mirrorcosm/crafting_room/crafts/wob_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/rift/zones/mirrorcosm/crafting_room/crafts/wob_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/island_relevant/rift/zones/mirrorcosm/crafting_room/crafts/wob_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "383dc871e9eac99a",
+        "old_hash": "7bb7c5734507e028",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/rift/zones/mirrorcosm/crafting_room/crafts/wob_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"format_version\":\"1.21.11\",\"credit\":\"TuxBowDie\",\"texture_size\":[64,64],\"textures\":{\"1\":\"hypixel_skyblock:item/island_relevant/safari/model_critter_capsule\"},\"elements\":[{\"from\":[2.5,0,2.5],\"to\":[13.5,4,13.5],\"faces\":{\"north\":{\"uv\":[0,2.75,2.75,3.75],\"texture\":\"#1\"},\"east\":{\"uv\":[0,2.75,2.75,3.75],\"texture\":\"#1\"},\"south\":{\"uv\":[0,2.75,2.75,3.75],\"texture\":\"#1\"},\"west\":{\"uv\":[0,2.75,2.75,3.75],\"texture\":\"#1\"},\"up\":{\"uv\":[2.75,2.75,0,0],\"texture\":\"#1\"},\"down\":{\"uv\":[2.75,3.75,0,6.5],\"texture\":\"#1\"}}},{\"from\":[0.25105,2.24843,6],\"to\":[3.25105,4.24843,10],\"rotation\":{\"angle\":-22.5,\"axis\":\"z\",\"origin\":[1.75105,3.49843,8]},\"faces\":{\"north\":{\"uv\":[1.5,8.25,2.25,8.75],\"texture\":\"#1\"},\"south\":{\"uv\":[2.25,8.25,1.5,8.75],\"texture\":\"#1\"},\"west\":{\"uv\":[0.5,8.25,1.5,8.75],\"texture\":\"#1\"},\"up\":{\"uv\":[2.25,8.25,1.5,7.25],\"texture\":\"#1\"},\"down\":{\"uv\":[1.5,7.25,0.75,8.25],\"texture\":\"#1\"}}},{\"from\":[6,2.24843,12.74895],\"to\":[10,4.24843,15.74895],\"rotation\":{\"angle\":-22.5,\"axis\":\"x\",\"origin\":[8,3.49843,14.24895]},\"faces\":{\"east\":{\"uv\":[2.25,8.25,1.5,8.75],\"texture\":\"#1\"},\"south\":{\"uv\":[1.5,8.25,0.5,8.75],\"texture\":\"#1\"},\"west\":{\"uv\":[1.5,8.25,2.25,8.75],\"texture\":\"#1\"},\"up\":{\"uv\":[1.5,8.25,2.25,7.25],\"rotation\":90,\"texture\":\"#1\"},\"down\":{\"uv\":[0.75,7.25,1.5,8.25],\"rotation\":270,\"texture\":\"#1\"}}},{\"from\":[6,2.24843,0.25105],\"to\":[10,4.24843,3.25105],\"rotation\":{\"angle\":22.5,\"axis\":\"x\",\"origin\":[8,3.49843,1.75105]},\"faces\":{\"north\":{\"uv\":[0.5,8.25,1.5,8.75],\"texture\":\"#1\"},\"east\":{\"uv\":[1.5,8.25,2.25,8.75],\"texture\":\"#1\"},\"west\":{\"uv\":[2.25,8.25,1.5,8.75],\"texture\":\"#1\"},\"up\":{\"uv\":[2.25,8.25,1.5,7.25],\"rotation\":90,\"texture\":\"#1\"},\"down\":{\"uv\":[1.5,7.25,0.75,8.25],\"rotation\":270,\"texture\":\"#1\"}}},{\"from\":[12.74895,2.24843,6],\"to\":[15.74895,4.24843,10],\"rotation\":{\"angle\":22.5,\"axis\":\"z\",\"origin\":[14.24895,3.49843,8]},\"faces\":{\"north\":{\"uv\":[2.25,8.25,1.5,8.75],\"texture\":\"#1\"},\"east\":{\"uv\":[1.5,8.25,0.5,8.75],\"texture\":\"#1\"},\"south\":{\"uv\":[1.5,8.25,2.25,8.75],\"texture\":\"#1\"},\"up\":{\"uv\":[1.5,8.25,2.25,7.25],\"texture\":\"#1\"},\"down\":{\"uv\":[0.75,7.25,1.5,8.25],\"texture\":\"#1\"}}},{\"from\":[3.5,4,3.5],\"to\":[12.5,9,12.5],\"faces\":{\"north\":{\"uv\":[3,0.5,5.25,1.75],\"texture\":\"#1\"},\"east\":{\"uv\":[3,0.5,5.25,1.75],\"texture\":\"#1\"},\"south\":{\"uv\":[3,0.5,5.25,1.75],\"texture\":\"#1\"},\"west\":{\"uv\":[3,0.5,5.25,1.75],\"texture\":\"#1\"},\"up\":{\"uv\":[9.25,2.25,7,0],\"texture\":\"#1\"}}},{\"from\":[4.5,9,4.5],\"to\":[11.5,11,11.5],\"faces\":{\"north\":{\"uv\":[3.25,0,5,0.5],\"texture\":\"#1\"},\"east\":{\"uv\":[3.25,0,5,0.5],\"texture\":\"#1\"},\"south\":{\"uv\":[3.25,0,5,0.5],\"texture\":\"#1\"},\"west\":{\"uv\":[3.25,0,5,0.5],\"texture\":\"#1\"},\"up\":{\"uv\":[7,1.75,5.25,0],\"texture\":\"#1\"}}},{\"name\":\"cube inverted\",\"from\":[12.5,9,12.5],\"to\":[3.5,4,3.5],\"faces\":{\"north\":{\"uv\":[3,4.25,5.25,3],\"texture\":\"#1\"},\"east\":{\"uv\":[3,4.25,5.25,3],\"texture\":\"#1\"},\"south\":{\"uv\":[3,4.25,5.25,3],\"texture\":\"#1\"},\"west\":{\"uv\":[3,4.25,5.25,3],\"texture\":\"#1\"},\"down\":{\"uv\":[7,4.75,9.25,2.5],\"texture\":\"#1\"}}},{\"name\":\"cube inverted\",\"from\":[11.5,11,11.5],\"to\":[4.5,9,4.5],\"faces\":{\"north\":{\"uv\":[3.25,3,5,2.5],\"texture\":\"#1\"},\"east\":{\"uv\":[3.25,3,5,2.5],\"texture\":\"#1\"},\"south\":{\"uv\":[3.25,3,5,2.5],\"texture\":\"#1\"},\"west\":{\"uv\":[3.25,3,5,2.5],\"texture\":\"#1\"},\"down\":{\"uv\":[5.25,4.25,7,2.5],\"texture\":\"#1\"}}}],\"groups\":[0,1,2,3,4,{\"name\":\"glass\",\"origin\":[7,4,7],\"scope\":0,\"color\":0,\"children\":[5,6,7,8]}]}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"format_version\":\"1.21.11\",\"credit\":\"TuxBowDie\",\"texture_size\":[64,64],\"textures\":{\"1\":\"hypixel_skyblock:item/island_relevant/safari/model_critter_capsule\"},\"elements\":[{\"from\":[2.5,0,2.5],\"to\":[13.5,4,13.5],\"faces\":{\"north\":{\"uv\":[0,2.75,2.75,3.75],\"texture\":\"#1\"},\"east\":{\"uv\":[0,2.75,2.75,3.75],\"texture\":\"#1\"},\"south\":{\"uv\":[0,2.75,2.75,3.75],\"texture\":\"#1\"},\"west\":{\"uv\":[0,2.75,2.75,3.75],\"texture\":\"#1\"},\"up\":{\"uv\":[2.75,2.75,0,0],\"texture\":\"#1\"},\"down\":{\"uv\":[2.75,3.75,0,6.5],\"texture\":\"#1\"}}},{\"from\":[0.25105,2.24843,6],\"to\":[3.25105,4.24843,10],\"rotation\":{\"angle\":-22.5,\"axis\":\"z\",\"origin\":[1.75105,3.49843,8]},\"faces\":{\"north\":{\"uv\":[1.5,8.25,2.25,8.75],\"texture\":\"#1\"},\"south\":{\"uv\":[2.25,8.25,1.5,8.75],\"texture\":\"#1\"},\"west\":{\"uv\":[0.5,8.25,1.5,8.75],\"texture\":\"#1\"},\"up\":{\"uv\":[2.25,8.25,1.5,7.25],\"texture\":\"#1\"},\"down\":{\"uv\":[1.5,7.25,0.75,8.25],\"texture\":\"#1\"}}},{\"from\":[6,2.24843,12.74895],\"to\":[10,4.24843,15.74895],\"rotation\":{\"angle\":-22.5,\"axis\":\"x\",\"origin\":[8,3.49843,14.24895]},\"faces\":{\"east\":{\"uv\":[2.25,8.25,1.5,8.75],\"texture\":\"#1\"},\"south\":{\"uv\":[1.5,8.25,0.5,8.75],\"texture\":\"#1\"},\"west\":{\"uv\":[1.5,8.25,2.25,8.75],\"texture\":\"#1\"},\"up\":{\"uv\":[1.5,8.25,2.25,7.25],\"rotation\":90,\"texture\":\"#1\"},\"down\":{\"uv\":[0.75,7.25,1.5,8.25],\"rotation\":270,\"texture\":\"#1\"}}},{\"from\":[6,2.24843,0.25105],\"to\":[10,4.24843,3.25105],\"rotation\":{\"angle\":22.5,\"axis\":\"x\",\"origin\":[8,3.49843,1.75105]},\"faces\":{\"north\":{\"uv\":[0.5,8.25,1.5,8.75],\"texture\":\"#1\"},\"east\":{\"uv\":[1.5,8.25,2.25,8.75],\"texture\":\"#1\"},\"west\":{\"uv\":[2.25,8.25,1.5,8.75],\"texture\":\"#1\"},\"up\":{\"uv\":[2.25,8.25,1.5,7.25],\"rotation\":90,\"texture\":\"#1\"},\"down\":{\"uv\":[1.5,7.25,0.75,8.25],\"rotation\":270,\"texture\":\"#1\"}}},{\"from\":[12.74895,2.24843,6],\"to\":[15.74895,4.24843,10],\"rotation\":{\"angle\":22.5,\"axis\":\"z\",\"origin\":[14.24895,3.49843,8]},\"faces\":{\"north\":{\"uv\":[2.25,8.25,1.5,8.75],\"texture\":\"#1\"},\"east\":{\"uv\":[1.5,8.25,0.5,8.75],\"texture\":\"#1\"},\"south\":{\"uv\":[1.5,8.25,2.25,8.75],\"texture\":\"#1\"},\"up\":{\"uv\":[1.5,8.25,2.25,7.25],\"texture\":\"#1\"},\"down\":{\"uv\":[0.75,7.25,1.5,8.25],\"texture\":\"#1\"}}},{\"from\":[3.5,4,3.5],\"to\":[12.5,9,12.5],\"shade\":false,\"light_emission\":15,\"faces\":{\"north\":{\"uv\":[3,0.5,5.25,1.75],\"texture\":\"#1\"},\"east\":{\"uv\":[3,0.5,5.25,1.75],\"texture\":\"#1\"},\"south\":{\"uv\":[3,0.5,5.25,1.75],\"texture\":\"#1\"},\"west\":{\"uv\":[3,0.5,5.25,1.75],\"texture\":\"#1\"},\"up\":{\"uv\":[9.25,2.25,7,0],\"texture\":\"#1\"}}},{\"from\":[4.5,9,4.5],\"to\":[11.5,11,11.5],\"shade\":false,\"light_emission\":15,\"faces\":{\"north\":{\"uv\":[3.25,0,5,0.5],\"texture\":\"#1\"},\"east\":{\"uv\":[3.25,0,5,0.5],\"texture\":\"#1\"},\"south\":{\"uv\":[3.25,0,5,0.5],\"texture\":\"#1\"},\"west\":{\"uv\":[3.25,0,5,0.5],\"texture\":\"#1\"},\"up\":{\"uv\":[7,1.75,5.25,0],\"texture\":\"#1\"}}},{\"name\":\"cube inverted\",\"from\":[12.5,9,12.5],\"to\":[3.5,4,3.5],\"shade\":false,\"light_emission\":15,\"faces\":{\"north\":{\"uv\":[3,4.25,5.25,3],\"texture\":\"#1\"},\"east\":{\"uv\":[3,4.25,5.25,3],\"texture\":\"#1\"},\"south\":{\"uv\":[3,4.25,5.25,3],\"texture\":\"#1\"},\"west\":{\"uv\":[3,4.25,5.25,3],\"texture\":\"#1\"},\"down\":{\"uv\":[7,4.75,9.25,2.5],\"texture\":\"#1\"}}},{\"name\":\"cube inverted\",\"from\":[11.5,11,11.5],\"to\":[4.5,9,4.5],\"shade\":false,\"light_emission\":15,\"faces\":{\"north\":{\"uv\":[3.25,3,5,2.5],\"texture\":\"#1\"},\"east\":{\"uv\":[3.25,3,5,2.5],\"texture\":\"#1\"},\"south\":{\"uv\":[3.25,3,5,2.5],\"texture\":\"#1\"},\"west\":{\"uv\":[3.25,3,5,2.5],\"texture\":\"#1\"},\"down\":{\"uv\":[5.25,4.25,7,2.5],\"texture\":\"#1\"}}}],\"groups\":[0,1,2,3,4,{\"name\":\"glass\",\"origin\":[7,4,7],\"scope\":0,\"color\":0,\"children\":[5,6,7,8]}]}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "af98a1ee6ca6a133",
+        "old_hash": "89e4334c808c314a",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/safari/model_critter_capsule.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"format_version\":\"1.21.11\",\"credit\":\"TuxBowDie\",\"textures\":{\"1\":\"hypixel_skyblock:item/island_relevant/safari/model_critter_capsule\"},\"elements\":[{\"from\":[2.5,0,2.5],\"to\":[13.5,4,13.5],\"faces\":{\"north\":{\"uv\":[0,2.75,2.75,3.75],\"texture\":\"#1\"},\"east\":{\"uv\":[0,2.75,2.75,3.75],\"texture\":\"#1\"},\"south\":{\"uv\":[0,2.75,2.75,3.75],\"texture\":\"#1\"},\"west\":{\"uv\":[0,2.75,2.75,3.75],\"texture\":\"#1\"},\"up\":{\"uv\":[12.25,15,9.5,12.25],\"texture\":\"#1\"},\"down\":{\"uv\":[2.75,3.75,0,6.5],\"texture\":\"#1\"}}},{\"from\":[0.25105,2.24843,6],\"to\":[3.25105,4.24843,10],\"rotation\":{\"angle\":-22.5,\"axis\":\"z\",\"origin\":[1.75105,3.49843,8]},\"faces\":{\"north\":{\"uv\":[1.5,8.25,2.25,8.75],\"texture\":\"#1\"},\"south\":{\"uv\":[2.25,8.25,1.5,8.75],\"texture\":\"#1\"},\"west\":{\"uv\":[0.5,8.25,1.5,8.75],\"texture\":\"#1\"},\"up\":{\"uv\":[2.25,8.25,1.5,7.25],\"texture\":\"#1\"},\"down\":{\"uv\":[1.5,7.25,0.75,8.25],\"texture\":\"#1\"}}},{\"from\":[6,2.24843,12.74895],\"to\":[10,4.24843,15.74895],\"rotation\":{\"angle\":-22.5,\"axis\":\"x\",\"origin\":[8,3.49843,14.24895]},\"faces\":{\"east\":{\"uv\":[2.25,8.25,1.5,8.75],\"texture\":\"#1\"},\"south\":{\"uv\":[1.5,8.25,0.5,8.75],\"texture\":\"#1\"},\"west\":{\"uv\":[1.5,8.25,2.25,8.75],\"texture\":\"#1\"},\"up\":{\"uv\":[1.5,8.25,2.25,7.25],\"rotation\":90,\"texture\":\"#1\"},\"down\":{\"uv\":[0.75,7.25,1.5,8.25],\"rotation\":270,\"texture\":\"#1\"}}},{\"from\":[6,2.24843,0.25105],\"to\":[10,4.24843,3.25105],\"rotation\":{\"angle\":22.5,\"axis\":\"x\",\"origin\":[8,3.49843,1.75105]},\"faces\":{\"north\":{\"uv\":[0.5,8.25,1.5,8.75],\"texture\":\"#1\"},\"east\":{\"uv\":[1.5,8.25,2.25,8.75],\"texture\":\"#1\"},\"west\":{\"uv\":[2.25,8.25,1.5,8.75],\"texture\":\"#1\"},\"up\":{\"uv\":[2.25,8.25,1.5,7.25],\"rotation\":90,\"texture\":\"#1\"},\"down\":{\"uv\":[1.5,7.25,0.75,8.25],\"rotation\":270,\"texture\":\"#1\"}}},{\"from\":[12.74895,2.24843,6],\"to\":[15.74895,4.24843,10],\"rotation\":{\"angle\":22.5,\"axis\":\"z\",\"origin\":[14.24895,3.49843,8]},\"faces\":{\"north\":{\"uv\":[2.25,8.25,1.5,8.75],\"texture\":\"#1\"},\"east\":{\"uv\":[1.5,8.25,0.5,8.75],\"texture\":\"#1\"},\"south\":{\"uv\":[1.5,8.25,2.25,8.75],\"texture\":\"#1\"},\"up\":{\"uv\":[1.5,8.25,2.25,7.25],\"texture\":\"#1\"},\"down\":{\"uv\":[0.75,7.25,1.5,8.25],\"texture\":\"#1\"}}},{\"from\":[3.5,4,3.5],\"to\":[12.5,9,12.5],\"faces\":{\"north\":{\"uv\":[3,10.75,5.25,12],\"texture\":\"#1\"},\"east\":{\"uv\":[3,10.75,5.25,12],\"texture\":\"#1\"},\"south\":{\"uv\":[3,10.75,5.25,12],\"texture\":\"#1\"},\"west\":{\"uv\":[3,10.75,5.25,12],\"texture\":\"#1\"},\"up\":{\"uv\":[9.25,12.5,7,10.25],\"texture\":\"#1\"}}},{\"from\":[4.5,9,4.5],\"to\":[11.5,11,11.5],\"faces\":{\"north\":{\"uv\":[3.25,10.25,5,10.75],\"texture\":\"#1\"},\"east\":{\"uv\":[3.25,10.25,5,10.75],\"texture\":\"#1\"},\"south\":{\"uv\":[3.25,10.25,5,10.75],\"texture\":\"#1\"},\"west\":{\"uv\":[3.25,10.25,5,10.75],\"texture\":\"#1\"},\"up\":{\"uv\":[7,12,5.25,10.25],\"texture\":\"#1\"}}},{\"name\":\"cube inverted\",\"from\":[12.5,9,12.5],\"to\":[3.5,4,3.5],\"faces\":{\"north\":{\"uv\":[3,14.5,5.25,13.25],\"texture\":\"#1\"},\"east\":{\"uv\":[3,14.5,5.25,13.25],\"texture\":\"#1\"},\"south\":{\"uv\":[3,14.5,5.25,13.25],\"texture\":\"#1\"},\"west\":{\"uv\":[3,14.5,5.25,13.25],\"texture\":\"#1\"},\"down\":{\"uv\":[7,15,9.25,12.75],\"texture\":\"#1\"}}},{\"name\":\"cube inverted\",\"from\":[11.5,11,11.5],\"to\":[4.5,9,4.5],\"faces\":{\"north\":{\"uv\":[3.25,13.25,5,12.75],\"texture\":\"#1\"},\"east\":{\"uv\":[3.25,13.25,5,12.75],\"texture\":\"#1\"},\"south\":{\"uv\":[3.25,13.25,5,12.75],\"texture\":\"#1\"},\"west\":{\"uv\":[3.25,13.25,5,12.75],\"texture\":\"#1\"},\"down\":{\"uv\":[5.25,14.5,7,12.75],\"texture\":\"#1\"}}}],\"groups\":[0,1,2,3,4,{\"name\":\"glass\",\"origin\":[7,4,7],\"scope\":0,\"color\":0,\"children\":[5,6,7,8]}]}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"format_version\":\"1.21.11\",\"credit\":\"TuxBowDie\",\"textures\":{\"1\":\"hypixel_skyblock:item/island_relevant/safari/model_critter_capsule\"},\"elements\":[{\"from\":[2.5,0,2.5],\"to\":[13.5,4,13.5],\"faces\":{\"north\":{\"uv\":[0,2.75,2.75,3.75],\"texture\":\"#1\"},\"east\":{\"uv\":[0,2.75,2.75,3.75],\"texture\":\"#1\"},\"south\":{\"uv\":[0,2.75,2.75,3.75],\"texture\":\"#1\"},\"west\":{\"uv\":[0,2.75,2.75,3.75],\"texture\":\"#1\"},\"up\":{\"uv\":[12.25,15,9.5,12.25],\"texture\":\"#1\"},\"down\":{\"uv\":[2.75,3.75,0,6.5],\"texture\":\"#1\"}}},{\"from\":[0.25105,2.24843,6],\"to\":[3.25105,4.24843,10],\"rotation\":{\"angle\":-22.5,\"axis\":\"z\",\"origin\":[1.75105,3.49843,8]},\"faces\":{\"north\":{\"uv\":[1.5,8.25,2.25,8.75],\"texture\":\"#1\"},\"south\":{\"uv\":[2.25,8.25,1.5,8.75],\"texture\":\"#1\"},\"west\":{\"uv\":[0.5,8.25,1.5,8.75],\"texture\":\"#1\"},\"up\":{\"uv\":[2.25,8.25,1.5,7.25],\"texture\":\"#1\"},\"down\":{\"uv\":[1.5,7.25,0.75,8.25],\"texture\":\"#1\"}}},{\"from\":[6,2.24843,12.74895],\"to\":[10,4.24843,15.74895],\"rotation\":{\"angle\":-22.5,\"axis\":\"x\",\"origin\":[8,3.49843,14.24895]},\"faces\":{\"east\":{\"uv\":[2.25,8.25,1.5,8.75],\"texture\":\"#1\"},\"south\":{\"uv\":[1.5,8.25,0.5,8.75],\"texture\":\"#1\"},\"west\":{\"uv\":[1.5,8.25,2.25,8.75],\"texture\":\"#1\"},\"up\":{\"uv\":[1.5,8.25,2.25,7.25],\"rotation\":90,\"texture\":\"#1\"},\"down\":{\"uv\":[0.75,7.25,1.5,8.25],\"rotation\":270,\"texture\":\"#1\"}}},{\"from\":[6,2.24843,0.25105],\"to\":[10,4.24843,3.25105],\"rotation\":{\"angle\":22.5,\"axis\":\"x\",\"origin\":[8,3.49843,1.75105]},\"faces\":{\"north\":{\"uv\":[0.5,8.25,1.5,8.75],\"texture\":\"#1\"},\"east\":{\"uv\":[1.5,8.25,2.25,8.75],\"texture\":\"#1\"},\"west\":{\"uv\":[2.25,8.25,1.5,8.75],\"texture\":\"#1\"},\"up\":{\"uv\":[2.25,8.25,1.5,7.25],\"rotation\":90,\"texture\":\"#1\"},\"down\":{\"uv\":[1.5,7.25,0.75,8.25],\"rotation\":270,\"texture\":\"#1\"}}},{\"from\":[12.74895,2.24843,6],\"to\":[15.74895,4.24843,10],\"rotation\":{\"angle\":22.5,\"axis\":\"z\",\"origin\":[14.24895,3.49843,8]},\"faces\":{\"north\":{\"uv\":[2.25,8.25,1.5,8.75],\"texture\":\"#1\"},\"east\":{\"uv\":[1.5,8.25,0.5,8.75],\"texture\":\"#1\"},\"south\":{\"uv\":[1.5,8.25,2.25,8.75],\"texture\":\"#1\"},\"up\":{\"uv\":[1.5,8.25,2.25,7.25],\"texture\":\"#1\"},\"down\":{\"uv\":[0.75,7.25,1.5,8.25],\"texture\":\"#1\"}}},{\"from\":[3.5,4,3.5],\"to\":[12.5,9,12.5],\"shade\":false,\"light_emission\":15,\"faces\":{\"north\":{\"uv\":[3,10.75,5.25,12],\"texture\":\"#1\"},\"east\":{\"uv\":[3,10.75,5.25,12],\"texture\":\"#1\"},\"south\":{\"uv\":[3,10.75,5.25,12],\"texture\":\"#1\"},\"west\":{\"uv\":[3,10.75,5.25,12],\"texture\":\"#1\"},\"up\":{\"uv\":[9.25,12.5,7,10.25],\"texture\":\"#1\"}}},{\"from\":[4.5,9,4.5],\"to\":[11.5,11,11.5],\"shade\":false,\"light_emission\":15,\"faces\":{\"north\":{\"uv\":[3.25,10.25,5,10.75],\"texture\":\"#1\"},\"east\":{\"uv\":[3.25,10.25,5,10.75],\"texture\":\"#1\"},\"south\":{\"uv\":[3.25,10.25,5,10.75],\"texture\":\"#1\"},\"west\":{\"uv\":[3.25,10.25,5,10.75],\"texture\":\"#1\"},\"up\":{\"uv\":[7,12,5.25,10.25],\"texture\":\"#1\"}}},{\"name\":\"cube inverted\",\"from\":[12.5,9,12.5],\"to\":[3.5,4,3.5],\"shade\":false,\"light_emission\":15,\"faces\":{\"north\":{\"uv\":[3,14.5,5.25,13.25],\"texture\":\"#1\"},\"east\":{\"uv\":[3,14.5,5.25,13.25],\"texture\":\"#1\"},\"south\":{\"uv\":[3,14.5,5.25,13.25],\"texture\":\"#1\"},\"west\":{\"uv\":[3,14.5,5.25,13.25],\"texture\":\"#1\"},\"down\":{\"uv\":[7,15,9.25,12.75],\"texture\":\"#1\"}}},{\"name\":\"cube inverted\",\"from\":[11.5,11,11.5],\"to\":[4.5,9,4.5],\"shade\":false,\"light_emission\":15,\"faces\":{\"north\":{\"uv\":[3.25,13.25,5,12.75],\"texture\":\"#1\"},\"east\":{\"uv\":[3.25,13.25,5,12.75],\"texture\":\"#1\"},\"south\":{\"uv\":[3.25,13.25,5,12.75],\"texture\":\"#1\"},\"west\":{\"uv\":[3.25,13.25,5,12.75],\"texture\":\"#1\"},\"down\":{\"uv\":[5.25,14.5,7,12.75],\"texture\":\"#1\"}}}],\"groups\":[0,1,2,3,4,{\"name\":\"glass\",\"origin\":[7,4,7],\"scope\":0,\"color\":0,\"children\":[5,6,7,8]}]}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "c2f95dfc1b004f25",
+        "old_hash": "df5d98d6507c18ae",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/safari/model_critter_capsule_fail.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"format_version\":\"1.21.11\",\"credit\":\"TuxBowDie\",\"texture_size\":[64,64],\"textures\":{\"1\":\"hypixel_skyblock:item/island_relevant/safari/model_masterful_critter_capsule\"},\"elements\":[{\"from\":[2.5,0,2.5],\"to\":[13.5,4,13.5],\"faces\":{\"north\":{\"uv\":[0,2.75,2.75,3.75],\"texture\":\"#1\"},\"east\":{\"uv\":[0,2.75,2.75,3.75],\"texture\":\"#1\"},\"south\":{\"uv\":[0,2.75,2.75,3.75],\"texture\":\"#1\"},\"west\":{\"uv\":[0,2.75,2.75,3.75],\"texture\":\"#1\"},\"up\":{\"uv\":[2.75,2.75,0,0],\"texture\":\"#1\"},\"down\":{\"uv\":[2.75,3.75,0,6.5],\"texture\":\"#1\"}}},{\"from\":[0.25105,2.24843,6],\"to\":[3.25105,4.24843,10],\"rotation\":{\"angle\":-22.5,\"axis\":\"z\",\"origin\":[1.75105,3.49843,8]},\"faces\":{\"north\":{\"uv\":[1.5,8.25,2.25,8.75],\"texture\":\"#1\"},\"south\":{\"uv\":[2.25,8.25,1.5,8.75],\"texture\":\"#1\"},\"west\":{\"uv\":[0.5,8.25,1.5,8.75],\"texture\":\"#1\"},\"up\":{\"uv\":[2.25,8.25,1.5,7.25],\"texture\":\"#1\"},\"down\":{\"uv\":[1.5,7.25,0.75,8.25],\"texture\":\"#1\"}}},{\"from\":[6,2.24843,12.74895],\"to\":[10,4.24843,15.74895],\"rotation\":{\"angle\":-22.5,\"axis\":\"x\",\"origin\":[8,3.49843,14.24895]},\"faces\":{\"east\":{\"uv\":[2.25,8.25,1.5,8.75],\"texture\":\"#1\"},\"south\":{\"uv\":[1.5,8.25,0.5,8.75],\"texture\":\"#1\"},\"west\":{\"uv\":[1.5,8.25,2.25,8.75],\"texture\":\"#1\"},\"up\":{\"uv\":[1.5,8.25,2.25,7.25],\"rotation\":90,\"texture\":\"#1\"},\"down\":{\"uv\":[0.75,7.25,1.5,8.25],\"rotation\":270,\"texture\":\"#1\"}}},{\"from\":[6,2.24843,0.25105],\"to\":[10,4.24843,3.25105],\"rotation\":{\"angle\":22.5,\"axis\":\"x\",\"origin\":[8,3.49843,1.75105]},\"faces\":{\"north\":{\"uv\":[0.5,8.25,1.5,8.75],\"texture\":\"#1\"},\"east\":{\"uv\":[1.5,8.25,2.25,8.75],\"texture\":\"#1\"},\"west\":{\"uv\":[2.25,8.25,1.5,8.75],\"texture\":\"#1\"},\"up\":{\"uv\":[2.25,8.25,1.5,7.25],\"rotation\":90,\"texture\":\"#1\"},\"down\":{\"uv\":[1.5,7.25,0.75,8.25],\"rotation\":270,\"texture\":\"#1\"}}},{\"from\":[12.74895,2.24843,6],\"to\":[15.74895,4.24843,10],\"rotation\":{\"angle\":22.5,\"axis\":\"z\",\"origin\":[14.24895,3.49843,8]},\"faces\":{\"north\":{\"uv\":[2.25,8.25,1.5,8.75],\"texture\":\"#1\"},\"east\":{\"uv\":[1.5,8.25,0.5,8.75],\"texture\":\"#1\"},\"south\":{\"uv\":[1.5,8.25,2.25,8.75],\"texture\":\"#1\"},\"up\":{\"uv\":[1.5,8.25,2.25,7.25],\"texture\":\"#1\"},\"down\":{\"uv\":[0.75,7.25,1.5,8.25],\"texture\":\"#1\"}}},{\"from\":[3.5,4,3.5],\"to\":[12.5,9,12.5],\"faces\":{\"north\":{\"uv\":[3,0.5,5.25,1.75],\"texture\":\"#1\"},\"east\":{\"uv\":[3,0.5,5.25,1.75],\"texture\":\"#1\"},\"south\":{\"uv\":[3,0.5,5.25,1.75],\"texture\":\"#1\"},\"west\":{\"uv\":[3,0.5,5.25,1.75],\"texture\":\"#1\"},\"up\":{\"uv\":[9.25,2.25,7,0],\"texture\":\"#1\"}}},{\"from\":[4.5,9,4.5],\"to\":[11.5,11,11.5],\"faces\":{\"north\":{\"uv\":[3.25,0,5,0.5],\"texture\":\"#1\"},\"east\":{\"uv\":[3.25,0,5,0.5],\"texture\":\"#1\"},\"south\":{\"uv\":[3.25,0,5,0.5],\"texture\":\"#1\"},\"west\":{\"uv\":[3.25,0,5,0.5],\"texture\":\"#1\"},\"up\":{\"uv\":[7,1.75,5.25,0],\"texture\":\"#1\"}}},{\"name\":\"cube inverted\",\"from\":[12.5,9,12.5],\"to\":[3.5,4,3.5],\"faces\":{\"north\":{\"uv\":[3,4.25,5.25,3],\"texture\":\"#1\"},\"east\":{\"uv\":[3,4.25,5.25,3],\"texture\":\"#1\"},\"south\":{\"uv\":[3,4.25,5.25,3],\"texture\":\"#1\"},\"west\":{\"uv\":[3,4.25,5.25,3],\"texture\":\"#1\"},\"down\":{\"uv\":[7,4.75,9.25,2.5],\"texture\":\"#1\"}}},{\"name\":\"cube inverted\",\"from\":[11.5,11,11.5],\"to\":[4.5,9,4.5],\"faces\":{\"north\":{\"uv\":[3.25,3,5,2.5],\"texture\":\"#1\"},\"east\":{\"uv\":[3.25,3,5,2.5],\"texture\":\"#1\"},\"south\":{\"uv\":[3.25,3,5,2.5],\"texture\":\"#1\"},\"west\":{\"uv\":[3.25,3,5,2.5],\"texture\":\"#1\"},\"down\":{\"uv\":[5.25,4.25,7,2.5],\"texture\":\"#1\"}}}],\"groups\":[0,1,2,3,4,{\"name\":\"glass\",\"origin\":[7,4,7],\"scope\":0,\"color\":0,\"children\":[5,6,7,8]}]}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"format_version\":\"1.21.11\",\"credit\":\"TuxBowDie\",\"texture_size\":[64,64],\"textures\":{\"1\":\"hypixel_skyblock:item/island_relevant/safari/model_masterful_critter_capsule\"},\"elements\":[{\"from\":[2.5,0,2.5],\"to\":[13.5,4,13.5],\"faces\":{\"north\":{\"uv\":[0,2.75,2.75,3.75],\"texture\":\"#1\"},\"east\":{\"uv\":[0,2.75,2.75,3.75],\"texture\":\"#1\"},\"south\":{\"uv\":[0,2.75,2.75,3.75],\"texture\":\"#1\"},\"west\":{\"uv\":[0,2.75,2.75,3.75],\"texture\":\"#1\"},\"up\":{\"uv\":[2.75,2.75,0,0],\"texture\":\"#1\"},\"down\":{\"uv\":[2.75,3.75,0,6.5],\"texture\":\"#1\"}}},{\"from\":[0.25105,2.24843,6],\"to\":[3.25105,4.24843,10],\"rotation\":{\"angle\":-22.5,\"axis\":\"z\",\"origin\":[1.75105,3.49843,8]},\"faces\":{\"north\":{\"uv\":[1.5,8.25,2.25,8.75],\"texture\":\"#1\"},\"south\":{\"uv\":[2.25,8.25,1.5,8.75],\"texture\":\"#1\"},\"west\":{\"uv\":[0.5,8.25,1.5,8.75],\"texture\":\"#1\"},\"up\":{\"uv\":[2.25,8.25,1.5,7.25],\"texture\":\"#1\"},\"down\":{\"uv\":[1.5,7.25,0.75,8.25],\"texture\":\"#1\"}}},{\"from\":[6,2.24843,12.74895],\"to\":[10,4.24843,15.74895],\"rotation\":{\"angle\":-22.5,\"axis\":\"x\",\"origin\":[8,3.49843,14.24895]},\"faces\":{\"east\":{\"uv\":[2.25,8.25,1.5,8.75],\"texture\":\"#1\"},\"south\":{\"uv\":[1.5,8.25,0.5,8.75],\"texture\":\"#1\"},\"west\":{\"uv\":[1.5,8.25,2.25,8.75],\"texture\":\"#1\"},\"up\":{\"uv\":[1.5,8.25,2.25,7.25],\"rotation\":90,\"texture\":\"#1\"},\"down\":{\"uv\":[0.75,7.25,1.5,8.25],\"rotation\":270,\"texture\":\"#1\"}}},{\"from\":[6,2.24843,0.25105],\"to\":[10,4.24843,3.25105],\"rotation\":{\"angle\":22.5,\"axis\":\"x\",\"origin\":[8,3.49843,1.75105]},\"faces\":{\"north\":{\"uv\":[0.5,8.25,1.5,8.75],\"texture\":\"#1\"},\"east\":{\"uv\":[1.5,8.25,2.25,8.75],\"texture\":\"#1\"},\"west\":{\"uv\":[2.25,8.25,1.5,8.75],\"texture\":\"#1\"},\"up\":{\"uv\":[2.25,8.25,1.5,7.25],\"rotation\":90,\"texture\":\"#1\"},\"down\":{\"uv\":[1.5,7.25,0.75,8.25],\"rotation\":270,\"texture\":\"#1\"}}},{\"from\":[12.74895,2.24843,6],\"to\":[15.74895,4.24843,10],\"rotation\":{\"angle\":22.5,\"axis\":\"z\",\"origin\":[14.24895,3.49843,8]},\"faces\":{\"north\":{\"uv\":[2.25,8.25,1.5,8.75],\"texture\":\"#1\"},\"east\":{\"uv\":[1.5,8.25,0.5,8.75],\"texture\":\"#1\"},\"south\":{\"uv\":[1.5,8.25,2.25,8.75],\"texture\":\"#1\"},\"up\":{\"uv\":[1.5,8.25,2.25,7.25],\"texture\":\"#1\"},\"down\":{\"uv\":[0.75,7.25,1.5,8.25],\"texture\":\"#1\"}}},{\"from\":[3.5,4,3.5],\"to\":[12.5,9,12.5],\"shade\":false,\"light_emission\":15,\"faces\":{\"north\":{\"uv\":[3,0.5,5.25,1.75],\"texture\":\"#1\"},\"east\":{\"uv\":[3,0.5,5.25,1.75],\"texture\":\"#1\"},\"south\":{\"uv\":[3,0.5,5.25,1.75],\"texture\":\"#1\"},\"west\":{\"uv\":[3,0.5,5.25,1.75],\"texture\":\"#1\"},\"up\":{\"uv\":[9.25,2.25,7,0],\"texture\":\"#1\"}}},{\"from\":[4.5,9,4.5],\"to\":[11.5,11,11.5],\"shade\":false,\"light_emission\":15,\"faces\":{\"north\":{\"uv\":[3.25,0,5,0.5],\"texture\":\"#1\"},\"east\":{\"uv\":[3.25,0,5,0.5],\"texture\":\"#1\"},\"south\":{\"uv\":[3.25,0,5,0.5],\"texture\":\"#1\"},\"west\":{\"uv\":[3.25,0,5,0.5],\"texture\":\"#1\"},\"up\":{\"uv\":[7,1.75,5.25,0],\"texture\":\"#1\"}}},{\"name\":\"cube inverted\",\"from\":[12.5,9,12.5],\"to\":[3.5,4,3.5],\"shade\":false,\"light_emission\":15,\"faces\":{\"north\":{\"uv\":[3,4.25,5.25,3],\"texture\":\"#1\"},\"east\":{\"uv\":[3,4.25,5.25,3],\"texture\":\"#1\"},\"south\":{\"uv\":[3,4.25,5.25,3],\"texture\":\"#1\"},\"west\":{\"uv\":[3,4.25,5.25,3],\"texture\":\"#1\"},\"down\":{\"uv\":[7,4.75,9.25,2.5],\"texture\":\"#1\"}}},{\"name\":\"cube inverted\",\"from\":[11.5,11,11.5],\"to\":[4.5,9,4.5],\"shade\":false,\"light_emission\":15,\"faces\":{\"north\":{\"uv\":[3.25,3,5,2.5],\"texture\":\"#1\"},\"east\":{\"uv\":[3.25,3,5,2.5],\"texture\":\"#1\"},\"south\":{\"uv\":[3.25,3,5,2.5],\"texture\":\"#1\"},\"west\":{\"uv\":[3.25,3,5,2.5],\"texture\":\"#1\"},\"down\":{\"uv\":[5.25,4.25,7,2.5],\"texture\":\"#1\"}}}],\"groups\":[0,1,2,3,4,{\"name\":\"glass\",\"origin\":[7,4,7],\"scope\":0,\"color\":0,\"children\":[5,6,7,8]}]}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "9622d0fe8ab7fef9",
+        "old_hash": "fe61c9a48972d05e",
+        "path": "assets/hypixel_skyblock/models/item/island_relevant/safari/model_masterful_critter_capsule.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/enderman/weapons/juju_shortbow\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/enderman/weapons/juju_shortbow\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "6ecb197e4839e8c3",
+        "old_hash": "66a8863d9ff2733f",
+        "path": "assets/hypixel_skyblock/models/item/slayer/enderman/weapons/juju_shortbow.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/enderman/weapons/juju_shortbow_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/enderman/weapons/juju_shortbow_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "f694d44f5dc20f56",
+        "old_hash": "70d932f64d87c678",
+        "path": "assets/hypixel_skyblock/models/item/slayer/enderman/weapons/juju_shortbow_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/enderman/weapons/juju_shortbow_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/enderman/weapons/juju_shortbow_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "bff5b3365be89365",
+        "old_hash": "9c53f97e3a24e901",
+        "path": "assets/hypixel_skyblock/models/item/slayer/enderman/weapons/juju_shortbow_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/enderman/weapons/juju_shortbow_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/enderman/weapons/juju_shortbow_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "e94f6e5827bf160b",
+        "old_hash": "3ae8de726bddc25f",
+        "path": "assets/hypixel_skyblock/models/item/slayer/enderman/weapons/juju_shortbow_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/enderman/weapons/terminator\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/enderman/weapons/terminator\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "1f76d1a4abe7c0d4",
+        "old_hash": "7fb074504de756b7",
+        "path": "assets/hypixel_skyblock/models/item/slayer/enderman/weapons/terminator.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/enderman/weapons/terminator_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/enderman/weapons/terminator_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "69156155f5d34699",
+        "old_hash": "10e7d2f2bd59405b",
+        "path": "assets/hypixel_skyblock/models/item/slayer/enderman/weapons/terminator_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/enderman/weapons/terminator_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/enderman/weapons/terminator_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "ece4ad9d19a82f19",
+        "old_hash": "a789d9caa946b521",
+        "path": "assets/hypixel_skyblock/models/item/slayer/enderman/weapons/terminator_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/enderman/weapons/terminator_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/enderman/weapons/terminator_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "bec7bdc04b3cfe1e",
+        "old_hash": "937a17069b114c22",
+        "path": "assets/hypixel_skyblock/models/item/slayer/enderman/weapons/terminator_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/spider/weapons/mosquito_shortbow\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/spider/weapons/mosquito_shortbow\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "c6bc663705e996a6",
+        "old_hash": "19269910f4fff0ff",
+        "path": "assets/hypixel_skyblock/models/item/slayer/spider/weapons/mosquito_shortbow.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/spider/weapons/mosquito_shortbow_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/spider/weapons/mosquito_shortbow_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "0ff10c7dce374dcc",
+        "old_hash": "f0bf470ef53db600",
+        "path": "assets/hypixel_skyblock/models/item/slayer/spider/weapons/mosquito_shortbow_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/spider/weapons/mosquito_shortbow_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/spider/weapons/mosquito_shortbow_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "6499b12f0f4d20a6",
+        "old_hash": "08b6dac6c86524cc",
+        "path": "assets/hypixel_skyblock/models/item/slayer/spider/weapons/mosquito_shortbow_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/spider/weapons/mosquito_shortbow_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/spider/weapons/mosquito_shortbow_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "ccca7f63137cd49b",
+        "old_hash": "f67032b1946da4f7",
+        "path": "assets/hypixel_skyblock/models/item/slayer/spider/weapons/mosquito_shortbow_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/spider/weapons/spider_shortbow\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/spider/weapons/spider_shortbow\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "e8676e390f19e44a",
+        "old_hash": "9ec2031cb97b9642",
+        "path": "assets/hypixel_skyblock/models/item/slayer/spider/weapons/spider_shortbow.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/spider/weapons/spider_shortbow_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/spider/weapons/spider_shortbow_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "4952979757c50bdf",
+        "old_hash": "d5141b28c1450dbe",
+        "path": "assets/hypixel_skyblock/models/item/slayer/spider/weapons/spider_shortbow_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/spider/weapons/spider_shortbow_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/spider/weapons/spider_shortbow_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "2a36024532425cff",
+        "old_hash": "bced2c9f5a3fabfe",
+        "path": "assets/hypixel_skyblock/models/item/slayer/spider/weapons/spider_shortbow_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/spider/weapons/spider_shortbow_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/slayer/spider/weapons/spider_shortbow_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "17c5389b5d29ca09",
+        "old_hash": "fa850667fc2baf1f",
+        "path": "assets/hypixel_skyblock/models/item/slayer/spider/weapons/spider_shortbow_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/admin_bow\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/admin_bow\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "10b9b4cfe326028d",
+        "old_hash": "7a79b00449637be1",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/admin_bow.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/admin_bow_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/admin_bow_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "bfa1033eeb3d468c",
+        "old_hash": "d7cd350136d7eaad",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/admin_bow_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/admin_bow_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/admin_bow_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "f988fab5719074fc",
+        "old_hash": "065c3296a968458c",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/admin_bow_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/admin_bow_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/admin_bow_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "4b8e01955571c2d4",
+        "old_hash": "3b421d02a277afa9",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/admin_bow_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/artisanal_shortbow\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/artisanal_shortbow\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "28957c70d745af08",
+        "old_hash": "d448846295f95469",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/artisanal_shortbow.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/artisanal_shortbow_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/artisanal_shortbow_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "6d6b573b75ee367b",
+        "old_hash": "ca064339729158bf",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/artisanal_shortbow_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/artisanal_shortbow_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/artisanal_shortbow_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "6b40adf9be5c818d",
+        "old_hash": "6b56a5f775deae40",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/artisanal_shortbow_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/artisanal_shortbow_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/artisanal_shortbow_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "e2ab7372422b1920",
+        "old_hash": "992d6c4fbacbaa01",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/artisanal_shortbow_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/death_bow\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/death_bow\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "e7c391e68541fe7b",
+        "old_hash": "77b6dab745d1f560",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/death_bow.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/death_bow_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/death_bow_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "fa1b457fb8204525",
+        "old_hash": "56c016ecede12180",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/death_bow_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/death_bow_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/death_bow_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "ff53520d91c30e01",
+        "old_hash": "49b8f415dbb909f6",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/death_bow_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/death_bow_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/death_bow_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "4d46176daabba46f",
+        "old_hash": "8d9e1511f5f19bd3",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/death_bow_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/decent_bow\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/decent_bow\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "38b5877aa2755232",
+        "old_hash": "ee865ee6ecd4cca6",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/decent_bow.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/decent_bow_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/decent_bow_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "e9ec0ec637aa352e",
+        "old_hash": "b3d23ff436d91390",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/decent_bow_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/decent_bow_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/decent_bow_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "7de7b8d81da74923",
+        "old_hash": "c9261748364daf23",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/decent_bow_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/decent_bow_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/decent_bow_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "264be5eda48c6a8a",
+        "old_hash": "70ff0c53d7f6d5ea",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/decent_bow_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/divans_drill_handle\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/divans_drill_handle\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "7bdd6e175923bdd7",
+        "old_hash": "f05a9afe6f360572",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/divans_drill_handle.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/divans_drill_head\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/divans_drill_head\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "dd290e414fa70dba",
+        "old_hash": "d3433597707d5025",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/divans_drill_head.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/divans_drill_head_animated\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/divans_drill_head_animated\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "633b09bf49fe82e7",
+        "old_hash": "cc244273c0526c9b",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/divans_drill_head_animated.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/explosive_bow\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/explosive_bow\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "79e98d0424307414",
+        "old_hash": "ff759e08bfa83635",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/explosive_bow.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/explosive_bow_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/explosive_bow_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "7d286ddd4c74de06",
+        "old_hash": "1e7b5731a807e31d",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/explosive_bow_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/explosive_bow_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/explosive_bow_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "a9247eb3c0ee1bf7",
+        "old_hash": "7034f3cb645fe76b",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/explosive_bow_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/explosive_bow_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/explosive_bow_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "8e87574050d531e4",
+        "old_hash": "413df8991fb97b3b",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/explosive_bow_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/gemstone_drill_lt_522_handle\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/gemstone_drill_lt_522_handle\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "92bd1efb70c3f2fa",
+        "old_hash": "bf106462e162acc3",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/gemstone_drill_lt_522_handle.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/gemstone_drill_lt_522_head\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/gemstone_drill_lt_522_head\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "9cd8005b9b3b2a85",
+        "old_hash": "1bfb6ddc760404ec",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/gemstone_drill_lt_522_head.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/gemstone_drill_lt_522_head_animated\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/gemstone_drill_lt_522_head_animated\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "e1d67c988d424531",
+        "old_hash": "0523e470ff11207e",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/gemstone_drill_lt_522_head_animated.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/hurricane_bow\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/hurricane_bow\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "38565897020d3a75",
+        "old_hash": "88dabf98e1e7810f",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/hurricane_bow.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/hurricane_bow_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/hurricane_bow_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "953257060f72834b",
+        "old_hash": "4ab7dbd194e3d52f",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/hurricane_bow_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/hurricane_bow_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/hurricane_bow_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "998273eaad1721b5",
+        "old_hash": "06806778199da189",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/hurricane_bow_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/hurricane_bow_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/hurricane_bow_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "0bab9498784f9f2e",
+        "old_hash": "7ff0dca34f7ef823",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/hurricane_bow_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/jasper_drill_x_handle\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/jasper_drill_x_handle\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "f19b756f3c61440e",
+        "old_hash": "859306f8e11b9748",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/jasper_drill_x_handle.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/jasper_drill_x_head\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/jasper_drill_x_head\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "ecc8c8152d8e0ec2",
+        "old_hash": "4418defeb6f5c964",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/jasper_drill_x_head.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/jasper_drill_x_head_animated\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/jasper_drill_x_head_animated\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "e03cc2450d669265",
+        "old_hash": "1416475a6fa42c9f",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/jasper_drill_x_head_animated.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/last_breath\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/last_breath\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "f3c09d65d3ddb9a0",
+        "old_hash": "666a9f29e6764dd5",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/last_breath.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/last_breath_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/last_breath_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "7db9f026ace8f55d",
+        "old_hash": "20cf3fb50c8e10ed",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/last_breath_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/last_breath_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/last_breath_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "21dbc20342172670",
+        "old_hash": "85d62e3afd0687fb",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/last_breath_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/last_breath_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/last_breath_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "1c4d54369de9ca08",
+        "old_hash": "62d6e4ee9c8a9447",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/last_breath_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/machine_gun_shortbow\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/machine_gun_shortbow\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "b2f6fde0534a31df",
+        "old_hash": "4c0b7c465e34222a",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/machine_gun_shortbow.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/machine_gun_shortbow_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/machine_gun_shortbow_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "6dfe95470f53b47d",
+        "old_hash": "0f9cc7aeda6ee0d6",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/machine_gun_shortbow_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/machine_gun_shortbow_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/machine_gun_shortbow_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "0f95a52076e17300",
+        "old_hash": "4732bf271e4bfdfb",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/machine_gun_shortbow_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/machine_gun_shortbow_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/machine_gun_shortbow_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "14db41b188796fff",
+        "old_hash": "c0a8fe8355cfe7b2",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/machine_gun_shortbow_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/magma_bow\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/magma_bow\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "321974d59900c625",
+        "old_hash": "517644812e53d93c",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/magma_bow.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/magma_bow_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/magma_bow_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "60125a5959e04589",
+        "old_hash": "11db17302c7b2093",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/magma_bow_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/magma_bow_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/magma_bow_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "05f494aeb2d931e2",
+        "old_hash": "b1abeb80f247bd94",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/magma_bow_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/magma_bow_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/magma_bow_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "f75db98f0bc35ee7",
+        "old_hash": "44b3a2f7c5311863",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/magma_bow_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/mithril_drill_sx_r226_handle\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/mithril_drill_sx_r226_handle\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "9efba95a36c6c138",
+        "old_hash": "376ab8d693cf5dd9",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/mithril_drill_sx_r226_handle.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/mithril_drill_sx_r226_head\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/mithril_drill_sx_r226_head\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "12614fce8dcd51fb",
+        "old_hash": "c129a37ecce1337a",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/mithril_drill_sx_r226_head.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/mithril_drill_sx_r226_head_animated\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/mithril_drill_sx_r226_head_animated\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "ba5fd65affa55606",
+        "old_hash": "d923a81eed684373",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/mithril_drill_sx_r226_head_animated.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/mithril_drill_sx_r326_handle\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/mithril_drill_sx_r326_handle\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "69fe6affaa3806fe",
+        "old_hash": "afd6db9ae66de625",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/mithril_drill_sx_r326_handle.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/mithril_drill_sx_r326_head\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/mithril_drill_sx_r326_head\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "0d60b134365d39d9",
+        "old_hash": "e38541a878059d76",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/mithril_drill_sx_r326_head.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/mithril_drill_sx_r326_head_animated\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/mithril_drill_sx_r326_head_animated\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "78b716db024d5061",
+        "old_hash": "4c54e314191c15ba",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/mithril_drill_sx_r326_head_animated.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/prismarine_bow\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/prismarine_bow\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "9039baef25fb3a3a",
+        "old_hash": "bc6b66e45772151b",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/prismarine_bow.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/prismarine_bow_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/prismarine_bow_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "af4a54ebd7eb2118",
+        "old_hash": "17a2375985ac1998",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/prismarine_bow_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/prismarine_bow_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/prismarine_bow_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "71ba09072feee3f3",
+        "old_hash": "e27f1fd123072ea7",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/prismarine_bow_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/prismarine_bow_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/prismarine_bow_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "8c3abb5de20bb3b9",
+        "old_hash": "2da55fc764afe373",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/prismarine_bow_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/ruby_drill_tx_15_handle\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/ruby_drill_tx_15_handle\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "84b7f5c10746345b",
+        "old_hash": "25d0e4f2b5dbcbe1",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/ruby_drill_tx_15_handle.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/ruby_drill_tx_15_head\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/ruby_drill_tx_15_head\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "4a5aaf32265aca3c",
+        "old_hash": "85ab2911d215591c",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/ruby_drill_tx_15_head.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/ruby_drill_tx_15_head_animated\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/ruby_drill_tx_15_head_animated\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "f334d0923f1aecc8",
+        "old_hash": "8e8de0623a5c0733",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/ruby_drill_tx_15_head_animated.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/runaans_bow\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/runaans_bow\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "17c86a3e2f92b2fb",
+        "old_hash": "d5d6348810de924d",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/runaans_bow.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/runaans_bow_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/runaans_bow_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "9398af1ed9fc758f",
+        "old_hash": "a6535511f9ec6475",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/runaans_bow_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/runaans_bow_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/runaans_bow_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "971007d2b04eeaa0",
+        "old_hash": "f3083f80e109190c",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/runaans_bow_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/runaans_bow_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/runaans_bow_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "342157e205f30a09",
+        "old_hash": "3955f7ab269f21e9",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/runaans_bow_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/savanna_bow\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/savanna_bow\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "0b65b60465b8aad1",
+        "old_hash": "69a925312d1195ac",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/savanna_bow.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/savanna_bow_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/savanna_bow_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "f6b993673babc05d",
+        "old_hash": "66df2096c82c3bf4",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/savanna_bow_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/savanna_bow_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/savanna_bow_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "2c507ee1088aadbf",
+        "old_hash": "541d01890e746943",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/savanna_bow_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/savanna_bow_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/savanna_bow_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "8558922360147f63",
+        "old_hash": "3794def418339d17",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/savanna_bow_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/slime_bow\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/slime_bow\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "f123a61051f282e4",
+        "old_hash": "2d673a75116b31dd",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/slime_bow.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/slime_bow_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/slime_bow_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "84927f28f7edb159",
+        "old_hash": "2bf8b29871e18d55",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/slime_bow_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/slime_bow_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/slime_bow_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "0bfddbe641c8513a",
+        "old_hash": "3b5c60d973866772",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/slime_bow_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/slime_bow_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/slime_bow_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "1c3407dd60bd29b0",
+        "old_hash": "0dba7484e9d830a3",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/slime_bow_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/sniper_bow\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/sniper_bow\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "d70b5be04c7dfa89",
+        "old_hash": "8c9cafa72fb38ef6",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/sniper_bow.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/sniper_bow_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/sniper_bow_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "75005e00da23dff1",
+        "old_hash": "c3cbe018f8e8979b",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/sniper_bow_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/sniper_bow_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/sniper_bow_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "de9dddf2a00b591f",
+        "old_hash": "da76a59ee149dae4",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/sniper_bow_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/sniper_bow_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/sniper_bow_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "d9ad691b662e035b",
+        "old_hash": "ba1c3944b405a737",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/sniper_bow_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/souls_rebound\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/souls_rebound\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "6c4e3c09ca1fdaa1",
+        "old_hash": "511e41eef97e28e3",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/souls_rebound.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/souls_rebound_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/souls_rebound_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "77b1abe0430101ca",
+        "old_hash": "b5d245b740c4c6e6",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/souls_rebound_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/souls_rebound_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/souls_rebound_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "ddc0eeb6c1ef95a6",
+        "old_hash": "36d7c79dfba9dce4",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/souls_rebound_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/souls_rebound_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/souls_rebound_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "f21982bfb736a57d",
+        "old_hash": "994451965031cf3d",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/souls_rebound_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/soulstealer_bow\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/soulstealer_bow\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "8f59616aeb8a2e57",
+        "old_hash": "816b4a4592f0cc39",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/soulstealer_bow.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/soulstealer_bow_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/soulstealer_bow_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "5dd50fffde08627a",
+        "old_hash": "ca698173aef7f0c7",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/soulstealer_bow_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/soulstealer_bow_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/soulstealer_bow_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "896d7acfd4d83188",
+        "old_hash": "aeaa5c7cb2af6466",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/soulstealer_bow_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/soulstealer_bow_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/soulstealer_bow_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "eae3a82c3907f251",
+        "old_hash": "e6c0b43bac13e6e4",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/soulstealer_bow_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/spider_queens_stinger\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/spider_queens_stinger\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "8702518dc15fd55c",
+        "old_hash": "9b52d3560b83d249",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/spider_queens_stinger.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/spider_queens_stinger_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/spider_queens_stinger_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "30aa7466b714032e",
+        "old_hash": "d1b748f2e071f960",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/spider_queens_stinger_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/spider_queens_stinger_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/spider_queens_stinger_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "74d66b7fc63f4ed0",
+        "old_hash": "bf8479ebb2b08609",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/spider_queens_stinger_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/spider_queens_stinger_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/spider_queens_stinger_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "7df5ac476b77a31e",
+        "old_hash": "0d116eef74b6fc0c",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/spider_queens_stinger_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/sulphur_bow\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/sulphur_bow\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "95ecf92b9f7a2f79",
+        "old_hash": "921cdcd48c0f387e",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/sulphur_bow.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/sulphur_bow_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/sulphur_bow_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "edd056f153703f5b",
+        "old_hash": "2f4b781265d4e3e4",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/sulphur_bow_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/sulphur_bow_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/sulphur_bow_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "c45f87708f5a5d17",
+        "old_hash": "74594a1e4a360fb5",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/sulphur_bow_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/sulphur_bow_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/sulphur_bow_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "247e8eafb550bba2",
+        "old_hash": "c882cca1d31cc5f9",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/sulphur_bow_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/super_undead_bow\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/super_undead_bow\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "6d5bf2fc07a4874a",
+        "old_hash": "c24497a315687525",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/super_undead_bow.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/super_undead_bow_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/super_undead_bow_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "c2ea17c029de1e64",
+        "old_hash": "4f34c2b8fae39a76",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/super_undead_bow_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/super_undead_bow_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/super_undead_bow_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "cc734c15de0290eb",
+        "old_hash": "47a4acf668cee6c0",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/super_undead_bow_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/super_undead_bow_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/super_undead_bow_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "8d852a7c19baa51f",
+        "old_hash": "d6177cca67f9bbf8",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/super_undead_bow_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/titanium_drill_dr_x355_handle\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/titanium_drill_dr_x355_handle\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "73019376eaea07f0",
+        "old_hash": "99aa19325ed66edb",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/titanium_drill_dr_x355_handle.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/titanium_drill_dr_x355_head\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/titanium_drill_dr_x355_head\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "1008a245f34135c4",
+        "old_hash": "ab550ab9fa2bdf13",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/titanium_drill_dr_x355_head.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/titanium_drill_dr_x355_head_animated\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/titanium_drill_dr_x355_head_animated\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "c6b072c2224081ed",
+        "old_hash": "fcb968470c5407ad",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/titanium_drill_dr_x355_head_animated.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/titanium_drill_dr_x455_handle\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/titanium_drill_dr_x455_handle\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "3a654baed11f9d70",
+        "old_hash": "d77fdf3745fb94a7",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/titanium_drill_dr_x455_handle.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/titanium_drill_dr_x455_head\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/titanium_drill_dr_x455_head\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "e0a0093f57f2bf95",
+        "old_hash": "0b250055c5ae6e6a",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/titanium_drill_dr_x455_head.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/titanium_drill_dr_x455_head_animated\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/titanium_drill_dr_x455_head_animated\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "0d326051fa57cfd5",
+        "old_hash": "87df6d3fcd6689c9",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/titanium_drill_dr_x455_head_animated.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/titanium_drill_dr_x555_handle\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/titanium_drill_dr_x555_handle\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "4fa3d3d1f42accd0",
+        "old_hash": "f4e1fcc837f857e9",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/titanium_drill_dr_x555_handle.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/titanium_drill_dr_x555_head\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/titanium_drill_dr_x555_head\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "51f8c67d63b87490",
+        "old_hash": "3fd6106d87ac2ee6",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/titanium_drill_dr_x555_head.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/titanium_drill_dr_x555_head_animated\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/titanium_drill_dr_x555_head_animated\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "e08b4c5503b27a71",
+        "old_hash": "23f1897d00277f03",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/titanium_drill_dr_x555_head_animated.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/titanium_drill_dr_x655_handle\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/titanium_drill_dr_x655_handle\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "3d2f3f48495d9991",
+        "old_hash": "2428c47b1cd79380",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/titanium_drill_dr_x655_handle.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/titanium_drill_dr_x655_head\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/titanium_drill_dr_x655_head\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "32740ccfffbbde61",
+        "old_hash": "1843629df696ce2f",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/titanium_drill_dr_x655_head.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/titanium_drill_dr_x655_head_animated\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/titanium_drill_dr_x655_head_animated\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "7c2e53a034e5ddfe",
+        "old_hash": "41756004c92259d6",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/titanium_drill_dr_x655_head_animated.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/topaz_drill_kgr_12_handle\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/topaz_drill_kgr_12_handle\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "328473a625869b20",
+        "old_hash": "c7bea9697750b213",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/topaz_drill_kgr_12_handle.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/topaz_drill_kgr_12_head\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/topaz_drill_kgr_12_head\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "fde45e73e97daa11",
+        "old_hash": "71bcbac7f7f2433e",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/topaz_drill_kgr_12_head.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/handheld\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/topaz_drill_kgr_12_head_animated\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/topaz_drill_kgr_12_head_animated\"},\"display\":{\"thirdperson_righthand\":{\"rotation\":[0,-90,-45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]},\"thirdperson_lefthand\":{\"rotation\":[0,90,45],\"translation\":[0,4.0,0.5],\"scale\":[0.85,0.85,0.85]}}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "4c0eb4720264f3f7",
+        "old_hash": "05354b81d1a31d4f",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/topaz_drill_kgr_12_head_animated.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/undead_bow\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/undead_bow\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "60cddd492fbddf30",
+        "old_hash": "c961fe91f3836c7d",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/undead_bow.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/undead_bow_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/undead_bow_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "77f749daec58a3b2",
+        "old_hash": "dc97f9261204a1c9",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/undead_bow_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/undead_bow_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/undead_bow_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "56ed75d4b6d87611",
+        "old_hash": "468a53e70ef4cf42",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/undead_bow_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/undead_bow_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/undead_bow_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "98e40bae8190414f",
+        "old_hash": "7325af3eefca67e9",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/undead_bow_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/venoms_touch\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/venoms_touch\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "18cf5e6004d5ac88",
+        "old_hash": "fea823024a07d8c4",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/venoms_touch.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/venoms_touch_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/venoms_touch_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "5c510db5a6c53c4e",
+        "old_hash": "7c746a27778605ef",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/venoms_touch_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/venoms_touch_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/venoms_touch_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "85354e49c46d6caf",
+        "old_hash": "8939cb639688b7de",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/venoms_touch_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/venoms_touch_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/venoms_touch_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "c1aa4a71b17f0bc0",
+        "old_hash": "57d30f73fa4c38f7",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/venoms_touch_pulling_2.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/wither_bow\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/wither_bow\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "4eb42fbfe871e9fc",
+        "old_hash": "45f05530021c384b",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/wither_bow.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/wither_bow_pulling_0\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/wither_bow_pulling_0\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "8264e521063f3dc0",
+        "old_hash": "c53dd9c1426caee3",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/wither_bow_pulling_0.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/wither_bow_pulling_1\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/wither_bow_pulling_1\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "9c21544e41b9955f",
+        "old_hash": "1a7410a5ae3f4134",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/wither_bow_pulling_1.json"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"parent\":\"item/generated\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/wither_bow_pulling_2\"}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"parent\":\"item/bow\",\"textures\":{\"layer0\":\"hypixel_skyblock:item/uncategorized/wither_bow_pulling_2\"}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "ef7daac90949bc1c",
+        "old_hash": "c6174ee0ecfbccaa",
+        "path": "assets/hypixel_skyblock/models/item/uncategorized/wither_bow_pulling_2.json"
+      },
+      {
+        "kind": "binary",
+        "new_hash": "ea589e8a7370baf7",
+        "old_hash": "22912d2fa2bc6a24",
+        "path": "assets/hypixel_skyblock/textures/item/collections/gemstone/onyx/fine_onyx_gem.png"
+      },
+      {
+        "kind": "binary",
+        "new_hash": "b27bc9cd47de2de8",
+        "old_hash": "99f4f78845cb5a94",
+        "path": "assets/hypixel_skyblock/textures/item/collections/gemstone/onyx/flawed_onyx_gem.png"
+      },
+      {
+        "kind": "binary",
+        "new_hash": "e6f55d79921c6929",
+        "old_hash": "ef60b28831b90499",
+        "path": "assets/hypixel_skyblock/textures/item/glacite/uncategorized/perfect_plate.png"
+      },
+      {
+        "kind": "binary",
+        "new_hash": "f195f04caa72a252",
+        "old_hash": "0a0117695e7ad23e",
+        "path": "assets/hypixel_skyblock/textures/item/reforge_stones/toil_log.png"
+      },
+      {
+        "kind": "binary",
+        "new_hash": "36b8aabbd680ec81",
+        "old_hash": "1b477670db8cd8bf",
+        "path": "assets/hypixel_skyblock/textures/item/slayer/blaze/gemstones/fine_opal_gem.png"
+      },
+      {
+        "kind": "binary",
+        "new_hash": "9b81a8df4123f5e1",
+        "old_hash": "b497edbb95d1f523",
+        "path": "assets/hypixel_skyblock/textures/item/slayer/blaze/gemstones/flawed_opal_gem.png"
+      },
+      {
+        "kind": "binary",
+        "new_hash": "7f62f77c99039378",
+        "old_hash": "f3b6caa9ca07d2aa",
+        "path": "assets/hypixel_skyblock/textures/item/slayer/blaze/gemstones/flawless_opal_gem.png"
+      },
+      {
+        "kind": "binary",
+        "new_hash": "9c86d370163158de",
+        "old_hash": "8e959f17bdd6911a",
+        "path": "assets/hypixel_skyblock/textures/item/slayer/blaze/gemstones/perfect_opal_gem.png"
+      },
+      {
+        "kind": "binary",
+        "new_hash": "5f153170b7218797",
+        "old_hash": "e9f803270c2aa59b",
+        "path": "assets/hypixel_skyblock/textures/item/slayer/blaze/gemstones/rough_opal_gem.png"
+      },
+      {
+        "kind": "binary",
+        "new_hash": "94a37a114da4000f",
+        "old_hash": "e7af28ab1d8a10f8",
+        "path": "assets/hypixel_skyblock/textures/item/slayer/blaze/minion/fuel/distillate/gabagool_distillate.png"
+      },
+      {
+        "kind": "binary",
+        "new_hash": "38aa9663ea817c57",
+        "old_hash": "4bd8738ef1513530",
+        "path": "assets/hypixel_skyblock/textures/item/uncategorized/bob_omb.png"
+      },
+      {
+        "kind": "binary",
+        "new_hash": "ca3a4129436b5842",
+        "old_hash": "c6a95bb474c94f95",
+        "path": "assets/hypixel_skyblock/textures/item/uncategorized/divans_drill_head_animated.png"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"animation\":{\"frametime\":2,\"frames\":[8,7,6,5,4,3,2,1,0]}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"animation\":{\"frametime\":2,\"frames\":[2,1,0]}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "5a2f6ac1426ef944",
+        "old_hash": "71e94b8c74169306",
+        "path": "assets/hypixel_skyblock/textures/item/uncategorized/divans_drill_head_animated.png.mcmeta"
+      },
+      {
+        "kind": "binary",
+        "new_hash": "302494b5c277a6d0",
+        "old_hash": "e86a0f72b52e7090",
+        "path": "assets/hypixel_skyblock/textures/item/uncategorized/jasper_drill_x_head_animated.png"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"animation\":{\"frametime\":2,\"frames\":[5,4,3,2,1,0]}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"animation\":{\"frametime\":2,\"frames\":[2,1,0]}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "5a2f6ac1426ef944",
+        "old_hash": "9018b22cce5b0a92",
+        "path": "assets/hypixel_skyblock/textures/item/uncategorized/jasper_drill_x_head_animated.png.mcmeta"
+      },
+      {
+        "kind": "binary",
+        "new_hash": "9359766184a90594",
+        "old_hash": "a6772d4ed9dda3aa",
+        "path": "assets/hypixel_skyblock/textures/item/uncategorized/mushroom_cow_axe.png"
+      },
+      {
+        "kind": "binary",
+        "new_hash": "4bd8738ef1513530",
+        "old_hash": "38aa9663ea817c57",
+        "path": "assets/hypixel_skyblock/textures/item/uncategorized/superboom_tnt.png"
+      },
+      {
+        "kind": "binary",
+        "new_hash": "ed70d0f1eb289b68",
+        "old_hash": "7c295ee91472f40b",
+        "path": "assets/hypixel_skyblock/textures/item/uncategorized/titanium_drill_dr_x655_head_animated.png"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"animation\":{\"frametime\":2,\"frames\":[5,4,3,2,1,0]}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"animation\":{\"frametime\":2,\"frames\":[2,3,0,2,1,0]}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "82d1358b014e6b03",
+        "old_hash": "9018b22cce5b0a92",
+        "path": "assets/hypixel_skyblock/textures/item/uncategorized/titanium_drill_dr_x655_head_animated.png.mcmeta"
+      },
+      {
+        "kind": "binary",
+        "new_hash": "d4c19b0ee0fd2662",
+        "old_hash": "b7cb4722e4b0d4ef",
+        "path": "assets/hypixel_skyblock/textures/item/uncategorized/topaz_drill_kgr_12_head_animated.png"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "del",
+                "text": "{\"animation\":{\"frametime\":2,\"frames\":[5,4,3,2,1,0]}}"
+              },
+              {
+                "kind": "add",
+                "text": "{\"animation\":{\"frametime\":2,\"frames\":[2,1,0]}}"
+              }
+            ],
+            "new_start": 1,
+            "old_start": 1
+          }
+        ],
+        "kind": "text",
+        "new_hash": "5a2f6ac1426ef944",
+        "old_hash": "9018b22cce5b0a92",
+        "path": "assets/hypixel_skyblock/textures/item/uncategorized/topaz_drill_kgr_12_head_animated.png.mcmeta"
+      },
+      {
+        "hunks": [
+          {
+            "lines": [
+              {
+                "kind": "ctx",
+                "text": "#extension GL_ARB_separate_shader_objects : require"
+              },
+              {
+                "kind": "ctx",
+                "text": ""
+              },
+              {
+                "kind": "del",
+                "text": "#include <shared_data_ids.glsl>"
+              },
+              {
+                "kind": "add",
+                "text": "#include <emissives.glsl>"
+              },
+              {
+                "kind": "ctx",
+                "text": ""
+              },
+              {
+                "kind": "ctx",
+                "text": "#ifdef GLINT"
+              }
+            ],
+            "new_start": 2,
+            "old_start": 2
+          },
+          {
+            "lines": [
+              {
+                "kind": "ctx",
+                "text": "#endif"
+              },
+              {
+                "kind": "ctx",
+                "text": ""
+              },
+              {
+                "kind": "add",
+                "text": "layout(location = 11) in vec4 emissiveTint;"
+              },
+              {
+                "kind": "add",
+                "text": ""
+              },
+              {
+                "kind": "ctx",
+                "text": "void main() {"
+              },
+              {
+                "kind": "del",
+                "text": "    vec4 color = texture(Sampler0, texCoord0);"
+              },
+              {
+                "kind": "add",
+                "text": "    vec4 sampledColor = texture(Sampler0, texCoord0);"
+              },
+              {
+                "kind": "add",
+                "text": "    float emissiveOpacity = getEmissiveOpacity(sampledColor.a);"
+              },
+              {
+                "kind": "add",
+                "text": "    vec4 color = sampledColor;"
+              },
+              {
+                "kind": "add",
+                "text": "    color.a = emissiveOpacity >= 0.0 ? emissiveOpacity : sampledColor.a;"
+              },
+              {
+                "kind": "ctx",
+                "text": "    #ifdef ALPHA_CUTOUT"
+              },
+              {
+                "kind": "ctx",
+                "text": "    if (color.a < ALPHA_CUTOUT) {"
+              }
+            ],
+            "new_start": 56,
+            "old_start": 56
+          },
+          {
+            "lines": [
+              {
+                "kind": "ctx",
+                "text": ""
+              },
+              {
+                "kind": "ctx",
+                "text": "    color *= vertexColor * ColorModulator;"
+              },
+              {
+                "kind": "add",
+                "text": "    color = applyEmissiveColor(color, sampledColor, emissiveTint * ColorModulator, emissiveOpacity);"
+              },
+              {
+                "kind": "ctx",
+                "text": ""
+              },
+              {
+                "kind": "ctx",
+                "text": "    #ifdef GLINT"
+              }
+            ],
+            "new_start": 70,
+            "old_start": 65
+          },
+          {
+            "lines": [
+              {
+                "kind": "ctx",
+                "text": "    #else"
+              },
+              {
+                "kind": "ctx",
+                "text": "    vec4 _lightMapColor = lightMapColor;"
+              },
+              {
+                "kind": "del",
+                "text": "    vec4 _overlayColor = overlayColor;"
+              },
+              {
+                "kind": "ctx",
+                "text": ""
+              },
+              {
+                "kind": "del",
+                "text": "    // Emissive textures"
+              },
+              {
+                "kind": "del",
+                "text": "    if (shouldApplyEmissives(color.a)) {"
+              },
+              {
+                "kind": "add",
+                "text": "    if (emissiveOpacity >= 0.0) {"
+              },
+              {
+                "kind": "ctx",
+                "text": "        _lightMapColor = vec4(1.0);"
+              },
+              {
+                "kind": "del",
+                "text": "        _overlayColor = vec4(0.0);"
+              },
+              {
+                "kind": "ctx",
+                "text": "    }"
+              },
+              {
+                "kind": "ctx",
+                "text": ""
+              },
+              {
+                "kind": "del",
+                "text": "    // 50% Opaque Emissive textures"
+              },
+              {
+                "kind": "del",
+                "text": "    if (shouldApplyHalfOpaqueEmissives(color.a)) {"
+              },
+              {
+                "kind": "del",
+                "text": "        color.a = 0.5;"
+              },
+              {
+                "kind": "del",
+                "text": "        _lightMapColor = vec4(1.0);"
+              },
+              {
+                "kind": "del",
+                "text": "        _overlayColor = vec4(0.0);"
+              },
+              {
+                "kind": "del",
+                "text": "    }"
+              },
+              {
+                "kind": "del",
+                "text": "    "
+              },
+              {
+                "kind": "del",
+                "text": "    fragColor = calculateFinalColor(color, _lightMapColor, _overlayColor);"
+              },
+              {
+                "kind": "add",
+                "text": "    fragColor = calculateFinalColor(color, _lightMapColor, overlayColor);"
+              },
+              {
+                "kind": "ctx",
+                "text": "    #endif"
+              },
+              {
+                "kind": "ctx",
+                "text": "}"
+              }
+            ],
+            "new_start": 80,
+            "old_start": 74
+          }
+        ],
+        "kind": "text",
+        "new_hash": "0a0a7870fd666237",
+        "old_hash": "6da59f2c0cab048c",
+        "path": "assets/minecraft/shaders/core/item.fsh"
+      }
+    ],
+    "note": null,
+    "pack_format": 97,
+    "pack_hash": "d6713050c8f95c355714d9d62ff91f8f6d6790fc",
     "pack_id": "SkyBlock",
+    "removed": [
+      "assets/hypixel_skyblock/items/item/collections/gemstone/opal/fine_opal_gem.json",
+      "assets/hypixel_skyblock/items/item/collections/gemstone/opal/flawed_opal_gem.json",
+      "assets/hypixel_skyblock/items/item/collections/gemstone/opal/flawless_opal_gem.json",
+      "assets/hypixel_skyblock/items/item/collections/gemstone/opal/perfect_opal_gem.json",
+      "assets/hypixel_skyblock/items/item/collections/gemstone/opal/rough_opal_gem.json",
+      "assets/hypixel_skyblock/items/item/fishing/rod/admin_lava_rod.json",
+      "assets/hypixel_skyblock/items/item/fishing/rod/admin_water_rod.json",
+      "assets/hypixel_skyblock/items/item/island_relevant/safari/critter_capsule_active.json",
+      "assets/hypixel_skyblock/items/item/island_relevant/safari/critter_capsule_inactive.json",
+      "assets/hypixel_skyblock/items/item/island_relevant/safari/masterful_critter_capsule_active.json",
+      "assets/hypixel_skyblock/items/item/island_relevant/safari/masterful_critter_capsule_inactive.json",
+      "assets/hypixel_skyblock/items/item/reforge_stones/fighting_booster.json",
+      "assets/hypixel_skyblock/items/item/reforge_stones/foraging_fortune_booster.json",
+      "assets/hypixel_skyblock/items/item/reforge_stones/foraging_wisdom_booster.json",
+      "assets/hypixel_skyblock/items/item/reforge_stones/luck_booster.json",
+      "assets/hypixel_skyblock/items/item/reforge_stones/sweep_booster.json",
+      "assets/hypixel_skyblock/items/item/uncategorized/infinivacuum.json",
+      "assets/hypixel_skyblock/items/item/uncategorized/infinivacuum_hooverius.json",
+      "assets/hypixel_skyblock/models/item/collections/gemstone/opal/fine_opal_gem.json",
+      "assets/hypixel_skyblock/models/item/collections/gemstone/opal/flawed_opal_gem.json",
+      "assets/hypixel_skyblock/models/item/collections/gemstone/opal/flawless_opal_gem.json",
+      "assets/hypixel_skyblock/models/item/collections/gemstone/opal/perfect_opal_gem.json",
+      "assets/hypixel_skyblock/models/item/collections/gemstone/opal/rough_opal_gem.json",
+      "assets/hypixel_skyblock/models/item/fishing/rod/admin_lava_rod.json",
+      "assets/hypixel_skyblock/models/item/fishing/rod/admin_lava_rod_cast.json",
+      "assets/hypixel_skyblock/models/item/fishing/rod/admin_water_rod.json",
+      "assets/hypixel_skyblock/models/item/fishing/rod/admin_water_rod_cast.json",
+      "assets/hypixel_skyblock/models/item/reforge_stones/fighting_booster.json",
+      "assets/hypixel_skyblock/models/item/reforge_stones/foraging_fortune_booster.json",
+      "assets/hypixel_skyblock/models/item/reforge_stones/foraging_wisdom_booster.json",
+      "assets/hypixel_skyblock/models/item/reforge_stones/luck_booster.json",
+      "assets/hypixel_skyblock/models/item/reforge_stones/sweep_booster.json",
+      "assets/hypixel_skyblock/models/item/uncategorized/infinivacuum.json",
+      "assets/hypixel_skyblock/models/item/uncategorized/infinivacuum_hooverius.json",
+      "assets/hypixel_skyblock/textures/gui/sprites/tooltip/admin_background.png",
+      "assets/hypixel_skyblock/textures/gui/sprites/tooltip/admin_background.png.mcmeta",
+      "assets/hypixel_skyblock/textures/gui/sprites/tooltip/admin_frame.png",
+      "assets/hypixel_skyblock/textures/gui/sprites/tooltip/admin_frame.png.mcmeta",
+      "assets/hypixel_skyblock/textures/gui/sprites/tooltip/ultimate_background.png",
+      "assets/hypixel_skyblock/textures/gui/sprites/tooltip/ultimate_background.png.mcmeta",
+      "assets/hypixel_skyblock/textures/gui/sprites/tooltip/ultimate_frame.png",
+      "assets/hypixel_skyblock/textures/gui/sprites/tooltip/ultimate_frame.png.mcmeta",
+      "assets/hypixel_skyblock/textures/item/collections/gemstone/opal/fine_opal_gem.png",
+      "assets/hypixel_skyblock/textures/item/collections/gemstone/opal/flawed_opal_gem.png",
+      "assets/hypixel_skyblock/textures/item/collections/gemstone/opal/flawless_opal_gem.png",
+      "assets/hypixel_skyblock/textures/item/collections/gemstone/opal/perfect_opal_gem.png",
+      "assets/hypixel_skyblock/textures/item/collections/gemstone/opal/rough_opal_gem.png",
+      "assets/hypixel_skyblock/textures/item/fishing/rod/admin_lava_rod.png",
+      "assets/hypixel_skyblock/textures/item/fishing/rod/admin_lava_rod_cast.png",
+      "assets/hypixel_skyblock/textures/item/fishing/rod/admin_water_rod.png",
+      "assets/hypixel_skyblock/textures/item/fishing/rod/admin_water_rod_cast.png",
+      "assets/hypixel_skyblock/textures/item/reforge_stones/fighting_booster.png",
+      "assets/hypixel_skyblock/textures/item/reforge_stones/foraging_fortune_booster.png",
+      "assets/hypixel_skyblock/textures/item/reforge_stones/foraging_wisdom_booster.png",
+      "assets/hypixel_skyblock/textures/item/reforge_stones/luck_booster.png",
+      "assets/hypixel_skyblock/textures/item/reforge_stones/sweep_booster.png",
+      "assets/hypixel_skyblock/textures/item/uncategorized/infinivacuum.png",
+      "assets/hypixel_skyblock/textures/item/uncategorized/infinivacuum_hooverius.png",
+      "assets/minecraft/shaders/include/shared_data_ids.glsl"
+    ],
+    "time": "2026-11-17 22:30:02",
+    "total_files": 4718
+  },
+  {
+    "added": [],
     "deploy_id": "1b5b3899-cdc3-4c90-ac57-7d3867e099d5",
+    "modified": [],
+    "note": "首次建立基线",
     "pack_format": 97,
     "pack_hash": "526bd87b753a8c877a75b27bce6ac58ef8bc9bfe",
-    "total_files": 4756,
-    "added": [],
-    "modified": [],
+    "pack_id": "SkyBlock",
     "removed": [],
-    "note": "首次建立基线"
+    "time": "2026-11-03T06:27:26Z",
+    "total_files": 4756
   }
 ]
