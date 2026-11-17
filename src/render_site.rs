@@ -1099,6 +1099,7 @@ pub fn build_site_html(
     let firesale_js = read_asset(&static_dir.join("firesale.js"));
     let theme_css = read_asset(&static_dir.join("theme.css"));
     let theme_js = read_asset(&static_dir.join("theme.js"));
+    let tz_css = read_asset(&static_dir.join("tz.css"));
 
     // 主样式：templates/site_style.css（{days} 占位符在读取后替换）
     let mut main_css = read_asset(&base_dir().join("templates").join("site_style.css"));
@@ -1114,6 +1115,8 @@ pub fn build_site_html(
     context.insert("firesale_css", &firesale_css);
     context.insert("theme_css", &theme_css);
     context.insert("theme_js", &theme_js);
+    // 静态站固定北京时间（UTC+8），只用到 .tz-fixed 的徽章样式
+    context.insert("tz_css", &tz_css);
     context.insert("skip_html", &skip_html);
     context.insert("version_display", &version_display);
     context.insert("sync_status", &sync_status);

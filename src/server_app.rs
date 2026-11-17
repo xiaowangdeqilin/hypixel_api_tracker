@@ -614,6 +614,16 @@ fn render_index(query: &str, cookie_lang: Option<&str>) -> String {
             .collect::<Vec<_>>(),
     );
     context.insert("i18n_pack", &serde_json::to_string(&pack).unwrap_or_default());
+    // 时区适配：默认按浏览器时区换算；「（北京时间）」的本地化写法交给前端，
+    // 便于把各语言里的该后缀同步替换成当前时区的 UTC 偏移。
+    context.insert(
+        "tz_config",
+        &serde_json::to_string(&json!({
+            "beijing_label": i18n::translate(&lang, "（北京时间）", None),
+            "default_zone": "Asia/Shanghai",
+        }))
+        .unwrap_or_default(),
+    );
     context.insert("t", &t);
     context.insert("sync_status", &sync_status);
     context.insert("sync_label", &sync_label);

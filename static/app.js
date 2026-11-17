@@ -53,7 +53,8 @@ function escapeHtml(value) {
     .replace(/'/g, '&#39;');
 }
 
-// 后端写入已统一为北京时间；这里对历史 UTC 数据做兜底转换。
+// 后端写入已统一为北京时间，这里只对历史 UTC 数据做兜底转换；
+// 浏览器时区换算统一交给 tz.js（对页面文本统一处理，避免二次换算）。
 function formatTime(value) {
   if (!value) return '-';
   const text = String(value).trim();

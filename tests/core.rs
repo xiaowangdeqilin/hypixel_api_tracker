@@ -395,3 +395,35 @@ fn version_history_prunes_older_than_30_days_and_caps_at_20() {
         "超过 30 天的记录应被删除"
     );
 }
+
+#[test]
+fn static_site_pins_beijing_timezone_and_has_no_tz_js() {
+    use hypixel_tracker::render_site::build_site_html;
+    let html = build_site_html(
+        "2026-11-10 12:00:00",
+        &serde_json::json!({}),
+        &[],
+        &serde_json::json!({}),
+        "0",
+        "test",
+        &serde_json::json!({}),
+        &[],
+        &serde_json::json!({}),
+        false,
+        &serde_json::Value::Null,
+        &serde_json::json!({}),
+        None,
+    )
+    .expect("静态站应能渲染");
+    // GitHub Pages 版本：固定北京时间（UTC+8）徽章 + 不可修改说明
+    assert!(html.contains("data-tz-fixed"), "应包含固定时区徽章");
+    assert!(html.contains("北京时间 · UTC+08:00"), "应显示固定时区文案");
+    assert!(
+        html.contains("固定不可修改"),
+        "副标题应说明 GitHub 版本时区不可修改"
+    );
+    // 静态站不做浏览器时区换算：不加载 tz.js
+    assert!(!html.contains("tz.js"), "静态站不应引用 tz.js");
+    // 但要有 .tz-fixed 徽章样式
+    assert!(html.contains(".tz-fixed"), "应内联时区徽章样式");
+}

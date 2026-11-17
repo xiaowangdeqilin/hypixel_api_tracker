@@ -11,6 +11,7 @@
   {% if secret_panel %}<style>{{ secret_css }}</style>{% endif %}
   <style>{{ firesale_css }}</style>
   <style>{{ theme_css }}</style>
+  <style>{{ tz_css }}</style>
   <script>{{ theme_js }}</script>
 </head>
 <body>
@@ -20,13 +21,15 @@
       <div class="version-main">
         <span class="version-tag">当前版本 {{ version_display }}</span>
         <span class="sync-badge sync-{{ sync_status }}">{{ sync_label }}</span>
+        <!-- GitHub Pages 版本固定北京时间（UTC+8），不随浏览器时区变化，也不提供切换 -->
+        <span class="tz-fixed" data-tz-fixed title="GitHub Pages 版本固定使用北京时间（UTC+8），不随时区调整">🕒 北京时间 · UTC+08:00</span>
       </div>
       <span class="version-meta">{{ observed_text }} &middot; 仪表盘 v{{ dashboard_version }} &middot; 构建 {{ build }} &middot; 生成于 {{ generated_at }}（北京时间）</span>
     </div>
     {{ note_html }}
 
     <h1>Hypixel SkyBlock API 变更监控台</h1>
-    <div class="subtitle">监控收藏、技能、物品、集市、资源包、限时特卖与 Bingo 任务七个端点，并解压比对资源包内文件变化。数据由 GitHub Actions 定时抓取，所有时间均为北京时间（UTC+8）。页面最下方以 5×5 方格汇总当前 Bingo 的全部任务，倒计时由浏览器本地计算。</div>
+    <div class="subtitle">监控收藏、技能、物品、集市、资源包、限时特卖与 Bingo 任务七个端点，并解压比对资源包内文件变化。数据由 GitHub Actions 定时抓取，所有时间均为北京时间（UTC+8）且固定不可修改（本地服务版会按浏览器时区自动换算）。页面最下方以 5×5 方格汇总当前 Bingo 的全部任务，倒计时由浏览器本地计算。</div>
 
     <div class="cards">{{ cards }}</div>
 

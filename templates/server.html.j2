@@ -10,10 +10,14 @@
     <link rel="stylesheet" href="/static/firesale.css" />
     <link rel="stylesheet" href="/static/theme.css" />
     <link rel="stylesheet" href="/static/i18n.css" />
+    <link rel="stylesheet" href="/static/tz.css" />
+    {# 时区：按浏览器时区换算，配置以 JSON 数据块注入（beijing_label 用于同步「（北京时间）」后缀）#}
+    <script type="application/json" id="tz-config">{{ tz_config }}</script>
     {% if i18n_enabled %}{# 译文以不可执行的 JSON 数据块注入，配合 CSP script-src 'self' #}
     <script type="application/json" id="i18n-pack">{{ i18n_pack }}</script>
     {% endif %}
     <script src="/static/theme.js"></script>
+    <script src="/static/tz.js"></script>
     {% if i18n_enabled %}
     <script src="/static/i18n.js"></script>
     {% endif %}
@@ -35,6 +39,13 @@
           </select>
         </label>
         {% endif %}
+        <label class="tz-switch" data-tz-switch data-tz-pinned="0"
+               title="Timezone · auto-detected from your browser; add ?tz=Area/City to pin">
+          <span class="tz-switch-icon" aria-hidden="true">🕒</span>
+          <select data-tz-select aria-label="Timezone">
+            <option value="auto">UTC+08:00</option>
+          </select>
+        </label>
         <span class="version-meta">
           {{ t['收藏'] }} v{{ version_info.versions.collections | default(value=t['未获取']) }} · {{ t['技能'] }} v{{ version_info.versions.skills | default(value=t['未获取']) }}
           · {{ t['仪表盘'] }} v{{ version }} · {{ t['更新于'] }} {{ version_info.updated_at }}{{ t['（北京时间）'] }} · {{ t['每 30 秒自动刷新'] }}

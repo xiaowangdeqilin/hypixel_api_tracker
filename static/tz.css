@@ -1,0 +1,51 @@
+/* 时区切换 / 固定时区标签（服务端页可切换，GitHub Pages 静态页固定 UTC+8） */
+
+.tz-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.tz-switch-icon {
+  font-size: 13px;
+  line-height: 1;
+  opacity: 0.9;
+}
+
+.tz-switch select {
+  max-width: 240px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border, rgba(128, 128, 128, 0.35));
+  background: var(--bg-card, transparent);
+  color: inherit;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* 手动钉住某个时区时给个视觉提示 */
+.tz-switch[data-tz-pinned='1'] select {
+  border-color: var(--accent, rgba(255, 255, 255, 0.6));
+  font-weight: 600;
+}
+
+/* GitHub Pages 静态页：固定北京时间，不提供切换 */
+.tz-fixed {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  white-space: nowrap;
+}
+
+[dir='rtl'] .tz-switch,
+[dir='rtl'] .tz-fixed {
+  direction: ltr;
+}
