@@ -27,29 +27,67 @@ env:
   RELEASE_TAG: ${{ github.event.inputs.tag || github.ref_name }}
 
 jobs:
+  # 先算矩阵：macOS 目标需要 GitHub 托管的 macOS 运行器。账号/仓库拿不到机器时，
+  # 这些任务会一直排队（不是失败），整个 run 就永远停在 queued，publish 永远等不到。
+  # 所以默认只跑 Linux / Windows；把仓库变量 MACOS_RUNNERS 设为 1 才加入 macOS。
+  # 注意：matrix 在 job 级 if 里不可用，只能这样先算好再喂给 strategy。
+  plan:
+    name: plan-matrix
+    runs-on: ubuntu-24.04
+    outputs:
+      targets: ${{ steps.build.outputs.targets }}
+      installers: ${{ steps.build.outputs.installers }}
+    steps:
+      - id: build
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - "${{ vars.MACOS_RUNNERS }}" <<'PYEOF' >> "$GITHUB_OUTPUT"
+          import json
+          import sys
+
+          macos = sys.argv[1] == "1"
+
+          targets = [
+              {"os": "ubuntu-24.04", "target": "x86_64-unknown-linux-gnu", "ext": "tar.gz"},
+              {"os": "ubuntu-24.04", "target": "aarch64-unknown-linux-gnu", "ext": "tar.gz", "cross": True},
+              {"os": "ubuntu-24.04", "target": "x86_64-unknown-linux-musl", "ext": "tar.gz", "musl": True},
+              {"os": "windows-2022", "target": "x86_64-pc-windows-msvc", "ext": "zip"},
+          ]
+          if macos:
+              targets += [
+                  {"os": "macos-14", "target": "aarch64-apple-darwin", "ext": "tar.gz", "experimental": True},
+                  {"os": "macos-13", "target": "x86_64-apple-darwin", "ext": "tar.gz", "experimental": True},
+              ]
+          # 实验性目标：允许失败，不阻塞其它平台
+          targets += [
+              {"os": "ubuntu-24.04", "target": "aarch64-unknown-linux-musl", "ext": "tar.gz",
+               "cross": True, "musl": True, "experimental": True},
+              {"os": "windows-2022", "target": "aarch64-pc-windows-msvc", "ext": "zip", "experimental": True},
+          ]
+
+          installers = [
+              {"os": "windows-2022", "kind": "windows", "target": "x86_64-pc-windows-msvc"},
+              {"os": "ubuntu-24.04", "kind": "linux", "target": "x86_64-unknown-linux-gnu"},
+          ]
+          if macos:
+              installers += [
+                  {"os": "macos-14", "kind": "macos-arm64", "target": "aarch64-apple-darwin"},
+                  {"os": "macos-13", "kind": "macos-x64", "target": "x86_64-apple-darwin"},
+              ]
+
+          print("targets=" + json.dumps({"include": targets}, separators=(",", ":")))
+          print("installers=" + json.dumps({"include": installers}, separators=(",", ":")))
+          PYEOF
+
   binaries:
     name: ${{ matrix.target }}
+    needs: plan
     runs-on: ${{ matrix.os }}
-    # macOS 目标需要 GitHub 托管的 macOS 运行器。若账号/仓库拿不到机器，
-    # 任务会一直排队，把整个 run 拖在 queued 状态，publish 永远等不到。
-    # 因此用仓库变量 MACOS_RUNNERS=1 显式开启；未开启时直接跳过这些组合。
-    if: ${{ !startsWith(matrix.os, 'macos') || vars.MACOS_RUNNERS == '1' }}
     continue-on-error: ${{ matrix.experimental == true }}
     strategy:
       fail-fast: false
-      matrix:
-        include:
-          - { os: ubuntu-24.04, target: x86_64-unknown-linux-gnu, ext: tar.gz }
-          - { os: ubuntu-24.04, target: aarch64-unknown-linux-gnu, ext: tar.gz, cross: true }
-          - { os: ubuntu-24.04, target: x86_64-unknown-linux-musl, ext: tar.gz, musl: true }
-          - { os: windows-2022, target: x86_64-pc-windows-msvc, ext: zip }
-          # macOS 依赖 GitHub 托管运行器；运行器不可用时平台会直接取消任务，
-          # 因此标记为实验性：拿到机器就出包，拿不到不影响 Linux / Windows 发布。
-          - { os: macos-14, target: aarch64-apple-darwin, ext: tar.gz, experimental: true }
-          - { os: macos-13, target: x86_64-apple-darwin, ext: tar.gz, experimental: true }
-          # 实验性目标：允许失败，不阻塞发布
-          - { os: ubuntu-24.04, target: aarch64-unknown-linux-musl, ext: tar.gz, cross: true, musl: true, experimental: true }
-          - { os: windows-2022, target: aarch64-pc-windows-msvc, ext: zip, experimental: true }
+      matrix: ${{ fromJSON(needs.plan.outputs.targets) }}
     steps:
       - uses: actions/checkout@v5
         with:
@@ -133,17 +171,12 @@ jobs:
 
   installers:
     name: installer-${{ matrix.kind }}
+    needs: plan
     runs-on: ${{ matrix.os }}
-    if: ${{ !startsWith(matrix.os, 'macos') || vars.MACOS_RUNNERS == '1' }}
     continue-on-error: true
     strategy:
       fail-fast: false
-      matrix:
-        include:
-          - { os: windows-2022, kind: windows, target: x86_64-pc-windows-msvc }
-          - { os: macos-14, kind: macos-arm64, target: aarch64-apple-darwin }
-          - { os: macos-13, kind: macos-x64, target: x86_64-apple-darwin }
-          - { os: ubuntu-24.04, kind: linux, target: x86_64-unknown-linux-gnu }
+      matrix: ${{ fromJSON(needs.plan.outputs.installers) }}
     steps:
       - uses: actions/checkout@v5
         with:
