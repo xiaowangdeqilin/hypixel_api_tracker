@@ -65,6 +65,8 @@ python3 -m hypixel_tracker_api            # 与上面等价
 | `HYPIXEL_DATA_URL` | raw.githubusercontent.com 上的 `site/data.json` | 主数据源 |
 | `HYPIXEL_DATA_FILE` | 空 | 指向本地 `data.json`，存在时优先于网络（便携包模式） |
 | `HYPIXEL_FALLBACK_URL` | jsDelivr 镜像 | 主源失败后的备用源 |
+| `HYPIXEL_LOCALE_URL` | raw.githubusercontent.com 上的 `locales/{code}.json` | 语言包主源 |
+| `HYPIXEL_LOCALE_FALLBACK_URL` | jsDelivr 镜像 | 语言包备用源（主源不可达时） |
 | `HYPIXEL_CACHE_DIR` | `~/.cache/hypixel-tracker-api` | 缓存与崩溃报告根目录 |
 | `HYPIXEL_DATA_TTL` | `300` | 数据缓存有效期（秒） |
 | `HYPIXEL_LOCALE_TTL` | `86400` | 语言包缓存有效期（秒） |
