@@ -1,7 +1,7 @@
 {
-  "checksum": "be3a5a85543fdee7b278cc91775471b26e939a5349475f7c51fef9d7cf14f9fc",
+  "checksum": "9e9f1ade6e5f69ef1da35ca633e6ef7d1af88d350e9b0881928fcfa460521db7",
   "endpoint": "skills",
-  "fetched_at": "2026-11-17 22:44:05",
+  "fetched_at": "2026-11-17 22:53:04",
   "payload": {
     "skills": {
       "ALCHEMY": {
@@ -1041,6 +1041,7 @@
               "+Access to Spider's Den",
               "Warrior I   Deal 4% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.1 Magic Find",
               "+100 Coins",
               "+5 SkyBlock XP"
             ]
@@ -1051,6 +1052,7 @@
             "unlocks": [
               "Warrior II   Deal 4➜8% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.1 Magic Find",
               "+250 Coins",
               "+5 SkyBlock XP"
             ]
@@ -1061,6 +1063,7 @@
             "unlocks": [
               "Warrior III   Deal 8➜12% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.1 Magic Find",
               "+500 Coins",
               "+5 SkyBlock XP"
             ]
@@ -1071,6 +1074,7 @@
             "unlocks": [
               "Warrior IV   Deal 12➜16% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.1 Magic Find",
               "+750 Coins",
               "+5 SkyBlock XP"
             ]
@@ -1081,6 +1085,7 @@
             "unlocks": [
               "Warrior V   Deal 16➜20% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.1 Magic Find",
               "+1,000 Coins",
               "+5 SkyBlock XP"
             ]
@@ -1091,6 +1096,7 @@
             "unlocks": [
               "Warrior VI   Deal 20➜24% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.1 Magic Find",
               "+2,000 Coins",
               "+5 SkyBlock XP"
             ]
@@ -1101,6 +1107,7 @@
             "unlocks": [
               "Warrior VII   Deal 24➜28% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.1 Magic Find",
               "+3,000 Coins",
               "+5 SkyBlock XP"
             ]
@@ -1111,6 +1118,7 @@
             "unlocks": [
               "Warrior VIII   Deal 28➜32% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.1 Magic Find",
               "+4,000 Coins",
               "+5 SkyBlock XP"
             ]
@@ -1121,6 +1129,7 @@
             "unlocks": [
               "Warrior IX   Deal 32➜36% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.1 Magic Find",
               "+5,000 Coins",
               "+5 SkyBlock XP"
             ]
@@ -1131,6 +1140,7 @@
             "unlocks": [
               "Warrior X   Deal 36➜40% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.1 Magic Find",
               "Displaced Leech Power Stone",
               "+7,500 Coins",
               "+5 SkyBlock XP"
@@ -1142,6 +1152,7 @@
             "unlocks": [
               "Warrior XI   Deal 40➜44% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.2 Magic Find",
               "+10,000 Coins",
               "+10 SkyBlock XP"
             ]
@@ -1153,6 +1164,7 @@
               "+Access to The End",
               "Warrior XII   Deal 44➜48% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.2 Magic Find",
               "+15,000 Coins",
               "+10 SkyBlock XP"
             ]
@@ -1163,6 +1175,7 @@
             "unlocks": [
               "Warrior XIII   Deal 48➜52% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.2 Magic Find",
               "+20,000 Coins",
               "+10 SkyBlock XP"
             ]
@@ -1173,6 +1186,7 @@
             "unlocks": [
               "Warrior XIV   Deal 52➜56% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.2 Magic Find",
               "+25,000 Coins",
               "+10 SkyBlock XP"
             ]
@@ -1183,6 +1197,7 @@
             "unlocks": [
               "Warrior XV   Deal 56➜60% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.2 Magic Find",
               "Intermediate Accessory Bag Powers",
               "Luxurious Spool Power Stone",
               "Rock Candy Power Stone",
@@ -1197,6 +1212,7 @@
             "unlocks": [
               "Warrior XVI   Deal 60➜64% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.2 Magic Find",
               "+40,000 Coins",
               "+10 SkyBlock XP"
             ]
@@ -1207,6 +1223,7 @@
             "unlocks": [
               "Warrior XVII   Deal 64➜68% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.2 Magic Find",
               "+50,000 Coins",
               "+10 SkyBlock XP"
             ]
@@ -1217,6 +1234,7 @@
             "unlocks": [
               "Warrior XVIII   Deal 68➜72% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.2 Magic Find",
               "+65,000 Coins",
               "+10 SkyBlock XP"
             ]
@@ -1227,6 +1245,7 @@
             "unlocks": [
               "Warrior XIX   Deal 72➜76% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.2 Magic Find",
               "+80,000 Coins",
               "+10 SkyBlock XP"
             ]
@@ -1237,6 +1256,7 @@
             "unlocks": [
               "Warrior XX   Deal 76➜80% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.2 Magic Find",
               "+Access to Zealot Bruiser Hideout",
               "Acacia Birdhouse Power Stone",
               "Sunflower Butter Power Stone",
@@ -1257,6 +1277,7 @@
             "unlocks": [
               "Warrior XXI   Deal 80➜84% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.3 Magic Find",
               "+125,000 Coins",
               "+10 SkyBlock XP"
             ]
@@ -1268,6 +1289,7 @@
               "+Access to Crimson Isle",
               "Warrior XXII   Deal 84➜88% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.3 Magic Find",
               "+150,000 Coins",
               "+10 SkyBlock XP"
             ]
@@ -1278,6 +1300,7 @@
             "unlocks": [
               "Warrior XXIII   Deal 88➜92% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.3 Magic Find",
               "+175,000 Coins",
               "+10 SkyBlock XP"
             ]
@@ -1288,6 +1311,7 @@
             "unlocks": [
               "Warrior XXIV   Deal 92➜96% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.3 Magic Find",
               "+200,000 Coins",
               "+10 SkyBlock XP"
             ]
@@ -1298,6 +1322,7 @@
             "unlocks": [
               "Warrior XXV   Deal 96➜100% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.3 Magic Find",
               "Horns of Torment Power Stone",
               "Bubba Blister Power Stone",
               "Eccentric Painting Power Stone",
@@ -1313,6 +1338,7 @@
             "unlocks": [
               "Warrior XXVI   Deal 100➜104% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.3 Magic Find",
               "+250,000 Coins",
               "+20 SkyBlock XP"
             ]
@@ -1323,6 +1349,7 @@
             "unlocks": [
               "Warrior XXVII   Deal 104➜108% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.3 Magic Find",
               "+275,000 Coins",
               "+20 SkyBlock XP"
             ]
@@ -1333,6 +1360,7 @@
             "unlocks": [
               "Warrior XXVIII   Deal 108➜112% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.3 Magic Find",
               "+300,000 Coins",
               "+20 SkyBlock XP"
             ]
@@ -1343,6 +1371,7 @@
             "unlocks": [
               "Warrior XXIX   Deal 112➜116% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.3 Magic Find",
               "+325,000 Coins",
               "+20 SkyBlock XP"
             ]
@@ -1353,6 +1382,7 @@
             "unlocks": [
               "Warrior XXX   Deal 116➜120% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.3 Magic Find",
               "Mandraa Power Stone",
               "Hazmat Enderman Power Stone",
               "Vitamin Death Power Stone",
@@ -1366,6 +1396,7 @@
             "unlocks": [
               "Warrior XXXI   Deal 120➜124% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.4 Magic Find",
               "+375,000 Coins",
               "+20 SkyBlock XP"
             ]
@@ -1376,6 +1407,7 @@
             "unlocks": [
               "Warrior XXXII   Deal 124➜128% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.4 Magic Find",
               "+400,000 Coins",
               "+20 SkyBlock XP"
             ]
@@ -1386,6 +1418,7 @@
             "unlocks": [
               "Warrior XXXIII   Deal 128➜132% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.4 Magic Find",
               "+425,000 Coins",
               "+20 SkyBlock XP"
             ]
@@ -1396,6 +1429,7 @@
             "unlocks": [
               "Warrior XXXIV   Deal 132➜136% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.4 Magic Find",
               "+450,000 Coins",
               "+20 SkyBlock XP"
             ]
@@ -1406,6 +1440,7 @@
             "unlocks": [
               "Warrior XXXV   Deal 136➜140% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.4 Magic Find",
               "Scorched Books Power Stone",
               "+475,000 Coins",
               "+20 SkyBlock XP"
@@ -1417,6 +1452,7 @@
             "unlocks": [
               "Warrior XXXVI   Deal 140➜144% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.4 Magic Find",
               "+500,000 Coins",
               "+20 SkyBlock XP"
             ]
@@ -1427,6 +1463,7 @@
             "unlocks": [
               "Warrior XXXVII   Deal 144➜148% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.4 Magic Find",
               "+550,000 Coins",
               "+20 SkyBlock XP"
             ]
@@ -1437,6 +1474,7 @@
             "unlocks": [
               "Warrior XXXVIII   Deal 148➜152% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.4 Magic Find",
               "+600,000 Coins",
               "+20 SkyBlock XP"
             ]
@@ -1447,6 +1485,7 @@
             "unlocks": [
               "Warrior XXXIX   Deal 152➜156% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.4 Magic Find",
               "+650,000 Coins",
               "+20 SkyBlock XP"
             ]
@@ -1457,6 +1496,7 @@
             "unlocks": [
               "Warrior XL   Deal 156➜160% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.4 Magic Find",
               "+700,000 Coins",
               "+20 SkyBlock XP"
             ]
@@ -1467,6 +1507,7 @@
             "unlocks": [
               "Warrior XLI   Deal 160➜164% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.5 Magic Find",
               "+750,000 Coins",
               "+20 SkyBlock XP"
             ]
@@ -1477,6 +1518,7 @@
             "unlocks": [
               "Warrior XLII   Deal 164➜168% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.5 Magic Find",
               "+800,000 Coins",
               "+20 SkyBlock XP"
             ]
@@ -1487,6 +1529,7 @@
             "unlocks": [
               "Warrior XLIII   Deal 168➜172% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.5 Magic Find",
               "+850,000 Coins",
               "+20 SkyBlock XP"
             ]
@@ -1497,6 +1540,7 @@
             "unlocks": [
               "Warrior XLIV   Deal 172➜176% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.5 Magic Find",
               "+900,000 Coins",
               "+20 SkyBlock XP"
             ]
@@ -1507,6 +1551,7 @@
             "unlocks": [
               "Warrior XLV   Deal 176➜180% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.5 Magic Find",
               "+1,000,000 Coins",
               "+20 SkyBlock XP"
             ]
@@ -1517,6 +1562,7 @@
             "unlocks": [
               "Warrior XLVI   Deal 180➜184% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.5 Magic Find",
               "+1,000,000 Coins",
               "+20 SkyBlock XP"
             ]
@@ -1527,6 +1573,7 @@
             "unlocks": [
               "Warrior XLVII   Deal 184➜188% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.5 Magic Find",
               "+1,000,000 Coins",
               "+20 SkyBlock XP"
             ]
@@ -1537,6 +1584,7 @@
             "unlocks": [
               "Warrior XLVIII   Deal 188➜192% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.5 Magic Find",
               "+1,000,000 Coins",
               "+20 SkyBlock XP"
             ]
@@ -1547,6 +1595,7 @@
             "unlocks": [
               "Warrior XLIX   Deal 192➜196% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.5 Magic Find",
               "+1,000,000 Coins",
               "+20 SkyBlock XP"
             ]
@@ -1557,6 +1606,7 @@
             "unlocks": [
               "Warrior L   Deal 196➜200% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.5 Magic Find",
               "+1,000,000 Coins",
               "+20 SkyBlock XP"
             ]
@@ -1567,6 +1617,7 @@
             "unlocks": [
               "Warrior LI   Deal 200➜201% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.5 Magic Find",
               "+1,000,000 Coins",
               "+30 SkyBlock XP"
             ]
@@ -1577,6 +1628,7 @@
             "unlocks": [
               "Warrior LII   Deal 201➜202% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.5 Magic Find",
               "+1,000,000 Coins",
               "+30 SkyBlock XP"
             ]
@@ -1587,6 +1639,7 @@
             "unlocks": [
               "Warrior LIII   Deal 202➜203% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.5 Magic Find",
               "+1,000,000 Coins",
               "+30 SkyBlock XP"
             ]
@@ -1597,6 +1650,7 @@
             "unlocks": [
               "Warrior LIV   Deal 203➜204% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.5 Magic Find",
               "+1,000,000 Coins",
               "+30 SkyBlock XP"
             ]
@@ -1607,6 +1661,7 @@
             "unlocks": [
               "Warrior LV   Deal 204➜205% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.5 Magic Find",
               "+1,000,000 Coins",
               "+30 SkyBlock XP"
             ]
@@ -1617,6 +1672,7 @@
             "unlocks": [
               "Warrior LVI   Deal 205➜206% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.5 Magic Find",
               "+1,000,000 Coins",
               "+30 SkyBlock XP"
             ]
@@ -1627,6 +1683,7 @@
             "unlocks": [
               "Warrior LVII   Deal 206➜207% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.5 Magic Find",
               "+1,000,000 Coins",
               "+30 SkyBlock XP"
             ]
@@ -1637,6 +1694,7 @@
             "unlocks": [
               "Warrior LVIII   Deal 207➜208% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.5 Magic Find",
               "+1,000,000 Coins",
               "+30 SkyBlock XP"
             ]
@@ -1647,6 +1705,7 @@
             "unlocks": [
               "Warrior LIX   Deal 208➜209% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.5 Magic Find",
               "+1,000,000 Coins",
               "+30 SkyBlock XP"
             ]
@@ -1657,6 +1716,7 @@
             "unlocks": [
               "Warrior LX   Deal 209➜210% more damage to mobs.",
               "+0.5% Crit Chance",
+              "+0.5 Magic Find",
               "+1,000,000 Coins",
               "+30 SkyBlock XP"
             ]
@@ -1672,7 +1732,7 @@
             "level": 1,
             "totalExpRequired": 50.0,
             "unlocks": [
-              "Conjurer I   Gain 5% more experience orbs from any source.",
+              "Conjurer I   Earn +5% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+1 Intelligence",
               "Scavenger Enchantment",
@@ -1684,7 +1744,7 @@
             "level": 2,
             "totalExpRequired": 175.0,
             "unlocks": [
-              "Conjurer II   Gain 5➜10% more experience orbs from any source.",
+              "Conjurer II   Earn 5➜+10% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+1 Intelligence",
               "Infinite Quiver Enchantment",
@@ -1698,9 +1758,10 @@
             "level": 3,
             "totalExpRequired": 375.0,
             "unlocks": [
-              "Conjurer III   Gain 10➜15% more experience orbs from any source.",
+              "Conjurer III   Earn 10➜+15% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+1 Intelligence",
+              "Looting Enchantment",
               "Luck Enchantment",
               "Cubism Enchantment",
               "+500 Coins",
@@ -1711,7 +1772,7 @@
             "level": 4,
             "totalExpRequired": 675.0,
             "unlocks": [
-              "Conjurer IV   Gain 15➜20% more experience orbs from any source.",
+              "Conjurer IV   Earn 15➜+20% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+1 Intelligence",
               "Cleave Enchantment",
@@ -1724,7 +1785,7 @@
             "level": 5,
             "totalExpRequired": 1175.0,
             "unlocks": [
-              "Conjurer V   Gain 20➜25% more experience orbs from any source.",
+              "Conjurer V   Earn 20➜+25% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+1 Intelligence",
               "Life Steal Enchantment",
@@ -1740,7 +1801,7 @@
             "level": 6,
             "totalExpRequired": 1925.0,
             "unlocks": [
-              "Conjurer VI   Gain 25➜30% more experience orbs from any source.",
+              "Conjurer VI   Earn 25➜+30% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+1 Intelligence",
               "Snipe Enchantment",
@@ -1753,7 +1814,7 @@
             "level": 7,
             "totalExpRequired": 2925.0,
             "unlocks": [
-              "Conjurer VII   Gain 30➜35% more experience orbs from any source.",
+              "Conjurer VII   Earn 30➜+35% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+1 Intelligence",
               "Replenish Enchantment",
@@ -1766,7 +1827,7 @@
             "level": 8,
             "totalExpRequired": 4425.0,
             "unlocks": [
-              "Conjurer VIII   Gain 35➜40% more experience orbs from any source.",
+              "Conjurer VIII   Earn 35➜+40% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+1 Intelligence",
               "Giant Killer Enchantment",
@@ -1780,7 +1841,7 @@
             "level": 9,
             "totalExpRequired": 6425.0,
             "unlocks": [
-              "Conjurer IX   Gain 40➜45% more experience orbs from any source.",
+              "Conjurer IX   Earn 40➜+45% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+1 Intelligence",
               "Blessing Enchantment",
@@ -1794,7 +1855,7 @@
             "level": 10,
             "totalExpRequired": 9925.0,
             "unlocks": [
-              "Conjurer X   Gain 45➜50% more experience orbs from any source.",
+              "Conjurer X   Earn 45➜+50% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+1 Intelligence",
               "Pesterminator Enchantment",
@@ -1809,7 +1870,7 @@
             "level": 11,
             "totalExpRequired": 14925.0,
             "unlocks": [
-              "Conjurer XI   Gain 50➜55% more experience orbs from any source.",
+              "Conjurer XI   Earn 50➜+55% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+1 Intelligence",
               "Ender Slayer Enchantment",
@@ -1822,7 +1883,7 @@
             "level": 12,
             "totalExpRequired": 22425.0,
             "unlocks": [
-              "Conjurer XII   Gain 55➜60% more experience orbs from any source.",
+              "Conjurer XII   Earn 55➜+60% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+1 Intelligence",
               "Dedication Enchantment",
@@ -1837,7 +1898,7 @@
             "level": 13,
             "totalExpRequired": 32425.0,
             "unlocks": [
-              "Conjurer XIII   Gain 60➜65% more experience orbs from any source.",
+              "Conjurer XIII   Earn 60➜+65% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+1 Intelligence",
               "Tidal Enchantment",
@@ -1850,7 +1911,7 @@
             "level": 14,
             "totalExpRequired": 47425.0,
             "unlocks": [
-              "Conjurer XIV   Gain 65➜70% more experience orbs from any source.",
+              "Conjurer XIV   Earn 65➜+70% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+1 Intelligence",
               "Lethality Enchantment",
@@ -1867,7 +1928,7 @@
             "level": 15,
             "totalExpRequired": 67425.0,
             "unlocks": [
-              "Conjurer XV   Gain 70➜75% more experience orbs from any source.",
+              "Conjurer XV   Earn 70➜+75% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "Drain Enchantment",
@@ -1883,7 +1944,7 @@
             "level": 16,
             "totalExpRequired": 97425.0,
             "unlocks": [
-              "Conjurer XVI   Gain 75➜80% more experience orbs from any source.",
+              "Conjurer XVI   Earn 75➜+80% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "Gravity Enchantment",
@@ -1896,7 +1957,7 @@
             "level": 17,
             "totalExpRequired": 147425.0,
             "unlocks": [
-              "Conjurer XVII   Gain 80➜85% more experience orbs from any source.",
+              "Conjurer XVII   Earn 80➜+85% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "Piercing Enchantment",
@@ -1909,7 +1970,7 @@
             "level": 18,
             "totalExpRequired": 222425.0,
             "unlocks": [
-              "Conjurer XVIII   Gain 85➜90% more experience orbs from any source.",
+              "Conjurer XVIII   Earn 85➜+90% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "Spiked Hook Enchantment",
@@ -1922,7 +1983,7 @@
             "level": 19,
             "totalExpRequired": 322425.0,
             "unlocks": [
-              "Conjurer XIX   Gain 90➜95% more experience orbs from any source.",
+              "Conjurer XIX   Earn 90➜+95% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "Triple-Strike Enchantment",
@@ -1934,7 +1995,7 @@
             "level": 20,
             "totalExpRequired": 522425.0,
             "unlocks": [
-              "Conjurer XX   Gain 95➜100% more experience orbs from any source.",
+              "Conjurer XX   Earn 95➜+100% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "Refrigerate Enchantment",
@@ -1949,7 +2010,7 @@
             "level": 21,
             "totalExpRequired": 822425.0,
             "unlocks": [
-              "Conjurer XXI   Gain 100➜105% more experience orbs from any source.",
+              "Conjurer XXI   Earn 100➜+105% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "Big Brain Enchantment",
@@ -1963,7 +2024,7 @@
             "level": 22,
             "totalExpRequired": 1222425.0,
             "unlocks": [
-              "Conjurer XXII   Gain 105➜110% more experience orbs from any source.",
+              "Conjurer XXII   Earn 105➜+110% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "Vampiric Vitality Enchantment",
@@ -1981,7 +2042,7 @@
             "level": 23,
             "totalExpRequired": 1722425.0,
             "unlocks": [
-              "Conjurer XXIII   Gain 110➜115% more experience orbs from any source.",
+              "Conjurer XXIII   Earn 110➜+115% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "Quick Bite Enchantment",
@@ -1995,7 +2056,7 @@
             "level": 24,
             "totalExpRequired": 2322425.0,
             "unlocks": [
-              "Conjurer XXIV   Gain 115➜120% more experience orbs from any source.",
+              "Conjurer XXIV   Earn 115➜+120% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "Bobbin' Time Enchantment",
@@ -2010,7 +2071,7 @@
             "level": 25,
             "totalExpRequired": 3022425.0,
             "unlocks": [
-              "Conjurer XXV   Gain 120➜125% more experience orbs from any source.",
+              "Conjurer XXV   Earn 120➜+125% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "Corruption Enchantment",
@@ -2025,7 +2086,7 @@
             "level": 26,
             "totalExpRequired": 3822425.0,
             "unlocks": [
-              "Conjurer XXVI   Gain 125➜130% more experience orbs from any source.",
+              "Conjurer XXVI   Earn 125➜+130% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "Vicious Enchantment",
@@ -2037,7 +2098,7 @@
             "level": 27,
             "totalExpRequired": 4722425.0,
             "unlocks": [
-              "Conjurer XXVII   Gain 130➜135% more experience orbs from any source.",
+              "Conjurer XXVII   Earn 130➜+135% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "Paleontologist Enchantment",
@@ -2051,7 +2112,7 @@
             "level": 28,
             "totalExpRequired": 5722425.0,
             "unlocks": [
-              "Conjurer XXVIII   Gain 135➜140% more experience orbs from any source.",
+              "Conjurer XXVIII   Earn 135➜+140% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "Habanero Tactics Enchantment",
@@ -2065,7 +2126,7 @@
             "level": 29,
             "totalExpRequired": 6822425.0,
             "unlocks": [
-              "Conjurer XXIX   Gain 140➜145% more experience orbs from any source.",
+              "Conjurer XXIX   Earn 140➜+145% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "No Pain No Gain Enchantment",
@@ -2077,7 +2138,7 @@
             "level": 30,
             "totalExpRequired": 8022425.0,
             "unlocks": [
-              "Conjurer XXX   Gain 145➜150% more experience orbs from any source.",
+              "Conjurer XXX   Earn 145➜+150% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "Ice Cold Enchantment",
@@ -2091,7 +2152,7 @@
             "level": 31,
             "totalExpRequired": 9322425.0,
             "unlocks": [
-              "Conjurer XXXI   Gain 150➜155% more experience orbs from any source.",
+              "Conjurer XXXI   Earn 150➜+155% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "Chimera Enchantment",
@@ -2103,7 +2164,7 @@
             "level": 32,
             "totalExpRequired": 10722425.0,
             "unlocks": [
-              "Conjurer XXXII   Gain 155➜160% more experience orbs from any source.",
+              "Conjurer XXXII   Earn 155➜+160% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "Rend Enchantment",
@@ -2116,7 +2177,7 @@
             "level": 33,
             "totalExpRequired": 12222425.0,
             "unlocks": [
-              "Conjurer XXXIII   Gain 160➜165% more experience orbs from any source.",
+              "Conjurer XXXIII   Earn 160➜+165% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "Overload Enchantment",
@@ -2128,7 +2189,7 @@
             "level": 34,
             "totalExpRequired": 13822425.0,
             "unlocks": [
-              "Conjurer XXXIV   Gain 165➜170% more experience orbs from any source.",
+              "Conjurer XXXIV   Earn 165➜+170% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "Legion Enchantment",
@@ -2140,7 +2201,7 @@
             "level": 35,
             "totalExpRequired": 15522425.0,
             "unlocks": [
-              "Conjurer XXXV   Gain 170➜175% more experience orbs from any source.",
+              "Conjurer XXXV   Earn 170➜+175% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "Swarm Enchantment",
@@ -2152,7 +2213,7 @@
             "level": 36,
             "totalExpRequired": 17322425.0,
             "unlocks": [
-              "Conjurer XXXVI   Gain 175➜180% more experience orbs from any source.",
+              "Conjurer XXXVI   Earn 175➜+180% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "Soul Eater Enchantment",
@@ -2164,7 +2225,7 @@
             "level": 37,
             "totalExpRequired": 19222425.0,
             "unlocks": [
-              "Conjurer XXXVII   Gain 180➜185% more experience orbs from any source.",
+              "Conjurer XXXVII   Earn 180➜+185% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "Fatal Tempo Enchantment",
@@ -2177,7 +2238,7 @@
             "level": 38,
             "totalExpRequired": 21222425.0,
             "unlocks": [
-              "Conjurer XXXVIII   Gain 185➜190% more experience orbs from any source.",
+              "Conjurer XXXVIII   Earn 185➜+190% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "One For All Enchantment",
@@ -2189,7 +2250,7 @@
             "level": 39,
             "totalExpRequired": 23322425.0,
             "unlocks": [
-              "Conjurer XXXIX   Gain 190➜195% more experience orbs from any source.",
+              "Conjurer XXXIX   Earn 190➜+195% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "+650,000 Coins",
@@ -2200,7 +2261,7 @@
             "level": 40,
             "totalExpRequired": 25522425.0,
             "unlocks": [
-              "Conjurer XL   Gain 195➜200% more experience orbs from any source.",
+              "Conjurer XL   Earn 195➜+200% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "+700,000 Coins",
@@ -2211,7 +2272,7 @@
             "level": 41,
             "totalExpRequired": 27822425.0,
             "unlocks": [
-              "Conjurer XLI   Gain 200➜205% more experience orbs from any source.",
+              "Conjurer XLI   Earn 200➜+205% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "+750,000 Coins",
@@ -2222,7 +2283,7 @@
             "level": 42,
             "totalExpRequired": 30222425.0,
             "unlocks": [
-              "Conjurer XLII   Gain 205➜210% more experience orbs from any source.",
+              "Conjurer XLII   Earn 205➜+210% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "+800,000 Coins",
@@ -2233,7 +2294,7 @@
             "level": 43,
             "totalExpRequired": 32722425.0,
             "unlocks": [
-              "Conjurer XLIII   Gain 210➜215% more experience orbs from any source.",
+              "Conjurer XLIII   Earn 210➜+215% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "+850,000 Coins",
@@ -2244,7 +2305,7 @@
             "level": 44,
             "totalExpRequired": 35322425.0,
             "unlocks": [
-              "Conjurer XLIV   Gain 215➜220% more experience orbs from any source.",
+              "Conjurer XLIV   Earn 215➜+220% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "+900,000 Coins",
@@ -2255,7 +2316,7 @@
             "level": 45,
             "totalExpRequired": 38072425.0,
             "unlocks": [
-              "Conjurer XLV   Gain 220➜225% more experience orbs from any source.",
+              "Conjurer XLV   Earn 220➜+225% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "+1,000,000 Coins",
@@ -2266,7 +2327,7 @@
             "level": 46,
             "totalExpRequired": 40972425.0,
             "unlocks": [
-              "Conjurer XLVI   Gain 225➜230% more experience orbs from any source.",
+              "Conjurer XLVI   Earn 225➜+230% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "+1,000,000 Coins",
@@ -2277,7 +2338,7 @@
             "level": 47,
             "totalExpRequired": 44072425.0,
             "unlocks": [
-              "Conjurer XLVII   Gain 230➜235% more experience orbs from any source.",
+              "Conjurer XLVII   Earn 230➜+235% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "+1,000,000 Coins",
@@ -2288,7 +2349,7 @@
             "level": 48,
             "totalExpRequired": 47472425.0,
             "unlocks": [
-              "Conjurer XLVIII   Gain 235➜240% more experience orbs from any source.",
+              "Conjurer XLVIII   Earn 235➜+240% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "+1,000,000 Coins",
@@ -2299,7 +2360,7 @@
             "level": 49,
             "totalExpRequired": 51172425.0,
             "unlocks": [
-              "Conjurer XLIX   Gain 240➜245% more experience orbs from any source.",
+              "Conjurer XLIX   Earn 240➜+245% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "+1,000,000 Coins",
@@ -2310,7 +2371,7 @@
             "level": 50,
             "totalExpRequired": 55172425.0,
             "unlocks": [
-              "Conjurer L   Gain 245➜250% more experience orbs from any source.",
+              "Conjurer L   Earn 245➜+250% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "+1,000,000 Coins",
@@ -2321,7 +2382,7 @@
             "level": 51,
             "totalExpRequired": 59472425.0,
             "unlocks": [
-              "Conjurer LI   Gain 250➜255% more experience orbs from any source.",
+              "Conjurer LI   Earn 250➜+255% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "+1,000,000 Coins",
@@ -2332,7 +2393,7 @@
             "level": 52,
             "totalExpRequired": 64072425.0,
             "unlocks": [
-              "Conjurer LII   Gain 255➜260% more experience orbs from any source.",
+              "Conjurer LII   Earn 255➜+260% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "+1,000,000 Coins",
@@ -2343,7 +2404,7 @@
             "level": 53,
             "totalExpRequired": 68972425.0,
             "unlocks": [
-              "Conjurer LIII   Gain 260➜265% more experience orbs from any source.",
+              "Conjurer LIII   Earn 260➜+265% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "+1,000,000 Coins",
@@ -2354,7 +2415,7 @@
             "level": 54,
             "totalExpRequired": 74172425.0,
             "unlocks": [
-              "Conjurer LIV   Gain 265➜270% more experience orbs from any source.",
+              "Conjurer LIV   Earn 265➜+270% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "+1,000,000 Coins",
@@ -2365,7 +2426,7 @@
             "level": 55,
             "totalExpRequired": 79672425.0,
             "unlocks": [
-              "Conjurer LV   Gain 270➜275% more experience orbs from any source.",
+              "Conjurer LV   Earn 270➜+275% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "+1,000,000 Coins",
@@ -2376,7 +2437,7 @@
             "level": 56,
             "totalExpRequired": 85472425.0,
             "unlocks": [
-              "Conjurer LVI   Gain 275➜280% more experience orbs from any source.",
+              "Conjurer LVI   Earn 275➜+280% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "+1,000,000 Coins",
@@ -2387,7 +2448,7 @@
             "level": 57,
             "totalExpRequired": 91572425.0,
             "unlocks": [
-              "Conjurer LVII   Gain 280➜285% more experience orbs from any source.",
+              "Conjurer LVII   Earn 280➜+285% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "+1,000,000 Coins",
@@ -2398,7 +2459,7 @@
             "level": 58,
             "totalExpRequired": 97972425.0,
             "unlocks": [
-              "Conjurer LVIII   Gain 285➜290% more experience orbs from any source.",
+              "Conjurer LVIII   Earn 285➜+290% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "+1,000,000 Coins",
@@ -2409,7 +2470,7 @@
             "level": 59,
             "totalExpRequired": 104672425.0,
             "unlocks": [
-              "Conjurer LIX   Gain 290➜295% more experience orbs from any source.",
+              "Conjurer LIX   Earn 290➜+295% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "+1,000,000 Coins",
@@ -2420,7 +2481,7 @@
             "level": 60,
             "totalExpRequired": 111672425.0,
             "unlocks": [
-              "Conjurer LX   Gain 295➜300% more experience orbs from any source.",
+              "Conjurer LX   Earn 295➜+300% XP Orbs from all sources.",
               "+0.5% Ability Damage",
               "+2 Intelligence",
               "+1,000,000 Coins",
@@ -3226,15 +3287,15 @@
             "level": 15,
             "totalExpRequired": 67425.0,
             "unlocks": [
-              "Torrid Sea Creature",
-              "Sprawl Sea Creature",
-              "Brineling Sea Creature",
-              "Agarimoo Sea Creature",
-              "Water Worm Sea Creature",
-              "Haggard Sea Creature",
-              "Silkbreeze Sea Creature",
-              "Giant Isopod Sea Creature",
-              "Bayou Sludge Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XV   Grants +1.4➜1.5  Treasure Chance.",
               "+3 Health",
               "+30,000 Coins",
@@ -3245,7 +3306,7 @@
             "level": 16,
             "totalExpRequired": 97425.0,
             "unlocks": [
-              "Sea Leech Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XVI   Grants +1.5➜1.6  Treasure Chance.",
               "+3 Health",
               "+40,000 Coins",
@@ -3256,11 +3317,11 @@
             "level": 17,
             "totalExpRequired": 147425.0,
             "unlocks": [
-              "Guardian Defender Sea Creature",
-              "Werewolf Sea Creature",
-              "Stridersurfer Sea Creature",
-              "Poisoned Water Worm Sea Creature",
-              "Volcanic Snail Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XVII   Grants +1.6➜1.7  Treasure Chance.",
               "+3 Health",
               "+50,000 Coins",
@@ -3271,9 +3332,9 @@
             "level": 18,
             "totalExpRequired": 222425.0,
             "unlocks": [
-              "Tiger Shark Sea Creature",
-              "Deep Sea Protector Sea Creature",
-              "Nutcracker Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XVIII   Grants +1.7➜1.8  Treasure Chance.",
               "+3 Health",
               "+65,000 Coins",
@@ -3284,9 +3345,9 @@
             "level": 19,
             "totalExpRequired": 322425.0,
             "unlocks": [
-              "Water Hydra Sea Creature",
-              "Manta Ray Sea Creature",
-              "Flaming Worm Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XIX   Grants +1.8➜1.9  Treasure Chance.",
               "+3 Health",
               "+80,000 Coins",
@@ -3297,9 +3358,9 @@
             "level": 20,
             "totalExpRequired": 522425.0,
             "unlocks": [
-              "Alligator Sea Creature",
-              "Lava Blaze Sea Creature",
-              "The Loch Emperor Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XX   Grants +1.9➜2  Treasure Chance.",
               "+4 Health",
               "+100,000 Coins",
@@ -3310,7 +3371,7 @@
             "level": 21,
             "totalExpRequired": 822425.0,
             "unlocks": [
-              "Phantom Fisher Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XXI   Grants +2➜2.1  Treasure Chance.",
               "+4 Health",
               "+125,000 Coins",
@@ -3321,8 +3382,8 @@
             "level": 22,
             "totalExpRequired": 1222425.0,
             "unlocks": [
-              "Lava Pigman Sea Creature",
-              "Fireproof Witch Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XXII   Grants +2.1➜2.2  Treasure Chance.",
               "+4 Health",
               "+150,000 Coins",
@@ -3343,8 +3404,8 @@
             "level": 24,
             "totalExpRequired": 2322425.0,
             "unlocks": [
-              "Abyssal Miner Sea Creature",
-              "Great White Shark Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XXIV   Grants +2.3➜2.4  Treasure Chance.",
               "+4 Health",
               "+200,000 Coins",
@@ -3355,8 +3416,8 @@
             "level": 25,
             "totalExpRequired": 3022425.0,
             "unlocks": [
-              "Yeti Sea Creature",
-              "Nessie Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XXV   Grants +2.4➜2.5  Treasure Chance.",
               "+4 Health",
               "+225,000 Coins",
@@ -3367,7 +3428,7 @@
             "level": 26,
             "totalExpRequired": 3822425.0,
             "unlocks": [
-              "Grim Reaper Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XXVI   Grants +2.5➜2.6  Treasure Chance.",
               "+5 Health",
               "+250,000 Coins",
@@ -3378,7 +3439,7 @@
             "level": 27,
             "totalExpRequired": 4722425.0,
             "unlocks": [
-              "Magma Slug Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XXVII   Grants +2.6➜2.7  Treasure Chance.",
               "+5 Health",
               "+275,000 Coins",
@@ -3389,7 +3450,7 @@
             "level": 28,
             "totalExpRequired": 5722425.0,
             "unlocks": [
-              "Moogma Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XXVIII   Grants +2.7➜2.8  Treasure Chance.",
               "+5 Health",
               "+300,000 Coins",
@@ -3410,8 +3471,8 @@
             "level": 30,
             "totalExpRequired": 8022425.0,
             "unlocks": [
-              "Lava Leech Sea Creature",
-              "Titanoboa Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XXX   Grants +2.9➜3  Treasure Chance.",
               "+5 Health",
               "+350,000 Coins",
@@ -3422,8 +3483,8 @@
             "level": 31,
             "totalExpRequired": 9322425.0,
             "unlocks": [
-              "Magma Pillar Sea Creature",
-              "Pyroclastic Worm Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XXXI   Grants +3➜3.1  Treasure Chance.",
               "+5 Health",
               "+375,000 Coins",
@@ -3444,7 +3505,7 @@
             "level": 33,
             "totalExpRequired": 12222425.0,
             "unlocks": [
-              "Lava Flame Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XXXIII   Grants +3.2➜3.3  Treasure Chance.",
               "+5 Health",
               "+425,000 Coins",
@@ -3455,7 +3516,7 @@
             "level": 34,
             "totalExpRequired": 13822425.0,
             "unlocks": [
-              "Fire Eel Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XXXIV   Grants +3.3➜3.4  Treasure Chance.",
               "+5 Health",
               "+450,000 Coins",
@@ -3466,9 +3527,9 @@
             "level": 35,
             "totalExpRequired": 15522425.0,
             "unlocks": [
-              "Reindrake Sea Creature",
-              "Blue Ringed Octopus Sea Creature",
-              "Taurus Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XXXV   Grants +3.4➜3.5  Treasure Chance.",
               "+5 Health",
               "+475,000 Coins",
@@ -3479,8 +3540,8 @@
             "level": 36,
             "totalExpRequired": 17322425.0,
             "unlocks": [
-              "Plhlegblast Sea Creature",
-              "Thunder Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XXXVI   Grants +3.5➜3.6  Treasure Chance.",
               "+5 Health",
               "+500,000 Coins",
@@ -3491,7 +3552,7 @@
             "level": 37,
             "totalExpRequired": 19222425.0,
             "unlocks": [
-              "Fiery Scuttler Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XXXVII   Grants +3.6➜3.7  Treasure Chance.",
               "+5 Health",
               "+550,000 Coins",
@@ -3522,7 +3583,7 @@
             "level": 40,
             "totalExpRequired": 25522425.0,
             "unlocks": [
-              "Wiki Tiki Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XL   Grants +3.9➜4  Treasure Chance.",
               "+5 Health",
               "+700,000 Coins",
@@ -3573,7 +3634,7 @@
             "level": 45,
             "totalExpRequired": 38072425.0,
             "unlocks": [
-              "Lord Jawbus Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XLV   Grants +4.4➜4.5  Treasure Chance.",
               "+5 Health",
               "+1,000,000 Coins",
@@ -3594,7 +3655,7 @@
             "level": 47,
             "totalExpRequired": 44072425.0,
             "unlocks": [
-              "Ragnarok Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XLVII   Grants +4.6➜4.7  Treasure Chance.",
               "+5 Health",
               "+1,000,000 Coins",

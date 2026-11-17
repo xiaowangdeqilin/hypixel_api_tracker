@@ -1,7 +1,7 @@
 {
-  "checksum": "6a80e4edfbcc263a7ed0a7f7a93be0a332ea2bac4cc800a5646f4ab4b082e635",
+  "checksum": "93987e62577c63bd1eb2cd1b16befdd670face01393ab1316dbf929105607722",
   "endpoint": "bazaar",
-  "fetched_at": "2026-11-17 22:44:05",
+  "fetched_at": "2026-11-17 22:53:04",
   "payload": {
     "product_ids": [
       "ABSOLUTE_ENDER_PEARL",
@@ -160,6 +160,7 @@
       "DIVAN_FRAGMENT",
       "DIVAN_POWDER_COATING",
       "DIVER_FRAGMENT",
+      "DIVINE_GIFT",
       "DOUBLE_PLANT",
       "DO_NOT_EAT_SHROOM",
       "DRAGON_CLAW",
@@ -657,6 +658,8 @@
       "ENCHANTMENT_LOOTING_5",
       "ENCHANTMENT_LOOTING_6",
       "ENCHANTMENT_LOOTING_7",
+      "ENCHANTMENT_LOOTING_NEW_6",
+      "ENCHANTMENT_LOOTING_NEW_7",
       "ENCHANTMENT_LUCK_1",
       "ENCHANTMENT_LUCK_2",
       "ENCHANTMENT_LUCK_3",
@@ -2212,6 +2215,6 @@
   },
   "status_code": 200,
   "summary": {
-    "product_count": 2204
+    "product_count": 2207
   }
 }

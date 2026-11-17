@@ -1,7 +1,7 @@
 {
-  "checksum": "425e696011316a9805b1e376ec98d825db3e3ff75bbac596643349973e4de706",
+  "checksum": "a972eb42530179df57918f9f7e8fc9a0cbedc4c45f21296ef6b088d0e4bb9af3",
   "endpoint": "collections",
-  "fetched_at": "2026-11-17 22:44:05",
+  "fetched_at": "2026-11-17 22:53:04",
   "payload": {
     "collections": {
       "COMBAT": {
@@ -660,6 +660,7 @@
                 "tier": 3,
                 "unlocks": [
                   "Spider Hat Recipe",
+                  "Enchanted Spider Eye Recipe",
                   "+4 SkyBlock XP"
                 ]
               },
@@ -667,7 +668,7 @@
                 "amountRequired": 1000,
                 "tier": 4,
                 "unlocks": [
-                  "Enchanted Spider Eye Recipe",
+                  "Personal Combat Compactor 4000 Recipe",
                   "+4 SkyBlock XP"
                 ]
               },
@@ -991,6 +992,7 @@
                 "tier": 4,
                 "unlocks": [
                   "Enchanted Carrot Recipe",
+                  "Personal Farming Compactor 4000 Recipe",
                   "+4 SkyBlock XP"
                 ]
               },
@@ -998,7 +1000,7 @@
                 "amountRequired": 5000,
                 "tier": 5,
                 "unlocks": [
-                  "Enchanted Carrot on a Stick Recipe",
+                  "+5,000 Farming Experience",
                   "+4 SkyBlock XP"
                 ]
               },
@@ -1301,6 +1303,7 @@
                 "tier": 4,
                 "unlocks": [
                   "Enchanted Leather Recipe",
+                  "Personal Husbandry Compactor 4000 Recipe",
                   "+4 SkyBlock XP"
                 ]
               },
@@ -2086,7 +2089,7 @@
                 "amountRequired": 2500,
                 "tier": 5,
                 "unlocks": [
-                  "Luck Exp Discount (-25%)",
+                  "+5,000 Farming Experience",
                   "+4 SkyBlock XP"
                 ]
               },
@@ -2300,6 +2303,10 @@
                 "tier": 3,
                 "unlocks": [
                   "Enchanted Sugar Recipe",
+                  "Speedster Helmet Recipe",
+                  "Speedster Chestplate Recipe",
+                  "Speedster Leggings Recipe",
+                  "Speedster Boots Recipe",
                   "+4 SkyBlock XP"
                 ]
               },
@@ -2307,10 +2314,7 @@
                 "amountRequired": 1000,
                 "tier": 4,
                 "unlocks": [
-                  "Speedster Helmet Recipe",
-                  "Speedster Chestplate Recipe",
-                  "Speedster Leggings Recipe",
-                  "Speedster Boots Recipe",
+                  "+1,000 Farming Experience",
                   "+4 SkyBlock XP"
                 ]
               },
@@ -2568,6 +2572,7 @@
                 "tier": 4,
                 "unlocks": [
                   "Clay Bracelet Recipe",
+                  "Personal Fishing Compactor 4000 Recipe",
                   "+4 SkyBlock XP"
                 ]
               },
@@ -3898,7 +3903,7 @@
                 "amountRequired": 500,
                 "tier": 4,
                 "unlocks": [
-                  "+500 Foraging Experience",
+                  "Personal Foraging Compactor 4000 Recipe",
                   "+4 SkyBlock XP"
                 ]
               },
@@ -5472,7 +5477,7 @@
                 "amountRequired": 250,
                 "tier": 3,
                 "unlocks": [
-                  "Looting Exp Discount (-25%)",
+                  "+2,500 Mining Experience",
                   "+4 SkyBlock XP"
                 ]
               },
@@ -6391,6 +6396,7 @@
                 "unlocks": [
                   "Weather Wand Recipe",
                   "+6 Accessory Bag Slots",
+                  "Personal Mining Compactor 4000 Recipe",
                   "+4 SkyBlock XP"
                 ]
               },
@@ -6407,7 +6413,6 @@
                 "amountRequired": 5000,
                 "tier": 6,
                 "unlocks": [
-                  "Personal Compactor 4000 Recipe",
                   "+6 Accessory Bag Slots",
                   "+4 SkyBlock XP"
                 ]
@@ -6417,7 +6422,6 @@
                 "tier": 7,
                 "unlocks": [
                   "Enchanted Redstone Block Recipe",
-                  "Personal Compactor 5000 Recipe",
                   "+6 Accessory Bag Slots",
                   "+4 SkyBlock XP"
                 ]
@@ -6426,7 +6430,6 @@
                 "amountRequired": 100000,
                 "tier": 8,
                 "unlocks": [
-                  "Personal Compactor 6000 Recipe",
                   "+6 Accessory Bag Slots",
                   "+4 SkyBlock XP"
                 ]
@@ -6435,7 +6438,6 @@
                 "amountRequired": 250000,
                 "tier": 9,
                 "unlocks": [
-                  "Personal Compactor 7000 Recipe",
                   "+6 Accessory Bag Slots",
                   "+4 SkyBlock XP"
                 ]
