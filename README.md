@@ -1,7 +1,7 @@
 # Hypixel SkyBlock API Tracker
 
-定时监控 Hypixel SkyBlock 公共 API 的变化，自动生成中文 GitHub Pages 仪表盘；
-另附一个可选的本地实时仪表盘。
+定时监控 Hypixel SkyBlock 公共 API 的变化，自动生成 GitHub Pages 仪表盘
+（界面支持 103 种语言，默认简体中文）；另附一个可选的本地实时仪表盘。
 
 **v2.0 起整个项目使用 Rust 重写**：单一静态二进制、无额外运行时依赖、
 数据全部为 JSON 文件，CI 用 cargo 缓存构建。
@@ -111,15 +111,15 @@ cargo run --release --bin tracker-build
 
 数据文件与 diff 永远以北京时间写入（保持单一事实来源），展示端分两种模式：
 
-| 版本 | 行为 |
-|---|---|
-| **GitHub Pages 静态页** | 固定北京时间（UTC+8）：页头有 `🕒 北京时间 · UTC+08:00` 徽章，**不随浏览器时区变化，也不提供切换** |
-| **本地服务页（`tracker-server`）** | 自动识别浏览器时区并换算全部时间；页头下拉框显示当前时区（如 `🌐 America/New_York · UTC-05:00`），可切换到 60+ 常见时区，也可用 `?tz=Area/City` 直接钉住（写入 localStorage，`?tz=auto` 恢复跟随浏览器） |
+| 版本 | 默认时区 | 切换 |
+|---|---|---|
+| **GitHub Pages 静态页** | 北京时间（UTC+8） | 页头下拉框可切换 60+ 常见时区，也可用 `?tz=Area/City` 钉住（写入 localStorage，`?tz=auto` 恢复默认） |
+| **本地服务页（`tracker-server`）** | 浏览器时区（自动识别） | 同上：下拉框切换 / `?tz=` 钉住 / `?tz=auto` 恢复跟随浏览器 |
 
 换算规则（`static/tz.js`）：数据里的 `YYYY-MM-DD HH:MM:SS` 按 UTC+8 还原成时间戳，
 再用 `Intl.DateTimeFormat` 按目标时区格式化（自动处理夏令时）；表头与文案里的
 「（北京时间）」后缀会同步替换成当前时区的 UTC 偏移。`<code>` / diff 原文不做换算。
-未加载 `tz.js` 或关闭 JS 时，页面保持北京时间展示，行为与静态页一致。
+未加载 `tz.js` 或关闭 JS 时，页面保持数据原始的北京时间展示。
 
 ## 变更展示：代码审核（diff）风格 + 只显示变化片段
 
@@ -361,10 +361,17 @@ bazaar/firesales 5 分钟、packs 10 分钟、bingo 30 分钟），页面每 30 
 > 只比较商品 id 集合，避免价格与版本变化刷屏。变更表格同样按「新增纯绿、
 > 删除纯红、修改只显示变化片段」渲染。
 
-## 多语言支持（默认关闭）
+## 多语言支持
 
-本地仪表盘内置可选的界面多语言支持，**默认完全关闭**——不设置
-环境变量时行为与旧版一致（纯中文、无切换器、零开销）：
+界面支持 **103 种语言**，两端共用同一份词条（`i18n-src/translations.json`）：
+
+- **GitHub Pages 静态页**：始终可用。构建时 `src/site_i18n.rs` 自动给中文界面文案
+  打上 `data-k` 标注（`{占位符}` 会被解析成参数），页面内嵌 103 种语言的词条包；
+  `static/site-i18n.js` 据此切换整页语言（右上角语言下拉框 / `?lang=语言代码`，
+  选择记忆在 localStorage），RTL 语言自动镜像，切换后时间与时区后缀一并重算。
+  JS 关闭时回落为简体中文。
+- **本地服务页**：服务端渲染时直接按语言输出；**默认关闭**以保持旧行为
+  （纯中文、无切换器、零开销）：
 
 ```bash
 # 开启多语言
@@ -412,8 +419,8 @@ Te Reo Māori、Gagana Sāmoa、Lea Faka-Tonga、Na Vosa Vakaviti、ʻŌlelo Haw
 4. 运行 `cargo run --release --bin locales-gen` 重新生成（自带键集合 /
    占位符 / HTML 标签三项一致性校验，校验失败会拒绝生成）。
 
-> 说明：`locales/` 仅作用于本地服务页面；GitHub Pages 静态页面
-> 由 Actions 构建生成，暂不参与多语言。
+> 说明：`locales/` 供本地服务页运行时读取；静态页在构建时直接内嵌
+> `i18n-src/translations.json` 的词条包，两端改动同一份源文件即可同步生效。
 
 ## 安全加固
 

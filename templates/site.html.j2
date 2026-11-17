@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,7 +11,11 @@
   {% if secret_panel %}<style>{{ secret_css }}</style>{% endif %}
   <style>{{ firesale_css }}</style>
   <style>{{ theme_css }}</style>
+  <style>{{ i18n_css }}</style>
   <style>{{ tz_css }}</style>
+  {# 静态站的多语言词条包（103 种语言）与时区配置，均为 JSON 数据块，不可执行 #}
+  <script type="application/json" id="i18n-packs">{{ i18n_packs }}</script>
+  <script type="application/json" id="tz-config">{{ tz_config }}</script>
   <script>{{ theme_js }}</script>
 </head>
 <body>
@@ -21,15 +25,28 @@
       <div class="version-main">
         <span class="version-tag">当前版本 {{ version_display }}</span>
         <span class="sync-badge sync-{{ sync_status }}">{{ sync_label }}</span>
-        <!-- GitHub Pages 版本固定北京时间（UTC+8），不随浏览器时区变化，也不提供切换 -->
-        <span class="tz-fixed" data-tz-fixed title="GitHub Pages 版本固定使用北京时间（UTC+8），不随时区调整">🕒 北京时间 · UTC+08:00</span>
+        <label class="lang-switch" data-lang-switch>
+          <span class="lang-switch-label">语言</span>
+          <select data-site-lang aria-label="Language">
+            {% for lang in languages %}
+            <option value="{{ lang.code }}"{% if lang.code == 'zh-CN' %} selected{% endif %}>{{ lang.name }}</option>
+            {% endfor %}
+          </select>
+        </label>
+        <label class="tz-switch" data-tz-switch data-tz-pinned="0"
+               title="Timezone · defaults to Beijing (UTC+8); pick another zone to convert all times">
+          <span class="tz-switch-icon" aria-hidden="true">🕒</span>
+          <select data-tz-select aria-label="Timezone">
+            <option value="auto">UTC+08:00</option>
+          </select>
+        </label>
       </div>
-      <span class="version-meta">{{ observed_text }} &middot; 仪表盘 v{{ dashboard_version }} &middot; 构建 {{ build }} &middot; 生成于 {{ generated_at }}（北京时间）</span>
+      <span class="version-meta" data-k="收藏 v{collections} · 技能 v{skills} · 仪表盘 v{dashboard} · 构建 {build} · 生成于 {time}（北京时间）" data-p='{{ version_meta_params }}'>{{ observed_text }} · 仪表盘 v{{ dashboard_version }} · 构建 {{ build }} · 生成于 {{ generated_at }}（北京时间）</span>
     </div>
     {{ note_html }}
 
     <h1>Hypixel SkyBlock API 变更监控台</h1>
-    <div class="subtitle">监控收藏、技能、物品、集市、资源包、限时特卖与 Bingo 任务七个端点，并解压比对资源包内文件变化。数据由 GitHub Actions 定时抓取，所有时间均为北京时间（UTC+8）且固定不可修改（本地服务版会按浏览器时区自动换算）。页面最下方以 5×5 方格汇总当前 Bingo 的全部任务，倒计时由浏览器本地计算。</div>
+    <div class="subtitle">监控收藏、技能、物品、集市、资源包、限时特卖与 Bingo 任务七个端点，并解压比对资源包内文件变化。数据由 GitHub Actions 定时抓取，时间默认按北京时间（UTC+8）展示，可在右上角切换时区；界面支持 103 种语言。页面最下方以 5×5 方格汇总当前 Bingo 的全部任务，倒计时由浏览器本地计算。</div>
 
     <div class="cards">{{ cards }}</div>
 
@@ -76,5 +93,7 @@
   <script>{{ bingo_js }}</script>
   {% if secret_panel %}<script>{{ secret_js }}</script>{% endif %}
   <script>{{ firesale_js }}</script>
+  <script>{{ tz_js }}</script>
+  <script>{{ site_i18n_js }}</script>
 </body>
 </html>

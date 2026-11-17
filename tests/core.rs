@@ -397,7 +397,7 @@ fn version_history_prunes_older_than_30_days_and_caps_at_20() {
 }
 
 #[test]
-fn static_site_pins_beijing_timezone_and_has_no_tz_js() {
+fn static_site_has_language_and_timezone_switchers() {
     use hypixel_tracker::render_site::build_site_html;
     let html = build_site_html(
         "2026-11-10 12:00:00",
@@ -415,15 +415,87 @@ fn static_site_pins_beijing_timezone_and_has_no_tz_js() {
         None,
     )
     .expect("静态站应能渲染");
-    // GitHub Pages 版本：固定北京时间（UTC+8）徽章 + 不可修改说明
-    assert!(html.contains("data-tz-fixed"), "应包含固定时区徽章");
-    assert!(html.contains("北京时间 · UTC+08:00"), "应显示固定时区文案");
+    // 语言切换：103 种语言（默认 zh-CN）
+    assert!(html.contains("data-site-lang"), "应有语言切换器");
+    let options = html.matches("<option value=\"").count();
+    assert!(options >= 100, "语言选项应 >= 100，实际 {}", options);
+    // 词条包与时区配置（静态页默认北京时间，可切换）
+    assert!(html.contains("id=\"i18n-packs\""), "应内嵌词条包");
+    assert!(html.contains("data-tz-switch"), "应有时区切换器");
     assert!(
-        html.contains("固定不可修改"),
-        "副标题应说明 GitHub 版本时区不可修改"
+        html.contains("\"follow_browser\":false"),
+        "静态页默认应为北京时间"
     );
-    // 静态站不做浏览器时区换算：不加载 tz.js
-    assert!(!html.contains("tz.js"), "静态站不应引用 tz.js");
-    // 但要有 .tz-fixed 徽章样式
-    assert!(html.contains(".tz-fixed"), "应内联时区徽章样式");
+    // 文案应说明可切换，而不是「固定不可修改」
+    assert!(!html.contains("固定不可修改"), "不应再声称时区不可修改");
+    assert!(html.contains("data-k="), "应有构建时词条标注");
+    // 端点卡片标题（含「限时特卖」这种与面板标题不同的短词条）也要被标注
+    assert!(
+        html.contains("data-k=\"限时特卖\""),
+        "特卖卡片标题应被标注为可翻译"
+    );
+    // 主题切换按钮的文案由前端脚本按 window.I18N 重写
+    assert!(
+        html.contains("THEME_REFRESH"),
+        "静态页应支持语言切换后刷新主题按钮文案"
+    );
+}
+
+#[test]
+fn every_language_pack_is_complete_and_safe() {
+    // 静态页把 packs 整包内联进 HTML，任何一条缺失/残留中文都会直接显示在页面上
+    let path = hypixel_tracker::state::base_dir()
+        .join("i18n-src")
+        .join("translations.json");
+    let text = std::fs::read_to_string(&path).expect("应能读到 i18n-src/translations.json");
+    let value: serde_json::Value = serde_json::from_str(&text).expect("词条文件应为合法 JSON");
+    let packs = value["packs"].as_object().expect("应有 packs");
+    let keys: Vec<String> = packs["en"]
+        .as_object()
+        .expect("en 包")
+        .keys()
+        .cloned()
+        .collect();
+    assert!(keys.len() >= 160, "词条数应 >= 160，实际 {}", keys.len());
+    assert!(packs.len() >= 100, "语言数应 >= 100，实际 {}", packs.len());
+
+    // 「个 / 档」是量词，英文等语言用空串表示「不需要这个成分」
+    let may_be_empty = ["个", "档"];
+    let cjk = |s: &str| s.chars().any(|c| ('\u{4e00}'..='\u{9fff}').contains(&c));
+
+    for (code, pack) in packs {
+        let obj = pack.as_object().unwrap_or_else(|| panic!("{} 应是对象", code));
+        for key in &keys {
+            let val = obj
+                .get(key)
+                .unwrap_or_else(|| panic!("{} 缺少词条：{}", code, key))
+                .as_str()
+                .unwrap_or_else(|| panic!("{} 的词条不是字符串：{}", code, key));
+            if val.is_empty() {
+                assert!(
+                    may_be_empty.contains(&key.as_str()),
+                    "{} 的词条为空：{}",
+                    code,
+                    key
+                );
+                continue;
+            }
+            // 日文、繁体中文本身使用汉字；其余语言不应残留简体中文原文
+            if code != "ja" && code != "zh-TW" && val != key.as_str() {
+                assert!(
+                    !cjk(val),
+                    "{} 的译文残留中文：{} -> {}",
+                    code,
+                    key,
+                    val
+                );
+            }
+            assert!(
+                !val.contains("<script") && !val.to_ascii_lowercase().contains("javascript:"),
+                "{} 的译文不得包含可执行内容：{}",
+                code,
+                key
+            );
+        }
+    }
 }

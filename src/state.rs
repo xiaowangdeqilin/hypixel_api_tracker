@@ -86,7 +86,9 @@ pub fn read_version() -> String {
 pub fn current_build() -> String {
     match std::env::var("GITHUB_SHA") {
         Ok(sha) if !sha.trim().is_empty() => sha.trim()[..7.min(sha.trim().len())].to_string(),
-        _ => "本地构建".into(),
+        // 本地构建用一个与语言无关的短标记：这串会原样嵌进多语言模板的参数里，
+        // 写成中文会让其它语言的页面出现「Build 本地构建」这种混排
+        _ => "dev".into(),
     }
 }
 

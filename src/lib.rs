@@ -37,6 +37,7 @@ pub mod render_site;
 pub mod retention;
 pub mod security;
 pub mod secret_bingo;
+pub mod site_i18n;
 pub mod server_app;
 pub mod state;
 pub mod textdiff;

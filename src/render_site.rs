@@ -432,7 +432,7 @@ pub fn render_bingo_panel(bingo: &Value, stale: bool) -> String {
         ("开始时间", format_time(bingo.get("start").unwrap_or(&Value::Null))),
         ("结束时间", format_time(bingo.get("end").unwrap_or(&Value::Null))),
         ("难度修饰", bingo.get("modifier").and_then(|v| v.as_str()).unwrap_or("-").to_string()),
-        ("任务数量", format!("{} 个", goals.len())),
+        ("任务数量", goals.len().to_string()),
     ];
     let facts_html: String = facts
         .iter()
@@ -441,7 +441,7 @@ pub fn render_bingo_panel(bingo: &Value, stale: bool) -> String {
 
     format!(
         r#"<div class="panel bingo-panel" data-bingo-panel>
-      <h2>Bingo 任务<span class="panel-sub">第 {id} 期 · {name}</span></h2>
+      <h2><span data-k="Bingo 任务">Bingo 任务</span><span class="panel-sub">第 {id} 期 · {name}</span></h2>
       <p class="hint">数据来自 <code>/v2/resources/skyblock/bingo</code>。发布时间取自接口的
       <code>lastUpdated</code>，另有「首次发现」记录本仓库第一次抓到这一期的时刻；
       开始与结束时间取自 <code>start</code> / <code>end</code>。任务文案保留 Minecraft
@@ -471,7 +471,7 @@ pub fn render_bingo_panel(bingo: &Value, stale: bool) -> String {
             <div data-dialog-row="progress"><span class="k">全服进度</span><span class="v" data-dialog-progress></span></div>
             <div data-dialog-row="percent"><span class="k">完成度</span><span class="v" data-dialog-percent></span></div>
           </div>
-          <div class="bingo-dialog-id">任务 ID：<code data-dialog-id></code></div>
+          <div class="bingo-dialog-id"><span data-k="任务 ID：">任务 ID：</span><code data-dialog-id></code></div>
         </div>
       </dialog>
     </div>"#,
@@ -695,7 +695,7 @@ pub fn render_firesales_panel(firesales: &Value, stale: bool) -> String {
 
     format!(
         r#"<div class="panel firesale-panel" data-firesale-panel>
-      <h2>限时特卖（Firesales）<span class="panel-sub">共 {total} 期 · 即将开始 {upcoming} · 进行中 {active} · 已结束 {ended}</span>
+      <h2><span data-k="限时特卖（Firesales）">限时特卖（Firesales）</span><span class="panel-sub">共 {total} 期 · 即将开始 {upcoming} · 进行中 {active} · 已结束 {ended}</span>
         <button type="button" class="firesale-toggle" data-firesale-toggle aria-expanded="false" aria-controls="firesale-extra">显示额外数据</button></h2>
       <p class="hint">数据来自 <code>/v2/skyblock/firesales</code>，价格以宝石（Gems）结算。
         特卖<strong>开始前官方可能随时调整时间、数量与价格</strong>，因此每次运行都会重新抓取并覆盖，
@@ -779,7 +779,7 @@ pub fn render_version_panel(version_info: &Value) -> String {
     let observed = if observed_parts.is_empty() {
         "尚未取得版本数据".to_string()
     } else {
-        observed_parts.join(" &middot; ")
+        observed_parts.join(" · ")
     };
     format!(
         r#"<div class="panel">
@@ -883,7 +883,7 @@ pub fn render_pack_panel(pack_result: &Value, pack_changes: &[Map<String, Value>
 
     let meta = if let Some(pobj) = pack.as_object() {
         let mut meta = format!(
-            "资源包：{} &middot; packFormat {} &middot; 文件总数 {} &middot; 部署 ID <code>{}</code>",
+            "资源包：{} · packFormat {} · 文件总数 {} · 部署 ID <code>{}</code>",
             escape_html(pobj.get("id").map(|v| v.to_string()).unwrap_or_else(|| "-".into()).trim_matches('"')),
             escape_html(pobj.get("pack_format").map(|v| v.to_string()).unwrap_or_else(|| "-".into()).trim_matches('"')),
             total_files,
@@ -902,7 +902,7 @@ pub fn render_pack_panel(pack_result: &Value, pack_changes: &[Map<String, Value>
                 .join(" / ");
             let selected = pobj.get("pack_format").map(|v| v.to_string()).unwrap_or_default();
             meta.push_str(&format!(
-                " &middot; <span class=\"pack-formats\">本次候选 packFormat：{} → 自动选取最大值 <strong>{}</strong>（数字随 MC 更新变化，每次调用接口重新取）</span>",
+                " · <span class=\"pack-formats\">本次候选 packFormat：{} → 自动选取最大值 <strong>{}</strong>（数字随 MC 更新变化，每次调用接口重新取）</span>",
                 escape_html(&joined),
                 escape_html(selected.trim_matches('"')),
             ));
@@ -969,7 +969,7 @@ pub fn render_pack_panel(pack_result: &Value, pack_changes: &[Map<String, Value>
         r#"<div class="panel">
       <h2>资源包文件变更</h2>
       <p class="hint">只展示最近 {RETENTION_DAYS} 天内的文件变更，更早的批次会自动清理。每次调用接口都会从响应里取 <strong>packFormat 数值最大</strong> 的资源包（该数字随 MC 更新变化，不写死）；官方哈希未变化时跳过下载。新增文件只标绿、删除文件只标红；被修改的文本文件<strong>只显示发生变化的那一段</strong>，删除行标红、新增行标绿，未变化的内容不输出。若接口或下载失败，本次运行不会改动任何数据。</p>
-      <div class="pack-meta">{status_text} &middot; {meta}</div>
+      <div class="pack-meta">{status_text} · {meta}</div>
       {err_html}
       {rows}
     </div>"#
@@ -1017,7 +1017,7 @@ pub fn build_site_html(
             )
         })
         .collect::<Vec<_>>()
-        .join(" &middot; ");
+        .join(" · ");
     let note_html = matches!(sync_status, "syncing" | "partial")
         .then(|| {
             version_info
@@ -1066,12 +1066,16 @@ pub fn build_site_html(
         let summary_html = if summary_parts.is_empty() {
             "-".to_string()
         } else {
-            escape_html(&summary_parts.join("<br>")).replace("&lt;br&gt;", "<br>")
+            summary_parts
+                .iter()
+                .map(|part| format!("<span class=\"sum-line\">{}</span>", escape_html(part)))
+                .collect::<Vec<_>>()
+                .join("<br>")
         };
         cards.push_str(&format!(
             r#"<div class="card">
               <div class="card-header">
-                <span class="endpoint-name">{label}<span class="endpoint-id">{name}</span></span>
+                <span class="endpoint-name"><span data-k="{label}">{label}</span><span class="endpoint-id">{name}</span></span>
                 <span class="badge badge-{status_class}">{status_text}</span>
               </div>
               <div class="fetched">抓取时间：{fetched}（北京时间）</div>
@@ -1100,6 +1104,11 @@ pub fn build_site_html(
     let theme_css = read_asset(&static_dir.join("theme.css"));
     let theme_js = read_asset(&static_dir.join("theme.js"));
     let tz_css = read_asset(&static_dir.join("tz.css"));
+    let tz_js = read_asset(&static_dir.join("tz.js"));
+    let site_i18n_js = read_asset(&static_dir.join("site-i18n.js"));
+    let i18n_css = read_asset(&static_dir.join("i18n.css"));
+
+    let i18n_packs_json = serde_json::to_string(&crate::site_i18n::packs_bundle()).unwrap_or_default();
 
     // 主样式：templates/site_style.css（{days} 占位符在读取后替换）
     let mut main_css = read_asset(&base_dir().join("templates").join("site_style.css"));
@@ -1115,13 +1124,53 @@ pub fn build_site_html(
     context.insert("firesale_css", &firesale_css);
     context.insert("theme_css", &theme_css);
     context.insert("theme_js", &theme_js);
-    // 静态站固定北京时间（UTC+8），只用到 .tz-fixed 的徽章样式
     context.insert("tz_css", &tz_css);
+    context.insert("tz_js", &tz_js);
+    context.insert("site_i18n_js", &site_i18n_js);
+    context.insert("i18n_css", &i18n_css);
+    context.insert("i18n_packs", &i18n_packs_json);
+    // 静态站默认北京时间（UTC+8），可手动切换；「（北京时间）」后缀用简体原文，
+    // 其它语言的后缀由 site-i18n.js 切换语言时同步给 tz.js
+    context.insert(
+        "tz_config",
+        &serde_json::to_string(&serde_json::json!({
+            "beijing_label": "（北京时间）",
+            "follow_browser": false,
+        }))
+        .unwrap_or_default(),
+    );
+    context.insert(
+        "languages",
+        &crate::i18n::available_languages()
+            .into_iter()
+            .map(|(code, name)| serde_json::json!({"code": code, "name": name}))
+            .collect::<Vec<_>>(),
+    );
     context.insert("skip_html", &skip_html);
     context.insert("version_display", &version_display);
     context.insert("sync_status", &sync_status);
     context.insert("sync_label", &sync_label(sync_status));
     context.insert("observed_text", &observed_text);
+    // 版本条整句的参数（供静态站多语言替换）
+    let meta_versions = |ep: &str| -> String {
+        versions
+            .get(ep)
+            .and_then(|v| v.get("version"))
+            .map(|v| v.to_string())
+            .unwrap_or_else(|| "-".into())
+            .trim_matches('"')
+            .to_string()
+    };
+    let version_meta_params = serde_json::to_string(&json!({
+        "collections": meta_versions("collections"),
+        "skills": meta_versions("skills"),
+        "dashboard": dashboard_version,
+        "build": build,
+        "time": format_time(&Value::String(generated_at.to_string())),
+    }))
+    .unwrap_or_default()
+    .replace('\'', "&#39;");
+    context.insert("version_meta_params", &version_meta_params);
     context.insert("dashboard_version", dashboard_version);
     context.insert("build", build);
     context.insert("retention_days", &RETENTION_DAYS);
@@ -1139,5 +1188,9 @@ pub fn build_site_html(
     context.insert("secret_js", &secret_js);
     context.insert("firesale_js", &firesale_js);
 
-    tera.render("site", &context).map_err(|e| format!("渲染静态站失败：{:?}", e))
+    let html = tera
+        .render("site", &context)
+        .map_err(|e| format!("渲染静态站失败：{:?}", e))?;
+    // 构建时自动给「中文界面文案」打上 data-k 标注，静态页据此切换语言
+    Ok(crate::site_i18n::annotate(&html, &crate::site_i18n::key_list()))
 }

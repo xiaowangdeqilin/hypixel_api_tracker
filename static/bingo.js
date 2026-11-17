@@ -16,8 +16,9 @@
     } catch (e) { return {}; }
   })();
 
+  /* 静态站切换语言时 site-i18n.js 会写入 window.I18N（键 -> 译文），优先生效 */
   function T(text, params) {
-    var s = I18N[text] || text;
+    var s = (window.I18N && window.I18N[text]) || I18N[text] || text;
     if (params) {
       s = s.replace(/\{(\w+)\}/g, function (m, k) {
         return params[k] !== undefined ? params[k] : m;
@@ -25,6 +26,13 @@
     }
     return s;
   }
+
+  /* 供 site-i18n.js 在切换语言后立即重刷状态徽章与倒计时文案 */
+  window.BINGO_REFRESH = function () {
+    if (!stateEl) return;
+    stateEl.dataset.state = '';
+    tick();
+  };
 
   var panel = document.querySelector('[data-bingo-panel]');
   if (!panel) return;

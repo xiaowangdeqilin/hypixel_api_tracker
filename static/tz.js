@@ -1,17 +1,20 @@
-// 时区适配（只在本地服务页加载）。
+// 时区适配（服务端页与 GitHub Pages 静态页共用）。
 //
 // 设计：
-// - 服务端页：按浏览器时区展示所有时间，顶部实时显示「当前使用哪个时区」，
-//   并允许在常见时区里手动切换（写 localStorage，`?tz=Area/City` 可直接钉住）；
-// - GitHub Pages 静态页不加载本脚本，时间固定为北京时间（UTC+8），不可修改。
-//
-// 数据侧写入的时间一律是北京时间串 `YYYY-MM-DD HH:MM:SS`，所以本脚本先按
-// UTC+8 还原成时间戳，再按目标时区格式化，避免依赖后端改造。
+// - 数据侧写入的时间一律是北京时间串 `YYYY-MM-DD HH:MM:SS`，本脚本先按 UTC+8
+//   还原成时间戳，再按目标时区格式化，不依赖后端改造；
+// - 顶部控件显示当前使用的时区，可切换到 60+ 常见时区（记忆在 localStorage），
+//   也支持 `?tz=Area/City` 钉住、`?tz=auto` 恢复「跟随浏览器」；
+// - 默认时区由 `#tz-config` 的 `follow_browser` 决定：
+//   服务端页跟随浏览器，静态页默认北京时间（UTC+8）；
+// - 与 `site-i18n.js` 协作：切语言后调用 `TZ.setBeijingLabel()` + `TZ.reset()`
+//   重新换算，保证「（北京时间）」后缀与语言一致。
 (function () {
   'use strict';
 
   var STORE_KEY = 'hypixel-tz';
   var BEIJING = 'Asia/Shanghai';
+  var AUTO = 'auto';
 
   // 常见时区（切换器用；浏览器所在时区若不在列表里会自动补到最前）
   var ZONES = [
@@ -44,10 +47,11 @@
     var el = document.getElementById('tz-config');
     if (el) cfg = JSON.parse(el.textContent || '{}') || {};
   } catch (e) { cfg = {}; }
-  // 「（北京时间）」在各语言里的写法不同，由模板注入，便于把后缀同步成当前时区
+  var followByDefault = cfg.follow_browser !== false;
+  // 「（北京时间）」在各语言里的写法不同，由模板 / 语言模块注入
   var beijingLabel = cfg.beijing_label || '（北京时间）';
 
-  var state = { zone: BEIJING, pinned: false, offset: 'UTC+08:00' };
+  var state = { zone: BEIJING, follow: followByDefault, offset: 'UTC+08:00' };
   var records = []; // 参与换算的文本节点（保存原文，切换时区时重算）
   var scheduled = false;
 
@@ -59,8 +63,7 @@
 
   function browserZone() {
     try {
-      var z = Intl.DateTimeFormat().resolvedOptions().timeZone;
-      return z || 'UTC';
+      return Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
     } catch (e) { return 'UTC'; }
   }
 
@@ -72,7 +75,7 @@
     } catch (e) { return false; }
   }
 
-  // 取某时区在给定时刻相对 UTC 的分钟偏移（自动处理夏令时）
+  // 某时区在给定时刻相对 UTC 的分钟偏移（自动处理夏令时）
   function offsetMinutes(zone, date) {
     var d = date || new Date();
     try {
@@ -117,7 +120,7 @@
     } catch (e) { return null; }
   }
 
-  // 供页面脚本复用：任意时间值（北京时间串 / epoch 毫秒 / ISO）→ 当前时区串
+  // 任意时间值（北京时间串 / epoch 毫秒 / ISO）→ 当前时区串
   function formatValue(value) {
     if (value === null || value === undefined || value === '') return '-';
     var text = String(value).trim();
@@ -133,12 +136,12 @@
     return formatInZone(dt, state.zone) || text;
   }
 
-  function loadPinned() {
+  function loadPreference() {
     var q = null;
     try { q = new URLSearchParams(location.search).get('tz'); } catch (e) { q = null; }
-    if (q === 'auto') {
-      try { localStorage.removeItem(STORE_KEY); } catch (e) {}
-      return null;
+    if (q === AUTO) {
+      try { localStorage.setItem(STORE_KEY, AUTO); } catch (e) {}
+      return AUTO;
     }
     if (q && zoneOk(q)) {
       try { localStorage.setItem(STORE_KEY, q); } catch (e) {}
@@ -146,6 +149,7 @@
     }
     try {
       var saved = localStorage.getItem(STORE_KEY);
+      if (saved === AUTO) return AUTO;
       if (saved && zoneOk(saved)) return saved;
     } catch (e) {}
     return null;
@@ -195,7 +199,7 @@
       if (!eligible(node)) continue;
       var raw = rawOf(node);
       if (beijingLabel && raw.indexOf(beijingLabel) !== -1) {
-        // 只可能是时区后缀
+        // 仅时区后缀
       } else if (!TIME_TEST.test(raw)) {
         continue;
       }
@@ -214,13 +218,17 @@
       if (z && list.indexOf(z) === -1) list.unshift(z);
     });
     var frag = document.createDocumentFragment();
-    // 第一项：跟随浏览器（🌐 标记）
     var auto = document.createElement('option');
-    auto.value = 'auto';
+    auto.value = AUTO;
     auto.textContent = '🌐 ' + browser + ' · ' + offsetLabel(browser);
     frag.appendChild(auto);
+    var seen = {};
+    seen[AUTO] = 1;
     list.forEach(function (zone) {
-      if (zone === browser) return;
+      // 不再跳过浏览器所在时区：跟随模式另有 auto 项，这里保留同名的具体时区，
+      // 否则「静态页默认北京 + 浏览器也在北京」时下拉会没有选中项（显示空白）
+      if (seen[zone]) return;
+      seen[zone] = 1;
       var opt = document.createElement('option');
       opt.value = zone;
       opt.textContent = zone + ' · ' + offsetLabel(zone);
@@ -228,15 +236,14 @@
     });
     select.innerHTML = '';
     select.appendChild(frag);
-    select.value = state.pinned ? state.zone : 'auto';
-    select.title = 'Timezone · auto-detected from browser; add ?tz=Area/City to pin';
+    select.value = state.follow ? AUTO : state.zone;
+    select.title = 'Timezone · pick a zone to convert every timestamp';
     var wrap = select.closest('[data-tz-switch]');
-    if (wrap) wrap.setAttribute('data-tz-pinned', state.pinned ? '1' : '0');
+    if (wrap) wrap.setAttribute('data-tz-pinned', state.follow ? '0' : '1');
   }
 
   function applyAll() {
     state.offset = offsetLabel(state.zone);
-    // 清理已脱离文档的节点（app.js 每 30 秒整体重渲染表格）
     records = records.filter(function (node) { return node.isConnected; });
     records.forEach(function (node) {
       if (!node.parentNode) return;
@@ -259,16 +266,33 @@
   function setZone(zone) {
     if (!zoneOk(zone)) return;
     state.zone = zone;
-    state.pinned = zone !== browserZone();
+    state.follow = false;
+    applyAll();
+  }
+
+  function setFollow(on) {
+    state.follow = !!on;
+    state.zone = state.follow ? browserZone() : BEIJING;
     applyAll();
   }
 
   function init() {
-    var pinned = loadPinned();
-    state.pinned = !!pinned;
-    state.zone = pinned || browserZone();
+    var pref = loadPreference();
+    if (pref === AUTO) {
+      state.follow = true;
+      state.zone = browserZone();
+    } else if (pref) {
+      state.follow = false;
+      state.zone = pref;
+    } else if (followByDefault) {
+      state.follow = true;
+      state.zone = browserZone();
+    } else {
+      state.follow = false;
+      state.zone = BEIJING;
+    }
     if (!zoneOk(state.zone)) state.zone = BEIJING;
-    state.offset = offsetLabel(state.zone);
+
     collect(document.body);
     applyAll();
 
@@ -276,11 +300,9 @@
     if (select) {
       select.addEventListener('change', function () {
         var value = select.value;
-        if (value === 'auto') {
-          try { localStorage.removeItem(STORE_KEY); } catch (e) {}
-          state.pinned = false;
-          state.zone = browserZone();
-          applyAll();
+        if (value === AUTO) {
+          try { localStorage.setItem(STORE_KEY, AUTO); } catch (e) {}
+          setFollow(true);
           return;
         }
         try { localStorage.setItem(STORE_KEY, value); } catch (e) {}
@@ -288,7 +310,7 @@
       });
     }
 
-    // 动态内容（app.js 每 30 秒刷新的表格、bingo 倒计时等）同样要换算
+    // 动态内容同样要换算
     if (window.MutationObserver && document.body) {
       var observer = new MutationObserver(function (muts) {
         for (var i = 0; i < muts.length; i++) {
@@ -297,22 +319,27 @@
       });
       observer.observe(document.body, { childList: true, subtree: true });
     }
-
-    window.addEventListener('storage', function (e) {
-      if (e.key !== STORE_KEY) return;
-      state.pinned = !!e.newValue && zoneOk(e.newValue);
-      state.zone = state.pinned ? e.newValue : browserZone();
-      applyAll();
-    });
   }
 
-  // 对外接口（app.js / 自定义脚本可复用）
+  // 对外接口
   window.TZ = {
     format: formatValue,
     zone: function () { return state.zone; },
     offset: function () { return state.offset; },
     label: function () { return state.zone + ' ' + state.offset; },
     setZone: function (zone) { setZone(zone); },
+    setFollow: function (on) { setFollow(on); },
+    // 换语言后同步「（北京时间）」的本地化写法并重算
+    setBeijingLabel: function (label) {
+      beijingLabel = label || '（北京时间）';
+    },
+    reset: function () {
+      // 语言切换后 DOM 文本已换掉：清掉缓存的原始文本，否则会用旧中文覆盖译文
+      records.forEach(function (node) { node.__tzRaw = undefined; });
+      records = [];
+      collect(document.body);
+      applyAll();
+    },
     apply: function () { collect(document.body); applyAll(); }
   };
 

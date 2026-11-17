@@ -15,7 +15,7 @@
   })();
 
   function T(text) {
-    return I18N[text] || text;
+    return (window.I18N && window.I18N[text]) || I18N[text] || text;
   }
 
   var panel = document.querySelector('[data-firesale-panel]');

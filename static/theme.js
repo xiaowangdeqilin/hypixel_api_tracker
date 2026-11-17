@@ -13,7 +13,8 @@
   var media = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
   var NEXT_LABEL = { light: '🌙 深色', dark: '☀ 浅色' };
 
-  /* 多语言助手：译文来自 #i18n-pack（脚本位于其之后执行，i18n 关闭时回退中文） */
+  /* 多语言助手：静态站优先读 site-i18n.js 写入的 window.I18N（随语言切换实时更新），
+     服务端页回退到 #i18n-pack；都没有时回退中文原文 */
   var I18N = (function () {
     try {
       var el = document.getElementById('i18n-pack');
@@ -22,7 +23,7 @@
   })();
 
   function T(text) {
-    return I18N[text] || text;
+    return (window.I18N && window.I18N[text]) || I18N[text] || text;
   }
 
   function storedTheme() {
@@ -84,6 +85,11 @@
   } else {
     mount();
   }
+
+  /* 语言切换后 site-i18n.js 会调用：用新词条重写按钮文字 */
+  window.THEME_REFRESH = function () {
+    updateButtons(root.getAttribute('data-theme'));
+  };
 
   /* 用户没手动选过时，系统切换深浅色要跟着变 */
   if (media && media.addEventListener) {
