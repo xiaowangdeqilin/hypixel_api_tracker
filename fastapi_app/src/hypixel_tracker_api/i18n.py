@@ -97,12 +97,13 @@ class LocaleStore:
             if fresh:
                 return self._merge(code, cached_pack), False
 
-        url = self.settings.locale_url_template.format(code=code)
-        try:
-            remote = await self._fetcher.get_json(url)
-        except FetchError as exc:
-            logger.warning("locale %s fetch failed: %s", code, exc)
-        else:
+        for template in self._url_templates():
+            url = template.format(code=code)
+            try:
+                remote = await self._fetcher.get_json(url)
+            except FetchError as exc:
+                logger.warning("locale %s fetch failed: %s", code, exc)
+                continue
             if isinstance(remote, dict):
                 try:
                     _atomic_write(self.settings.locale_cache_path(code), remote)
@@ -115,6 +116,14 @@ class LocaleStore:
             return self._merge(code, cached_pack), False
 
         return self._fallback_pack(code), True
+
+    def _url_templates(self) -> Tuple[str, ...]:
+        """先走主源，再走 CDN 兜底；两者相同时只留一个。"""
+        primary = self.settings.locale_url_template
+        fallback = self.settings.locale_fallback_template
+        if not fallback or fallback == primary:
+            return (primary,)
+        return (primary, fallback)
 
     def _merge(self, code: str, pack: Dict[str, Any]) -> Pack:
         """英文内置包作基线，再叠加本语言内置条目与远端译文。

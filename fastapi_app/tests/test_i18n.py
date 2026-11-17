@@ -75,3 +75,28 @@ async def test_missing_key_falls_back_to_english_not_chinese(tmp_path):
     pack = result["pack"]
     assert pack["端点"] == "Endpoint"
     assert pack["时区"] == "Time zone"
+
+
+class RawBlockedFetcher:
+    """raw.githubusercontent.com 不可达，但 CDN 通。"""
+
+    def __init__(self):
+        self.urls = []
+
+    async def get_json(self, url: str):
+        self.urls.append(url)
+        if "raw.githubusercontent.com" in url:
+            raise FetchError("blocked")
+        return {"端点": "Endpunkt", "时区": "Zeitzone"}
+
+
+@pytest.mark.asyncio
+async def test_locale_uses_cdn_fallback_when_raw_is_blocked(tmp_path):
+    fetcher = RawBlockedFetcher()
+    store = LocaleStore(Settings(cache_dir=tmp_path), fetcher)
+    result = await store.get_pack("de")
+
+    assert result is not None
+    assert result["fallback"] is False
+    assert result["pack"]["端点"] == "Endpunkt"
+    assert any("cdn.jsdelivr.net" in url for url in fetcher.urls)

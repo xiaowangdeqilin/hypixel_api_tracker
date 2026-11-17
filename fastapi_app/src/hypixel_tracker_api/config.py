@@ -27,6 +27,10 @@ FALLBACK_DATA_URL = (
 LOCALE_URL_TEMPLATE = (
     "https://raw.githubusercontent.com/" + REPO + "/" + REPO_BRANCH + "/locales/{code}.json"
 )
+# raw.githubusercontent.com 在部分网络下不可达，语言包也留一条 CDN 兜底
+LOCALE_FALLBACK_TEMPLATE = (
+    "https://cdn.jsdelivr.net/gh/" + REPO + "@" + REPO_BRANCH + "/locales/{code}.json"
+)
 RELEASE_API_URL = "https://api.github.com/repos/" + REPO + "/releases/latest"
 
 DEFAULT_TTL_SECONDS = 300
@@ -80,6 +84,7 @@ class Settings:
     data_url: str = DEFAULT_DATA_URL
     fallback_url: str = FALLBACK_DATA_URL
     locale_url_template: str = LOCALE_URL_TEMPLATE
+    locale_fallback_template: str = LOCALE_FALLBACK_TEMPLATE
     release_api_url: str = RELEASE_API_URL
     releases_page: str = RELEASES_PAGE
     repo: str = REPO
@@ -100,6 +105,10 @@ class Settings:
             or FALLBACK_DATA_URL,
             locale_url_template=os.environ.get("HYPIXEL_LOCALE_URL", "").strip()
             or LOCALE_URL_TEMPLATE,
+            locale_fallback_template=os.environ.get(
+                "HYPIXEL_LOCALE_FALLBACK_URL", ""
+            ).strip()
+            or LOCALE_FALLBACK_TEMPLATE,
             cache_dir=default_cache_dir(),
             data_file=_env_path("HYPIXEL_DATA_FILE"),
             ttl_seconds=_env_int("HYPIXEL_DATA_TTL", DEFAULT_TTL_SECONDS),
