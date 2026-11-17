@@ -63,3 +63,15 @@ def test_template_keys_all_have_english_entries():
     english = json.loads((package / "locales" / "en.json").read_text(encoding="utf-8"))
     missing = sorted(key for key in keys if key not in english)
     assert not missing, f"面板文案缺少英文词条: {missing}"
+
+
+@pytest.mark.asyncio
+async def test_missing_key_falls_back_to_english_not_chinese(tmp_path):
+    """远端语言包比代码旧时（新词条还没发布），缺的键应退回英文而不是中文原文。"""
+    store = LocaleStore(Settings(cache_dir=tmp_path), FailingFetcher())
+    result = await store.get_pack("de")
+
+    assert result is not None
+    pack = result["pack"]
+    assert pack["端点"] == "Endpoint"
+    assert pack["时区"] == "Time zone"

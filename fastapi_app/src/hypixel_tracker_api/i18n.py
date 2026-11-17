@@ -117,8 +117,13 @@ class LocaleStore:
         return self._fallback_pack(code), True
 
     def _merge(self, code: str, pack: Dict[str, Any]) -> Pack:
-        """包内内置条目作为基线，远端译文覆盖同名键。"""
-        merged = self._bundled(code)
+        """英文内置包作基线，再叠加本语言内置条目与远端译文。
+
+        远端语言包可能是旧版本（新词条还没发布），这时缺的键会退回英文，
+        而不是把简体中文原文露给非中文用户。
+        """
+        merged: Pack = dict(self._bundled_en)
+        merged.update(self._bundled(code))
         for key, value in pack.items():
             if isinstance(value, str):
                 merged[str(key)] = value
