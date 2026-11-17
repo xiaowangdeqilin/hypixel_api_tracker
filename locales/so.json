@@ -6,8 +6,6 @@
   "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript waa dammaan: waqtiga waxa loo muujinayaa qiimaha asalka ah ee waqtiga Beijing.",
   "collections 与 skills 都带 version 字段，但 Hypixel 分批更新时两者不一定同时切换。 当前版本只在两个接口版本一致时才确认更新；不一致时保持上一次稳定版本并标注「版本同步中」，避免版本号来回跳。": "collections iyo skills labaduba waxay leeyihiin goob version, laakiin marka Hypixel tallaabooyin u cusboonaysiiyo labaduba isku mar ma beddelaan. Nooca hadda waxaa la xaqiijiyaa kaliya marka noocyada labada endpoint isku beecaan; haddii aanay isku beecin, nooca xasilloon ee hore waa la hayaa oo waxaa lagu calaamadeeyaa «noocyada waa la isku waafajinayaa», si lambarka nooca kor iyo hoos u boodboodin.",
   "{days} 天 {time}": "{days} maalmood {time}",
-  "… 另有 {count} 个修改文件未展开": "… {count} fayl oo la beddelay oo dheeraad ah lama furin",
-  "… 另有 {count} 个文件未展开": "… {count} fayl oo dheeraad ah lama furin",
   "… 另有 {count} 行未显示": "… {count} sadar oo dheeraad ah lama muujin",
   "☀ 浅色": "☀ Iftiin",
   "上一版本": "Nooca hore",

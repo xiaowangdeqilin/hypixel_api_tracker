@@ -6,8 +6,6 @@
   "JavaScript 已关闭：时间显示为北京时间原值。": "A JavaScript ki van kapcsolva: az időpontok nyers pekingi időként jelennek meg.",
   "collections 与 skills 都带 version 字段，但 Hypixel 分批更新时两者不一定同时切换。 当前版本只在两个接口版本一致时才确认更新；不一致时保持上一次稳定版本并标注「版本同步中」，避免版本号来回跳。": "A collections és a skills is tartalmaz version mezőt, de a Hypixel szakaszos frissítéseinél nem feltétlenül váltanak egyszerre. Az aktuális verzió csak akkor erősíthető meg, ha a két végpont verziója megegyezik; eltérés esetén az utolsó stabil verzió marad „verzió szinkronizálása” jelöléssel, hogy a verziószám ne ugráljon.",
   "{days} 天 {time}": "{days} nap {time}",
-  "… 另有 {count} 个修改文件未展开": "… további {count} módosított fájl nincs kinyitva",
-  "… 另有 {count} 个文件未展开": "… további {count} fájl nincs kinyitva",
   "… 另有 {count} 行未显示": "… további {count} sor nem jelenik meg",
   "☀ 浅色": "☀ Világos",
   "上一版本": "Előző verzió",

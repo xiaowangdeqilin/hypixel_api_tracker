@@ -6,8 +6,6 @@
   "JavaScript 已关闭：时间显示为北京时间原值。": "I-JavaScript ivaliwe: ixesha liboniswa ngexabiso loqobo lexesha laseBeijing.",
   "collections 与 skills 都带 version 字段，但 Hypixel 分批更新时两者不一定同时切换。 当前版本只在两个接口版本一致时才确认更新；不一致时保持上一次稳定版本并标注「版本同步中」，避免版本号来回跳。": "Ii-collections nee-skills zombini zinenkalo ye-version, kodwa xa i-Hypixel ihlaziya ngamaqela azihlali zitshintsha ngaxeshanye. Inguqulelo yangoku ihlaziywa kuphela xa iinguqulelo zee-endpoint ezimbini zifana; ukuba azifani, kugcinwa inguqulelo yangaphambili ezinzileyo kuze kuphawulwe “Inguqulelo iyalungelelaniswa” ukuze inombolo yenguqulelo ingatshibi.",
   "{days} 天 {time}": "Iintsuku ezingu-{days} {time}",
-  "… 另有 {count} 个修改文件未展开": "… ezinye iifayili ezitshintshiweyo ezingu-{count} azivulwanga",
-  "… 另有 {count} 个文件未展开": "… ezinye iifayili ezingu-{count} azivulwanga",
   "… 另有 {count} 行未显示": "… eminye imigca engu-{count} ayiboniswanga",
   "☀ 浅色": "☀ Khanyayo",
   "上一版本": "Inguqulelo yangaphambili",

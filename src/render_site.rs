@@ -47,7 +47,6 @@ fn localize_text(text: Option<&str>) -> String {
     text.to_string()
 }
 
-const PACK_FILE_LIMIT: usize = 20;
 
 /// 单条 diff 展示行（含可选的「查看完整值」折叠）。
 fn diff_line_html(preview: &Value, full: &Value, css: &str, sign: &str) -> String {
@@ -800,9 +799,9 @@ fn pack_paths_details(label: &str, files: &[Value], css: &str, sign: &str) -> St
     if files.is_empty() {
         return String::new();
     }
+    // 不限条数：多少文件就展开多少，时间过滤（30 天）由上游 filter_recent 负责。
     let items: String = files
         .iter()
-        .take(PACK_FILE_LIMIT)
         .map(|path| {
             format!(
                 "<div class=\"diff-line {css}\"><span class=\"sign\">{sign}</span><div class=\"diff-code\"><code>{}</code></div></div>",
@@ -810,13 +809,8 @@ fn pack_paths_details(label: &str, files: &[Value], css: &str, sign: &str) -> St
             )
         })
         .collect();
-    let more = if files.len() > PACK_FILE_LIMIT {
-        format!("<div class=\"pack-more\">… 另有 {} 个文件未展开</div>", files.len() - PACK_FILE_LIMIT)
-    } else {
-        String::new()
-    };
     format!(
-        "<details class=\"pack-files\"><summary class=\"cnt-{css}\">{label}文件（{count}）</summary><div class=\"diff-lines\">{items}{more}</div></details>",
+        "<details class=\"pack-files\"><summary class=\"cnt-{css}\">{label}文件（{count}）</summary><div class=\"diff-lines\">{items}</div></details>",
         count = files.len()
     )
 }
@@ -827,7 +821,7 @@ fn pack_modified_details(modified: &[Value]) -> String {
         return String::new();
     }
     let mut parts = Vec::new();
-    for entry in modified.iter().take(PACK_FILE_LIMIT) {
+    for entry in modified.iter() {
         let (path, kind, old_hash, new_hash) = match entry {
             Value::String(s) => (s.clone(), "text".to_string(), String::new(), String::new()),
             Value::Object(o) => (
@@ -860,12 +854,6 @@ fn pack_modified_details(modified: &[Value]) -> String {
             )
         };
         parts.push(format!("<div class=\"pack-mod\">{head}{body}</div>"));
-    }
-    if modified.len() > PACK_FILE_LIMIT {
-        parts.push(format!(
-            "<div class=\"pack-more\">… 另有 {} 个修改文件未展开</div>",
-            modified.len() - PACK_FILE_LIMIT
-        ));
     }
     format!(
         "<details class=\"pack-files\" open><summary class=\"cnt-mod\">修改文件（{}）</summary>{}</details>",

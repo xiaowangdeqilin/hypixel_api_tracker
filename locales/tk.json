@@ -6,8 +6,6 @@
   "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript öçük: wagt Pekin wagtynyň asyl bahasynda görkezilýär.",
   "collections 与 skills 都带 version 字段，但 Hypixel 分批更新时两者不一定同时切换。 当前版本只在两个接口版本一致时才确认更新；不一致时保持上一次稳定版本并标注「版本同步中」，避免版本号来回跳。": "collections we skills ikisinde-de version meýdany bar, emma Hypixel tapgyrma-tapgyr täzeläp, ikisi hökmany bir wagtda üýtgemeýär. Häzirki wersiýa diňe iki endpointiň wersiýasy gabat gelende tassyklanýar; gabat gelmese, soňky durnukly wersiýa saklanýar we «Wersiýa sinhronlaşýar» belligi goýulýar, wersiýa belgisi yza-öňe bökmez ýaly.",
   "{days} 天 {time}": "{days} gün {time}",
-  "… 另有 {count} 个修改文件未展开": "… ýene {count} üýtgedilen faýl açylmady",
-  "… 另有 {count} 个文件未展开": "… ýene {count} faýl açylmady",
   "… 另有 {count} 行未显示": "… ýene {count} setir görkezilmedi",
   "☀ 浅色": "☀ Ýagty",
   "上一版本": "Öňki wersiýa",

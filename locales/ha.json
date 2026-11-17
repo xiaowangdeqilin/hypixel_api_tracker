@@ -6,8 +6,6 @@
   "JavaScript 已关闭：时间显示为北京时间原值。": "An kashe JavaScript: ana nuna lokuta a matsayin ainihin ƙimar lokacin Beijing.",
   "collections 与 skills 都带 version 字段，但 Hypixel 分批更新时两者不一定同时切换。 当前版本只在两个接口版本一致时才确认更新；不一致时保持上一次稳定版本并标注「版本同步中」，避免版本号来回跳。": "Duk collections da skills suna ɗauke da filin version, amma idan Hypixel ya sabunta cikin rukuni, biyun ba lallai ba ne su sauya lokaci ɗaya. Ana sabunta sigar yanzu ne kawai idan version ɗin endpoints biyu sun yi daidai; idan ba su yi daidai ba, ana riƙe sigar da ta gabata da ta tsaya tsayin daka kuma ana yi mata alama «Ana daidaitawa», don hana lambar siga yin tsalle-tsalle.",
   "{days} 天 {time}": "Kwanaki {days} {time}",
-  "… 另有 {count} 个修改文件未展开": "… ƙarin fayilolin da aka canza {count} ba a buɗe su ba",
-  "… 另有 {count} 个文件未展开": "… ƙarin fayiloli {count} ba a buɗe su ba",
   "… 另有 {count} 行未显示": "… ƙarin layuka {count} ba a nuna su ba",
   "☀ 浅色": "☀ Haske",
   "上一版本": "Sigar da ta gabata",

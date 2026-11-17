@@ -94,9 +94,21 @@ fn run() -> i32 {
                 None
             }
             Some(prev) => {
+                // 校验和一致 => 载荷逐字节相同，diff 必然为空。
+                // 短路掉：防止归一化层面的差异（键序、浮点格式）被误报成变更。
+                let prev_checksum = prev
+                    .get("checksum")
+                    .and_then(|v| v.as_str())
+                    .unwrap_or_default()
+                    .to_string();
+                let new_checksum = snapshot["checksum"].as_str().unwrap_or_default().to_string();
                 // 历史快照可能仍含元数据，比对前统一剥离，保证规则一致。
                 let old_payload = strip_meta(prev.get("payload").unwrap_or(&Value::Null));
-                let changes = diff_for_endpoint(name, &old_payload, &snapshot["payload"]);
+                let changes = if !prev_checksum.is_empty() && prev_checksum == new_checksum {
+                    Vec::new()
+                } else {
+                    diff_for_endpoint(name, &old_payload, &snapshot["payload"])
+                };
                 let now = generated_at.clone();
                 for c in &changes {
                     new_changes.push(make_change_entry(

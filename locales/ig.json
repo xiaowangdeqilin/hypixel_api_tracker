@@ -6,8 +6,6 @@
   "JavaScript 已关闭：时间显示为北京时间原值。": "Agbanyụrụ JavaScript: a na-egosi oge dịka uru mbụ nke oge Beijing.",
   "collections 与 skills 都带 version 字段，但 Hypixel 分批更新时两者不一定同时切换。 当前版本只在两个接口版本一致时才确认更新；不一致时保持上一次稳定版本并标注「版本同步中」，避免版本号来回跳。": "collections na skills abụọ nwere mpaghara version, mana mgbe Hypixel na-eme mmelite n'usoro, ha anaghị agbanwe otu oge. A na-akwado ụdị dị ugbu a naanị mgbe ụdị endpoint abụọ ahụ kwekọrọ; ọ bụrụ na ha ekwekọghị, a na-edebe ụdị kwụsiri ike gara aga ma kaa «ụdị na-emekọrịta», ka nọmba ụdị ghara ịwụ elu na ala.",
   "{days} 天 {time}": "Ụbọchị {days} {time}",
-  "… 另有 {count} 个修改文件未展开": "… faịlụ {count} gbanwere ọzọ emepeghị",
-  "… 另有 {count} 个文件未展开": "… faịlụ {count} ọzọ emepeghị",
   "… 另有 {count} 行未显示": "… ahịrị {count} ọzọ egosighị",
   "☀ 浅色": "☀ Ìhè",
   "上一版本": "Ụdị gara aga",

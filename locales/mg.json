@@ -6,8 +6,6 @@
   "JavaScript 已关闭：时间显示为北京时间原值。": "Mihidy ny JavaScript: aseho amin'ny sandan'ny ora Beijing tany am-boalohany ny ora.",
   "collections 与 skills 都带 version 字段，但 Hypixel 分批更新时两者不一定同时切换。 当前版本只在两个接口版本一致时才确认更新；不一致时保持上一次稳定版本并标注「版本同步中」，避免版本号来回跳。": "Samy manana saha version ny collections sy skills, saingy tsy voatery hiova miaraka izy ireo rehefa manavao tsikelikely ny Hypixel. Ny dikan-teny ankehitriny dia havaozina raha mifanaraka ny dikan-tenin'ny endpoint roa; raha tsy mifanaraka dia tazonina ny dikan-teny milamina farany ary asoratana «dikan-teny eo am-pifanarahana», mba tsy hihoatra sy hiverina ny laharana dikan-teny.",
   "{days} 天 {time}": "Andro {days} {time}",
-  "… 另有 {count} 个修改文件未展开": "… rakitra novaina {count} tsy novohana",
-  "… 另有 {count} 个文件未展开": "… rakitra {count} hafa tsy novohana",
   "… 另有 {count} 行未显示": "… andalana {count} hafa tsy aseho",
   "☀ 浅色": "☀ Mazava",
   "上一版本": "Dikan-teny teo aloha",

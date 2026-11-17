@@ -6,8 +6,6 @@
   "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript mitfi: il-ħin jintwera bil-valur oriġinali tal-ħin ta' Beijing.",
   "collections 与 skills 都带 version 字段，但 Hypixel 分批更新时两者不一定同时切换。 当前版本只在两个接口版本一致时才确认更新；不一致时保持上一次稳定版本并标注「版本同步中」，避免版本号来回跳。": "collections u skills it-tnejn għandhom il-field version, imma meta Hypixel jaġġorna b'lott mhux bilfors jaqilbu fl-istess ħin. Il-verżjoni attwali tiġi kkonfermata biss meta l-verżjonijiet taż-żewġ endpoints jaqblu; meta ma jaqblux tinżamm l-aħħar verżjoni stabbli u jiġi mmarkat \"Verżjoni qed tissinkronizza\", biex jiġi evitat li n-numru tal-verżjoni jaqbeż 'l hemm u 'l hawn.",
   "{days} 天 {time}": "{days} ġ {time}",
-  "… 另有 {count} 个修改文件未展开": "… {count} fajl ieħor immodifikat mhuwiex muri",
-  "… 另有 {count} 个文件未展开": "… {count} fajl ieħor mhuwiex muri",
   "… 另有 {count} 行未显示": "… {count} linja oħra mhumiex murija",
   "☀ 浅色": "☀ Ċar",
   "上一版本": "Verżjoni preċedenti",

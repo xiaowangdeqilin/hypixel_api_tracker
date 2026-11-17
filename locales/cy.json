@@ -6,8 +6,6 @@
   "JavaScript 已关闭：时间显示为北京时间原值。": "Mae JavaScript wedi'i analluogi: dangosir amseroedd fel gwerthoedd crai amser Beijing.",
   "collections 与 skills 都带 version 字段，但 Hypixel 分批更新时两者不一定同时切换。 当前版本只在两个接口版本一致时才确认更新；不一致时保持上一次稳定版本并标注「版本同步中」，避免版本号来回跳。": "Mae gan gasgliadau a sgiliau ill dau faes version, ond nid ydynt bob amser yn newid ar yr un pryd pan fo Hypixel yn diweddaru mewn sypiau. Dim ond pan fo fersiynau'r dau benbwynt yr un fath y diweddarir y fersiwn cyfredol; os nad ydynt, cedwir y fersiwn sefydlog blaenorol a'i farcio “Wrthi'n cysoni fersiwn”, er mwyn osgoi i'r rhif fersiwn neidio.",
   "{days} 天 {time}": "{days} d {time}",
-  "… 另有 {count} 个修改文件未展开": "… {count} ffeil a newidiwyd arall heb eu hagor",
-  "… 另有 {count} 个文件未展开": "… {count} ffeil arall heb eu hagor",
   "… 另有 {count} 行未显示": "… {count} llinell arall heb eu dangos",
   "☀ 浅色": "☀ Golau",
   "上一版本": "Fersiwn flaenorol",

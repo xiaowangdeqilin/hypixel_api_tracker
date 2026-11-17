@@ -6,8 +6,6 @@
   "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript është i fikur: ora shfaqet me vlerën origjinale të orës së Pekinit.",
   "collections 与 skills 都带 version 字段，但 Hypixel 分批更新时两者不一定同时切换。 当前版本只在两个接口版本一致时才确认更新；不一致时保持上一次稳定版本并标注「版本同步中」，避免版本号来回跳。": "Edhe collections edhe skills kanë fushën version, por kur Hypixel përditëson në grupe ato nuk ndërrohen domosdoshmërisht në të njëjtën kohë. Versioni aktual përditësohet vetëm kur versionet e dy endpoint-eve përputhen; kur ndryshojnë, mbahet versioni i fundit i qëndrueshëm dhe shënohet “versioni po sinkronizohet”, për të shmangur kërcimin e numrit të versionit sa andej-këtej.",
   "{days} 天 {time}": "{days} d {time}",
-  "… 另有 {count} 个修改文件未展开": "… {count} skedarë të ndryshuar nuk u zgjeruan",
-  "… 另有 {count} 个文件未展开": "… {count} skedarë të tjerë nuk u zgjeruan",
   "… 另有 {count} 行未显示": "… {count} rreshta të tjerë nuk shfaqen",
   "☀ 浅色": "☀ E çelët",
   "上一版本": "Versioni i mëparshëm",

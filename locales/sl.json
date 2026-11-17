@@ -6,8 +6,6 @@
   "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript je izklopljen: čas se prikazuje kot prvotna vrednost pekinškega časa.",
   "collections 与 skills 都带 version 字段，但 Hypixel 分批更新时两者不一定同时切换。 当前版本只在两个接口版本一致时才确认更新；不一致时保持上一次稳定版本并标注「版本同步中」，避免版本号来回跳。": "collections in skills imata oba polje version, a se pri Hypixelovih postopnih posodobitvah ne preklopita nujno hkrati. Trenutna različica se potrdi le, ko se različici obeh končnih točk ujemata; če se ne ujemata, ostane zadnja stabilna različica z oznako «Različica se sinhronizira», da številka različice ne skače sem in tja.",
   "{days} 天 {time}": "{days} d {time}",
-  "… 另有 {count} 个修改文件未展开": "… še {count} spremenjenih datotek ni razprtih",
-  "… 另有 {count} 个文件未展开": "… še {count} datotek ni razprtih",
   "… 另有 {count} 行未显示": "… še {count} vrstic ni prikazanih",
   "☀ 浅色": "☀ Svetla",
   "上一版本": "Prejšnja različica",

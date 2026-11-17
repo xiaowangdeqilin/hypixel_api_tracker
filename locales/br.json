@@ -6,8 +6,6 @@
   "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript zo lazhet: an eurioù a vez diskouezet evel eurioù Beijing diaoz.",
   "collections 与 skills 都带 version 字段，但 Hypixel 分批更新时两者不一定同时切换。 当前版本只在两个接口版本一致时才确认更新；不一致时保持上一次稳定版本并标注「版本同步中」，避免版本号来回跳。": "collections ha skills o deus o-daou ar vaezienn version, met pa vez Hypixel o hizivaat a-vandennoù ne vez ket atav o cheñch asambles. Ar stumm bremanel ne vez kadarnaet nemet pa vez ar memes stumm gant an daou etrefas; pa ne vezont ket, e talc'her ar stumm diwezhañ stabil hag e vez merket «Ar stumm o vezañ sinkronizet», evit mirout ouzh an niverenn stumm da lammat a-du.",
   "{days} 天 {time}": "{days} d {time}",
-  "… 另有 {count} 个修改文件未展开": "… {count} restr kemmet all n'int ket digoret",
-  "… 另有 {count} 个文件未展开": "… {count} restr all n'int ket digoret",
   "… 另有 {count} 行未显示": "… {count} linenn all n'int ket diskwelet",
   "☀ 浅色": "☀ Sklaer",
   "上一版本": "Stumm kent",

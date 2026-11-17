@@ -159,6 +159,37 @@ fn append_changes_has_no_count_cap() {
 }
 
 #[test]
+fn append_changes_dedupes_identical_transitions() {
+    use hypixel_tracker::state::append_changes;
+    use serde_json::Map;
+    let now = hypixel_tracker::retention::now();
+    let make = |path: &str, new_val: &str| {
+        let mut m = Map::new();
+        m.insert("endpoint".into(), json!("items"));
+        m.insert("path".into(), json!(path));
+        m.insert("type".into(), json!("modified"));
+        m.insert("old".into(), json!("A"));
+        m.insert("new".into(), json!(new_val));
+        m.insert("time".into(), json!(now));
+        m
+    };
+
+    // 两次构建用旧快照做基线，会把同一条 diff 原样再报一遍：只保留一条
+    let mut existing: Vec<Map<String, serde_json::Value>> = vec![make("a.b", "B")];
+    append_changes(&mut existing, vec![make("a.b", "B"), make("c.d", "D")]);
+    assert_eq!(existing.len(), 2);
+    assert_eq!(existing[0]["path"], json!("c.d"));
+
+    // 值真的来回跳（B -> A -> B）：新旧值不同，不算重复，照常保留
+    let mut existing: Vec<Map<String, serde_json::Value>> = vec![make("a.b", "B")];
+    let mut back = make("a.b", "B");
+    back.insert("old".into(), json!("B"));
+    back.insert("new".into(), json!("A"));
+    append_changes(&mut existing, vec![back]);
+    assert_eq!(existing.len(), 2);
+}
+
+#[test]
 fn bingo_goal_progress_caps_at_max_tier() {
     use hypixel_tracker::bingo::goal_progress;
     // 5 档满级：progress 超出最高档时，展示值封顶、百分比 100%、标记满级

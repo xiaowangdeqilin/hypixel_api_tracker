@@ -6,8 +6,6 @@
   "JavaScript 已关闭：时间显示为北京时间原值。": "Ua tapē le JavaScript: e fa'aalia le taimi i le taua muamua o le taimi o Beijing.",
   "collections 与 skills 都带 version 字段，但 Hypixel 分批更新时两者不一定同时切换。 当前版本只在两个接口版本一致时才确认更新；不一致时保持上一次稳定版本并标注「版本同步中」，避免版本号来回跳。": "O collections ma skills e iai uma le vaega version, ae i fa'afouga fa'avaega a Hypixel e le'o fa'atasi pea ona suia ia mea e lua. E fa'amaonia le lomiga o lo'o iai nei pe a tutusa lomiga o endpoint e lua; afai e le tutusa, e tumau le lomiga mautu mulimuli ma fa'ailogaina «Lomiga o lo'o fa'amaopoopoina», ina ia aua ne'i osooso le numera o le lomiga.",
   "{days} 天 {time}": "{days} aso {time}",
-  "… 另有 {count} 个修改文件未展开": "… e {count} isi faila ua suia e le o tatalaina",
-  "… 另有 {count} 个文件未展开": "… e {count} isi faila e le o tatalaina",
   "… 另有 {count} 行未显示": "… e {count} isi laina e le o fa'aalia",
   "☀ 浅色": "☀ Malamalama",
   "上一版本": "Lomiga muamua",

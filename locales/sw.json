@@ -6,8 +6,6 @@
   "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript imezimwa: muda unaonyeshwa kwa thamani halisi ya saa za Beijing.",
   "collections 与 skills 都带 version 字段，但 Hypixel 分批更新时两者不一定同时切换。 当前版本只在两个接口版本一致时才确认更新；不一致时保持上一次稳定版本并标注「版本同步中」，避免版本号来回跳。": "collections na skills zote zina sehemu ya version, lakini kwa kuwa Hypixel husasisha kwa awamu, zote mbili si lazima zibadilike kwa wakati mmoja. Toleo la sasa huthibitishwa tu pale matoleo ya endpoint zote mbili yanapolingana; yasipolingana, toleo la mwisho thabiti huhifadhiwa likiwa na alama «Toleo linasawazishwa», ili namba ya toleo isiruke huku na huko.",
   "{days} 天 {time}": "Siku {days} {time}",
-  "… 另有 {count} 个修改文件未展开": "… faili {count} zilizobadilishwa hazijafunguliwa",
-  "… 另有 {count} 个文件未展开": "… faili {count} zaidi hazijafunguliwa",
   "… 另有 {count} 行未显示": "… mistari {count} zaidi haijaonyeshwa",
   "☀ 浅色": "☀ Mwanga",
   "上一版本": "Toleo la awali",

@@ -6,8 +6,6 @@
   "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript dezaktive: lè yo parèt kòm valè brit nan lè Beijing.",
   "collections 与 skills 都带 version 字段，但 Hypixel 分批更新时两者不一定同时切换。 当前版本只在两个接口版本一致时才确认更新；不一致时保持上一次稳定版本并标注「版本同步中」，避免版本号来回跳。": "collections ak skills tou de gen yon jaden version, men lè Hypixel fè mizajou pa pakè yo pa nesesèman chanje ansanm. Vèsyon aktyèl la konfime sèlman lè vèsyon de entèfas yo matche; si yo pa matche, dènye vèsyon estab anvan an rete epi yo make « senkronizasyon vèsyon », pou nimewo vèsyon an pa sote ale vini.",
   "{days} 天 {time}": "{days} j {time}",
-  "… 另有 {count} 个修改文件未展开": "… {count} lòt fichye ki chanje pa ouvri",
-  "… 另有 {count} 个文件未展开": "… {count} lòt fichye pa ouvri",
   "… 另有 {count} 行未显示": "… {count} lòt liy pa montre",
   "☀ 浅色": "☀ Klè",
   "上一版本": "Vèsyon anvan",

@@ -10,6 +10,13 @@ permissions:
   pages: write
   id-token: write
 
+# 数据基线在仓库里：两个 run 并行时，后跑的那个 checkout 到旧快照，
+# 会把同一批变更原样再记一遍（页面上表现为「最近变更被重新填回去」）。
+# 串行化：上一个 run 没结束，下一个排队等它，checkout 时自然拿到最新快照。
+concurrency:
+  group: pages-data-build
+  cancel-in-progress: false
+
 jobs:
   build:
     # 固定镜像标签，避免 ubuntu-latest 迁移到 Ubuntu 26 的通知与潜在行为变化

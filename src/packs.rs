@@ -20,7 +20,6 @@ use crate::timeutil::now_beijing;
 
 const DOWNLOAD_TIMEOUT: u64 = 120;
 const HASH_LENGTH: usize = 16;
-const MAX_PACK_CHANGE_RECORDS: usize = 50;
 
 const TEXT_EXTENSIONS: [&str; 14] = [
     ".json", ".mcmeta", ".txt", ".lang", ".fsh", ".vsh", ".glsl",
@@ -393,8 +392,9 @@ pub fn inspect_pack(
 
     let mut changes = vec![record.as_object().cloned().unwrap_or_default()];
     changes.extend(result.changes.drain(..));
+    // 只按时间过滤（30 天），不再限制条数：资源包一次更新动辄上千个文件，
+    // 截断会让用户误以为只改了 50 个。
     let kept = filter_recent(changes, "time");
-    let kept: Vec<Map<String, Value>> = kept.into_iter().take(MAX_PACK_CHANGE_RECORDS).collect();
     result.changes = kept;
     result.total_files = current_files.len();
     result.status = if is_baseline { "baseline".into() } else { "updated".into() };

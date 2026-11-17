@@ -6,8 +6,6 @@
   "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript este dezactivat: orele sunt afișate cu valoarea originală a orei Beijing.",
   "collections 与 skills 都带 version 字段，但 Hypixel 分批更新时两者不一定同时切换。 当前版本只在两个接口版本一致时才确认更新；不一致时保持上一次稳定版本并标注「版本同步中」，避免版本号来回跳。": "collections și skills au amândouă câmpul version, dar la actualizările în etape ale Hypixel nu comută întotdeauna simultan. Versiunea curentă este confirmată doar când versiunile celor două endpointuri coincid; dacă nu coincid, se păstrează ultima versiune stabilă, marcată «se sincronizează versiunea», pentru ca numărul versiunii să nu oscileze.",
   "{days} 天 {time}": "{days} z {time}",
-  "… 另有 {count} 个修改文件未展开": "… alte {count} fișiere modificate nu sunt extinse",
-  "… 另有 {count} 个文件未展开": "… alte {count} fișiere nu sunt extinse",
   "… 另有 {count} 行未显示": "… alte {count} rânduri nu sunt afișate",
   "☀ 浅色": "☀ Luminos",
   "上一版本": "Versiunea anterioară",

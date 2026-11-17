@@ -6,8 +6,6 @@
   "JavaScript 已关闭：时间显示为北京时间原值。": "„JavaScript“ išjungtas: laikas rodomas pradine Pekino laiko reikšme.",
   "collections 与 skills 都带 version 字段，但 Hypixel 分批更新时两者不一定同时切换。 当前版本只在两个接口版本一致时才确认更新；不一致时保持上一次稳定版本并标注「版本同步中」，避免版本号来回跳。": "Ir collections, ir skills turi lauką version, tačiau kai Hypixel atnaujina dalimis, abu ne būtinai persijungia vienu metu. Dabartinė versija atnaujinama tik tada, kai abu galiniai taškai praneša tą pačią versiją; kol jos skiriasi, palaikoma paskutinė stabili versija ir žymima „Sinchronizuojama“, kad versijos numeris nešokinėtų pirmyn ir atgal.",
   "{days} 天 {time}": "{days} d. {time}",
-  "… 另有 {count} 个修改文件未展开": "… dar {count} pakeistų failų neišskleista",
-  "… 另有 {count} 个文件未展开": "… dar {count} failų neišskleista",
   "… 另有 {count} 行未显示": "… dar {count} eilučių nerodoma",
   "☀ 浅色": "☀ Šviesi",
   "上一版本": "Ankstesnė versija",

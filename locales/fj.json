@@ -6,8 +6,6 @@
   "JavaScript 已关闭：时间显示为北京时间原值。": "Sa sega ni vakayagataki na JavaScript: e vakaraitaki na gauna me vaka na ivakaraitaki dina ni gauna Beijing.",
   "collections 与 skills 都带 version 字段，但 Hypixel 分批更新时两者不一定同时切换。 当前版本只在两个接口版本一致时才确认更新；不一致时保持上一次稳定版本并标注「版本同步中」，避免版本号来回跳。": "Na collections kei na skills e tiko na yasa version, ia ena veivakavoui wasoma nei Hypixel e sega ni yaco me veisautaki vata. Na vesini oqo e vakadeitaki ga ena gauna e tautauvata kina na vesini ni rua na itaba; kevaka e sega ni tautauvata, ena maroroi na vesini dei e liu ka volai «veivakatautauvata ni vesini», me kua ni lade na nomera ni vesini.",
   "{days} 天 {time}": "{days} siga {time}",
-  "… 另有 {count} 个修改文件未展开": "… e {count} tale na faili veisautaki e sega ni dolavi",
-  "… 另有 {count} 个文件未展开": "… e {count} tale na faili e sega ni dolavi",
   "… 另有 {count} 行未显示": "… e {count} tale na laini e sega ni vakaraitaki",
   "☀ 浅色": "☀ Rarama",
   "上一版本": "Vesini e liu",

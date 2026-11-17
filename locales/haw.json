@@ -6,8 +6,6 @@
   "JavaScript 已关闭：时间显示为北京时间原值。": "Ua pio ʻo JavaScript: hōʻike ʻia nā manawa ma ke ʻano o ka manawa Beijing maoli.",
   "collections 与 skills 都带 version 字段，但 Hypixel 分批更新时两者不一定同时切换。 当前版本只在两个接口版本一致时才确认更新；不一致时保持上一次稳定版本并标注「版本同步中」，避免版本号来回跳。": "Loaʻa i nā collections a me nā skills ke kahua version, akā ʻaʻole like mau ka loli ʻana o lāua ʻelua ke hoʻohou ʻo Hypixel ma nā pūʻulu. Hoʻohou wale ʻia ka version o kēia manawa ke like nā version o nā endpoint ʻelua; inā ʻaʻole like, mālama ʻia ka version kūpaʻa mua a hōʻailona ʻia me “Ke hoʻohālikelike ʻia nei ka version” i ʻole e lele ka helu version.",
   "{days} 天 {time}": "{days} lā {time}",
-  "… 另有 {count} 个修改文件未展开": "… {count} faila i hoʻololi ʻia ʻaʻole i wehe ʻia",
-  "… 另有 {count} 个文件未展开": "… {count} faila hou aʻe ʻaʻole i wehe ʻia",
   "… 另有 {count} 行未显示": "… {count} laina hou aʻe ʻaʻole i hōʻike ʻia",
   "☀ 浅色": "☀ Māmā",
   "上一版本": "Version mua",

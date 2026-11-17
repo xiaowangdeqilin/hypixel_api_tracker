@@ -6,8 +6,6 @@
   "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript ti wa ni pipa: a ṣe àfihàn àkókò pẹ̀lú iye àkọ́kọ́ ti àkókò Beijing.",
   "collections 与 skills 都带 version 字段，但 Hypixel 分批更新时两者不一定同时切换。 当前版本只在两个接口版本一致时才确认更新；不一致时保持上一次稳定版本并标注「版本同步中」，避免版本号来回跳。": "collections àti skills méjèèjì ní pápá version, ṣùgbọ́n nínú ìmúdójúìwọ̀n ìpele Hypixel, àwọn méjèèjì kìí yí padà ní àkókò kan náà. A ń fidi ẹ̀yà ìsinsìnyí múlẹ̀ nígbà tí ẹ̀yà àwọn endpoint méjèèjì bá bára wọn nìkan; tí wọn kò bá bára wọn, ẹ̀yà tí ó dúró ṣinṣin ní ìgbẹ̀yìn yóò wà pẹ̀lú àmì «Ẹ̀yà ń ṣe ìsopọ̀», kí nọ́mbà ẹ̀yà má baà fò lọ síwájú àti sẹ́yìn.",
   "{days} 天 {time}": "Ọjọ́ {days} {time}",
-  "… 另有 {count} 个修改文件未展开": "… {count} fáìlì tí a yí padà mìíràn kò tíì ṣí",
-  "… 另有 {count} 个文件未展开": "… {count} fáìlì mìíràn kò tíì ṣí",
   "… 另有 {count} 行未显示": "… {count} ìlà mìíràn kò hàn",
   "☀ 浅色": "☀ Ìmọ́lẹ̀",
   "上一版本": "Ẹ̀yà ìgbẹ̀yìn",

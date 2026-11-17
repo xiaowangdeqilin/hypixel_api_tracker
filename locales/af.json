@@ -6,8 +6,6 @@
   "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript is afgeskakel: tye word as rou Beijing-tyd gewys.",
   "collections 与 skills 都带 version 字段，但 Hypixel 分批更新时两者不一定同时切换。 当前版本只在两个接口版本一致时才确认更新；不一致时保持上一次稳定版本并标注「版本同步中」，避免版本号来回跳。": "Albei collections en skills het 'n version-veld, maar hulle skakel nie noodwendig gelyktydig oor wanneer Hypixel in bondels opdateer nie. Die huidige weergawe word net opgedateer wanneer die weergawes van albei eindpunte ooreenstem; terwyl hulle verskil, bly die laaste stabiele weergawe behoue en word “weergawe sinchroniseer” gemerk, sodat die weergawenommer nie heen en weer spring nie.",
   "{days} 天 {time}": "{days} d {time}",
-  "… 另有 {count} 个修改文件未展开": "… {count} gewysigde lêers is nie uitgebrei nie",
-  "… 另有 {count} 个文件未展开": "… {count} meer lêers is nie uitgebrei nie",
   "… 另有 {count} 行未显示": "… {count} meer reëls word nie gewys nie",
   "☀ 浅色": "☀ Lig",
   "上一版本": "Vorige weergawe",

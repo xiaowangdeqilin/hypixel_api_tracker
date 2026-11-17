@@ -6,8 +6,6 @@
   "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript ist deaktiviert: Zeiten werden als Rohwerte in Pekinger Zeit angezeigt.",
   "collections 与 skills 都带 version 字段，但 Hypixel 分批更新时两者不一定同时切换。 当前版本只在两个接口版本一致时才确认更新；不一致时保持上一次稳定版本并标注「版本同步中」，避免版本号来回跳。": "collections und skills enthalten beide ein Feld version, aber bei den stufenweisen Updates von Hypixel wechseln beide nicht unbedingt gleichzeitig. Die aktuelle Version wird nur bestätigt, wenn die Versionen beider Endpunkte übereinstimmen; weichen sie ab, bleibt die letzte stabile Version erhalten und wird als «Version wird synchronisiert» markiert, damit die Versionsnummer nicht hin- und herspringt.",
   "{days} 天 {time}": "{days} T {time}",
-  "… 另有 {count} 个修改文件未展开": "… {count} weitere geänderte Dateien sind nicht aufgeklappt",
-  "… 另有 {count} 个文件未展开": "… {count} weitere Dateien sind nicht aufgeklappt",
   "… 另有 {count} 行未显示": "… {count} weitere Zeilen werden nicht angezeigt",
   "☀ 浅色": "☀ Hell",
   "上一版本": "Vorherige Version",

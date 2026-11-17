@@ -184,13 +184,45 @@ pub fn save_changes(changes: &[Map<String, Value>]) -> std::io::Result<()> {
 /// 合并新旧变更，并丢掉超过保留期（30 天）的记录。
 ///
 /// 除保留期外不再限制条数：30 天内有多少条就保留多少条。
+///
+/// 另做同条去重：端点 + 路径 + 类型 + 新旧值完全一致的记录只保留一条。
+/// 背景：两次构建并行/乱序时，后跑的那个可能 checkout 到旧快照，
+/// 会把已经记过的同一批 diff 原样再报一遍，页面上看起来就像「变更被重新填回去」。
+/// 去重按完整新旧值比对，不影响真正的重复发生（值变化来回跳会因新旧值不同而保留）。
 pub fn append_changes(
     existing: &mut Vec<Map<String, Value>>,
     new_changes: Vec<Map<String, Value>>,
 ) {
-    let mut merged = new_changes;
+    let mut seen: std::collections::HashSet<String> =
+        existing.iter().map(change_dedupe_key).collect();
+    let mut merged: Vec<Map<String, Value>> = Vec::with_capacity(new_changes.len());
+    for change in new_changes {
+        if seen.insert(change_dedupe_key(&change)) {
+            merged.push(change);
+        }
+    }
     merged.extend(existing.drain(..));
     *existing = crate::retention::filter_recent(merged, "time");
+}
+
+/// 同一条变更的指纹：端点 + 路径 + 类型 + 完整新旧值。
+fn change_dedupe_key(change: &Map<String, Value>) -> String {
+    let field = |name: &str| {
+        change
+            .get(name)
+            .map(|v| serde_json::to_string(v).unwrap_or_default())
+            .unwrap_or_default()
+    };
+    [
+        field("endpoint"),
+        field("path"),
+        field("type"),
+        field("old"),
+        field("new"),
+        field("old_full"),
+        field("new_full"),
+    ]
+    .join("\u{1}")
 }
 
 /// 构造一条变更记录（changes.json 统一 schema）。

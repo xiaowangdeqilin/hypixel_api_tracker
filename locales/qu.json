@@ -6,8 +6,6 @@
   "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript wichqasqa: pacha Beijing pachap qallariy chaninpi rikuchikun.",
   "collections 与 skills 都带 version 字段，但 Hypixel 分批更新时两者不一定同时切换。 当前版本只在两个接口版本一致时才确认更新；不一致时保持上一次稳定版本并标注「版本同步中」，避免版本号来回跳。": "Collections hinaspa skills iskayninkupas version campoyuqm, ichaqa Hypixel huñusqa-hina musuqyachiptinqa iskayninkuqa mana sapalla kikin pachapi tikrakunkuchu. Kunan versiónqa iskay endpointkunap versiónnin kikinchakuptillanmi musuqyachikun; mana kikinchakuptinqa ñawpaq takyasqa versiónmi waqaychakun hinaspa “Versión kikinchachikuchkan” nisqawan rikuchikun, versión yupay mana phinkinanpaq.",
   "{days} 天 {time}": "{days} p'unchaw {time}",
-  "… 另有 {count} 个修改文件未展开": "… huk {count} tikrasqa archivokunam mana kichasqachu",
-  "… 另有 {count} 个文件未展开": "… huk {count} archivokunam mana kichasqachu",
   "… 另有 {count} 行未显示": "… huk {count} siq'ikunam mana rikuchisqachu",
   "☀ 浅色": "☀ Punchaw",
   "上一版本": "Ñawpaq versión",

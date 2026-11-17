@@ -6,8 +6,6 @@
   "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript oĩmbýma: umi aravo ojekuaauka ijypyguáva ramo aravo Pekíng pegua.",
   "collections 与 skills 都带 version 字段，但 Hypixel 分批更新时两者不一定同时切换。 当前版本只在两个接口版本一致时才确认更新；不一致时保持上一次稳定版本并标注「版本同步中」，避免版本号来回跳。": "Collections ha skills mokõive oguereko version campo, ha katu Hypixel ombohekopyahu aty rupive jave ndaha'éi mokõive oñemoambuéva peteĩ árape. Ag̃agua versión oñemoneĩ añónte mokõive endpoint versión ojojávo; ndahojojáirõ, oñongatu versión mboyvegua oñembo'ýva ha ojehechauka «Oñembojoja hína», ani versión papapy oiko jere jere.",
   "{days} 天 {time}": "{days} ára {time}",
-  "… 另有 {count} 个修改文件未展开": "… {count} kuatia oñemoambuéva ndojepe'ái",
-  "… 另有 {count} 个文件未展开": "… {count} kuatia ambuéva ndojepe'ái",
   "… 另有 {count} 行未显示": "… {count} línea ambuéva ndojehechaukái",
   "☀ 浅色": "☀ Tesape",
   "上一版本": "Versión mboyvegua",
