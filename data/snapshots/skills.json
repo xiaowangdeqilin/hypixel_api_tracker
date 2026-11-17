@@ -1,7 +1,7 @@
 {
-  "checksum": "466050571f0d1c9cd021fc0e9cf172b17f98b10bac980466420b7196baf03130",
+  "checksum": "3a58317aa6db36ddd5fb6f5bd198f1af5d9f4e7a1acbbf41dc95c1789a0326da",
   "endpoint": "skills",
-  "fetched_at": "2026-11-17 23:52:32",
+  "fetched_at": "2026-11-18 06:55:36",
   "payload": {
     "skills": {
       "ALCHEMY": {
@@ -3471,8 +3471,8 @@
             "level": 30,
             "totalExpRequired": 8022425.0,
             "unlocks": [
-              "Lava Leech Sea Creature",
-              "Titanoboa Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XXX   Grants +2.9➜3  Treasure Chance.",
               "+5 Health",
               "+350,000 Coins",
@@ -3483,8 +3483,8 @@
             "level": 31,
             "totalExpRequired": 9322425.0,
             "unlocks": [
-              "Magma Pillar Sea Creature",
-              "Pyroclastic Worm Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XXXI   Grants +3➜3.1  Treasure Chance.",
               "+5 Health",
               "+375,000 Coins",
@@ -3505,7 +3505,7 @@
             "level": 33,
             "totalExpRequired": 12222425.0,
             "unlocks": [
-              "Lava Flame Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XXXIII   Grants +3.2➜3.3  Treasure Chance.",
               "+5 Health",
               "+425,000 Coins",
