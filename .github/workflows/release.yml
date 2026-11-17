@@ -135,37 +135,38 @@ jobs:
           SUFFIX=""
           case "$TARGET" in *windows*) SUFFIX=".exe" ;; esac
           SRC="target/${TARGET}/release"
-          mkdir -p "dist/${NAME}" dist-raw
+          # stage/ 放解压后的目录，out/ 只放最终要发布的文件。
+          # 分开是有原因的：upload-artifact 会按 glob 的公共父目录保留相对路径，
+          # 若同时上传 dist/*.tar.gz 和 dist-raw/*，公共父目录变成仓库根，
+          # 产物会被塞进 dist/ 子目录，下游 smoke / publish 全都找不到。
+          mkdir -p "stage/${NAME}" out
 
-          cp "${SRC}/tracker-server${SUFFIX}" "dist/${NAME}/"
-          cp "${SRC}/tracker-build${SUFFIX}" "dist/${NAME}/"
+          cp "${SRC}/tracker-server${SUFFIX}" "stage/${NAME}/"
+          cp "${SRC}/tracker-build${SUFFIX}" "stage/${NAME}/"
           # 运行期只读资源：模板、前端脚本、103 种语言词条、版本号
-          cp -r templates static locales "dist/${NAME}/"
-          cp VERSION README.md "dist/${NAME}/"
-          mkdir -p "dist/${NAME}/data"
+          cp -r templates static locales "stage/${NAME}/"
+          cp VERSION README.md "stage/${NAME}/"
+          mkdir -p "stage/${NAME}/data"
           # 首次启动的种子数据，避免打开就是空白页
-          cp -r data/snapshots "dist/${NAME}/data/" 2>/dev/null || true
+          cp -r data/snapshots "stage/${NAME}/data/" 2>/dev/null || true
           for f in version.json bingo.json firesales.json; do
-            [ -f "data/$f" ] && cp "data/$f" "dist/${NAME}/data/" || true
+            [ -f "data/$f" ] && cp "data/$f" "stage/${NAME}/data/" || true
           done
 
-          # 裸二进制：自更新直接下载替换用，不必解压
-          cp "${SRC}/tracker-server${SUFFIX}" "dist-raw/${NAME}${SUFFIX}"
-
           if [ "${{ matrix.ext }}" = "zip" ]; then
-            (cd dist && 7z a -tzip "${NAME}.zip" "${NAME}" >/dev/null)
+            (cd stage && 7z a -tzip "../out/${NAME}.zip" "${NAME}" >/dev/null)
           else
-            tar -C dist -czf "dist/${NAME}.tar.gz" "${NAME}"
+            tar -C stage -czf "out/${NAME}.tar.gz" "${NAME}"
           fi
-          ls -lh dist dist-raw
+
+          # 裸二进制：自更新直接下载替换用，不必解压
+          cp "${SRC}/tracker-server${SUFFIX}" "out/${NAME}${SUFFIX}"
+          ls -lh out
 
       - uses: actions/upload-artifact@v4
         with:
           name: binaries-${{ matrix.target }}
-          path: |
-            dist/*.tar.gz
-            dist/*.zip
-            dist-raw/*
+          path: out/*
           if-no-files-found: error
           retention-days: 7
 
@@ -307,11 +308,14 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p release
-          shopt -s nullglob
-          for f in artifacts/*/*; do
-            case "$f" in
+          # 递归找，不假设 artifacts/ 下的目录层级：
+          # 二进制产物是 out/*（扁平），安装器是 packaging/out/*（扁平），
+          # 但下载后各自套了一层 artifact 名字，层级并不统一。
+          find artifacts -type f -print0 | while IFS= read -r -d '' f; do
+            case "$(basename "$f")" in
               *.tar.gz|*.zip|*.whl|*.msi|*.exe|*.dmg|*.pkg|*.deb|*.rpm) cp "$f" release/ ;;
-              *hypixel-tracker-v*) cp "$f" release/ ;;   # 裸二进制（无扩展名）
+              hypixel-tracker-v*) cp "$f" release/ ;;   # 裸二进制（无扩展名）
+              *) : ;;
             esac
           done
           cd release
@@ -319,6 +323,15 @@ jobs:
             echo "没有任何产物，放弃发布" >&2
             exit 1
           fi
+          # 自更新依赖「裸二进制 + SHA256SUMS」，缺了就等于没有自更新能力，
+          # 与其发一个残缺的 Release，不如让这里红掉。
+          # 第二个模式故意以目标三元组结尾（不带 .tar.gz），只匹配裸二进制
+          for pattern in 'hypixel-tracker-v*.tar.gz' 'hypixel-tracker-v*x86_64-unknown-linux-gnu' '*.whl'; do
+            if ! compgen -G "$pattern" >/dev/null; then
+              echo "缺少关键产物：$pattern" >&2
+              exit 1
+            fi
+          done
           ls -1 | grep -v '^SHA256SUMS.txt$' | xargs -r sha256sum > SHA256SUMS.txt
           echo "--- 产物 ---"
           ls -lh
