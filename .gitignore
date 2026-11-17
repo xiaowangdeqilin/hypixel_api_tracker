@@ -4,3 +4,23 @@ data/server/
 *.tmp
 __pycache__/
 core.[0-9]*
+
+# 打包中间产物（CI 里生成，不入库）
+packaging/stage/
+packaging/out/
+packaging/pkgroot/
+packaging/dmgroot/
+packaging/debroot/
+packaging/rpmbuild/
+packaging/scripts/
+dist-portable/
+dist-python/
+
+# Python 子包
+fastapi_app/.venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# 运行时崩溃报告
+data/crash/

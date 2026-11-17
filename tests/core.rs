@@ -490,8 +490,21 @@ fn every_language_pack_is_complete_and_safe() {
                     val
                 );
             }
+            // 译文会被直接插进 HTML：只拦截真正的注入片段。
+            // 正文里出现「JavaScript: 已禁用」这类专有名词是合法的，
+            // 危险的是 `href="javascript:…"` 这种属性上下文，所以要看前一个字符。
+            let lower = val.to_ascii_lowercase();
+            let has_tag = ["<script", "<iframe", "<object", "<embed", "onerror=", "onload="]
+                .iter()
+                .any(|needle| lower.contains(needle));
+            let has_scheme = lower.match_indices("javascript:").any(|(idx, _)| {
+                lower[..idx]
+                    .chars()
+                    .next_back()
+                    .is_some_and(|prev| matches!(prev, '"' | '\'' | '=' | '('))
+            });
             assert!(
-                !val.contains("<script") && !val.to_ascii_lowercase().contains("javascript:"),
+                !has_tag && !has_scheme,
                 "{} 的译文不得包含可执行内容：{}",
                 code,
                 key

@@ -1,6 +1,6 @@
 [package]
 name = "hypixel-tracker"
-version = "2.0.0"
+version = "3.0.0"
 edition = "2021"
 description = "Hypixel SkyBlock API 变更追踪器（Rust 实现）：构建静态仪表盘 + 本地监控服务"
 

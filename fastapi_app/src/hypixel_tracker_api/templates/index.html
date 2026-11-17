@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="{{ lang }}" dir="{{ dir }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hypixel SkyBlock · {{ t("Hypixel SkyBlock API 变更监控台") }}</title>
+<style>
+  :root {
+    --bg: #0b1220;
+    --panel: #131c2e;
+    --panel-2: #18233a;
+    --line: #26334d;
+    --text: #e6edf7;
+    --muted: #93a4c0;
+    --accent: #5aa9ff;
+    --ok: #2ecc8f;
+    --warn: #f0b429;
+    --danger: #ff6b6b;
+    --added: #1f7a4d;
+    --removed: #8a2b2b;
+    --modified: #8a6a1f;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", -apple-system,
+      BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.55;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  header, main, footer { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+  header { padding-top: 28px; }
+  h1 { font-size: 1.6rem; margin: 0 0 4px; }
+  .subtitle { color: var(--muted); margin: 0 0 18px; font-size: .92rem; }
+  .bar {
+    display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+    padding: 12px 16px;
+  }
+  .chip { font-size: .85rem; color: var(--muted); }
+  .chip b { color: var(--text); font-weight: 600; }
+  .chip code { color: var(--text); }
+  .state { margin-left: auto; font-size: .82rem; padding: 3px 10px; border-radius: 999px;
+    border: 1px solid var(--line); }
+  .state.ok { color: var(--ok); border-color: rgba(46,204,143,.4); }
+  .state.stale { color: var(--warn); border-color: rgba(240,180,41,.45); }
+  .state.unavailable { color: var(--danger); border-color: rgba(255,107,107,.45); }
+  .controls {
+    display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: flex-end;
+    margin: 16px 0 8px;
+  }
+  .field { display: flex; flex-direction: column; gap: 4px; font-size: .8rem; color: var(--muted); }
+  select, button {
+    background: var(--panel-2); color: var(--text); border: 1px solid var(--line);
+    border-radius: 8px; padding: 7px 10px; font-size: .88rem; min-width: 150px;
+  }
+  button { cursor: pointer; min-width: 0; }
+  button:hover { border-color: var(--accent); }
+  .hint { font-size: .78rem; color: var(--muted); }
+  .alert {
+    margin: 14px 0; padding: 12px 16px; border-radius: 10px; font-size: .9rem;
+    border: 1px solid var(--line); background: var(--panel);
+  }
+  .alert.error { border-color: rgba(255,107,107,.5); color: #ffd1d1; }
+  .alert.warn { border-color: rgba(240,180,41,.5); color: #ffe9b0; }
+  main { padding-bottom: 30px; }
+  section { margin-top: 26px; }
+  .section-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  h2 { font-size: 1.08rem; margin: 0 0 12px; }
+  .section-head .hint { margin-bottom: 12px; }
+  .cards {
+    display: grid; gap: 14px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  .card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+    padding: 14px 16px;
+  }
+  .card-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .card-title { font-weight: 600; }
+  .card-title small { color: var(--muted); font-weight: 400; margin-inline-start: 6px; }
+  .badge {
+    font-size: .72rem; padding: 2px 8px; border-radius: 999px;
+    border: 1px solid var(--line); color: var(--muted); white-space: nowrap;
+  }
+  .badge.ok { color: var(--ok); border-color: rgba(46,204,143,.4); }
+  .badge.warn { color: var(--warn); border-color: rgba(240,180,41,.4); }
+  .badge.error { color: var(--danger); border-color: rgba(255,107,107,.4); }
+  .facts { margin: 10px 0 0; padding: 0; list-style: none; display: flex;
+    flex-direction: column; gap: 4px; }
+  .facts li { font-size: .85rem; color: var(--muted); overflow-wrap: anywhere; }
+  .facts b { color: var(--fg); font-weight: 600; }
+  .card time, .card .fetched { display: block; margin-top: 10px; color: var(--muted); font-size: .75rem; }
+  .table-wrap {
+    overflow-x: auto; background: var(--panel); border: 1px solid var(--line);
+    border-radius: 12px;
+  }
+  table { border-collapse: collapse; width: 100%; font-size: .84rem; }
+  th, td { text-align: start; padding: 9px 12px; border-bottom: 1px solid var(--line);
+    vertical-align: top; }
+  th { color: var(--muted); font-weight: 500; white-space: nowrap;
+    background: var(--panel-2); position: sticky; top: 0; }
+  tr:last-child td { border-bottom: 0; }
+  td code, .bar code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .8em; color: #b9c9e4; overflow-wrap: anywhere; }
+  .kind { font-size: .72rem; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+  .kind.added { background: rgba(46,204,143,.16); color: #6ee7b7; }
+  .kind.removed { background: rgba(255,107,107,.16); color: #ffb3b3; }
+  .kind.modified { background: rgba(240,180,41,.16); color: #ffd479; }
+  .diff { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .78rem; line-height: 1.45; overflow-wrap: anywhere; }
+  .diff .add { color: #7ee2a8; }
+  .diff .del { color: #ff9b9b; }
+  .diff .arrow { color: var(--muted); margin: 0 6px; }
+  .empty { padding: 26px 16px; text-align: center; color: var(--muted); }
+  footer { color: var(--muted); font-size: .8rem; padding-bottom: 40px;
+    border-top: 1px solid var(--line); padding-top: 16px; }
+  footer ul { margin: 8px 0 0; padding-inline-start: 18px; }
+  @media (max-width: 640px) {
+    th:nth-child(3), td:nth-child(3) { display: none; }
+    .state { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Hypixel SkyBlock · {{ t("Hypixel SkyBlock API 变更监控台") }}</h1>
+  <p class="subtitle">{{ t("只读 API 与数据面板，数据来自本项目的 GitHub Pages") }}</p>
+
+  <div class="bar">
+    <span class="chip">{{ t("程序版本") }} <b>{{ app_version }}</b></span>
+    <span class="chip">{{ t("仪表盘") }} <b>{{ dashboard_version }}</b></span>
+    <span class="chip">{{ t("构建") }} <b><code>{{ build }}</code></b></span>
+    <span class="chip">{{ t("当前版本") }} <b>{{ resource_version }}</b></span>
+    <span class="chip">{{ t("更新于") }}
+      {% if generated_at %}
+      <b><time data-ts="{{ generated_at }}" datetime="{{ generated_at }}">{{ generated_at }}</time></b>
+      {% else %}<b>—</b>{% endif %}
+    </span>
+    {% if stale %}
+    <span class="state stale">{{ t("本次运行未抓到最新数据，以下为上一次成功抓取的结果。") }}</span>
+    {% elif data_error %}
+    <span class="state unavailable">{{ t("暂无数据") }}</span>
+    {% else %}
+    <span class="state ok">{{ t("正常") }}</span>
+    {% endif %}
+  </div>
+
+  <div class="controls">
+    <form method="get" action="/" class="field">
+      <label for="lang">{{ t("语言") }}</label>
+      <select id="lang" name="lang">
+        {% for item in languages %}
+        <option value="{{ item.code }}" {% if item.code == lang %}selected{% endif %}>{{ item.name }}</option>
+        {% endfor %}
+      </select>
+      <noscript><button type="submit">OK</button></noscript>
+    </form>
+    <div class="field">
+      <label for="tz">{{ t("时区") }}</label>
+      <select id="tz">
+        {% for code, name in timezones %}
+        <option value="{{ code }}">{{ t(name) }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <span class="hint">{{ t("时间（北京时间）") }}</span>
+  </div>
+</header>
+
+<main>
+  {% if data_error %}
+  <div class="alert error">
+    <strong>{{ t("暂无数据") }}</strong><br>
+    {{ data_error }}
+  </div>
+  {% elif stale %}
+  <div class="alert warn">
+    {{ t("本次运行未抓到最新数据，以下为上一次成功抓取的结果。") }}
+    {% if age_seconds is not none %}<span class="hint">（{{ age_seconds }}s）</span>{% endif %}
+  </div>
+  {% endif %}
+
+  {% if fallback %}
+  <div class="alert warn">{{ t("当前语言的译文暂不可用，已回退英文。") }}</div>
+  {% endif %}
+
+  <section>
+    <div class="section-head">
+      <h2>{{ t("端点") }}</h2>
+      <span class="hint">{{ t("最近快照") }}</span>
+    </div>
+    <div class="cards">
+      {% for card in endpoints %}
+      <article class="card">
+        <div class="card-head">
+          <span class="card-title">{{ t(card.label) }}<small>{{ card.name }}</small></span>
+          <span class="badge {{ card.status }}">{{ card.status }}</span>
+        </div>
+        {% if card.rows %}
+        <ul class="facts">
+          {% for row in card.rows %}
+          <li>{% if row.pattern %}{{ t(row.pattern, **row.params) }}{% else %}{{ row.label }}{% endif %}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        {% if card.fetched_at %}
+        <span class="fetched">{{ t("更新于") }}
+          <time data-ts="{{ card.fetched_at }}" datetime="{{ card.fetched_at }}">{{ card.fetched_at }}</time>
+        </span>
+        {% endif %}
+      </article>
+      {% else %}
+      <div class="empty">{{ t("暂无数据") }}</div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>{{ t("最近变更") }}</h2>
+      <span class="hint">{{ t("共 {total} 条变更，显示最近 {shown} 条").format(total=changes_total, shown=changes|length) }}</span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>{{ t("类型") }}</th>
+            <th>{{ t("端点") }}</th>
+            <th>{{ t("字段路径") }}</th>
+            <th>{{ t("时间（北京时间）") }}</th>
+            <th>{{ t("变化内容") }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in changes %}
+          <tr>
+            <td><span class="kind {{ row.type }}">{{ t(row.type_label) }}</span></td>
+            <td><code>{{ row.endpoint }}</code></td>
+            <td><code>{{ row.path }}</code></td>
+            <td>
+              {% if row.time %}
+              <time data-ts="{{ row.time }}" datetime="{{ row.time }}">{{ row.time }}</time>
+              {% endif %}
+            </td>
+            <td class="diff">
+              {% if row.type == "modified" %}
+              <span class="del">− {{ row.old }}</span><span class="arrow">→</span><span class="add">+ {{ row.new }}</span>
+              {% elif row.type == "removed" %}
+              <span class="del">− {{ row.old }}</span>
+              {% else %}
+              <span class="add">+ {{ row.new }}</span>
+              {% endif %}
+            </td>
+          </tr>
+          {% else %}
+          <tr><td colspan="5" class="empty">{{ t("暂无变更") }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div>{{ t("本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。") }}</div>
+  <ul>
+    <li><a href="/api/health">/api/health</a> · <a href="/api/version">/api/version</a> ·
+      <a href="/api/summary">/api/summary</a> · <a href="/api/changes">/api/changes</a> ·
+      <a href="/api/languages">/api/languages</a></li>
+    <li><a href="/api/data/collections">/api/data/{name}</a> · <a href="/api/i18n/en">/api/i18n/{lang}</a> ·
+      <a href="/api/crash/recent">/api/crash/recent</a> · <a href="/api/update/check">/api/update/check</a></li>
+    <li><a href="{{ repo_url }}">{{ repo_url }}</a> · <a href="{{ releases_page }}">{{ t("发布页") }}</a></li>
+  </ul>
+</footer>
+
+<noscript><div class="alert warn" style="margin:16px 20px">{{ t("JavaScript 已关闭：时间显示为北京时间原值。") }}</div></noscript>
+
+<script>
+(function () {
+  var times = document.querySelectorAll("time[data-ts]");
+  var tzSelect = document.getElementById("tz");
+  var langSelect = document.getElementById("lang");
+
+  if (langSelect && langSelect.form) {
+    langSelect.addEventListener("change", function () { langSelect.form.submit(); });
+  }
+  if (!times.length || !tzSelect) { return; }
+
+  var saved = null;
+  try { saved = window.localStorage.getItem("hypixel-tracker-tz"); } catch (err) { saved = null; }
+  if (saved) { tzSelect.value = saved; }
+
+  function zone() {
+    if (tzSelect.value !== "local") { return tzSelect.value; }
+    try { return Intl.DateTimeFormat().resolvedOptions().timeZone; } catch (err) { return "UTC"; }
+  }
+
+  function parse(value) {
+    if (!value) { return null; }
+    var date = new Date(value.replace(" ", "T") + "+08:00");
+    return isNaN(date.getTime()) ? null : date;
+  }
+
+  function render() {
+    var formatter;
+    try {
+      formatter = new Intl.DateTimeFormat(document.documentElement.lang || "en", {
+        timeZone: zone(), year: "numeric", month: "2-digit", day: "2-digit",
+        hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false
+      });
+    } catch (err) { return; }
+    times.forEach(function (node) {
+      var date = parse(node.getAttribute("data-ts"));
+      if (!date) { return; }
+      node.textContent = formatter.format(date).replace(/\//g, "-");
+      node.title = node.getAttribute("data-ts") + " (UTC+8)";
+      node.setAttribute("data-converted", "1");
+    });
+  }
+
+  tzSelect.addEventListener("change", function () {
+    try { window.localStorage.setItem("hypixel-tracker-tz", tzSelect.value); } catch (err) { /* 隐私模式忽略 */ }
+    render();
+  });
+  render();
+})();
+</script>
+</body>
+</html>

@@ -26,6 +26,16 @@ const BIND_ADDR_DEFAULT: &str = "127.0.0.1:8000";
 
 /// 入口：阻塞运行服务。
 pub fn run() -> i32 {
+    // 崩溃先落地：后面任何 panic 都会写报告，而不是只打印一行栈
+    crate::crash::install_hook("tracker-server");
+    // 自更新重启时旧进程可能还占着端口：给一次延迟再绑定
+    if let Ok(ms) = std::env::var("HYPIXEL_START_DELAY_MS") {
+        if let Ok(ms) = ms.trim().parse::<u64>() {
+            std::thread::sleep(std::time::Duration::from_millis(ms.min(5000)));
+        }
+    }
+    crate::updater::auto_update_at_startup();
+
     let bind = std::env::var("BIND_ADDR").unwrap_or_else(|_| BIND_ADDR_DEFAULT.into());
     let server = match Server::http(&bind) {
         Ok(s) => Arc::new(s),
@@ -35,6 +45,12 @@ pub fn run() -> i32 {
         }
     };
     eprintln!("[服务] Hypixel SkyBlock API 变更监控台已启动：http://{}", bind);
+    eprintln!(
+        "[服务] 版本 v{}（构建 {}，目标 {}）",
+        crate::updater::current_version(),
+        state::current_build(),
+        crate::updater::target_triple()
+    );
     if !i18n::is_enabled() {
         eprintln!(
             "[服务] 多语言未开启（设置 ENABLE_I18N=1 启用 {} 种语言与 RTL 适配）",
@@ -95,8 +111,33 @@ fn handle_request(request: tiny_http::Request, limiter: &crate::security::RateLi
     let ip = crate::security::RateLimiter::client_ip(request.headers(), peer.as_deref());
     let cookie_lang = read_cookie_lang(request.headers());
 
-    let (code, content_type, body, extra_headers) =
-        route(&method, &path, &query, limiter, &ip, cookie_lang.as_deref());
+    let (code, content_type, body, extra_headers) = {
+        // 单个请求的 panic 不应该拖垮 worker，更不能让用户看到「连接被重置」
+        let outcome = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+            route(&method, &path, &query, limiter, &ip, cookie_lang.as_deref())
+        }));
+        match outcome {
+            Ok(v) => v,
+            Err(_) => {
+                let crash = crate::crash::recent(1)
+                    .first()
+                    .and_then(|c| c["id"].as_str().map(str::to_string))
+                    .unwrap_or_else(|| "-".into());
+                eprintln!("[服务] 处理 {} 时崩溃，崩溃报告：{}", path, crash);
+                (
+                    500,
+                    "application/json; charset=utf-8",
+                    json!({
+                        "error": "internal server error",
+                        "crash_report": crash,
+                        "hint": "崩溃报告位于 data/crash/，可附在 issue 中"
+                    })
+                    .to_string(),
+                    Vec::new(),
+                )
+            }
+        }
+    };
 
     let mut response = Response::from_string(body).with_status_code(code);
     response.add_header(header("Content-Type", content_type));
@@ -222,12 +263,42 @@ fn route(
         }
     }
 
+    // 给 /api/* 放开 CORS：本地脚本、FastAPI 版面板都要能直接读
+    if path.starts_with("/api/") {
+        extra_headers.push(("Access-Control-Allow-Origin".into(), "*".into()));
+        extra_headers.push(("Access-Control-Allow-Methods".into(), "GET, OPTIONS".into()));
+    }
+
     let (code, ct, body) = match path {
         "/" => (200, "text/html; charset=utf-8", render_index(query, cookie_lang)),
         "/api/status" => (200, "application/json; charset=utf-8", api_status()),
         "/api/history" => (200, "application/json; charset=utf-8", api_history(query)),
         "/api/changes" => (200, "application/json; charset=utf-8", api_changes(query)),
+        "/api/version" => (200, "application/json; charset=utf-8", api_version()),
+        "/api/languages" => (200, "application/json; charset=utf-8", api_languages()),
+        "/api/crash/recent" => (
+            200,
+            "application/json; charset=utf-8",
+            api_crash_recent(query),
+        ),
+        "/api/update/check" => (
+            200,
+            "application/json; charset=utf-8",
+            api_update_check(query),
+        ),
         "/health" => (200, "application/json; charset=utf-8", r#"{"status":"ok"}"#.into()),
+        "/api/health" => (
+            200,
+            "application/json; charset=utf-8",
+            json!({
+                "status": "ok",
+                "version": crate::updater::current_version(),
+                "crashes": crate::crash::count(),
+            })
+            .to_string(),
+        ),
+        p if p.starts_with("/api/i18n/") => api_locale(p.trim_start_matches("/api/i18n/")),
+        p if p.starts_with("/api/data/") => api_dataset(p.trim_start_matches("/api/data/")),
         p if p.starts_with("/api/snapshot/") => {
             let id = p.trim_start_matches("/api/snapshot/");
             match id.parse::<u64>() {
@@ -412,7 +483,7 @@ fn render_index(query: &str, cookie_lang: Option<&str>) -> String {
     // Tera 对非 ASCII 的方括号键（t['中文']）有字节边界 panic 的已知限制，
     // 因此渲染前把模板里的 `t['原文']` 重写为 ASCII 别名 `t.kN`，
     // 译文映射（kN -> 译文）在服务端构建后注入上下文。
-    let template_path = state::base_dir().join("templates").join("server.html.j2");
+    let template_path = state::asset_dir().join("templates").join("server.html.j2");
     let raw_template = match std::fs::read_to_string(&template_path) {
         Ok(t) => t,
         Err(e) => return format!("<h1>模板加载失败</h1><pre>{}</pre>", escape_html(&e.to_string())),
@@ -725,6 +796,167 @@ fn sync_status_key(status: &str) -> &'static str {
 // JSON API（响应形状与旧版 FastAPI 保持一致）
 // ---------------------------------------------------------------------------
 
+/// `GET /api/version`：给脚本与 FastAPI 版面板对齐版本用。
+fn api_version() -> String {
+    json!({
+        "app": "hypixel-tracker",
+        "api": 1,
+        "version": crate::updater::current_version(),
+        "dashboard_version": state::read_version(),
+        "build": state::current_build(),
+        "target": crate::updater::target_triple(),
+        "repo": crate::updater::REPO,
+        "time_basis": "Asia/Shanghai",
+        "languages": i18n::available_languages().len(),
+    })
+    .to_string()
+}
+
+/// `GET /api/languages`：语言代码与本地写法。
+fn api_languages() -> String {
+    let list: Vec<Value> = i18n::available_languages()
+        .into_iter()
+        .map(|(code, name)| {
+            json!({
+                "code": code,
+                "name": name,
+                "dir": dir_of(&code),
+            })
+        })
+        .collect();
+    json!({ "data": list }).to_string()
+}
+
+/// `GET /api/i18n/{lang}`：整包词条（键 = 简体中文原文）。
+fn api_locale(code: &str) -> (u16, &'static str, String) {
+    let raw = code.trim();
+    if raw.is_empty() || raw.len() > 20 || !raw.chars().all(|c| c.is_ascii_alphanumeric() || c == '-') {
+        return (
+            400,
+            "application/json; charset=utf-8",
+            json!({ "error": "invalid language code" }).to_string(),
+        );
+    }
+    let normalized = i18n::normalize_language(Some(raw));
+    let Some(lang) = normalized else {
+        return (
+            404,
+            "application/json; charset=utf-8",
+            json!({ "error": "unknown language", "requested": raw }).to_string(),
+        );
+    };
+    if lang == "zh-CN" {
+        // 简体中文就是页面原文，不需要词条包
+        return (
+            200,
+            "application/json; charset=utf-8",
+            json!({ "lang": "zh-CN", "dir": "ltr", "fallback": false, "pack": {} }).to_string(),
+        );
+    }
+    let pack = i18n::load_pack(&lang);
+    let fallback = pack.is_empty();
+    // 回退时借用 en 包：先克隆成 Arc 再取引用，避免临时值被提前释放
+    let pack = if fallback { i18n::load_pack("en") } else { pack };
+    (
+        200,
+        "application/json; charset=utf-8",
+        json!({
+            "lang": lang,
+            "dir": dir_of(&lang),
+            "fallback": fallback,
+            "pack": pack.as_ref(),
+        })
+        .to_string(),
+    )
+}
+
+/// `GET /api/data/{name}`：白名单内的最新快照 / 聚合文件。
+fn api_dataset(name: &str) -> (u16, &'static str, String) {
+    let snapshots = [
+        "collections",
+        "skills",
+        "items",
+        "bazaar",
+        "packs",
+        "bingo",
+        "firesales",
+    ];
+    let extras = ["version", "changes", "pack_changes", "pack_files"];
+    let path = if snapshots.contains(&name) {
+        state::snapshot_path(name)
+    } else if extras.contains(&name) {
+        state::data_dir().join(format!("{name}.json"))
+    } else {
+        return (
+            404,
+            "application/json; charset=utf-8",
+            json!({ "error": "unknown dataset", "name": name }).to_string(),
+        );
+    };
+    match std::fs::read_to_string(&path) {
+        Ok(text) => (
+            200,
+            "application/json; charset=utf-8",
+            format!(r#"{{"name":"{}","data":{}}}"#, name, text.trim()),
+        ),
+        Err(_) => (
+            404,
+            "application/json; charset=utf-8",
+            json!({ "error": "dataset not available yet", "name": name }).to_string(),
+        ),
+    }
+}
+
+/// `GET /api/crash/recent?limit=`
+fn api_crash_recent(query: &str) -> String {
+    let params = parse_query(query);
+    let limit = params
+        .get("limit")
+        .and_then(|l| l.parse::<usize>().ok())
+        .unwrap_or(5)
+        .clamp(1, crate::crash::MAX_REPORTS);
+    json!({
+        "data": crate::crash::recent(limit),
+        "total": crate::crash::count(),
+        "dir": crate::crash::crash_dir().display().to_string(),
+    })
+    .to_string()
+}
+
+/// `GET /api/update/check`：10 分钟内复用上次结果，避免反复打 GitHub API。
+fn api_update_check(query: &str) -> String {
+    use std::sync::Mutex;
+    use std::time::{Duration, Instant};
+    static CACHE: Mutex<Option<(Instant, Value)>> = Mutex::new(None);
+    let refresh = parse_query(query)
+        .get("refresh")
+        .map(|v| v == "1" || v == "true")
+        .unwrap_or(false);
+    if !refresh {
+        if let Ok(guard) = CACHE.lock() {
+            if let Some((at, value)) = guard.as_ref() {
+                if at.elapsed() < Duration::from_secs(600) {
+                    return value.to_string();
+                }
+            }
+        }
+    }
+    let value = match crate::updater::check() {
+        Ok(v) => v,
+        Err(e) => json!({
+            "repo": crate::updater::REPO,
+            "current": crate::updater::current_version(),
+            "available": false,
+            "error": e,
+        }),
+    };
+    if let Ok(mut guard) = CACHE.lock() {
+        *guard = Some((Instant::now(), value.clone()));
+    }
+    value.to_string()
+}
+
+
 fn api_status() -> String {
     let history = state::load_server_history();
     let changes = state::load_changes();
@@ -783,8 +1015,7 @@ fn api_history(query: &str) -> String {
     json!({"data": items}).to_string()
 }
 
-fn api_snapshot(id: u64) -> (u16, &'static str, String) {
-    let history = state::load_server_history();
+fn api_snapshot(id: u64) -> (u16, &'static str, String) {    let history = state::load_server_history();
     match history
         .snapshots
         .iter()
@@ -832,7 +1063,7 @@ fn serve_static(path: &str) -> (u16, &'static str, String) {
     if rel.contains("..") || rel.contains('\\') || rel.starts_with('/') || rel.is_empty() {
         return not_found();
     }
-    let full = state::base_dir().join("static").join(rel);
+    let full = state::asset_dir().join("static").join(rel);
     let Ok(meta) = std::fs::metadata(&full) else { return not_found() };
     if !meta.is_file() {
         return not_found();

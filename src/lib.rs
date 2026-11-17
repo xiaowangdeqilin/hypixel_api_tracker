@@ -26,6 +26,7 @@
 //! - `data/server/history.json` 本地服务专用快照环形缓冲（.gitignore）
 
 pub mod bingo;
+pub mod crash;
 pub mod fetch;
 pub mod firesale;
 pub mod i18n;
@@ -42,6 +43,7 @@ pub mod server_app;
 pub mod state;
 pub mod textdiff;
 pub mod timeutil;
+pub mod updater;
 
 pub use timeutil::now_beijing;
 

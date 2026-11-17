@@ -1,0 +1,289 @@
+name: Release
+
+# 打 tag（v3.0.0 这种）就出一整套产物：
+#   - 6~8 个平台的压缩包 + 裸可执行文件（自更新直接替换用）
+#   - Windows 安装器（NSIS，8 种语言）/ macOS dmg / Linux deb + rpm（多语言说明）
+#   - Python FastAPI 包（wheel + sdist）
+#   - 全量 SHA256SUMS.txt
+# 单个平台失败不阻塞其它平台：实验性目标（arm64-musl / windows-arm64）允许失败，
+# 安装器整体失败也只影响安装器。
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "要构建的 tag（例如 v3.0.0）"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+env:
+  CARGO_TERM_COLOR: always
+  RELEASE_TAG: ${{ github.event.inputs.tag || github.ref_name }}
+
+jobs:
+  binaries:
+    name: ${{ matrix.target }}
+    runs-on: ${{ matrix.os }}
+    continue-on-error: ${{ matrix.experimental == true }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: ubuntu-24.04, target: x86_64-unknown-linux-gnu, ext: tar.gz }
+          - { os: ubuntu-24.04, target: aarch64-unknown-linux-gnu, ext: tar.gz, cross: true }
+          - { os: ubuntu-24.04, target: x86_64-unknown-linux-musl, ext: tar.gz, musl: true }
+          - { os: windows-2022, target: x86_64-pc-windows-msvc, ext: zip }
+          - { os: macos-14, target: aarch64-apple-darwin, ext: tar.gz }
+          - { os: macos-13, target: x86_64-apple-darwin, ext: tar.gz }
+          # 实验性目标：允许失败，不阻塞发布
+          - { os: ubuntu-24.04, target: aarch64-unknown-linux-musl, ext: tar.gz, cross: true, musl: true, experimental: true }
+          - { os: windows-2022, target: aarch64-pc-windows-msvc, ext: zip, experimental: true }
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: release-${{ matrix.target }}
+
+      - name: 安装 musl 工具链
+        if: matrix.musl && !matrix.cross
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y musl-tools
+
+      - name: 安装 cross（跨架构 Linux）
+        if: matrix.cross
+        uses: taiki-e/install-action@v2
+        with:
+          tool: cross
+
+      - name: 构建
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "${{ matrix.cross }}" = "true" ]; then
+            cross build --release --locked --target ${{ matrix.target }} \
+              --bin tracker-server --bin tracker-build
+          else
+            cargo build --release --locked --target ${{ matrix.target }} \
+              --bin tracker-server --bin tracker-build
+          fi
+
+      - name: 打包
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG="${RELEASE_TAG}"
+          TARGET="${{ matrix.target }}"
+          NAME="hypixel-tracker-${TAG}-${TARGET}"
+          SUFFIX=""
+          case "$TARGET" in *windows*) SUFFIX=".exe" ;; esac
+          SRC="target/${TARGET}/release"
+          mkdir -p "dist/${NAME}" dist-raw
+
+          cp "${SRC}/tracker-server${SUFFIX}" "dist/${NAME}/"
+          cp "${SRC}/tracker-build${SUFFIX}" "dist/${NAME}/"
+          # 运行期只读资源：模板、前端脚本、103 种语言词条、版本号
+          cp -r templates static locales "dist/${NAME}/"
+          cp VERSION README.md "dist/${NAME}/"
+          mkdir -p "dist/${NAME}/data"
+          # 首次启动的种子数据，避免打开就是空白页
+          cp -r data/snapshots "dist/${NAME}/data/" 2>/dev/null || true
+          for f in version.json bingo.json firesales.json; do
+            [ -f "data/$f" ] && cp "data/$f" "dist/${NAME}/data/" || true
+          done
+
+          # 裸二进制：自更新直接下载替换用，不必解压
+          cp "${SRC}/tracker-server${SUFFIX}" "dist-raw/${NAME}${SUFFIX}"
+
+          if [ "${{ matrix.ext }}" = "zip" ]; then
+            (cd dist && 7z a -tzip "${NAME}.zip" "${NAME}" >/dev/null)
+          else
+            tar -C dist -czf "dist/${NAME}.tar.gz" "${NAME}"
+          fi
+          ls -lh dist dist-raw
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: binaries-${{ matrix.target }}
+          path: |
+            dist/*.tar.gz
+            dist/*.zip
+            dist-raw/*
+          if-no-files-found: error
+          retention-days: 7
+
+  installers:
+    name: installer-${{ matrix.kind }}
+    runs-on: ${{ matrix.os }}
+    continue-on-error: true
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: windows-2022, kind: windows, target: x86_64-pc-windows-msvc }
+          - { os: macos-14, kind: macos-arm64, target: aarch64-apple-darwin }
+          - { os: macos-13, kind: macos-x64, target: x86_64-apple-darwin }
+          - { os: ubuntu-24.04, kind: linux, target: x86_64-unknown-linux-gnu }
+    steps:
+      - uses: actions/checkout@v5
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: installer-${{ matrix.target }}
+
+      - name: 构建
+        run: cargo build --release --locked --target ${{ matrix.target }} --bin tracker-server --bin tracker-build
+
+      - name: 组装安装内容
+        shell: bash
+        run: |
+          set -euo pipefail
+          SUFFIX=""
+          case "${{ matrix.target }}" in *windows*) SUFFIX=".exe" ;; esac
+          SRC="target/${{ matrix.target }}/release"
+          rm -rf packaging/stage packaging/out
+          mkdir -p packaging/stage packaging/out
+          cp "${SRC}/tracker-server${SUFFIX}" packaging/stage/
+          cp "${SRC}/tracker-build${SUFFIX}" packaging/stage/
+          cp -r templates static locales packaging/stage/
+          cp VERSION README.md packaging/stage/
+          # 多语言安装说明（8 种语言的纯文本，装完直接能看）
+          cp -r packaging/docs/. packaging/stage/ 2>/dev/null || true
+
+      - name: Windows 安装器（NSIS，8 种语言）
+        if: matrix.kind == 'windows'
+        shell: pwsh
+        run: |
+          choco install nsis -y --no-progress
+          & "C:\Program Files (x86)\NSIS\makensis.exe" /DTAG=$env:RELEASE_TAG packaging/windows/installer.nsi
+          Get-ChildItem packaging/out
+
+      - name: macOS 磁盘映像
+        if: startsWith(matrix.kind, 'macos')
+        shell: bash
+        run: bash packaging/macos/make_dmg.sh "${{ matrix.target }}"
+
+      - name: 安装 rpm 工具（deb 不需要）
+        if: matrix.kind == 'linux'
+        run: sudo apt-get update && sudo apt-get install -y rpm
+
+      - name: Linux 安装包（deb + rpm）
+        if: matrix.kind == 'linux'
+        shell: bash
+        run: bash packaging/linux/make_packages.sh "${{ matrix.target }}"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: installers-${{ matrix.kind }}
+          path: packaging/out/*
+          if-no-files-found: warn
+          retention-days: 7
+
+  python-package:
+    name: python-wheel
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: 构建 wheel 与 sdist
+        working-directory: fastapi_app
+        run: |
+          python -m pip install --upgrade pip build
+          python -m build --wheel --sdist --outdir ../dist-python
+      - name: 冒烟测试（装上能不能启动）
+        run: |
+          set -euo pipefail
+          python -m venv /tmp/venv
+          /tmp/venv/bin/pip install dist-python/*.whl
+          /tmp/venv/bin/hypixel-tracker-api --version
+          /tmp/venv/bin/hypixel-tracker-api --help >/dev/null
+      - uses: actions/upload-artifact@v4
+        with:
+          name: python-package
+          path: dist-python/*
+          if-no-files-found: error
+          retention-days: 7
+
+  smoke:
+    name: smoke-linux-x64
+    needs: binaries
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: binaries-x86_64-unknown-linux-gnu
+          path: dl
+      - name: 解压并试跑
+        run: |
+          set -euo pipefail
+          cd dl
+          tar -xzf *.tar.gz
+          DIR=$(ls -d hypixel-tracker-*/ | head -1)
+          cd "$DIR"
+          ./tracker-server --version
+          ./tracker-server --help | head -5
+          ./tracker-server --port 18099 >/tmp/server.log 2>&1 &
+          SERVER_PID=$!
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:18099/api/health >/tmp/health.json 2>/dev/null; then break; fi
+            sleep 0.5
+          done
+          cat /tmp/health.json
+          python3 -c "import json;d=json.load(open('/tmp/health.json'));assert d['status']=='ok', d"
+          kill "$SERVER_PID" || true
+
+  publish:
+    name: publish-release
+    needs: [binaries, installers, python-package, smoke]
+    if: always() && needs.binaries.result == 'success'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+      - name: 汇总产物 + 生成校验和
+        run: |
+          set -euo pipefail
+          mkdir -p release
+          shopt -s nullglob
+          for f in artifacts/*/*; do
+            case "$f" in
+              *.tar.gz|*.zip|*.whl|*.msi|*.exe|*.dmg|*.pkg|*.deb|*.rpm) cp "$f" release/ ;;
+              *hypixel-tracker-v*) cp "$f" release/ ;;   # 裸二进制（无扩展名）
+            esac
+          done
+          cd release
+          ls -1 | grep -v '^SHA256SUMS.txt$' | xargs -r sha256sum > SHA256SUMS.txt
+          echo "--- 产物 ---"
+          ls -lh
+
+      - name: 创建/更新 Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          TAG="${RELEASE_TAG}"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" release/* --clobber
+          else
+            gh release create "$TAG" release/* \
+              --title "Hypixel SkyBlock API Tracker $TAG" \
+              --notes-file packaging/RELEASE_NOTES.md \
+              --verify-tag
+          fi

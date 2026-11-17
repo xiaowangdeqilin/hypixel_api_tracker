@@ -1,10 +1,12 @@
 # Hypixel SkyBlock API Tracker
 
 定时监控 Hypixel SkyBlock 公共 API 的变化，自动生成 GitHub Pages 仪表盘
-（界面支持 103 种语言，默认简体中文）；另附一个可选的本地实时仪表盘。
+（界面支持 103 种语言，默认简体中文）；另附可本地运行的服务（Rust 二进制）与
+FastAPI 版面板（`pip install` 即用）。
 
-**v2.0 起整个项目使用 Rust 重写**：单一静态二进制、无额外运行时依赖、
-数据全部为 JSON 文件，CI 用 cargo 缓存构建。
+**v3.0.0**：全平台发布（Windows / macOS / Linux，含原生安装器）、自更新、
+崩溃报告、FastAPI 包与 103 语言安装说明。核心仍是 Rust：单一静态二进制、
+无额外运行时依赖、数据全部为 JSON 文件。
 
 **在线仪表盘**：https://xiaowangdeqilin.github.io/hypixel_api_tracker/
 
@@ -21,6 +23,41 @@
 | firesales | `/v2/skyblock/firesales` | 限时特卖价格 / 数量 / 时间窗口，多期分割（见下） |
 
 （域名均为 `https://api.hypixel.net`。）
+
+## 安装（三种方式，任选其一）
+
+**1. 直接下载（推荐）** —— 到 [Releases](https://github.com/xiaowangdeqilin/hypixel_api_tracker/releases)
+下载对应平台的产物：
+
+| 系统 | 文件 | 说明 |
+|---|---|---|
+| Windows | `HypixelTracker-Setup-v3.0.0.exe` | 安装器，界面支持 8 种语言 |
+| Windows | `hypixel-tracker-v3.0.0-x86_64-pc-windows-msvc.zip` | 便携版，解压即用 |
+| macOS | `hypixel-tracker-v3.0.0-aarch64-apple-darwin.pkg` / `.dmg` | Apple Silicon；Intel 用 `x86_64` 后缀 |
+| Linux | `hypixel-tracker_3.0.0_amd64.deb` / `.rpm` | `sudo dpkg -i` 或 `sudo rpm -i` |
+| Linux | `hypixel-tracker-v3.0.0-*.tar.gz` | 便携版，glibc 与 musl 都有 |
+
+装完执行 `tracker-server`，浏览器打开 <http://127.0.0.1:8000>。
+数据目录：Windows `%APPDATA%\HypixelTracker`、macOS `~/Library/Application Support/HypixelTracker`、
+Linux `~/.local/share/hypixel-tracker`（`TRACKER_HOME` 可覆盖）。
+
+**2. FastAPI 版（只要 Python 3.9+）**
+
+```bash
+pip install hypixel_tracker_api-3.0.0-py3-none-any.whl
+hypixel-tracker-api          # 默认 http://127.0.0.1:8000
+```
+
+它不抓取 API，而是读取本仓库发布的数据（`site/data.json`），提供 REST 接口与轻量网页；
+数据每小时随 CI 更新，本地缓存 5 分钟。详见 [`fastapi_app/README.md`](fastapi_app/README.md)。
+
+**3. 从源码构建**（需要 Rust 1.75+）
+
+```bash
+git clone https://github.com/xiaowangdeqilin/hypixel_api_tracker.git
+cd hypixel_api_tracker
+cargo build --release          # 产出 target/release/{tracker-server,tracker-build,locales-gen}
+```
 
 ## 快速开始（下载后即可运行）
 
@@ -89,7 +126,7 @@ cargo run --release --bin tracker-build
 因此版本更新不会在「最近变更」里制造一堆 `modified` 记录。
 本地服务用同样的规则处理。
 
-`VERSION` 文件（当前 `2.0.0`）是**仪表盘自身版本**，作为次要信息显示在版本条右侧。
+`VERSION` 文件（当前 `3.0.0`）是**仪表盘自身版本**，作为次要信息显示在版本条右侧。
 改版本只需改这一个文件。
 
 ## 时间：统一北京时间（UTC+8）
@@ -353,13 +390,65 @@ bazaar/firesales 5 分钟、packs 10 分钟、bingo 30 分钟），页面每 30 
   单条 payload 超过 512 KB 只存元数据，避免 items 端点 6MB+ 的响应撑爆历史文件），
   已被 `.gitignore` 忽略
 - 变更写入统一的 `data/changes.json`（与 CI 构建共用一份日志）
-- 可用接口：`/api/status`、`/api/history`、`/api/changes`、`/api/snapshot/{id}`、`/health`
+- 可用接口：`/api/status`、`/api/history`、`/api/changes`、`/api/snapshot/{id}`、
+  `/api/version`、`/api/languages`、`/api/i18n/{lang}`、`/api/data/{name}`、
+  `/api/crash/recent`、`/api/update/check`、`/health`（`/api/*` 已放开 CORS）
   （响应形状与 v1 FastAPI 版保持一致；`/api/history` 不再返回完整 payload，
   需要完整内容请用 `/api/snapshot/{id}`）
+- 命令行：`--port` / `--bind` / `--check-update` / `--self-update` / `--crash-list` / `--version` / `--help`
+  （帮助覆盖 中/英/日/德/西/法/俄/葡 八种语言）
 
 > 本地服务的抓取同样会剥离 `version` / `lastUpdated` / `success`，并对集市
 > 只比较商品 id 集合，避免价格与版本变化刷屏。变更表格同样按「新增纯绿、
 > 删除纯红、修改只显示变化片段」渲染。
+
+## 自更新（数据源 = 本仓库 Releases）
+
+程序自己检查更新，不需要用户去 Releases 页面翻：
+
+```bash
+tracker-server --check-update    # 打印当前版本 / 最新版本 / 是否有更新（JSON，便于脚本）
+tracker-server --self-update     # 下载对应平台资产 → SHA256 校验 → 原子替换
+AUTO_UPDATE=apply tracker-server # 启动时自动更新并重启（先更新再绑端口，不会抢端口）
+```
+
+安全约定：
+
+- 更新源固定为 `https://api.github.com/repos/xiaowangdeqilin/hypixel_api_tracker/releases/latest`；
+- 只接受**严格更高**的语义版本，不会降级；
+- 必须能下载到 `SHA256SUMS.txt` 且哈希匹配，否则中止（防中间人替换）；
+- 下载体积上限 120MB；替换失败会把 `.old` 备份改回原名，保证还能启动；
+- 设置 `GITHUB_TOKEN` 可提高 API 限额（默认 60 次/小时）。
+
+## 崩溃报告
+
+- panic hook 会把崩溃写进 `data/crash/crash-<时间>.json` 与同名 `.txt`（人可读），
+  内容含版本、构建号、系统/架构、线程、位置、backtrace，**不含 API Key / Cookie**；
+- `tracker-server --crash-list` 列出最近 10 份；
+- HTTP 服务里单个请求崩溃不会拖垮进程：路由用 `catch_unwind` 兜住，返回
+  `500 {"error":"internal server error","crash_report":"crash-...","hint":"..."}`；
+- 报告只保留最近 20 份，避免长期运行写满磁盘；
+- FastAPI 版有同样的机制（`/api/crash/recent`、`--print-crash <id>`）。
+
+## 发布与打包（`.github/workflows/release.yml`）
+
+打一个 `v3.0.0` 这样的 tag 就会产出：
+
+| 产物 | 说明 |
+|---|---|
+| 6 个稳定平台 + 2 个实验平台 | Linux x64/arm64（glibc、musl）、Windows x64（arm64 实验）、macOS arm64/x64 |
+| 裸可执行文件 | 自更新直接下载替换，无需解压 |
+| Windows 安装器 | NSIS，界面 8 种语言，写注册表卸载项 |
+| macOS | `.pkg`（装到 `/usr/local`）+ `.dmg`（内含 `install.sh`） |
+| Linux | `.deb` + `.rpm`（桌面项与安装后提示都是多语言） |
+| Python 包 | `hypixel_tracker_api-3.0.0-py3-none-any.whl` + sdist |
+| `SHA256SUMS.txt` | 全部资产的校验和 |
+
+另有 `smoke-linux-x64` 任务：下载产物、解压、启动服务、请求 `/api/health`，
+任何一步失败都不发布——避免"能编译但跑不起来"的版本流出去。
+
+数据每次更新后，`pages.yml` 还会打一个 **FastAPI 便携包**（源码 + 当前数据）
+挂到滚动 release `data-latest`，解压运行 `run.sh` 即可。
 
 ## 多语言支持
 
@@ -451,7 +540,7 @@ Te Reo Māori、Gagana Sāmoa、Lea Faka-Tonga、Na Vosa Vakaviti、ʻŌlelo Haw
 .github/workflows/pages.yml   # 定时抓取 + 部署 Pages（Rust 工具链 + 依赖缓存）
 VERSION                       # 仪表盘自身版本号
 Cargo.toml / Cargo.lock       # Rust 工程与锁定依赖（单一 crate、三个 bin）
-i18n-src/translations.json    # 语言包单一事实来源（103 种语言 × 107 条）
+i18n-src/translations.json    # 语言包单一事实来源（103 种语言 × 172 条）
 locales/                      # 生成的语言包（<语言代码>.json，键为中文原文）
 templates/
   site.html.j2                # 静态站页面骨架（tracker-build 渲染）
@@ -483,7 +572,14 @@ src/
   bin/build.rs                 # tracker-build（CI 数据管道）
   bin/server.rs                # tracker-server（本地服务）
   bin/locales_gen.rs           # locales-gen（语言包生成 + 三项校验）
-tests/core.rs                  # 核心模块集成测试（diff/时间/i18n/保留期）
+  crash.rs                     # 崩溃报告（panic hook、落盘、保留 20 份）
+  updater.rs                   # 自更新（查 Release、SHA256 校验、原子替换、回滚）
+  site_i18n.rs                 # 静态站构建期词条标注（data-k / data-p）
+tests/core.rs                  # 核心模块集成测试（diff/时间/i18n/保留期/词条完整性）
+fastapi_app/                   # Python FastAPI 版面板（pip 安装即用，读本仓库数据）
+packaging/                     # 安装器：windows/NSIS、macos/pkg+dmg、linux/deb+rpm、8 语言说明
+scripts/make_portable_api.py   # 数据更新后打 FastAPI 便携包
+build.rs                       # 注入目标三元组（自更新挑资产用）
 data/
   snapshots/                  # 持久化快照（提交到仓库）
   changes.json                # 字段变更日志（构建与服务共用）

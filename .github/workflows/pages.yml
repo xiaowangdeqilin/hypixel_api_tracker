@@ -60,3 +60,33 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v5
+
+  # 每次数据更新后，重新打一个「下载即用」的 FastAPI 便携包，挂到滚动 release。
+  # 不重新编译 wheel（Python 包只是读取器，代码很少变），只把源码 + 本次数据打进去。
+  portable-api:
+    needs: build
+    if: needs.build.outputs.data_written == 'true'
+    runs-on: ubuntu-24.04
+    steps:
+      # 数据提交在 build 里刚推到 main，这里直接取 main，保证包内是本次数据
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: 生成便携包
+        run: python3 scripts/make_portable_api.py
+
+      - name: 上传到滚动 release（data-latest）
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          TAG="data-latest"
+          if ! gh release view "$TAG" >/dev/null 2>&1; then
+            gh release create "$TAG" \
+              --title "FastAPI 便携版（滚动更新）" \
+              --notes "每次数据更新后自动替换下面的 zip；内含当前数据快照与运行脚本，解压即可运行。" \
+              --target main
+          fi
+          gh release upload "$TAG" dist-portable/*.zip --clobber

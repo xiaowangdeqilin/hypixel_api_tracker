@@ -163,7 +163,7 @@ fn lowercase_aliases() -> &'static BTreeMap<&'static str, &'static str> {
 }
 
 fn locales_dir() -> PathBuf {
-    crate::state::base_dir().join("locales")
+    crate::state::asset_dir().join("locales")
 }
 
 static PACK_CACHE: OnceLock<Mutex<BTreeMap<String, std::sync::Arc<BTreeMap<String, String>>>>> =

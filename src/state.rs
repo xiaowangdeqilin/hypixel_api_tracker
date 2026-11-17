@@ -11,14 +11,71 @@ use serde_json::{json, Map, Value};
 use crate::labels::{sync_label, VERSION_ENDPOINTS};
 use crate::timeutil::now_beijing;
 
-/// 项目根目录：优先环境变量 `TRACKER_HOME`，否则用当前工作目录。
+/// 数据根目录（`data/`、可写的运行时状态）。
+///
+/// 解析顺序：
+/// 1. 环境变量 `TRACKER_HOME`（安装器与服务单元都用它指定）；
+/// 2. 当前目录下确实有 `data/` 或 `templates/`（仓库内运行、便携版）；
+/// 3. 用户数据目录（安装到 /opt、Program Files、Applications 时）。
+///
+/// 第 3 条很关键：安装版从开始菜单启动时工作目录可能是 `/`，不能把数据写到那里。
 pub fn base_dir() -> PathBuf {
     if let Ok(home) = std::env::var("TRACKER_HOME") {
         if !home.trim().is_empty() {
             return PathBuf::from(home);
         }
     }
-    std::env::current_dir().unwrap_or_else(|_| PathBuf::from("."))
+    let cwd = std::env::current_dir().unwrap_or_else(|_| PathBuf::from("."));
+    if cwd.join("data").is_dir() || cwd.join("templates").is_dir() {
+        return cwd;
+    }
+    user_data_dir().unwrap_or(cwd)
+}
+
+/// 用户级数据目录：Linux `~/.local/share/hypixel-tracker`，
+/// macOS `~/Library/Application Support/HypixelTracker`，Windows `%APPDATA%\HypixelTracker`。
+pub fn user_data_dir() -> Option<PathBuf> {
+    let home = if cfg!(windows) {
+        std::env::var("APPDATA").ok().map(PathBuf::from)
+    } else if cfg!(target_os = "macos") {
+        std::env::var("HOME")
+            .ok()
+            .map(|h| PathBuf::from(h).join("Library").join("Application Support"))
+    } else {
+        std::env::var("XDG_DATA_HOME")
+            .ok()
+            .map(PathBuf::from)
+            .or_else(|| std::env::var("HOME").ok().map(|h| PathBuf::from(h).join(".local").join("share")))
+    }?;
+    let dir = if cfg!(target_os = "macos") || cfg!(windows) {
+        home.join("HypixelTracker")
+    } else {
+        home.join("hypixel-tracker")
+    };
+    Some(dir)
+}
+
+/// 只读资源目录（`templates/`、`static/`、`locales/`）。
+///
+/// 安装版把资源放在可执行文件旁边（Windows/macOS）或 `../share/hypixel-tracker`
+/// （Linux 的 `.deb`），仓库内运行时就是项目根目录。
+pub fn asset_dir() -> PathBuf {
+    let base = base_dir();
+    if base.join("templates").is_dir() {
+        return base;
+    }
+    if let Ok(exe) = std::env::current_exe() {
+        let dir = exe.parent().map(|p| p.to_path_buf());
+        if let Some(dir) = dir {
+            let share = dir.join("..").join("share").join("hypixel-tracker");
+            for cand in [dir.clone(), share] {
+                if cand.join("templates").is_dir() {
+                    return cand;
+                }
+            }
+        }
+    }
+    base
 }
 
 pub fn data_dir() -> PathBuf {

@@ -280,7 +280,16 @@
       "特卖期数：{count}": "Firesale rounds: {count}",
       "期次：{name}": "Round: {name}",
       "状态：{status}": "Status: {status}",
-      "即将开始：{count}": "Starting soon: {count}"
+      "即将开始：{count}": "Starting soon: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "Read-only API and dashboard, fed by this project's GitHub Pages",
+      "程序版本": "App version",
+      "构建": "Build",
+      "时区": "Time zone",
+      "当前语言的译文暂不可用，已回退英文。": "Translations for this language are unavailable right now; falling back to English.",
+      "共 {total} 条变更，显示最近 {shown} 条": "{total} changes in total, showing the latest {shown}",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "This project is read-only: the page and the API only read published data from GitHub Pages.",
+      "发布页": "Releases",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript is disabled: times are shown as raw Beijing time values."
     },
     "zh-TW": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API 變更監控台",
@@ -454,7 +463,16 @@
       "特卖期数：{count}": "限時特賣期數：{count}",
       "期次：{name}": "期次：{name}",
       "状态：{status}": "狀態：{status}",
-      "即将开始：{count}": "即將開始：{count}"
+      "即将开始：{count}": "即將開始：{count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "唯讀 API 與資料面板，資料來自本專案的 GitHub Pages",
+      "程序版本": "程式版本",
+      "构建": "建置",
+      "时区": "時區",
+      "当前语言的译文暂不可用，已回退英文。": "目前語言的翻譯暫不可用，已回退英文。",
+      "共 {total} 条变更，显示最近 {shown} 条": "共 {total} 筆變更，顯示最近 {shown} 筆",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "本專案為唯讀：頁面與 API 均從 GitHub Pages 讀取已發布的資料。",
+      "发布页": "發布頁",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript 已關閉：時間顯示為北京時間原值。"
     },
     "ja": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API 変更モニター",
@@ -628,7 +646,16 @@
       "特卖期数：{count}": "限定セール回数：{count}",
       "期次：{name}": "回次：{name}",
       "状态：{status}": "状態：{status}",
-      "即将开始：{count}": "開始予定：{count}"
+      "即将开始：{count}": "開始予定：{count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "読み取り専用の API とデータパネル、データはこのプロジェクトの GitHub Pages から取得",
+      "程序版本": "アプリバージョン",
+      "构建": "ビルド",
+      "时区": "タイムゾーン",
+      "当前语言的译文暂不可用，已回退英文。": "現在の言語の翻訳は利用できないため、英語で表示しています。",
+      "共 {total} 条变更，显示最近 {shown} 条": "全 {total} 件の変更、最新 {shown} 件を表示",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "このプロジェクトは読み取り専用です：ページも API も GitHub Pages の公開データを読み込みます。",
+      "发布页": "リリースページ",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript が無効です：時刻は北京時間の生値で表示されます。"
     },
     "ko": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API 변경 모니터",
@@ -802,7 +829,16 @@
       "特卖期数：{count}": "한정 세일 회차: {count}",
       "期次：{name}": "회차: {name}",
       "状态：{status}": "상태: {status}",
-      "即将开始：{count}": "곧 시작: {count}"
+      "即将开始：{count}": "곧 시작: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "읽기 전용 API 및 데이터 패널, 데이터는 이 프로젝트의 GitHub Pages에서 가져옵니다",
+      "程序版本": "앱 버전",
+      "构建": "빌드",
+      "时区": "시간대",
+      "当前语言的译文暂不可用，已回退英文。": "현재 언어의 번역을 사용할 수 없어 영어로 표시합니다.",
+      "共 {total} 条变更，显示最近 {shown} 条": "총 {total}건의 변경, 최근 {shown}건 표시",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "이 프로젝트는 읽기 전용입니다: 페이지와 API 모두 GitHub Pages에서 공개된 데이터를 읽습니다.",
+      "发布页": "릴리스 페이지",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript가 꺼져 있습니다: 시간이 베이징 시간 원본 값으로 표시됩니다."
     },
     "vi": {
       "Hypixel SkyBlock API 变更监控台": "Trình giám sát thay đổi Hypixel SkyBlock API",
@@ -976,7 +1012,16 @@
       "特卖期数：{count}": "Số kỳ khuyến mãi giới hạn: {count}",
       "期次：{name}": "Kỳ: {name}",
       "状态：{status}": "Trạng thái: {status}",
-      "即将开始：{count}": "Sắp bắt đầu: {count}"
+      "即将开始：{count}": "Sắp bắt đầu: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API chỉ đọc và bảng dữ liệu, dữ liệu lấy từ GitHub Pages của dự án này",
+      "程序版本": "Phiên bản chương trình",
+      "构建": "Bản dựng",
+      "时区": "Múi giờ",
+      "当前语言的译文暂不可用，已回退英文。": "Bản dịch cho ngôn ngữ này chưa có, đã quay lại tiếng Anh.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Tổng cộng {total} thay đổi, đang hiển thị {shown} thay đổi gần nhất",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Dự án này chỉ đọc: cả trang và API đều đọc dữ liệu đã phát hành từ GitHub Pages.",
+      "发布页": "Trang phát hành",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript đã tắt: thời gian hiển thị theo giá trị gốc của giờ Bắc Kinh."
     },
     "th": {
       "Hypixel SkyBlock API 变更监控台": "มอนิเตอร์การเปลี่ยนแปลง Hypixel SkyBlock API",
@@ -1150,7 +1195,16 @@
       "特卖期数：{count}": "จำนวนรอบแฟลชเซล: {count}",
       "期次：{name}": "รอบ: {name}",
       "状态：{status}": "สถานะ: {status}",
-      "即将开始：{count}": "กำลังจะเริ่ม: {count}"
+      "即将开始：{count}": "กำลังจะเริ่ม: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API และแผงข้อมูลแบบอ่านอย่างเดียว ข้อมูลมาจาก GitHub Pages ของโครงการนี้",
+      "程序版本": "เวอร์ชันโปรแกรม",
+      "构建": "บิลด์",
+      "时区": "เขตเวลา",
+      "当前语言的译文暂不可用，已回退英文。": "ยังไม่มีคำแปลสำหรับภาษานี้ ระบบได้กลับไปใช้ภาษาอังกฤษ",
+      "共 {total} 条变更，显示最近 {shown} 条": "ทั้งหมด {total} รายการเปลี่ยนแปลง แสดง {shown} รายการล่าสุด",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "โครงการนี้อ่านได้อย่างเดียว ทั้งหน้าเว็บและ API ต่างอ่านข้อมูลที่เผยแพร่แล้วจาก GitHub Pages",
+      "发布页": "หน้าเผยแพร่",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript ถูกปิดอยู่: เวลาจะแสดงเป็นค่าเดิมของเวลาปักกิ่ง"
     },
     "id": {
       "Hypixel SkyBlock API 变更监控台": "Monitor Perubahan Hypixel SkyBlock API",
@@ -1324,7 +1378,16 @@
       "特卖期数：{count}": "Jumlah periode firesale: {count}",
       "期次：{name}": "Periode: {name}",
       "状态：{status}": "Status: {status}",
-      "即将开始：{count}": "Segera dimulai: {count}"
+      "即将开始：{count}": "Segera dimulai: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API dan panel data hanya-baca, data berasal dari GitHub Pages proyek ini",
+      "程序版本": "Versi aplikasi",
+      "构建": "Build",
+      "时区": "Zona waktu",
+      "当前语言的译文暂不可用，已回退英文。": "Terjemahan untuk bahasa saat ini tidak tersedia, ditampilkan dalam bahasa Inggris.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Total {total} perubahan, menampilkan {shown} terbaru",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Proyek ini hanya-baca: halaman dan API sama-sama membaca data terbit dari GitHub Pages.",
+      "发布页": "Halaman rilis",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript dinonaktifkan: waktu ditampilkan sebagai nilai mentah waktu Beijing."
     },
     "ms": {
       "Hypixel SkyBlock API 变更监控台": "Monitor Perubahan Hypixel SkyBlock API",
@@ -1498,7 +1561,16 @@
       "特卖期数：{count}": "Bilangan siri jualan kilat: {count}",
       "期次：{name}": "Siri: {name}",
       "状态：{status}": "Status: {status}",
-      "即将开始：{count}": "Akan bermula: {count}"
+      "即将开始：{count}": "Akan bermula: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API baca sahaja dan panel data, data daripada GitHub Pages projek ini",
+      "程序版本": "Versi program",
+      "构建": "Binaan",
+      "时区": "Zon waktu",
+      "当前语言的译文暂不可用，已回退英文。": "Terjemahan untuk bahasa ini belum tersedia, telah kembali ke bahasa Inggeris.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Jumlah {total} perubahan, memaparkan {shown} terkini",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Projek ini baca sahaja: halaman dan API kedua-duanya membaca data yang diterbitkan daripada GitHub Pages.",
+      "发布页": "Halaman pelepasan",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript dimatikan: masa dipaparkan sebagai nilai asal waktu Beijing."
     },
     "fil": {
       "Hypixel SkyBlock API 变更监控台": "Monitor ng mga Pagbabago ng Hypixel SkyBlock API",
@@ -1672,7 +1744,16 @@
       "特卖期数：{count}": "Bilang ng firesale round: {count}",
       "期次：{name}": "Round: {name}",
       "状态：{status}": "Katayuan: {status}",
-      "即将开始：{count}": "Malapit nang magsimula: {count}"
+      "即将开始：{count}": "Malapit nang magsimula: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "Read-only na API at data panel, galing sa GitHub Pages ng proyektong ito ang data",
+      "程序版本": "Bersyon ng app",
+      "构建": "Build",
+      "时区": "Time zone",
+      "当前语言的译文暂不可用，已回退英文。": "Hindi available ang salin para sa kasalukuyang wika, Ingles ang ginamit.",
+      "共 {total} 条变更，显示最近 {shown} 条": "{total} pagbabago sa kabuuan, ipinapakita ang pinakabagong {shown}",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Read-only ang proyektong ito: ang pahina at ang API ay parehong nagbabasa ng nai-publish na data mula sa GitHub Pages.",
+      "发布页": "Pahina ng release",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "Naka-off ang JavaScript: ang mga oras ay ipinapakita bilang hilaw na halaga ng oras ng Beijing."
     },
     "hi": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API परिवर्तन मॉनिटर",
@@ -1846,7 +1927,16 @@
       "特卖期数：{count}": "सीमित समय बिक्री सत्र: {count}",
       "期次：{name}": "सत्र: {name}",
       "状态：{status}": "स्थिति: {status}",
-      "即将开始：{count}": "शीघ्र शुरू: {count}"
+      "即将开始：{count}": "शीघ्र शुरू: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "केवल-पढ़ने के लिए API और डेटा पैनल, डेटा इस प्रोजेक्ट के GitHub Pages से आता है",
+      "程序版本": "ऐप संस्करण",
+      "构建": "बिल्ड",
+      "时区": "समय क्षेत्र",
+      "当前语言的译文暂不可用，已回退英文。": "मौजूदा भाषा का अनुवाद उपलब्ध नहीं है, अंग्रेज़ी दिखाई जा रही है।",
+      "共 {total} 条变更，显示最近 {shown} 条": "कुल {total} परिवर्तन, नवीनतम {shown} दिखाए जा रहे हैं",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "यह प्रोजेक्ट केवल-पढ़ने के लिए है: पेज और API दोनों GitHub Pages से प्रकाशित डेटा पढ़ते हैं।",
+      "发布页": "रिलीज़ पेज",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript बंद है: समय बीजिंग समय के मूल मानों के रूप में दिखाए जाते हैं।"
     },
     "bn": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API পরিবর্তন মনিটর",
@@ -2020,7 +2110,16 @@
       "特卖期数：{count}": "সীমিত সময়ের বিক্রয়ের পর্ব: {count}",
       "期次：{name}": "পর্ব: {name}",
       "状态：{status}": "অবস্থা: {status}",
-      "即将开始：{count}": "শীঘ্রই শুরু: {count}"
+      "即将开始：{count}": "শীঘ্রই শুরু: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "শুধু-পড়ার API ও ডেটা প্যানেল, ডেটা এই প্রকল্পের GitHub Pages থেকে আসে",
+      "程序版本": "অ্যাপ সংস্করণ",
+      "构建": "বিল্ড",
+      "时区": "সময় অঞ্চল",
+      "当前语言的译文暂不可用，已回退英文。": "বর্তমান ভাষার অনুবাদ এখন পাওয়া যাচ্ছে না, ইংরেজিতে ফিরে যাওয়া হয়েছে।",
+      "共 {total} 条变更，显示最近 {shown} 条": "মোট {total}টি পরিবর্তন, সর্বশেষ {shown}টি দেখানো হচ্ছে",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "এই প্রকল্পটি শুধু-পড়ার: পেজ ও API দুটোই GitHub Pages থেকে প্রকাশিত ডেটা পড়ে।",
+      "发布页": "রিলিজ পেজ",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript বন্ধ আছে: সময় বেইজিং সময়ের মূল মান হিসেবে দেখানো হচ্ছে।"
     },
     "ur": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API تبدیلات مانیٹر",
@@ -2194,7 +2293,16 @@
       "特卖期数：{count}": "محدود وقت فروخت کے ادوار: {count}",
       "期次：{name}": "دور: {name}",
       "状态：{status}": "حالت: {status}",
-      "即将开始：{count}": "جلد شروع ہوگا: {count}"
+      "即将开始：{count}": "جلد شروع ہوگا: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "صرف پڑھنے کے لیے API اور ڈیٹا پینل، ڈیٹا اس منصوبے کے GitHub Pages سے آتا ہے",
+      "程序版本": "پروگرام ورژن",
+      "构建": "بلڈ",
+      "时区": "ٹائم زون",
+      "当前语言的译文暂不可用，已回退英文。": "اس زبان کے لیے ترجمہ ابھی دستیاب نہیں، انگریزی پر واپس آیا۔",
+      "共 {total} 条变更，显示最近 {shown} 条": "کل {total} تبدیلیاں، تازہ ترین {shown} دکھائی جا رہی ہیں",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "یہ منصوبہ صرف پڑھنے کے لیے ہے: صفحہ اور API دونوں GitHub Pages سے شائع شدہ ڈیٹا پڑھتے ہیں۔",
+      "发布页": "ریلیز صفحہ",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript بند ہے: وقت بیجنگ وقت کی اصل قدر میں دکھایا جاتا ہے۔"
     },
     "ar": {
       "Hypixel SkyBlock API 变更监控台": "مراقب تغييرات Hypixel SkyBlock API",
@@ -2368,7 +2476,16 @@
       "特卖期数：{count}": "جولات العروض المحدودة: {count}",
       "期次：{name}": "الجولة: {name}",
       "状态：{status}": "الحالة: {status}",
-      "即将开始：{count}": "على وشك البدء: {count}"
+      "即将开始：{count}": "على وشك البدء: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "واجهة API ولوحة بيانات للقراءة فقط، والبيانات من GitHub Pages لهذا المشروع",
+      "程序版本": "إصدار التطبيق",
+      "构建": "البناء",
+      "时区": "المنطقة الزمنية",
+      "当前语言的译文暂不可用，已回退英文。": "ترجمة اللغة الحالية غير متاحة مؤقتًا، وتم الرجوع إلى الإنجليزية.",
+      "共 {total} 条变更，显示最近 {shown} 条": "إجمالي {total} تغييرًا، تُعرض أحدث {shown}",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "هذا المشروع للقراءة فقط: تقرأ الصفحة وواجهة API البيانات المنشورة من GitHub Pages.",
+      "发布页": "صفحة الإصدارات",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "تم تعطيل JavaScript: تُعرض الأوقات كقيم خام بتوقيت بكين."
     },
     "he": {
       "Hypixel SkyBlock API 变更监控台": "מוניטור שינויים Hypixel SkyBlock API",
@@ -2542,7 +2659,16 @@
       "特卖期数：{count}": "סבבי מבצעים: {count}",
       "期次：{name}": "סבב: {name}",
       "状态：{status}": "מצב: {status}",
-      "即将开始：{count}": "עומד להתחיל: {count}"
+      "即将开始：{count}": "עומד להתחיל: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API ופאנל נתונים לקריאה בלבד, הנתונים מגיעים מ-GitHub Pages של הפרויקט הזה",
+      "程序版本": "גרסת האפליקציה",
+      "构建": "בנייה",
+      "时区": "אזור זמן",
+      "当前语言的译文暂不可用，已回退英文。": "התרגום לשפה הנוכחית אינו זמין, מוצגת אנגלית.",
+      "共 {total} 条变更，显示最近 {shown} 条": "סך הכול {total} שינויים, מוצגים {shown} האחרונים",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "הפרויקט הזה לקריאה בלבד: גם העמוד וגם ה-API קוראים נתונים שפורסמו ב-GitHub Pages.",
+      "发布页": "עמוד מהדורות",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript מושבת: הזמנים מוצגים כערכים גולמיים בשעון בייג׳ין."
     },
     "fa": {
       "Hypixel SkyBlock API 变更监控台": "پایش تغییرات Hypixel SkyBlock API",
@@ -2716,7 +2842,16 @@
       "特卖期数：{count}": "تعداد دوره‌های فروش محدود: {count}",
       "期次：{name}": "دوره: {name}",
       "状态：{status}": "وضعیت: {status}",
-      "即将开始：{count}": "به‌زودی شروع می‌شود: {count}"
+      "即将开始：{count}": "به‌زودی شروع می‌شود: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API و پنل داده فقط‌خواندنی، داده‌ها از GitHub Pages این پروژه می‌آید",
+      "程序版本": "نسخهٔ برنامه",
+      "构建": "ساخت",
+      "时区": "منطقهٔ زمانی",
+      "当前语言的译文暂不可用，已回退英文。": "ترجمهٔ زبان فعلی در دسترس نیست و از انگلیسی استفاده شده است.",
+      "共 {total} 条变更，显示最近 {shown} 条": "در مجموع {total} تغییر، {shown} مورد آخر نمایش داده می‌شود",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "این پروژه فقط‌خواندنی است: هم صفحه و هم API داده‌های منتشرشده را از GitHub Pages می‌خوانند.",
+      "发布页": "صفحه انتشار",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript غیرفعال است: زمان‌ها به‌صورت مقدار خام وقت پکن نمایش داده می‌شوند."
     },
     "tr": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API Değişiklik İzleyicisi",
@@ -2890,7 +3025,16 @@
       "特卖期数：{count}": "Süreli indirim turları: {count}",
       "期次：{name}": "Tur: {name}",
       "状态：{status}": "Durum: {status}",
-      "即将开始：{count}": "Yakında başlıyor: {count}"
+      "即将开始：{count}": "Yakında başlıyor: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "Salt okunur API ve veri paneli, veriler bu projenin GitHub Pages sayfasından gelir",
+      "程序版本": "Program sürümü",
+      "构建": "Derleme",
+      "时区": "Saat dilimi",
+      "当前语言的译文暂不可用，已回退英文。": "Bu dil için çeviri henüz kullanılamıyor, İngilizceye geri dönüldü.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Toplam {total} değişiklik, son {shown} tanesi gösteriliyor",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Bu proje salt okunurdur: hem sayfa hem API yayımlanmış verileri GitHub Pages üzerinden okur.",
+      "发布页": "Sürüm sayfası",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript kapalı: saat, Pekin saatinin özgün değeriyle gösteriliyor."
     },
     "fr": {
       "Hypixel SkyBlock API 变更监控台": "Moniteur de changements Hypixel SkyBlock API",
@@ -3064,7 +3208,16 @@
       "特卖期数：{count}": "Éditions de ventes flash : {count}",
       "期次：{name}": "Édition : {name}",
       "状态：{status}": "Statut : {status}",
-      "即将开始：{count}": "Bientôt : {count}"
+      "即将开始：{count}": "Bientôt : {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API et panneau de données en lecture seule, les données proviennent des GitHub Pages de ce projet",
+      "程序版本": "Version de l'application",
+      "构建": "Build",
+      "时区": "Fuseau horaire",
+      "当前语言的译文暂不可用，已回退英文。": "La traduction pour la langue actuelle n'est pas disponible, l'anglais est affiché.",
+      "共 {total} 条变更，显示最近 {shown} 条": "{total} changements au total, affichage des {shown} plus récents",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Ce projet est en lecture seule : la page et l'API lisent toutes deux les données publiées sur GitHub Pages.",
+      "发布页": "Page des versions",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript est désactivé : les heures s'affichent sous forme de valeurs brutes en heure de Pékin."
     },
     "de": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API Änderungsmonitor",
@@ -3238,7 +3391,16 @@
       "特卖期数：{count}": "Runden zeitlich begrenzter Angebote: {count}",
       "期次：{name}": "Runde: {name}",
       "状态：{status}": "Status: {status}",
-      "即将开始：{count}": "Beginnt bald: {count}"
+      "即将开始：{count}": "Beginnt bald: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "Schreibgeschützte API und Datenpanel, die Daten stammen von den GitHub Pages dieses Projekts",
+      "程序版本": "App-Version",
+      "构建": "Build",
+      "时区": "Zeitzone",
+      "当前语言的译文暂不可用，已回退英文。": "Die Übersetzung für die aktuelle Sprache ist nicht verfügbar, es wird Englisch angezeigt.",
+      "共 {total} 条变更，显示最近 {shown} 条": "{total} Änderungen insgesamt, die letzten {shown} werden angezeigt",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Dieses Projekt ist schreibgeschützt: Seite und API lesen beide veröffentlichte Daten von GitHub Pages.",
+      "发布页": "Veröffentlichungsseite",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript ist deaktiviert: Zeiten werden als Rohwerte in Pekinger Zeit angezeigt."
     },
     "es": {
       "Hypixel SkyBlock API 变更监控台": "Monitor de cambios de Hypixel SkyBlock API",
@@ -3412,7 +3574,16 @@
       "特卖期数：{count}": "Rondas de ofertas relámpago: {count}",
       "期次：{name}": "Ronda: {name}",
       "状态：{status}": "Estado: {status}",
-      "即将开始：{count}": "Por comenzar: {count}"
+      "即将开始：{count}": "Por comenzar: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API y panel de datos de solo lectura, los datos provienen de las GitHub Pages de este proyecto",
+      "程序版本": "Versión de la app",
+      "构建": "Compilación",
+      "时区": "Zona horaria",
+      "当前语言的译文暂不可用，已回退英文。": "La traducción del idioma actual no está disponible; se muestra en inglés.",
+      "共 {total} 条变更，显示最近 {shown} 条": "{total} cambios en total, se muestran los {shown} más recientes",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Este proyecto es de solo lectura: tanto la página como la API leen datos publicados de GitHub Pages.",
+      "发布页": "Página de versiones",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript está desactivado: las horas se muestran como valores sin procesar de la hora de Pekín."
     },
     "it": {
       "Hypixel SkyBlock API 变更监控台": "Monitor delle modifiche Hypixel SkyBlock API",
@@ -3586,7 +3757,16 @@
       "特卖期数：{count}": "Edizioni delle vendite lampo: {count}",
       "期次：{name}": "Edizione: {name}",
       "状态：{status}": "Stato: {status}",
-      "即将开始：{count}": "In arrivo: {count}"
+      "即将开始：{count}": "In arrivo: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API e pannello dati di sola lettura, i dati provengono dalle GitHub Pages di questo progetto",
+      "程序版本": "Versione dell'app",
+      "构建": "Build",
+      "时区": "Fuso orario",
+      "当前语言的译文暂不可用，已回退英文。": "La traduzione per la lingua corrente non è disponibile, viene mostrato l'inglese.",
+      "共 {total} 条变更，显示最近 {shown} 条": "{total} modifiche in totale, sono mostrate le {shown} più recenti",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Questo progetto è di sola lettura: sia la pagina sia l'API leggono i dati pubblicati su GitHub Pages.",
+      "发布页": "Pagina delle release",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript è disattivato: gli orari sono mostrati come valori grezzi dell'ora di Pechino."
     },
     "pt": {
       "Hypixel SkyBlock API 变更监控台": "Monitor de alterações da Hypixel SkyBlock API",
@@ -3760,7 +3940,16 @@
       "特卖期数：{count}": "Edições de ofertas relâmpago: {count}",
       "期次：{name}": "Edição: {name}",
       "状态：{status}": "Estado: {status}",
-      "即将开始：{count}": "Começando em breve: {count}"
+      "即将开始：{count}": "Começando em breve: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API só de leitura e painel de dados, os dados vêm do GitHub Pages deste projeto",
+      "程序版本": "Versão do programa",
+      "构建": "Compilação",
+      "时区": "Fuso horário",
+      "当前语言的译文暂不可用，已回退英文。": "A tradução para este idioma ainda não está disponível, recorreu-se ao inglês.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Total de {total} alterações, a mostrar as {shown} mais recentes",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Este projeto é só de leitura: tanto a página como a API leem os dados publicados no GitHub Pages.",
+      "发布页": "Página de lançamentos",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "O JavaScript está desativado: as horas são apresentadas com o valor original de hora de Pequim."
     },
     "nl": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API-wijzigingsmonitor",
@@ -3934,7 +4123,16 @@
       "特卖期数：{count}": "Firesale-edities: {count}",
       "期次：{name}": "Editie: {name}",
       "状态：{status}": "Status: {status}",
-      "即将开始：{count}": "Begint binnenkort: {count}"
+      "即将开始：{count}": "Begint binnenkort: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "Alleen-lezen API en datapaneel, gegevens komen van de GitHub Pages van dit project",
+      "程序版本": "Programmaversie",
+      "构建": "Build",
+      "时区": "Tijdzone",
+      "当前语言的译文暂不可用，已回退英文。": "De vertaling voor deze taal is nog niet beschikbaar, teruggevallen op Engels.",
+      "共 {total} 条变更，显示最近 {shown} 条": "In totaal {total} wijzigingen, de laatste {shown} worden getoond",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Dit project is alleen-lezen: zowel de pagina als de API leest gepubliceerde gegevens van GitHub Pages.",
+      "发布页": "Releasepagina",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript staat uit: tijden worden weergegeven als de oorspronkelijke Peking-tijd."
     },
     "ru": {
       "Hypixel SkyBlock API 变更监控台": "Монитор изменений Hypixel SkyBlock API",
@@ -4108,7 +4306,16 @@
       "特卖期数：{count}": "Этапы распродаж: {count}",
       "期次：{name}": "Этап: {name}",
       "状态：{status}": "Статус: {status}",
-      "即将开始：{count}": "Скоро начнётся: {count}"
+      "即将开始：{count}": "Скоро начнётся: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API только для чтения и панель данных, данные берутся с GitHub Pages этого проекта",
+      "程序版本": "Версия программы",
+      "构建": "Сборка",
+      "时区": "Часовой пояс",
+      "当前语言的译文暂不可用，已回退英文。": "Перевод для этого языка пока недоступен, выполнен откат на английский.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Всего {total} изменений, показаны последние {shown}",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Этот проект доступен только для чтения: и страница, и API читают опубликованные данные с GitHub Pages.",
+      "发布页": "Страница релизов",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript отключён: время отображается в исходном значении пекинского времени."
     },
     "uk": {
       "Hypixel SkyBlock API 变更监控台": "Монітор змін Hypixel SkyBlock API",
@@ -4282,7 +4489,16 @@
       "特卖期数：{count}": "Етапи розпродажів: {count}",
       "期次：{name}": "Етап: {name}",
       "状态：{status}": "Статус: {status}",
-      "即将开始：{count}": "Скоро почнеться: {count}"
+      "即将开始：{count}": "Скоро почнеться: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API лише для читання та панель даних, дані надходять із GitHub Pages цього проєкту",
+      "程序版本": "Версія програми",
+      "构建": "Збірка",
+      "时区": "Часовий пояс",
+      "当前语言的译文暂不可用，已回退英文。": "Переклад для цієї мови ще недоступний, виконано повернення до англійської.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Усього {total} змін, показано останні {shown}",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Цей проєкт доступний лише для читання: і сторінка, і API читають опубліковані дані з GitHub Pages.",
+      "发布页": "Сторінка випусків",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript вимкнено: час показується як початкове значення пекінського часу."
     },
     "pl": {
       "Hypixel SkyBlock API 变更监控台": "Monitor zmian Hypixel SkyBlock API",
@@ -4456,7 +4672,16 @@
       "特卖期数：{count}": "Rundy wyprzedaży: {count}",
       "期次：{name}": "Runda: {name}",
       "状态：{status}": "Status: {status}",
-      "即将开始：{count}": "Wkrótce się zacznie: {count}"
+      "即将开始：{count}": "Wkrótce się zacznie: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API tylko do odczytu i panel danych, dane pochodzą z GitHub Pages tego projektu",
+      "程序版本": "Wersja programu",
+      "构建": "Kompilacja",
+      "时区": "Strefa czasowa",
+      "当前语言的译文暂不可用，已回退英文。": "Tłumaczenie dla tego języka jest jeszcze niedostępne, przywrócono angielski.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Łącznie {total} zmian, pokazano ostatnie {shown}",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Ten projekt jest tylko do odczytu: strona i API czytają opublikowane dane z GitHub Pages.",
+      "发布页": "Strona wydań",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript jest wyłączony: czas jest pokazywany jako pierwotna wartość czasu pekińskiego."
     },
     "cs": {
       "Hypixel SkyBlock API 变更监控台": "Monitor změn Hypixel SkyBlock API",
@@ -4630,7 +4855,16 @@
       "特卖期数：{count}": "Kola výprodejů: {count}",
       "期次：{name}": "Kolo: {name}",
       "状态：{status}": "Stav: {status}",
-      "即将开始：{count}": "Brzy začne: {count}"
+      "即将开始：{count}": "Brzy začne: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API a datový panel pouze pro čtení, data pocházejí z GitHub Pages tohoto projektu",
+      "程序版本": "Verze aplikace",
+      "构建": "Sestavení",
+      "时区": "Časové pásmo",
+      "当前语言的译文暂不可用，已回退英文。": "Překlad pro aktuální jazyk není k dispozici, zobrazena angličtina.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Celkem {total} změn, zobrazeno posledních {shown}",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Tento projekt je pouze pro čtení: stránka i API čtou publikovaná data z GitHub Pages.",
+      "发布页": "Stránka vydání",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript je vypnutý: časy se zobrazují jako surové hodnoty pekingského času."
     },
     "hu": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API változásfigyelő",
@@ -4804,7 +5038,16 @@
       "特卖期数：{count}": "Időlimitált akciók köre: {count}",
       "期次：{name}": "Kör: {name}",
       "状态：{status}": "Állapot: {status}",
-      "即将开始：{count}": "Hamarosan kezdődik: {count}"
+      "即将开始：{count}": "Hamarosan kezdődik: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "Csak olvasható API és adatpanel, az adatok a projekt GitHub Pages oldaláról származnak",
+      "程序版本": "Alkalmazásverzió",
+      "构建": "Build",
+      "时区": "Időzóna",
+      "当前语言的译文暂不可用，已回退英文。": "Az aktuális nyelv fordítása nem érhető el, az angol jelenik meg.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Összesen {total} változás, a legutóbbi {shown} látható",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Ez a projekt csak olvasható: az oldal és az API is a GitHub Pagesen közzétett adatokat olvassa.",
+      "发布页": "Kiadási oldal",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "A JavaScript ki van kapcsolva: az időpontok nyers pekingi időként jelennek meg."
     },
     "ro": {
       "Hypixel SkyBlock API 变更监控台": "Monitor de modificări Hypixel SkyBlock API",
@@ -4978,7 +5221,16 @@
       "特卖期数：{count}": "Runde de reduceri limitate: {count}",
       "期次：{name}": "Rundă: {name}",
       "状态：{status}": "Stare: {status}",
-      "即将开始：{count}": "Începe în curând: {count}"
+      "即将开始：{count}": "Începe în curând: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API doar pentru citire și panou de date, datele provin din GitHub Pages al acestui proiect",
+      "程序版本": "Versiunea programului",
+      "构建": "Compilare",
+      "时区": "Fus orar",
+      "当前语言的译文暂不可用，已回退英文。": "Traducerea pentru această limbă nu este încă disponibilă, s-a revenit la engleză.",
+      "共 {total} 条变更，显示最近 {shown} 条": "În total {total} modificări, se afișează ultimele {shown}",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Acest proiect este doar pentru citire: pagina și API-ul citesc ambele datele publicate de pe GitHub Pages.",
+      "发布页": "Pagina de lansări",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript este dezactivat: orele sunt afișate cu valoarea originală a orei Beijing."
     },
     "el": {
       "Hypixel SkyBlock API 变更监控台": "Εποπτικός οθόνη αλλαγών Hypixel SkyBlock API",
@@ -5152,7 +5404,16 @@
       "特卖期数：{count}": "Γύροι προσφορών περιορισμένου χρόνου: {count}",
       "期次：{name}": "Γύρος: {name}",
       "状态：{status}": "Κατάσταση: {status}",
-      "即将开始：{count}": "Ξεκινά σύντομα: {count}"
+      "即将开始：{count}": "Ξεκινά σύντομα: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API και πίνακας δεδομένων μόνο για ανάγνωση, τα δεδομένα προέρχονται από το GitHub Pages αυτού του έργου",
+      "程序版本": "Έκδοση εφαρμογής",
+      "构建": "Build",
+      "时区": "Ζώνη ώρας",
+      "当前语言的译文暂不可用，已回退英文。": "Η μετάφραση για την τρέχουσα γλώσσα δεν είναι διαθέσιμη, εμφανίζονται αγγλικά.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Σύνολο {total} αλλαγές, εμφανίζονται οι {shown} πιο πρόσφατες",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Αυτό το έργο είναι μόνο για ανάγνωση: και η σελίδα και το API διαβάζουν δημοσιευμένα δεδομένα από το GitHub Pages.",
+      "发布页": "Σελίδα κυκλοφορίας",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "Η JavaScript είναι απενεργοποιημένη: οι ώρες εμφανίζονται ως ακατέργαστες τιμές ώρας Πεκίνου."
     },
     "sv": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API-ändringsövervakare",
@@ -5326,7 +5587,16 @@
       "特卖期数：{count}": "Omgångar av tidsbegränsad rea: {count}",
       "期次：{name}": "Omgång: {name}",
       "状态：{status}": "Status: {status}",
-      "即将开始：{count}": "Startar snart: {count}"
+      "即将开始：{count}": "Startar snart: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "Skrivskyddat API och datapanel, data hämtas från GitHub Pages för det här projektet",
+      "程序版本": "Programversion",
+      "构建": "Bygge",
+      "时区": "Tidszon",
+      "当前语言的译文暂不可用，已回退英文。": "Översättningen för det här språket är inte tillgänglig ännu, föll tillbaka till engelska.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Totalt {total} ändringar, visar de {shown} senaste",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Det här projektet är skrivskyddat: både sidan och API:et läser publicerad data från GitHub Pages.",
+      "发布页": "Utgivningssida",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript är avstängt: tider visas som det ursprungliga Peking-tidsvärdet."
     },
     "no": {
       "Hypixel SkyBlock API 变更监控台": "Overvåking av Hypixel SkyBlock API-endringer",
@@ -5500,7 +5770,16 @@
       "特卖期数：{count}": "Runder med tidsbegrenset salg: {count}",
       "期次：{name}": "Runde: {name}",
       "状态：{status}": "Status: {status}",
-      "即将开始：{count}": "Starter snart: {count}"
+      "即将开始：{count}": "Starter snart: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "Skrivebeskyttet API og datapanel, dataene kommer fra GitHub Pages for dette prosjektet",
+      "程序版本": "Programversjon",
+      "构建": "Bygg",
+      "时区": "Tidssone",
+      "当前语言的译文暂不可用，已回退英文。": "Oversettelsen for dette språket er ikke tilgjengelig ennå, falt tilbake til engelsk.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Totalt {total} endringer, viser de {shown} nyeste",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Dette prosjektet er skrivebeskyttet: både siden og API-et leser publiserte data fra GitHub Pages.",
+      "发布页": "Utgivelsesside",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript er avslått: tid vises som den opprinnelige Beijing-tiden."
     },
     "da": {
       "Hypixel SkyBlock API 变更监控台": "Overvågning af Hypixel SkyBlock API-ændringer",
@@ -5674,7 +5953,16 @@
       "特卖期数：{count}": "Runder med tidsbegrænsede udsalg: {count}",
       "期次：{name}": "Runde: {name}",
       "状态：{status}": "Status: {status}",
-      "即将开始：{count}": "Starter snart: {count}"
+      "即将开始：{count}": "Starter snart: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "Skrivebeskyttet API og datapanel, data kommer fra dette projekts GitHub Pages",
+      "程序版本": "Appversion",
+      "构建": "Build",
+      "时区": "Tidszone",
+      "当前语言的译文暂不可用，已回退英文。": "Oversættelsen for det aktuelle sprog er ikke tilgængelig, der vises engelsk.",
+      "共 {total} 条变更，显示最近 {shown} 条": "{total} ændringer i alt, viser de seneste {shown}",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Dette projekt er skrivebeskyttet: både siden og API'et læser offentliggjorte data fra GitHub Pages.",
+      "发布页": "Udgivelsesside",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript er slået fra: tider vises som råværdier i Beijing-tid."
     },
     "fi": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API -muutosten seuranta",
@@ -5848,7 +6136,16 @@
       "特卖期数：{count}": "Aikarajoitettujen alennusmyyntien erät: {count}",
       "期次：{name}": "Erä: {name}",
       "状态：{status}": "Tila: {status}",
-      "即将开始：{count}": "Alkaa pian: {count}"
+      "即将开始：{count}": "Alkaa pian: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "Vain luku -API ja datapaneeli, tiedot tulevat tämän projektin GitHub Pagesista",
+      "程序版本": "Sovelluksen versio",
+      "构建": "Build",
+      "时区": "Aikavyöhyke",
+      "当前语言的译文暂不可用，已回退英文。": "Nykyisen kielen käännös ei ole saatavilla, näytetään englanti.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Yhteensä {total} muutosta, näytetään viimeisimmät {shown}",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Tämä projekti on vain luku -käyttöön: sekä sivu että API lukevat julkaistuja tietoja GitHub Pagesista.",
+      "发布页": "Julkaisusivu",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript on pois käytöstä: ajat näytetään Pekingin ajan raaka-arvoina."
     },
     "is": {
       "Hypixel SkyBlock API 变更监控台": "Vöktun á breytingum í Hypixel SkyBlock API",
@@ -6022,7 +6319,16 @@
       "特卖期数：{count}": "Lotur tímabundinna útsölna: {count}",
       "期次：{name}": "Lota: {name}",
       "状态：{status}": "Staða: {status}",
-      "即将开始：{count}": "Byrjar fljótlega: {count}"
+      "即将开始：{count}": "Byrjar fljótlega: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "Skrifvarið API og gagnaspjald, gögnin koma frá GitHub Pages þessa verkefnis",
+      "程序版本": "Útgáfa forrits",
+      "构建": "Bygging",
+      "时区": "Tímabelti",
+      "当前语言的译文暂不可用，已回退英文。": "Þýðing fyrir núverandi tungumál er ekki tiltæk, enska er sýnd.",
+      "共 {total} 条变更，显示最近 {shown} 条": "{total} breytingar samtals, sýndar eru {shown} nýjustu",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Þetta verkefni er skrifvarið: bæði síðan og API-ið lesa birt gögn frá GitHub Pages.",
+      "发布页": "Útgáfusíða",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript er slökkt: tímar birtast sem hrá gildi að Peking-tíma."
     },
     "fy": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API-wizigingsmonitor",
@@ -6196,7 +6502,16 @@
       "特卖期数：{count}": "Rûnen fan beheinde útferkeap: {count}",
       "期次：{name}": "Rûn: {name}",
       "状态：{status}": "Status: {status}",
-      "即将开始：{count}": "Begjint hast: {count}"
+      "即将开始：{count}": "Begjint hast: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "Allinnich-lêze API en data-paniel, de data komt fan 'e GitHub Pages fan dit projekt",
+      "程序版本": "App-ferzje",
+      "构建": "Bou",
+      "时区": "Tiidsône",
+      "当前语言的译文暂不可用，已回退英文。": "De oersetting foar de aktuele taal is net beskikber; der wurdt weromfallen op it Ingelsk.",
+      "共 {total} 条变更，显示最近 {shown} 条": "{total} feroarings, de lêste {shown} wurde werjûn",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Dit projekt is allinnich-lêze: sawol de side as de API lêze publisearre data fan GitHub Pages.",
+      "发布页": "Utjefte-side",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript is út: tiden wurde as rûwe Pekingtiid werjûn."
     },
     "lb": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API-Ännerungsmonitor",
@@ -6370,7 +6685,16 @@
       "特卖期数：{count}": "Ronne vum limitéierte Verkaf: {count}",
       "期次：{name}": "Ronn: {name}",
       "状态：{status}": "Status: {status}",
-      "即将开始：{count}": "Fänkt geschwënn un: {count}"
+      "即将开始：{count}": "Fänkt geschwënn un: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "Liest-nëmmen-API an Datenpanel, d'Date kommen aus dem GitHub Pages vun dësem Projet",
+      "程序版本": "Programmversioun",
+      "构建": "Build",
+      "时区": "Zäitzon",
+      "当前语言的译文暂不可用，已回退英文。": "D'Iwwersetzung fir déi aktuell Sprooch ass nach net verfügbar, et gëtt op Englesch zréckgegraff.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Insgesamt {total} Ännerungen, déi lescht {shown} ginn ugewisen",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Dëse Projet ass nëmme liesbar: Säit an API liesen déi publizéiert Date vum GitHub Pages.",
+      "发布页": "Veröffentlichungssäit",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript ass aus: d'Zäit gëtt als Originalwäert vun der Peking-Zäit ugewisen."
     },
     "af": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API-veranderingsmonitor",
@@ -6544,7 +6868,16 @@
       "特卖期数：{count}": "Rondtes tydbeperkte uitverkopings: {count}",
       "期次：{name}": "Rondte: {name}",
       "状态：{status}": "Status: {status}",
-      "即将开始：{count}": "Begin binnekort: {count}"
+      "即将开始：{count}": "Begin binnekort: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "Lees-alleen API en datapaneel, die data kom van hierdie projek se GitHub Pages",
+      "程序版本": "Toepweergawe",
+      "构建": "Bou",
+      "时区": "Tydsone",
+      "当前语言的译文暂不可用，已回退英文。": "Vertalings vir die huidige taal is nie beskikbaar nie; daar word na Engels teruggeval.",
+      "共 {total} 条变更，显示最近 {shown} 条": "{total} veranderinge, die nuutste {shown} word gewys",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Hierdie projek is lees-alleen: die bladsy en die API lees albei gepubliseerde data van GitHub Pages.",
+      "发布页": "Vrystellingsblad",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript is afgeskakel: tye word as rou Beijing-tyd gewys."
     },
     "et": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API muudatuste monitor",
@@ -6718,7 +7051,16 @@
       "特卖期数：{count}": "Ajutiste allahindluste voorud: {count}",
       "期次：{name}": "Voor: {name}",
       "状态：{status}": "Olek: {status}",
-      "即将开始：{count}": "Algab peagi: {count}"
+      "即将开始：{count}": "Algab peagi: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "Kirjutuskaitstud API ja andmepaneel, andmed pärinevad selle projekti GitHub Pagesist",
+      "程序版本": "Rakenduse versioon",
+      "构建": "Ehitus",
+      "时区": "Ajavöönd",
+      "当前语言的译文暂不可用，已回退英文。": "Praeguse keele tõlge pole saadaval, kuvatakse inglise keelt.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Kokku {total} muudatust, kuvatakse viimased {shown}",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "See projekt on kirjutuskaitstud: nii leht kui API loevad GitHub Pagesist avaldatud andmeid.",
+      "发布页": "Väljalaske leht",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript on välja lülitatud: ajad kuvatakse Pekingi aja toorväärtustena."
     },
     "lv": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API izmaiņu monitors",
@@ -6892,7 +7234,16 @@
       "特卖期数：{count}": "Ierobežota laika izpārdošanas kārtas: {count}",
       "期次：{name}": "Kārta: {name}",
       "状态：{status}": "Statuss: {status}",
-      "即将开始：{count}": "Sāksies drīz: {count}"
+      "即将开始：{count}": "Sāksies drīz: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "Tikai lasāma API un datu panelis, dati no šī projekta GitHub Pages",
+      "程序版本": "Programmas versija",
+      "构建": "Būvējums",
+      "时区": "Laika josla",
+      "当前语言的译文暂不可用，已回退英文。": "Šīs valodas tulkojums pagaidām nav pieejams, atgriezts uz angļu valodu.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Kopā {total} izmaiņas, rādītas pēdējās {shown}",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Šis projekts ir tikai lasāms: gan lapa, gan API lasa publicētos datus no GitHub Pages.",
+      "发布页": "Izlaidumu lapa",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript ir izslēgts: laiks tiek rādīts Pekinas laika sākotnējā vērtībā."
     },
     "lt": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API pakeitimų stebėjimas",
@@ -7066,7 +7417,16 @@
       "特卖期数：{count}": "Riboto laiko išpardavimų etapai: {count}",
       "期次：{name}": "Etapas: {name}",
       "状态：{status}": "Būsena: {status}",
-      "即将开始：{count}": "Netrukus prasidės: {count}"
+      "即将开始：{count}": "Netrukus prasidės: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "Tik skaitymo API ir duomenų skydelis, duomenys iš šio projekto GitHub Pages",
+      "程序版本": "Programos versija",
+      "构建": "Sukūrimas",
+      "时区": "Laiko juosta",
+      "当前语言的译文暂不可用，已回退英文。": "Šios kalbos vertimas kol kas nepasiekiamas, grąžinta į anglų kalbą.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Iš viso {total} pakeitimų, rodomi {shown} naujausi",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Šis projektas skirtas tik skaitymui: puslapis ir API skaito paskelbtus duomenis iš GitHub Pages.",
+      "发布页": "Leidimų puslapis",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "„JavaScript“ išjungtas: laikas rodomas pradine Pekino laiko reikšme."
     },
     "sk": {
       "Hypixel SkyBlock API 变更监控台": "Monitor zmien Hypixel SkyBlock API",
@@ -7240,7 +7600,16 @@
       "特卖期数：{count}": "Kolá časovo obmedzených výpredajov: {count}",
       "期次：{name}": "Kolo: {name}",
       "状态：{status}": "Stav: {status}",
-      "即将开始：{count}": "Čoskoro sa začne: {count}"
+      "即将开始：{count}": "Čoskoro sa začne: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API iba na čítanie a panel údajov, údaje pochádzajú z GitHub Pages tohto projektu",
+      "程序版本": "Verzia programu",
+      "构建": "Zostavenie",
+      "时区": "Časové pásmo",
+      "当前语言的译文暂不可用，已回退英文。": "Preklad pre tento jazyk zatiaľ nie je dostupný, vrátilo sa k angličtine.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Celkom {total} zmien, zobrazuje sa posledných {shown}",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Tento projekt je iba na čítanie: stránka aj API čítajú zverejnené údaje z GitHub Pages.",
+      "发布页": "Stránka vydaní",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript je vypnutý: čas sa zobrazuje ako pôvodná hodnota pekinského času."
     },
     "sl": {
       "Hypixel SkyBlock API 变更监控台": "Nadzor sprememb Hypixel SkyBlock API",
@@ -7414,7 +7783,16 @@
       "特卖期数：{count}": "Krogi časovno omejenih razprodaj: {count}",
       "期次：{name}": "Krog: {name}",
       "状态：{status}": "Stanje: {status}",
-      "即将开始：{count}": "Kmalu se začne: {count}"
+      "即将开始：{count}": "Kmalu se začne: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API samo za branje in podatkovna plošča, podatki prihajajo iz GitHub Pages tega projekta",
+      "程序版本": "Različica programa",
+      "构建": "Gradnja",
+      "时区": "Časovni pas",
+      "当前语言的译文暂不可用，已回退英文。": "Prevod za ta jezik še ni na voljo, vrnjeno je na angleščino.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Skupaj {total} sprememb, prikazanih je zadnjih {shown}",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Ta projekt je samo za branje: stran in API oba bereta objavljene podatke iz GitHub Pages.",
+      "发布页": "Stran izdaj",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript je izklopljen: čas se prikazuje kot prvotna vrednost pekinškega časa."
     },
     "hr": {
       "Hypixel SkyBlock API 变更监控台": "Nadzor promjena Hypixel SkyBlock API-ja",
@@ -7588,7 +7966,16 @@
       "特卖期数：{count}": "Krugovi vremenski ograničenih rasprodaja: {count}",
       "期次：{name}": "Krug: {name}",
       "状态：{status}": "Status: {status}",
-      "即将开始：{count}": "Uskoro počinje: {count}"
+      "即将开始：{count}": "Uskoro počinje: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API i ploča podataka samo za čitanje, podaci dolaze s GitHub Pagesa ovog projekta",
+      "程序版本": "Verzija aplikacije",
+      "构建": "Build",
+      "时区": "Vremenska zona",
+      "当前语言的译文暂不可用，已回退英文。": "Prijevod za trenutačni jezik nije dostupan, prikazan je engleski.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Ukupno {total} promjena, prikazano posljednjih {shown}",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Ovaj je projekt samo za čitanje: stranica i API čitaju objavljene podatke s GitHub Pagesa.",
+      "发布页": "Stranica izdanja",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript je isključen: vremena se prikazuju kao sirove vrijednosti pekinškog vremena."
     },
     "sr": {
       "Hypixel SkyBlock API 变更监控台": "Надгледна табла промена Hypixel SkyBlock API",
@@ -7762,7 +8149,16 @@
       "特卖期数：{count}": "Циклуси временских распродаја: {count}",
       "期次：{name}": "Циклус: {name}",
       "状态：{status}": "Статус: {status}",
-      "即将开始：{count}": "Ускоро почиње: {count}"
+      "即将开始：{count}": "Ускоро почиње: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API само за читање и панел са подацима, подаци долазе са GitHub Pages овог пројекта",
+      "程序版本": "Верзија програма",
+      "构建": "Изградња",
+      "时区": "Временска зона",
+      "当前语言的译文暂不可用，已回退英文。": "Превод за овај језик још није доступан, враћено је на енглески.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Укупно {total} измена, приказано је последњих {shown}",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Овај пројекат је само за читање: и страница и API читају објављене податке са GitHub Pages.",
+      "发布页": "Страница издања",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript је искључен: време се приказује као изворна вредност пекиншког времена."
     },
     "bs": {
       "Hypixel SkyBlock API 变更监控台": "Monitor promjena Hypixel SkyBlock API",
@@ -7936,7 +8332,16 @@
       "特卖期数：{count}": "Ciklusi vremenskih rasprodaja: {count}",
       "期次：{name}": "Ciklus: {name}",
       "状态：{status}": "Status: {status}",
-      "即将开始：{count}": "Uskoro počinje: {count}"
+      "即将开始：{count}": "Uskoro počinje: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API i panel podataka samo za čitanje, podaci dolaze s GitHub Pagesa ovog projekta",
+      "程序版本": "Verzija aplikacije",
+      "构建": "Build",
+      "时区": "Vremenska zona",
+      "当前语言的译文暂不可用，已回退英文。": "Prijevod za trenutni jezik nije dostupan, prikazan je engleski.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Ukupno {total} izmjena, prikazano posljednjih {shown}",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Ovaj projekt je samo za čitanje: stranica i API čitaju objavljene podatke s GitHub Pagesa.",
+      "发布页": "Stranica izdanja",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript je isključen: vremena se prikazuju kao sirove vrijednosti pekinškog vremena."
     },
     "mk": {
       "Hypixel SkyBlock API 变更监控台": "Монитор за промени на Hypixel SkyBlock API",
@@ -8110,7 +8515,16 @@
       "特卖期数：{count}": "Циклуси на временски распродажби: {count}",
       "期次：{name}": "Циклус: {name}",
       "状态：{status}": "Статус: {status}",
-      "即将开始：{count}": "Започнува наскоро: {count}"
+      "即将开始：{count}": "Започнува наскоро: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API само за читање и панел со податоци, податоците доаѓаат од GitHub Pages на овој проект",
+      "程序版本": "Верзија на програмата",
+      "构建": "Изградба",
+      "时区": "Временска зона",
+      "当前语言的译文暂不可用，已回退英文。": "Преводот за овој јазик сè уште не е достапен, префрлено на англиски.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Вкупно {total} промени, прикажани последните {shown}",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Овој проект е само за читање: и страницата и API ги читаат објавените податоци од GitHub Pages.",
+      "发布页": "Страница за изданија",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript е исклучен: времето се прикажува во изворната вредност на пекиншкото време."
     },
     "bg": {
       "Hypixel SkyBlock API 变更监控台": "Табло за промени на Hypixel SkyBlock API",
@@ -8284,7 +8698,16 @@
       "特卖期数：{count}": "Цикли на ограничени разпродажби: {count}",
       "期次：{name}": "Цикъл: {name}",
       "状态：{status}": "Статус: {status}",
-      "即将开始：{count}": "Започва скоро: {count}"
+      "即将开始：{count}": "Започва скоро: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API и табло за данни само за четене, данните идват от GitHub Pages на този проект",
+      "程序版本": "Версия на приложението",
+      "构建": "Компилация",
+      "时区": "Часова зона",
+      "当前语言的译文暂不可用，已回退英文。": "Преводът за текущия език не е достъпен, показан е английски.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Общо {total} промени, показани са последните {shown}",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Този проект е само за четене: страницата и API четат публикувани данни от GitHub Pages.",
+      "发布页": "Страница с издания",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript е изключен: времената се показват като сурови стойности по пекинско време."
     },
     "be": {
       "Hypixel SkyBlock API 变更监控台": "Манітор змен Hypixel SkyBlock API",
@@ -8458,7 +8881,16 @@
       "特卖期数：{count}": "Раўнды абмежаваных распродаж: {count}",
       "期次：{name}": "Раўнд: {name}",
       "状态：{status}": "Статус: {status}",
-      "即将开始：{count}": "Хутка пачнецца: {count}"
+      "即将开始：{count}": "Хутка пачнецца: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API і панэль даных толькі для чытання, даныя з GitHub Pages гэтага праекта",
+      "程序版本": "Версія праграмы",
+      "构建": "Зборка",
+      "时区": "Часавы пояс",
+      "当前语言的译文暂不可用，已回退英文。": "Пераклад для бягучай мовы пакуль недаступны, паказана англійская версія.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Усяго {total} змяненняў, паказаны апошнія {shown}",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Гэты праект толькі для чытання: старонка і API чытаюць апублікаваныя даныя з GitHub Pages.",
+      "发布页": "Старонка выпускаў",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript адключаны: час паказваецца як зыходнае значэнне па пекінскім часе."
     },
     "sq": {
       "Hypixel SkyBlock API 变更监控台": "Paneli i monitorimit të ndryshimeve të Hypixel SkyBlock API",
@@ -8632,7 +9064,16 @@
       "特卖期数：{count}": "Raunde të shitjeve me kohë të kufizuar: {count}",
       "期次：{name}": "Raund: {name}",
       "状态：{status}": "Statusi: {status}",
-      "即将开始：{count}": "Nis së shpejti: {count}"
+      "即将开始：{count}": "Nis së shpejti: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API vetëm për lexim dhe paneli i të dhënave, të dhënat vijnë nga GitHub Pages i këtij projekti",
+      "程序版本": "Versioni i programit",
+      "构建": "Ndërtimi",
+      "时区": "Zona kohore",
+      "当前语言的译文暂不可用，已回退英文。": "Përkthimi për këtë gjuhë nuk është ende i disponueshëm, u kthye në anglisht.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Gjithsej {total} ndryshime, po shfaqen {shown} më të rejat",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Ky projekt është vetëm për lexim: faqja dhe API lexojnë të dyja të dhënat e publikuara nga GitHub Pages.",
+      "发布页": "Faqja e publikimeve",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript është i fikur: ora shfaqet me vlerën origjinale të orës së Pekinit."
     },
     "ga": {
       "Hypixel SkyBlock API 变更监控台": "Monatóir athruithe Hypixel SkyBlock API",
@@ -8806,7 +9247,16 @@
       "特卖期数：{count}": "Babhtaí díolachán teoranta: {count}",
       "期次：{name}": "Babhta: {name}",
       "状态：{status}": "Stádas: {status}",
-      "即将开始：{count}": "Ag tosú go luath: {count}"
+      "即将开始：{count}": "Ag tosú go luath: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API agus painéal sonraí inléite amháin, agus tagann na sonraí ó GitHub Pages an tionscadail seo",
+      "程序版本": "Leagan an aip",
+      "构建": "Tógáil",
+      "时区": "Crios ama",
+      "当前语言的译文暂不可用，已回退英文。": "Níl aistriúchán don teanga reatha ar fáil faoi láthair, agus úsáideadh an Béarla.",
+      "共 {total} 条变更，显示最近 {shown} 条": "{total} athrú san iomlán, agus taispeántar an {shown} is déanaí",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Tá an tionscadal seo inléite amháin: léann an leathanach agus an API sonraí foilsithe ó GitHub Pages.",
+      "发布页": "Leathanach eisiúna",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "Tá JavaScript múchta: taispeántar amanna mar amhluachanna de réir am Bhéising."
     },
     "cy": {
       "Hypixel SkyBlock API 变更监控台": "Monitr newidiadau Hypixel SkyBlock API",
@@ -8980,7 +9430,16 @@
       "特卖期数：{count}": "Rowndiau arwerthiannau cyfyngedig: {count}",
       "期次：{name}": "Rownd: {name}",
       "状态：{status}": "Statws: {status}",
-      "即将开始：{count}": "Yn dechrau cyn bo hir: {count}"
+      "即将开始：{count}": "Yn dechrau cyn bo hir: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API a phanel data ar gael eu darllen yn unig, mae'r data'n dod o GitHub Pages y prosiect hwn",
+      "程序版本": "Fersiwn ap",
+      "构建": "Adeilad",
+      "时区": "Cylchfa amser",
+      "当前语言的译文暂不可用，已回退英文。": "Nid yw cyfieithiad yr iaith gyfredol ar gael, felly defnyddiwyd Saesneg.",
+      "共 {total} 条变更，显示最近 {shown} 条": "{total} newid i gyd, yn dangos y {shown} diweddaraf",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Mae'r prosiect hwn yn ddarllen yn unig: mae'r dudalen a'r API ill dau yn darllen data cyhoeddedig o GitHub Pages.",
+      "发布页": "Tudalen ryddhau",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "Mae JavaScript wedi'i analluogi: dangosir amseroedd fel gwerthoedd crai amser Beijing."
     },
     "mt": {
       "Hypixel SkyBlock API 变更监控台": "Pannell tal-monitoraġġ tal-bidliet ta' Hypixel SkyBlock API",
@@ -9154,7 +9613,16 @@
       "特卖期数：{count}": "Rawnds tal-bejgħ: {count}",
       "期次：{name}": "Rawnd: {name}",
       "状态：{status}": "Status: {status}",
-      "即将开始：{count}": "Jibda dalwaqt: {count}"
+      "即将开始：{count}": "Jibda dalwaqt: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API għall-qari biss u panel tad-dejta, id-dejta ġejja mill-GitHub Pages ta' dan il-proġett",
+      "程序版本": "Verżjoni tal-programm",
+      "构建": "Bini",
+      "时区": "Żona tal-ħin",
+      "当前语言的译文暂不可用，已回退英文。": "It-traduzzjoni għal din il-lingwa għadha mhix disponibbli, reġa' ntuża l-Ingliż.",
+      "共 {total} 条变更，显示最近 {shown} 条": "{total} bidliet b'kollox, qed jintwerew l-aħħar {shown}",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Dan il-proġett huwa għall-qari biss: il-paġna u l-API t-tnejn jaqraw id-dejta ppubblikata mill-GitHub Pages.",
+      "发布页": "Paġna tar-rilaxx",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript mitfi: il-ħin jintwera bil-valur oriġinali tal-ħin ta' Beijing."
     },
     "ca": {
       "Hypixel SkyBlock API 变更监控台": "Monitor de canvis de l'API de Hypixel SkyBlock",
@@ -9328,7 +9796,16 @@
       "特卖期数：{count}": "Rondes de vendes: {count}",
       "期次：{name}": "Ronda: {name}",
       "状态：{status}": "Estat: {status}",
-      "即将开始：{count}": "Comença aviat: {count}"
+      "即将开始：{count}": "Comença aviat: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API i panell de dades només de lectura, les dades provenen de les GitHub Pages d'aquest projecte",
+      "程序版本": "Versió de l'aplicació",
+      "构建": "Compilació",
+      "时区": "Zona horària",
+      "当前语言的译文暂不可用，已回退英文。": "La traducció de l'idioma actual no està disponible; s'ha utilitzat l'anglès.",
+      "共 {total} 条变更，显示最近 {shown} 条": "{total} canvis en total, es mostren els {shown} més recents",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Aquest projecte és només de lectura: tant la pàgina com l'API llegeixen dades publicades de GitHub Pages.",
+      "发布页": "Pàgina de versions",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript està desactivat: les hores es mostren com a valors bruts de l'hora de Pequín."
     },
     "gl": {
       "Hypixel SkyBlock API 变更监控台": "Monitor de cambios da API de Hypixel SkyBlock",
@@ -9502,7 +9979,16 @@
       "特卖期数：{count}": "Quendas de vendas: {count}",
       "期次：{name}": "Quenda: {name}",
       "状态：{status}": "Estado: {status}",
-      "即将开始：{count}": "Comeza axiña: {count}"
+      "即将开始：{count}": "Comeza axiña: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API e panel de datos de só lectura, os datos proceden das GitHub Pages deste proxecto",
+      "程序版本": "Versión da aplicación",
+      "构建": "Compilación",
+      "时区": "Fuso horario",
+      "当前语言的译文暂不可用，已回退英文。": "A tradución do idioma actual non está dispoñible; amósase en inglés.",
+      "共 {total} 条变更，显示最近 {shown} 条": "{total} cambios en total, amósanse os {shown} máis recentes",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Este proxecto é de só lectura: tanto a páxina como a API len datos publicados en GitHub Pages.",
+      "发布页": "Páxina de versións",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript está desactivado: as horas amósanse como valores sen procesar da hora de Pequín."
     },
     "eu": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API aldaketen monitorea",
@@ -9676,7 +10162,16 @@
       "特卖期数：{count}": "Salmenta-txandak: {count}",
       "期次：{name}": "Txanda: {name}",
       "状态：{status}": "Egoera: {status}",
-      "即将开始：{count}": "Laster hasiko da: {count}"
+      "即将开始：{count}": "Laster hasiko da: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "Irakurtzeko soilik den APIa eta datu-panela, datuak proiektu honen GitHub Pages-etik datoz",
+      "程序版本": "Aplikazioaren bertsioa",
+      "构建": "Konpilazioa",
+      "时区": "Ordu-zona",
+      "当前语言的译文暂不可用，已回退英文。": "Uneko hizkuntzaren itzulpena ez dago erabilgarri, ingelesera jo da.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Guztira {total} aldaketa, azken {shown} erakusten",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Proiektu hau irakurtzeko soilik da: orriak eta APIak GitHub Pages-etik argitaratutako datuak irakurtzen dituzte.",
+      "发布页": "Argitalpen-orria",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript desgaituta dago: orduak Beijingo ordu gordin gisa erakusten dira."
     },
     "br": {
       "Hypixel SkyBlock API 变更监控台": "Monitour kemmoù Hypixel SkyBlock API",
@@ -9850,7 +10345,16 @@
       "特卖期数：{count}": "Troioù gwerzh: {count}",
       "期次：{name}": "Tro: {name}",
       "状态：{status}": "Statud: {status}",
-      "即将开始：{count}": "A grog bremaik: {count}"
+      "即将开始：{count}": "A grog bremaik: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API ha panel roadennoù e lenn hepken, ar roadennoù a zeu eus GitHub Pages ar raktres-mañ",
+      "程序版本": "Stumm an arload",
+      "构建": "Savidigezh",
+      "时区": "Takad eur",
+      "当前语言的译文暂不可用，已回退英文。": "N'eo ket hegerz troidigezh ar yezh a-vremañ, bet eo distroet d'ar saozneg.",
+      "共 {total} 条变更，显示最近 {shown} 条": "{total} kemm, an {shown} diwezhañ a vez diskouezet",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Al lenn hepken eo ar raktres-mañ: ar bajenn hag an API a lenn roadennoù embannet eus GitHub Pages.",
+      "发布页": "Pajenn an embannadurioù",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript zo lazhet: an eurioù a vez diskouezet evel eurioù Beijing diaoz."
     },
     "my": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API အပြောင်းအလဲ စောင့်ကြည့်ရေးစနစ်",
@@ -10024,7 +10528,16 @@
       "特卖期数：{count}": "အရောင်းပွဲ အကြိမ်များ: {count}",
       "期次：{name}": "အကြိမ်: {name}",
       "状态：{status}": "အခြေအနေ: {status}",
-      "即将开始：{count}": "မကြာမီ စတင်မည်: {count}"
+      "即将开始：{count}": "မကြာမီ စတင်မည်: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "ဖတ်ရန်သာ API နှင့် ဒေတာ ပန်နယ်၊ ဒေတာသည် ဤပရောဂျက်၏ GitHub Pages မှ ဖြစ်သည်",
+      "程序版本": "ပရိုဂရမ် ဗားရှင်း",
+      "构建": "တည်ဆောက်မှု",
+      "时区": "အချိန်ဇုန်",
+      "当前语言的译文暂不可用，已回退英文。": "ဤဘာသာစကားအတွက် ဘာသာပြန် မရရှိနိုင်သေးပါ၊ အင်္ဂလိပ်သို့ ပြန်သွားထားသည်။",
+      "共 {total} 条变更，显示最近 {shown} 条": "စုစုပေါင်း ပြောင်းလဲမှု {total} ခု၊ နောက်ဆုံး {shown} ခုကို ပြသနေသည်",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "ဤပရောဂျက်သည် ဖတ်ရန်သာ ဖြစ်သည်- စာမျက်နှာနှင့် API နှစ်ခုစလုံး ထုတ်ဝေပြီးသား ဒေတာကို GitHub Pages မှ ဖတ်သည်။",
+      "发布页": "ထုတ်ဝေမှု စာမျက်နှာ",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript ပိတ်ထားသည်- အချိန်ကို ပေကျင်းအချိန် မူရင်းတန်ဖိုးဖြင့် ပြသသည်။"
     },
     "km": {
       "Hypixel SkyBlock API 变更监控台": "ផ្ទាំងត្រួតពិនិត្យការផ្លាស់ប្តូរ Hypixel SkyBlock API",
@@ -10198,7 +10711,16 @@
       "特卖期数：{count}": "វគ្គលក់៖ {count}",
       "期次：{name}": "វគ្គ៖ {name}",
       "状态：{status}": "ស្ថានភាព៖ {status}",
-      "即将开始：{count}": "ជិតចាប់ផ្តើម៖ {count}"
+      "即将开始：{count}": "ជិតចាប់ផ្តើម៖ {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API និងផ្ទាំងទិន្នន័យសម្រាប់អានតែប៉ុណ្ណោះ ទិន្នន័យមកពី GitHub Pages របស់គម្រោងនេះ",
+      "程序版本": "កំណែកម្មវិធី",
+      "构建": "ការសាងសង់",
+      "时区": "តំបន់ពេលវេលា",
+      "当前语言的译文暂不可用，已回退英文。": "ការបកប្រែសម្រាប់ភាសាបច្ចុប្បន្នមិនអាចប្រើបានទេ បានត្រឡប់ទៅភាសាអង់គ្លេស។",
+      "共 {total} 条变更，显示最近 {shown} 条": "សរុប {total} ការផ្លាស់ប្តូរ បង្ហាញ {shown} ចុងក្រោយ",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "គម្រោងនេះអានតែប៉ុណ្ណោះ៖ ទំព័រ និង API ទាំងពីរអានទិន្នន័យដែលបានផ្សព្វផ្សាយពី GitHub Pages។",
+      "发布页": "ទំព័រចេញផ្សាយ",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript ត្រូវបានបិទ៖ ពេលវេលាត្រូវបានបង្ហាញជាតម្លៃដើមតាមម៉ោងប៉េកាំង។"
     },
     "lo": {
       "Hypixel SkyBlock API 变更监控台": "ແຜງຕິດຕາມການປ່ຽນແປງ Hypixel SkyBlock API",
@@ -10372,7 +10894,16 @@
       "特卖期数：{count}": "ຮອບການຂາຍ: {count}",
       "期次：{name}": "ຮອບ: {name}",
       "状态：{status}": "ສະຖານະ: {status}",
-      "即将开始：{count}": "ໃກ້ຈະເລີ່ມ: {count}"
+      "即将开始：{count}": "ໃກ້ຈະເລີ່ມ: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API ແລະ ແຜງຂໍ້ມູນແບບອ່ານໄດ້ຢ່າງດຽວ, ຂໍ້ມູນມາຈາກ GitHub Pages ຂອງໂຄງການນີ້",
+      "程序版本": "ເວີຊັນໂປຣແກຣມ",
+      "构建": "ການສ້າງ",
+      "时区": "ເຂດເວລາ",
+      "当前语言的译文暂不可用，已回退英文。": "ບໍ່ມີຄຳແປສຳລັບພາສານີ້ໃນຂະນະນີ້, ໄດ້ກັບໄປໃຊ້ພາສາອັງກິດແລ້ວ.",
+      "共 {total} 条变更，显示最近 {shown} 条": "ທັງໝົດ {total} ລາຍການປ່ຽນແປງ, ສະແດງ {shown} ລາຍການຫຼ້າສຸດ",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "ໂຄງການນີ້ອ່ານໄດ້ຢ່າງດຽວ: ທັງໜ້າເວັບ ແລະ API ອ່ານຂໍ້ມູນທີ່ເຜີຍແຜ່ແລ້ວຈາກ GitHub Pages.",
+      "发布页": "ໜ້າເຜີຍແຜ່",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript ປິດຢູ່: ເວລາຈະສະແດງເປັນຄ່າເດີມຂອງເວລາປັກກິ່ງ."
     },
     "ne": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API परिवर्तन अनुगमन",
@@ -10546,7 +11077,16 @@
       "特卖期数：{count}": "बिक्री चरण: {count}",
       "期次：{name}": "चरण: {name}",
       "状态：{status}": "स्थिति: {status}",
-      "即将开始：{count}": "चाँडै सुरु हुने: {count}"
+      "即将开始：{count}": "चाँडै सुरु हुने: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "पढ्न मात्र मिल्ने API र डेटा प्यानल, डेटा यो परियोजनाको GitHub Pages बाट आउँछ",
+      "程序版本": "कार्यक्रम संस्करण",
+      "构建": "बिल्ड",
+      "时区": "समय क्षेत्र",
+      "当前语言的译文暂不可用，已回退英文。": "यो भाषाको अनुवाद अहिले उपलब्ध छैन, अंग्रेजीमा फर्काइएको छ।",
+      "共 {total} 条变更，显示最近 {shown} 条": "जम्मा {total} परिवर्तन, पछिल्ला {shown} देखाइँदै",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "यो परियोजना पढ्न मात्र हो: पृष्ठ र API दुवैले GitHub Pages बाट प्रकाशित डेटा पढ्छन्।",
+      "发布页": "रिलिज पृष्ठ",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript बन्द छ: समय बेइजिङ समयको मूल मानमा देखाइन्छ।"
     },
     "si": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API වෙනස්කම් නිරීක්ෂණ පුවරුව",
@@ -10720,7 +11260,16 @@
       "特卖期数：{count}": "විකුණුම් වාර: {count}",
       "期次：{name}": "වාරය: {name}",
       "状态：{status}": "තත්ත්වය: {status}",
-      "即将开始：{count}": "ඉක්මනින් ආරම්භ වේ: {count}"
+      "即将开始：{count}": "ඉක්මනින් ආරම්භ වේ: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "කියවීමට පමණක් API සහ දත්ත පැනලය, දත්ත මෙම ව්‍යාපෘතියේ GitHub Pages වෙතින්",
+      "程序版本": "වැඩසටහන් අනුවාදය",
+      "构建": "ඉදිකිරීම",
+      "时区": "වේලා කලාපය",
+      "当前语言的译文暂不可用，已回退英文。": "මෙම භාෂාව සඳහා පරිවර්තනය තවම නොමැත, ඉංග්‍රීසියට ආපසු ගියේය.",
+      "共 {total} 条变更，显示最近 {shown} 条": "මුළු වෙනස්කම් {total}, නවතම {shown} පෙන්වයි",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "මෙම ව්‍යාපෘතිය කියවීමට පමණි: පිටුව සහ API දෙකම GitHub Pages වෙතින් ප්‍රකාශිත දත්ත කියවයි.",
+      "发布页": "නිකුතු පිටුව",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript වසා ඇත: වේලාව බීජිං වේලාවේ මුල් අගයෙන් පෙන්වයි."
     },
     "ta": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API மாற்றம் கண்காணிப்பு பலகை",
@@ -10894,7 +11443,16 @@
       "特卖期数：{count}": "விற்பனை சுற்றுகள்: {count}",
       "期次：{name}": "சுற்று: {name}",
       "状态：{status}": "நிலை: {status}",
-      "即将开始：{count}": "விரைவில் தொடங்கும்: {count}"
+      "即将开始：{count}": "விரைவில் தொடங்கும்: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "படிக்க-மட்டும் API மற்றும் தரவு பலகம், தரவு இந்த திட்டத்தின் GitHub Pages இலிருந்து வருகிறது",
+      "程序版本": "நிரல் பதிப்பு",
+      "构建": "கட்டுமானம்",
+      "时区": "நேர மண்டலம்",
+      "当前语言的译文暂不可用，已回退英文。": "இந்த மொழிக்கான மொழிபெயர்ப்பு இன்னும் கிடைக்கவில்லை, ஆங்கிலத்திற்குத் திரும்பியது.",
+      "共 {total} 条变更，显示最近 {shown} 条": "மொத்தம் {total} மாற்றங்கள், சமீபத்திய {shown} காட்டப்படுகின்றன",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "இந்தத் திட்டம் படிக்க மட்டுமே: பக்கமும் API-யும் GitHub Pages இல் வெளியிடப்பட்ட தரவைப் படிக்கின்றன.",
+      "发布页": "வெளியீட்டுப் பக்கம்",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript அணைக்கப்பட்டுள்ளது: நேரம் பெய்ஜிங் நேரத்தின் அசல் மதிப்பாகக் காட்டப்படும்."
     },
     "te": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API మార్పుల పర్యవేక్షణ డాష్‌బోర్డ్",
@@ -11068,7 +11626,16 @@
       "特卖期数：{count}": "విక్రయ రౌండ్లు: {count}",
       "期次：{name}": "రౌండ్: {name}",
       "状态：{status}": "స్థితి: {status}",
-      "即将开始：{count}": "త్వరలో ప్రారంభం: {count}"
+      "即将开始：{count}": "త్వరలో ప్రారంభం: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "చదవడానికి మాత్రమే API మరియు డేటా ప్యానెల్, డేటా ఈ ప్రాజెక్ట్ GitHub Pages నుండి వస్తుంది",
+      "程序版本": "ప్రోగ్రామ్ వెర్షన్",
+      "构建": "బిల్డ్",
+      "时区": "సమయ మండలం",
+      "当前语言的译文暂不可用，已回退英文。": "ఈ భాషకు అనువాదం ఇంకా అందుబాటులో లేదు, ఆంగ్లానికి తిరిగి వెళ్లింది.",
+      "共 {total} 条变更，显示最近 {shown} 条": "మొత్తం {total} మార్పులు, ఇటీవలి {shown} చూపబడుతున్నాయి",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "ఈ ప్రాజెక్ట్ చదవడానికి మాత్రమే: పేజీ మరియు API రెండూ GitHub Pages నుండి ప్రచురించిన డేటాను చదువుతాయి.",
+      "发布页": "విడుదల పేజీ",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript ఆఫ్‌లో ఉంది: సమయం బీజింగ్ సమయం అసలు విలువలో చూపబడుతుంది."
     },
     "ml": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API മാറ്റ നിരീക്ഷണ ഡാഷ്ബോർഡ്",
@@ -11242,7 +11809,16 @@
       "特卖期数：{count}": "വിൽപ്പന റൗണ്ടുകൾ: {count}",
       "期次：{name}": "റൗണ്ട്: {name}",
       "状态：{status}": "നില: {status}",
-      "即将开始：{count}": "ഉടൻ ആരംഭിക്കും: {count}"
+      "即将开始：{count}": "ഉടൻ ആരംഭിക്കും: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "വായനയ്ക്ക് മാത്രമുള്ള API-യും ഡാറ്റ പാനലും, ഡാറ്റ ഈ പ്രോജക്റ്റിന്റെ GitHub Pages-ൽ നിന്നാണ്",
+      "程序版本": "പ്രോഗ്രാം പതിപ്പ്",
+      "构建": "ബിൽഡ്",
+      "时区": "സമയ മേഖല",
+      "当前语言的译文暂不可用，已回退英文。": "ഈ ഭാഷയ്ക്കുള്ള വിവർത്തനം ഇപ്പോൾ ലഭ്യമല്ല, ഇംഗ്ലീഷിലേക്ക് മടങ്ങി.",
+      "共 {total} 条变更，显示最近 {shown} 条": "ആകെ {total} മാറ്റങ്ങൾ, അവസാനത്തെ {shown} കാണിക്കുന്നു",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "ഈ പ്രോജക്റ്റ് വായനയ്ക്ക് മാത്രം: പേജും API-യും GitHub Pages-ൽ നിന്ന് പ്രസിദ്ധീകരിച്ച ഡാറ്റ വായിക്കുന്നു.",
+      "发布页": "റിലീസ് പേജ്",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript ഓഫാണ്: സമയം ബെയ്ജിംഗ് സമയത്തിന്റെ അടിസ്ഥാന മൂല്യത്തിൽ കാണിക്കുന്നു."
     },
     "kn": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API ಬದಲಾವಣೆ ಮೇಲ್ವಿಚಾರಣಾ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
@@ -11416,7 +11992,16 @@
       "特卖期数：{count}": "ಮಾರಾಟ ಸುತ್ತುಗಳು: {count}",
       "期次：{name}": "ಸುತ್ತು: {name}",
       "状态：{status}": "ಸ್ಥಿತಿ: {status}",
-      "即将开始：{count}": "ಶೀಘ್ರದಲ್ಲಿ ಪ್ರಾರಂಭ: {count}"
+      "即将开始：{count}": "ಶೀಘ್ರದಲ್ಲಿ ಪ್ರಾರಂಭ: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "ಓದಲು-ಮಾತ್ರ API ಮತ್ತು ಡೇಟಾ ಪ್ಯಾನೆಲ್, ಡೇಟಾ ಈ ಪ್ರಾಜೆಕ್ಟ್‌ನ GitHub Pages ನಿಂದ ಬರುತ್ತದೆ",
+      "程序版本": "ಆ್ಯಪ್ ಆವೃತ್ತಿ",
+      "构建": "ಬಿಲ್ಡ್",
+      "时区": "ಸಮಯ ವಲಯ",
+      "当前语言的译文暂不可用，已回退英文。": "ಪ್ರಸ್ತುತ ಭಾಷೆಯ ಅನುವಾದ ಲಭ್ಯವಿಲ್ಲ, ಇಂಗ್ಲಿಷ್‌ಗೆ ಹಿಂತಿರುಗಿಸಲಾಗಿದೆ.",
+      "共 {total} 条变更，显示最近 {shown} 条": "ಒಟ್ಟು {total} ಬದಲಾವಣೆಗಳು, ಇತ್ತೀಚಿನ {shown} ತೋರಿಸಲಾಗಿದೆ",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "ಈ ಪ್ರಾಜೆಕ್ಟ್ ಓದಲು-ಮಾತ್ರ: ಪುಟ ಮತ್ತು API ಎರಡೂ GitHub Pages ನಿಂದ ಪ್ರಕಟಿತ ಡೇಟಾವನ್ನು ಓದುತ್ತವೆ.",
+      "发布页": "ಬಿಡುಗಡೆ ಪುಟ",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ: ಸಮಯಗಳನ್ನು ಬೀಜಿಂಗ್ ಸಮಯದ ಮೂಲ ಮೌಲ್ಯಗಳಾಗಿ ತೋರಿಸಲಾಗಿದೆ."
     },
     "gu": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API ફેરફાર મોનિટર ડેશબોર્ડ",
@@ -11590,7 +12175,16 @@
       "特卖期数：{count}": "વેચાણ રાઉન્ડ: {count}",
       "期次：{name}": "રાઉન્ડ: {name}",
       "状态：{status}": "સ્થિતિ: {status}",
-      "即将开始：{count}": "ટૂંક સમયમાં શરૂ: {count}"
+      "即将开始：{count}": "ટૂંક સમયમાં શરૂ: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "ફક્ત વાંચવા માટેનું API અને ડેટા પેનલ, ડેટા આ પ્રોજેક્ટના GitHub Pages પરથી આવે છે",
+      "程序版本": "એપ આવૃત્તિ",
+      "构建": "બિલ્ડ",
+      "时区": "સમય વિસ્તાર",
+      "当前语言的译文暂不可用，已回退英文。": "વર્તમાન ભાષાનો અનુવાદ હાલ ઉપલબ્ધ નથી, અંગ્રેજીમાં દર્શાવ્યું છે.",
+      "共 {total} 条变更，显示最近 {shown} 条": "કુલ {total} ફેરફાર, છેલ્લા {shown} બતાવ્યા છે",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "આ પ્રોજેક્ટ ફક્ત વાંચવા માટે છે: પેજ અને API બંને GitHub Pages પરથી પ્રકાશિત ડેટા વાંચે છે.",
+      "发布页": "રિલીઝ પેજ",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript બંધ છે: સમય બીજિંગ સમયના મૂળ મૂલ્યો તરીકે બતાવવામાં આવે છે."
     },
     "mr": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API बदल देखरेख डॅशबोर्ड",
@@ -11764,7 +12358,16 @@
       "特卖期数：{count}": "विक्री फेऱ्या: {count}",
       "期次：{name}": "फेरी: {name}",
       "状态：{status}": "स्थिती: {status}",
-      "即将开始：{count}": "लवकरच सुरू: {count}"
+      "即将开始：{count}": "लवकरच सुरू: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "फक्त-वाचनीय API आणि डेटा पॅनल, डेटा या प्रकल्पाच्या GitHub Pages वरून येतो",
+      "程序版本": "प्रोग्राम आवृत्ती",
+      "构建": "बिल्ड",
+      "时区": "वेळ क्षेत्र",
+      "当前语言的译文暂不可用，已回退英文。": "या भाषेचा अनुवाद सध्या उपलब्ध नाही, इंग्रजीकडे परत गेले आहे.",
+      "共 {total} 条变更，显示最近 {shown} 条": "एकूण {total} बदल, शेवटचे {shown} दाखवले जात आहेत",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "हा प्रकल्प फक्त-वाचनीय आहे: पृष्ठ आणि API दोन्ही प्रकाशित डेटा GitHub Pages वरून वाचतात.",
+      "发布页": "प्रकाशन पृष्ठ",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript बंद आहे: वेळ बीजिंग वेळेच्या मूळ मूल्यात दाखवली जाते."
     },
     "pa": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API ਤਬਦੀਲੀ ਨਿਗਰਾਨੀ ਡੈਸ਼ਬੋਰਡ",
@@ -11938,7 +12541,16 @@
       "特卖期数：{count}": "ਵਿਕਰੀ ਰਾਊਂਡ: {count}",
       "期次：{name}": "ਰਾਊਂਡ: {name}",
       "状态：{status}": "ਸਥਿਤੀ: {status}",
-      "即将开始：{count}": "ਜਲਦੀ ਸ਼ੁਰੂ: {count}"
+      "即将开始：{count}": "ਜਲਦੀ ਸ਼ੁਰੂ: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "ਸਿਰਫ਼-ਪੜ੍ਹਨ ਯੋਗ API ਅਤੇ ਡੇਟਾ ਪੈਨਲ, ਡੇਟਾ ਇਸ ਪ੍ਰੋਜੈਕਟ ਦੇ GitHub Pages ਤੋਂ ਆਉਂਦਾ ਹੈ",
+      "程序版本": "ਪ੍ਰੋਗਰਾਮ ਸੰਸਕਰਣ",
+      "构建": "ਬਿਲਡ",
+      "时区": "ਸਮਾਂ ਖੇਤਰ",
+      "当前语言的译文暂不可用，已回退英文。": "ਇਸ ਭਾਸ਼ਾ ਲਈ ਅਨੁਵਾਦ ਹਾਲੇ ਉਪਲਬਧ ਨਹੀਂ, ਅੰਗਰੇਜ਼ੀ 'ਤੇ ਵਾਪਸ ਗਏ ਹਾਂ।",
+      "共 {total} 条变更，显示最近 {shown} 条": "ਕੁੱਲ {total} ਤਬਦੀਲੀਆਂ, ਨਵੀਆਂ {shown} ਦਿਖਾਈਆਂ ਜਾ ਰਹੀਆਂ ਹਨ",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "ਇਹ ਪ੍ਰੋਜੈਕਟ ਸਿਰਫ਼-ਪੜ੍ਹਨ ਯੋਗ ਹੈ: ਪੰਨਾ ਅਤੇ API ਦੋਵੇਂ ਪ੍ਰਕਾਸ਼ਿਤ ਡੇਟਾ GitHub Pages ਤੋਂ ਪੜ੍ਹਦੇ ਹਨ।",
+      "发布页": "ਰਿਲੀਜ਼ ਪੰਨਾ",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript ਬੰਦ ਹੈ: ਸਮਾਂ ਬੀਜਿੰਗ ਸਮੇਂ ਦੇ ਮੂਲ ਮੁੱਲ ਵਜੋਂ ਦਿਖਾਇਆ ਜਾਂਦਾ ਹੈ।"
     },
     "sd": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API تبديلين مانيٽر",
@@ -12112,7 +12724,16 @@
       "特卖期数：{count}": "رعايتن جا مرحلا: {count}",
       "期次：{name}": "مرحلو: {name}",
       "状态：{status}": "حالت: {status}",
-      "即将开始：{count}": "جلد شروع ٿيندو: {count}"
+      "即将开始：{count}": "جلد شروع ٿيندو: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "صرف پڙهڻ لائق API ۽ ڊيٽا پينل، ڊيٽا هن پروجيڪٽ جي GitHub Pages مان اچي ٿو",
+      "程序版本": "پروگرام ورزن",
+      "构建": "بلڊ",
+      "时区": "ٽائيم زون",
+      "当前语言的译文暂不可用，已回退英文。": "هن ٻوليءَ لاءِ ترجمو اڃا موجود ناهي، انگريزي ڏانهن واپس ويو آهي.",
+      "共 {total} 条变更，显示最近 {shown} 条": "ڪل {total} تبديليون، آخري {shown} ڏيکاريون پيون وڃن",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "هي پروجيڪٽ صرف پڙهڻ لاءِ آهي: صفحو ۽ API ٻئي GitHub Pages مان شايع ٿيل ڊيٽا پڙهن ٿا.",
+      "发布页": "ريليز صفحو",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript بند آهي: وقت بيجنگ وقت جي اصل قيمت ۾ ڏيکاريو ويندو."
     },
     "ps": {
       "Hypixel SkyBlock API 变更监控台": "د Hypixel SkyBlock API د بدلونونو څارګر",
@@ -12286,7 +12907,16 @@
       "特卖期数：{count}": "د خرڅلاو پړاوونه: {count}",
       "期次：{name}": "پړاو: {name}",
       "状态：{status}": "حالت: {status}",
-      "即将开始：{count}": "ژر پیلېږي: {count}"
+      "即将开始：{count}": "ژر پیلېږي: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "یوازې د لوستلو API او د معلوماتو پینل، معلومات د دې پروژې له GitHub Pages څخه راځي",
+      "程序版本": "د پروګرام نسخه",
+      "构建": "جوړښت",
+      "时区": "د وخت زون",
+      "当前语言的译文暂不可用，已回退英文。": "د دې ژبې ژباړه لا نه ده شته، انګلیسي ته تلل شوي.",
+      "共 {total} 条变更，显示最近 {shown} 条": "ټول {total} بدلونونه، وروستي {shown} ښودل کیږي",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "دا پروژه یوازې د لوستلو ده: پاڼه او API دواړه خپرې شوې معلومات له GitHub Pages څخه لولي.",
+      "发布页": "د خپریدو پاڼه",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript بند دی: وخت د بیجینګ وخت په اصلي ارزښت ښودل کیږي."
     },
     "ku": {
       "Hypixel SkyBlock API 变更监控台": "Panela şopandina guhertinên Hypixel SkyBlock API",
@@ -12460,7 +13090,16 @@
       "特卖期数：{count}": "Dewrên firotanê: {count}",
       "期次：{name}": "Dewra: {name}",
       "状态：{status}": "Rewş: {status}",
-      "即将开始：{count}": "Nêzîkî destpêkirinê ye: {count}"
+      "即将开始：{count}": "Nêzîkî destpêkirinê ye: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API û panela daneyan a tenê-xwendinê; dane ji GitHub Pages a vê projeyê tê",
+      "程序版本": "Guhertoya bernameyê",
+      "构建": "Avakirin",
+      "时区": "Herêma demê",
+      "当前语言的译文暂不可用，已回退英文。": "Wergera vî zimanî niha ne berdest e; ketiye ser Îngilîzî.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Bi tevahî {total} guherîn, {shown} ya herî nû tê nîşandan",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Ev proje tenê-xwendin e: rûpel û API her du jî daneyên weşandî ji GitHub Pages dixwînin.",
+      "发布页": "Rûpela weşanê",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript girtî ye: dem wek nirxa xweya demjimêra Pekînê tê nîşandan."
     },
     "az": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API dəyişiklik izləyicisi",
@@ -12634,7 +13273,16 @@
       "特卖期数：{count}": "Endirim raundları: {count}",
       "期次：{name}": "Raund: {name}",
       "状态：{status}": "Status: {status}",
-      "即将开始：{count}": "Tezliklə başlayır: {count}"
+      "即将开始：{count}": "Tezliklə başlayır: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "Yalnız oxumaq üçün API və məlumat paneli, məlumatlar bu layihənin GitHub Pages səhifəsindəndir",
+      "程序版本": "Tətbiq versiyası",
+      "构建": "Build",
+      "时区": "Saat qurşağı",
+      "当前语言的译文暂不可用，已回退英文。": "Cari dil üçün tərcümə müvəqqəti əlçatan deyil, ingilis dilinə keçildi.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Cəmi {total} dəyişiklik, son {shown} göstərilir",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Bu layihə yalnız oxumaq üçündür: səhifə və API dərc edilmiş məlumatları GitHub Pages-dən oxuyur.",
+      "发布页": "Buraxılış səhifəsi",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript deaktiv edilib: vaxtlar xam Pekin vaxtı kimi göstərilir."
     },
     "hy": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API փոփոխությունների մոնիտոր",
@@ -12808,7 +13456,16 @@
       "特卖期数：{count}": "Վաճառքի փուլեր: {count}",
       "期次：{name}": "Փուլ: {name}",
       "状态：{status}": "Կարգավիճակ: {status}",
-      "即将开始：{count}": "Շուտով կսկսվի: {count}"
+      "即将开始：{count}": "Շուտով կսկսվի: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "Միայն ընթերցման API և տվյալների վահանակ, տվյալները՝ այս նախագծի GitHub Pages-ից",
+      "程序版本": "Հավելվածի տարբերակ",
+      "构建": "Կառուցում",
+      "时区": "Ժամային գոտի",
+      "当前语言的译文暂不可用，已回退英文。": "Ընթացիկ լեզվի թարգմանությունը հասանելի չէ, օգտագործվում է անգլերենը։",
+      "共 {total} 条变更，显示最近 {shown} 条": "Ընդամենը {total} փոփոխություն, ցուցադրվում են վերջին {shown}-ը",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Այս նախագիծը միայն ընթերցման է․ էջը և API-ն երկուսն էլ կարդում են հրապարակված տվյալները GitHub Pages-ից։",
+      "发布页": "Թողարկման էջ",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript-ը անջատված է․ ժամերը ցուցադրվում են Պեկինի ժամանակի չմշակված արժեքով։"
     },
     "ka": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API ცვლილებების მონიტორი",
@@ -12982,7 +13639,16 @@
       "特卖期数：{count}": "გაყიდვების რაუნდები: {count}",
       "期次：{name}": "რაუნდი: {name}",
       "状态：{status}": "სტატუსი: {status}",
-      "即将开始：{count}": "მალე დაიწყება: {count}"
+      "即将开始：{count}": "მალე დაიწყება: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "მხოლოდ წაკითხვადი API და მონაცემთა პანელი, მონაცემები ამ პროექტის GitHub Pages-იდან მოდის",
+      "程序版本": "აპის ვერსია",
+      "构建": "აწყობა",
+      "时区": "დროის სარტყელი",
+      "当前语言的译文暂不可用，已回退英文。": "მიმდინარე ენის თარგმანი მიუწვდომელია, გამოიყენება ინგლისური.",
+      "共 {total} 条变更，显示最近 {shown} 条": "სულ {total} ცვლილება, ნაჩვენებია ბოლო {shown}",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "ეს პროექტი მხოლოდ წაკითხვადია: გვერდიც და API-ც გამოქვეყნებულ მონაცემებს კითხულობს GitHub Pages-იდან.",
+      "发布页": "გამოშვების გვერდი",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript გამორთულია: დროები ნაჩვენებია პეკინის დროის ნედლი მნიშვნელობებით."
     },
     "kk": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API өзгерістер мониторы",
@@ -13156,7 +13822,16 @@
       "特卖期数：{count}": "Сатылым кезеңдері: {count}",
       "期次：{name}": "Кезең: {name}",
       "状态：{status}": "Күйі: {status}",
-      "即将开始：{count}": "Жақында басталады: {count}"
+      "即将开始：{count}": "Жақында басталады: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "Тек оқуға арналған API және деректер панелі, деректер осы жобаның GitHub Pages бетінен алынады",
+      "程序版本": "Қолданба нұсқасы",
+      "构建": "Құрастыру",
+      "时区": "Уақыт белдеуі",
+      "当前语言的译文暂不可用，已回退英文。": "Ағымдағы тілдің аудармасы әзірге қолжетімсіз, ағылшын тіліне ауыстырылды.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Барлығы {total} өзгеріс, соңғы {shown} көрсетіледі",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Бұл жоба тек оқуға арналған: бет те, API да жарияланған деректерді GitHub Pages бетінен оқиды.",
+      "发布页": "Шығарылым беті",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript өшірілген: уақыттар Пекин уақытының бастапқы мәні түрінде көрсетіледі."
     },
     "ky": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API өзгөрүүлөр монитору",
@@ -13330,7 +14005,16 @@
       "特卖期数：{count}": "Сатуу раунддары: {count}",
       "期次：{name}": "Раунд: {name}",
       "状态：{status}": "Абалы: {status}",
-      "即将开始：{count}": "Жакында башталат: {count}"
+      "即将开始：{count}": "Жакында башталат: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "Окууга гана ачык API жана маалымат панели; маалымат ушул долбоордун GitHub Pages баракчасынан алынат",
+      "程序版本": "Программанын версиясы",
+      "构建": "Куруу",
+      "时区": "Убакыт алкагы",
+      "当前语言的译文暂不可用，已回退英文。": "Учурдагы тилдин котормосу азырынча жеткиликсиз, англис тилине өтүлдү.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Бардыгы {total} өзгөрүү, акыркы {shown} көрсөтүлдү",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Бул долбоор окууга гана ачык: барак да, API да жарыяланган маалыматты GitHub Pages баракчасынан окушат.",
+      "发布页": "Жарыялоо барагы",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript өчүк: убакыт Пекин убактысынын баштапкы маанисинде көрсөтүлөт."
     },
     "uz": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API o‘zgarishlar monitori",
@@ -13504,7 +14188,16 @@
       "特卖期数：{count}": "Savdo bosqichlari: {count}",
       "期次：{name}": "Bosqich: {name}",
       "状态：{status}": "Holat: {status}",
-      "即将开始：{count}": "Tez orada boshlanadi: {count}"
+      "即将开始：{count}": "Tez orada boshlanadi: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "Faqat oʻqish uchun API va maʼlumot paneli, maʼlumotlar shu loyihaning GitHub Pages sahifasidan olinadi",
+      "程序版本": "Dastur versiyasi",
+      "构建": "Qurish",
+      "时区": "Vaqt mintaqasi",
+      "当前语言的译文暂不可用，已回退英文。": "Bu til uchun tarjima hozircha mavjud emas, ingliz tiliga qaytildi.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Jami {total} oʻzgarish, oxirgi {shown} tasi koʻrsatilmoqda",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Bu loyiha faqat oʻqish uchun: sahifa ham, API ham eʼlon qilingan maʼlumotlarni GitHub Pagesdan oʻqiydi.",
+      "发布页": "Chiqarish sahifasi",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript oʻchirilgan: vaqt Pekin vaqtining asl qiymatida koʻrsatiladi."
     },
     "tk": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API üýtgeşme gözegçisi",
@@ -13678,7 +14371,16 @@
       "特卖期数：{count}": "Satuw tapgyrlary: {count}",
       "期次：{name}": "Tapgyr: {name}",
       "状态：{status}": "Ýagdaý: {status}",
-      "即将开始：{count}": "Tiz başlaýar: {count}"
+      "即将开始：{count}": "Tiz başlaýar: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "Diňe okalýan API we maglumat paneli, maglumatlar şu taslamanyň GitHub Pages sahypasyndan",
+      "程序版本": "Programma wersiýasy",
+      "构建": "Gurluşyk",
+      "时区": "Wagt zolagy",
+      "当前语言的译文暂不可用，已回退英文。": "Bu dil üçin terjime entek elýeterli däl, iňlis diline geçildi.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Jemi {total} üýtgeşme, iň soňky {shown} görkezilýär",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Bu taslama diňe okamak üçin: sahypa we API ikisi hem GitHub Pages-dan çap edilen maglumatlary okaýar.",
+      "发布页": "Çykaryş sahypasy",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript öçük: wagt Pekin wagtynyň asyl bahasynda görkezilýär."
     },
     "tg": {
       "Hypixel SkyBlock API 变更监控台": "Мониторинги тағйироти Hypixel SkyBlock API",
@@ -13852,7 +14554,16 @@
       "特卖期数：{count}": "Даврҳои фурӯш: {count}",
       "期次：{name}": "Давр: {name}",
       "状态：{status}": "Ҳолат: {status}",
-      "即将开始：{count}": "Ба зудӣ оғоз мешавад: {count}"
+      "即将开始：{count}": "Ба зудӣ оғоз мешавад: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API барои хондан ва панели маълумот, маълумот аз GitHub Pages-и ин лоиҳа меояд",
+      "程序版本": "Нусхаи барнома",
+      "构建": "Сохт",
+      "时区": "Минтақаи вақт",
+      "当前语言的译文暂不可用，已回退英文。": "Тарҷума барои ин забон ҳоло дастрас нест, ба англисӣ баргашт.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Ҳамагӣ {total} тағйирот, {shown} охирин нишон дода мешавад",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Ин лоиҳа танҳо барои хондан аст: ҳам саҳифа ва ҳам API маълумоти нашршударо аз GitHub Pages мехонанд.",
+      "发布页": "Саҳифаи нашр",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript хомӯш аст: вақт бо арзиши аслии вақти Пекин нишон дода мешавад."
     },
     "mn": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API өөрчлөлтийн хяналт",
@@ -14026,7 +14737,16 @@
       "特卖期数：{count}": "Борлуулалтын үе: {count}",
       "期次：{name}": "Үе: {name}",
       "状态：{status}": "Төлөв: {status}",
-      "即将开始：{count}": "Удахгүй эхэлнэ: {count}"
+      "即将开始：{count}": "Удахгүй эхэлнэ: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "Зөвхөн уншигдах API болон өгөгдлийн самбар, өгөгдөл нь энэ төслийн GitHub Pages-аас",
+      "程序版本": "Программын хувилбар",
+      "构建": "Бүтээлт",
+      "时区": "Цагийн бүс",
+      "当前语言的译文暂不可用，已回退英文。": "Энэ хэлний орчуулга түр боломжгүй байна, англи хэл рүү буцсан.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Нийт {total} өөрчлөлт, сүүлийн {shown}-г харуулж байна",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Энэ төсөл зөвхөн уншигдана: хуудас болон API хоёулаа нийтлэгдсэн өгөгдлийг GitHub Pages-аас уншина.",
+      "发布页": "Хувилбарын хуудас",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript унтраалттай: цаг нь Бээжингийн цагийн анхны утгаар харагдана."
     },
     "am": {
       "Hypixel SkyBlock API 变更监控台": "የHypixel SkyBlock API ለውጥ መከታተያ ሰሌዳ",
@@ -14200,7 +14920,16 @@
       "特卖期数：{count}": "የሽያጭ ዙሮች: {count}",
       "期次：{name}": "ዙር: {name}",
       "状态：{status}": "ሁኔታ: {status}",
-      "即将开始：{count}": "በቅርቡ ይጀምራል: {count}"
+      "即将开始：{count}": "በቅርቡ ይጀምራል: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "ንባብ-ብቻ API እና የመረጃ ዳሽቦርድ፣ መረጃው ከዚህ ፕሮጀክት GitHub Pages ይመጣል",
+      "程序版本": "የመተግበሪያ ስሪት",
+      "构建": "ግንባታ",
+      "时区": "የሰዓት አካባቢ",
+      "当前语言的译文暂不可用，已回退英文。": "ለአሁኑ ቋንቋ ትርጉም አይገኝም፤ ወደ እንግሊዝኛ ተመልሷል።",
+      "共 {total} 条变更，显示最近 {shown} 条": "በአጠቃላይ {total} ለውጦች፣ የቅርብ ጊዜዎቹ {shown} ይታያሉ",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "ይህ ፕሮጀክት ንባብ-ብቻ ነው፦ ገጹም ሆነ APIው የታተመ መረጃን ከGitHub Pages ያነባል።",
+      "发布页": "የልቀት ገጽ",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript ተዘግቷል፦ ጊዜዎች እንደ ቤጂንግ ሰዓት ጥሬ እሴት ይታያሉ።"
     },
     "ti": {
       "Hypixel SkyBlock API 变更监控台": "ናይ Hypixel SkyBlock API ለውጢ መከታተሊ",
@@ -14374,7 +15103,16 @@
       "特卖期数：{count}": "ናይ መሸጣ ዙራት: {count}",
       "期次：{name}": "ዙር: {name}",
       "状态：{status}": "ኩነታት: {status}",
-      "即将开始：{count}": "ኣብ ቀረባ ግዜ ይጅምር: {count}"
+      "即将开始：{count}": "ኣብ ቀረባ ግዜ ይጅምር: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API ንንባብ ጥራይን ፓነል ሓበሬታን፣ ሓበሬታ ካብ GitHub Pages እዚ ፕሮጀክት ይመጽእ",
+      "程序版本": "ስሪት ፕሮግራም",
+      "构建": "ምህናጽ",
+      "时区": "ዞባ ሰዓት",
+      "当前语言的译文暂不可用，已回退英文。": "ናይዚ ቋንቋ ትርጉም ጌና ኣይርከብን፣ ናብ እንግሊዝኛ ተመሊሱ።",
+      "共 {total} 条变更，显示最近 {shown} 条": "ጠቕላላ {total} ለውጥታት፣ ናይ መወዳእታ {shown} ይርአ ኣሎ",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "እዚ ፕሮጀክት ንንባብ ጥራይ እዩ፦ ገጽን APIን ክልቲኦም እተሓትመ ሓበሬታ ካብ GitHub Pages ይነብቡ።",
+      "发布页": "ገጽ ምውጻእ",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript ተዓጽዩ ኣሎ፦ ሰዓት ብናይ መጀመርታ ዋጋ ሰዓት ቤጂንግ ይርአ።"
     },
     "so": {
       "Hypixel SkyBlock API 变更监控台": "Kormeerka Isbeddelka Hypixel SkyBlock API",
@@ -14548,7 +15286,16 @@
       "特卖期数：{count}": "Wareegyada iibka: {count}",
       "期次：{name}": "Wareeg: {name}",
       "状态：{status}": "Xaalad: {status}",
-      "即将开始：{count}": "Dhawaan ayuu bilaabanayaa: {count}"
+      "即将开始：{count}": "Dhawaan ayuu bilaabanayaa: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API akhris-kaliya iyo guddiga xogta, xogta waxay ka timaaddaa GitHub Pages ee mashruucan",
+      "程序版本": "Nooca barnaamijka",
+      "构建": "Dhismaha",
+      "时区": "Aagga waqtiga",
+      "当前语言的译文暂不可用，已回退英文。": "Turjumaadda luqaddan weli lama heli karo, Ingiriisiga ayaa loo laabtay.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Wadar ahaan {total} isbeddel, waxaa la muujinayaa {shown} kii ugu dambeeyay",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Mashruucan waa akhris-kaliya: bogga iyo API-da labaduba waxay akhriyaan xogta la daabacay ee GitHub Pages.",
+      "发布页": "Bogga sii deynta",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript waa dammaan: waqtiga waxa loo muujinayaa qiimaha asalka ah ee waqtiga Beijing."
     },
     "sw": {
       "Hypixel SkyBlock API 变更监控台": "Dashibodi ya Ufuatiliaji wa Mabadiliko ya Hypixel SkyBlock API",
@@ -14722,7 +15469,16 @@
       "特卖期数：{count}": "Vipindi vya mauzo: {count}",
       "期次：{name}": "Kipindi: {name}",
       "状态：{status}": "Hali: {status}",
-      "即将开始：{count}": "Inaanza hivi karibuni: {count}"
+      "即将开始：{count}": "Inaanza hivi karibuni: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API ya kusoma tu na paneli ya data, data inatoka kwenye GitHub Pages ya mradi huu",
+      "程序版本": "Toleo la programu",
+      "构建": "Ujenzi",
+      "时区": "Eneo la saa",
+      "当前语言的译文暂不可用，已回退英文。": "Tafsiri ya lugha hii haipatikani bado, imerejea kwa Kiingereza.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Jumla ya mabadiliko {total}, yanaonyeshwa {shown} ya hivi karibuni",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Mradi huu ni wa kusoma tu: ukurasa na API zote husoma data iliyochapishwa kutoka GitHub Pages.",
+      "发布页": "Ukurasa wa matoleo",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript imezimwa: muda unaonyeshwa kwa thamani halisi ya saa za Beijing."
     },
     "rw": {
       "Hypixel SkyBlock API 变更监控台": "Ikigo cyo gukurikirana impinduka za Hypixel SkyBlock API",
@@ -14896,7 +15652,16 @@
       "特卖期数：{count}": "Ibyiciro byo kugurisha: {count}",
       "期次：{name}": "Icyiciro: {name}",
       "状态：{status}": "Imiterere: {status}",
-      "即将开始：{count}": "Biraza gutangira: {count}"
+      "即将开始：{count}": "Biraza gutangira: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API yo gusoma gusa n'imbaho y'amakuru, amakuru aturuka kuri GitHub Pages y'uyu mushinga",
+      "程序版本": "Verisiyo ya porogaramu",
+      "构建": "Kwubaka",
+      "时区": "Akarere k'igihe",
+      "当前语言的译文暂不可用，已回退英文。": "Ibisobanuro mu rurimi uru ntibirabaho, hagarutse ku Cyongereza.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Hamwe {total} impinduka, hagaragazwa {shown} za vuba",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Uyu mushinga ni uwo gusoma gusa: urupapuro na API byombi bisoma amakuru yasohotse kuri GitHub Pages.",
+      "发布页": "Urupapuro rwo gusohora",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript yafunze: igihe kigaragazwa nk'agaciro k'umwimerere k'igihe cya Beijing."
     },
     "zu": {
       "Hypixel SkyBlock API 变更监控台": "Idashibhodi yokuqapha izinguquko ze-Hypixel SkyBlock API",
@@ -15070,7 +15835,16 @@
       "特卖期数：{count}": "Imikhakha yokudayisa: {count}",
       "期次：{name}": "Umkhakha: {name}",
       "状态：{status}": "Isimo: {status}",
-      "即将开始：{count}": "Kuzoqala maduze: {count}"
+      "即将开始：{count}": "Kuzoqala maduze: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "I-API yokufunda kuphela kanye nephaneli yedatha, idatha ivela ku-GitHub Pages yale phrojekthi",
+      "程序版本": "Inguqulo yohlelo",
+      "构建": "Ukwakha",
+      "时区": "Isifunda sesikhathi",
+      "当前语言的译文暂不可用，已回退英文。": "Ukuhunyushwa kwalolu limi akukatholakali, kubuyiselwe esiNgisini.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Zonke izinguquko ezingu-{total}, kuboniswa ezingu-{shown} zakamuva",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Le phrojekthi yokufunda kuphela: ikhasi ne-API kokubili kufunda idatha eshicilelwe ku-GitHub Pages.",
+      "发布页": "Ikhasi lokukhishwa",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "I-JavaScript ivaliwe: isikhathi siboniswa ngenani lokuqala lesikhathi saseBeijing."
     },
     "xh": {
       "Hypixel SkyBlock API 变更监控台": "Idashibhodi yokujonga utshintsho lwe-Hypixel SkyBlock API",
@@ -15244,7 +16018,16 @@
       "特卖期数：{count}": "Imijikelo yokuthengisa: {count}",
       "期次：{name}": "Umjikelo: {name}",
       "状态：{status}": "Imeko: {status}",
-      "即将开始：{count}": "Iza kuqala kungekudala: {count}"
+      "即将开始：{count}": "Iza kuqala kungekudala: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "I-API yokufunda kuphela kunye nepaneli yedatha, idatha ivela kwi-GitHub Pages yale projekthi",
+      "程序版本": "Inguqulelo yeprogram",
+      "构建": "Ukwakha",
+      "时区": "Ummandla wexesha",
+      "当前语言的译文暂不可用，已回退英文。": "Uguqulelo lwale lwimi alukafumaneki, kubuyelwe kwisiNgesi.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Iyonke {total} iinguqu, kuboniswa ezona {shown} zokugqibela",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Le projekthi yokufunda kuphela: iphepha ne-API zombini zifunda idatha epapashiweyo kwi-GitHub Pages.",
+      "发布页": "Iphepha lokukhutshwa",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "I-JavaScript ivaliwe: ixesha liboniswa ngexabiso loqobo lexesha laseBeijing."
     },
     "ha": {
       "Hypixel SkyBlock API 变更监控台": "Babban allo na sa ido kan canje-canjen Hypixel SkyBlock API",
@@ -15418,7 +16201,16 @@
       "特卖期数：{count}": "Zanguna na tallace-tallace: {count}",
       "期次：{name}": "Zango: {name}",
       "状态：{status}": "Matsayi: {status}",
-      "即将开始：{count}": "Zai fara nan ba da daɗewa ba: {count}"
+      "即将开始：{count}": "Zai fara nan ba da daɗewa ba: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API da panel ɗin bayanai na karatu kawai, bayanan sun fito ne daga GitHub Pages na wannan aikin",
+      "程序版本": "Sigar manhaja",
+      "构建": "Gini",
+      "时区": "Yankin lokaci",
+      "当前语言的译文暂不可用，已回退英文。": "Fassarar harshen yanzu ba ta samuwa ba, an koma Turanci.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Jimillar sauye-sauye {total}, ana nuna sabbin {shown}",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Wannan aikin karatu ne kawai: shafin da API duka suna karanta bayanan da aka wallafa daga GitHub Pages.",
+      "发布页": "Shafin saki",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "An kashe JavaScript: ana nuna lokuta a matsayin ainihin ƙimar lokacin Beijing."
     },
     "ig": {
       "Hypixel SkyBlock API 变更监控台": "Ebe nlekọta mgbanwe Hypixel SkyBlock API",
@@ -15592,7 +16384,16 @@
       "特卖期数：{count}": "Oge ahịa: {count}",
       "期次：{name}": "Oge: {name}",
       "状态：{status}": "Ọnọdụ: {status}",
-      "即将开始：{count}": "Na-amalite n'isi nso: {count}"
+      "即将开始：{count}": "Na-amalite n'isi nso: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API na panel data naanị ọgụgụ, data si na GitHub Pages nke ọrụ a",
+      "程序版本": "Ụdị ngwa",
+      "构建": "Iwuli",
+      "时区": "Mpaghara oge",
+      "当前语言的译文暂不可用，已回退英文。": "Nsụgharị maka asụsụ ugbu a adịghị, a laghachiri na Bekee.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Ngụkọta mgbanwe {total}, a na-egosi {shown} kacha ọhụrụ",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Ọrụ a bụ naanị ọgụgụ: ibe na API abụọ na-agụ data e bipụtara site na GitHub Pages.",
+      "发布页": "Ibe mwepụta",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "Agbanyụrụ JavaScript: a na-egosi oge dịka uru mbụ nke oge Beijing."
     },
     "yo": {
       "Hypixel SkyBlock API 变更监控台": "Pátákó ìṣọ́ àwọn ìyípadà Hypixel SkyBlock API",
@@ -15766,7 +16567,16 @@
       "特卖期数：{count}": "Ìgbà títa: {count}",
       "期次：{name}": "Ìgbà: {name}",
       "状态：{status}": "Ipò: {status}",
-      "即将开始：{count}": "Ń bẹ̀rẹ̀ lẹ́ẹ̀kan sí i: {count}"
+      "即将开始：{count}": "Ń bẹ̀rẹ̀ lẹ́ẹ̀kan sí i: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API ìkàwé-nìkan àti pánẹ́ẹ̀lì dátà, dátà wá láti GitHub Pages ti iṣẹ́ yìí",
+      "程序版本": "Ẹ̀yà ètò",
+      "构建": "Ìkọ́",
+      "时区": "Agbègbè àkókò",
+      "当前语言的译文暂不可用，已回退英文。": "Ìtumọ̀ èdè yìí kò tíì sí, a ti padà sí èdè Gẹ̀ẹ́sì.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Lápapọ̀ {total} ìyípadà, a ń fi {shown} tí ó ṣẹ̀ṣẹ̀ hàn",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Iṣẹ́ yìí jẹ́ ìkàwé-nìkan: ojú-ìwé àti API jọ ń ka dátà tí a ti tẹ̀ jáde láti GitHub Pages.",
+      "发布页": "Ojú-ìwé ìtújáde",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript ti wa ni pipa: a ṣe àfihàn àkókò pẹ̀lú iye àkọ́kọ́ ti àkókò Beijing."
     },
     "mg": {
       "Hypixel SkyBlock API 变更监控台": "Tabilaon'ny fanaraha-maso ny fiovan'ny Hypixel SkyBlock API",
@@ -15940,7 +16750,16 @@
       "特卖期数：{count}": "Andiany varotra: {count}",
       "期次：{name}": "Andiany: {name}",
       "状态：{status}": "Toe-javatra: {status}",
-      "即将开始：{count}": "Hanomboka tsy ho ela: {count}"
+      "即将开始：{count}": "Hanomboka tsy ho ela: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API sy tabilao angona vakiana fotsiny, avy amin'ny GitHub Pages an'ity tetikasa ity ny angona",
+      "程序版本": "Dikan-tenin'ny programa",
+      "构建": "Fandrafetana",
+      "时区": "Faritry ny ora",
+      "当前语言的译文暂不可用，已回退英文。": "Tsy mbola misy ny dikanteny amin'ity fiteny ity, nampiasaina ny anglisy.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Fitambarany {total} fanovana, aseho ny {shown} farany",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Vakiana fotsiny ity tetikasa ity: samy mamaky angona efa navoaka avy amin'ny GitHub Pages ny pejy sy ny API.",
+      "发布页": "Pejy famoahana",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "Mihidy ny JavaScript: aseho amin'ny sandan'ny ora Beijing tany am-boalohany ny ora."
     },
     "ht": {
       "Hypixel SkyBlock API 变更监控台": "Tablo siveyans chanjman API Hypixel SkyBlock",
@@ -16114,7 +16933,16 @@
       "特卖期数：{count}": "Fwa vant: {count}",
       "期次：{name}": "Fwa: {name}",
       "状态：{status}": "Estati: {status}",
-      "即将开始：{count}": "Ap kòmanse byento: {count}"
+      "即将开始：{count}": "Ap kòmanse byento: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API ak panèl done pou li sèlman, done yo soti nan GitHub Pages pwojè sa a",
+      "程序版本": "Vèsyon aplikasyon",
+      "构建": "Build",
+      "时区": "Zòn lè",
+      "当前语言的译文暂不可用，已回退英文。": "Tradiksyon pou lang aktyèl la pa disponib, yo montre angle.",
+      "共 {total} 条变更，显示最近 {shown} 条": "{total} chanjman an total, yo montre {shown} ki pi resan yo",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Pwojè sa a se pou li sèlman: paj la ak API a tou de li done ki pibliye sou GitHub Pages.",
+      "发布页": "Paj lansman",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript dezaktive: lè yo parèt kòm valè brit nan lè Beijing."
     },
     "qu": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API hukmanyay qhawana",
@@ -16288,7 +17116,16 @@
       "特卖期数：{count}": "Rantiy kutikuna: {count}",
       "期次：{name}": "Kuti: {name}",
       "状态：{status}": "Kaynin: {status}",
-      "即将开始：{count}": "Qaylla qallariy: {count}"
+      "即将开始：{count}": "Qaylla qallariy: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "Ñawiriylla API hinaspa willakuy panel, willakuyqa kay ruwaypa GitHub Pages-manta hamun",
+      "程序版本": "Programa versión",
+      "构建": "Ruway",
+      "时区": "Pacha suyu",
+      "当前语言的译文暂不可用，已回退英文。": "Kay simip tikrayqa manaraqmi kanchu, inglesta kutirqan.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Llapan {total} tikraykuna, qhipa {shown} rikuchikun",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Kay ruwayqa ñawiriyllapaqmi: p'anqapas APIpas GitHub Pages-manta lluqsichisqa willakuyta ñawirin.",
+      "发布页": "Lluqsichiy p'anqa",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript wichqasqa: pacha Beijing pachap qallariy chaninpi rikuchikun."
     },
     "gn": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API ñemoambue jehechaha",
@@ -16462,7 +17299,16 @@
       "特卖期数：{count}": "Ronda venta: {count}",
       "期次：{name}": "Ronda: {name}",
       "状态：{status}": "Estado: {status}",
-      "即将开始：{count}": "Oñepyrũvo hína: {count}"
+      "即将开始：{count}": "Oñepyrũvo hína: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API ha panel datos ojelee haĝua añónte, datos ou ko tembiapokue GitHub Pages-gui",
+      "程序版本": "Versión app",
+      "构建": "Jejapo",
+      "时区": "Aravo renda",
+      "当前语言的译文暂不可用，已回退英文。": "Ndoikói ko ñe'ẽ ñe'ẽasa ojeipuru haĝua ag̃ave, ojejapo ingleéspe.",
+      "共 {total} 条变更，显示最近 {shown} 条": "{total} ñemoambue, ojekuaauka umi {shown} ipyahuvéva",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Ko tembiapokue ojelee añónte: kuatiarogue ha API mokõive ojelee datos ojekuaaukáva GitHub Pages-gui.",
+      "发布页": "Kuatiarogue jeikuaauka",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript oĩmbýma: umi aravo ojekuaauka ijypyguáva ramo aravo Pekíng pegua."
     },
     "mi": {
       "Hypixel SkyBlock API 变更监控台": "Aroturuki huringa API Hypixel SkyBlock",
@@ -16636,7 +17482,16 @@
       "特卖期数：{count}": "Ngā wāhanga hokonga: {count}",
       "期次：{name}": "Wāhanga: {name}",
       "状态：{status}": "Tūnga: {status}",
-      "即将开始：{count}": "Ka tīmata tata: {count}"
+      "即将开始：{count}": "Ka tīmata tata: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API me te papatohu raraunga pānui-anake, nō te GitHub Pages o tēnei kaupapa te raraunga",
+      "程序版本": "Putanga papatono",
+      "构建": "Hanga",
+      "时区": "Rohe wā",
+      "当前语言的译文暂不可用，已回退英文。": "Kāore i te wātea te whakamāoritanga mō tēnei reo i tēnei wā, kua hoki ki te reo Ingarihi.",
+      "共 {total} 条变更，显示最近 {shown} 条": "{total} ngā huringa katoa, e whakaatu ana i ngā {shown} o mua tata",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "He pānui-anake tēnei kaupapa: ka pānui te whārangi me te API i te raraunga kua tāngia mai i GitHub Pages.",
+      "发布页": "Whārangi tuku",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "Kua monokia te JavaScript: ka whakaaturia te wā ki te uara taketake o te wā o Beijing."
     },
     "sm": {
       "Hypixel SkyBlock API 变更监控台": "Va'aiga suiga API Hypixel SkyBlock",
@@ -16810,7 +17665,16 @@
       "特卖期数：{count}": "Ta'amilosaga fa'atau: {count}",
       "期次：{name}": "Ta'amilosaga: {name}",
       "状态：{status}": "Tulaga: {status}",
-      "即将开始：{count}": "Ua lata ona amata: {count}"
+      "即将开始：{count}": "Ua lata ona amata: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API faitau na'o ma le laupapa o fa'amaumauga, e sau fa'amaumauga mai le GitHub Pages o lenei poloketi",
+      "程序版本": "Vēsioni o le polokalame",
+      "构建": "Fausiaina",
+      "时区": "Sone o taimi",
+      "当前语言的译文暂不可用，已回退英文。": "E le'o maua le fa'aliliuga mo lenei gagana, ua toe fo'i i le Igilisi.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Aofai {total} suiga, o lo'o fa'aalia {shown} lata mai",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "E faitau na'o lenei poloketi: e faitau uma le itulau ma le API i fa'amaumauga ua fa'asalalauina mai le GitHub Pages.",
+      "发布页": "Itulau o fa'asalalauga",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "Ua tapē le JavaScript: e fa'aalia le taimi i le taua muamua o le taimi o Beijing."
     },
     "to": {
       "Hypixel SkyBlock API 变更监控台": "Sio ki he ngaahi liliu API Hypixel SkyBlock",
@@ -16984,7 +17848,16 @@
       "特卖期数：{count}": "Ngaahi vahe fakatau: {count}",
       "期次：{name}": "Vahe: {name}",
       "状态：{status}": "Tuʻunga: {status}",
-      "即将开始：{count}": "ʻOku vave ke kamata: {count}"
+      "即将开始：{count}": "ʻOku vave ke kamata: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API lau-peki pē mo e pāneli fakamatala, ʻoku haʻu ʻa e fakamatala mei he GitHub Pages ʻo e poloseki ni",
+      "程序版本": "Vēsioni ʻo e polokalama",
+      "构建": "Langa",
+      "时区": "Sōne taimi",
+      "当前语言的译文暂不可用，已回退英文。": "ʻOku teʻeki ke maʻu ʻa e liliu ʻo e lea ni, kuo foki ki he fakapālangi.",
+      "共 {total} 条变更，显示最近 {shown} 条": "Kakato {total} ngaahi liliu, ʻoku fakahā ʻa e {shown} kimuʻa taha",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "ʻOku lau-peki pē ʻa e poloseki ni: ʻoku lau ʻe he peesi mo e API ʻa e fakamatala kuo pulusi mei he GitHub Pages.",
+      "发布页": "Peesi ʻo e ngaahi tuku",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "ʻOku tapuni ʻa e JavaScript: ʻoku fakahā ʻa e taimi ʻi he mahuʻinga tupuʻi ʻo e taimi ʻo Beijing."
     },
     "fj": {
       "Hypixel SkyBlock API 变更监控台": "Dikeva ni veisau API Hypixel SkyBlock",
@@ -17158,7 +18031,16 @@
       "特卖期数：{count}": "Na ilawa ni volitaki: {count}",
       "期次：{name}": "Ilawa: {name}",
       "状态：{status}": "Ituvaki: {status}",
-      "即将开始：{count}": "Sa voleka ni tekivu: {count}"
+      "即将开始：{count}": "Sa voleka ni tekivu: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API kei na data panel e rawa ni wilika ga, na data e lako mai na GitHub Pages ni cakacaka qo",
+      "程序版本": "Vesini ni app",
+      "构建": "Tara",
+      "时区": "Yasa ni gauna",
+      "当前语言的译文暂不可用，已回退英文。": "E sega ni kune na vakadewataki ni vosa oqo, sa lesu ki na vosa vakavalagi.",
+      "共 {total} 条变更，显示最近 {shown} 条": "E {total} na veisau, e vakaraitaki na {shown} vou duadua",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "E rawa ni wilika ga na cakacaka qo: na tabana kei na API e ruarua e wilika na data e vakaraitaki mai GitHub Pages.",
+      "发布页": "Pajina ni vakayacori",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "Sa sega ni vakayagataki na JavaScript: e vakaraitaki na gauna me vaka na ivakaraitaki dina ni gauna Beijing."
     },
     "haw": {
       "Hypixel SkyBlock API 变更监控台": "Kiaʻi hoʻololi API Hypixel SkyBlock",
@@ -17332,7 +18214,16 @@
       "特卖期数：{count}": "Nā pōʻai kūʻai: {count}",
       "期次：{name}": "Pōʻai: {name}",
       "状态：{status}": "Kūlana: {status}",
-      "即将开始：{count}": "Kokoke e hoʻomaka: {count}"
+      "即将开始：{count}": "Kokoke e hoʻomaka: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API a me ka papa ʻikepili hiki ke heluhelu wale ʻia, mai ka GitHub Pages o kēia papahana ka ʻikepili",
+      "程序版本": "Version polokalamu",
+      "构建": "Hana",
+      "时区": "Wahi manawa",
+      "当前语言的译文暂不可用，已回退英文。": "ʻAʻole loaʻa ka unuhi no ka ʻōlelo o kēia manawa, ua hoʻi i ka ʻōlelo Pelekania.",
+      "共 {total} 条变更，显示最近 {shown} 条": "{total} hoʻololi, hōʻike ʻia nā {shown} hou loa",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Hiki ke heluhelu wale ʻia kēia papahana: heluhelu ka ʻaoʻao a me ka API i ka ʻikepili i paʻi ʻia mai GitHub Pages.",
+      "发布页": "ʻAoʻao hoʻokuʻu",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "Ua pio ʻo JavaScript: hōʻike ʻia nā manawa ma ke ʻano o ka manawa Beijing maoli."
     },
     "kl": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API allannguutinik nakkutilliineq",
@@ -17506,7 +18397,16 @@
       "特卖期数：{count}": "Tuniniaanerit: {count}",
       "期次：{name}": "Immikkoortoq: {name}",
       "状态：{status}": "Status: {status}",
-      "即将开始：{count}": "Aallartippallassimaartoq: {count}"
+      "即将开始：{count}": "Aallartippallassimaartoq: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API aamma data-panel atuarsinnaanngitsunik, data uuma suliniutip GitHub Pages-ianit",
+      "程序版本": "App-ip version-i",
+      "构建": "Sanarneq",
+      "时区": "Nalunaaquttap immikkoortua",
+      "当前语言的译文暂不可用，已回退英文。": "Maannakkut oqaatsit nutserneqarsimanngillat, tuluit oqaasii atorlugit.",
+      "共 {total} 条变更，显示最近 {shown} 条": "{total} allannguutit, kingulliit {shown} takutinneqarput",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "Suliniut una atuarsinnaanissaanik: qupperneq aamma API marluk GitHub Pages-imit data saqqummiussaqarnik atuarput.",
+      "发布页": "Release qupperneq",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript matuneqarpoq: nalunaaquttat Beijing nalunaaquttaannik takutinneqarput."
     },
     "iu": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API ᐊᓪᓚᖑᔾᔪᓂᒃ ᑕᑯᒥᓐᓂᐊᕈᑎ",
@@ -17680,7 +18580,16 @@
       "特卖期数：{count}": "Firesales-ᑦ: {count}",
       "期次：{name}": "Round: {name}",
       "状态：{status}": "ᖃᓄᐃᑦᑕᕐᓂᖅ: {status}",
-      "即将开始：{count}": "ᓄᒃᑕᕆᐊᖅᑐᖅ: {count}"
+      "即将开始：{count}": "ᓄᒃᑕᕆᐊᖅᑐᖅ: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API ᐊᒻᒪᓗ data panel ᓂᐊᖅᑕᐅᓗᑎᒃ ᑭᓪᓗᒡᓗᑎᒃ, data ᐅᑯᓄᖓ ᐱᓕᕆᐊᖅ GitHub Pages-ᒥᑦ",
+      "程序版本": "App version",
+      "构建": "ᓴᖅᑭᑕᐅᓂᖓ",
+      "时区": "Time zone",
+      "当前语言的译文暂不可用，已回退英文。": "ᒫᓐᓇᐅᔪᖅ ᐅᖃᐅᓯᐅᑉ ᐅᖃᐅᓯᖅᑕᐅᓯᒪᔪᖅ ᐊᑐᐃᓐᓇᙱᑦᑐᖅ, ᖃᓪᓗᓈᑎᑐᑦ ᐊᑐᖅᑕᐅᓂᖓ.",
+      "共 {total} 条变更，显示最近 {shown} 条": "{total} ᐊᓪᓚᖑᔾᔪᑦ, ᑕᑯᑎᑕᐅᔪᑦ ᓄᑖᑦ {shown}",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "ᐅᓇ ᐱᓕᕆᐊᖅ ᓂᐊᖅᑕᐅᓗᓂ ᑭᓪᓗᒡᓗᓂ: ᒪᒃᐱᖅ ᐊᒻᒪᓗ API ᑕᒪᒃᑯᐊᒪᕆᒃ GitHub Pages-ᒥᑦ ᓴᖅᑭᑕᐅᓯᒪᔪᓂᒃ data-ᓂᒃ ᓂᐊᖅᑕᐅᔪᑦ.",
+      "发布页": "Release ᒪᒃᐱᖅ",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript ᓄᒃᑕᖅᑕᐅᓯᒪᔪᖅ: ᐃᑲᕐᕋᑦ ᑕᑯᑎᑕᐅᔪᑦ Beijing ᐃᑲᕐᕋᖓᓂ."
     },
     "bo": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API འགྱུར་ལྡོག་ལྟ་ཞིབ་སྒྲིག་ཆས།",
@@ -17854,7 +18763,16 @@
       "特卖期数：{count}": "བཙོང་ཚོང་ཐེངས: {count}",
       "期次：{name}": "ཐེངས: {name}",
       "状态：{status}": "གནས་ཚུལ: {status}",
-      "即将开始：{count}": "མྱུར་དུ་འགོ་འཛུགས་རྒྱུ: {count}"
+      "即将开始：{count}": "མྱུར་དུ་འགོ་འཛུགས་རྒྱུ: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API དང་གནས་ཚུལ་སྒྲིག་ཆས་ཀློག་པ་ཙམ། གནས་ཚུལ་རྣམས་ལས་འགུལ་འདིའི་ GitHub Pages ནས་ཡིན།",
+      "程序版本": "བཀོལ་སྤྱོད་ཀྱི་པར་གཞི།",
+      "构建": "བཟོ་སྐྲུན།",
+      "时区": "དུས་ཚོད་ཁུལ།",
+      "当前语言的译文暂不可用，已回退英文。": "ད་ལྟའི་སྐད་ཡིག་གི་བསྒྱུར་ཡིག་མི་འདུག དབྱིན་ཡིག་ལ་ལོགས་ཡོད།",
+      "共 {total} 条变更，显示最近 {shown} 条": "སྤྱི་ {total} འགྱུར་ལྡོག་ཡོད། ཉེ་བའི་ {shown} སྟོན་ཡི་ཡོད།",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "ལས་འགུལ་འདི་ཀློག་པ་ཙམ་ཡིན། ཤོག་ངོས་དང་ API གཉིས་ཀས་ GitHub Pages ནས་ཕྱིར་བཏོན་བྱས་པའི་གནས་ཚུལ་ཀློག་ཀྱི་ཡོད།",
+      "发布页": "ཕྱིར་བཏོན་ཤོག་ངོས།",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript བཀག་ཡོད། དུས་ཚོད་རྣམས་པེ་ཅིང་དུས་ཚོད་ཀྱི་རྩ་བའི་ཐོག་ནས་སྟོན་ཡི་ཡོད།"
     },
     "dz": {
       "Hypixel SkyBlock API 变更监控台": "Hypixel SkyBlock API བསྒྱུར་བཅོས་ལྟ་རྟོག་ལག་ཆ།",
@@ -18028,7 +18946,16 @@
       "特卖期数：{count}": "བཙོང་ཚོང་ཐེངས: {count}",
       "期次：{name}": "ཐེངས: {name}",
       "状态：{status}": "གནས་ཚུལ: {status}",
-      "即将开始：{count}": "མགྱོགས་པོར་འགོ་འཛུགས་རྒྱུ: {count}"
+      "即将开始：{count}": "མགྱོགས་པོར་འགོ་འཛུགས་རྒྱུ: {count}",
+      "只读 API 与数据面板，数据来自本项目的 GitHub Pages": "API དང་གནས་ཚུལ་སྒྲིག་ཆས་ཀློག་པ་ཙམ། གནས་ཚུལ་རྣམས་ལས་འགུལ་འདིའི་ GitHub Pages ནས་ཡིན།",
+      "程序版本": "བཀོལ་སྤྱོད་ཀྱི་པར་གཞི།",
+      "构建": "བཟོ་སྐྲུན།",
+      "时区": "དུས་ཚོད་ཁུལ།",
+      "当前语言的译文暂不可用，已回退英文。": "ད་ལྟའི་ཁ་སྐད་ཀྱི་བསྒྱུར་ཡིག་མི་འདུག དབྱིན་ཡིག་ལ་ལོགས་ཡོད།",
+      "共 {total} 条变更，显示最近 {shown} 条": "སྤྱི་ {total} བསྒྱུར་བཅོས་ཡོད། ཉེ་བའི་ {shown} སྟོན་ཡི་ཡོད།",
+      "本项目只读：页面与 API 均从 GitHub Pages 读取已发布的数据。": "ལས་འགུལ་འདི་ཀློག་པ་ཙམ་ཡིན། ཤོག་ངོས་དང་ API གཉིས་ཀས་ GitHub Pages ནས་ཕྱིར་བཏོན་བྱས་པའི་གནས་ཚུལ་ཀློག་ཀྱི་ཡོད།",
+      "发布页": "ཕྱིར་བཏོན་ཤོག་ངོས།",
+      "JavaScript 已关闭：时间显示为北京时间原值。": "JavaScript བཀག་ཡོད། དུས་ཚོད་རྣམས་པེ་ཅིང་དུས་ཚོད་ཀྱི་རྩ་བའི་ཐོག་ནས་སྟོན་ཡི་ཡོད།"
     }
   }
 }

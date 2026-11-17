@@ -32,6 +32,8 @@ use hypixel_tracker::timeutil::{from_epoch_ms, now_beijing};
 
 const REQUEST_TIMEOUT: u64 = 30;
 fn main() {
+    // CI 里崩溃时也要留下可诊断的报告，而不是只看到 Actions 报红
+    hypixel_tracker::crash::install_hook("tracker-build");
     let code = run();
     std::process::exit(code);
 }
