@@ -30,6 +30,10 @@ jobs:
   binaries:
     name: ${{ matrix.target }}
     runs-on: ${{ matrix.os }}
+    # macOS 目标需要 GitHub 托管的 macOS 运行器。若账号/仓库拿不到机器，
+    # 任务会一直排队，把整个 run 拖在 queued 状态，publish 永远等不到。
+    # 因此用仓库变量 MACOS_RUNNERS=1 显式开启；未开启时直接跳过这些组合。
+    if: ${{ !startsWith(matrix.os, 'macos') || vars.MACOS_RUNNERS == '1' }}
     continue-on-error: ${{ matrix.experimental == true }}
     strategy:
       fail-fast: false
@@ -130,6 +134,7 @@ jobs:
   installers:
     name: installer-${{ matrix.kind }}
     runs-on: ${{ matrix.os }}
+    if: ${{ !startsWith(matrix.os, 'macos') || vars.MACOS_RUNNERS == '1' }}
     continue-on-error: true
     strategy:
       fail-fast: false
