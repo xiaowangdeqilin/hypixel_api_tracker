@@ -39,13 +39,17 @@ jobs:
           - { os: ubuntu-24.04, target: aarch64-unknown-linux-gnu, ext: tar.gz, cross: true }
           - { os: ubuntu-24.04, target: x86_64-unknown-linux-musl, ext: tar.gz, musl: true }
           - { os: windows-2022, target: x86_64-pc-windows-msvc, ext: zip }
-          - { os: macos-14, target: aarch64-apple-darwin, ext: tar.gz }
-          - { os: macos-13, target: x86_64-apple-darwin, ext: tar.gz }
+          # macOS 依赖 GitHub 托管运行器；运行器不可用时平台会直接取消任务，
+          # 因此标记为实验性：拿到机器就出包，拿不到不影响 Linux / Windows 发布。
+          - { os: macos-14, target: aarch64-apple-darwin, ext: tar.gz, experimental: true }
+          - { os: macos-13, target: x86_64-apple-darwin, ext: tar.gz, experimental: true }
           # 实验性目标：允许失败，不阻塞发布
           - { os: ubuntu-24.04, target: aarch64-unknown-linux-musl, ext: tar.gz, cross: true, musl: true, experimental: true }
           - { os: windows-2022, target: aarch64-pc-windows-msvc, ext: zip, experimental: true }
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: ${{ env.RELEASE_TAG }}
 
       - uses: dtolnay/rust-toolchain@stable
         with:
@@ -137,6 +141,8 @@ jobs:
           - { os: ubuntu-24.04, kind: linux, target: x86_64-unknown-linux-gnu }
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: ${{ env.RELEASE_TAG }}
       - uses: dtolnay/rust-toolchain@stable
         with:
           targets: ${{ matrix.target }}
@@ -197,6 +203,8 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: ${{ env.RELEASE_TAG }}
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -250,7 +258,7 @@ jobs:
   publish:
     name: publish-release
     needs: [binaries, installers, python-package, smoke]
-    if: always() && needs.binaries.result == 'success'
+    if: always() && needs.binaries.result != 'failure'
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v5
@@ -269,6 +277,10 @@ jobs:
             esac
           done
           cd release
+          if [ -z "$(ls -A)" ]; then
+            echo "没有任何产物，放弃发布" >&2
+            exit 1
+          fi
           ls -1 | grep -v '^SHA256SUMS.txt$' | xargs -r sha256sum > SHA256SUMS.txt
           echo "--- 产物 ---"
           ls -lh
