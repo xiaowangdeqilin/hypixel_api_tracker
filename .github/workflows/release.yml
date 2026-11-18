@@ -163,7 +163,7 @@ jobs:
           cp "${SRC}/tracker-server${SUFFIX}" "out/${NAME}${SUFFIX}"
           ls -lh out
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: binaries-${{ matrix.target }}
           path: out/*
@@ -230,7 +230,7 @@ jobs:
         shell: bash
         run: bash packaging/linux/make_packages.sh "${{ matrix.target }}"
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: installers-${{ matrix.kind }}
           path: packaging/out/*
@@ -244,7 +244,7 @@ jobs:
       - uses: actions/checkout@v5
         with:
           ref: ${{ env.RELEASE_TAG }}
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
       - name: 构建 wheel 与 sdist
@@ -259,7 +259,7 @@ jobs:
           /tmp/venv/bin/pip install dist-python/*.whl
           /tmp/venv/bin/hypixel-tracker-api --version
           /tmp/venv/bin/hypixel-tracker-api --help >/dev/null
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: python-package
           path: dist-python/*
@@ -271,7 +271,7 @@ jobs:
     needs: binaries
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: binaries-x86_64-unknown-linux-gnu
           path: dl
@@ -301,7 +301,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           path: artifacts
       - name: 汇总产物 + 生成校验和
