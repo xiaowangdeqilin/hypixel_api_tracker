@@ -1,5 +1,5 @@
 {
-  "confirmed": true,
+  "confirmed": false,
   "history": [
     {
       "note": "两个接口版本一致，确认切换当前版本",
@@ -81,11 +81,11 @@
     }
   ],
   "note": "收藏与技能两个接口版本一致，已确认当前版本",
-  "previous_stable": "0.27.3.1",
+  "previous_stable": "0.27.3.2",
   "resource_version": "0.27.3.2",
   "stable_version": "0.27.3.2",
   "sync_status": "aligned",
-  "updated_at": "2026-11-18 06:55:36",
+  "updated_at": "2026-11-18 12:27:34",
   "versions": {
     "collections": {
       "observed_at": "2026-11-18 06:55:36",
