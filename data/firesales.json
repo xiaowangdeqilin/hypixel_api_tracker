@@ -1,8 +1,22 @@
 {
   "active_count": 0,
   "ended_count": 0,
-  "generated_at": "2026-11-19 21:17:09",
-  "sales": [],
-  "total": 0,
-  "upcoming_count": 0
+  "generated_at": "2026-11-20 05:41:02",
+  "sales": [
+    {
+      "amount": 4500,
+      "end": "2026-11-26 01:00:00",
+      "end_ms": 1795626000000,
+      "item_id": "GLOSSY_MINERAL_SLIMEY",
+      "key": "GLOSSY_MINERAL_SLIMEY@1795280400000",
+      "name": "GLOSSY MINERAL SLIMEY",
+      "price": 950,
+      "start": "2026-11-22 01:00:00",
+      "start_ms": 1795280400000,
+      "state": "upcoming",
+      "state_label": "即将开始"
+    }
+  ],
+  "total": 1,
+  "upcoming_count": 1
 }
