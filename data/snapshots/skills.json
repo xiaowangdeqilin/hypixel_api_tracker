@@ -1,7 +1,7 @@
 {
-  "checksum": "ef04dc3dfba32efab93f76ad0c45ff3afae64d009f573a00befcec68d913f894",
+  "checksum": "466050571f0d1c9cd021fc0e9cf172b17f98b10bac980466420b7196baf03130",
   "endpoint": "skills",
-  "fetched_at": "2026-11-20 20:59:06",
+  "fetched_at": "2026-11-21 05:10:49",
   "payload": {
     "skills": {
       "ALCHEMY": {
@@ -3516,7 +3516,7 @@
             "level": 34,
             "totalExpRequired": 13822425.0,
             "unlocks": [
-              "Fire Eel Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XXXIV   Grants +3.3➜3.4  Treasure Chance.",
               "+5 Health",
               "+450,000 Coins",
@@ -3527,9 +3527,9 @@
             "level": 35,
             "totalExpRequired": 15522425.0,
             "unlocks": [
-              "Reindrake Sea Creature",
-              "Blue Ringed Octopus Sea Creature",
-              "Taurus Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XXXV   Grants +3.4➜3.5  Treasure Chance.",
               "+5 Health",
               "+475,000 Coins",
@@ -3540,8 +3540,8 @@
             "level": 36,
             "totalExpRequired": 17322425.0,
             "unlocks": [
-              "Plhlegblast Sea Creature",
-              "Thunder Sea Creature",
+              "??? Sea Creature",
+              "??? Sea Creature",
               "Treasure Hunter XXXVI   Grants +3.5➜3.6  Treasure Chance.",
               "+5 Health",
               "+500,000 Coins",
