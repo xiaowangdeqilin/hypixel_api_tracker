@@ -1,7 +1,7 @@
 {
-  "active_count": 0,
+  "active_count": 1,
   "ended_count": 0,
-  "generated_at": "2026-11-21 19:11:59",
+  "generated_at": "2026-11-22 02:00:34",
   "sales": [
     {
       "amount": 4500,
@@ -13,10 +13,10 @@
       "price": 950,
       "start": "2026-11-22 01:00:00",
       "start_ms": 1795280400000,
-      "state": "upcoming",
-      "state_label": "即将开始"
+      "state": "active",
+      "state_label": "进行中"
     }
   ],
   "total": 1,
-  "upcoming_count": 1
+  "upcoming_count": 0
 }
