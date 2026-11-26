@@ -1,14 +1,24 @@
 {
-  "checksum": "68e13fd9a650a16e5d0d3427cd32e95e93c6951dfb2a4507eb451e318cd94fab",
+  "checksum": "606ecb4cbffd9e43dffeb191f680c90268c3ccb355a887f1ebafda155781754b",
   "endpoint": "firesales",
-  "fetched_at": "2026-11-26 17:35:21",
+  "fetched_at": "2026-11-27 03:39:48",
   "payload": {
-    "sales": []
+    "sales": [
+      {
+        "amount": 3000,
+        "end": "2026-12-03 01:00:00",
+        "end_ms": 1796230800000,
+        "item_id": "REAPER_MASK_TRIBAL_ORC",
+        "price": 950,
+        "start": "2026-11-29 01:00:00",
+        "start_ms": 1795885200000
+      }
+    ]
   },
   "status_code": 200,
   "summary": {
     "firesale_active": 0,
-    "firesale_total": 0,
-    "firesale_upcoming": 0
+    "firesale_total": 1,
+    "firesale_upcoming": 1
   }
 }

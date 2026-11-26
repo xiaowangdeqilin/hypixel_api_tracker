@@ -1,8 +1,22 @@
 {
   "active_count": 0,
   "ended_count": 0,
-  "generated_at": "2026-11-26 17:35:21",
-  "sales": [],
-  "total": 0,
-  "upcoming_count": 0
+  "generated_at": "2026-11-27 03:39:48",
+  "sales": [
+    {
+      "amount": 3000,
+      "end": "2026-12-03 01:00:00",
+      "end_ms": 1796230800000,
+      "item_id": "REAPER_MASK_TRIBAL_ORC",
+      "key": "REAPER_MASK_TRIBAL_ORC@1795885200000",
+      "name": "REAPER MASK TRIBAL ORC",
+      "price": 950,
+      "start": "2026-11-29 01:00:00",
+      "start_ms": 1795885200000,
+      "state": "upcoming",
+      "state_label": "即将开始"
+    }
+  ],
+  "total": 1,
+  "upcoming_count": 1
 }
