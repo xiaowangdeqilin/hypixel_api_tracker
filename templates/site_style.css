@@ -50,6 +50,12 @@
     .pack-meta { font-size: 13px; color: var(--text-soft); margin-bottom: 14px; word-break: break-all; }
     .pack-meta code { color: var(--code); }
     .pack-error { color: var(--bad-text); font-size: 12px; }
+    .pack-fonts { background: var(--panel-soft); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; margin-bottom: 12px; }
+    .pack-fonts-title { font-size: 12px; font-weight: 700; color: var(--text-soft); margin-bottom: 6px; }
+    .pack-fonts-list { margin: 0; padding-left: 18px; font-size: 12px; color: var(--muted); display: grid; gap: 4px; }
+    .pack-fonts-list code { color: var(--code); word-break: break-all; }
+    .pack-fonts-list a { color: var(--code); }
+    .pack-font-sample { font-size: 14px; }
     .pack-change { background: var(--panel-soft); border: 1px solid var(--line); border-radius: 8px; padding: 12px; margin-bottom: 10px; }
     .pack-change-head { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; font-size: 12px; color: var(--muted); }
     .cnt { padding: 2px 8px; border-radius: 4px; font-weight: 700; }

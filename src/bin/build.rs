@@ -173,6 +173,7 @@ fn run() -> i32 {
         error: None,
         candidates: Vec::new(),
         pending: None,
+        font_blobs: Vec::new(),
     };
     if let Some(packs_payload) = payloads.get("packs") {
         pack_result = std::panic::catch_unwind(|| inspect_pack(packs_payload, &data_dir, false))
@@ -184,6 +185,7 @@ fn run() -> i32 {
                 error: Some("资源包检查发生内部错误".into()),
                 candidates: Vec::new(),
                 pending: None,
+                font_blobs: Vec::new(),
             });
     }
 
@@ -261,6 +263,12 @@ fn run() -> i32 {
     }
 
     // ---- 阶段 4：生成站点产物（artifact，不属于仓库持久化数据）------------
+    // 字体部署：data/fonts/<hash><ext> → site/assets/fonts/，并生成 fonts.css。
+    // 无论本次是否写入数据都执行（包未更新时复用缓存，Pages 是全新 artifact 必须重放）。
+    let pack_fonts = deploy_pack_fonts(&site_dir, &data_dir);
+    if !pack_fonts.is_empty() {
+        println!("[构建] 资源包字体：{} 个已部署到页面", pack_fonts.len());
+    }
     let pack_summary = pack_result_to_value(&pack_result);
     let data_payload = json!({
         "version_info": version_info_written,
@@ -271,6 +279,7 @@ fn run() -> i32 {
         "endpoints": endpoints_result,
         "changes": all_changes.iter().cloned().map(Value::Object).collect::<Vec<_>>(),
         "pack": pack_summary,
+        "pack_fonts": pack_fonts.iter().cloned().map(Value::Object).collect::<Vec<_>>(),
         "pack_changes": pack_changes.iter().cloned().map(Value::Object).collect::<Vec<_>>(),
         "bingo": bingo_data,
         "firesales": firesales_data,
@@ -301,6 +310,7 @@ fn run() -> i32 {
         &firesales_data,
         &hypixel_tracker::secret_bingo::current_view(),
         skipped_reason.as_deref(),
+        &pack_fonts,
     );
     match html {
         Ok(html) => {
@@ -534,7 +544,83 @@ fn pack_result_from_disk(data_dir: &std::path::Path) -> PackResult {
         error: None,
         candidates: Vec::new(),
         pending: None,
+        font_blobs: Vec::new(),
     }
+}
+
+/// 字体条目 → CSS format() 值。
+fn font_css_format(ext: &str) -> &'static str {
+    match ext {
+        ".ttf" => "truetype",
+        ".otf" => "opentype",
+        ".woff" => "woff",
+        ".woff2" => "woff2",
+        _ => "truetype",
+    }
+}
+
+/// 部署资源包字体到站点：复制 data/fonts → site/assets/fonts，生成 fonts.css。
+///
+/// 返回字体条目清单（path / hash / file / family / format），供 data.json 与页面渲染。
+/// 包内没有字体时返回空 Vec，页面不注入任何字体资源。
+fn deploy_pack_fonts(site_dir: &std::path::Path, data_dir: &std::path::Path) -> Vec<Map<String, Value>> {
+    let manifest = hypixel_tracker::packs::load_pack_fonts(data_dir);
+    let Some(fonts) = manifest.get("fonts").and_then(|f| f.as_object()) else {
+        return Vec::new();
+    };
+    if fonts.is_empty() {
+        return Vec::new();
+    }
+    let out_dir = site_dir.join("assets").join("fonts");
+    let mut entries: Vec<Map<String, Value>> = Vec::new();
+    let mut css = String::from("/* 资源包字体（构建时自动生成，来源：data/pack_fonts.json） */\n");
+    for (path, hash) in fonts {
+        let Some(hash) = hash.as_str() else { continue };
+        let ext = hypixel_tracker::packs::FONT_EXTENSIONS
+            .iter()
+            .find(|e| path.to_ascii_lowercase().ends_with(*e))
+            .map(|e| e.to_string())
+            .unwrap_or_default();
+        if ext.is_empty() {
+            continue;
+        }
+        let src = data_dir.join("fonts").join(format!("{}{}", hash, ext));
+        let Ok(bytes) = std::fs::read(&src) else { continue };
+        if std::fs::create_dir_all(&out_dir).is_err() {
+            continue;
+        }
+        let file = format!("{}{}", hash, ext);
+        if std::fs::write(out_dir.join(&file), &bytes).is_err() {
+            continue;
+        }
+        // font-family 用路径 stem：assets/x/font/monocraft.ttf → x-font-monocraft
+        let stem = path
+            .rsplit_once('.')
+            .map(|(s, _)| s.to_string())
+            .unwrap_or_else(|| path.clone());
+        let family: String = stem
+            .split('/')
+            .filter(|s| !s.is_empty())
+            .collect::<Vec<_>>()
+            .join("-")
+            .to_ascii_lowercase();
+        css.push_str(&format!(
+            "@font-face {{ font-family:\"{}\"; src:url(\"assets/fonts/{}\") format(\"{}\"); font-display:swap; }}\n",
+            family, file, font_css_format(&ext),
+        ));
+        let mut entry = Map::new();
+        entry.insert("path".into(), Value::String(path.clone()));
+        entry.insert("hash".into(), Value::String(hash.to_string()));
+        entry.insert("file".into(), Value::String(format!("assets/fonts/{}", file)));
+        entry.insert("family".into(), Value::String(family));
+        entry.insert("format".into(), Value::String(font_css_format(&ext).to_string()));
+        entries.push(entry);
+    }
+    if entries.is_empty() {
+        return Vec::new();
+    }
+    let _ = std::fs::write(site_dir.join("assets").join("fonts.css"), css);
+    entries
 }
 
 /// PackResult → JSON（页面与 data.json 使用）。

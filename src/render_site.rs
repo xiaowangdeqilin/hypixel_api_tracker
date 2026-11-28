@@ -845,6 +845,12 @@ fn pack_modified_details(modified: &[Value]) -> String {
                 escape_html(if old_hash.is_empty() { "-" } else { &old_hash }),
                 escape_html(if new_hash.is_empty() { "-" } else { &new_hash })
             )
+        } else if kind == "font" {
+            format!(
+                "<div class=\"pack-binary\">字体文件已修改：{} → {}，构建时会自动部署到页面</div>",
+                escape_html(if old_hash.is_empty() { "-" } else { &old_hash }),
+                escape_html(if new_hash.is_empty() { "-" } else { &new_hash })
+            )
         } else {
             format!(
                 "<div class=\"diff-line diff-del\"><span class=\"sign\">-</span><div class=\"diff-code\"><code>哈希 {}</code></div></div>\
@@ -863,7 +869,36 @@ fn pack_modified_details(modified: &[Value]) -> String {
 }
 
 /// 渲染「资源包文件变更」面板。
-pub fn render_pack_panel(pack_result: &Value, pack_changes: &[Map<String, Value>]) -> String {
+/// 资源包内字体的展示小节（无字体时返回空串）。
+fn render_pack_fonts_section(pack_fonts: &[Map<String, Value>]) -> String {
+    if pack_fonts.is_empty() {
+        return String::new();
+    }
+    let items: String = pack_fonts
+        .iter()
+        .map(|f| {
+            let path = f.get("path").and_then(|v| v.as_str()).unwrap_or("-");
+            let family = f.get("family").and_then(|v| v.as_str()).unwrap_or("");
+            let file = f.get("file").and_then(|v| v.as_str()).unwrap_or("#");
+            format!(
+                r#"<li><code>{path}</code> — <span class="pack-font-sample" style="font-family:'{family}',monospace">Abc 123 示例</span>（<a href="{file}" download>下载</a>）</li>"#,
+                path = escape_html(path),
+                family = escape_html(family),
+                file = escape_html(file),
+            )
+        })
+        .collect();
+    format!(
+        r#"<div class="pack-fonts"><div class="pack-fonts-title"><span data-k="包内字体">包内字体</span>（{count}）</div><ul class="pack-fonts-list">{items}</ul></div>"#,
+        count = pack_fonts.len(),
+    )
+}
+
+pub fn render_pack_panel(
+    pack_result: &Value,
+    pack_changes: &[Map<String, Value>],
+    pack_fonts: &[Map<String, Value>],
+) -> String {
     let status = pack_result.get("status").and_then(|v| v.as_str()).unwrap_or("unavailable");
     let pack = pack_result.get("pack").cloned().unwrap_or(Value::Null);
     let total_files = pack_result.get("total_files").and_then(|v| v.as_u64()).unwrap_or(0);
@@ -953,11 +988,14 @@ pub fn render_pack_panel(pack_result: &Value, pack_changes: &[Map<String, Value>
         parts
     };
 
+    let fonts_section = render_pack_fonts_section(pack_fonts);
+
     format!(
         r#"<div class="panel">
       <h2>资源包文件变更</h2>
       <p class="hint">只展示最近 {RETENTION_DAYS} 天内的文件变更，更早的批次会自动清理。每次调用接口都会从响应里取 <strong>packFormat 数值最大</strong> 的资源包（该数字随 MC 更新变化，不写死）；官方哈希未变化时跳过下载。新增文件只标绿、删除文件只标红；被修改的文本文件<strong>只显示发生变化的那一段</strong>，删除行标红、新增行标绿，未变化的内容不输出。若接口或下载失败，本次运行不会改动任何数据。</p>
       <div class="pack-meta">{status_text} · {meta}</div>
+      {fonts_section}
       {err_html}
       {rows}
     </div>"#
@@ -979,6 +1017,7 @@ pub fn build_site_html(
     firesales: &Value,
     secret: &Value,
     skipped_reason: Option<&str>,
+    pack_fonts: &[Map<String, Value>],
 ) -> Result<String, String> {
     // 顶部版本栏
     let stable = version_info
@@ -1076,7 +1115,7 @@ pub fn build_site_html(
 
     let changes_blocks = render_change_blocks(changes);
     let version_panel = render_version_panel(version_info);
-    let pack_panel = render_pack_panel(pack_result, pack_changes);
+    let pack_panel = render_pack_panel(pack_result, pack_changes, pack_fonts);
     let firesales_panel = render_firesales_panel(firesales, false);
     let bingo_panel = render_bingo_panel(bingo, bingo_stale);
     let secret_panel = render_secret_panel(secret);
@@ -1167,6 +1206,8 @@ pub fn build_site_html(
     context.insert("note_html", &note_html);
     context.insert("version_panel", &version_panel);
     context.insert("pack_panel", &pack_panel);
+    // 包内字体：存在时额外加载构建生成的 fonts.css（@font-face 注册）
+    context.insert("pack_fonts_css", &!pack_fonts.is_empty());
     context.insert("changes_blocks", &changes_blocks);
     context.insert("firesales_panel", &firesales_panel);
     context.insert("bingo_panel", &bingo_panel);

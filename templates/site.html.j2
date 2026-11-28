@@ -13,6 +13,8 @@
   <style>{{ theme_css }}</style>
   <style>{{ i18n_css }}</style>
   <style>{{ tz_css }}</style>
+  {# 包内字体：构建时若资源包携带字体文件，会生成 assets/fonts.css（@font-face 注册） #}
+  {% if pack_fonts_css %}<link rel="stylesheet" href="assets/fonts.css">{% endif %}
   {# 静态站的多语言词条包（103 种语言）与时区配置，均为 JSON 数据块，不可执行 #}
   <script type="application/json" id="i18n-packs">{{ i18n_packs }}</script>
   <script type="application/json" id="tz-config">{{ tz_config }}</script>

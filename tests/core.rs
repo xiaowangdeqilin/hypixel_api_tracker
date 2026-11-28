@@ -444,6 +444,7 @@ fn static_site_has_language_and_timezone_switchers() {
         &serde_json::Value::Null,
         &serde_json::json!({}),
         None,
+        &[],
     )
     .expect("静态站应能渲染");
     // 语言切换：103 种语言（默认 zh-CN）
@@ -542,4 +543,69 @@ fn every_language_pack_is_complete_and_safe() {
             );
         }
     }
+}
+
+#[test]
+fn scan_zip_extracts_font_blobs_and_skips_limits() {
+    use hypixel_tracker::packs::{is_font_file, scan_zip};
+
+    // 内存里构造一个含字体 + 文本 + 其它二进制的 zip
+    let ttf: Vec<u8> = (0..2048).map(|i| (i % 251) as u8).collect();
+    let otf: Vec<u8> = vec![7u8; 512];
+    let mut buf = std::io::Cursor::new(Vec::new());
+    {
+        let mut w = zip::ZipWriter::new(&mut buf);
+        let opts = zip::write::FileOptions::default();
+        w.start_file("assets/minecraft/font/demo.ttf", opts).unwrap();
+        std::io::Write::write_all(&mut w, &ttf).unwrap();
+        w.start_file("assets/minecraft/font/mono.otf", opts).unwrap();
+        std::io::Write::write_all(&mut w, &otf).unwrap();
+        w.start_file("assets/minecraft/lang/en_us.json", opts).unwrap();
+        std::io::Write::write_all(&mut w, b"{\"a\":1}").unwrap();
+        w.start_file("assets/minecraft/textures/block.png", opts).unwrap();
+        std::io::Write::write_all(&mut w, &[1u8; 64]).unwrap();
+        w.finish().unwrap();
+    }
+    let bytes = buf.into_inner();
+
+    assert!(is_font_file("font/a.ttf"));
+    assert!(is_font_file("font/A.WOFF2"));
+    assert!(!is_font_file("textures/block.png"));
+
+    let (files, texts, fonts) = scan_zip(&bytes).expect("zip 应能解析");
+    assert_eq!(fonts.len(), 2, "应提取出 2 个字体文件");
+    let ttf_blob = fonts.iter().find(|f| f.path.ends_with(".ttf")).unwrap();
+    assert_eq!(ttf_blob.bytes.len(), ttf.len());
+    assert_eq!(ttf_blob.ext(), ".ttf");
+    // 哈希应与文件清单一致
+    assert_eq!(files.get("assets/minecraft/font/demo.ttf").unwrap(), &ttf_blob.hash);
+    // 文本缓存不受影响
+    assert!(texts.contains_key("assets/minecraft/lang/en_us.json"));
+    // png 不进字体也不进文本
+    assert!(fonts.iter().all(|f| !f.path.ends_with(".png")));
+}
+
+#[test]
+fn pack_fonts_section_empty_when_no_fonts() {
+    use hypixel_tracker::render_site::render_pack_panel;
+    // 无字体清单时面板不应出现字体小节
+    let html = render_pack_panel(
+        &serde_json::json!({"status": "unchanged", "pack": null, "total_files": 0}),
+        &[],
+        &[],
+    );
+    assert!(!html.contains("pack-fonts"), "无字体时不应渲染字体小节");
+    // 有字体清单时应渲染小节与示例
+    let fonts = vec![serde_json::Map::from_iter([
+        ("path".to_string(), serde_json::json!("assets/minecraft/font/demo.ttf")),
+        ("family".to_string(), serde_json::json!("minecraft-font-demo")),
+        ("file".to_string(), serde_json::json!("assets/fonts/abc.ttf")),
+    ])];
+    let html = render_pack_panel(
+        &serde_json::json!({"status": "unchanged", "pack": null, "total_files": 0}),
+        &[],
+        &fonts,
+    );
+    assert!(html.contains("pack-fonts-list"), "有字体时应渲染字体小节");
+    assert!(html.contains("assets/fonts/abc.ttf"), "应包含字体下载链接");
 }

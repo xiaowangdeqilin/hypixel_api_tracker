@@ -28,6 +28,38 @@ const TEXT_EXTENSIONS: [&str; 14] = [
 const MAX_TEXT_FILE_BYTES: usize = 128 * 1024;
 const MAX_TOTAL_TEXT_BYTES: usize = 2 * 1024 * 1024;
 
+// 字体提取：资源包若携带 .ttf/.otf/.woff，页面可以直接 @font-face 加载。
+// 内容缓存进 data/fonts/<hash>.<ext>（自动清理旧版本），清单进 data/pack_fonts.json。
+pub const FONT_EXTENSIONS: [&str; 4] = [".ttf", ".otf", ".woff", ".woff2"];
+const MAX_FONT_FILE_BYTES: usize = 4 * 1024 * 1024;
+const MAX_TOTAL_FONT_BYTES: usize = 12 * 1024 * 1024;
+const MAX_FONT_COUNT: usize = 20;
+
+pub fn is_font_file(filename: &str) -> bool {
+    let lower = filename.to_ascii_lowercase();
+    FONT_EXTENSIONS.iter().any(|ext| lower.ends_with(ext))
+}
+
+/// zip 里提取出的字体文件（内容 + 哈希），供落盘与页面部署。
+#[derive(Debug, Clone)]
+pub struct FontBlob {
+    pub path: String,
+    pub hash: String,
+    pub bytes: Vec<u8>,
+}
+
+impl FontBlob {
+    /// 扩展名（含点，小写），用于决定文件名与 CSS format()。
+    pub fn ext(&self) -> String {
+        let path = self.path.to_ascii_lowercase();
+        FONT_EXTENSIONS
+            .iter()
+            .find(|ext| path.ends_with(*ext))
+            .map(|ext| ext.to_string())
+            .unwrap_or_default()
+    }
+}
+
 pub fn parse_pack_format(value: Option<&Value>) -> Option<i64> {
     match value? {
         Value::Number(n) => n.as_i64().or_else(|| n.as_f64().map(|f| f as i64)),
@@ -114,11 +146,15 @@ fn is_text_file(filename: &str) -> bool {
     TEXT_EXTENSIONS.iter().any(|ext| lower.ends_with(ext))
 }
 
-/// 解压 zip，返回 (文件哈希清单, 文本文件内容缓存)。
-pub fn scan_zip(zip_bytes: &[u8]) -> Result<(BTreeMap<String, String>, BTreeMap<String, String>), String> {
+/// 解压 zip，返回 (文件哈希清单, 文本文件内容缓存, 字体文件内容)。
+pub fn scan_zip(
+    zip_bytes: &[u8],
+) -> Result<(BTreeMap<String, String>, BTreeMap<String, String>, Vec<FontBlob>), String> {
     let mut files = BTreeMap::new();
     let mut texts = BTreeMap::new();
+    let mut font_blobs: Vec<FontBlob> = Vec::new();
     let mut total_text_bytes = 0usize;
+    let mut total_font_bytes = 0usize;
     let reader = std::io::Cursor::new(zip_bytes);
     let mut archive =
         zip::ZipArchive::new(reader).map_err(|e| format!("资源包 zip 解析失败：{}", e))?;
@@ -135,7 +171,20 @@ pub fn scan_zip(zip_bytes: &[u8]) -> Result<(BTreeMap<String, String>, BTreeMap<
             .read_to_end(&mut content)
             .map_err(|e| format!("读取 zip 内文件失败 {}: {}", name, e))?;
         let hash = sha2_digest(&content)[..HASH_LENGTH].to_string();
-        files.insert(name.clone(), hash);
+        files.insert(name.clone(), hash.clone());
+        if is_font_file(&name) {
+            // 字体：单文件 4MB / 总量 12MB / 最多 20 个，超限的直接跳过（不阻塞比对）
+            if content.is_empty()
+                || content.len() > MAX_FONT_FILE_BYTES
+                || font_blobs.len() >= MAX_FONT_COUNT
+                || total_font_bytes + content.len() > MAX_TOTAL_FONT_BYTES
+            {
+                continue;
+            }
+            total_font_bytes += content.len();
+            font_blobs.push(FontBlob { path: name, hash, bytes: content });
+            continue;
+        }
         if !is_text_file(&name) || content.len() > MAX_TEXT_FILE_BYTES {
             continue;
         }
@@ -147,7 +196,7 @@ pub fn scan_zip(zip_bytes: &[u8]) -> Result<(BTreeMap<String, String>, BTreeMap<
             texts.insert(name, text);
         }
     }
-    Ok((files, texts))
+    Ok((files, texts, font_blobs))
 }
 
 pub use crate::textdiff::diff_text_lines;
@@ -180,9 +229,16 @@ fn build_modified_entries(
                 continue;
             }
         }
+        let kind = if is_font_file(path) {
+            "font"
+        } else if is_text_file(path) {
+            "text"
+        } else {
+            "binary"
+        };
         entries.push(json!({
             "path": path,
-            "kind": if is_text_file(path) { "text" } else { "binary" },
+            "kind": kind,
             "old_hash": old_hash,
             "new_hash": new_hash,
         }));
@@ -198,6 +254,52 @@ fn texts_path(data_dir: &std::path::Path) -> std::path::PathBuf {
 }
 fn pack_changes_path(data_dir: &std::path::Path) -> std::path::PathBuf {
     data_dir.join("pack_changes.json")
+}
+
+fn pack_fonts_path(data_dir: &std::path::Path) -> std::path::PathBuf {
+    data_dir.join("pack_fonts.json")
+}
+
+fn fonts_dir(data_dir: &std::path::Path) -> std::path::PathBuf {
+    data_dir.join("fonts")
+}
+
+/// 把字体内容缓存到 data/fonts/<hash><ext>，清单写入 data/pack_fonts.json，
+/// 并删除不再被当前包引用的旧字体（避免仓库随包更新无限膨胀）。
+fn commit_fonts(
+    fonts_manifest: &Value,
+    blobs: &[FontBlob],
+    data_dir: &std::path::Path,
+) -> std::io::Result<()> {
+    let dir = fonts_dir(data_dir);
+    std::fs::create_dir_all(&dir)?;
+    // 清单里的 hash 集合（保留的字体）
+    let mut kept: std::collections::BTreeSet<String> = std::collections::BTreeSet::new();
+    for blob in blobs {
+        let file = dir.join(format!("{}{}", blob.hash, blob.ext()));
+        std::fs::write(&file, &blob.bytes)?;
+        kept.insert(blob.hash.clone());
+    }
+    if let Some(fonts) = fonts_manifest.get("fonts").and_then(|f| f.as_object()) {
+        for hash in fonts.values().filter_map(|v| v.as_str()) {
+            kept.insert(hash.to_string());
+        }
+    }
+    // 清理孤儿：文件名去掉扩展名后不在保留集合里的都删掉
+    if let Ok(entries) = std::fs::read_dir(&dir) {
+        for entry in entries.flatten() {
+            let name = entry.file_name().to_string_lossy().to_string();
+            let stem = name
+                .rsplit_once('.')
+                .map(|(s, _)| s.to_string())
+                .unwrap_or_else(|| name.clone());
+            if !kept.contains(&stem) {
+                let _ = std::fs::remove_file(entry.path());
+            }
+        }
+    }
+    let _ = write_json(&pack_fonts_path(data_dir), fonts_manifest);
+    Ok(())
 }
 
 pub fn load_manifest(data_dir: &std::path::Path) -> Value {
@@ -232,8 +334,10 @@ pub struct PackResult {
     pub changes: Vec<Map<String, Value>>,
     pub error: Option<String>,
     pub candidates: Vec<Value>,
-    /// 需要写入的数据（manifest / texts / changes），None 表示无需写入。
+    /// 需要写入的数据（manifest / texts / changes / fonts），None 表示无需写入。
     pub pending: Option<Map<String, Value>>,
+    /// 本次 zip 里提取出的字体文件（仅 status = baseline/updated 时有值）。
+    pub font_blobs: Vec<FontBlob>,
 }
 
 /// 检查资源包，返回本次检查结果，**但不写入任何文件**。
@@ -250,6 +354,7 @@ pub fn inspect_pack(
         error: None,
         candidates: Vec::new(),
         pending: None,
+        font_blobs: Vec::new(),
     };
 
     let target = match select_pack(packs_payload) {
@@ -315,7 +420,10 @@ pub fn inspect_pack(
                 return result;
             }
             match scan_zip(&bytes) {
-                Ok((files, texts)) if !files.is_empty() => (files, texts),
+                Ok((files, texts, fonts)) if !files.is_empty() => {
+                    result.font_blobs = fonts;
+                    (files, texts)
+                }
                 Ok(_) => {
                     result.status = "error".into();
                     result.error = Some("资源包解压后没有可比对的文件".into());
@@ -424,6 +532,20 @@ pub fn inspect_pack(
         "changes".into(),
         Value::Array(result.changes.iter().cloned().map(Value::Object).collect()),
     );
+    // 字体清单：页面部署与变更展示都用它。无字体也要写，用于清理旧版本缓存。
+    let mut fonts_map = Map::new();
+    for blob in &result.font_blobs {
+        fonts_map.insert(blob.path.clone(), Value::String(blob.hash.clone()));
+    }
+    pending.insert(
+        "fonts".into(),
+        json!({
+            "pack_id": target_id,
+            "pack_hash": target_hash,
+            "generated_at": now_beijing(),
+            "fonts": fonts_map,
+        }),
+    );
     result.pending = Some(pending);
     result
 }
@@ -444,5 +566,17 @@ pub fn commit_pack_result(result: &PackResult, data_dir: &std::path::Path) -> bo
         let _ = write_json(&pack_changes_path(data_dir), changes);
         written = true;
     }
+    if let Some(fonts) = pending.get("fonts") {
+        // 字体写盘失败不影响整次构建（比对数据已落盘），只打日志
+        if let Err(e) = commit_fonts(fonts, &result.font_blobs, data_dir) {
+            eprintln!("[资源包] 字体缓存写入失败：{}", e);
+        }
+        written = true;
+    }
     written
+}
+
+/// 读取字体清单（data/pack_fonts.json）。页面渲染与构建部署共用。
+pub fn load_pack_fonts(data_dir: &std::path::Path) -> Value {
+    load_json(&pack_fonts_path(data_dir)).unwrap_or_else(|| json!({}))
 }
