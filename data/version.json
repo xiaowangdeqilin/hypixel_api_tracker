@@ -3,6 +3,12 @@
   "history": [
     {
       "note": "两个接口版本一致，确认切换当前版本",
+      "previous": "0.27.3.16",
+      "time": "2026-11-28 10:34:29",
+      "version": "0.27.3.17"
+    },
+    {
+      "note": "两个接口版本一致，确认切换当前版本",
       "previous": "0.27.3.14",
       "time": "2026-11-28 06:01:01",
       "version": "0.27.3.16"
@@ -114,28 +120,22 @@
       "previous": "0.27.2.24",
       "time": "2026-11-05 12:54:54",
       "version": "0.27.2.25"
-    },
-    {
-      "note": "两个接口版本一致，确认切换当前版本",
-      "previous": "0.27.2.23",
-      "time": "2026-11-05 02:36:18",
-      "version": "0.27.2.24"
     }
   ],
   "note": "收藏与技能两个接口版本一致，已确认当前版本",
-  "previous_stable": "0.27.3.14",
-  "resource_version": "0.27.3.16",
-  "stable_version": "0.27.3.16",
+  "previous_stable": "0.27.3.16",
+  "resource_version": "0.27.3.17",
+  "stable_version": "0.27.3.17",
   "sync_status": "aligned",
-  "updated_at": "2026-11-28 06:01:01",
+  "updated_at": "2026-11-28 10:34:29",
   "versions": {
     "collections": {
-      "observed_at": "2026-11-28 06:01:01",
-      "version": "0.27.3.16"
+      "observed_at": "2026-11-28 10:34:29",
+      "version": "0.27.3.17"
     },
     "skills": {
-      "observed_at": "2026-11-28 06:01:01",
-      "version": "0.27.3.16"
+      "observed_at": "2026-11-28 10:34:29",
+      "version": "0.27.3.17"
     }
   }
 }
