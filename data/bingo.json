@@ -1,306 +1,107 @@
 {
-  "end": "2026-11-08 12:00:00",
-  "end_ms": 1794110400000,
-  "first_seen": "2026-11-07 18:49:18",
-  "generated_at": "2026-11-28 11:56:12",
+  "end": "2026-12-08 13:00:00",
+  "end_ms": 1796706000000,
+  "first_seen": "2026-11-28 14:02:01",
+  "generated_at": "2026-11-28 14:02:01",
   "goal_count": 25,
   "goals": [
     {
       "fullLore": [
-        "§7Break §e10M Ore§7 Blocks."
+        "§7Kill §a2M Goblins§7."
       ],
-      "id": "break_block_ores",
+      "id": "kill_goblins",
       "is_community": true,
-      "lore": "§7Break §e10M Ore§7 Blocks.",
+      "lore": "§7Kill §a2M Goblins§7.",
       "lore_lines": [
-        "§7Break §e10M Ore§7 Blocks."
+        "§7Kill §a2M Goblins§7."
       ],
-      "name": "Operation: Ore",
-      "progress": 30339485,
+      "name": "Goblin Slayer",
+      "progress": 0,
       "progress_info": {
-        "is_maxed": true,
-        "percent": 100.0,
-        "progress": 30339485.0,
-        "progress_text": "10M",
-        "ratio": 1.0,
-        "reached": 5,
-        "top": 10000000.0,
-        "top_text": "10M",
+        "is_maxed": false,
+        "percent": 0.0,
+        "progress": 0.0,
+        "progress_text": "0",
+        "ratio": 0.0,
+        "reached": 0,
+        "top": 2000000.0,
+        "top_text": "2M",
         "total": 5
       },
-      "requirement_text": "2M / 4M / 6M / 8M / 10M",
+      "requirement_text": "400K / 800K / 1.2M / 1.6M / 2M",
       "tiers": [
-        2000000,
-        4000000,
-        6000000,
-        8000000,
-        10000000
+        400000,
+        800000,
+        1200000,
+        1600000,
+        2000000
       ]
     },
     {
       "fullLore": [
-        "§7Reach §3Bestiary §7Milestone 3§7."
+        "§7Complete §6Puzzler§7's quest"
       ],
-      "id": "bestiary_level_3",
+      "id": "SOLVE_PUZZLER",
       "is_community": false,
-      "lore": "§7Reach §3Bestiary §7Milestone 3§7.",
+      "lore": "§7Complete §6Puzzler§7's quest",
       "lore_lines": [
-        "§7Reach §3Bestiary §7Milestone 3§7."
+        "§7Complete §6Puzzler§7's quest"
       ],
-      "name": "Collecting Data",
-      "requiredAmount": 3,
-      "requirement_text": "3"
-    },
-    {
-      "fullLore": [
-        "§7Reach §a72,500 §7Gold Ingot Collection."
-      ],
-      "id": "collection_gold_ingot",
-      "is_community": false,
-      "lore": "§7Reach §a72,500 §7Gold Ingot Collection.",
-      "lore_lines": [
-        "§7Reach §a72,500 §7Gold Ingot Collection."
-      ],
-      "name": "Gold Ingot Collector",
-      "requiredAmount": 72500,
-      "requirement_text": "72.5K"
-    },
-    {
-      "fullLore": [
-        "§7Unlock a §fWood§7 Dungeon Chest."
-      ],
-      "id": "UNLOCK_DUNGEON_CHEST_WOOD",
-      "is_community": false,
-      "lore": "§7Unlock a §fWood§7 Dungeon Chest.",
-      "lore_lines": [
-        "§7Unlock a §fWood§7 Dungeon Chest."
-      ],
-      "name": "Wooden Treasure",
+      "name": "A Real Head Scratcher",
       "requirement_text": ""
     },
     {
       "fullLore": [
-        "§7Reach a non-cosmetic Skill Average of §a17§7."
+        "§7Reach §a60,000 §7Bone Collection."
       ],
-      "id": "skill_average",
+      "id": "collection_bone",
       "is_community": false,
-      "lore": "§7Reach a non-cosmetic Skill Average of §a17§7.",
+      "lore": "§7Reach §a60,000 §7Bone Collection.",
       "lore_lines": [
-        "§7Reach a non-cosmetic Skill Average of §a17§7."
+        "§7Reach §a60,000 §7Bone Collection."
       ],
-      "name": "Skill Average",
-      "requiredAmount": 17,
-      "requirement_text": "17"
+      "name": "Bone Collector",
+      "requiredAmount": 60000,
+      "requirement_text": "60K"
     },
     {
       "fullLore": [
-        "§7Obtain level §e10§7 in the §6Foraging §7Skill."
+        "§7Obtain a §cBronze§7 or higher §cMedal§7 in Jacob's Farming Contest."
       ],
-      "id": "GET_SKILL_foraging_10",
+      "id": "OBTAIN_JACOB_BRONZE",
       "is_community": false,
-      "lore": "§7Obtain level §e10§7 in the §6Foraging §7Skill.",
+      "lore": "§7Obtain a §cBronze§7 or higher §cMedal§7 in Jacob's Farming Contest.",
       "lore_lines": [
-        "§7Obtain level §e10§7 in the §6Foraging §7Skill."
+        "§7Obtain a §cBronze§7 or higher §cMedal§7 in Jacob's Farming Contest."
       ],
-      "name": "Lumberjack",
+      "name": "Podium Position",
       "requirement_text": ""
     },
     {
       "fullLore": [
-        "§7Summon §a100k §3Sea Creatures§7."
+        "§7Wear §e18 §7unique Armor Sets."
       ],
-      "id": "summon_sea_creatures",
-      "is_community": true,
-      "lore": "§7Summon §a100k §3Sea Creatures§7.",
-      "lore_lines": [
-        "§7Summon §a100k §3Sea Creatures§7."
-      ],
-      "name": "Poseidon",
-      "progress": 328110,
-      "progress_info": {
-        "is_maxed": true,
-        "percent": 100.0,
-        "progress": 328110.0,
-        "progress_text": "100K",
-        "ratio": 1.0,
-        "reached": 5,
-        "top": 100000.0,
-        "top_text": "100K",
-        "total": 5
-      },
-      "requirement_text": "20K / 40K / 60K / 80K / 100K",
-      "tiers": [
-        20000,
-        40000,
-        60000,
-        80000,
-        100000
-      ]
-    },
-    {
-      "fullLore": [
-        "§7Reach §a800 §7Lily Pad Collection."
-      ],
-      "id": "collection_water_lily",
+      "id": "wear_unique_armor_18",
       "is_community": false,
-      "lore": "§7Reach §a800 §7Lily Pad Collection.",
+      "lore": "§7Wear §e18 §7unique Armor Sets.",
       "lore_lines": [
-        "§7Reach §a800 §7Lily Pad Collection."
+        "§7Wear §e18 §7unique Armor Sets."
       ],
-      "name": "Lily Pad Collector",
-      "requiredAmount": 800,
-      "requirement_text": "800"
+      "name": "Fashionable",
+      "requiredAmount": 18,
+      "requirement_text": "18"
     },
     {
       "fullLore": [
-        "§7Brew any level IV or higher potion."
+        "§7Obtain §a25 §7unique Minions."
       ],
-      "id": "brew_potion_level",
+      "id": "craft_minions",
       "is_community": false,
-      "lore": "§7Brew any level IV or higher potion.",
+      "lore": "§7Obtain §a25 §7unique Minions.",
       "lore_lines": [
-        "§7Brew any level IV or higher potion."
+        "§7Obtain §a25 §7unique Minions."
       ],
-      "name": "Trouble is Brewing...",
-      "requirement_text": ""
-    },
-    {
-      "fullLore": [
-        "§7Obtain a score of §6270§7 or higher on §cFloor 1§7 of §cCatacombs§7."
-      ],
-      "id": "DUNGEON_CATACOMBS_1_270",
-      "is_community": false,
-      "lore": "§7Obtain a score of §6270§7 or higher on §cFloor 1§7 of §cCatacombs§7.",
-      "lore_lines": [
-        "§7Obtain a score of §6270§7 or higher on §cFloor 1§7 of §cCatacombs§7."
-      ],
-      "name": "High Score!",
-      "requirement_text": ""
-    },
-    {
-      "fullLore": [
-        "§7Craft an §9Aspect of the End§7."
-      ],
-      "id": "craft_item_aspect_of_the_end",
-      "is_community": false,
-      "lore": "§7Craft an §9Aspect of the End§7.",
-      "lore_lines": [
-        "§7Craft an §9Aspect of the End§7."
-      ],
-      "name": "Zoop!",
-      "requirement_text": ""
-    },
-    {
-      "fullLore": [
-        "§7Reach §9100% §9 Crit Damage§7."
-      ],
-      "id": "stat_critical_damage",
-      "is_community": false,
-      "lore": "§7Reach §9100% §9 Crit Damage§7.",
-      "lore_lines": [
-        "§7Reach §9100% §9 Crit Damage§7."
-      ],
-      "name": "Critical",
-      "requiredAmount": 100,
-      "requirement_text": "100"
-    },
-    {
-      "fullLore": [
-        "§7Gain §b750M Mining§7 experience"
-      ],
-      "id": "collect_exp_mining",
-      "is_community": true,
-      "lore": "§7Gain §b750M Mining§7 experience",
-      "lore_lines": [
-        "§7Gain §b750M Mining§7 experience"
-      ],
-      "name": "Skilled",
-      "progress": 4853552636,
-      "progress_info": {
-        "is_maxed": true,
-        "percent": 100.0,
-        "progress": 4853552636.0,
-        "progress_text": "750M",
-        "ratio": 1.0,
-        "reached": 5,
-        "top": 750000000.0,
-        "top_text": "750M",
-        "total": 5
-      },
-      "requirement_text": "150M / 300M / 450M / 600M / 750M",
-      "tiers": [
-        150000000,
-        300000000,
-        450000000,
-        600000000,
-        750000000
-      ]
-    },
-    {
-      "fullLore": [
-        "§7Reach §a185,000 §7Cocoa Beans Collection."
-      ],
-      "id": "collection_ink_sack:3",
-      "is_community": false,
-      "lore": "§7Reach §a185,000 §7Cocoa Beans Collection.",
-      "lore_lines": [
-        "§7Reach §a185,000 §7Cocoa Beans Collection."
-      ],
-      "name": "Cocoa Beans Collector",
-      "requiredAmount": 185000,
-      "requirement_text": "185K"
-    },
-    {
-      "fullLore": [
-        "§7Kill a §5Runic §7Mob."
-      ],
-      "id": "kill_runic_mob",
-      "is_community": false,
-      "lore": "§7Kill a §5Runic §7Mob.",
-      "lore_lines": [
-        "§7Kill a §5Runic §7Mob."
-      ],
-      "name": "Strange Effects",
-      "requirement_text": ""
-    },
-    {
-      "fullLore": [
-        "§7Craft a §aPiggy Bank§7."
-      ],
-      "id": "craft_item_piggy_bank",
-      "is_community": false,
-      "lore": "§7Craft a §aPiggy Bank§7.",
-      "lore_lines": [
-        "§7Craft a §aPiggy Bank§7."
-      ],
-      "name": "New Savings",
-      "requirement_text": ""
-    },
-    {
-      "fullLore": [
-        "§7Reach §c1,000 §c Health§7."
-      ],
-      "id": "stat_health",
-      "is_community": false,
-      "lore": "§7Reach §c1,000 §c Health§7.",
-      "lore_lines": [
-        "§7Reach §c1,000 §c Health§7."
-      ],
-      "name": "Healthy",
-      "requiredAmount": 1000,
-      "requirement_text": "1K"
-    },
-    {
-      "fullLore": [
-        "§7Obtain §d25 Fairy Souls§7."
-      ],
-      "id": "fairy_souls",
-      "is_community": false,
-      "lore": "§7Obtain §d25 Fairy Souls§7.",
-      "lore_lines": [
-        "§7Obtain §d25 Fairy Souls§7."
-      ],
-      "name": "Fairy Finder",
+      "name": "Minion Machine",
       "requiredAmount": 25,
       "requirement_text": "25"
     },
@@ -315,14 +116,14 @@
         "§7Loot §e250k §7drops with a chance of §e1% §7or lower"
       ],
       "name": "Lucky Looter",
-      "progress": 896916,
+      "progress": 0,
       "progress_info": {
-        "is_maxed": true,
-        "percent": 100.0,
-        "progress": 896916.0,
-        "progress_text": "250K",
-        "ratio": 1.0,
-        "reached": 5,
+        "is_maxed": false,
+        "percent": 0.0,
+        "progress": 0.0,
+        "progress_text": "0",
+        "ratio": 0.0,
+        "reached": 0,
         "top": 250000.0,
         "top_text": "250K",
         "total": 5
@@ -338,111 +139,311 @@
     },
     {
       "fullLore": [
-        "§7Find §93 Pairs §7in the §9Experimentation Table§7."
+        "§7Reach §f250 §f Speed§7."
       ],
-      "id": "FIND_EXPERIMENT_PAIRS_3",
+      "id": "stat_walk_speed",
       "is_community": false,
-      "lore": "§7Find §93 Pairs §7in the §9Experimentation Table§7.",
+      "lore": "§7Reach §f250 §f Speed§7.",
       "lore_lines": [
-        "§7Find §93 Pairs §7in the §9Experimentation Table§7."
+        "§7Reach §f250 §f Speed§7."
       ],
-      "name": "Pair Up!",
-      "requiredAmount": 3,
-      "requirement_text": "3"
+      "name": "I Am Speed",
+      "requiredAmount": 250,
+      "requirement_text": "250"
     },
     {
       "fullLore": [
-        "§7Obtain a §aGrand Experience Bottle§7."
+        "§7Equip a §fCommon §7or higher tiered §fDolphin Pet§7."
       ],
-      "id": "obtain_item_grand_exp_bottle",
+      "id": "EQUIP_DOLPHIN_COMMON",
       "is_community": false,
-      "lore": "§7Obtain a §aGrand Experience Bottle§7.",
+      "lore": "§7Equip a §fCommon §7or higher tiered §fDolphin Pet§7.",
       "lore_lines": [
-        "§7Obtain a §aGrand Experience Bottle§7."
+        "§7Equip a §fCommon §7or higher tiered §fDolphin Pet§7."
       ],
-      "name": "Experienced",
+      "name": "Friend Of The Seas",
       "requirement_text": ""
     },
     {
       "fullLore": [
-        "§7Obtain a §9Lynx Talisman§7."
+        "§7Reach §a40,000 §7Diamond Collection."
       ],
-      "id": "obtain_item_lynx_talisman",
+      "id": "collection_diamond",
       "is_community": false,
-      "lore": "§7Obtain a §9Lynx Talisman§7.",
+      "lore": "§7Reach §a40,000 §7Diamond Collection.",
       "lore_lines": [
-        "§7Obtain a §9Lynx Talisman§7."
+        "§7Reach §a40,000 §7Diamond Collection."
       ],
-      "name": "Lynx",
+      "name": "Diamond Collector",
+      "requiredAmount": 40000,
+      "requirement_text": "40K"
+    },
+    {
+      "fullLore": [
+        "§7Obtain a §5Cheetah Talisman§7."
+      ],
+      "id": "obtain_item_cheetah_talisman",
+      "is_community": false,
+      "lore": "§7Obtain a §5Cheetah Talisman§7.",
+      "lore_lines": [
+        "§7Obtain a §5Cheetah Talisman§7."
+      ],
+      "name": "Cheetah",
       "requirement_text": ""
     },
     {
       "fullLore": [
-        "§7Help §6Fetchur§7 find his item."
+        "§7§7Upgrade a pet with §a§bKat§7."
       ],
-      "id": "SOLVE_FETCHUR",
+      "id": "upgrade_pet",
       "is_community": false,
-      "lore": "§7Help §6Fetchur§7 find his item.",
+      "lore": "§7§7Upgrade a pet with §a§bKat§7.",
       "lore_lines": [
-        "§7Help §6Fetchur§7 find his item."
+        "§7§7Upgrade a pet with §a§bKat§7."
       ],
-      "name": "Search And Rescue",
+      "name": "Petsitter",
       "requirement_text": ""
     },
     {
       "fullLore": [
-        "§7Obtain §a100 §7unique Minions."
+        "§7Defeat §cScarf §a4,000 §7times."
       ],
-      "id": "craft_minions",
-      "is_community": false,
-      "lore": "§7Obtain §a100 §7unique Minions.",
-      "lore_lines": [
-        "§7Obtain §a100 §7unique Minions."
-      ],
-      "name": "Minion Machine",
-      "requiredAmount": 100,
-      "requirement_text": "100"
-    },
-    {
-      "fullLore": [
-        "§7Gain §55M Heart of the Mountain Experience§7."
-      ],
-      "id": "hotm_experience",
+      "id": "kill_dungeon_boss_catacombs_2",
       "is_community": true,
-      "lore": "§7Gain §55M Heart of the Mountain Experience§7.",
+      "lore": "§7Defeat §cScarf §a4,000 §7times.",
       "lore_lines": [
-        "§7Gain §55M Heart of the Mountain Experience§7."
+        "§7Defeat §cScarf §a4,000 §7times."
       ],
-      "name": "Cave Commodity",
-      "progress": 78611883,
+      "name": "Scarf Offensive",
+      "progress": 0,
       "progress_info": {
-        "is_maxed": true,
-        "percent": 100.0,
-        "progress": 78611883.0,
-        "progress_text": "5M",
-        "ratio": 1.0,
-        "reached": 5,
-        "top": 5000000.0,
-        "top_text": "5M",
+        "is_maxed": false,
+        "percent": 0.0,
+        "progress": 0.0,
+        "progress_text": "0",
+        "ratio": 0.0,
+        "reached": 0,
+        "top": 4000.0,
+        "top_text": "4K",
         "total": 5
       },
-      "requirement_text": "1M / 2M / 3M / 4M / 5M",
+      "requirement_text": "800 / 1.6K / 2.4K / 3.2K / 4K",
       "tiers": [
+        800,
+        1600,
+        2400,
+        3200,
+        4000
+      ]
+    },
+    {
+      "fullLore": [
+        "§7Obtain an §6Amber Crystal §7in the §5Crystal Hollows§7."
+      ],
+      "id": "obtain_crystal",
+      "is_community": false,
+      "lore": "§7Obtain an §6Amber Crystal §7in the §5Crystal Hollows§7.",
+      "lore_lines": [
+        "§7Obtain an §6Amber Crystal §7in the §5Crystal Hollows§7."
+      ],
+      "name": "Amber Crystal",
+      "requirement_text": ""
+    },
+    {
+      "fullLore": [
+        "§7Obtain level §e5§7 in the §6Mining §7Skill."
+      ],
+      "id": "GET_SKILL_mining_5",
+      "is_community": false,
+      "lore": "§7Obtain level §e5§7 in the §6Mining §7Skill.",
+      "lore_lines": [
+        "§7Obtain level §e5§7 in the §6Mining §7Skill."
+      ],
+      "name": "Miner",
+      "requirement_text": ""
+    },
+    {
+      "fullLore": [
+        "§7Reach §c500 §c Health§7."
+      ],
+      "id": "stat_health",
+      "is_community": false,
+      "lore": "§7Reach §c500 §c Health§7.",
+      "lore_lines": [
+        "§7Reach §c500 §c Health§7."
+      ],
+      "name": "Healthy",
+      "requiredAmount": 500,
+      "requirement_text": "500"
+    },
+    {
+      "fullLore": [
+        "§7Reach a non-cosmetic Skill Average of §a14§7."
+      ],
+      "id": "skill_average",
+      "is_community": false,
+      "lore": "§7Reach a non-cosmetic Skill Average of §a14§7.",
+      "lore_lines": [
+        "§7Reach a non-cosmetic Skill Average of §a14§7."
+      ],
+      "name": "Skill Average",
+      "requiredAmount": 14,
+      "requirement_text": "14"
+    },
+    {
+      "fullLore": [
+        "§7Complete §e8 Commissions§7 in the §2Dwarven Mines§7, §5Crystal Hollows§7, or §bGlacite Tunnels§7."
+      ],
+      "id": "complete_commissions",
+      "is_community": false,
+      "lore": "§7Complete §e8 Commissions§7 in the §2Dwarven Mines§7, §5Crystal Hollows§7, or §bGlacite Tunnels§7.",
+      "lore_lines": [
+        "§7Complete §e8 Commissions§7 in the §2Dwarven Mines§7, §5Crystal Hollows§7, or §bGlacite Tunnels§7."
+      ],
+      "name": "Commission Master",
+      "requiredAmount": 8,
+      "requirement_text": "8"
+    },
+    {
+      "fullLore": [
+        "§7Kill §a2.5M Endermen§7."
+      ],
+      "id": "kill_endermen",
+      "is_community": true,
+      "lore": "§7Kill §a2.5M Endermen§7.",
+      "lore_lines": [
+        "§7Kill §a2.5M Endermen§7."
+      ],
+      "name": "Enderman Slayer",
+      "progress": 0,
+      "progress_info": {
+        "is_maxed": false,
+        "percent": 0.0,
+        "progress": 0.0,
+        "progress_text": "0",
+        "ratio": 0.0,
+        "reached": 0,
+        "top": 2500000.0,
+        "top_text": "2.5M",
+        "total": 5
+      },
+      "requirement_text": "500K / 1M / 1.5M / 2M / 2.5M",
+      "tiers": [
+        500000,
         1000000,
+        1500000,
         2000000,
-        3000000,
-        4000000,
-        5000000
+        2500000
+      ]
+    },
+    {
+      "fullLore": [
+        "§7Apply the §9Dirty §7reforge to an item."
+      ],
+      "id": "reforge_dirty",
+      "is_community": false,
+      "lore": "§7Apply the §9Dirty §7reforge to an item.",
+      "lore_lines": [
+        "§7Apply the §9Dirty §7reforge to an item."
+      ],
+      "name": "Dirty Reforger",
+      "requirement_text": ""
+    },
+    {
+      "fullLore": [
+        "§7Equip §a17 §7unique Accessories."
+      ],
+      "id": "wear_accessories",
+      "is_community": false,
+      "lore": "§7Equip §a17 §7unique Accessories.",
+      "lore_lines": [
+        "§7Equip §a17 §7unique Accessories."
+      ],
+      "name": "Bedazzled",
+      "requiredAmount": 17,
+      "requirement_text": "17"
+    },
+    {
+      "fullLore": [
+        "§7Reach §a40,000 §7Mushroom Collection."
+      ],
+      "id": "collection_mushroom_collection",
+      "is_community": false,
+      "lore": "§7Reach §a40,000 §7Mushroom Collection.",
+      "lore_lines": [
+        "§7Reach §a40,000 §7Mushroom Collection."
+      ],
+      "name": "Mushroom Collector",
+      "requiredAmount": 40000,
+      "requirement_text": "40K"
+    },
+    {
+      "fullLore": [
+        "§7Wear §a4 pieces §7of the §aAngler Armor Set§7."
+      ],
+      "id": "wear_armor_angler",
+      "is_community": false,
+      "lore": "§7Wear §a4 pieces §7of the §aAngler Armor Set§7.",
+      "lore_lines": [
+        "§7Wear §a4 pieces §7of the §aAngler Armor Set§7."
+      ],
+      "name": "Fisherman",
+      "requiredAmount": 4,
+      "requirement_text": "4"
+    },
+    {
+      "fullLore": [
+        "§7Place all 5 crystals in the Nucleus in the §dCrystal Hollows§7."
+      ],
+      "id": "complete_nucleus",
+      "is_community": false,
+      "lore": "§7Place all 5 crystals in the Nucleus in the §dCrystal Hollows§7.",
+      "lore_lines": [
+        "§7Place all 5 crystals in the Nucleus in the §dCrystal Hollows§7."
+      ],
+      "name": "Divan's Chance",
+      "requirement_text": ""
+    },
+    {
+      "fullLore": [
+        "§7Collect §6100k Pelts§7."
+      ],
+      "id": "collect_pelts",
+      "is_community": true,
+      "lore": "§7Collect §6100k Pelts§7.",
+      "lore_lines": [
+        "§7Collect §6100k Pelts§7."
+      ],
+      "name": "Hunter",
+      "progress": 0,
+      "progress_info": {
+        "is_maxed": false,
+        "percent": 0.0,
+        "progress": 0.0,
+        "progress_text": "0",
+        "ratio": 0.0,
+        "reached": 0,
+        "top": 100000.0,
+        "top_text": "100K",
+        "total": 5
+      },
+      "requirement_text": "20K / 40K / 60K / 80K / 100K",
+      "tiers": [
+        20000,
+        40000,
+        60000,
+        80000,
+        100000
       ]
     }
   ],
-  "id": 59,
+  "id": 60,
   "modifier": "NORMAL",
-  "name": "November 2026",
-  "published_at": "2026-11-11 12:56:05",
-  "remaining": "-",
-  "start": "2026-11-01 12:00:00",
-  "start_ms": 1793505600000,
-  "state": "ended",
-  "state_label": "已结束"
+  "name": "December 2026",
+  "published_at": "2026-11-28 13:57:39",
+  "remaining": "距开始还有 2 天 22 小时",
+  "start": "2026-12-01 13:00:00",
+  "start_ms": 1796101200000,
+  "state": "upcoming",
+  "state_label": "未开始"
 }

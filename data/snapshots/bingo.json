@@ -1,135 +1,136 @@
 {
-  "checksum": "976130d6ea975b0554d73459fc142d34bcfcfac8c6641fadbde3a913ccd919f3",
+  "checksum": "98c65b73350191a9724da8368abc62afbe98ab2fc59aa750fd8e400613d3ce40",
   "endpoint": "bingo",
-  "fetched_at": "2026-11-28 11:56:12",
+  "fetched_at": "2026-11-28 14:02:01",
   "payload": {
-    "end": "2026-11-08 12:00:00",
+    "end": "2026-12-08 13:00:00",
     "goals": {
-      "DUNGEON_CATACOMBS_1_270": {
-        "lore": "Obtain a score of 270 or higher on Floor 1 of Catacombs.",
-        "name": "High Score!"
+      "EQUIP_DOLPHIN_COMMON": {
+        "lore": "Equip a Common or higher tiered Dolphin Pet.",
+        "name": "Friend Of The Seas"
       },
-      "FIND_EXPERIMENT_PAIRS_3": {
-        "lore": "Find 3 Pairs in the Experimentation Table.",
-        "name": "Pair Up!",
-        "required_amount": 3
+      "GET_SKILL_mining_5": {
+        "lore": "Obtain level 5 in the Mining Skill.",
+        "name": "Miner"
       },
-      "GET_SKILL_foraging_10": {
-        "lore": "Obtain level 10 in the Foraging Skill.",
-        "name": "Lumberjack"
+      "OBTAIN_JACOB_BRONZE": {
+        "lore": "Obtain a Bronze or higher Medal in Jacob's Farming Contest.",
+        "name": "Podium Position"
       },
-      "SOLVE_FETCHUR": {
-        "lore": "Help Fetchur find his item.",
-        "name": "Search And Rescue"
+      "SOLVE_PUZZLER": {
+        "lore": "Complete Puzzler's quest",
+        "name": "A Real Head Scratcher"
       },
-      "UNLOCK_DUNGEON_CHEST_WOOD": {
-        "lore": "Unlock a Wood Dungeon Chest.",
-        "name": "Wooden Treasure"
+      "collect_pelts": {
+        "lore": "Collect 100k Pelts.",
+        "name": "Hunter",
+        "tiers": "20K / 40K / 60K / 80K / 100K"
       },
-      "bestiary_level_3": {
-        "lore": "Reach Bestiary Milestone 3.",
-        "name": "Collecting Data",
-        "required_amount": 3
+      "collection_bone": {
+        "lore": "Reach 60,000 Bone Collection.",
+        "name": "Bone Collector",
+        "required_amount": 60000
       },
-      "break_block_ores": {
-        "lore": "Break 10M Ore Blocks.",
-        "name": "Operation: Ore",
-        "tiers": "2M / 4M / 6M / 8M / 10M"
+      "collection_diamond": {
+        "lore": "Reach 40,000 Diamond Collection.",
+        "name": "Diamond Collector",
+        "required_amount": 40000
       },
-      "brew_potion_level": {
-        "lore": "Brew any level IV or higher potion.",
-        "name": "Trouble is Brewing..."
+      "collection_mushroom_collection": {
+        "lore": "Reach 40,000 Mushroom Collection.",
+        "name": "Mushroom Collector",
+        "required_amount": 40000
       },
-      "collect_exp_mining": {
-        "lore": "Gain 750M Mining experience",
-        "name": "Skilled",
-        "tiers": "150M / 300M / 450M / 600M / 750M"
+      "complete_commissions": {
+        "lore": "Complete 8 Commissions in the Dwarven Mines, Crystal Hollows, or Glacite Tunnels.",
+        "name": "Commission Master",
+        "required_amount": 8
       },
-      "collection_gold_ingot": {
-        "lore": "Reach 72,500 Gold Ingot Collection.",
-        "name": "Gold Ingot Collector",
-        "required_amount": 72500
-      },
-      "collection_ink_sack:3": {
-        "lore": "Reach 185,000 Cocoa Beans Collection.",
-        "name": "Cocoa Beans Collector",
-        "required_amount": 185000
-      },
-      "collection_water_lily": {
-        "lore": "Reach 800 Lily Pad Collection.",
-        "name": "Lily Pad Collector",
-        "required_amount": 800
-      },
-      "craft_item_aspect_of_the_end": {
-        "lore": "Craft an Aspect of the End.",
-        "name": "Zoop!"
-      },
-      "craft_item_piggy_bank": {
-        "lore": "Craft a Piggy Bank.",
-        "name": "New Savings"
+      "complete_nucleus": {
+        "lore": "Place all 5 crystals in the Nucleus in the Crystal Hollows.",
+        "name": "Divan's Chance"
       },
       "craft_minions": {
-        "lore": "Obtain 100 unique Minions.",
+        "lore": "Obtain 25 unique Minions.",
         "name": "Minion Machine",
-        "required_amount": 100
-      },
-      "fairy_souls": {
-        "lore": "Obtain 25 Fairy Souls.",
-        "name": "Fairy Finder",
         "required_amount": 25
       },
-      "hotm_experience": {
-        "lore": "Gain 5M Heart of the Mountain Experience.",
-        "name": "Cave Commodity",
-        "tiers": "1M / 2M / 3M / 4M / 5M"
+      "kill_dungeon_boss_catacombs_2": {
+        "lore": "Defeat Scarf 4,000 times.",
+        "name": "Scarf Offensive",
+        "tiers": "800 / 1.6K / 2.4K / 3.2K / 4K"
       },
-      "kill_runic_mob": {
-        "lore": "Kill a Runic Mob.",
-        "name": "Strange Effects"
+      "kill_endermen": {
+        "lore": "Kill 2.5M Endermen.",
+        "name": "Enderman Slayer",
+        "tiers": "500K / 1M / 1.5M / 2M / 2.5M"
+      },
+      "kill_goblins": {
+        "lore": "Kill 2M Goblins.",
+        "name": "Goblin Slayer",
+        "tiers": "400K / 800K / 1.2M / 1.6M / 2M"
       },
       "loot_drop": {
         "lore": "Loot 250k drops with a chance of 1% or lower",
         "name": "Lucky Looter",
         "tiers": "50K / 100K / 150K / 200K / 250K"
       },
-      "obtain_item_grand_exp_bottle": {
-        "lore": "Obtain a Grand Experience Bottle.",
-        "name": "Experienced"
+      "obtain_crystal": {
+        "lore": "Obtain an Amber Crystal in the Crystal Hollows.",
+        "name": "Amber Crystal"
       },
-      "obtain_item_lynx_talisman": {
-        "lore": "Obtain a Lynx Talisman.",
-        "name": "Lynx"
+      "obtain_item_cheetah_talisman": {
+        "lore": "Obtain a Cheetah Talisman.",
+        "name": "Cheetah"
+      },
+      "reforge_dirty": {
+        "lore": "Apply the Dirty reforge to an item.",
+        "name": "Dirty Reforger"
       },
       "skill_average": {
-        "lore": "Reach a non-cosmetic Skill Average of 17.",
+        "lore": "Reach a non-cosmetic Skill Average of 14.",
         "name": "Skill Average",
-        "required_amount": 17
-      },
-      "stat_critical_damage": {
-        "lore": "Reach 100%  Crit Damage.",
-        "name": "Critical",
-        "required_amount": 100
+        "required_amount": 14
       },
       "stat_health": {
-        "lore": "Reach 1,000  Health.",
+        "lore": "Reach 500  Health.",
         "name": "Healthy",
-        "required_amount": 1000
+        "required_amount": 500
       },
-      "summon_sea_creatures": {
-        "lore": "Summon 100k Sea Creatures.",
-        "name": "Poseidon",
-        "tiers": "20K / 40K / 60K / 80K / 100K"
+      "stat_walk_speed": {
+        "lore": "Reach 250  Speed.",
+        "name": "I Am Speed",
+        "required_amount": 250
+      },
+      "upgrade_pet": {
+        "lore": "Upgrade a pet with Kat.",
+        "name": "Petsitter"
+      },
+      "wear_accessories": {
+        "lore": "Equip 17 unique Accessories.",
+        "name": "Bedazzled",
+        "required_amount": 17
+      },
+      "wear_armor_angler": {
+        "lore": "Wear 4 pieces of the Angler Armor Set.",
+        "name": "Fisherman",
+        "required_amount": 4
+      },
+      "wear_unique_armor_18": {
+        "lore": "Wear 18 unique Armor Sets.",
+        "name": "Fashionable",
+        "required_amount": 18
       }
     },
-    "id": 59,
+    "id": 60,
     "modifier": "NORMAL",
-    "name": "November 2026",
-    "start": "2026-11-01 12:00:00"
+    "name": "December 2026",
+    "start": "2026-12-01 13:00:00"
   },
   "status_code": 200,
   "summary": {
     "bingo_goal_count": 25,
-    "bingo_name": "November 2026",
-    "bingo_state": "已结束"
+    "bingo_name": "December 2026",
+    "bingo_state": "未开始"
   }
 }
