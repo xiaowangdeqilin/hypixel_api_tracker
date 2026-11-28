@@ -56,6 +56,20 @@
     .pack-fonts-list code { color: var(--code); word-break: break-all; }
     .pack-fonts-list a { color: var(--code); }
     .pack-font-sample { font-size: 14px; }
+    /* 资源包装饰符号（CSS sprite） */
+    .pack-glyphs { background: var(--panel-soft); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; margin-bottom: 12px; }
+    .pack-glyphs-title { font-size: 12px; font-weight: 700; color: var(--text-soft); margin-bottom: 4px; }
+    .pack-glyphs .hint { margin: 0 0 10px 0; }
+    .glyph-group { margin-bottom: 12px; }
+    .glyph-group:last-child { margin-bottom: 0; }
+    .glyph-group-head { font-size: 11px; color: var(--muted); margin-bottom: 6px; word-break: break-all; }
+    .glyph-group-head code { color: var(--code); }
+    .glyph-path { font-size: 10px; color: var(--muted); margin-top: 5px; word-break: break-all; }
+    .glyph-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+    .glyph-cell { display: inline-flex; flex-direction: column; align-items: center; gap: 2px; min-width: 26px; padding: 4px; background: #1e1e2e; border: 1px solid var(--line); border-radius: 4px; }
+    /* 资源包图标是白色像素 + 透明背景（为 MC 深色 GUI 设计），必须深色底才看得见 */
+    .glyph-cell .mc-glyph { transform: scale(var(--gz, 2)); transform-origin: center; margin: 6px; image-rendering: pixelated; }
+    .glyph-code { font-size: 9px; color: var(--muted); font-family: monospace; line-height: 1; }
     .pack-change { background: var(--panel-soft); border: 1px solid var(--line); border-radius: 8px; padding: 12px; margin-bottom: 10px; }
     .pack-change-head { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; font-size: 12px; color: var(--muted); }
     .cnt { padding: 2px 8px; border-radius: 4px; font-weight: 700; }

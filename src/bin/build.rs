@@ -174,6 +174,7 @@ fn run() -> i32 {
         candidates: Vec::new(),
         pending: None,
         font_blobs: Vec::new(),
+        sprite_blobs: Vec::new(),
     };
     if let Some(packs_payload) = payloads.get("packs") {
         pack_result = std::panic::catch_unwind(|| inspect_pack(packs_payload, &data_dir, false))
@@ -186,6 +187,7 @@ fn run() -> i32 {
                 candidates: Vec::new(),
                 pending: None,
                 font_blobs: Vec::new(),
+                sprite_blobs: Vec::new(),
             });
     }
 
@@ -269,6 +271,17 @@ fn run() -> i32 {
     if !pack_fonts.is_empty() {
         println!("[构建] 资源包字体：{} 个已部署到页面", pack_fonts.len());
     }
+    // 装饰符号：data/glyphs/*.png → site/assets/glyphs/，生成 glyphs.css
+    // 与字体同理，包未更新时也重放（Pages artifact 是全新的）
+    let pack_glyphs = deploy_pack_glyphs(&site_dir, &data_dir);
+    let glyph_count = pack_glyphs
+        .get("sprites")
+        .and_then(|s| s.as_array())
+        .map(|a| a.len())
+        .unwrap_or(0);
+    if glyph_count > 0 {
+        println!("[构建] 资源包装饰符号：{} 张 sprite 已部署到页面", glyph_count);
+    }
     let pack_summary = pack_result_to_value(&pack_result);
     let data_payload = json!({
         "version_info": version_info_written,
@@ -280,6 +293,7 @@ fn run() -> i32 {
         "changes": all_changes.iter().cloned().map(Value::Object).collect::<Vec<_>>(),
         "pack": pack_summary,
         "pack_fonts": pack_fonts.iter().cloned().map(Value::Object).collect::<Vec<_>>(),
+        "pack_glyphs": pack_glyphs.clone(),
         "pack_changes": pack_changes.iter().cloned().map(Value::Object).collect::<Vec<_>>(),
         "bingo": bingo_data,
         "firesales": firesales_data,
@@ -311,6 +325,7 @@ fn run() -> i32 {
         &hypixel_tracker::secret_bingo::current_view(),
         skipped_reason.as_deref(),
         &pack_fonts,
+        &pack_glyphs,
     );
     match html {
         Ok(html) => {
@@ -545,6 +560,7 @@ fn pack_result_from_disk(data_dir: &std::path::Path) -> PackResult {
         candidates: Vec::new(),
         pending: None,
         font_blobs: Vec::new(),
+        sprite_blobs: Vec::new(),
     }
 }
 
@@ -605,7 +621,8 @@ fn deploy_pack_fonts(site_dir: &std::path::Path, data_dir: &std::path::Path) -> 
             .join("-")
             .to_ascii_lowercase();
         css.push_str(&format!(
-            "@font-face {{ font-family:\"{}\"; src:url(\"assets/fonts/{}\") format(\"{}\"); font-display:swap; }}\n",
+            // CSS 文件在 site/assets/ 下，url 相对 CSS 文件解析，只需 fonts/<file>
+            "@font-face {{ font-family:\"{}\"; src:url(\"fonts/{}\") format(\"{}\"); font-display:swap; }}\n",
             family, file, font_css_format(&ext),
         ));
         let mut entry = Map::new();
@@ -621,6 +638,98 @@ fn deploy_pack_fonts(site_dir: &std::path::Path, data_dir: &std::path::Path) -> 
     }
     let _ = std::fs::write(site_dir.join("assets").join("fonts.css"), css);
     entries
+}
+
+/// 部署装饰符号到站点：复制 data/glyphs/*.png → site/assets/glyphs/，
+/// 生成 glyphs.css（每个符号一个类，background-position 定位到 sprite 格子）。
+///
+/// 返回 glyphs 清单 Value（含 sprites），供 data.json 与页面渲染使用。
+/// 包内没有 sprite 时返回空数组，页面不渲染任何图标、不加载 glyphs.css。
+fn deploy_pack_glyphs(site_dir: &std::path::Path, data_dir: &std::path::Path) -> Value {
+    let manifest = hypixel_tracker::glyphs::load_pack_glyphs(data_dir);
+    let sprites = hypixel_tracker::glyphs::sprites_from_manifest(&manifest);
+    if sprites.is_empty() {
+        return json!([]);
+    }
+    let out_dir = site_dir.join("assets").join("glyphs");
+    let mut css = String::from("/* 资源包装饰符号 sprite（构建时自动生成，来源：data/pack_glyphs.json） */\n");
+    css.push_str(".mc-glyph{display:inline-block;vertical-align:middle;image-rendering:pixelated;background-repeat:no-repeat;}\n");
+
+    // 输出给页面的精简清单：每个 sprite 带 css 类映射，供渲染层生成 <span class>
+    let mut out_sprites: Vec<Value> = Vec::new();
+    for (si, sprite) in sprites.iter().enumerate() {
+        let Some(file) = sprite.get("file").and_then(|v| v.as_str()) else { continue };
+        let Some(prefix) = file.rsplit_once('.').map(|(s, _)| s.to_string()) else { continue };
+        let src = data_dir.join("glyphs").join(file);
+        let Ok(bytes) = std::fs::read(&src) else { continue };
+        if std::fs::create_dir_all(&out_dir).is_err() { continue; }
+        let dest = out_dir.join(file);
+        if std::fs::write(&dest, &bytes).is_err() { continue; }
+
+        let cols = sprite.get("cols").and_then(|v| v.as_u64()).unwrap_or(1) as usize;
+        let cell_w = sprite.get("cell_w").and_then(|v| v.as_f64()).unwrap_or(0.0);
+        let cell_h = sprite.get("cell_h").and_then(|v| v.as_u64()).unwrap_or(0) as usize;
+        let width = sprite.get("width").and_then(|v| v.as_u64()).unwrap_or(0);
+        let height = sprite.get("height").and_then(|v| v.as_u64()).unwrap_or(0);
+        let source = sprite.get("source").and_then(|v| v.as_str()).unwrap_or("-");
+        let path = sprite.get("path").and_then(|v| v.as_str()).unwrap_or("-");
+
+        // 每个被符号引用的码点 → CSS 类；同码点只保留第一次（避免重复类）
+        let mut glyph_classes: Vec<Value> = Vec::new();
+        let mut seen_codes: std::collections::BTreeSet<String> = std::collections::BTreeSet::new();
+        if let Some(glyphs) = sprite.get("glyphs").and_then(|g| g.as_array()) {
+            for g in glyphs {
+                let Some(code) = g.get("code").and_then(|v| v.as_str()) else { continue };
+                // "0" 是空占位，跳过；PUA 范围或可见符号都可以渲染
+                if code == "0" || !seen_codes.insert(code.to_string()) { continue; }
+                let row = g.get("row").and_then(|v| v.as_u64()).unwrap_or(0) as usize;
+                let col = g.get("col").and_then(|v| v.as_u64()).unwrap_or(0) as usize;
+                // 用格子坐标计算 background-position（负值）
+                let px = -(col as f64 * cell_w);
+                let py = -(row as f64 * cell_h as f64);
+                let class = format!("mc-g-{}-{}", si, code);
+                css.push_str(&format!(
+                    // CSS 在 site/assets/ 下，url 相对 CSS 解析：glyphs/<file>
+                    ".mc-glyph.{} {{width:{}px;height:{}px;background-image:url('glyphs/{}.png');background-position:{}px {}px;}}\n",
+                    class,
+                    cell_w.ceil() as usize, cell_h,
+                    prefix,
+                    fmt_px(px), fmt_px(py),
+                ));
+                glyph_classes.push(json!({
+                    "code": code,
+                    "class": class,
+                    "row": row,
+                    "col": col,
+                }));
+            }
+        }
+        out_sprites.push(json!({
+            "source": source,
+            "path": path,
+            "file": file,
+            "width": width,
+            "height": height,
+            "cols": cols,
+            "cell_w": cell_w,
+            "cell_h": cell_h,
+            "glyph_classes": glyph_classes,
+        }));
+    }
+    if out_sprites.is_empty() {
+        return json!([]);
+    }
+    let _ = std::fs::write(site_dir.join("assets").join("glyphs.css"), css);
+    json!({ "sprites": out_sprites })
+}
+
+/// 浮点像素值格式化：`7` → `7`，`6.5` → `6.5`，`-13.5` → `-13.5`。
+fn fmt_px(v: f64) -> String {
+    if (v - v.round()).abs() < 1e-6 {
+        format!("{}", v.round() as i64)
+    } else {
+        format!("{}", v)
+    }
 }
 
 /// PackResult → JSON（页面与 data.json 使用）。

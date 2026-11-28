@@ -894,10 +894,82 @@ fn render_pack_fonts_section(pack_fonts: &[Map<String, Value>]) -> String {
     )
 }
 
+/// 资源包 bitmap 装饰符号面板：按 sprite 图分组，渲染每个 PUA 码点对应的图标。
+///
+/// CSS sprite 类由构建期生成在 assets/glyphs.css（`mc-g-<sprite>-<code>`）。
+/// 这里只生成 span 网格；config 为空时返回空串。
+fn render_pack_glyphs_section(pack_glyphs: &Value) -> String {
+    let Some(sprites) = pack_glyphs.get("sprites").and_then(|s| s.as_array()) else {
+        return String::new();
+    };
+    if sprites.is_empty() {
+        return String::new();
+    }
+    let mut groups = String::new();
+    for sprite in sprites {
+        let source = sprite.get("source").and_then(|v| v.as_str()).unwrap_or("-");
+        let path = sprite.get("path").and_then(|v| v.as_str()).unwrap_or("-");
+        let cols = sprite.get("cols").and_then(|v| v.as_u64()).unwrap_or(0) as usize;
+        let cell_w = sprite.get("cell_w").and_then(|v| v.as_f64()).unwrap_or(0.0);
+        let cell_h = sprite.get("cell_h").and_then(|v| v.as_u64()).unwrap_or(0) as usize;
+        let Some(classes) = sprite.get("glyph_classes").and_then(|g| g.as_array()) else {
+            continue;
+        };
+        if classes.is_empty() {
+            continue;
+        }
+        // 跳过地图瓦片这类超大格子（如 hub_map 195×210），它们不是装饰图标，
+        // 放大后会撑破布局。只展示 ≤32px 的小图标。
+        if cell_w > 32.0 || cell_h > 32 {
+            continue;
+        }
+        // 小图标放大 2 倍便于查看；稍大的（17~32px）保持原尺寸
+        let zoom = if cell_w <= 16.0 && cell_h <= 16 { 2 } else { 1 };
+        let cells: String = classes
+            .iter()
+            .map(|g| {
+                let code = g.get("code").and_then(|v| v.as_str()).unwrap_or("0");
+                let class = g.get("class").and_then(|v| v.as_str()).unwrap_or("");
+                let label = format!("U+{:0>4}", code.to_ascii_uppercase());
+                // 每个格子：按 zoom 放大，悬停显示码点
+                format!(
+                    r#"<span class="glyph-cell" title="{label}"><span class="mc-glyph {cls}" style="--gz:{zoom}" aria-label="{label}"></span><span class="glyph-code">{code}</span></span>"#,
+                    label = escape_html(&label),
+                    cls = escape_html(class),
+                    zoom = zoom,
+                    code = escape_html(code),
+                )
+            })
+            .collect();
+        groups.push_str(&format!(
+            r#"<div class="glyph-group">
+              <div class="glyph-group-head"><code>{source}</code> · {cols}×{rows} · 单格 {cw}×{ch}px</div>
+              <div class="glyph-grid">{cells}</div>
+              <div class="glyph-path">{path}</div>
+            </div>"#,
+            source = escape_html(source),
+            cols = cols,
+            rows = classes.len().div_ceil(cols.max(1)),
+            cw = cell_w,
+            ch = cell_h,
+            cells = cells,
+            path = escape_html(path),
+        ));
+    }
+    if groups.is_empty() {
+        return String::new();
+    }
+    format!(
+        r#"<div class="pack-glyphs"><div class="pack-glyphs-title"><span data-k="资源包装饰符号">资源包装饰符号</span></div><p class="hint">来自资源包 bitmap 字体的图标（SkyBlock 用它绘制属性、技能、怪物、天气等符号）。每个图标对应一个字符码点，悬停可查看；页面用 CSS sprite 精确还原原图像素。</p>{groups}</div>"#,
+        groups = groups,
+    )
+}
+
 pub fn render_pack_panel(
     pack_result: &Value,
     pack_changes: &[Map<String, Value>],
     pack_fonts: &[Map<String, Value>],
+    pack_glyphs: &Value,
 ) -> String {
     let status = pack_result.get("status").and_then(|v| v.as_str()).unwrap_or("unavailable");
     let pack = pack_result.get("pack").cloned().unwrap_or(Value::Null);
@@ -989,6 +1061,7 @@ pub fn render_pack_panel(
     };
 
     let fonts_section = render_pack_fonts_section(pack_fonts);
+    let glyphs_section = render_pack_glyphs_section(pack_glyphs);
 
     format!(
         r#"<div class="panel">
@@ -996,6 +1069,7 @@ pub fn render_pack_panel(
       <p class="hint">只展示最近 {RETENTION_DAYS} 天内的文件变更，更早的批次会自动清理。每次调用接口都会从响应里取 <strong>packFormat 数值最大</strong> 的资源包（该数字随 MC 更新变化，不写死）；官方哈希未变化时跳过下载。新增文件只标绿、删除文件只标红；被修改的文本文件<strong>只显示发生变化的那一段</strong>，删除行标红、新增行标绿，未变化的内容不输出。若接口或下载失败，本次运行不会改动任何数据。</p>
       <div class="pack-meta">{status_text} · {meta}</div>
       {fonts_section}
+      {glyphs_section}
       {err_html}
       {rows}
     </div>"#
@@ -1018,6 +1092,7 @@ pub fn build_site_html(
     secret: &Value,
     skipped_reason: Option<&str>,
     pack_fonts: &[Map<String, Value>],
+    pack_glyphs: &Value,
 ) -> Result<String, String> {
     // 顶部版本栏
     let stable = version_info
@@ -1115,7 +1190,7 @@ pub fn build_site_html(
 
     let changes_blocks = render_change_blocks(changes);
     let version_panel = render_version_panel(version_info);
-    let pack_panel = render_pack_panel(pack_result, pack_changes, pack_fonts);
+    let pack_panel = render_pack_panel(pack_result, pack_changes, pack_fonts, pack_glyphs);
     let firesales_panel = render_firesales_panel(firesales, false);
     let bingo_panel = render_bingo_panel(bingo, bingo_stale);
     let secret_panel = render_secret_panel(secret);
@@ -1208,6 +1283,12 @@ pub fn build_site_html(
     context.insert("pack_panel", &pack_panel);
     // 包内字体：存在时额外加载构建生成的 fonts.css（@font-face 注册）
     context.insert("pack_fonts_css", &!pack_fonts.is_empty());
+    // 包内装饰符号：存在时加载构建生成的 glyphs.css（CSS sprite 类）
+    let has_glyphs = pack_glyphs
+        .get("sprites")
+        .and_then(|s| s.as_array())
+        .is_some_and(|a| !a.is_empty());
+    context.insert("pack_glyphs_css", &has_glyphs);
     context.insert("changes_blocks", &changes_blocks);
     context.insert("firesales_panel", &firesales_panel);
     context.insert("bingo_panel", &bingo_panel);

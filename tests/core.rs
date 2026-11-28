@@ -445,6 +445,7 @@ fn static_site_has_language_and_timezone_switchers() {
         &serde_json::json!({}),
         None,
         &[],
+        &serde_json::json!({}),
     )
     .expect("静态站应能渲染");
     // 语言切换：103 种语言（默认 zh-CN）
@@ -572,7 +573,7 @@ fn scan_zip_extracts_font_blobs_and_skips_limits() {
     assert!(is_font_file("font/A.WOFF2"));
     assert!(!is_font_file("textures/block.png"));
 
-    let (files, texts, fonts) = scan_zip(&bytes).expect("zip 应能解析");
+    let (files, texts, fonts, _sprites) = scan_zip(&bytes).expect("zip 应能解析");
     assert_eq!(fonts.len(), 2, "应提取出 2 个字体文件");
     let ttf_blob = fonts.iter().find(|f| f.path.ends_with(".ttf")).unwrap();
     assert_eq!(ttf_blob.bytes.len(), ttf.len());
@@ -593,6 +594,7 @@ fn pack_fonts_section_empty_when_no_fonts() {
         &serde_json::json!({"status": "unchanged", "pack": null, "total_files": 0}),
         &[],
         &[],
+        &serde_json::json!({}),
     );
     assert!(!html.contains("pack-fonts"), "无字体时不应渲染字体小节");
     // 有字体清单时应渲染小节与示例
@@ -605,7 +607,137 @@ fn pack_fonts_section_empty_when_no_fonts() {
         &serde_json::json!({"status": "unchanged", "pack": null, "total_files": 0}),
         &[],
         &fonts,
+        &serde_json::json!({}),
     );
     assert!(html.contains("pack-fonts-list"), "有字体时应渲染字体小节");
     assert!(html.contains("assets/fonts/abc.ttf"), "应包含字体下载链接");
+}
+
+#[test]
+fn glyph_resource_path_maps_namespace_to_textures() {
+    use hypixel_tracker::glyphs::resource_path;
+    assert_eq!(
+        resource_path("hypixel_skyblock:gui/stats.png"),
+        "assets/hypixel_skyblock/textures/gui/stats.png"
+    );
+    assert_eq!(
+        resource_path("minecraft:gui/icons.png"),
+        "assets/minecraft/textures/gui/icons.png"
+    );
+    // 省略 namespace → minecraft
+    assert_eq!(resource_path("gui/x.png"), "assets/minecraft/textures/gui/x.png");
+    // 已带 textures/ 不重复拼
+    assert_eq!(
+        resource_path("hypixel_skyblock:textures/gui/x.png"),
+        "assets/hypixel_skyblock/textures/gui/x.png"
+    );
+    // 已带 assets/ 原样返回
+    assert_eq!(resource_path("assets/foo/bar.png"), "assets/foo/bar.png");
+}
+
+#[test]
+fn glyph_png_size_reads_ihdr() {
+    use hypixel_tracker::glyphs::png_size;
+    // 56x42 的最小 PNG 头
+    let mut png = vec![0x89, b'P', b'N', b'G', 0x0d, 0x0a, 0x1a, 0x0a];
+    png.extend_from_slice(&[0, 0, 0, 13]); // IHDR length
+    png.extend_from_slice(b"IHDR");
+    png.extend_from_slice(&56u32.to_be_bytes());
+    png.extend_from_slice(&42u32.to_be_bytes());
+    assert_eq!(png_size(&png), Some((56, 42)));
+    assert_eq!(png_size(b"not a png"), None);
+}
+
+#[test]
+fn glyph_parses_bitmap_providers_only() {
+    use hypixel_tracker::glyphs::parse_bitmap_providers;
+    let json = r#"{"providers":[
+        {"type":"bitmap","file":"x:gui/a.png","height":7,"chars":["\ue000\ue001","\ue002\ue003"]},
+        {"type":"space","advances":{"x":1}},
+        {"type":"bitmap","file":"y:gui/b.png","height":9,"chars":["\ue100"]}
+    ]}"#;
+    let providers = parse_bitmap_providers(json);
+    assert_eq!(providers.len(), 2, "只解析 bitmap provider");
+    assert_eq!(providers[0].0, "x:gui/a.png");
+    assert_eq!(providers[0].1, 7);
+    assert_eq!(providers[0].2.len(), 2); // 2 行
+    assert_eq!(providers[0].2[0].len(), 2); // 每行 2 字符
+    assert_eq!(providers[1].0, "y:gui/b.png");
+}
+
+#[test]
+fn glyph_build_sprite_computes_grid() {
+    use hypixel_tracker::glyphs::{build_sprite, png_size};
+    use std::collections::BTreeMap;
+
+    // 构造一个 28x14 的 PNG 头（2列×2行，height=7 → 14 高）
+    let mut png = vec![0x89, b'P', b'N', b'G', 0x0d, 0x0a, 0x1a, 0x0a];
+    png.extend_from_slice(&[0, 0, 0, 13]);
+    png.extend_from_slice(b"IHDR");
+    png.extend_from_slice(&28u32.to_be_bytes());
+    png.extend_from_slice(&14u32.to_be_bytes());
+    assert_eq!(png_size(&png), Some((28, 14)));
+
+    let path = "assets/x/textures/gui/a.png".to_string();
+    let mut files = BTreeMap::new();
+    files.insert(path, png);
+    let chars = vec![
+        vec!["e000".to_string(), "e001".to_string()],
+        vec!["e002".to_string(), "0".to_string()],
+    ];
+    let sprite = build_sprite("x:gui/a.png", 7, &chars, &files).expect("应生成 sprite");
+    assert_eq!(sprite.cols, 2);
+    assert_eq!(sprite.rows, 2);
+    assert_eq!(sprite.cell_w, 14.0);
+    assert_eq!(sprite.cell_h, 7);
+    assert_eq!(sprite.glyphs.len(), 4);
+    assert_eq!(sprite.glyphs[0].code, "e000");
+    assert_eq!(sprite.glyphs[3].code, "0"); // 空占位也保留，渲染层跳过
+    // 高度不匹配时应拒绝
+    let bad = build_sprite("x:gui/a.png", 9, &chars, &files);
+    assert!(bad.is_none(), "图高 14 != 2 行 × 9，应拒绝错位切分");
+}
+
+#[test]
+fn glyph_panel_renders_grid_and_class() {
+    use hypixel_tracker::render_site::render_pack_panel;
+    let pack_glyphs = serde_json::json!({
+        "sprites": [{
+            "source": "hypixel_skyblock:gui/stats.png",
+            "path": "assets/hypixel_skyblock/textures/gui/stats.png",
+            "file": "abc.png",
+            "cols": 8,
+            "cell_w": 7.0,
+            "cell_h": 7,
+            "glyph_classes": [
+                {"code": "e000", "class": "mc-g-0-e000", "row": 0, "col": 0},
+                {"code": "e001", "class": "mc-g-0-e001", "row": 0, "col": 1}
+            ]
+        }]
+    });
+    let html = render_pack_panel(
+        &serde_json::json!({"status": "unchanged", "pack": null, "total_files": 0}),
+        &[],
+        &[],
+        &pack_glyphs,
+    );
+    assert!(html.contains("pack-glyphs"), "应渲染装饰符号面板");
+    assert!(html.contains("mc-glyph mc-g-0-e000"), "应生成 sprite 格子 span");
+    assert!(html.contains("U+E000"), "应显示码点提示");
+    assert!(html.contains("stats.png"), "应显示来源");
+
+    // 空清单不渲染
+    let html = render_pack_panel(
+        &serde_json::json!({"status": "unchanged", "pack": null, "total_files": 0}),
+        &[],
+        &[],
+        &serde_json::json!({}),
+    );
+    assert!(!html.contains("pack-glyphs"), "无符号时不应渲染面板");
+
+    // 无 pack_glyphs 参数的调用（fonts section 测试）也要能渲染
+    let _html = render_pack_panel(
+        &serde_json::json!({"status": "unchanged"}),
+        &[], &[], &serde_json::json!({}),
+    );
 }

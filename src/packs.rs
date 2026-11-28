@@ -146,13 +146,22 @@ fn is_text_file(filename: &str) -> bool {
     TEXT_EXTENSIONS.iter().any(|ext| lower.ends_with(ext))
 }
 
-/// 解压 zip，返回 (文件哈希清单, 文本文件内容缓存, 字体文件内容)。
+/// 解压 zip，返回 (文件哈希清单, 文本文件内容缓存, 字体文件内容, bitmap 装饰符号 sprite)。
 pub fn scan_zip(
     zip_bytes: &[u8],
-) -> Result<(BTreeMap<String, String>, BTreeMap<String, String>, Vec<FontBlob>), String> {
+) -> Result<
+    (
+        BTreeMap<String, String>,
+        BTreeMap<String, String>,
+        Vec<FontBlob>,
+        Vec<crate::glyphs::Sprite>,
+    ),
+    String,
+> {
     let mut files = BTreeMap::new();
     let mut texts = BTreeMap::new();
     let mut font_blobs: Vec<FontBlob> = Vec::new();
+    let mut png_bytes: BTreeMap<String, Vec<u8>> = BTreeMap::new();
     let mut total_text_bytes = 0usize;
     let mut total_font_bytes = 0usize;
     let reader = std::io::Cursor::new(zip_bytes);
@@ -172,6 +181,10 @@ pub fn scan_zip(
             .map_err(|e| format!("读取 zip 内文件失败 {}: {}", name, e))?;
         let hash = sha2_digest(&content)[..HASH_LENGTH].to_string();
         files.insert(name.clone(), hash.clone());
+        // PNG：缓存字节供 bitmap 字体切分用（资源包全部 PNG 约 1.7MB，可接受）
+        if name.to_ascii_lowercase().ends_with(".png") && content.len() <= 4 * 1024 * 1024 {
+            png_bytes.insert(name.clone(), content.clone());
+        }
         if is_font_file(&name) {
             // 字体：单文件 4MB / 总量 12MB / 最多 20 个，超限的直接跳过（不阻塞比对）
             if content.is_empty()
@@ -196,7 +209,14 @@ pub fn scan_zip(
             texts.insert(name, text);
         }
     }
-    Ok((files, texts, font_blobs))
+    // 扫完后再解析 font JSON（PNG 与 JSON 在 zip 里顺序不定，必须两遍）
+    let mut sprites: Vec<crate::glyphs::Sprite> = Vec::new();
+    for (locator, height, chars) in crate::glyphs::providers_from_texts(&texts) {
+        if let Some(sprite) = crate::glyphs::build_sprite(&locator, height, &chars, &png_bytes) {
+            sprites.push(sprite);
+        }
+    }
+    Ok((files, texts, font_blobs, sprites))
 }
 
 pub use crate::textdiff::diff_text_lines;
@@ -338,6 +358,8 @@ pub struct PackResult {
     pub pending: Option<Map<String, Value>>,
     /// 本次 zip 里提取出的字体文件（仅 status = baseline/updated 时有值）。
     pub font_blobs: Vec<FontBlob>,
+    /// 本次 zip 里提取出的 bitmap 字体 sprite（仅 status = baseline/updated 时有值）。
+    pub sprite_blobs: Vec<crate::glyphs::Sprite>,
 }
 
 /// 检查资源包，返回本次检查结果，**但不写入任何文件**。
@@ -355,6 +377,7 @@ pub fn inspect_pack(
         candidates: Vec::new(),
         pending: None,
         font_blobs: Vec::new(),
+        sprite_blobs: Vec::new(),
     };
 
     let target = match select_pack(packs_payload) {
@@ -401,9 +424,17 @@ pub fn inspect_pack(
     let hash_matches = manifest.get("pack_hash").and_then(|v| v.as_str()) == Some(target_hash.as_str());
     let texts_missing = previous_texts.is_empty()
         || texts_cache.get("pack_hash").and_then(|v| v.as_str()) != Some(target_hash.as_str());
+    // glyph 缓存缺失（功能首次上线 / 缓存被清）时也要重下 zip 补建，
+    // 否则 hash 未变的包会一直短路，装饰符号永远出不来。
+    let glyphs_cache = crate::glyphs::load_pack_glyphs(data_dir);
+    let glyphs_missing = glyphs_cache.get("pack_hash").and_then(|v| v.as_str())
+        != Some(target_hash.as_str());
+    let fonts_cache = load_pack_fonts(data_dir);
+    let fonts_missing = fonts_cache.get("pack_hash").and_then(|v| v.as_str())
+        != Some(target_hash.as_str());
     let content_only_refresh = hash_matches && !previous_files.is_empty() && !force_download;
 
-    if content_only_refresh && !texts_missing {
+    if content_only_refresh && !texts_missing && !glyphs_missing && !fonts_missing {
         result.status = "unchanged".into();
         return result;
     }
@@ -420,8 +451,9 @@ pub fn inspect_pack(
                 return result;
             }
             match scan_zip(&bytes) {
-                Ok((files, texts, fonts)) if !files.is_empty() => {
+                Ok((files, texts, fonts, sprites)) if !files.is_empty() => {
                     result.font_blobs = fonts;
+                    result.sprite_blobs = sprites;
                     (files, texts)
                 }
                 Ok(_) => {
@@ -444,7 +476,7 @@ pub fn inspect_pack(
     };
 
     if content_only_refresh {
-        // 旧基线缺少文本缓存：只补齐缓存，不改动文件清单、不产生变更记录。
+        // 旧基线缺少文本/glyph 缓存：只补齐缓存，不改动文件清单、不产生变更记录。
         result.status = "texts_backfilled".into();
         result.total_files = current_files.len();
         let mut pending = Map::new();
@@ -457,6 +489,25 @@ pub fn inspect_pack(
                 "texts": current_texts,
             }),
         );
+        // 字体缓存也在 hash 匹配时缺失（字体功能首次上线），顺带补建
+        if fonts_missing {
+            let mut fonts_map = Map::new();
+            for blob in &result.font_blobs {
+                fonts_map.insert(blob.path.clone(), Value::String(blob.hash.clone()));
+            }
+            pending.insert(
+                "fonts".into(),
+                json!({
+                    "pack_hash": target_hash,
+                    "generated_at": now_beijing(),
+                    "fonts": fonts_map,
+                }),
+            );
+        }
+        // glyph 缓存缺失时补建：清单与 PNG 由 commit_glyph_sprites 落盘
+        if glyphs_missing {
+            pending.insert("glyphs".into(), json!({ "pack_hash": target_hash }));
+        }
         result.pending = Some(pending);
         return result;
     }
@@ -546,6 +597,11 @@ pub fn inspect_pack(
             "fonts": fonts_map,
         }),
     );
+    // glyph sprite：清单与 PNG 在 commit 阶段由 glyphs 模块落盘（含旧版本清理）
+    pending.insert(
+        "glyphs".into(),
+        json!({ "pack_hash": target_hash }),
+    );
     result.pending = Some(pending);
     result
 }
@@ -573,7 +629,42 @@ pub fn commit_pack_result(result: &PackResult, data_dir: &std::path::Path) -> bo
         }
         written = true;
     }
+    if let Some(glyph_meta) = pending.get("glyphs") {
+        let pack_hash = glyph_meta.get("pack_hash").and_then(|v| v.as_str()).unwrap_or("");
+        if let Err(e) = commit_glyph_sprites(data_dir, &result.sprite_blobs, pack_hash) {
+            eprintln!("[资源包] 装饰符号缓存写入失败：{}", e);
+        }
+        written = true;
+    }
     written
+}
+
+/// 落盘 bitmap sprite：PNG 内容写 data/glyphs/<hash>.png，清单写 pack_glyphs.json，
+/// 并删除不再被引用的旧 PNG（防止随包更新无限膨胀）。
+fn commit_glyph_sprites(
+    data_dir: &std::path::Path,
+    sprites: &[crate::glyphs::Sprite],
+    pack_hash: &str,
+) -> std::io::Result<()> {
+    let dir = crate::glyphs::glyphs_dir(data_dir);
+    std::fs::create_dir_all(&dir)?;
+    // 写 PNG 内容（Sprite 自带原始字节）
+    let mut kept: std::collections::BTreeSet<String> = std::collections::BTreeSet::new();
+    for sprite in sprites {
+        std::fs::write(dir.join(&sprite.file), &sprite.bytes)?;
+        kept.insert(sprite.file.clone());
+    }
+    // 清理孤儿 PNG
+    if let Ok(entries) = std::fs::read_dir(&dir) {
+        for entry in entries.flatten() {
+            let name = entry.file_name().to_string_lossy().to_string();
+            if !kept.contains(&name) {
+                let _ = std::fs::remove_file(entry.path());
+            }
+        }
+    }
+    crate::glyphs::save_pack_glyphs(data_dir, sprites, pack_hash);
+    Ok(())
 }
 
 /// 读取字体清单（data/pack_fonts.json）。页面渲染与构建部署共用。

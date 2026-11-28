@@ -29,6 +29,7 @@ pub mod bingo;
 pub mod crash;
 pub mod fetch;
 pub mod firesale;
+pub mod glyphs;
 pub mod i18n;
 pub mod jsondiff;
 pub mod labels;
