@@ -1,0 +1,872 @@
+{
+  "generated_at": "2026-11-28 16:54:46",
+  "pack_hash": "d6713050c8f95c355714d9d62ff91f8f6d6790fc",
+  "sprites": [
+    {
+      "cell_h": 210,
+      "cell_w": 195.0,
+      "cols": 8,
+      "file": "bca29e0945a9a86d.png",
+      "glyphs": [
+        {
+          "code": "e000",
+          "col": 0,
+          "row": 0
+        },
+        {
+          "code": "e001",
+          "col": 1,
+          "row": 0
+        },
+        {
+          "code": "e002",
+          "col": 2,
+          "row": 0
+        },
+        {
+          "code": "e003",
+          "col": 3,
+          "row": 0
+        },
+        {
+          "code": "e004",
+          "col": 4,
+          "row": 0
+        },
+        {
+          "code": "e005",
+          "col": 5,
+          "row": 0
+        },
+        {
+          "code": "e006",
+          "col": 6,
+          "row": 0
+        },
+        {
+          "code": "e007",
+          "col": 7,
+          "row": 0
+        },
+        {
+          "code": "e008",
+          "col": 0,
+          "row": 1
+        },
+        {
+          "code": "e009",
+          "col": 1,
+          "row": 1
+        },
+        {
+          "code": "e00a",
+          "col": 2,
+          "row": 1
+        },
+        {
+          "code": "e00b",
+          "col": 3,
+          "row": 1
+        },
+        {
+          "code": "e00c",
+          "col": 4,
+          "row": 1
+        },
+        {
+          "code": "e00d",
+          "col": 5,
+          "row": 1
+        },
+        {
+          "code": "e00e",
+          "col": 6,
+          "row": 1
+        },
+        {
+          "code": "e00f",
+          "col": 7,
+          "row": 1
+        },
+        {
+          "code": "e010",
+          "col": 0,
+          "row": 2
+        },
+        {
+          "code": "e011",
+          "col": 1,
+          "row": 2
+        },
+        {
+          "code": "e012",
+          "col": 2,
+          "row": 2
+        },
+        {
+          "code": "e013",
+          "col": 3,
+          "row": 2
+        },
+        {
+          "code": "e014",
+          "col": 4,
+          "row": 2
+        },
+        {
+          "code": "e015",
+          "col": 5,
+          "row": 2
+        },
+        {
+          "code": "e016",
+          "col": 6,
+          "row": 2
+        },
+        {
+          "code": "e017",
+          "col": 7,
+          "row": 2
+        },
+        {
+          "code": "e018",
+          "col": 0,
+          "row": 3
+        },
+        {
+          "code": "e019",
+          "col": 1,
+          "row": 3
+        },
+        {
+          "code": "e01a",
+          "col": 2,
+          "row": 3
+        },
+        {
+          "code": "e01b",
+          "col": 3,
+          "row": 3
+        },
+        {
+          "code": "e01c",
+          "col": 4,
+          "row": 3
+        },
+        {
+          "code": "e01d",
+          "col": 5,
+          "row": 3
+        },
+        {
+          "code": "e01e",
+          "col": 6,
+          "row": 3
+        },
+        {
+          "code": "e01f",
+          "col": 7,
+          "row": 3
+        }
+      ],
+      "height": 840,
+      "path": "assets/hypixel_skyblock/textures/menu/map/hub_map.png",
+      "rows": 4,
+      "source": "hypixel_skyblock:menu/map/hub_map.png",
+      "width": 1560
+    },
+    {
+      "cell_h": 7,
+      "cell_w": 7.0,
+      "cols": 8,
+      "file": "c670c5a3f93c3b0c.png",
+      "glyphs": [
+        {
+          "code": "e000",
+          "col": 0,
+          "row": 0
+        },
+        {
+          "code": "e001",
+          "col": 1,
+          "row": 0
+        },
+        {
+          "code": "e002",
+          "col": 2,
+          "row": 0
+        },
+        {
+          "code": "e003",
+          "col": 3,
+          "row": 0
+        },
+        {
+          "code": "e004",
+          "col": 4,
+          "row": 0
+        },
+        {
+          "code": "e005",
+          "col": 5,
+          "row": 0
+        },
+        {
+          "code": "e006",
+          "col": 6,
+          "row": 0
+        },
+        {
+          "code": "e007",
+          "col": 7,
+          "row": 0
+        },
+        {
+          "code": "e008",
+          "col": 0,
+          "row": 1
+        },
+        {
+          "code": "e009",
+          "col": 1,
+          "row": 1
+        },
+        {
+          "code": "e00a",
+          "col": 2,
+          "row": 1
+        },
+        {
+          "code": "e00b",
+          "col": 3,
+          "row": 1
+        },
+        {
+          "code": "e00c",
+          "col": 4,
+          "row": 1
+        },
+        {
+          "code": "e00d",
+          "col": 5,
+          "row": 1
+        },
+        {
+          "code": "e00e",
+          "col": 6,
+          "row": 1
+        },
+        {
+          "code": "e00f",
+          "col": 7,
+          "row": 1
+        },
+        {
+          "code": "e010",
+          "col": 0,
+          "row": 2
+        },
+        {
+          "code": "e011",
+          "col": 1,
+          "row": 2
+        },
+        {
+          "code": "e012",
+          "col": 2,
+          "row": 2
+        },
+        {
+          "code": "e013",
+          "col": 3,
+          "row": 2
+        },
+        {
+          "code": "e014",
+          "col": 4,
+          "row": 2
+        },
+        {
+          "code": "e015",
+          "col": 5,
+          "row": 2
+        },
+        {
+          "code": "e016",
+          "col": 6,
+          "row": 2
+        },
+        {
+          "code": "e017",
+          "col": 7,
+          "row": 2
+        },
+        {
+          "code": "e018",
+          "col": 0,
+          "row": 3
+        },
+        {
+          "code": "e019",
+          "col": 1,
+          "row": 3
+        },
+        {
+          "code": "e01a",
+          "col": 2,
+          "row": 3
+        },
+        {
+          "code": "e01b",
+          "col": 3,
+          "row": 3
+        },
+        {
+          "code": "e01c",
+          "col": 4,
+          "row": 3
+        },
+        {
+          "code": "e01d",
+          "col": 5,
+          "row": 3
+        },
+        {
+          "code": "e01e",
+          "col": 6,
+          "row": 3
+        },
+        {
+          "code": "e01f",
+          "col": 7,
+          "row": 3
+        },
+        {
+          "code": "e020",
+          "col": 0,
+          "row": 4
+        },
+        {
+          "code": "e021",
+          "col": 1,
+          "row": 4
+        },
+        {
+          "code": "e022",
+          "col": 2,
+          "row": 4
+        },
+        {
+          "code": "e023",
+          "col": 3,
+          "row": 4
+        },
+        {
+          "code": "e024",
+          "col": 4,
+          "row": 4
+        },
+        {
+          "code": "e025",
+          "col": 5,
+          "row": 4
+        },
+        {
+          "code": "e026",
+          "col": 6,
+          "row": 4
+        },
+        {
+          "code": "e027",
+          "col": 7,
+          "row": 4
+        },
+        {
+          "code": "e028",
+          "col": 0,
+          "row": 5
+        },
+        {
+          "code": "e029",
+          "col": 1,
+          "row": 5
+        },
+        {
+          "code": "e02a",
+          "col": 2,
+          "row": 5
+        },
+        {
+          "code": "e02b",
+          "col": 3,
+          "row": 5
+        },
+        {
+          "code": "e02c",
+          "col": 4,
+          "row": 5
+        },
+        {
+          "code": "e02d",
+          "col": 5,
+          "row": 5
+        },
+        {
+          "code": "e02e",
+          "col": 6,
+          "row": 5
+        },
+        {
+          "code": "0",
+          "col": 7,
+          "row": 5
+        }
+      ],
+      "height": 42,
+      "path": "assets/hypixel_skyblock/textures/gui/stats.png",
+      "rows": 6,
+      "source": "hypixel_skyblock:gui/stats.png",
+      "width": 56
+    },
+    {
+      "cell_h": 7,
+      "cell_w": 7.0,
+      "cols": 4,
+      "file": "21cac24d53aabb8d.png",
+      "glyphs": [
+        {
+          "code": "e050",
+          "col": 0,
+          "row": 0
+        },
+        {
+          "code": "e051",
+          "col": 1,
+          "row": 0
+        },
+        {
+          "code": "e052",
+          "col": 2,
+          "row": 0
+        },
+        {
+          "code": "e053",
+          "col": 3,
+          "row": 0
+        },
+        {
+          "code": "e054",
+          "col": 0,
+          "row": 1
+        },
+        {
+          "code": "e055",
+          "col": 1,
+          "row": 1
+        },
+        {
+          "code": "e056",
+          "col": 2,
+          "row": 1
+        },
+        {
+          "code": "e057",
+          "col": 3,
+          "row": 1
+        },
+        {
+          "code": "e058",
+          "col": 0,
+          "row": 2
+        },
+        {
+          "code": "e059",
+          "col": 1,
+          "row": 2
+        },
+        {
+          "code": "e05a",
+          "col": 2,
+          "row": 2
+        },
+        {
+          "code": "e05b",
+          "col": 3,
+          "row": 2
+        }
+      ],
+      "height": 21,
+      "path": "assets/hypixel_skyblock/textures/gui/skills.png",
+      "rows": 3,
+      "source": "hypixel_skyblock:gui/skills.png",
+      "width": 28
+    },
+    {
+      "cell_h": 7,
+      "cell_w": 7.0,
+      "cols": 4,
+      "file": "1d780bdf85d9d202.png",
+      "glyphs": [
+        {
+          "code": "e060",
+          "col": 0,
+          "row": 0
+        },
+        {
+          "code": "e061",
+          "col": 1,
+          "row": 0
+        },
+        {
+          "code": "e062",
+          "col": 2,
+          "row": 0
+        },
+        {
+          "code": "e063",
+          "col": 3,
+          "row": 0
+        },
+        {
+          "code": "2714",
+          "col": 0,
+          "row": 1
+        },
+        {
+          "code": "2716",
+          "col": 1,
+          "row": 1
+        },
+        {
+          "code": "e066",
+          "col": 2,
+          "row": 1
+        },
+        {
+          "code": "e067",
+          "col": 3,
+          "row": 1
+        },
+        {
+          "code": "e068",
+          "col": 0,
+          "row": 2
+        },
+        {
+          "code": "0",
+          "col": 1,
+          "row": 2
+        },
+        {
+          "code": "0",
+          "col": 2,
+          "row": 2
+        },
+        {
+          "code": "0",
+          "col": 3,
+          "row": 2
+        }
+      ],
+      "height": 21,
+      "path": "assets/hypixel_skyblock/textures/gui/icons.png",
+      "rows": 3,
+      "source": "hypixel_skyblock:gui/icons.png",
+      "width": 28
+    },
+    {
+      "cell_h": 7,
+      "cell_w": 7.0,
+      "cols": 6,
+      "file": "047ea0b419bf44e7.png",
+      "glyphs": [
+        {
+          "code": "e070",
+          "col": 0,
+          "row": 0
+        },
+        {
+          "code": "e071",
+          "col": 1,
+          "row": 0
+        },
+        {
+          "code": "e072",
+          "col": 2,
+          "row": 0
+        },
+        {
+          "code": "e073",
+          "col": 3,
+          "row": 0
+        },
+        {
+          "code": "e074",
+          "col": 4,
+          "row": 0
+        },
+        {
+          "code": "e075",
+          "col": 5,
+          "row": 0
+        },
+        {
+          "code": "e076",
+          "col": 0,
+          "row": 1
+        },
+        {
+          "code": "e077",
+          "col": 1,
+          "row": 1
+        },
+        {
+          "code": "e078",
+          "col": 2,
+          "row": 1
+        },
+        {
+          "code": "e079",
+          "col": 3,
+          "row": 1
+        },
+        {
+          "code": "e07a",
+          "col": 4,
+          "row": 1
+        },
+        {
+          "code": "e07b",
+          "col": 5,
+          "row": 1
+        },
+        {
+          "code": "e07c",
+          "col": 0,
+          "row": 2
+        },
+        {
+          "code": "e07d",
+          "col": 1,
+          "row": 2
+        },
+        {
+          "code": "e07e",
+          "col": 2,
+          "row": 2
+        },
+        {
+          "code": "e07f",
+          "col": 3,
+          "row": 2
+        },
+        {
+          "code": "e080",
+          "col": 4,
+          "row": 2
+        },
+        {
+          "code": "e081",
+          "col": 5,
+          "row": 2
+        },
+        {
+          "code": "e082",
+          "col": 0,
+          "row": 3
+        },
+        {
+          "code": "e083",
+          "col": 1,
+          "row": 3
+        },
+        {
+          "code": "e084",
+          "col": 2,
+          "row": 3
+        },
+        {
+          "code": "e085",
+          "col": 3,
+          "row": 3
+        },
+        {
+          "code": "e086",
+          "col": 4,
+          "row": 3
+        },
+        {
+          "code": "e087",
+          "col": 5,
+          "row": 3
+        },
+        {
+          "code": "e088",
+          "col": 0,
+          "row": 4
+        },
+        {
+          "code": "0",
+          "col": 1,
+          "row": 4
+        },
+        {
+          "code": "0",
+          "col": 2,
+          "row": 4
+        },
+        {
+          "code": "0",
+          "col": 3,
+          "row": 4
+        },
+        {
+          "code": "0",
+          "col": 4,
+          "row": 4
+        },
+        {
+          "code": "0",
+          "col": 5,
+          "row": 4
+        }
+      ],
+      "height": 35,
+      "path": "assets/hypixel_skyblock/textures/gui/mobs.png",
+      "rows": 5,
+      "source": "hypixel_skyblock:gui/mobs.png",
+      "width": 42
+    },
+    {
+      "cell_h": 7,
+      "cell_w": 3.0,
+      "cols": 1,
+      "file": "963f713e41d38905.png",
+      "glyphs": [
+        {
+          "code": "12de",
+          "col": 0,
+          "row": 0
+        }
+      ],
+      "height": 7,
+      "path": "assets/hypixel_skyblock/textures/gui/icons/staff.png",
+      "rows": 1,
+      "source": "hypixel_skyblock:gui/icons/staff.png",
+      "width": 3
+    },
+    {
+      "cell_h": 7,
+      "cell_w": 7.0,
+      "cols": 5,
+      "file": "fd48539441f77ae7.png",
+      "glyphs": [
+        {
+          "code": "e090",
+          "col": 0,
+          "row": 0
+        },
+        {
+          "code": "e091",
+          "col": 1,
+          "row": 0
+        },
+        {
+          "code": "e092",
+          "col": 2,
+          "row": 0
+        },
+        {
+          "code": "e093",
+          "col": 3,
+          "row": 0
+        },
+        {
+          "code": "e094",
+          "col": 4,
+          "row": 0
+        },
+        {
+          "code": "e095",
+          "col": 0,
+          "row": 1
+        },
+        {
+          "code": "e096",
+          "col": 1,
+          "row": 1
+        },
+        {
+          "code": "e097",
+          "col": 2,
+          "row": 1
+        },
+        {
+          "code": "e098",
+          "col": 3,
+          "row": 1
+        },
+        {
+          "code": "e099",
+          "col": 4,
+          "row": 1
+        },
+        {
+          "code": "e09a",
+          "col": 0,
+          "row": 2
+        },
+        {
+          "code": "e09b",
+          "col": 1,
+          "row": 2
+        },
+        {
+          "code": "e09c",
+          "col": 2,
+          "row": 2
+        },
+        {
+          "code": "e09d",
+          "col": 3,
+          "row": 2
+        },
+        {
+          "code": "e09e",
+          "col": 4,
+          "row": 2
+        },
+        {
+          "code": "e09f",
+          "col": 0,
+          "row": 3
+        },
+        {
+          "code": "e100",
+          "col": 1,
+          "row": 3
+        },
+        {
+          "code": "e101",
+          "col": 2,
+          "row": 3
+        },
+        {
+          "code": "0",
+          "col": 3,
+          "row": 3
+        },
+        {
+          "code": "0",
+          "col": 4,
+          "row": 3
+        }
+      ],
+      "height": 28,
+      "path": "assets/hypixel_skyblock/textures/gui/weather.png",
+      "rows": 4,
+      "source": "hypixel_skyblock:gui/weather.png",
+      "width": 35
+    }
+  ]
+}
