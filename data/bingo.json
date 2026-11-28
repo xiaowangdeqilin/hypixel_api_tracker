@@ -2,7 +2,7 @@
   "end": "2026-12-08 13:00:00",
   "end_ms": 1796706000000,
   "first_seen": "2026-11-28 14:02:01",
-  "generated_at": "2026-11-28 16:54:45",
+  "generated_at": "2026-11-28 21:05:38",
   "goal_count": 25,
   "goals": [
     {
@@ -440,8 +440,8 @@
   "id": 60,
   "modifier": "NORMAL",
   "name": "December 2026",
-  "published_at": "2026-11-28 16:52:39",
-  "remaining": "距开始还有 2 天 20 小时",
+  "published_at": "2026-11-28 21:02:39",
+  "remaining": "距开始还有 2 天 15 小时",
   "start": "2026-12-01 13:00:00",
   "start_ms": 1796101200000,
   "state": "upcoming",
